@@ -79,6 +79,30 @@ import threading
 from contextlib import contextmanager
 from typing import Iterator, Optional
 from urllib.parse import urlparse
+from urllib.request import getproxies
+
+
+def _configured_proxy_hostnames() -> frozenset[str]:
+    """
+    Hostnames (lowercased) of any http(s)_proxy configured in the
+    environment. When a forward proxy is in effect, the actual outbound
+    TCP connection is made to *this* host, not to the resolved IP of the
+    request's target hostname — the proxy (and whatever gateway policy it
+    enforces) is the real network boundary for that hop. Resolving the
+    proxy's own address (often 127.0.0.1 for a local relay) must not be
+    treated as an SSRF finding; it is a required, environment-configured
+    detour, not an attacker-influenced redirect target.
+    """
+    hosts = set()
+    for value in getproxies().values():
+        try:
+            hostname = urlparse(value).hostname
+        except ValueError:
+            continue
+        if hostname:
+            hosts.add(hostname.lower())
+    return frozenset(hosts)
+
 
 try:
     import requests
@@ -378,8 +402,16 @@ def _pin_dns(hostname: str, pinned_ip: str, port: int) -> Iterator[None]:
 
     original_getaddrinfo = socket.getaddrinfo
     target = hostname.lower()
+    proxy_hosts = _configured_proxy_hostnames()
 
     def patched(host, requested_port, *args, **kwargs):
+        # Branch 0: a configured forward proxy's own host/IP is exempt —
+        # the org-enforced egress policy at the proxy is the real gate for
+        # this connection, and the target hostname/IP is already pinned
+        # and validated separately (branch 1) via the proxy's CONNECT.
+        if host and host.lower() in proxy_hosts:
+            return original_getaddrinfo(host, requested_port, *args, **kwargs)
+
         # Branch 1: the originally-pinned host returns the validated IP
         # without any further resolver call.
         if host and host.lower() == target:
