@@ -1,0 +1,661 @@
+{
+  "summary": {
+    "health_score": 53,
+    "business_type": "Local Service Area Business (Roofing Contractor) — Staten Island NY HQ, serving Brooklyn NY and 6 NJ towns",
+    "top_findings": [
+      {
+        "severity": "Critical",
+        "title": "Identical fake-looking review schema (\"Product\"/4.9★/97 reviews) duplicated verbatim on every single page, including FAQ and legal pages — a genuine spam-policy risk"
+      },
+      {
+        "severity": "Critical",
+        "title": "5 orphan PPC landing pages (brooklyn-roofing-lp, roofer-old-bridge-nj, roofing-services-nj, affordable-roofing-in-brooklyn-ny, asphalt-shingle-roofing-staten-island) cannibalize the real /locations/ and /services/ pages — flagged independently by 6 of 11 audit categories"
+      },
+      {
+        "severity": "Critical",
+        "title": "Sitewide RoofingContractor schema streetAddress field contains the business name (\"ProLine Roofing\") instead of a real street address — invalid NAP"
+      },
+      {
+        "severity": "Critical",
+        "title": "Brooklyn and Freehold location pages assert specific street addresses in hidden JSON-LD (225 Joralemon St; 144 Tilton Dr) that appear nowhere in visible content — undisclosed-location / GBP policy risk"
+      },
+      {
+        "severity": "Critical",
+        "title": "The primary market's own location page (/locations/staten-island-ny/) canonicalizes to the homepage and is missing from the sitemap, suppressing it from ranking independently for \"Staten Island roofer\" queries"
+      }
+    ],
+    "quick_wins": [
+      "Fix the \"Saten Island\" typo in the location page <title> tag",
+      "Add FAQPage schema to /faq/ and convert the accordion questions into real <h2>/<h3> headings",
+      "Publish an /llms.txt file summarizing the business, service area, and key pages",
+      "Fix the telePhone typo (should be telephone) in the Brooklyn location schema",
+      "Add explicit robots.txt Allow directives for GPTBot/OAI-SearchBot/ClaudeBot/PerplexityBot",
+      "Resolve the two different phone numbers shown on the same NJ location pages ((848) 310-3977 vs (347) 323-9128)"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 61,
+      "what_works": [
+        "robots.txt is clean and correct (only /wp-admin/ disallowed) with a valid Sitemap pointer",
+        "Sitemap structure valid; all 4 sub-sitemaps well-formed and reachable",
+        "No broken pages or redirect chains found across 29 sampled URLs",
+        "Canonical tags present, correct, and self-referencing on every sampled page",
+        "Meta robots directives consistent (index, follow) — no accidental noindex",
+        "Non-www → www 301 redirect confirmed working",
+        "Universal mobile viewport tag; server-side rendered (not an SPA)"
+      ],
+      "findings": [
+        {
+          "title": "Two orphan PPC landing pages are near-duplicate, thin, and indexable",
+          "severity": "Critical",
+          "description": "/roofer-old-bridge-nj/ and /roofing-services-nj/ extract to only 65–66 words of unique copy each, share a byte-identical meta description, are self-canonical, indexable, and sitemap-listed — directly cannibalizing /locations/new-jersey/old-bridge/.",
+          "recommendation": "Add noindex,follow or redirect to the real location/service page and drop from the sitemap."
+        },
+        {
+          "title": "Zero security response headers site-wide",
+          "severity": "High",
+          "description": "None of 29 URLs checked returned HSTS, X-Content-Type-Options, CSP, X-Frame-Options, or Referrer-Policy.",
+          "recommendation": "Add security headers via LiteSpeed config/.htaccess or a security-headers plugin; verify with securityheaders.com."
+        },
+        {
+          "title": "Sitewide \"Product\" + fake review schema on every page type, including non-commercial pages",
+          "severity": "High",
+          "description": "Identical Product/AggregateRating (4.9/97) JSON-LD appears on FAQ, contact, legal, and location pages — misuse of structured data that risks suppression or a manual action.",
+          "recommendation": "Replace with LocalBusiness/RoofingContractor aggregateRating, scoped only to contextually appropriate pages."
+        },
+        {
+          "title": "Local/multi-location structured data is inconsistent across location pages",
+          "severity": "High",
+          "description": "Only /locations/brooklyn-ny/ carries full RoofingContractor/GeoCoordinates/OpeningHours markup; the other 6+ location pages have none.",
+          "recommendation": "Apply the Brooklyn schema template to every location page, ideally via a dynamic Rank Math/Elementor module."
+        },
+        {
+          "title": "3 additional orphan PPC landing pages create duplicate-content/crawl-budget risk",
+          "severity": "High",
+          "description": "brooklyn-roofing-lp, affordable-roofing-in-brooklyn-ny, and asphalt-shingle-roofing-staten-island are indexable, self-canonical, sitemap-listed, and not linked from the homepage nav — ~10% of all sitemap entries are orphan PPC pages.",
+          "recommendation": "Noindex active ad destinations and drop from sitemap; 301 retired ones to the equivalent location/service page."
+        },
+        {
+          "title": "Likely LCP-risk image-loading pattern and low modern-format adoption",
+          "severity": "Medium",
+          "description": "Hero/content images are JS-lazy-loaded via data-src even where fetchpriority=\"high\" is set, defeating the preload hint; only ~6 of ~21 homepage images use WebP.",
+          "recommendation": "Exclude the true LCP image from lazy-load, keep it in initial HTML with fetchpriority=\"high\", and expand WebP/AVIF adoption."
+        },
+        {
+          "title": "Inconsistent location-page URL taxonomy",
+          "severity": "Medium",
+          "description": "NJ towns nest under /locations/new-jersey/, Brooklyn sits at /locations/brooklyn-ny/ with no NY parent, and Jersey City carries a redundant -nj suffix its siblings don't.",
+          "recommendation": "Standardize on /locations/{state}/{city}/ for all seven locations with 301s from old URLs."
+        },
+        {
+          "title": "No IndexNow implementation detected",
+          "severity": "Low",
+          "description": "No IndexNow key file found at /indexnow.txt or /.well-known/indexnow.txt.",
+          "recommendation": "Install an IndexNow-compatible plugin so new/updated content is pushed to Bing/Yandex immediately."
+        },
+        {
+          "title": "Thin /locations/ and /services/ hub pages",
+          "severity": "Low",
+          "description": "Both hub pages extract to under 75 words of unique body copy beyond the navigational card grid.",
+          "recommendation": "Add 150–300 words of unique summary copy to each hub page."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 54,
+      "what_works": [
+        "Genuine, specific, AI-citation-ready numeric claims (cost ranges, lifespans) on several pages",
+        "Clean FAQ Q&A structure on /faq/, homepage, and /brooklyn-roofing-lp/",
+        "Legitimate external citations (U.S. DOE, Remodeling Magazine) in at least one blog post",
+        "Real, named customer testimonials (Sarah T., Dr. Louis Vastola, Chris W.)",
+        "Solid schema foundation: Organization, BlogPosting with author/dates, BreadcrumbList",
+        "Local specificity (neighborhoods, ZIP codes) on the Brooklyn pages"
+      ],
+      "findings": [
+        {
+          "title": "Three separate URLs compete for the same \"Brooklyn roofing\" intent",
+          "severity": "High",
+          "description": "/locations/brooklyn-ny/, /brooklyn-roofing-lp/, and /affordable-roofing-in-brooklyn-ny/ repeat the same claims and near-identical 8-question FAQ blocks — a classic doorway-page pattern.",
+          "recommendation": "Pick one canonical Brooklyn page, 301 the other two, fold any unique content in as new sections."
+        },
+        {
+          "title": "Duplicate \"Old Bridge, NJ\" pages with an inconsistent phone number",
+          "severity": "High",
+          "description": "/locations/new-jersey/old-bridge/ shows two different phone numbers on the same page ((848) 310-3977 and (347) 323-9128) while also overlapping /roofer-old-bridge-nj/.",
+          "recommendation": "Consolidate into one URL and standardize on a single phone number per NAP best practice."
+        },
+        {
+          "title": "No visible author identity, credentials, or license number anywhere on the site",
+          "severity": "High",
+          "description": "Blog author (\"Lonnie from ProLine Roofing\") exists only in invisible schema; the FAQ says a license is \"available upon request\" rather than displaying the number.",
+          "recommendation": "Add visible bylines/bios, a Team/About page, and display the actual NY/NJ contractor license number in the footer."
+        },
+        {
+          "title": "Orphan \"asphalt shingle\" landing page duplicates the official service page",
+          "severity": "Medium",
+          "description": "/asphalt-shingle-roofing-staten-island/ and /services/residential-roofing/asphalt-shingle-roofing/ target the same keyword with no cross-linking.",
+          "recommendation": "Treat the orphan page as a linked buyer's guide or merge and redirect."
+        },
+        {
+          "title": "Core service pages fall well short of the 800-word floor",
+          "severity": "Medium",
+          "description": "/services/, /services/residential-roofing/, /services/commercial-roofing/, /services/gutter-services/ range 230–560 words of largely generic copy vs. /services/roof-repair/'s 1,320 words.",
+          "recommendation": "Bring all service pages up to the depth level of /services/roof-repair/ with material specs, process steps, and cost ranges."
+        },
+        {
+          "title": "Boilerplate trust badges and testimonials copy-pasted verbatim across nearly every page",
+          "severity": "Medium",
+          "description": "The same 3 testimonials and \"Accredited Company\" badge (no accrediting body ever named) recur across home, services, and location pages.",
+          "recommendation": "Vary testimonials per location and name the actual accreditation or remove the badge."
+        },
+        {
+          "title": "Homepage contains a duplicated \"About Us\" block within a single page",
+          "severity": "Low",
+          "description": "Two near-identical About Us paragraphs appear back-to-back, plus an unrendered \"Roofing Projects 0 +\" stat counter.",
+          "recommendation": "Remove the duplicate block and verify the counter renders for non-JS/crawler contexts."
+        },
+        {
+          "title": "Readability sits at college level (grade 11–13) on core pages",
+          "severity": "Low",
+          "description": "Homepage and blog posts measure grade 11.4–13.4 vs. the ~8th–9th grade level recommended for consumer home-services content.",
+          "recommendation": "Shorten sentences; use the FAQ/brooklyn-roofing-lp writing style as the house style."
+        }
+      ]
+    },
+    {
+      "name": "Schema & Structured Data",
+      "score": 42,
+      "what_works": [
+        "JSON-LD used exclusively and @context is consistently correct",
+        "RoofingContractor + Organization is the correct, non-deprecated type where present",
+        "BreadcrumbList implemented site-wide with correct structure",
+        "WebSite + SearchAction correctly formed on the homepage",
+        "Dates in valid ISO 8601 format; no deprecated schema types found"
+      ],
+      "findings": [
+        {
+          "title": "Sitewide Product + AggregateRating schema is misapplied and identically duplicated on every URL",
+          "severity": "Critical",
+          "description": "The exact same 4.9/97 rating is stamped on every page including blog and FAQ, disconnected from the real business entity — the textbook signature of spam/structured-data enforcement action.",
+          "recommendation": "Remove the block entirely; attach a real AggregateRating directly to the RoofingContractor entity, only on contextually appropriate pages."
+        },
+        {
+          "title": "RoofingContractor/Organization NAP is invalid — no real street address",
+          "severity": "High",
+          "description": "streetAddress is literally \"ProLine Roofing\" instead of a real address on the homepage, /contact/, and /locations/brooklyn-ny/.",
+          "recommendation": "Supply the real address matching the Google Business Profile, or omit streetAddress and rely on areaServed if the address is intentionally unpublished."
+        },
+        {
+          "title": "No areaServed anywhere despite the explicit 8-town service area",
+          "severity": "High",
+          "description": "The property Google recommends for Local Service Area Businesses is absent from every RoofingContractor block found.",
+          "recommendation": "Add an areaServed array to the main Organization node and a per-location areaServed on each location page."
+        },
+        {
+          "title": "Duplicate/conflicting RoofingContractor entity on /locations/brooklyn-ny/ with a property typo",
+          "severity": "High",
+          "description": "A second, disconnected RoofingContractor node has a real address, a telePhone typo, and inconsistent openingHours formatting — creates entity ambiguity.",
+          "recommendation": "Fix the typo, confirm whether the Brooklyn address is real/staffed, and link via @id/parentOrganization rather than duplicating the entity."
+        },
+        {
+          "title": "No Service schema on any of the 20+ /services/ pages",
+          "severity": "Medium",
+          "description": "Sampled service pages carry only BreadcrumbList and the spammy Product block — no Service/provider/areaServed markup at all.",
+          "recommendation": "Add a Service node per service page linked to the Organization @id as provider, with serviceType and areaServed."
+        },
+        {
+          "title": "FAQPage schema absent on /faq/",
+          "severity": "Info",
+          "description": "No SERP rich-result loss (Google retired FAQ rich results), but it's a missed AI/GEO citation opportunity for genuine business-authored Q&A.",
+          "recommendation": "Add FAQPage markup using the exact on-page Q&A copy."
+        },
+        {
+          "title": "No Review/AggregateRating tied to real testimonials",
+          "severity": "Medium",
+          "description": "A ratings badge image implies third-party scores, but no legitimate Review/AggregateRating schema exists beyond the disconnected fake Product block.",
+          "recommendation": "Mark up individual Review objects against the RoofingContractor @id and roll into one accurate AggregateRating."
+        }
+      ]
+    },
+    {
+      "name": "Sitemap Architecture",
+      "score": 72,
+      "what_works": [
+        "All 5 sitemap files valid, well-formed XML",
+        "All 74 sitemap URLs return HTTP 200 with zero redirects",
+        "Well under the 50,000 URL per-file limit; sitemap index correctly used even at this scale",
+        "No deprecated priority/changefreq tags present",
+        "lastmod timestamps are realistic and track real edit history",
+        "category-sitemap.xml matches the live taxonomy 5/5",
+        "Location-page volume (~9–12 URLs) is far below doorway-page-risk thresholds"
+      ],
+      "findings": [
+        {
+          "title": "Duplicate/competing location landing pages cannibalize the canonical location pages",
+          "severity": "High",
+          "description": "Brooklyn has 3 competing sitemapped pages, Old Bridge has 2, and NJ-overall has 2 — all self-canonicalized, none deferring to the \"real\" page.",
+          "recommendation": "Pick one canonical URL per location; redirect or noindex+exclude-from-sitemap the rest."
+        },
+        {
+          "title": "Home-base location page (/locations/staten-island-ny/) missing from the sitemap with a conflicting canonical",
+          "severity": "Medium",
+          "description": "The page is live, nav-linked, and indexable, but canonicalizes to the homepage and is absent from page-sitemap.xml — an inconsistent signal.",
+          "recommendation": "Either redirect it to the homepage and remove the nav link, or self-canonicalize it, differentiate its content, and add it to the sitemap."
+        },
+        {
+          "title": "local-sitemap.xml is a single-entity KML file, not a location-page index",
+          "severity": "Medium",
+          "description": "It contains one Placemark for the Staten Island HQ only — there is no structured geo/local signal for the 7 secondary towns via that channel.",
+          "recommendation": "Confirm each town location page carries its own LocalBusiness/areaServed schema separately; consider a multi-location plugin/GBP location group."
+        },
+        {
+          "title": "/locations.kml sitemap entry may confuse sitemap consumers",
+          "severity": "Low",
+          "description": "A KML geo file is listed as a regular sitemap <url> entry — valid per Rank Math design but easy to mistake for a broken URL on manual review.",
+          "recommendation": "No action required; document for future audits."
+        }
+      ]
+    },
+    {
+      "name": "Performance (Core Web Vitals)",
+      "score": 60,
+      "what_works": [
+        "LiteSpeed full-page cache active and hitting, with gzip enabled",
+        "Non-render-blocking CSS delivery via preload+onload swap pattern",
+        "JS combined/minified and mostly deferred",
+        "preload_check.py scored the homepage 100/100 (speculation rules, fetchpriority, preload hints, no bfcache killers)",
+        "Sane 7-day cache-control headers on static assets"
+      ],
+      "findings": [
+        {
+          "title": "Render-blocking jQuery core script on every page",
+          "severity": "High",
+          "description": "jquery.min.js (87.5KB) loads with no async/defer on the homepage and all sampled inner pages — the one consistently render-blocking script found sitewide.",
+          "recommendation": "Enable LiteSpeed's defer/remote-load option for core jQuery, or use WP 6.3+ script loading strategies."
+        },
+        {
+          "title": "LCP-candidate hero image lazy-loaded via JS swap despite fetchpriority=\"high\"",
+          "severity": "High",
+          "description": "The real image URL only exists in data-src, requiring lazy-load JS to run before the browser can discover it — defeats the preload hint entirely.",
+          "recommendation": "Exclude the true LCP image from LiteSpeed's lazy-load feature and keep the real src/srcset inline."
+        },
+        {
+          "title": "Oversized inline \"critical CSS\" block (87KB)",
+          "severity": "Medium",
+          "description": "LiteSpeed's auto-generated critical CSS is capturing near-full-page CSS rather than a true above-the-fold subset.",
+          "recommendation": "Regenerate Critical CSS scoped tighter to the actual above-the-fold viewport per template."
+        },
+        {
+          "title": "Homepage images mostly missing intrinsic width/height",
+          "severity": "Medium",
+          "description": "30 of 40 homepage <img> tags rely on CSS sizing rather than width/height attributes — a CLS risk, especially versus the better-behaved location pages.",
+          "recommendation": "Add explicit width/height or aspect-ratio to every homepage image."
+        },
+        {
+          "title": "Low adoption of modern image formats (WebP/AVIF)",
+          "severity": "Medium",
+          "description": "Only ~2 image references sitewide use WebP/AVIF; the bulk of content images are legacy JPG/PNG.",
+          "recommendation": "Enable automatic WebP/AVIF generation with picture-element fallback."
+        },
+        {
+          "title": "Unverified third-party embed cost (YouTube iframe, Trustindex reviews widget)",
+          "severity": "Medium",
+          "description": "Common INP/main-thread offenders present on multiple pages; actual cost could not be measured in this sandbox.",
+          "recommendation": "Use a lightweight facade for the YouTube embed and verify Trustindex's main-thread cost with a real Lighthouse trace."
+        },
+        {
+          "title": "No CrUX field data or working lab tooling available in this environment",
+          "severity": "Informational",
+          "description": "No Google API credentials configured, and Chromium could not complete a TLS handshake to the live site through the sandbox proxy — all performance findings are static/structural estimates, not measured LCP/INP/CLS.",
+          "recommendation": "Re-run this category with a configured GOOGLE_API_KEY or from an environment with working Chrome/Lighthouse access."
+        }
+      ]
+    },
+    {
+      "name": "Visual & Mobile",
+      "score": 58,
+      "what_works": [
+        "Correct responsive viewport meta tag on all pages checked",
+        "Phone number and \"FREE ESTIMATE\" CTA present in the global nav on every page (structurally above the fold)",
+        "Exactly one H1 per page with correct heading structure",
+        "Hero/logo images carry explicit width/height and low-weight placeholder patterns for CLS avoidance",
+        "No lorem ipsum or broken shortcode placeholders found"
+      ],
+      "findings": [
+        {
+          "title": "Screenshots could not be captured — visual verification is incomplete",
+          "severity": "High",
+          "description": "Chromium/Playwright could not complete a TLS handshake to the live site through the sandbox's mandatory proxy (net::ERR_CONNECTION_RESET), even though plain HTTP fetches succeeded. No TLS-weakening workaround was attempted.",
+          "recommendation": "Re-run this category once browser access to the host is confirmed working through the proxy, or from an unproxied environment."
+        },
+        {
+          "title": "Mobile hamburger menu toggle appears under the 48x48px touch-target guideline",
+          "severity": "Medium",
+          "description": "CSS custom properties suggest an estimated ~30x30px clickable area for the primary mobile nav control.",
+          "recommendation": "Increase the effective tap area to at least 44x44px via additional padding."
+        },
+        {
+          "title": "Placeholder-style construction emoji in a location page H1",
+          "severity": "Low",
+          "description": "\"Roof Repair Staten Island 🚧\" reads as unpolished for a professional roofing contractor.",
+          "recommendation": "Remove the emoji unless it's a deliberate, tested brand choice."
+        },
+        {
+          "title": "Location page <title> typo (\"Saten Island\")",
+          "severity": "Low",
+          "description": "User-visible in the browser tab and search snippets, affecting perceived polish and trust.",
+          "recommendation": "Fix to \"Staten Island\" and check other location pages for the same template typo."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness (GEO)",
+      "score": 58,
+      "what_works": [
+        "All sampled pages are server-rendered (no SPA/JS-gating) — fully accessible to non-JS AI crawlers",
+        "robots.txt does not block any AI crawler",
+        "BlogPosting schema with dates and a named author present on every post",
+        "Organization schema includes a broad sameAs set (Facebook, X, LinkedIn, Pinterest, YouTube, GBP)",
+        "Proper H1→H2→H3 heading hierarchy on blog posts",
+        "Specific, factual, locally-relevant statistics present as good raw citation material",
+        "One post already uses a \"TL;DR\" summary block — a template worth rolling out site-wide"
+      ],
+      "findings": [
+        {
+          "title": "FAQ page has no FAQPage schema and questions aren't marked up as headings",
+          "severity": "High",
+          "description": "The 6 Q&A pairs on /faq/ are wrapped in decorative spans/divs, not h2/h3 tags, and there is no FAQPage JSON-LD — the weakest structural markup of any sampled page despite being the most AI-citation-ready content type.",
+          "recommendation": "Add FAQPage schema and convert questions into real headings; expand thin answers to include actual numbers."
+        },
+        {
+          "title": "No llms.txt file",
+          "severity": "Medium",
+          "description": "https://www.proline-roofing.com/llms.txt returns 404 — no structured AI-crawler-facing manifest of the business, service areas, or key pages.",
+          "recommendation": "Publish an /llms.txt summarizing the business, service area, and top pages in Markdown link format."
+        },
+        {
+          "title": "Blog content is fragmented into sub-134-word paragraphs with no self-contained answer blocks",
+          "severity": "Medium",
+          "description": "Sampled posts average 20–65 words per paragraph, well under the 134–167 word range shown to correlate with AI citation.",
+          "recommendation": "Add a consolidated 120–170 word answer paragraph under each H2/H3; roll out the existing TL;DR pattern site-wide."
+        },
+        {
+          "title": "Headings are declarative, not question-phrased",
+          "severity": "Medium",
+          "description": "H2s like \"5 Factors Affecting Roof Lifespan\" don't match natural-language queries typed into ChatGPT/Perplexity/AI Overviews.",
+          "recommendation": "Rewrite H2/H3 headings as questions where natural, with a direct-answer sentence immediately below."
+        },
+        {
+          "title": "Zero outbound citations to authoritative third-party sources",
+          "severity": "Medium",
+          "description": "Every statistic across 5 sampled pages is asserted with no attribution — Perplexity in particular favors sourced content.",
+          "recommendation": "Add 2–4 outbound citations per long-form post to manufacturer, code, or climate-data sources."
+        },
+        {
+          "title": "robots.txt is silent rather than explicit on AI crawlers",
+          "severity": "Low",
+          "description": "No named directives exist for GPTBot, ClaudeBot, PerplexityBot, etc. — access is allowed only by default.",
+          "recommendation": "Add explicit Allow blocks for major AI crawlers to signal intentional AI-search visibility."
+        },
+        {
+          "title": "No comparison/data tables for highly citable facts",
+          "severity": "Low",
+          "description": "Cost-by-material and lifespan-by-material data is presented only as prose despite being inherently tabular.",
+          "recommendation": "Convert these sections into simple HTML tables — disproportionately picked up by AI Overviews and Perplexity."
+        }
+      ]
+    },
+    {
+      "name": "Local SEO",
+      "score": 52,
+      "what_works": [
+        "Dedicated, human-written location pages exist for every stated target market (Staten Island, Brooklyn, 6 NJ towns)",
+        "Genuine, live third-party review integration (Trustindex, 4.9★/97 reviews) with healthy recency",
+        "Visible NAP on the homepage/contact footer is internally consistent with itself",
+        "Main navigation correctly links to all location pages, including the Staten Island hub",
+        "aggregateRating present in structured data sitewide (though type-misapplied)"
+      ],
+      "findings": [
+        {
+          "title": "Staten Island hub page canonical points to the homepage and is missing from the sitemap",
+          "severity": "Critical",
+          "description": "The primary market's own ~2,800-word location page shares only ~12% text similarity with the homepage yet is told to consolidate into it — blocking it from ranking independently.",
+          "recommendation": "Self-canonicalize /locations/staten-island-ny/ and add it to the XML sitemap."
+        },
+        {
+          "title": "Sitewide RoofingContractor schema streetAddress bug",
+          "severity": "Critical",
+          "description": "streetAddress contains the business name instead of the real address (481 Mill Rd) on every page carrying that block.",
+          "recommendation": "Fix the field to the real, GBP-matching address."
+        },
+        {
+          "title": "Brooklyn and Freehold page-level schema assert addresses never shown in visible content",
+          "severity": "Critical",
+          "description": "225 Joralemon St (Brooklyn) and 144 Tilton Dr (Freehold) appear nowhere in the footer, contact page, or map embeds — the classic pattern of an undisclosed secondary-location listing, a real GBP policy risk.",
+          "recommendation": "Confirm whether these are genuine staffed locations; if not, remove them and rely on areaServed instead."
+        },
+        {
+          "title": "Only 2 of 8 location pages carry any LocalBusiness schema at all",
+          "severity": "High",
+          "description": "Clifton, Elizabeth, Jersey City, Newark, Old Bridge, and both Staten Island pages have no LocalBusiness/areaServed/geo markup — only BreadcrumbList and the generic fake-review block.",
+          "recommendation": "Apply one consistent LocalBusiness + areaServed + geo template to every location page."
+        },
+        {
+          "title": "Orphan landing pages create local-SEO cannibalization / duplicate-NAP risk",
+          "severity": "High",
+          "description": "Four of the five orphan pages directly duplicate a proper /locations/ page for the same city, splitting ranking signals and review/engagement equity.",
+          "recommendation": "Consolidate via 301 redirect or noindex + clear internal linking as PPC-only pages."
+        },
+        {
+          "title": "NJ town pages are only ~19–33% unique content after normalizing town names",
+          "severity": "Medium",
+          "description": "Roughly two-thirds to four-fifths of each NJ town page's body text is shared templated boilerplate.",
+          "recommendation": "Add materially more town-specific detail: local landmarks, permit/code notes, project photos, local testimonials."
+        },
+        {
+          "title": "Location pages use generic city-level Google Maps embeds, not a verified GBP pin",
+          "severity": "Medium",
+          "description": "Every location page embeds a generic maps.google.com city-level query rather than a real business pin.",
+          "recommendation": "Replace with a real GBP place embed where a verified presence exists, or drop the map in favor of a clear service-area statement."
+        }
+      ]
+    },
+    {
+      "name": "Search Experience Optimization (SXO)",
+      "score": 41,
+      "what_works": [
+        "/locations/brooklyn-ny/ proves the CMS/theme can produce a fully SERP-aligned Local Page (schema, depth, testimonials all present)",
+        "A shared testimonial/trust widget gives a consistent social-proof baseline across core pages",
+        "Click-to-call and \"free estimate\" CTAs present almost everywhere checked",
+        "The /locations/ hub architecture structurally matches what Google rewards for these queries",
+        "Active content maintenance evidenced by recent 2025–2026 publish/update dates"
+      ],
+      "findings": [
+        {
+          "title": "Three pages carry BlogPosting schema for transactional local-service queries",
+          "severity": "Critical",
+          "description": "roof-replacement-in-staten-island-made-easy, affordable-roofing-in-brooklyn-ny, and asphalt-shingle-roofing-staten-island are tagged as blog articles despite targeting local commercial intent where every SERP competitor is a Local/Service page — the single most severe page-type mismatch found.",
+          "recommendation": "Re-tag with Service/RoofingContractor schema or fold content into the matching /services/ or /locations/ page."
+        },
+        {
+          "title": "Sitewide absence of LocalBusiness/RoofingContractor schema (only 1 of 16 pages checked has it)",
+          "severity": "Critical",
+          "description": "Only /locations/brooklyn-ny/ has full schema; no page anywhere has AggregateRating/Review schema despite visible testimonial content.",
+          "recommendation": "Roll out the Brooklyn schema template sitewide and add Review schema wherever testimonials appear."
+        },
+        {
+          "title": "Commercial roofing page fails the NJ property-manager persona (31/100)",
+          "severity": "Critical",
+          "description": "574 words, no case studies/portfolio/bonding credentials, and one H2 literally reads \"Persistent Leaks Ruining Your Home?\" on a B2B page — the weakest persona score in the audit.",
+          "recommendation": "Build a dedicated commercial + NJ hybrid page with case studies, bonding/insurance badges, and warranty-term callouts."
+        },
+        {
+          "title": "Gutter installation page is ~7x thinner than the SERP norm with zero location targeting",
+          "severity": "High",
+          "description": "518 words / 4 H2s vs. the leading local competitor's 3,778 words / 23 H2s of location-specific proof.",
+          "recommendation": "Expand to a full local-service page with pricing, materials, process, and Staten Island/NJ town mentions."
+        },
+        {
+          "title": "Brooklyn query cluster is cannibalized across three internal pages",
+          "severity": "High",
+          "description": "Inconsistent schema and trust-signal depth across the three competing Brooklyn URLs splits authority instead of concentrating it.",
+          "recommendation": "Consolidate the two orphan Brooklyn pages into /locations/brooklyn-ny/, porting over the strongest conversion copy."
+        },
+        {
+          "title": "No GAF/BBB/manufacturer certification badges found on any page",
+          "severity": "Medium",
+          "description": "Every ranking competitor across all 5 query clusters leads with certification/warranty proof; no such badge appears anywhere on the site.",
+          "recommendation": "Surface any held manufacturer certifications prominently with badge + schema on all service/location pages."
+        },
+        {
+          "title": "Title tag typo damages trust at the highest-intent emergency-repair moment",
+          "severity": "Medium",
+          "description": "\"Roof Repair Saten Island, NY\" is visible directly in the SERP snippet for an emergency-repair query.",
+          "recommendation": "Fix the typo — a one-line change with outsized trust impact."
+        }
+      ]
+    },
+    {
+      "name": "Content Clustering & Strategy",
+      "score": 38,
+      "what_works": [
+        "A 5-category taxonomy maps reasonably well to funnel stages",
+        "Several posts already carry genuine in-body contextual links to sibling posts",
+        "roof-replacement-in-staten-island-made-easy (refreshed July 2026) is a strong pillar candidate",
+        "The repairs-problem-solving category is the most complete, cluster-ready topical grouping",
+        "Service/location URL hierarchies already exist, so hub-and-spoke destination pages are already built"
+      ],
+      "findings": [
+        {
+          "title": "No true pillar pages exist — category archives are being used as false hubs",
+          "severity": "High",
+          "description": "No post is structured as a comprehensive 2,500+ word guide; the closest candidates are cross-tagged into 3–4 categories simultaneously, signaling no fixed ownership per topic.",
+          "recommendation": "Build two pillars (Roof Replacement Guide, Roofing Costs Guide) to 2,500–4,000 words each with a TOC and dedicated schema."
+        },
+        {
+          "title": "13 of 19 posts (68%) are not reachable from the main /blog/ index",
+          "severity": "High",
+          "description": "/blog/ hard-caps at 6 posts with no pagination — the rest are only discoverable via category archives or the sitemap.",
+          "recommendation": "Add pagination or restructure /blog/ into a curated hub grouped by pillar cluster."
+        },
+        {
+          "title": "Blog-to-service links are template navigation, not contextual hub-spoke CTAs",
+          "severity": "High",
+          "description": "Every post carries the identical 25-link services mega-menu rather than hand-picked, topically-matched in-paragraph links to a specific service subpage.",
+          "recommendation": "Add one or two hand-picked, keyword-anchored contextual links per post to the single most relevant service page."
+        },
+        {
+          "title": "One post is orphaned from the category system and the blog index entirely",
+          "severity": "Medium",
+          "description": "5-types-of-roofing-you-should-consider appears on no category archive and isn't among the 6 posts shown on /blog/.",
+          "recommendation": "Assign it to roofing-101 and include it in the Materials cluster."
+        },
+        {
+          "title": "Major content gaps versus a full local roofing content strategy",
+          "severity": "Medium",
+          "description": "No insurance-claims guide, no warranty comparisons, no non-winter seasonal content, zero commercial-roofing or gutter blog support, and no NJ-town-specific posts despite 6 NJ location pages.",
+          "recommendation": "Prioritize an insurance-claims guide, a warranty-comparison guide, NJ-town posts for top markets, and small commercial/gutter mini-clusters."
+        },
+        {
+          "title": "Cannibalization risk from cost-related post overlap",
+          "severity": "Low",
+          "description": "roofing-costs-decoded and the-real-cost-of-roof-repairs-in-staten-island target overlapping cost-intent queries with no clear pillar/spoke split.",
+          "recommendation": "Designate roofing-costs-decoded as the pillar and narrow the other into a repair-cost-specific spoke."
+        }
+      ]
+    },
+    {
+      "name": "Backlinks & Domain Authority",
+      "score": 40,
+      "what_works": [
+        "Domain is present in the Common Crawl web graph and clears the ranking-inclusion threshold",
+        "No spam/toxic-pattern signals found in any data source checked",
+        "Outbound social citations (Facebook, LinkedIn, X, Pinterest) are consistent, real business profiles",
+        "No reciprocal-link scheme risk beyond the expected owned-profile pattern"
+      ],
+      "findings": [
+        {
+          "title": "Referring-domain count, Domain Authority, and Spam Score are completely unmeasured at this data tier",
+          "severity": "High",
+          "description": "Only Common Crawl + verification crawler are available (no Moz/Bing keys); Common Crawl's sample surfaced zero referring domains for this site — not evidence of zero backlinks, just no usable data at this tier.",
+          "recommendation": "Sign up for the free Moz API tier (2,500 rows/month, no cost) to unlock DA/PA, referring-domain counts, and spam score."
+        },
+        {
+          "title": "Domain registration heritage could not be verified",
+          "severity": "Medium",
+          "description": "WHOIS lookup timed out in this sandbox (TCP/43 egress restricted) — registration age/expired-domain-abuse risk is UNKNOWN, not confirmed clean.",
+          "recommendation": "Re-run domain history from an unrestricted network path, or pull registration data via a registrar-facing RDAP/WHOIS web lookup."
+        },
+        {
+          "title": "Only 4 inbound-link candidates identified, all owned-profile citations",
+          "severity": "Medium",
+          "description": "Verification was limited to the site's own outbound social links; this says nothing about genuine third-party referring-domain size or quality.",
+          "recommendation": "Treat this as a NAP-hygiene check only, not a backlink-authority assessment, until Tier 1/2 data sources are enabled."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "Remove the sitewide fake Product/AggregateRating (4.9★/97) schema block from every page and move a real AggregateRating onto the RoofingContractor entity (Schema, Technical)",
+          "Fix the RoofingContractor streetAddress field — replace \"ProLine Roofing\" with the real street address (Schema, Local)",
+          "Investigate and resolve the undisclosed Brooklyn (225 Joralemon St) and Freehold (144 Tilton Dr) schema addresses — remove if not genuine staffed/GBP locations (Local, Schema)",
+          "Self-canonicalize /locations/staten-island-ny/ (remove the homepage canonical) and add it to the XML sitemap (Local, Sitemap, Technical)",
+          "Resolve the 5 orphan PPC landing pages: noindex+canonical-to-real-page or 301 redirect, and remove from sitemaps (Technical, Sitemap, Content, Local, SXO)",
+          "Re-tag the 3 pages carrying BlogPosting schema on transactional local queries with Service/RoofingContractor schema (SXO, Schema)"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Add security response headers (HSTS, X-Content-Type-Options, CSP, X-Frame-Options) via LiteSpeed/.htaccess (Technical)",
+          "Roll out consistent LocalBusiness/RoofingContractor + areaServed + geo schema to every location page using the Brooklyn page as the template (Schema, Local, SXO)",
+          "Add Service schema to all /services/ pages (Schema, SXO)",
+          "Build a dedicated commercial-roofing + NJ hybrid page with case studies, bonding/insurance badges, and warranty terms (SXO, Content)",
+          "Fix the render-blocking jQuery script and the lazy-loaded LCP hero image (Performance)",
+          "Consolidate the Brooklyn and Old Bridge duplicate/cannibalizing pages into single authoritative pages (Content, Local, SXO, Sitemap)",
+          "Add visible author bylines/bios and display the actual contractor license number in the footer (Content, GEO)",
+          "Fix the \"Saten Island\" title typo and the telePhone schema typo (Visual, SXO, Schema)"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Expand thin core service pages (/services/, /services/residential-roofing/, /services/commercial-roofing/, /services/gutter-services/) to 800+ words with material specs, process, and cost ranges (Content)",
+          "Expand NJ town location pages beyond ~19-33% unique content with local landmarks, permit notes, and photos (Local)",
+          "Add FAQPage schema and convert /faq/ accordion questions into real headings; expand thin answers (Schema, GEO)",
+          "Publish an /llms.txt file and add explicit AI-crawler Allow directives in robots.txt (GEO)",
+          "Build two content pillars (Roof Replacement Guide, Roofing Costs Guide) and restructure /blog/ so all 19 posts are reachable (Cluster)",
+          "Add contextual, hand-picked internal links from blog posts to specific service subpages (Cluster, SXO)",
+          "Add outbound citations and cost/lifespan comparison tables to blog content (GEO, Content)",
+          "Sign up for the free Moz API and Bing Webmaster Tools to unlock real backlink/DA data (Backlinks)"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Re-run PageSpeed Insights/Lighthouse and pull CrUX field data once Google API credentials are configured (Performance)",
+          "Capture desktop/mobile screenshots once browser access to the site is confirmed working, to complete the visual QA pass (Visual)",
+          "Verify GBP primary category and confirm no duplicate/unverified GBP listings exist for the Brooklyn/Freehold addresses (Local)",
+          "Establish a quarterly content-review cadence with genuine refreshes, not cosmetic timestamp bumps (GEO, Content)",
+          "Manually verify Tier-1 citation presence (Yelp, BBB, Angi, Thumbtack) against the corrected canonical NAP (Local, Backlinks)",
+          "Monitor review velocity and institute an owner-response cadence on Google reviews (Local)"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}
