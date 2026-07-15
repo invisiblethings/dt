@@ -1,0 +1,1549 @@
+{
+  "pages": {
+    "https://pianoers.com/": {
+      "status_code": 200,
+      "title": "Pianoers.com: Learn Piano Smarter with Reviews & Guides",
+      "title_len": 55,
+      "meta_description": "Unfiltered reviews of the best piano apps, courses, and beginner keyboards. Plus expert tips, guides, and articles to help you learn piano faster and better.",
+      "meta_description_len": 157,
+      "h1_count": 1,
+      "h1s": [
+        ""
+      ],
+      "h2_count": 7,
+      "canonical": "https://pianoers.com/",
+      "og_title": "Pianoers.com",
+      "og_description": "Unfiltered reviews of the best piano apps, courses, and beginner keyboards. Plus expert tips, guides, and articles to help you learn piano faster and better.",
+      "og_image": "https://pianoers.com/content/images/2025/05/PianoersBanner-1.png",
+      "robots_meta": null,
+      "jsonld_types": [
+        "WebSite"
+      ],
+      "image_count": 25,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 726,
+      "internal_link_count": 61,
+      "external_link_count": 1,
+      "external_links_sample": [
+        "https://ghost.org/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/about/": {
+      "status_code": 200,
+      "title": "About Pianoers \u2013 Honest Piano Reviews & Real Advice",
+      "title_len": 51,
+      "meta_description": "Pianoers: no-BS piano reviews, lessons, and gear advice since 2021. Written by real players Richard & Katarina (20+ years teaching). Brutally honest, built for people who actually want to get good.",
+      "meta_description_len": 197,
+      "h1_count": 1,
+      "h1s": [
+        "About Pianoers.com"
+      ],
+      "h2_count": 0,
+      "canonical": "https://pianoers.com/about/",
+      "og_title": "About Pianoers \u2013 Honest Piano Reviews & Real Advice",
+      "og_description": "Pianoers: no-BS piano reviews, lessons, and gear advice since 2021. Written by real players Richard & Katarina (20+ years teaching). Brutally honest, built for people who actually want to get good.",
+      "og_image": "https://pianoers.com/content/images/2025/05/PianoersBanner-1.png",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 1,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 355,
+      "internal_link_count": 14,
+      "external_link_count": 1,
+      "external_links_sample": [
+        "https://ghost.org/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/ridley-academy-review/": {
+      "status_code": 200,
+      "title": "Ridley Academy Review (2025): Stephen Ridley Piano Course",
+      "title_len": 57,
+      "meta_description": "Honest Ridley Academy review (2025). Explore Stephen Ridley's piano course structure, unique teaching methods, cost & effectiveness. Is it worth the investment?",
+      "meta_description_len": 160,
+      "h1_count": 1,
+      "h1s": [
+        "Ridley Academy: Does it Live Up to the Buzz? (2025)"
+      ],
+      "h2_count": 6,
+      "canonical": "https://pianoers.com/ridley-academy-review/",
+      "og_title": "Ridley Academy Review (2025): Stephen Ridley Piano Course",
+      "og_description": "Honest Ridley Academy review (2025). Explore Stephen Ridley's piano course structure, unique teaching methods, cost & effectiveness. Is it worth the investment?",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2024/03/Ridley-Academy---Review.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 9,
+      "images_missing_alt_count": 4,
+      "images_missing_alt_sample": [
+        "https://i.gyazo.com/6e8157b06b8a517144e8ea67fbd45e93.png",
+        "https://pianoers.com/content/images/icon/apple-touch-icon-3.png",
+        "https://pianoers.com/content/images/thumbnail/Best-Online-Piano-Lessons.jpg",
+        "https://pianoers.com/content/images/2024/03/Ridley-Academy-Performance.webp"
+      ],
+      "word_count": 1208,
+      "internal_link_count": 16,
+      "external_link_count": 1,
+      "external_links_sample": [
+        "https://ghost.org/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/pianoforall-vs-alfreds-piano-book/": {
+      "status_code": 200,
+      "title": "Piano For All Review: A Pro Pianist's Take (2026)",
+      "title_len": 49,
+      "meta_description": "Pianoforall promises to teach you piano quickly, starting with chords. But does it work? A pianist reviews its methods, pros, cons, and who it's truly for.",
+      "meta_description_len": 155,
+      "h1_count": 1,
+      "h1s": [
+        "Piano For All Review: A Pro Pianist's Take on the Chord-First Approach"
+      ],
+      "h2_count": 6,
+      "canonical": "https://pianoers.com/pianoforall-review/",
+      "og_title": "Piano For All Review: A Pro Pianist's Take (2026)",
+      "og_description": "Pianoforall promises to teach you piano quickly, starting with chords. But does it work? I review its methods, pros, cons, and who it's truly for.",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2024/06/Pianoforall_Review.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 18,
+      "images_missing_alt_count": 1,
+      "images_missing_alt_sample": [
+        "https://pianoers.com/content/images/2024/06/08df4883-d90f-1ff2-4ce8-30c827b2ecbe.png"
+      ],
+      "word_count": 2881,
+      "internal_link_count": 27,
+      "external_link_count": 2,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://pianoforall.academy"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/cookie-policy/": {
+      "status_code": 200,
+      "title": "Cookie Policy",
+      "title_len": 13,
+      "meta_description": null,
+      "meta_description_len": 0,
+      "h1_count": 1,
+      "h1s": [
+        "Cookie Policy"
+      ],
+      "h2_count": 0,
+      "canonical": "https://pianoers.com/cookie-policy/",
+      "og_title": "Cookie Policy",
+      "og_description": "COOKIE POLICY\nLast updated May 16, 2024\n\n\nThis Cookie Policy explains how Pianoers.com (\"Company,\" \"we,\" \"us,\" and \"our\") uses cookies and similar technologies to recognize you when you visit our website at \u00a0https://pianoers.com (\"Website\"). It explains what these technologies are and why we use them, as well",
+      "og_image": "https://pianoers.com/content/images/2025/05/PianoersBanner-1.png",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 1,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1693,
+      "internal_link_count": 12,
+      "external_link_count": 19,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://support.microsoft.com/en-us/windows/microsoft-edge-browsing-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-c582b4e640dd",
+        "https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop?redirectslug=enable-and-disable-cookies-website-preferences&redirectlocale=en-US",
+        "http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager03.html",
+        "https://youradchoices.ca/",
+        "http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html",
+        "https://help.opera.com/en/latest/web-preferences/",
+        "https://support.apple.com/en-ie/guide/safari/sfri11471/mac",
+        "http://www.aboutads.info/choices/",
+        "https://policies.google.com/privacy"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/contact/": {
+      "status_code": 200,
+      "title": "Contact",
+      "title_len": 7,
+      "meta_description": null,
+      "meta_description_len": 0,
+      "h1_count": 1,
+      "h1s": [
+        "Contact"
+      ],
+      "h2_count": 0,
+      "canonical": "https://pianoers.com/contact/",
+      "og_title": "Contact",
+      "og_description": "We're here to help! Our friendly team is ready to answer any questions you may have.\n\n\n\n\n\n\n\n\n\nFull Name\n\n\n\n\nYour Email Address\n\n\n\n\nYour message\n\n\n\n\nSend",
+      "og_image": "https://pianoers.com/content/images/2025/05/PianoersBanner-1.png",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 1,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 73,
+      "internal_link_count": 11,
+      "external_link_count": 1,
+      "external_links_sample": [
+        "https://ghost.org/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/privacy-policy/": {
+      "status_code": 200,
+      "title": "Privacy Policy",
+      "title_len": 14,
+      "meta_description": null,
+      "meta_description_len": 0,
+      "h1_count": 2,
+      "h1s": [
+        "Privacy Policy",
+        "Privacy Policy"
+      ],
+      "h2_count": 6,
+      "canonical": "https://pianoers.com/privacy-policy/",
+      "og_title": "Privacy Policy",
+      "og_description": "Privacy Policy\n\nLast updated: January 18, 2024\n\nThis Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.\n\nWe use Your Personal data to provide and",
+      "og_image": "https://pianoers.com/content/images/2025/05/PianoersBanner-1.png",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 1,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 2457,
+      "internal_link_count": 11,
+      "external_link_count": 3,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://www.termsfeed.com/privacy-policy-generator/",
+        "https://www.termsfeed.com/blog/cookies/#What_Are_Cookies"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/best-piano-lessons-online/": {
+      "status_code": 200,
+      "title": "8 Best Online Piano Lessons for 2026, Tested by a Teacher",
+      "title_len": 57,
+      "meta_description": "We spent a month testing 8 piano apps and courses. Real pricing, real results, and which one fits your skill level and goals.",
+      "meta_description_len": 125,
+      "h1_count": 1,
+      "h1s": [
+        "8 Best Online Piano Lessons for 2026, Tested by a Teacher"
+      ],
+      "h2_count": 14,
+      "canonical": "https://pianoers.com/best-piano-lessons-online/",
+      "og_title": "8 Best Online Piano Lessons for 2026, Tested by a Teacher",
+      "og_description": "We spent a month testing 8 piano apps and courses. Real pricing, real results, and which one fits your skill level and goals.",
+      "og_image": "https://pianoers.com/content/images/2025/05/Best-Online-Piano-Lessons.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "ItemList",
+        "FAQPage"
+      ],
+      "image_count": 14,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 2423,
+      "internal_link_count": 29,
+      "external_link_count": 21,
+      "external_links_sample": [
+        "https://yousician.com/piano",
+        "https://ghost.org/",
+        "https://www.pianote.com/",
+        "https://www.playgroundsessions.com/",
+        "https://www.flowkey.com/",
+        "https://www.flowkey.com/en",
+        "https://pianomarvel.com/?promoCode=PIANOERS",
+        "https://flowkey.com/",
+        "https://www.skoove.com/en",
+        "https://simplypiano.sjv.io/pianoers"
+      ],
+      "nofollow_external_count": 6
+    },
+    "https://pianoers.com/simply-piano-review-the-honest-truth-about-learning-piano-with-an-app/": {
+      "status_code": 200,
+      "title": "Simply Piano Review (2026): Decent Start, Expensive Habit",
+      "title_len": 57,
+      "meta_description": "Simply Piano review from a piano teacher after 6 months of testing. Fun for beginners, but at $170/year the value gets shaky fast, and adults have better options.",
+      "meta_description_len": 162,
+      "h1_count": 1,
+      "h1s": [
+        "Simply Piano Review: Is This $170/Year App Worth It?"
+      ],
+      "h2_count": 11,
+      "canonical": "https://pianoers.com/simply-piano-review-the-honest-truth-about-learning-piano-with-an-app/",
+      "og_title": "Simply Piano Review (2026): Decent Start, Expensive Habit",
+      "og_description": "Simply Piano review from a piano teacher after 6 months of testing. Fun for beginners, but at $170/year the value gets shaky fast, and adults have better options.",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2024/02/Simply-Piano-Review.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "Review"
+      ],
+      "image_count": 9,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1968,
+      "internal_link_count": 25,
+      "external_link_count": 5,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://simplypiano.sjv.io/pianoers",
+        "https://www.trinitycollege.com/qualifications/music/grade-exams/piano"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/best-digital-piano/": {
+      "status_code": 200,
+      "title": "Best Digital Pianos in 2026 \ud83c\udfb9 (That I've Actually Tested)",
+      "title_len": 57,
+      "meta_description": "I tested 30+ digital pianos across every price range. See my 2026 top picks for beginners, intermediate players, and advanced pianists.",
+      "meta_description_len": 135,
+      "h1_count": 1,
+      "h1s": [
+        "Best Digital Pianos in 2026 \ud83c\udfb9 (That I've Actually Tested)"
+      ],
+      "h2_count": 10,
+      "canonical": "https://pianoers.com/best-digital-piano/",
+      "og_title": "Best Digital Pianos in 2026 \ud83c\udfb9 (That I've Actually Tested)",
+      "og_description": "I tested 30+ digital pianos across every price range. See my 2026 top picks for beginners, intermediate players, and advanced pianists.",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2026/03/best-digital-piano-pianoers.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "FAQPage"
+      ],
+      "image_count": 20,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 5278,
+      "internal_link_count": 32,
+      "external_link_count": 15,
+      "external_links_sample": [
+        "https://amzn.to/4aoebci",
+        "https://www.guitarcenter.com/Yamaha/Clavinova-CLP-885-Console-Digital-Piano-Black-1500000435866.gc",
+        "https://amzn.to/4eKMeN4",
+        "https://amzn.to/4ah5TmA",
+        "https://amzn.to/4f3iDQe",
+        "https://www.guitarcenter.com/",
+        "https://ghost.org/",
+        "https://amzn.to/4g1UxGF",
+        "https://usa.yamaha.com/products/musical_instruments/pianos/clavinova/clp-835/index.html",
+        "https://www.amazon.com/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/best-beginner-pianos/": {
+      "status_code": 200,
+      "title": "7 Best Beginner Keyboard Pianos\ud83c\udfb9 in 2026 (Tested & Ranked)",
+      "title_len": 58,
+      "meta_description": "I tested every major beginner keyboard piano in 2026. Here are my 7 picks from $350 to $730, with specs, pros, cons, and honest opinions on each.",
+      "meta_description_len": 145,
+      "h1_count": 1,
+      "h1s": [
+        "7 Best Beginner Keyboard Pianos in 2026 \ud83c\udfb9 (That I've Actually Played)"
+      ],
+      "h2_count": 12,
+      "canonical": "https://pianoers.com/best-beginner-pianos/",
+      "og_title": "7 Best Beginner Keyboard Pianos\ud83c\udfb9 in 2026 (Tested & Ranked)",
+      "og_description": "I tested every major beginner keyboard piano in 2026. Here are my 7 picks from $350 to $730, with specs, pros, cons, and honest opinions on each.",
+      "og_image": "https://pianoers.com/content/images/2026/01/best-beginner-piano.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "FAQPage"
+      ],
+      "image_count": 13,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 3120,
+      "internal_link_count": 34,
+      "external_link_count": 8,
+      "external_links_sample": [
+        "https://amzn.to/4fE3MKP",
+        "https://amzn.to/491v9LV",
+        "https://amzn.to/411tcw4",
+        "https://ghost.org/",
+        "https://amzn.to/4oClMcI",
+        "https://amzn.to/49rJq4G",
+        "https://amzn.to/4bGtJJC",
+        "https://amzn.to/3NSYD8n"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/best-piano-books-for-adult-beginners/": {
+      "status_code": 200,
+      "title": "5 Piano Books That Actually Work for Adult Beginners",
+      "title_len": 52,
+      "meta_description": "I tested every major piano method book. Here are the only 5 that actually work for adult beginners. No BS, just results. Updated 2026.",
+      "meta_description_len": 134,
+      "h1_count": 1,
+      "h1s": [
+        "5 Best Piano Books for Adult Beginners (I've Tested Them All)"
+      ],
+      "h2_count": 12,
+      "canonical": "https://pianoers.com/best-piano-books-for-adult-beginners/",
+      "og_title": "5 Piano Books That Actually Work for Adult Beginners",
+      "og_description": "I tested every major piano method book. Here are the only 5 that actually work for adult beginners. No BS, just results. Updated 2026.",
+      "og_image": "https://pianoers.com/content/images/2026/02/best-piano-books-for-adult-beginners.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "FAQPage"
+      ],
+      "image_count": 9,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 2260,
+      "internal_link_count": 20,
+      "external_link_count": 6,
+      "external_links_sample": [
+        "https://pianoadventures.com/product/adult-piano-adventures-all-in-one-course-book-1/",
+        "https://www.sweetwater.com/store/detail/HL00420308--faber-piano-adventures-accelerated-piano-adventures-for-the-older-beginner-lesson-book-book-1",
+        "https://ghost.org/",
+        "https://www.sweetwater.com/store/detail/00-5753--alfred-basic-adult-all-in-one-course-book-1",
+        "https://www.halleonard.com/feature/11750004/john-thompsons-adult-piano-course",
+        "https://www.sweetwater.com/store/detail/KP1Kjos--kjos-bastien-piano-for-adults-book1-with-audio"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/acoustic-vs-digital-piano/": {
+      "status_code": 200,
+      "title": "Acoustic vs Digital Piano: Which Is Actually Better for Beginners?",
+      "title_len": 66,
+      "meta_description": null,
+      "meta_description_len": 0,
+      "h1_count": 1,
+      "h1s": [
+        "Acoustic vs Digital Piano: Which Is Actually Better for Beginners?"
+      ],
+      "h2_count": 0,
+      "canonical": "https://pianoers.com/acoustic-vs-digital-piano/",
+      "og_title": "Acoustic vs Digital Piano: Which Is Actually Better for Beginners?",
+      "og_description": "I\u2019ve taught hundreds of students on everything from 100-year-old uprights to the newest Yamaha and Roland digitals. I\u2019ve paid tuning bills that made me cry. I\u2019ve also practiced at 2 a.m. with headphones and zero neighbor complaints.\n\nIf you\u2019re stuck deciding between acoustic",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2023/10/Acoustic-vs-Digital-Piano.png",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 5,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 821,
+      "internal_link_count": 16,
+      "external_link_count": 1,
+      "external_links_sample": [
+        "https://ghost.org/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/piano-humidifier/": {
+      "status_code": 200,
+      "title": "Piano Humidifiers & Humidity Control Systems Guide | Pianoers",
+      "title_len": 61,
+      "meta_description": "Protect your piano! Learn why humidity control is vital & explore piano humidifiers, dehumidifiers (like Dampp-Chaser), and maintenance tips.",
+      "meta_description_len": 141,
+      "h1_count": 1,
+      "h1s": [
+        "Piano Humidifier: You Need To Keep Your Piano Hydrated"
+      ],
+      "h2_count": 1,
+      "canonical": "https://pianoers.com/piano-humidifier/",
+      "og_title": "Piano Humidifiers & Humidity Control Systems Guide | Pianoers",
+      "og_description": "Protect your piano! Learn why humidity control is vital & explore piano humidifiers, dehumidifiers (like Dampp-Chaser), and maintenance tips.",
+      "og_image": "https://pianoers.com/content/images/2025/05/PianoersBanner-1.png",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 5,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1488,
+      "internal_link_count": 19,
+      "external_link_count": 2,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://www.venta-air.com/en_us/product-category/humidifiers/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/piano-basics-a-beginners-guide-to-the-keyboard/": {
+      "status_code": 200,
+      "title": "Piano Basics for Beginners: Essential Keyboard Guide",
+      "title_len": 52,
+      "meta_description": "Master the 88-key layout, white & black keys, finger numbering, middle C hand position, and fun exercises like doodling chords. Start playing confidently today, no experience needed!",
+      "meta_description_len": 182,
+      "h1_count": 1,
+      "h1s": [
+        "Piano Basics: A Short Beginner's Guide to the Keyboard"
+      ],
+      "h2_count": 0,
+      "canonical": "https://pianoers.com/piano-basics-a-beginners-guide-to-the-keyboard/",
+      "og_title": "Piano Basics for Beginners: Essential Keyboard Guide",
+      "og_description": "Master the 88-key layout, white & black keys, finger numbering, middle C hand position, and fun exercises like doodling chords. Start playing confidently today, no experience needed!",
+      "og_image": "https://pianoers.com/content/images/2025/05/PianoersBanner-1.png",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 6,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1087,
+      "internal_link_count": 18,
+      "external_link_count": 1,
+      "external_links_sample": [
+        "https://ghost.org/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/pianoforall-review/": {
+      "status_code": 200,
+      "title": "Piano For All Review: A Pro Pianist's Take (2026)",
+      "title_len": 49,
+      "meta_description": "Pianoforall promises to teach you piano quickly, starting with chords. But does it work? A pianist reviews its methods, pros, cons, and who it's truly for.",
+      "meta_description_len": 155,
+      "h1_count": 1,
+      "h1s": [
+        "Piano For All Review: A Pro Pianist's Take on the Chord-First Approach"
+      ],
+      "h2_count": 6,
+      "canonical": "https://pianoers.com/pianoforall-review/",
+      "og_title": "Piano For All Review: A Pro Pianist's Take (2026)",
+      "og_description": "Pianoforall promises to teach you piano quickly, starting with chords. But does it work? I review its methods, pros, cons, and who it's truly for.",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2024/06/Pianoforall_Review.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 18,
+      "images_missing_alt_count": 1,
+      "images_missing_alt_sample": [
+        "https://pianoers.com/content/images/2024/06/08df4883-d90f-1ff2-4ce8-30c827b2ecbe.png"
+      ],
+      "word_count": 2881,
+      "internal_link_count": 27,
+      "external_link_count": 2,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://pianoforall.academy"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/yamaha-p-145-review/": {
+      "status_code": 200,
+      "title": "Yamaha P-145 / P-145BT Review in 2026: Still My #1 Pick for Beginners",
+      "title_len": 69,
+      "meta_description": "The Yamaha P-145 and new P-145BT are still my #1 best piano for beginners in 2026. Hands-on review after 2 years of daily use, is this the best digital piano or best keyboard piano under $600? Real pros/cons inside.",
+      "meta_description_len": 215,
+      "h1_count": 1,
+      "h1s": [
+        "Yamaha P-145 / P-145BT Review in 2026: Still My #1 Pick for Beginners"
+      ],
+      "h2_count": 1,
+      "canonical": "https://pianoers.com/yamaha-p-145-review/",
+      "og_title": "Yamaha P-145 / P-145BT Review in 2026: Still My #1 Pick for Beginners",
+      "og_description": "The Yamaha P-145 and new P-145BT are still my #1 best piano for beginners in 2026. Hands-on review after 2 years of daily use, is this the best digital piano or best keyboard piano under $600? Real pros/cons inside.",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2025/11/Yamaha-p-145-review-pianoers.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "FAQPage"
+      ],
+      "image_count": 8,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1413,
+      "internal_link_count": 19,
+      "external_link_count": 3,
+      "external_links_sample": [
+        "https://amzn.to/4oClMcI",
+        "https://ghost.org/",
+        "https://shop.usa.yamaha.com/en/p/instruments/keyboards-synthesizers/digital-pianos/p-145bt-88-key-portable-digital-piano"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/pianote-review/": {
+      "status_code": 200,
+      "title": "Pianote Review 2026: Honest Pros & Cons (Is It Worth It?)",
+      "title_len": 57,
+      "meta_description": "Unbiased Pianote review 2026: real pricing, no real-time feedback, cluttered navigation, and mixed support. Best for self-motivated adults who love pop/jazz; not ideal for beginners or classical players. Full verdict inside.",
+      "meta_description_len": 224,
+      "h1_count": 1,
+      "h1s": [
+        "Pianote Review 2026: The Honest Truth About Learning Piano With Video Lessons"
+      ],
+      "h2_count": 7,
+      "canonical": "https://pianoers.com/pianote-review/",
+      "og_title": "Pianote Review 2026: Honest Pros & Cons (Is It Worth It?)",
+      "og_description": "Unbiased Pianote review 2026: real pricing, no real-time feedback, cluttered navigation, and mixed support. Best for self-motivated adults who love pop/jazz; not ideal for beginners or classical players. Full verdict inside.",
+      "og_image": "https://pianoers.com/content/images/2024/03/Pianote-Review.png",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "Review"
+      ],
+      "image_count": 9,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1576,
+      "internal_link_count": 22,
+      "external_link_count": 6,
+      "external_links_sample": [
+        "https://www.trustpilot.com/review/www.pianote.com",
+        "https://ghost.org/",
+        "https://www.pianote.com/",
+        "https://www.instagram.com/lisawittmusic/",
+        "https://www.bbb.org/ca/bc/abbotsford/profile/online-education/musora-media-inc-0037-2430763/complaints",
+        "https://www.musora.com/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/pianovision-review/": {
+      "status_code": 200,
+      "title": "PianoVision Review 2026: Can VR Really Teach Piano?",
+      "title_len": 51,
+      "meta_description": "Can you learn piano in VR? Our detailed PianoVision review reveals what works, what doesn't, and if it's worth $10.",
+      "meta_description_len": 115,
+      "h1_count": 1,
+      "h1s": [
+        "PianoVision Review: Can VR Actually Teach You Piano?"
+      ],
+      "h2_count": 7,
+      "canonical": "https://pianoers.com/pianovision-review/",
+      "og_title": "PianoVision Review 2026: Can VR Really Teach Piano?",
+      "og_description": "This innovative app designed for the Meta Quest 3 takes piano learning to new heights through mixed reality technology.",
+      "og_image": "https://pianoers.com/content/images/2023/10/PianoVision-FI.webp",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "Review"
+      ],
+      "image_count": 11,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1781,
+      "internal_link_count": 21,
+      "external_link_count": 3,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://www.pianovision.com/",
+        "https://www.meta.com/experiences/pianovision/5271074762922599/?srsltid=AfmBOooSx9s_lKE7FzPwhq9u9-94k_LKs0gy4BVqSaLTFJ4ehRqxDPjb"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/loog-piano/": {
+      "status_code": 200,
+      "title": "Loog Piano Review 2026: Is This the Ultimate Beginner Keyboard?",
+      "title_len": 63,
+      "meta_description": "The Loog Piano is a compact, 37-key digital piano designed for beginners and music enthusiasts alike.",
+      "meta_description_len": 101,
+      "h1_count": 1,
+      "h1s": [
+        "Loog Piano Review 2026: Is This the Ultimate Beginner Keyboard?"
+      ],
+      "h2_count": 10,
+      "canonical": "https://pianoers.com/loog-piano/",
+      "og_title": "Loog Piano Review 2026: Is This the Ultimate Beginner Keyboard?",
+      "og_description": "After spending several weeks with the Loog Piano, I can confidently share my hands-on experience with this compact instrument.",
+      "og_image": "https://pianoers.com/content/images/2023/10/Loog-Piano.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 11,
+      "images_missing_alt_count": 2,
+      "images_missing_alt_sample": [
+        "https://pianoers.com/content/images/icon/apple-touch-icon-2.png",
+        "https://pianoers.com/content/images/thumbnail/best-beginner-pianos-2.jpg"
+      ],
+      "word_count": 1046,
+      "internal_link_count": 20,
+      "external_link_count": 5,
+      "external_links_sample": [
+        "https://globaldesignnews.com/designed-for-beginners-and-music-enthusiasts-the-loog-piano-by-loog-guitars-is-a-portable-piano-that-boasts-a-minimalist-user-interface/",
+        "https://loogguitars.com/products/loog-piano",
+        "https://ghost.org/",
+        "https://store.duolingo.com/products/loog-x-duolingo-piano?srsltid=AfmBOop6GHurwsyHQh-wwdkpzRyNWjDaFr7fNdSZqQhlY2QByDmeVvAw",
+        "https://loog-piano.com/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/best-free-piano-learning-apps/": {
+      "status_code": 200,
+      "title": "Best Free & Paid Piano Learning Apps in 2026 (Tested & Ranked for Real Learning)",
+      "title_len": 80,
+      "meta_description": "We tested every major piano app. Here are the top free and paid ones that really work for beginners, kids, and adults in 2026.",
+      "meta_description_len": 126,
+      "h1_count": 1,
+      "h1s": [
+        "Best Free & Paid Piano Learning Apps in 2026 (Tested & Ranked for Real Learning)"
+      ],
+      "h2_count": 11,
+      "canonical": "https://pianoers.com/best-free-piano-learning-apps/",
+      "og_title": "Best Free & Paid Piano Learning Apps in 2026 (Tested & Ranked for Real Learning)",
+      "og_description": "We tested every major piano app. Here are the top free ones that really work for beginners, kids, and adults in 2026.",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2025/10/best-free-piano-learning-apps.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "ItemList"
+      ],
+      "image_count": 13,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1385,
+      "internal_link_count": 20,
+      "external_link_count": 9,
+      "external_links_sample": [
+        "https://www.youtube.com/@PianoteOfficial",
+        "https://www.hoffmanacademy.com/",
+        "https://yousician.com/piano",
+        "https://ghost.org/",
+        "https://www.pianote.com/",
+        "https://www.flowkey.com/",
+        "https://pianomarvel.com/?promoCode=PIANOERS",
+        "https://simplypiano.sjv.io/pianoers",
+        "https://www.skoove.com/"
+      ],
+      "nofollow_external_count": 7
+    },
+    "https://pianoers.com/synthesia-piano-review/": {
+      "status_code": 200,
+      "title": "Synthesia Piano Review (2026): Fun Piano Game or Fast Track to Nowhere?",
+      "title_len": 71,
+      "meta_description": "Is Synthesia actually a good way to learn piano? Or is it just another dopamine-fueled shortcut that leaves you stuck? Find out.",
+      "meta_description_len": 128,
+      "h1_count": 1,
+      "h1s": [
+        "Synthesia Piano Review (2026): Fun Piano Game or Fast Track to Nowhere?"
+      ],
+      "h2_count": 7,
+      "canonical": "https://pianoers.com/synthesia-piano-review/",
+      "og_title": "Synthesia Piano Review (2026): Fun Piano Game or Fast Track to Nowhere?",
+      "og_description": "Is Synthesia actually a good way to learn piano? Or is it just another dopamine-fueled shortcut that leaves you stuck? Find out.",
+      "og_image": "https://pianoers.com/content/images/2025/05/Synthesia-Piano-Review-Pianoers.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "Review"
+      ],
+      "image_count": 8,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1108,
+      "internal_link_count": 22,
+      "external_link_count": 3,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://synthesiagame.com/",
+        "https://en.wikipedia.org/wiki/Guitar_Hero"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/stephen-ridley/": {
+      "status_code": 200,
+      "title": "Stephen Ridley's Piano Academy: The Disturbing Truth",
+      "title_len": 52,
+      "meta_description": "Uncover the truth about Stephen Ridley's Piano Academy: Debunked credentials, overhyped Ridley Method, Scientology ties, and why the $1,400 course is a scam.",
+      "meta_description_len": 157,
+      "h1_count": 1,
+      "h1s": [
+        "Stephen Ridley's Piano Academy: The Disturbing Truth"
+      ],
+      "h2_count": 3,
+      "canonical": "https://pianoers.com/stephen-ridley/",
+      "og_title": "Stephen Ridley's Piano Academy: The Disturbing Truth",
+      "og_description": "Uncover the truth about Stephen Ridley's Piano Academy: Debunked credentials, overhyped Ridley Method, Scientology ties, and why the $1,400 course is a scam.",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2023/12/Stephen-Ridley-Profile.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "Review"
+      ],
+      "image_count": 9,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1475,
+      "internal_link_count": 19,
+      "external_link_count": 3,
+      "external_links_sample": [
+        "https://en.wikipedia.org/wiki/Stevie_Wonder",
+        "https://ghost.org/",
+        "https://www.youtube.com/watch?v=5pidokakU4I"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/piano-with-jonny-review/": {
+      "status_code": 200,
+      "title": "Piano With Jonny Review: Honest Pros, Cons & Best Alternatives",
+      "title_len": 62,
+      "meta_description": "In-depth Piano With Jonny review. Real pricing, who it\u2019s best for, and how it compares to Simply Piano, Pianote, flowkey, and Pianoforall.",
+      "meta_description_len": 138,
+      "h1_count": 1,
+      "h1s": [
+        "Piano With Jonny - In-Depth Review"
+      ],
+      "h2_count": 1,
+      "canonical": "https://pianoers.com/piano-with-jonny-review/",
+      "og_title": "Piano With Jonny Review: Honest Pros, Cons & Best Alternatives",
+      "og_description": "Are you considering signing up for Piano With Jonny? Before you do, it's important to take a closer look.",
+      "og_image": "https://pianoers.com/content/images/2024/11/Piano-with-Jonny---In-Depth-Review.jpeg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 8,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 994,
+      "internal_link_count": 22,
+      "external_link_count": 2,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://pianowithjonny.com/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/open-studio-jazz-review/": {
+      "status_code": 200,
+      "title": "Open Studio Jazz Review: Learn Jazz Piano Online?",
+      "title_len": 49,
+      "meta_description": "Our detailed Open Studio Jazz review examines courses, instructors, cost & learning experience for jazz piano online. Is it the best platform for you?",
+      "meta_description_len": 150,
+      "h1_count": 1,
+      "h1s": [
+        "Open Studio Jazz Review: Is This the Secret Sauce for Becoming a Jazz Ninja?"
+      ],
+      "h2_count": 0,
+      "canonical": "https://pianoers.com/open-studio-jazz-review/",
+      "og_title": "Open Studio Jazz Review: Learn Jazz Piano Online?",
+      "og_description": "Our detailed Open Studio Jazz review examines courses, instructors, cost & learning experience for jazz piano online. Is it the best platform for you?",
+      "og_image": "https://pianoers.com/content/images/2025/02/Case-study-hero-825x483-Open-studio-min-1--3fe065efa807efbf.png",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 11,
+      "images_missing_alt_count": 3,
+      "images_missing_alt_sample": [
+        "https://pianoers.com/content/images/2025/04/image-1.png",
+        "https://pianoers.com/content/images/icon/apple-touch-icon-4.png",
+        "https://pianoers.com/content/images/thumbnail/Best-Online-Piano-Lessons-1.jpg"
+      ],
+      "word_count": 1168,
+      "internal_link_count": 19,
+      "external_link_count": 3,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://en.wikipedia.org/wiki/Christian_McBride",
+        "https://www.openstudiojazz.com/courses/jazz-piano-for-beginners/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/flowkey-review/": {
+      "status_code": 200,
+      "title": "Flowkey Review: Is It Really the Best App to Learn Piano Online?",
+      "title_len": 64,
+      "meta_description": "Our honest Flowkey review covers features, pros, cons, pricing & user experience. See if this popular piano learning app is the right choice for you in 2026.",
+      "meta_description_len": 157,
+      "h1_count": 1,
+      "h1s": [
+        "Flowkey Review: Is It Really the Best App to Learn Piano Online?"
+      ],
+      "h2_count": 12,
+      "canonical": "https://pianoers.com/flowkey-review/",
+      "og_title": "Flowkey Review: Is It Really the Best App to Learn Piano Online?",
+      "og_description": "Our honest Flowkey review covers features, pros, cons, pricing & user experience. See if this popular piano learning app is the right choice for you in 2026.",
+      "og_image": "https://pianoers.com/content/images/2024/01/Flowkey.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "Review"
+      ],
+      "image_count": 11,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1434,
+      "internal_link_count": 23,
+      "external_link_count": 1,
+      "external_links_sample": [
+        "https://ghost.org/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/cole-lam-the-piano-prodigy/": {
+      "status_code": 200,
+      "title": "Cole Lam: The Viral Piano Prodigy | His Story & Music",
+      "title_len": 53,
+      "meta_description": "Meet Cole Lam, the sensational young piano prodigy known for his viral street performances. Explore his story, incredible talent, and musical journey.",
+      "meta_description_len": 150,
+      "h1_count": 1,
+      "h1s": [
+        "Cole Lam - The Piano Prodigy Drawing Huge Crowds in Public"
+      ],
+      "h2_count": 0,
+      "canonical": "https://pianoers.com/cole-lam-the-piano-prodigy/",
+      "og_title": "Cole Lam: The Viral Piano Prodigy | His Story & Music",
+      "og_description": "Meet Cole Lam, the sensational young piano prodigy known for his viral street performances. Explore his story, incredible talent, and musical journey.",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2023/10/Cole-Lam.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 5,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 954,
+      "internal_link_count": 17,
+      "external_link_count": 6,
+      "external_links_sample": [
+        "https://en.wikipedia.org/wiki/Andrew_Lloyd_Webber",
+        "https://www.facebook.com/ColeLam2007",
+        "https://www.musicnotes.com/sheet-music/artist/cole-lam",
+        "https://ghost.org/",
+        "https://www.eltonjohn.com/",
+        "https://www.youtube.com/@ColeLam"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/lang-lang-the-biography/": {
+      "status_code": 200,
+      "title": "Lang Lang: The Biography | His Life & Incredible Career",
+      "title_len": 55,
+      "meta_description": "Discover the inspiring life story of global piano superstar Lang Lang. Explore his journey from child prodigy to world-renowned virtuoso in this detailed biography.",
+      "meta_description_len": 164,
+      "h1_count": 1,
+      "h1s": [
+        "Lang Lang: The Biography"
+      ],
+      "h2_count": 8,
+      "canonical": "https://pianoers.com/lang-lang-the-biography/",
+      "og_title": "Lang Lang: The Biography | His Life & Incredible Career",
+      "og_description": "Discover the inspiring life story of global piano superstar Lang Lang. Explore his journey from child prodigy to world-renowned virtuoso in this detailed biography.",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2024/02/Lang-Lang-Biography.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article",
+        "Person"
+      ],
+      "image_count": 5,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1721,
+      "internal_link_count": 19,
+      "external_link_count": 10,
+      "external_links_sample": [
+        "https://www.langlang.com/",
+        "https://www.hellomagazine.com/brides/2019060973972/lang-lang-wedding-gina-alice-redlinger-exclusive/",
+        "https://ghost.org/",
+        "https://www.newyorker.com/goings-on-about-town/composer-portraits-02-12-24",
+        "https://www.deutschegrammophon.com/",
+        "https://www.langlang.com",
+        "https://www.youtube.com/watch?v=rsF1-QRxXoE&pp=ygUTbGFuZyBsYW5nIGludGVydmlldw%3D%3D",
+        "https://news.un.org/en/story/2004/05/104262",
+        "https://www.youtube.com/watch?v=cAOfUZUiZhM",
+        "https://www.langlangfoundation.org/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/teach-yourself-piano/": {
+      "status_code": 200,
+      "title": "How to learn piano by yourself: A Step-by-Step Guide",
+      "title_len": 52,
+      "meta_description": "Learning to play the piano can be a rewarding journey. This step-by-step guide will walk you through the process, from the very basics to more advanced techniques. Remember, learning an instrument takes time and patience, so don't rush through these steps. Enjoy the process!",
+      "meta_description_len": 275,
+      "h1_count": 1,
+      "h1s": [
+        "How to learn piano by yourself: A Step-by-Step Guide"
+      ],
+      "h2_count": 21,
+      "canonical": "https://pianoers.com/teach-yourself-piano/",
+      "og_title": "How to learn piano by yourself: A Step-by-Step Guide",
+      "og_description": "Learning to play the piano can be a rewarding journey. This step-by-step guide will walk you through the process, from the very basics to more advanced techniques. Remember, learning an instrument takes time and patience, so don't rush through these steps. Enjoy the process!",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2025/06/Learn-piano-by-yourself-online.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 15,
+      "images_missing_alt_count": 1,
+      "images_missing_alt_sample": [
+        "https://pianoers.com/content/images/2024/09/image-1.png"
+      ],
+      "word_count": 2411,
+      "internal_link_count": 28,
+      "external_link_count": 16,
+      "external_links_sample": [
+        "https://www.tiktok.com/tag/musictheory?refer=embed",
+        "https://sightreading.training/",
+        "https://www.musictheory.net/",
+        "https://www.tiktok.com/tag/beginnerpianolesson?refer=embed",
+        "https://www.tiktok.com/tag/pianoexercise?refer=embed",
+        "https://ghost.org/",
+        "https://www.tiktok.com/music/original-sound-7491145382223809310?refer=embed",
+        "https://en.wikipedia.org/wiki/K._Anders_Ericsson",
+        "https://www.tiktok.com/tag/easypianolessons?refer=embed",
+        "https://www.tiktok.com/tag/metronome?refer=embed"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/5-best-piano-methods-to-learn-quickly/": {
+      "status_code": 200,
+      "title": "5 Best Piano Methods To Learn Quickly",
+      "title_len": 37,
+      "meta_description": "Learn piano quickly! We review the top 5 piano methods focused on efficiency and fast results. Find the best technique for your learning style today.",
+      "meta_description_len": 149,
+      "h1_count": 1,
+      "h1s": [
+        "5 Best Piano Methods To Learn Quickly"
+      ],
+      "h2_count": 2,
+      "canonical": "https://pianoers.com/5-best-piano-methods-to-learn-quickly/",
+      "og_title": "5 Best Piano Methods To Learn Quickly",
+      "og_description": "Learn piano quickly! We review the top 5 piano methods focused on efficiency and fast results. Find the best technique for your learning style today.",
+      "og_image": "https://images.unsplash.com/photo-1593697821178-c4c24e92d4ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDEwfHxwaWFubyUyMG1ldGhvZHxlbnwwfHx8fDE2NTY3NDA2NjI&ixlib=rb-1.2.1&q=80&w=2000",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 8,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1313,
+      "internal_link_count": 20,
+      "external_link_count": 3,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit",
+        "https://unsplash.com/@soundtrap?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/how-the-piano-works/": {
+      "status_code": 200,
+      "title": "How the Piano Works: Inside Mechanics Explained",
+      "title_len": 47,
+      "meta_description": "Discover exactly how a piano works, from keys and hammers to soundboard and strings. Simple guide explains acoustic piano action, grand vs upright differences, and the science behind every note.",
+      "meta_description_len": 194,
+      "h1_count": 1,
+      "h1s": [
+        "How The Piano Works: A Keypress Translated into Sound"
+      ],
+      "h2_count": 0,
+      "canonical": "https://pianoers.com/how-the-piano-works/",
+      "og_title": "How the Piano Works: Inside Mechanics Explained",
+      "og_description": "Discover exactly how a piano works, from keys and hammers to soundboard and strings. Simple guide explains acoustic piano action, grand vs upright differences, and the science behind every note.",
+      "og_image": "https://pianoers.com/content/images/2025/05/PianoersBanner-1.png",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 9,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1218,
+      "internal_link_count": 17,
+      "external_link_count": 8,
+      "external_links_sample": [
+        "https://unsplash.com/@photosbyedoardo",
+        "https://unsplash.com/@hiro7jp",
+        "https://ghost.org/",
+        "https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit",
+        "https://unsplash.com/@christianlue?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit",
+        "https://unsplash.com/@markus_gjengaar"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/bastien-piano-method-is-it-the-right-one-for-you/": {
+      "status_code": 200,
+      "title": "Bastien Piano Method Review: Is It Right for You?",
+      "title_len": 49,
+      "meta_description": "Wondering if the Bastien Piano Method is best for you or your child? Updated 2025 review covers pros, cons, age suitability, teaching style, and how it compares to Alfred, Faber, and Suzuki methods.",
+      "meta_description_len": 198,
+      "h1_count": 1,
+      "h1s": [
+        "Bastien Piano Method: Is it the Right One For You?"
+      ],
+      "h2_count": 0,
+      "canonical": "https://pianoers.com/bastien-piano-method-is-it-the-right-one-for-you/",
+      "og_title": "Bastien Piano Method Review: Is It Right for You?",
+      "og_description": "Wondering if the Bastien Piano Method is best for you or your child? Updated 2025 review covers pros, cons, age suitability, teaching style, and how it compares to Alfred, Faber, and Suzuki methods.",
+      "og_image": "https://pianoers.com/content/images/2024/03/Bastien-Piano-Method.png",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 8,
+      "images_missing_alt_count": 2,
+      "images_missing_alt_sample": [
+        "https://pianoers.com/content/images/icon/PianoersIcon-1.png",
+        "https://pianoers.com/content/images/thumbnail/Depositphotos_101129746_s-2019-1-.jpg"
+      ],
+      "word_count": 1224,
+      "internal_link_count": 19,
+      "external_link_count": 1,
+      "external_links_sample": [
+        "https://ghost.org/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/are-piano-keys-still-made-of-ivory/": {
+      "status_code": 200,
+      "title": "Are Piano Keys Still Made of Ivory? History, Ban & Modern Alternatives (2025)",
+      "title_len": 77,
+      "meta_description": "No, piano keys are no longer made of ivory. Since the 1989 global ban, manufacturers use ethical alternatives like Ivorite and acrylic. Learn the full history, why ivory was banned, and what modern piano keys are made of in 2025.",
+      "meta_description_len": 229,
+      "h1_count": 1,
+      "h1s": [
+        "Are Piano Keys Still Made of Ivory?"
+      ],
+      "h2_count": 0,
+      "canonical": "https://pianoers.com/are-piano-keys-still-made-of-ivory/",
+      "og_title": "Are Piano Keys Still Made of Ivory? History, Ban & Modern Alternatives (2025)",
+      "og_description": "No, piano keys are no longer made of ivory. Since the 1989 global ban, manufacturers use ethical alternatives like Ivorite and acrylic. Learn the full history, why ivory was banned, and what modern piano keys are made of in 2025.",
+      "og_image": "https://images.unsplash.com/photo-1577383896998-412e1e07b88c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fHBpYW5vJTIwa2V5fGVufDB8fHx8MTY1NTk3MjMxNQ&ixlib=rb-1.2.1&q=80&w=2000",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 8,
+      "images_missing_alt_count": 1,
+      "images_missing_alt_sample": [
+        "https://images.unsplash.com/photo-1612077216809-1e48cdb1e1b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fHBpYW5vJTIwa2V5fGVufDB8fHx8MTY1NTk3MjMxNQ&ixlib=rb-1.2.1&q=80&w=2000"
+      ],
+      "word_count": 949,
+      "internal_link_count": 18,
+      "external_link_count": 3,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit",
+        "https://unsplash.com/@eric_masur?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/hdpiano-review/": {
+      "status_code": 200,
+      "title": "HDpiano Review (2025): A Pianist's Assesment",
+      "title_len": 44,
+      "meta_description": "In-depth HDpiano review (2025). We analyze their popular piano tutorials, song selection, accuracy, cost & usefulness for learning your favorite songs quickly.",
+      "meta_description_len": 159,
+      "h1_count": 1,
+      "h1s": [
+        "HDPiano Review: Can You Really Learn Songs Fast or Is It Just Hype?"
+      ],
+      "h2_count": 9,
+      "canonical": "https://pianoers.com/hdpiano-review/",
+      "og_title": "HDpiano Review (2025): A Pianist's Assesment",
+      "og_description": "In-depth HDpiano review (2025). We analyze their popular piano tutorials, song selection, accuracy, cost & usefulness for learning your favorite songs quickly.",
+      "og_image": "https://pianoers.com/content/images/2024/11/HDPiano-Review-Pianoers.com.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 9,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1268,
+      "internal_link_count": 21,
+      "external_link_count": 2,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://hdpiano.com/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/piano-dehumidifier-101-why-it-is-important/": {
+      "status_code": 200,
+      "title": "Piano Dehumidifier: Why Your Piano Needs One (And How to Choose the Right One)",
+      "title_len": 78,
+      "meta_description": "Grand, upright, or digital piano, here\u2019s everything you need to know about piano dehumidifiers: what they are, how to pick the right one, and how to use them without frying your instrument.",
+      "meta_description_len": 189,
+      "h1_count": 1,
+      "h1s": [
+        "Piano Dehumidifier: Why Your Piano Needs One (And How to Choose the Right One)"
+      ],
+      "h2_count": 9,
+      "canonical": "https://pianoers.com/piano-dehumidifier-101-why-it-is-important/",
+      "og_title": "Piano Dehumidifier: Why Your Piano Needs One (And How to Choose the Right One)",
+      "og_description": "A piano dehumidifier keeps your keyboard action smooth, solves sticking keys, and can even keep your piano in tune longer!",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2025/05/Piano-Dehumidifier-Pianoers.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 14,
+      "images_missing_alt_count": 3,
+      "images_missing_alt_sample": [
+        "https://pianoers.com/content/images/icon/apple-touch-icon-1.png",
+        "https://pianoers.com/content/images/thumbnail/best-beginner-pianos-1.jpg",
+        "https://pianoers.com/content/images/2025/05/image-8.png"
+      ],
+      "word_count": 1207,
+      "internal_link_count": 18,
+      "external_link_count": 5,
+      "external_links_sample": [
+        "https://www.pianolifesaver.com/find-your-system/#solutions",
+        "https://ghost.org/",
+        "https://www.thespruce.com/best-dehumidifiers-4109621",
+        "https://www.pianofarm.com/store/p23/Gand_Piano_Dehumidification_Heater_Bar_System.html",
+        "https://sercalia.com/en/moisture-absorbents/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/piano-tuning-when-and-why-its-needed/": {
+      "status_code": 200,
+      "title": "Piano Tuning: When and Why It's Needed",
+      "title_len": 38,
+      "meta_description": "The secrets of piano tuning and why it's essential for optimal sound and longevity, explained by an accomplished concert pianist.",
+      "meta_description_len": 129,
+      "h1_count": 1,
+      "h1s": [
+        "Piano Tuning: When and Why It's Needed"
+      ],
+      "h2_count": 4,
+      "canonical": "https://pianoers.com/piano-tuning-when-and-why-its-needed/",
+      "og_title": "Piano Tuning: When and Why It's Needed",
+      "og_description": "The secrets of piano tuning and why it's essential for optimal sound and longevity, explained by an accomplished concert pianist.",
+      "og_image": "https://pianoers.com/content/images/2024/05/Tuning-a-Piano.webp",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 6,
+      "images_missing_alt_count": 1,
+      "images_missing_alt_sample": [
+        "/content/images/size/w1200/2024/05/Tuning-a-Piano.webp"
+      ],
+      "word_count": 2171,
+      "internal_link_count": 17,
+      "external_link_count": 5,
+      "external_links_sample": [
+        "https://www.reddit.com/r/piano/comments/z8tk71/some_thoughts_after_diy_tuning_my_piano/",
+        "https://ghost.org/",
+        "https://portal.ptg.org/technician/find",
+        "https://www.explainthatstuff.com/piano.html",
+        "https://artisanpianos.com/blogs/blog/piano-tuning-recommendations-by-manufacturer"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/skoove-review/": {
+      "status_code": 200,
+      "title": "Skoove Review (2025): Is This Piano Learning App Effective?",
+      "title_len": 59,
+      "meta_description": "Our in-depth Skoove review (2025) analyzes features, lesson quality, AI feedback, cost & effectiveness. See if this interactive piano app is right for you.",
+      "meta_description_len": 155,
+      "h1_count": 1,
+      "h1s": [
+        "Skoove Review: The Best Way to Learn Piano Online? (2025)"
+      ],
+      "h2_count": 8,
+      "canonical": "https://pianoers.com/skoove-review/",
+      "og_title": "Skoove Review (2025): Is This Piano Learning App Effective?",
+      "og_description": "Our in-depth Skoove review (2025) analyzes features, lesson quality, AI feedback, cost & effectiveness. See if this interactive piano app is right for you.",
+      "og_image": "https://pianoers.com/content/images/2024/01/Skoove-Review.jpeg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 11,
+      "images_missing_alt_count": 1,
+      "images_missing_alt_sample": [
+        "https://pianoers.com/content/images/2024/01/Skoove-Pricing.png"
+      ],
+      "word_count": 1317,
+      "internal_link_count": 18,
+      "external_link_count": 2,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://www.skoove.com/en"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/worship-music-academy-review/": {
+      "status_code": 200,
+      "title": "Worship Music Academy Review (2025): In-Depth Look",
+      "title_len": 50,
+      "meta_description": "In-depth Worship Music Academy review (2025). Explore courses, teaching style, cost & effectiveness for learning piano for worship. Is it right for you?",
+      "meta_description_len": 152,
+      "h1_count": 1,
+      "h1s": [
+        "Worship Piano Music Academy Review: An In-Depth Look (2025)"
+      ],
+      "h2_count": 0,
+      "canonical": "https://pianoers.com/worship-music-academy-review/",
+      "og_title": "Worship Music Academy Review (2025): In-Depth Look",
+      "og_description": "In-depth Worship Music Academy review (2025). Explore courses, teaching style, cost & effectiveness for learning piano for worship. Is it right for you?",
+      "og_image": "https://pianoers.com/content/images/2024/02/WMA.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 6,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1000,
+      "internal_link_count": 19,
+      "external_link_count": 2,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://worshipmusicacademy.com/worship-piano-beginner-to-pro-2-0-homepage-offer/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/piano-career-academy-review/": {
+      "status_code": 200,
+      "title": "Piano Career Academy Review: A Pianist's Honest Assessment (2025)",
+      "title_len": 65,
+      "meta_description": "Is Piano Career Academy the right fit for your musical journey? Get an in-depth review from a concert pianist, covering curriculum, teaching style, value, and more.",
+      "meta_description_len": 164,
+      "h1_count": 1,
+      "h1s": [
+        "Piano Career Academy Review: A Pianist's Honest Assessment (2025)"
+      ],
+      "h2_count": 6,
+      "canonical": "https://pianoers.com/piano-career-academy-review/",
+      "og_title": "Piano Career Academy Review: A Pianist's Honest Assessment (2025)",
+      "og_description": "Is Piano Career Academy the right fit for your musical journey? Get an in-depth review from a concert pianist, covering curriculum, teaching style, value, and more.",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2024/05/Piano-Career-Academy---Review.jpg",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 10,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 2146,
+      "internal_link_count": 17,
+      "external_link_count": 5,
+      "external_links_sample": [
+        "https://www.pianocareeracademy.com/",
+        "https://ghost.org/",
+        "https://amtap.md/en/",
+        "https://forum.pianoworld.com/ubbthreads.php/topics/2177156/Re:_Piano_Career_Academy_anyon.html",
+        "https://www.pianocareeracademy.com/faqs#:~:text=2.%20What%20is%20the%20Russian%20piano%20school%3F"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/piano-practice-4-tips-to-successful-sessions/": {
+      "status_code": 200,
+      "title": "Piano Practice: 4 Tips To Successful Sessions",
+      "title_len": 45,
+      "meta_description": "Improve your piano practice with expert tips from a concert pianist. Learn how to make the most of your time at the piano and reach your full musical potential.",
+      "meta_description_len": 160,
+      "h1_count": 1,
+      "h1s": [
+        "Piano Practice: 4 Tips To Successful Sessions"
+      ],
+      "h2_count": 6,
+      "canonical": "https://pianoers.com/piano-practice-4-tips-to-successful-sessions/",
+      "og_title": "Piano Practice: 4 Tips To Successful Sessions",
+      "og_description": "Improve your piano practice with expert tips from a concert pianist. Learn how to make the most of your time at the piano and reach your full musical potential.",
+      "og_image": "https://images.unsplash.com/photo-1513883049090-d0b7439799bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fHBpYW5vJTIwcGxheXxlbnwwfHx8fDE2NTY3NDA0OTA&ixlib=rb-1.2.1&q=80&w=2000",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 6,
+      "images_missing_alt_count": 2,
+      "images_missing_alt_sample": [
+        "https://images.unsplash.com/photo-1513883049090-d0b7439799bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fHBpYW5vJTIwcGxheXxlbnwwfHx8fDE2NTY3NDA0OTA&ixlib=rb-1.2.1&q=80&w=1200",
+        "https://images.unsplash.com/photo-1628199699161-88d65311fd28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDI5fHxwaWFub3xlbnwwfHx8fDE2NTU3OTg5NTU&ixlib=rb-1.2.1&q=80&w=2000"
+      ],
+      "word_count": 2097,
+      "internal_link_count": 14,
+      "external_link_count": 3,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://pomofocus.io",
+        "https://theobjective.substack.com/p/the-power-of-setting-goals#:~:text=The%20Power%20of%20SMART%20Goals"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/how-to-tune-a-piano-a-simple-guide/": {
+      "status_code": 200,
+      "title": "How to Tune a Piano: A Simple Guide",
+      "title_len": 35,
+      "meta_description": null,
+      "meta_description_len": 0,
+      "h1_count": 1,
+      "h1s": [
+        "How to Tune a Piano: A Simple Guide"
+      ],
+      "h2_count": 2,
+      "canonical": "https://pianoers.com/how-to-tune-a-piano-a-simple-guide/",
+      "og_title": "How to Tune a Piano: A Simple Guide",
+      "og_description": "Why learn how to tune a piano?\n\nWe are all looking for ways to save a little money. Tuning your own piano could save you anywhere from a couple of hundred dollars (if you tune once or twice per year) to much more.\n\nIf you just plain love all things",
+      "og_image": "https://pianoers.com/content/images/2024/06/piano-tuning-1.webp",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 8,
+      "images_missing_alt_count": 1,
+      "images_missing_alt_sample": [
+        "https://images.unsplash.com/photo-1576487236230-eaa4afe9b453?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDE2fHxwaWFub3xlbnwwfHx8fDE2NTUzODYyNzE&ixlib=rb-1.2.1&q=80&w=2000"
+      ],
+      "word_count": 1679,
+      "internal_link_count": 17,
+      "external_link_count": 6,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit",
+        "https://unsplash.com/@zachlez?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit",
+        "http://piano.detwiler.us",
+        "http://forum.pianoworld.com/ubbthreads.php/forums/3/1/piano-tuner-technicians-forum.html",
+        "http://piano.detwiler.us/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/ahmad-jamal-biography/": {
+      "status_code": 200,
+      "title": "Ahmad Jamal: Biography, Musical Style & Videos",
+      "title_len": 46,
+      "meta_description": null,
+      "meta_description_len": 0,
+      "h1_count": 1,
+      "h1s": [
+        "Ahmad Jamal: Biography, Musical Style & Videos"
+      ],
+      "h2_count": 3,
+      "canonical": "https://pianoers.com/ahmad-jamal-biography/",
+      "og_title": "Ahmad Jamal: Biography, Musical Style & Videos",
+      "og_description": "Ahmad Jamal recorded his first album known as \u2018Ahmad\u2019s Blues\u2019 on the Okeh Records. His other records included the folk tune of the time Poinciana and Billy Boy. He recorded his first Argo Records which had the album New Rhumba, Medley, It Ain\u2019t Necessarily so, and Excerpts from",
+      "og_image": "https://pianoers.com/content/images/2024/06/Ahmad-Jamal-Biography.webp",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 7,
+      "images_missing_alt_count": 0,
+      "images_missing_alt_sample": [],
+      "word_count": 1285,
+      "internal_link_count": 16,
+      "external_link_count": 2,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://www.arts.gov/honors/jazz/brief-history-nea-jazz-masters-fellowships"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/piano-diy-repair-guide/": {
+      "status_code": 200,
+      "title": "Piano SOS: DIY Hacks for Keeping Your Instrument in Tune",
+      "title_len": 56,
+      "meta_description": "Is your piano sounding more like a clunker than a concert grand? Don't panic! This DIY guide will teach you how to troubleshoot common issues and keep your instrument singing.",
+      "meta_description_len": 175,
+      "h1_count": 1,
+      "h1s": [
+        "Piano SOS: DIY Hacks for Keeping Your Instrument in Tune (Literally)"
+      ],
+      "h2_count": 3,
+      "canonical": "https://pianoers.com/piano-diy-repair-guide/",
+      "og_title": "Piano SOS: DIY Hacks for Keeping Your Instrument in Tune",
+      "og_description": "Is your piano sounding more like a clunker than a concert grand? Don't panic! This DIY guide will teach you how to troubleshoot common issues and keep your instrument singing.",
+      "og_image": "https://pianoers.com/content/images/size/w1200/2024/06/DIY-Piano-Repairs.webp",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 13,
+      "images_missing_alt_count": 1,
+      "images_missing_alt_sample": [
+        "/content/images/size/w1200/2024/06/DIY-Piano-Repairs.webp"
+      ],
+      "word_count": 2092,
+      "internal_link_count": 17,
+      "external_link_count": 2,
+      "external_links_sample": [
+        "https://ghost.org/",
+        "https://portal.ptg.org/technician/find"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/climate-control-and-your-piano/": {
+      "status_code": 200,
+      "title": "Climate Control and Your Piano: A Guide to Protecting Your Instrument",
+      "title_len": 69,
+      "meta_description": "Discover how temperature and humidity impact your piano's sound and longevity. Learn expert tips from a concert pianist to create the perfect climate for your instrument.",
+      "meta_description_len": 170,
+      "h1_count": 1,
+      "h1s": [
+        "Climate Control and Your Piano: A Guide to Protecting Your Instrument"
+      ],
+      "h2_count": 4,
+      "canonical": "https://pianoers.com/climate-control-and-your-piano/",
+      "og_title": "Climate Control and Your Piano: A Guide to Protecting Your Instrument",
+      "og_description": "Discover how temperature and humidity impact your piano's sound and longevity. Learn expert tips from a concert pianist to create the perfect climate for your instrument.",
+      "og_image": "https://images.unsplash.com/photo-1615414046707-3d7d91938aa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvbmNlcnQlMjBoYWxsfGVufDB8fHx8MTcxNjU0NjAzMnww&ixlib=rb-4.0.3&q=80&w=2000",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 6,
+      "images_missing_alt_count": 1,
+      "images_missing_alt_sample": [
+        "https://images.unsplash.com/photo-1615414046707-3d7d91938aa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDV8fGNvbmNlcnQlMjBoYWxsfGVufDB8fHx8MTcxNjU0NjAzMnww&ixlib=rb-4.0.3&q=80&w=1200"
+      ],
+      "word_count": 2190,
+      "internal_link_count": 17,
+      "external_link_count": 1,
+      "external_links_sample": [
+        "https://ghost.org/"
+      ],
+      "nofollow_external_count": 0
+    },
+    "https://pianoers.com/how-to-clean-and-maintain-your-piano/": {
+      "status_code": 200,
+      "title": "How to Clean and Maintain Your Piano: A Concert Pianist's Guide to a Lifetime of Sound",
+      "title_len": 86,
+      "meta_description": "Learn the essential steps to clean, protect, and prolong the life of your piano, from a professional concert pianist who treats her instrument like family.",
+      "meta_description_len": 155,
+      "h1_count": 1,
+      "h1s": [
+        "How to Clean and Maintain Your Piano: A Concert Pianist's Guide to a Lifetime of Sound"
+      ],
+      "h2_count": 5,
+      "canonical": "https://pianoers.com/how-to-clean-and-maintain-your-piano/",
+      "og_title": "How to Clean and Maintain Your Piano: A Concert Pianist's Guide to a Lifetime of Sound",
+      "og_description": "Learn the essential steps to clean, protect, and prolong the life of your piano, from a professional concert pianist who treats her instrument like family.",
+      "og_image": "https://images.unsplash.com/photo-1479118013749-9f79d55a28d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE1fHxwaWFub3xlbnwwfHx8fDE3MTY1MzU5NTF8MA&ixlib=rb-4.0.3&q=80&w=2000",
+      "robots_meta": null,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 8,
+      "images_missing_alt_count": 1,
+      "images_missing_alt_sample": [
+        "https://images.unsplash.com/photo-1479118013749-9f79d55a28d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE1fHxwaWFub3xlbnwwfHx8fDE3MTY1MzU5NTF8MA&ixlib=rb-4.0.3&q=80&w=1200"
+      ],
+      "word_count": 2197,
+      "internal_link_count": 17,
+      "external_link_count": 9,
+      "external_links_sample": [
+        "https://unsplash.com/@lukeschlanderer",
+        "https://unsplash.com/@catalinsandru",
+        "https://www.steinway.com/news/features/utilty/cleaning-your-piano",
+        "https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit",
+        "https://ghost.org/",
+        "https://www.ptg.org/ptgmain/piano/care/servicing#:~:text=Your%20piano%20will%20perform%20best%20under%20consistent%20conditions%20neither%20too%20wet%20nor%20dry%2C%20optimally%20at%20a%20temperature%20of%2068%20degrees%20F%20and%2042%20percent%20relative%20humidity.",
+        "https://www.pianolifesaver.com/how-it-works/",
+        "https://portal.ptg.org/technician/find"
+      ],
+      "nofollow_external_count": 0
+    }
+  },
+  "errors": {}
+}
