@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import RoofDivider from '../components/RoofDivider.astro';
 
 const services = [
   {
     name: 'Residential Roofing',
     desc: 'Roof replacement, inspections, and repairs built to protect your home for decades.',
     icon: 'M3 11.5L12 4l9 7.5M5 10v9a1 1 0 001 1h12a1 1 0 001-1v-9M9.5 20v-5.5a1 1 0 011-1h3a1 1 0 011 1V20',
+    image: '/images/hero-roof.jpg',
   },
   {
     name: 'Commercial Roofing',
@@ -16,6 +18,7 @@ const services = [
     name: 'Flat Roofing',
     desc: 'TPO, EPDM, and PVC flat roof systems installed and repaired by certified pros.',
     icon: 'M4 8h16M4 8l2-4h12l2 4M4 8v11a1 1 0 001 1h14a1 1 0 001-1V8',
+    image: '/images/brooklyn-project.webp',
   },
   {
     name: 'Emergency Roof Repair',
@@ -26,6 +29,7 @@ const services = [
     name: 'Skylight Installation',
     desc: 'Skylight installation and repair that brings in light without letting in leaks.',
     icon: 'M12 3v2.5M12 18.5V21M4.5 12H3M21 12h-1.5M6 6l1.5 1.5M18 6l-1.5 1.5M6 18l1.5-1.5M18 18l-1.5-1.5M12 8.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z',
+    image: '/images/replaced-roof-staten-island.jpg',
   },
   {
     name: 'Siding & Gutters',
@@ -34,11 +38,20 @@ const services = [
   },
 ];
 
+const badges = [
+  ['/badges/google-guaranteed.png', 'Google Guaranteed'],
+  ['/badges/bbb-seal.svg', 'BBB Accredited'],
+  ['/badges/gaf-master-elite.png', 'GAF Master Elite'],
+  ['/badges/google-5star.png', '5-Star on Google'],
+  ['/badges/yelp-rating.png', '5-Star on Yelp'],
+  ['/badges/licensed-insured.png', 'Licensed & Insured'],
+];
+
 const stats = [
-  { value: '50-Yr', label: 'Manufacturer warranty available' },
-  { value: '100%', label: 'Satisfaction guarantee' },
-  { value: '24/7', label: 'Emergency response' },
-  { value: '5.0★', label: 'Rated on Google & Yelp' },
+  ['50-Yr', 'Manufacturer warranty available'],
+  ['100%', 'Satisfaction guarantee'],
+  ['24/7', 'Emergency response'],
+  ['5.0★', 'Rated on Google & Yelp'],
 ];
 
 const steps = [
@@ -61,6 +74,12 @@ const steps = [
 ];
 
 const areas = ['Staten Island', 'Brooklyn', 'Manhattan', 'New York City'];
+
+const gallery = [
+  ['/images/hero-roof.jpg', 'Residential re-roof, Staten Island'],
+  ['/images/replaced-roof-staten-island.jpg', 'Full roof replacement, Staten Island'],
+  ['/images/brooklyn-project.webp', 'Roofing project, Brooklyn'],
+];
 ---
 
 <Layout
@@ -68,164 +87,174 @@ const areas = ['Staten Island', 'Brooklyn', 'Manhattan', 'New York City'];
   description="Licensed & insured roofing contractor serving Staten Island, Brooklyn, Manhattan and NYC. Free inspections, 24/7 emergency repair, and up to a 50-year warranty."
 >
   <!-- Hero -->
-  <section class="relative overflow-hidden bg-navy-950">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(246,86,15,0.18),_transparent_55%)]"></div>
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-center">
-      <div>
-        <p class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-ember-300">
-          Serving Staten Island, Brooklyn, Manhattan &amp; NYC
-        </p>
-        <h1 class="mt-6 font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.05]">
-          The Roofing Company Where You&rsquo;re
-          <span class="text-ember-400">More Than a Job Number</span>
-        </h1>
-        <p class="mt-6 text-lg text-navy-200 max-w-xl leading-relaxed">
-          Residential and commercial roofing, flat roofs, siding, gutters, and 24/7 emergency
-          repair &mdash; backed by honest communication, premium materials, and a 100% satisfaction guarantee.
-        </p>
-        <div class="mt-9 flex flex-wrap items-center gap-4">
-          <a href="#contact" class="rounded-xl bg-ember-500 px-7 py-4 text-base font-bold text-white shadow-card hover:bg-ember-600 transition-colors">
-            Get My Free Estimate
-          </a>
-          <a href="tel:+19293701552" class="rounded-xl border border-white/20 px-7 py-4 text-base font-bold text-white hover:bg-white/10 transition-colors">
-            Call (929) 370-1552
-          </a>
-        </div>
-        <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-navy-300">
-          <span class="font-semibold text-white">Trusted by homeowners &amp; businesses:</span>
-          <span>Google Guaranteed</span>
-          <span class="h-1 w-1 rounded-full bg-navy-600"></span>
-          <span>BBB Accredited</span>
-          <span class="h-1 w-1 rounded-full bg-navy-600"></span>
-          <span>GAF Master Elite</span>
-        </div>
-      </div>
+  <section class="relative overflow-hidden bg-ink-950">
+    <div class="absolute inset-0">
+      <img src="/images/hero-roof.jpg" alt="" class="h-full w-full object-cover opacity-45" />
+      <div class="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/90 to-ink-950/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-transparent"></div>
+    </div>
 
-      <div class="relative">
-        <div class="aspect-[4/5] w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-          <img
-            src="/images/hero-roof.jpg"
-            alt="Completed roofing project by Alter Phase Roofing"
-            class="h-full w-full object-cover"
-          />
-        </div>
-        <div class="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-card">
-          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-ember-50 text-ember-600 font-display font-bold">50</span>
-          <span class="text-xs font-semibold text-navy-700 leading-snug">Year manufacturer<br/>warranty available</span>
-        </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 lg:pt-28 pb-32 lg:pb-40">
+      <p class="inline-flex items-center gap-2 rounded-full border border-copper-400/40 bg-copper-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-copper-300">
+        Staten Island &middot; Brooklyn &middot; Manhattan &middot; NYC
+      </p>
+      <h1 class="mt-7 font-display font-semibold text-5xl sm:text-6xl lg:text-7xl text-cream leading-[1.02] text-balance max-w-4xl">
+        The roofing company where you&rsquo;re
+        <em class="not-italic text-copper-400">more than a job number.</em>
+      </h1>
+      <p class="mt-7 text-lg text-ink-200 max-w-xl leading-relaxed">
+        Residential and commercial roofing, flat roofs, siding, gutters, and 24/7 emergency
+        repair &mdash; backed by honest communication, premium materials, and a 100% satisfaction guarantee.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4">
+        <a href="#contact" class="rounded-full bg-copper-500 px-8 py-4 text-base font-bold text-cream shadow-lift hover:bg-copper-600 transition-colors">
+          Get My Free Estimate
+        </a>
+        <a href="tel:+19293701552" class="rounded-full border border-cream/25 px-8 py-4 text-base font-bold text-cream hover:bg-cream/10 transition-colors">
+          Call (929) 370-1552
+        </a>
       </div>
     </div>
+
+    <RoofDivider fill="#F3EADA" class="absolute bottom-0 left-0" />
   </section>
 
-  <!-- Stats bar -->
-  <section class="border-b border-navy-100">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-2 lg:grid-cols-4 gap-8">
-      {stats.map((s) => (
-        <div class="text-center lg:text-left">
-          <p class="font-display font-extrabold text-3xl text-navy-900">{s.value}</p>
-          <p class="mt-1 text-sm text-navy-500">{s.label}</p>
+  <!-- Marquee trust ticker -->
+  <section class="bg-cream-soft py-6 overflow-hidden pause-on-hover">
+    <div class="flex w-max animate-marquee gap-16">
+      {[...badges, ...badges].map(([src, alt]) => (
+        <div class="flex items-center gap-3 opacity-80">
+          <img src={src} alt={alt} class="h-10 w-auto object-contain" />
         </div>
       ))}
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="py-20 lg:py-28 bg-navy-50/60">
+  <section id="services" class="py-24 lg:py-32 bg-cream">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-ember-600">What We Do</p>
-        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-navy-900">Full-Service Roofing, Siding &amp; Gutters</h2>
-        <p class="mt-4 text-navy-600 leading-relaxed">
-          One team for everything above your walls &mdash; from a single repair to a full replacement.
-        </p>
+        <p class="text-sm font-bold uppercase tracking-[0.15em] text-copper-600">What We Do</p>
+        <h2 class="mt-4 font-display font-semibold text-4xl sm:text-5xl text-ink-900 text-balance">
+          Full-service roofing, siding &amp; gutters
+        </h2>
       </div>
 
-      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((s) => (
-          <div class="group rounded-2xl bg-white border border-navy-100 p-7 shadow-card hover:-translate-y-1 transition-transform">
-            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-800 text-white group-hover:bg-ember-500 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-6 w-6">
-                <path d={s.icon} stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <h3 class="mt-5 font-display font-bold text-lg text-navy-900">{s.name}</h3>
-            <p class="mt-2 text-sm text-navy-600 leading-relaxed">{s.desc}</p>
+      <div class="mt-16 divide-y divide-ink-900/10 border-t border-b border-ink-900/10">
+        {services.map((s, i) => (
+          <div class="group grid lg:grid-cols-12 gap-6 lg:gap-10 items-center py-10">
+            <div class="lg:col-span-1">
+              <span class="font-display text-2xl text-ink-300">{`0${i + 1}`}</span>
+            </div>
+            <div class="lg:col-span-2">
+              <span class="flex h-14 w-14 items-center justify-center rounded-full border border-copper-500/30 text-copper-600 group-hover:bg-copper-500 group-hover:text-cream group-hover:border-copper-500 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-6 w-6">
+                  <path d={s.icon} stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+            <div class="lg:col-span-6">
+              <h3 class="font-display font-semibold text-2xl text-ink-900">{s.name}</h3>
+              <p class="mt-2 text-ink-600 leading-relaxed max-w-md">{s.desc}</p>
+            </div>
+            <div class="lg:col-span-3">
+              {s.image && (
+                <div class="h-24 w-full rounded-2xl overflow-hidden">
+                  <img src={s.image} alt="" class="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                </div>
+              )}
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Why us -->
-  <section id="why-us" class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
-      <div>
-        <p class="text-sm font-bold uppercase tracking-wide text-ember-600">Why Homeowners Choose Us</p>
-        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-navy-900">
-          Decades of combined experience. Zero shortcuts.
-        </h2>
-        <p class="mt-5 text-navy-600 leading-relaxed">
-          We operate on three principles: integrity, craftsmanship, and customer service. That
-          means honest evaluations, transparent pricing, and workmanship you can trust &mdash;
-          backed by material and workmanship warranties on every job.
-        </p>
-        <dl class="mt-8 space-y-6">
-          {[
-            ['Efficient Service', 'Quick response times and minimal disruption to your home or business.'],
-            ['Affordable Pricing', 'Competitive rates with budget-friendly solutions and financing options.'],
-            ['Comprehensive Services', 'Full roofing solutions from small repairs to full new installations.'],
-            ['Guaranteed Results', 'Material and workmanship warranties included on every project.'],
-          ].map(([title, desc]) => (
-            <div class="flex gap-4">
-              <span class="mt-1 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-ember-500 text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-3.5 w-3.5">
-                  <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
+  <!-- Why us / credentials -->
+  <section id="why-us" class="relative bg-ink-950 text-cream">
+    <RoofDivider fill="#0C0A07" class="-mt-px" />
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.15em] text-copper-400">Why Homeowners Choose Us</p>
+          <h2 class="mt-4 font-display font-semibold text-4xl sm:text-5xl text-balance">
+            Decades of combined experience. Zero shortcuts.
+          </h2>
+          <p class="mt-6 text-ink-300 leading-relaxed max-w-lg">
+            We operate on three principles: integrity, craftsmanship, and customer service. That
+            means honest evaluations, transparent pricing, and workmanship you can trust &mdash;
+            backed by material and workmanship warranties on every job.
+          </p>
+
+          <dl class="mt-12 grid sm:grid-cols-2 gap-x-8 gap-y-10">
+            {stats.map(([value, label]) => (
               <div>
-                <dt class="font-display font-bold text-navy-900">{title}</dt>
-                <dd class="text-sm text-navy-600 mt-1">{desc}</dd>
+                <dt class="font-display font-semibold text-4xl text-copper-400">{value}</dt>
+                <dd class="mt-2 text-sm text-ink-300 max-w-[16rem]">{label}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div class="lg:pt-2">
+          <div class="rounded-3xl border border-cream/10 bg-cream/5 p-10">
+            <p class="font-display font-semibold text-xl">Licensed, Insured &amp; Bonded</p>
+            <p class="mt-2 text-ink-400 text-sm">License #2129904-DCWP &mdash; NYC Consumer &amp; Worker Protection</p>
+            <div class="mt-8 grid grid-cols-2 gap-4">
+              {badges.slice(0, 4).map(([src, alt]) => (
+                <div class="flex items-center justify-center rounded-xl bg-cream px-4 py-5">
+                  <img src={src} alt={alt} class="h-11 w-auto max-w-full object-contain" />
+                </div>
+              ))}
+            </div>
+            <a href="#contact" class="mt-8 block text-center rounded-full bg-copper-500 px-6 py-4 font-bold text-cream hover:bg-copper-600 transition-colors">
+              Request My Free Estimate
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <RoofDivider fill="#FAF4E9" flip class="-mb-px" />
+  </section>
+
+  <!-- How we work -->
+  <section id="how-we-work" class="py-24 lg:py-32 bg-cream">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <p class="text-sm font-bold uppercase tracking-[0.15em] text-copper-600">How We Work</p>
+        <h2 class="mt-4 font-display font-semibold text-4xl sm:text-5xl text-ink-900 text-balance">
+          From first call to finished roof
+        </h2>
+      </div>
+
+      <div class="mt-16 relative">
+        <div class="absolute left-5 top-2 bottom-2 w-px bg-ink-900/10 hidden sm:block"></div>
+        <div class="space-y-12">
+          {steps.map((step, i) => (
+            <div class="relative flex gap-6 sm:gap-10">
+              <span class="relative z-10 flex h-11 w-11 flex-none items-center justify-center rounded-full bg-copper-500 text-cream font-display font-semibold">
+                {i + 1}
+              </span>
+              <div class="pt-1.5">
+                <h3 class="font-display font-semibold text-xl text-ink-900">{step.title}</h3>
+                <p class="mt-2 text-ink-600 leading-relaxed max-w-xl">{step.desc}</p>
               </div>
             </div>
           ))}
-        </dl>
-      </div>
-
-      <div class="rounded-3xl bg-navy-950 p-10 lg:p-12 text-white">
-        <p class="font-display font-bold text-xl">Licensed, Insured &amp; Bonded</p>
-        <p class="mt-2 text-navy-300 text-sm">License #2129904-DCWP &mdash; NYC Consumer &amp; Worker Protection</p>
-        <div class="mt-8 grid grid-cols-2 gap-4">
-          {[
-            ['/badges/google-guaranteed.png', 'Google Guaranteed'],
-            ['/badges/bbb-seal.svg', 'BBB Accredited'],
-            ['/badges/gaf-master-elite.png', 'GAF Master Elite'],
-            ['/badges/google-5star.png', '5-Star Rated on Google'],
-          ].map(([src, alt]) => (
-            <div class="flex items-center justify-center rounded-xl bg-white border border-white/10 px-4 py-5">
-              <img src={src} alt={alt} class="h-12 w-auto max-w-full object-contain" />
-            </div>
-          ))}
         </div>
-        <a href="#contact" class="mt-8 block text-center rounded-xl bg-ember-500 px-6 py-4 font-bold hover:bg-ember-600 transition-colors">
-          Request My Free Estimate
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- How we work -->
-  <section id="how-we-work" class="py-20 lg:py-28 bg-navy-950 text-white">
+  <!-- Gallery -->
+  <section class="bg-cream pb-24 lg:pb-32">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-ember-400">How We Work</p>
-        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl">From First Call to Finished Roof</h2>
-      </div>
-      <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {steps.map((step, i) => (
-          <div class="relative pl-2">
-            <span class="font-display font-extrabold text-5xl text-white/10">{`0${i + 1}`}</span>
-            <h3 class="mt-2 font-display font-bold text-lg">{step.title}</h3>
-            <p class="mt-3 text-sm text-navy-300 leading-relaxed">{step.desc}</p>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {gallery.map(([src, caption]) => (
+          <div class="group relative aspect-[4/5] rounded-2xl overflow-hidden">
+            <img src={src} alt={caption} class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-transparent"></div>
+            <p class="absolute bottom-4 left-4 right-4 text-sm font-semibold text-cream">{caption}</p>
           </div>
         ))}
       </div>
@@ -233,14 +262,17 @@ const areas = ['Staten Island', 'Brooklyn', 'Manhattan', 'New York City'];
   </section>
 
   <!-- Service area -->
-  <section id="service-area" class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-sm font-bold uppercase tracking-wide text-ember-600">Service Area</p>
-      <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-navy-900">Proudly Serving the NYC Metro Area</h2>
-      <div class="mt-10 flex flex-wrap justify-center gap-4">
-        {areas.map((area) => (
-          <span class="rounded-full border border-navy-200 px-6 py-3 text-sm font-semibold text-navy-700">
-            {area}
+  <section id="service-area" class="relative bg-ink-950 text-cream overflow-hidden">
+    <RoofDivider fill="#FAF4E9" class="absolute top-0 left-0 rotate-180" />
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-24 lg:pt-20 lg:pb-32 text-center">
+      <p class="text-sm font-bold uppercase tracking-[0.15em] text-copper-400">Service Area</p>
+      <h2 class="mt-4 font-display font-semibold text-4xl sm:text-5xl text-balance">
+        Proudly serving the NYC metro area
+      </h2>
+      <div class="mt-12 flex flex-wrap justify-center gap-x-3 gap-y-4">
+        {areas.map((area, i) => (
+          <span class="font-display text-2xl sm:text-3xl text-ink-100">
+            {area}{i < areas.length - 1 && <span class="text-copper-500 mx-3">&middot;</span>}
           </span>
         ))}
       </div>
@@ -248,49 +280,49 @@ const areas = ['Staten Island', 'Brooklyn', 'Manhattan', 'New York City'];
   </section>
 
   <!-- CTA / Contact -->
-  <section id="contact" class="py-20 lg:py-28 bg-navy-50/60">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+  <section id="contact" class="py-24 lg:py-32 bg-cream">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
       <div>
-        <p class="text-sm font-bold uppercase tracking-wide text-ember-600">Get Started</p>
-        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-navy-900">
-          Get a Free Inspection &amp; Estimate
+        <p class="text-sm font-bold uppercase tracking-[0.15em] text-copper-600">Get Started</p>
+        <h2 class="mt-4 font-display font-semibold text-4xl sm:text-5xl text-ink-900 text-balance">
+          Get a free inspection &amp; estimate
         </h2>
-        <p class="mt-4 text-navy-600 leading-relaxed max-w-md">
+        <p class="mt-5 text-ink-600 leading-relaxed max-w-md">
           Tell us about your project and we&rsquo;ll get back to you with an honest evaluation
           and a transparent estimate &mdash; no pressure, no surprises.
         </p>
-        <div class="mt-8 space-y-3 text-sm text-navy-700">
-          <p class="font-semibold">61 Appleby Ave, Staten Island, NY 10305</p>
-          <p><a href="tel:+19293701552" class="font-bold text-navy-900 hover:text-ember-600">(929) 370-1552</a></p>
+        <div class="mt-9 space-y-3 text-sm text-ink-700">
+          <p class="font-semibold text-ink-900">61 Appleby Ave, Staten Island, NY 10305</p>
+          <p><a href="tel:+19293701552" class="font-bold text-ink-900 hover:text-copper-600">(929) 370-1552</a></p>
           <p>info@alterphaseroofing.com</p>
-          <p class="text-navy-500">Mon&ndash;Fri 8AM&ndash;8PM &middot; Sat 8AM&ndash;5PM &middot; Sun Closed</p>
+          <p class="text-ink-500">Mon&ndash;Fri 8AM&ndash;8PM &middot; Sat 8AM&ndash;5PM &middot; Sun Closed</p>
         </div>
       </div>
 
-      <form class="rounded-3xl bg-white border border-navy-100 shadow-card p-8 space-y-5">
+      <form class="rounded-3xl bg-white border border-ink-900/10 shadow-card p-8 space-y-5">
         <div class="grid sm:grid-cols-2 gap-5">
           <div>
-            <label class="text-sm font-semibold text-navy-700" for="firstName">First Name</label>
-            <input id="firstName" name="firstName" type="text" class="mt-1.5 w-full rounded-lg border border-navy-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ember-400" />
+            <label class="text-sm font-semibold text-ink-700" for="firstName">First Name</label>
+            <input id="firstName" name="firstName" type="text" class="mt-1.5 w-full rounded-lg border border-ink-900/15 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-copper-400" />
           </div>
           <div>
-            <label class="text-sm font-semibold text-navy-700" for="lastName">Last Name</label>
-            <input id="lastName" name="lastName" type="text" class="mt-1.5 w-full rounded-lg border border-navy-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ember-400" />
+            <label class="text-sm font-semibold text-ink-700" for="lastName">Last Name</label>
+            <input id="lastName" name="lastName" type="text" class="mt-1.5 w-full rounded-lg border border-ink-900/15 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-copper-400" />
           </div>
         </div>
         <div>
-          <label class="text-sm font-semibold text-navy-700" for="email">Email Address</label>
-          <input id="email" name="email" type="email" class="mt-1.5 w-full rounded-lg border border-navy-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ember-400" />
+          <label class="text-sm font-semibold text-ink-700" for="email">Email Address</label>
+          <input id="email" name="email" type="email" class="mt-1.5 w-full rounded-lg border border-ink-900/15 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-copper-400" />
         </div>
         <div>
-          <label class="text-sm font-semibold text-navy-700" for="phone">Phone Number</label>
-          <input id="phone" name="phone" type="tel" class="mt-1.5 w-full rounded-lg border border-navy-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ember-400" />
+          <label class="text-sm font-semibold text-ink-700" for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" class="mt-1.5 w-full rounded-lg border border-ink-900/15 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-copper-400" />
         </div>
         <div>
-          <label class="text-sm font-semibold text-navy-700" for="details">Details</label>
-          <textarea id="details" name="details" rows="4" class="mt-1.5 w-full rounded-lg border border-navy-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ember-400"></textarea>
+          <label class="text-sm font-semibold text-ink-700" for="details">Details</label>
+          <textarea id="details" name="details" rows="4" class="mt-1.5 w-full rounded-lg border border-ink-900/15 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-copper-400"></textarea>
         </div>
-        <button type="submit" class="w-full rounded-xl bg-ember-500 px-6 py-4 font-bold text-white hover:bg-ember-600 transition-colors">
+        <button type="submit" class="w-full rounded-full bg-copper-500 px-6 py-4 font-bold text-cream hover:bg-copper-600 transition-colors">
           Request My Free Estimate
         </button>
       </form>
