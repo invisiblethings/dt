@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "wordpress": {
+      "type": "http",
+      "url": "https://alterphaseroofing.com/wp-json/easy-mcp-ai/v1/mcp"
+    }
+  }
+}

@@ -1,0 +1,135 @@
+---
+import '../styles/global.css';
+import RoofDivider from '../components/RoofDivider.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const PHONE = '(929) 370-1552';
+const PHONE_TEL = 'tel:+19293701552';
+
+const nav = [
+  { label: 'Services', href: '#services' },
+  { label: 'Why Us', href: '#why-us' },
+  { label: 'Process', href: '#how-we-work' },
+  { label: 'Service Area', href: '#service-area' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/images/favicon-512.png" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-cream text-ink-900">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-3">Skip to content</a>
+
+    <div class="bg-ink-950 text-ink-200 text-sm">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
+        <p class="flex items-center gap-2">
+          <span class="inline-block h-1.5 w-1.5 rounded-full bg-copper-400"></span>
+          24/7 Emergency Roof Repair &mdash; Staten Island, Brooklyn, Manhattan &amp; NYC
+        </p>
+        <a href={PHONE_TEL} class="font-semibold text-cream hover:text-copper-300 transition-colors">{PHONE}</a>
+      </div>
+    </div>
+
+    <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur border-b border-ink-900/10">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <a href="/" class="flex items-center">
+          <img src="/images/logo.png" alt="Alter Phase Roofing Inc." class="h-12 w-auto" />
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8">
+          {nav.map((item) => (
+            <a href={item.href} class="text-sm font-semibold text-ink-700 hover:text-copper-600 transition-colors">
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href={PHONE_TEL} class="hidden sm:flex items-center gap-2 text-sm font-bold text-ink-900">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-4 w-4 text-copper-600">
+              <path d="M3 5a2 2 0 012-2h2.28a1 1 0 01.98.804l.7 3.5a1 1 0 01-.5 1.06L6.6 9.3a11.5 11.5 0 006.1 6.1l.936-1.86a1 1 0 011.06-.5l3.5.7a1 1 0 01.804.98V19a2 2 0 01-2 2h-1C10.163 21 3 13.837 3 5V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            {PHONE}
+          </a>
+          <a href="#contact" class="rounded-full bg-copper-500 px-5 py-2.5 text-sm font-bold text-cream shadow-card hover:bg-copper-600 transition-colors">
+            Free Estimate
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="bg-ink-950 text-ink-200">
+      <RoofDivider fill="#0C0A07" class="-mb-px" />
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 pt-4 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <div class="inline-block rounded-lg bg-cream px-3 py-2 mb-4">
+            <img src="/images/logo.png" alt="Alter Phase Roofing Inc." class="h-9 w-auto" />
+          </div>
+          <p class="text-sm text-ink-400 leading-relaxed">
+            The roofing company where you're more than a job number. Licensed, insured &amp; bonded &mdash; License #2129904-DCWP.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-display font-bold text-cream mb-4 text-sm uppercase tracking-wide">Services</h3>
+          <ul class="space-y-2.5 text-sm text-ink-400">
+            <li>Residential Roofing</li>
+            <li>Commercial Roofing</li>
+            <li>Flat Roofing</li>
+            <li>Emergency Roof Repair</li>
+            <li>Skylight Installation</li>
+            <li>Siding &amp; Gutters</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-display font-bold text-cream mb-4 text-sm uppercase tracking-wide">Service Area</h3>
+          <ul class="space-y-2.5 text-sm text-ink-400">
+            <li>Staten Island, NY</li>
+            <li>Brooklyn, NY</li>
+            <li>Manhattan, NY</li>
+            <li>New York City</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-display font-bold text-cream mb-4 text-sm uppercase tracking-wide">Contact</h3>
+          <ul class="space-y-2.5 text-sm text-ink-400">
+            <li>61 Appleby Ave, Staten Island, NY 10305</li>
+            <li><a href={PHONE_TEL} class="hover:text-cream">{PHONE}</a></li>
+            <li><a href="mailto:info@alterphaseroofing.com" class="hover:text-cream">info@alterphaseroofing.com</a></li>
+            <li class="pt-1 text-ink-500">Mon&ndash;Fri 8AM&ndash;8PM &middot; Sat 8AM&ndash;5PM &middot; Sun Closed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-ink-800">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 text-xs text-ink-500 flex flex-wrap items-center justify-between gap-3">
+          <p>&copy; {new Date().getFullYear()} Alter Phase Roofing Inc. All rights reserved.</p>
+          <p>Preview build &mdash; not yet published</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

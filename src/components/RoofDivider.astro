@@ -1,0 +1,29 @@
+---
+interface Props {
+  fill: string;
+  flip?: boolean;
+  class?: string;
+}
+const { fill, flip = false, class: className = '' } = Astro.props;
+const teeth = 14;
+const width = 1400;
+const toothWidth = width / teeth;
+const height = 46;
+
+let path = `M0,${height} `;
+for (let i = 0; i <= teeth; i++) {
+  const x = i * toothWidth;
+  const y = i % 2 === 0 ? 0 : height;
+  path += `L${x},${y} `;
+}
+path += `L${width},${height} Z`;
+---
+
+<svg
+  class={`block w-full ${flip ? 'rotate-180' : ''} ${className}`}
+  viewBox={`0 0 ${width} ${height}`}
+  preserveAspectRatio="none"
+  aria-hidden="true"
+>
+  <path d={path} fill={fill}></path>
+</svg>
