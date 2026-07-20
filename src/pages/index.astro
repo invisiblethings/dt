@@ -102,14 +102,12 @@ const areas = ['Staten Island', 'Brooklyn', 'Manhattan', 'New York City'];
       </div>
 
       <div class="relative">
-        <div class="aspect-[4/5] w-full rounded-3xl bg-gradient-to-br from-navy-800 to-navy-900 border border-white/10 shadow-2xl flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-28 w-28 text-white/15">
-            <path d="M3 11.5L12 4l9 7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M5 10v9a1 1 0 001 1h12a1 1 0 001-1v-9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="absolute bottom-6 left-6 right-6 rounded-xl bg-white/95 px-4 py-3 text-sm font-semibold text-navy-800 shadow-lg">
-            Project photo placeholder &mdash; drop in real jobsite photography here
-          </span>
+        <div class="aspect-[4/5] w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+          <img
+            src="/images/hero-roof.jpg"
+            alt="Completed roofing project by Alter Phase Roofing"
+            class="h-full w-full object-cover"
+          />
         </div>
         <div class="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-card">
           <span class="flex h-11 w-11 items-center justify-center rounded-full bg-ember-50 text-ember-600 font-display font-bold">50</span>
@@ -197,9 +195,14 @@ const areas = ['Staten Island', 'Brooklyn', 'Manhattan', 'New York City'];
         <p class="font-display font-bold text-xl">Licensed, Insured &amp; Bonded</p>
         <p class="mt-2 text-navy-300 text-sm">License #2129904-DCWP &mdash; NYC Consumer &amp; Worker Protection</p>
         <div class="mt-8 grid grid-cols-2 gap-4">
-          {['Google Guaranteed', 'BBB Accredited', 'GAF Master Elite', '5-Star Rated'].map((badge) => (
-            <div class="rounded-xl bg-white/5 border border-white/10 px-4 py-5 text-center">
-              <p class="text-sm font-semibold">{badge}</p>
+          {[
+            ['/badges/google-guaranteed.png', 'Google Guaranteed'],
+            ['/badges/bbb-seal.svg', 'BBB Accredited'],
+            ['/badges/gaf-master-elite.png', 'GAF Master Elite'],
+            ['/badges/google-5star.png', '5-Star Rated on Google'],
+          ].map(([src, alt]) => (
+            <div class="flex items-center justify-center rounded-xl bg-white border border-white/10 px-4 py-5">
+              <img src={src} alt={alt} class="h-12 w-auto max-w-full object-contain" />
             </div>
           ))}
         </div>

@@ -24,7 +24,7 @@ const nav = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/images/favicon-512.png" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -49,18 +49,8 @@ const nav = [
 
     <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-navy-100">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-2.5">
-          <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-navy-800 text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-5 w-5">
-              <path d="M3 11.5L12 4l9 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M5 10v9a1 1 0 001 1h12a1 1 0 001-1v-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M9.5 20v-5.5a1 1 0 011-1h3a1 1 0 011 1V20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span class="leading-tight">
-            <span class="block font-display font-bold text-lg text-navy-900">Alter Phase</span>
-            <span class="block text-xs font-semibold tracking-wide text-ember-600 uppercase">Roofing Inc.</span>
-          </span>
+        <a href="/" class="flex items-center">
+          <img src="/images/logo.png" alt="Alter Phase Roofing Inc." class="h-12 w-auto" />
         </a>
 
         <nav class="hidden lg:flex items-center gap-8">
@@ -92,14 +82,8 @@ const nav = [
     <footer class="bg-navy-950 text-navy-200">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div class="flex items-center gap-2.5 mb-4">
-            <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-navy-800 text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-4 w-4">
-                <path d="M3 11.5L12 4l9 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M5 10v9a1 1 0 001 1h12a1 1 0 001-1v-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <span class="font-display font-bold text-white">Alter Phase Roofing</span>
+          <div class="inline-block rounded-lg bg-white px-3 py-2 mb-4">
+            <img src="/images/logo.png" alt="Alter Phase Roofing Inc." class="h-9 w-auto" />
           </div>
           <p class="text-sm text-navy-300 leading-relaxed">
             The roofing company where you're more than a job number. Licensed, insured &amp; bonded &mdash; License #2129904-DCWP.
