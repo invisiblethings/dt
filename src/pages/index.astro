@@ -1,0 +1,296 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    name: 'Residential Roofing',
+    desc: 'Roof replacement, inspections, and repairs built to protect your home for decades.',
+    icon: 'M3 11.5L12 4l9 7.5M5 10v9a1 1 0 001 1h12a1 1 0 001-1v-9M9.5 20v-5.5a1 1 0 011-1h3a1 1 0 011 1V20',
+  },
+  {
+    name: 'Commercial Roofing',
+    desc: 'Replacements, inspections, and repairs that minimize downtime for your business.',
+    icon: 'M4 21V7a1 1 0 011-1h6a1 1 0 011 1v14M13 21V4a1 1 0 011-1h5a1 1 0 011 1v17M4 21h16M7 10h1M7 13h1M7 16h1M16 8h1M16 11h1M16 14h1',
+  },
+  {
+    name: 'Flat Roofing',
+    desc: 'TPO, EPDM, and PVC flat roof systems installed and repaired by certified pros.',
+    icon: 'M4 8h16M4 8l2-4h12l2 4M4 8v11a1 1 0 001 1h14a1 1 0 001-1V8',
+  },
+  {
+    name: 'Emergency Roof Repair',
+    desc: '24/7 response when a leak or storm damage can’t wait until morning.',
+    icon: 'M13 2L4.5 14.5H11L9 22l9.5-13.5H12L13 2z',
+  },
+  {
+    name: 'Skylight Installation',
+    desc: 'Skylight installation and repair that brings in light without letting in leaks.',
+    icon: 'M12 3v2.5M12 18.5V21M4.5 12H3M21 12h-1.5M6 6l1.5 1.5M18 6l-1.5 1.5M6 18l1.5-1.5M18 18l-1.5-1.5M12 8.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z',
+  },
+  {
+    name: 'Siding & Gutters',
+    desc: 'Vinyl siding and gutter installation and repair to protect every side of your property.',
+    icon: 'M4 21V9l8-6 8 6v12M4 21h16M9 21v-6h6v6',
+  },
+];
+
+const stats = [
+  { value: '50-Yr', label: 'Manufacturer warranty available' },
+  { value: '100%', label: 'Satisfaction guarantee' },
+  { value: '24/7', label: 'Emergency response' },
+  { value: '5.0★', label: 'Rated on Google & Yelp' },
+];
+
+const steps = [
+  {
+    title: 'Consultation & Assessment',
+    desc: 'Contact us to schedule your assessment. We’ll discuss your needs, thoroughly inspect your roof, and provide an honest evaluation of its condition.',
+  },
+  {
+    title: 'Personalized Solutions & Estimate',
+    desc: 'Based on our inspection, we’ll recommend the best roofing solutions for your home or business and provide a detailed, transparent estimate.',
+  },
+  {
+    title: 'Expert Installation or Repair',
+    desc: 'Our skilled team meticulously completes your project using premium materials, ensuring it’s done right the first time.',
+  },
+  {
+    title: 'Project Completion & Follow-Up',
+    desc: 'We’ll walk you through the finished work, answer any questions, and make sure you’re delighted with your new roof.',
+  },
+];
+
+const areas = ['Staten Island', 'Brooklyn', 'Manhattan', 'New York City'];
+---
+
+<Layout
+  title="Alter Phase Roofing Inc. | Roofing, Siding & Gutters in Staten Island & NYC"
+  description="Licensed & insured roofing contractor serving Staten Island, Brooklyn, Manhattan and NYC. Free inspections, 24/7 emergency repair, and up to a 50-year warranty."
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-navy-950">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(246,86,15,0.18),_transparent_55%)]"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-center">
+      <div>
+        <p class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-ember-300">
+          Serving Staten Island, Brooklyn, Manhattan &amp; NYC
+        </p>
+        <h1 class="mt-6 font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.05]">
+          The Roofing Company Where You&rsquo;re
+          <span class="text-ember-400">More Than a Job Number</span>
+        </h1>
+        <p class="mt-6 text-lg text-navy-200 max-w-xl leading-relaxed">
+          Residential and commercial roofing, flat roofs, siding, gutters, and 24/7 emergency
+          repair &mdash; backed by honest communication, premium materials, and a 100% satisfaction guarantee.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <a href="#contact" class="rounded-xl bg-ember-500 px-7 py-4 text-base font-bold text-white shadow-card hover:bg-ember-600 transition-colors">
+            Get My Free Estimate
+          </a>
+          <a href="tel:+19293701552" class="rounded-xl border border-white/20 px-7 py-4 text-base font-bold text-white hover:bg-white/10 transition-colors">
+            Call (929) 370-1552
+          </a>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-navy-300">
+          <span class="font-semibold text-white">Trusted by homeowners &amp; businesses:</span>
+          <span>Google Guaranteed</span>
+          <span class="h-1 w-1 rounded-full bg-navy-600"></span>
+          <span>BBB Accredited</span>
+          <span class="h-1 w-1 rounded-full bg-navy-600"></span>
+          <span>GAF Master Elite</span>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="aspect-[4/5] w-full rounded-3xl bg-gradient-to-br from-navy-800 to-navy-900 border border-white/10 shadow-2xl flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-28 w-28 text-white/15">
+            <path d="M3 11.5L12 4l9 7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 10v9a1 1 0 001 1h12a1 1 0 001-1v-9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="absolute bottom-6 left-6 right-6 rounded-xl bg-white/95 px-4 py-3 text-sm font-semibold text-navy-800 shadow-lg">
+            Project photo placeholder &mdash; drop in real jobsite photography here
+          </span>
+        </div>
+        <div class="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-card">
+          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-ember-50 text-ember-600 font-display font-bold">50</span>
+          <span class="text-xs font-semibold text-navy-700 leading-snug">Year manufacturer<br/>warranty available</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats bar -->
+  <section class="border-b border-navy-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {stats.map((s) => (
+        <div class="text-center lg:text-left">
+          <p class="font-display font-extrabold text-3xl text-navy-900">{s.value}</p>
+          <p class="mt-1 text-sm text-navy-500">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-20 lg:py-28 bg-navy-50/60">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <p class="text-sm font-bold uppercase tracking-wide text-ember-600">What We Do</p>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-navy-900">Full-Service Roofing, Siding &amp; Gutters</h2>
+        <p class="mt-4 text-navy-600 leading-relaxed">
+          One team for everything above your walls &mdash; from a single repair to a full replacement.
+        </p>
+      </div>
+
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((s) => (
+          <div class="group rounded-2xl bg-white border border-navy-100 p-7 shadow-card hover:-translate-y-1 transition-transform">
+            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-800 text-white group-hover:bg-ember-500 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-6 w-6">
+                <path d={s.icon} stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <h3 class="mt-5 font-display font-bold text-lg text-navy-900">{s.name}</h3>
+            <p class="mt-2 text-sm text-navy-600 leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why us -->
+  <section id="why-us" class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-wide text-ember-600">Why Homeowners Choose Us</p>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-navy-900">
+          Decades of combined experience. Zero shortcuts.
+        </h2>
+        <p class="mt-5 text-navy-600 leading-relaxed">
+          We operate on three principles: integrity, craftsmanship, and customer service. That
+          means honest evaluations, transparent pricing, and workmanship you can trust &mdash;
+          backed by material and workmanship warranties on every job.
+        </p>
+        <dl class="mt-8 space-y-6">
+          {[
+            ['Efficient Service', 'Quick response times and minimal disruption to your home or business.'],
+            ['Affordable Pricing', 'Competitive rates with budget-friendly solutions and financing options.'],
+            ['Comprehensive Services', 'Full roofing solutions from small repairs to full new installations.'],
+            ['Guaranteed Results', 'Material and workmanship warranties included on every project.'],
+          ].map(([title, desc]) => (
+            <div class="flex gap-4">
+              <span class="mt-1 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-ember-500 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-3.5 w-3.5">
+                  <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div>
+                <dt class="font-display font-bold text-navy-900">{title}</dt>
+                <dd class="text-sm text-navy-600 mt-1">{desc}</dd>
+              </div>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div class="rounded-3xl bg-navy-950 p-10 lg:p-12 text-white">
+        <p class="font-display font-bold text-xl">Licensed, Insured &amp; Bonded</p>
+        <p class="mt-2 text-navy-300 text-sm">License #2129904-DCWP &mdash; NYC Consumer &amp; Worker Protection</p>
+        <div class="mt-8 grid grid-cols-2 gap-4">
+          {['Google Guaranteed', 'BBB Accredited', 'GAF Master Elite', '5-Star Rated'].map((badge) => (
+            <div class="rounded-xl bg-white/5 border border-white/10 px-4 py-5 text-center">
+              <p class="text-sm font-semibold">{badge}</p>
+            </div>
+          ))}
+        </div>
+        <a href="#contact" class="mt-8 block text-center rounded-xl bg-ember-500 px-6 py-4 font-bold hover:bg-ember-600 transition-colors">
+          Request My Free Estimate
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we work -->
+  <section id="how-we-work" class="py-20 lg:py-28 bg-navy-950 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <p class="text-sm font-bold uppercase tracking-wide text-ember-400">How We Work</p>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl">From First Call to Finished Roof</h2>
+      </div>
+      <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {steps.map((step, i) => (
+          <div class="relative pl-2">
+            <span class="font-display font-extrabold text-5xl text-white/10">{`0${i + 1}`}</span>
+            <h3 class="mt-2 font-display font-bold text-lg">{step.title}</h3>
+            <p class="mt-3 text-sm text-navy-300 leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Service area -->
+  <section id="service-area" class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm font-bold uppercase tracking-wide text-ember-600">Service Area</p>
+      <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-navy-900">Proudly Serving the NYC Metro Area</h2>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        {areas.map((area) => (
+          <span class="rounded-full border border-navy-200 px-6 py-3 text-sm font-semibold text-navy-700">
+            {area}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Contact -->
+  <section id="contact" class="py-20 lg:py-28 bg-navy-50/60">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-wide text-ember-600">Get Started</p>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-navy-900">
+          Get a Free Inspection &amp; Estimate
+        </h2>
+        <p class="mt-4 text-navy-600 leading-relaxed max-w-md">
+          Tell us about your project and we&rsquo;ll get back to you with an honest evaluation
+          and a transparent estimate &mdash; no pressure, no surprises.
+        </p>
+        <div class="mt-8 space-y-3 text-sm text-navy-700">
+          <p class="font-semibold">61 Appleby Ave, Staten Island, NY 10305</p>
+          <p><a href="tel:+19293701552" class="font-bold text-navy-900 hover:text-ember-600">(929) 370-1552</a></p>
+          <p>info@alterphaseroofing.com</p>
+          <p class="text-navy-500">Mon&ndash;Fri 8AM&ndash;8PM &middot; Sat 8AM&ndash;5PM &middot; Sun Closed</p>
+        </div>
+      </div>
+
+      <form class="rounded-3xl bg-white border border-navy-100 shadow-card p-8 space-y-5">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="text-sm font-semibold text-navy-700" for="firstName">First Name</label>
+            <input id="firstName" name="firstName" type="text" class="mt-1.5 w-full rounded-lg border border-navy-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ember-400" />
+          </div>
+          <div>
+            <label class="text-sm font-semibold text-navy-700" for="lastName">Last Name</label>
+            <input id="lastName" name="lastName" type="text" class="mt-1.5 w-full rounded-lg border border-navy-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ember-400" />
+          </div>
+        </div>
+        <div>
+          <label class="text-sm font-semibold text-navy-700" for="email">Email Address</label>
+          <input id="email" name="email" type="email" class="mt-1.5 w-full rounded-lg border border-navy-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ember-400" />
+        </div>
+        <div>
+          <label class="text-sm font-semibold text-navy-700" for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" class="mt-1.5 w-full rounded-lg border border-navy-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ember-400" />
+        </div>
+        <div>
+          <label class="text-sm font-semibold text-navy-700" for="details">Details</label>
+          <textarea id="details" name="details" rows="4" class="mt-1.5 w-full rounded-lg border border-navy-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ember-400"></textarea>
+        </div>
+        <button type="submit" class="w-full rounded-xl bg-ember-500 px-6 py-4 font-bold text-white hover:bg-ember-600 transition-colors">
+          Request My Free Estimate
+        </button>
+      </form>
+    </div>
+  </section>
+</Layout>
