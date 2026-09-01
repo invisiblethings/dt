@@ -5,7 +5,7 @@ layout, and download a print-ready PDF with an optional answer key. Puzzles are
 generated and verified in the browser; there is no backend and no database.
 
 Built with Next.js (App Router) + TypeScript + Tailwind CSS, deployed to
-Netlify as a static export.
+Netlify as a static export. Live at <https://printable-sudoku.netlify.app>.
 
 ## Getting started
 
@@ -131,20 +131,20 @@ The rest:
 
 ## Manual follow-ups before launch
 
-1. **Set the production domain.** `NEXT_PUBLIC_SITE_URL` defaults to the
-   placeholder `https://printable-sudoku.netlify.app`. Set it under Netlify →
-   Site configuration → Environment variables (all deploy contexts) to your real
-   origin, no trailing slash, then redeploy. It drives every canonical, the
-   sitemap, Open Graph URLs and the footer printed inside generated PDFs.
-   Nothing else needs changing — the domain is not hard-coded anywhere else.
+1. **Only if you attach a custom domain:** set `NEXT_PUBLIC_SITE_URL` under
+   Netlify → Site configuration → Environment variables (all deploy contexts)
+   to the new origin, no trailing slash, then redeploy. The default in
+   `src/lib/site.ts` already matches the current `.netlify.app` origin, so
+   canonicals, the sitemap, Open Graph URLs and the PDF footer are correct as
+   deployed. The domain is not hard-coded anywhere else.
 2. **Submit the sitemap to Google Search Console** and Bing Webmaster Tools:
    verify the domain, then submit `https://your-domain/sitemap.xml`. Also worth
    running the difficulty pages through the Rich Results Test to confirm the FAQ
    and breadcrumb markup is picked up.
-3. **Check the Open Graph image after the first deploy** by pasting the homepage
-   URL into a link-preview debugger. If the image does not appear, the
-   `/opengraph-image` content-type rule in `netlify.toml` is the thing to look
-   at first.
+3. **Open Graph image is confirmed serving** as `image/png` from the deployed
+   site, which is the part that usually breaks. Worth one sanity check in a
+   real link-preview debugger (Slack, X, LinkedIn) since each caches
+   separately.
 4. **The OG image is generated, not a placeholder** — `app/opengraph-image.tsx`
    renders the real sample puzzle at build time. Swap it only if you want
    different art direction; keep the 1200×630 size and the exported `alt`.

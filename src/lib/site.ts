@@ -1,11 +1,11 @@
 /**
  * Single source of truth for the site's identity and route list.
  *
- * `NEXT_PUBLIC_SITE_URL` should be set to the production origin (no trailing
- * slash) in Netlify's site settings — it drives canonicals, Open Graph URLs,
- * sitemap entries and the footer printed inside generated PDFs. The default
- * below is a placeholder for the Netlify preview domain; replace it via the
- * environment variable rather than editing this file.
+ * The default below is the current production origin. If a custom domain is
+ * attached later, set `NEXT_PUBLIC_SITE_URL` to it (no trailing slash) under
+ * Netlify → Site configuration → Environment variables rather than editing
+ * this file. Either way it drives canonicals, Open Graph URLs, sitemap
+ * entries and the footer printed inside generated PDFs.
  */
 
 const RAW_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://printable-sudoku.netlify.app';
