@@ -110,6 +110,25 @@ export function webApplicationSchema(opts: { name: string; description: string; 
   };
 }
 
+/**
+ * Declares the site name for search engines. Page titles deliberately carry no
+ * "| Printable Sudoku" suffix — the brand name is itself the primary keyword,
+ * so repeating it in every title reads as stuffing. This is what lets Google
+ * show the site name alongside the result instead.
+ */
+export function webSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    alternateName: 'Printable Sudoku PDF generator',
+    url: SITE.url,
+    description: SITE.description,
+    inLanguage: 'en',
+    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  };
+}
+
 export function articleSchema(opts: {
   headline: string;
   description: string;

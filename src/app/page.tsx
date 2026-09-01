@@ -7,10 +7,10 @@ import { PageHero } from '@/components/page-hero';
 import { DifficultyCards } from '@/components/difficulty-cards';
 import { SAMPLE_PUZZLES } from '@/lib/samples';
 import { HOME_FAQS } from '@/content/faqs';
-import { faqPageSchema, pageMetadata, webApplicationSchema } from '@/lib/seo';
+import { faqPageSchema, pageMetadata, webApplicationSchema, webSiteSchema } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Free Printable Sudoku — Download Puzzle PDFs | Grid Press',
+  title: 'Free Printable Sudoku — Download Puzzle PDFs',
   description:
     'Make your own free printable sudoku. Pick a difficulty, choose 1 to 6 puzzles per page in A4 or US Letter, and download a print-ready PDF with answers.',
   path: '/',
@@ -39,8 +39,9 @@ export default function HomePage() {
     <>
       <JsonLd
         data={[
+          webSiteSchema(),
           webApplicationSchema({
-            name: 'Grid Press printable sudoku generator',
+            name: 'Printable Sudoku — puzzle PDF generator',
             description:
               'A free browser-based tool that generates printable sudoku puzzles and downloads them as a PDF with an optional answer key.',
             path: '/',
@@ -66,7 +67,7 @@ export default function HomePage() {
           <div className="prose-press mt-4">
             <p>
               Most free printable sudoku is a fixed PDF someone made once: forty puzzles, one
-              layout, whatever difficulty they felt like that day. Grid Press builds the sheet when
+              layout, whatever difficulty they felt like that day. This one builds the sheet when
               you ask for it. If you want eleven hard puzzles, four to a page, on US Letter, with
               the answers at the back, that is what comes out — and if you want a different eleven
               five minutes later, press the button again.
@@ -110,7 +111,7 @@ export default function HomePage() {
             <p>
               A sudoku with two valid solutions is not a sudoku — it is a grid where at some point
               you have to pick, and picking is not solving. Plenty of free generators skip this
-              check because it is the expensive part. Grid Press does not.
+              check because it is the expensive part. This one does not.
             </p>
             <p>
               Each puzzle starts life as a complete, valid 9×9 grid built by randomised

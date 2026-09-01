@@ -63,7 +63,7 @@ export default async function DifficultyPage({
           breadcrumbSchema(trail),
           faqPageSchema(content.faqs),
           webApplicationSchema({
-            name: `Grid Press — printable ${content.slug} sudoku generator`,
+            name: `Printable ${content.slug} sudoku — PDF generator`,
             description: content.description,
             path,
           }),

@@ -1,11 +1,12 @@
 /**
- * PDF layout — ported from the Grid Press prototype.
+ * PDF layout — ported from the original single-file prototype.
  *
  * jsPDF is pulled in with a dynamic import so it stays out of the initial page
  * bundle and only loads when someone actually asks for a PDF.
  */
 
 import type { Puzzle } from './sudoku';
+import { SITE } from './site';
 
 export type PerPage = 1 | 2 | 4 | 6;
 export type PageSize = 'a4' | 'letter';
@@ -14,8 +15,6 @@ export interface PdfOptions {
   perPage: PerPage;
   pageSize: PageSize;
   includeSolutions: boolean;
-  /** Printed in the page footer. */
-  siteLabel: string;
 }
 
 const LAYOUTS: Record<PerPage, { cols: number; rows: number }> = {
@@ -33,7 +32,8 @@ export function pageCounts(puzzleCount: number, perPage: PerPage, includeSolutio
 
 export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise<Blob> {
   const { jsPDF } = await import('jspdf');
-  const { perPage, pageSize, includeSolutions, siteLabel } = opts;
+  const { perPage, pageSize, includeSolutions } = opts;
+  const brand = `${SITE.wordmark.lead} ${SITE.wordmark.accent}`;
 
   const doc = new jsPDF({ unit: 'mm', format: pageSize });
   const pageW = doc.internal.pageSize.getWidth();
@@ -55,7 +55,7 @@ export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(10);
     doc.setTextColor(33, 38, 44);
-    doc.text('GRID PRESS', margin, margin - 3);
+    doc.text(brand, margin, margin - 3);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8);
     doc.setTextColor(130, 130, 120);
@@ -66,7 +66,7 @@ export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(7.5);
     doc.setTextColor(150, 150, 140);
-    doc.text(`${siteLabel} · ${pageNum} / ${totalPages}`, pageW / 2, pageH - 7, {
+    doc.text(`${SITE.shortDomain} · ${pageNum} / ${totalPages}`, pageW / 2, pageH - 7, {
       align: 'center',
     });
   }

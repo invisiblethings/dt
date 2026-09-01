@@ -1,5 +1,5 @@
 /**
- * Sudoku engine — ported from the Grid Press prototype.
+ * Sudoku engine — ported from the original single-file prototype.
  *
  * Generation is a randomized backtracking fill for a complete grid, followed by
  * a removal loop that only keeps a clue removed when the puzzle still solves to

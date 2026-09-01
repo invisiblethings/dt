@@ -7,7 +7,7 @@ import { GUIDES } from '@/content/guides';
 import { breadcrumbSchema, pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Sudoku Guides — Solve Better, Print Better | Grid Press',
+  title: 'Sudoku Guides — Solve Better, Print Better',
   description:
     'Practical sudoku guides: how to solve your first grid, the techniques that get you past a stall, and how to print puzzles that are pleasant to work on.',
   path: '/guides',

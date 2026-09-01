@@ -29,7 +29,7 @@ const COLUMNS: { heading: string; links: { href: string; label: string }[] }[] =
     ],
   },
   {
-    heading: 'Grid Press',
+    heading: 'This site',
     links: [
       { href: '/about', label: 'About' },
       { href: '/privacy', label: 'Privacy' },
@@ -67,10 +67,10 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-line pt-6 font-mono text-[11.5px] text-ink-soft shelf:flex-row shelf:items-center shelf:justify-between">
           <p className="m-0">
-            GRID PRESS — free printable sudoku, generated in your browser. No account, no
+            PRINTABLE SUDOKU — puzzle sheets generated in your browser. No account, no
             watermark, no cost.
           </p>
-          <p className="m-0">© {new Date().getFullYear()} Grid Press</p>
+          <p className="m-0">© {new Date().getFullYear()} Printable Sudoku</p>
         </div>
       </div>
     </footer>

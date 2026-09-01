@@ -13,7 +13,7 @@ export interface GuideMeta {
 export const GUIDES: GuideMeta[] = [
   {
     slug: 'how-to-solve-sudoku',
-    title: 'How to Solve Sudoku — A Beginner’s Guide | Grid Press',
+    title: 'How to Solve Sudoku — A Beginner’s Guide',
     h1: 'How to solve sudoku: a beginner’s guide',
     description:
       'One rule, one first move, and the habits that get you through an easy grid without guessing. A practical starting guide for anyone holding a printed sudoku.',
@@ -25,7 +25,7 @@ export const GUIDES: GuideMeta[] = [
   },
   {
     slug: 'sudoku-solving-techniques',
-    title: 'Sudoku Solving Techniques — Pairs to X-Wings | Grid Press',
+    title: 'Sudoku Solving Techniques — From Naked Pairs to X-Wings',
     h1: 'Sudoku solving techniques for hard and expert grids',
     description:
       'The techniques that get you past a stalled grid: candidate marking, naked and hidden pairs, pointing pairs, box-line reduction and the X-wing.',
@@ -37,7 +37,7 @@ export const GUIDES: GuideMeta[] = [
   },
   {
     slug: 'how-to-print-sudoku-puzzles',
-    title: 'How to Print Sudoku Puzzles That Look Right | Grid Press',
+    title: 'How to Print Sudoku Puzzles That Look Right',
     h1: 'How to print sudoku puzzles that look right',
     description:
       'Paper size, scaling, puzzles per page, ink and paper choices — the practical settings that decide whether a printed sudoku is a pleasure or a squint.',

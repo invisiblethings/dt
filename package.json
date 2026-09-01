@@ -1,15 +1,15 @@
 {
-  "name": "grid-press",
+  "name": "printable-sudoku",
   "version": "1.0.0",
   "private": true,
-  "description": "Grid Press — free printable sudoku puzzle PDF generator",
+  "description": "Printable Sudoku — free sudoku puzzle PDF generator",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "samples": "node --experimental-strip-types scripts/make-samples.mjs"
+    "samples": "node --experimental-strip-types scripts/make-samples.mjs",
+    "preview": "node scripts/preview.mjs"
   },
   "dependencies": {
     "jspdf": "^2.5.2",
@@ -26,6 +26,7 @@
     "eslint": "^9.18.0",
     "eslint-config-next": "^15.4.0",
     "postcss": "^8.4.49",
+    "smol-toml": "^1.4.2",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.0"
   }

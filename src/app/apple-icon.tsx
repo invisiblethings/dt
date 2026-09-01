@@ -1,10 +1,12 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'nodejs';
+// Emitted at build time into the static export.
+export const dynamic = 'force-static';
 export const size = { width: 180, height: 180 };
 export const contentType = 'image/png';
 
-/** Home-screen icon: the Grid Press mark — a 3x3 rule with one inked square. */
+/** Home-screen icon: the site mark — a 3x3 rule with one inked square. */
 export default function AppleIcon() {
   return new ImageResponse(
     (

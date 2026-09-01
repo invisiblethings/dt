@@ -9,7 +9,7 @@ import { DIFFICULTY_CONTENT, DIFFICULTY_ORDER } from '@/content/difficulty';
 import { breadcrumbSchema, pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Sudoku Puzzles Printable — All Four Levels | Grid Press',
+  title: 'Sudoku Puzzles Printable — Every Difficulty, Free PDF',
   description:
     'All four printable sudoku levels in one place, from 45-clue easy grids to 20-clue expert ones. Pick a level and download a free PDF with answers.',
   path: '/printable-sudoku',

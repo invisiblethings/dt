@@ -5,7 +5,6 @@ import { PreviewSheet } from './preview-sheet';
 import type { DifficultyChoice, DifficultyKey, Puzzle } from '@/lib/sudoku';
 import type { PageSize, PerPage } from '@/lib/pdf';
 import type { WorkerResponse } from '@/workers/sudoku.worker';
-import { SITE } from '@/lib/site';
 
 const DIFFICULTIES: { value: DifficultyChoice; label: string }[] = [
   { value: 'easy', label: 'easy' },
@@ -158,12 +157,7 @@ export function Generator({
       setStatusLine('Laying out the PDF…');
 
       const [{ buildPdfBlob, pageCounts }] = await Promise.all([import('@/lib/pdf')]);
-      const blob = await buildPdfBlob(puzzles, {
-        perPage,
-        pageSize,
-        includeSolutions,
-        siteLabel: SITE.shortDomain,
-      });
+      const blob = await buildPdfBlob(puzzles, { perPage, pageSize, includeSolutions });
       const href = URL.createObjectURL(blob);
       urlRef.current = href;
 
@@ -176,7 +170,7 @@ export function Generator({
         difficulty,
         includeSolutions,
         href,
-        filename: `grid-press-sudoku-${difficulty}-${puzzles.length}.pdf`,
+        filename: `printable-sudoku-${difficulty}-${puzzles.length}.pdf`,
       });
       setPreview(puzzles[0]);
       setPreviewStatus('puzzle 1 of your run');

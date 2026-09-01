@@ -4,9 +4,9 @@ import { PageHero } from '@/components/page-hero';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'About Grid Press — Free Printable Sudoku',
+  title: 'About — Free Printable Sudoku, Made in Your Browser',
   description:
-    'What Grid Press is, how the puzzles are generated and verified, and why the whole thing runs in your browser with no account and no cost.',
+    'What this site is, how the puzzles are generated and verified, and why the whole thing runs in your browser with no account and no cost.',
   path: '/about',
 });
 
@@ -14,14 +14,14 @@ export default function AboutPage() {
   return (
     <Shell className="py-10 shelf:py-14">
       <PageHero
-        h1="About Grid Press"
-        lede="A printable sudoku generator built the way a small print shop would do it: set the run, pull a proof, print it."
+        h1="About Printable Sudoku"
+        lede="A puzzle generator built the way a small print shop would do it: set the run, pull a proof, print it."
       />
 
       <div className="prose-press mt-8 max-w-prose">
         <h2>What this is</h2>
         <p>
-          Grid Press makes printable sudoku PDFs to order. You choose how many puzzles, how hard,
+          This site makes printable sudoku PDFs to order. You choose how many puzzles, how hard,
           how many to a page and what size paper; it builds the puzzles and the document while you
           wait. It exists because most free printable sudoku on the web is a fixed PDF somebody
           made once — forty puzzles, one layout, take it or leave it — and that is rarely the sheet

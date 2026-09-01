@@ -44,7 +44,7 @@ export function PreviewSheet({
 
         <div className="mb-3.5 flex items-baseline justify-between pr-9 font-mono text-[10.5px] tracking-[0.3px] text-ink-soft">
           <span>#{id}</span>
-          <span>grid press</span>
+          <span>printable sudoku</span>
         </div>
 
         <div

@@ -24,7 +24,7 @@ export const DIFFICULTY_CONTENT: Record<DifficultyKey, DifficultyContent> = {
     slug: 'easy',
     name: 'Easy',
     h1: 'Printable easy sudoku puzzles you can download as a PDF',
-    title: 'Printable Sudoku Easy — Free PDF With Answers | Grid Press',
+    title: 'Printable Sudoku Easy — Free PDF Puzzles With Answers',
     description:
       'Print easy sudoku puzzles with 38–45 starting clues. Choose how many you want, 1 to 6 per page, A4 or Letter, and download a free PDF with answers.',
     clueRange: '38–45 clues',
@@ -68,7 +68,7 @@ export const DIFFICULTY_CONTENT: Record<DifficultyKey, DifficultyContent> = {
     slug: 'medium',
     name: 'Medium',
     h1: 'Printable medium sudoku puzzles — free PDF with answer key',
-    title: 'Printable Sudoku Medium — Free Puzzle PDFs | Grid Press',
+    title: 'Printable Sudoku Medium — Free PDF Puzzles to Print',
     description:
       'Medium printable sudoku with 30–37 clues: a real fight, still solvable by clean logic. Generate a free PDF in A4 or US Letter, answers included.',
     clueRange: '30–37 clues',
@@ -112,7 +112,7 @@ export const DIFFICULTY_CONTENT: Record<DifficultyKey, DifficultyContent> = {
     slug: 'hard',
     name: 'Hard',
     h1: 'Printable hard sudoku puzzles — free PDF, answers included',
-    title: 'Printable Sudoku Hard — Free Difficult PDFs | Grid Press',
+    title: 'Printable Sudoku Hard — Free Difficult Puzzle PDFs',
     description:
       'Hard printable sudoku with just 25–29 clues, for solvers who want a real fight. Free PDF download, 1 to 6 puzzles per page, full answer key optional.',
     clueRange: '25–29 clues',
@@ -156,7 +156,7 @@ export const DIFFICULTY_CONTENT: Record<DifficultyKey, DifficultyContent> = {
     slug: 'expert',
     name: 'Expert',
     h1: 'Printable expert sudoku puzzles — the hardest free PDF grids',
-    title: 'Printable Sudoku Expert — Hardest Free PDFs | Grid Press',
+    title: 'Printable Sudoku Expert — Hardest Free Puzzle PDFs',
     description:
       'Expert printable sudoku pared down to 20–24 clues — the hardest grids this generator makes. Free PDF, answer key included, A4 or US Letter.',
     clueRange: '20–24 clues',

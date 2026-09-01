@@ -5,7 +5,7 @@ import { SAMPLE_PUZZLES } from '@/lib/samples';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Page Not Found | Grid Press',
+  title: 'Page Not Found — Printable Sudoku',
   description: 'That page is not on the press. Here is the way back to the printable sudoku generator.',
   path: '/404',
   noIndex: true,

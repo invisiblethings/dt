@@ -11,7 +11,7 @@ import { ANSWERS_FAQS } from '@/content/faqs';
 import { faqPageSchema, pageMetadata, webApplicationSchema } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Printable Sudoku With Answers — Free PDF | Grid Press',
+  title: 'Printable Sudoku With Answers — Free PDF and Key',
   description:
     'Print sudoku puzzles with the solutions included. The answer key sits on its own pages at the back of the PDF, matched to each puzzle by ID. Free, no sign-up.',
   path: '/printable-sudoku-with-answers',
@@ -23,7 +23,7 @@ export default function WithAnswersPage() {
       <JsonLd
         data={[
           webApplicationSchema({
-            name: 'Grid Press — printable sudoku with answers',
+            name: 'Printable sudoku with answers — PDF generator',
             description:
               'Generate printable sudoku puzzles with a matching answer key and download both as a single PDF.',
             path: '/printable-sudoku-with-answers',

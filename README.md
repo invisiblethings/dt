@@ -1,10 +1,11 @@
-# Grid Press — printable sudoku PDF generator
+# Printable Sudoku — puzzle PDF generator
 
 A free printable-sudoku site: pick a difficulty, a puzzle count and a page
 layout, and download a print-ready PDF with an optional answer key. Puzzles are
 generated and verified in the browser; there is no backend and no database.
 
-Built with Next.js (App Router) + TypeScript + Tailwind CSS, deployed to Vercel.
+Built with Next.js (App Router) + TypeScript + Tailwind CSS, deployed to
+Netlify as a static export.
 
 ## Getting started
 
@@ -17,11 +18,37 @@ Other scripts:
 
 | Script              | What it does                                              |
 | ------------------- | --------------------------------------------------------- |
-| `npm run build`     | Production build (all routes prerender to static HTML)    |
-| `npm start`         | Serve the production build                                |
+| `npm run build`     | Static export of every route into `out/`                  |
+| `npm run preview`   | Serve `out/` the way Netlify will (clean URLs + headers)  |
 | `npm run typecheck` | `tsc --noEmit`                                            |
 | `npm run lint`      | ESLint with `next/core-web-vitals` + `next/typescript`    |
 | `npm run samples`   | Regenerate the baked-in sample puzzles (see below)        |
+
+### Previewing the build
+
+`next start` cannot serve an `output: 'export'` build, so there is no `start`
+script. `npm run preview` serves `out/` through `scripts/preview.mjs`, which
+reproduces what Netlify does: clean URLs, `404.html` on a miss, and the header
+rules from `netlify.toml` — including the content-type fix for the generated
+Open Graph image.
+
+## Deploying to Netlify
+
+`netlify.toml` holds the whole deploy config:
+
+- **Build command** `npm run build`, **publish directory** `out`.
+- Content-type headers for `/opengraph-image` and `/apple-icon`. Next writes
+  those generated PNGs without a file extension, so Netlify cannot infer their
+  type and social scrapers would reject them. Do not remove those two rules.
+- Long-lived cache headers for `/_next/static/*` (content-hashed by Next).
+- The security headers, which live here rather than in `next.config.mjs`
+  because a static export has no Next server left to run `headers()`.
+
+Because `next.config.mjs` sets `output: 'export'`, no Netlify Next.js Runtime
+and no serverless functions are involved — Netlify just publishes files. If you
+later add something that needs a server (an API route, ISR, `next/image`
+optimisation), remove `output: 'export'`, change `publish` to `.next`, and add
+the `@netlify/plugin-nextjs` plugin.
 
 ## How it fits together
 
@@ -74,48 +101,58 @@ They are baked in so every page ships a real, crawlable puzzle grid in its
 server-rendered HTML rather than computing one on the client. Regenerate with
 `npm run samples` (uses Node's `--experimental-strip-types`, so Node 22.6+).
 
-## SEO
+## Naming and SEO
+
+The site is called **Printable Sudoku**, which is also the primary target
+keyword. That shapes two decisions worth knowing before you edit metadata:
+
+- **Page titles carry no `| Printable Sudoku` suffix.** Appending the brand to
+  every title would repeat the keyword in all fifteen of them, which reads as
+  stuffing. Instead the homepage emits `WebSite` JSON-LD naming the site, which
+  is what lets Google show the site name beside a result.
+- **Body copy says "this site" rather than the brand name** in most places, so
+  sentences read naturally instead of like "Printable Sudoku makes printable
+  sudoku". The name appears in the wordmark, the footer, the PDF header and the
+  structured data.
+
+The rest:
 
 - **Routes** live in `ROUTES` in `src/lib/site.ts`. `app/sitemap.ts` builds
   `sitemap.xml` from that list, so adding a page there is all that is needed.
-- **Metadata** comes from `pageMetadata()` in `src/lib/seo.ts`: unique title
-  (absolute, so nothing runs past ~60 characters), description, canonical, Open
-  Graph and Twitter card tags.
-- **Structured data**: `WebApplication` on the tool pages, `FAQPage` wherever
-  there is an FAQ, `BreadcrumbList` on the difficulty pages and guides,
-  `Article` on the guides.
-- **OG image** is generated at build time by `app/opengraph-image.tsx` from the
-  medium sample puzzle, and applies site-wide.
+- **Metadata** comes from `pageMetadata()` in `src/lib/seo.ts`: unique absolute
+  title, description, canonical, Open Graph and Twitter card tags.
+- **Structured data**: `WebSite` on the homepage, `WebApplication` on the tool
+  pages, `FAQPage` wherever there is an FAQ, `BreadcrumbList` on the difficulty
+  pages and guides, `Article` on the guides.
 - **robots.txt** (`app/robots.ts`) allows all crawling and points at the sitemap.
-- All page content is server-rendered. Nothing SEO-critical is injected by
-  client JS — the generator is interactive, but its surrounding copy, FAQs and
-  sample grid are in the HTML on first load.
+- All page content is prerendered. Nothing SEO-critical is injected by client
+  JS — the generator is interactive, but its surrounding copy, FAQs and sample
+  grid are in the HTML on first load.
 
 ## Manual follow-ups before launch
 
-These are the things that are deliberately left for you:
-
-1. **Set the production domain.** `NEXT_PUBLIC_SITE_URL` defaults to
-   `https://gridpress.app`. Set it in Vercel → Settings → Environment Variables
-   (all environments) to your real origin, no trailing slash. It drives every
-   canonical, the sitemap, Open Graph URLs and the footer printed inside
-   generated PDFs. Nothing else needs changing.
+1. **Set the production domain.** `NEXT_PUBLIC_SITE_URL` defaults to the
+   placeholder `https://printable-sudoku.netlify.app`. Set it under Netlify →
+   Site configuration → Environment variables (all deploy contexts) to your real
+   origin, no trailing slash, then redeploy. It drives every canonical, the
+   sitemap, Open Graph URLs and the footer printed inside generated PDFs.
+   Nothing else needs changing — the domain is not hard-coded anywhere else.
 2. **Submit the sitemap to Google Search Console** and Bing Webmaster Tools:
    verify the domain, then submit `https://your-domain/sitemap.xml`. Also worth
-   running the difficulty pages through the Rich Results Test to confirm the
-   FAQ and breadcrumb markup is picked up.
-3. **Twitter handle.** `SITE.twitter` in `src/lib/site.ts` is a placeholder
-   (`@gridpress`). Either point it at a real account or drop it — it is not
-   currently emitted, so this only matters if you add `twitter.site` to the
-   metadata.
-4. **The OG image is generated, not a placeholder** — it renders the real sample
-   puzzle. Swap `app/opengraph-image.tsx` only if you want different art
-   direction. If you do, keep the 1200×630 size and the exported `alt` string.
-5. **Analytics.** None is installed, and `/privacy` says so explicitly. If you
-   add any, update that page in the same commit — it makes a specific promise.
+   running the difficulty pages through the Rich Results Test to confirm the FAQ
+   and breadcrumb markup is picked up.
+3. **Check the Open Graph image after the first deploy** by pasting the homepage
+   URL into a link-preview debugger. If the image does not appear, the
+   `/opengraph-image` content-type rule in `netlify.toml` is the thing to look
+   at first.
+4. **The OG image is generated, not a placeholder** — `app/opengraph-image.tsx`
+   renders the real sample puzzle at build time. Swap it only if you want
+   different art direction; keep the 1200×630 size and the exported `alt`.
+5. **Analytics.** None is installed, and `/privacy` says so explicitly, along
+   with naming Netlify as the host. If you add analytics, or move hosts, update
+   that page in the same commit — it makes specific promises.
 6. **Verify a real print.** The PDF is laid out for A4 and US Letter with 16 mm
-   margins. Print one page on the printer you care about before announcing the
-   site.
+   margins. Print one page on the printer you care about before announcing.
 
 ## Licence / content
 

@@ -29,8 +29,8 @@ export default function HowToPrintSudoku() {
         everything down or crops the bottom, and in both cases you lose grid size for no reason.
       </p>
       <p>
-        Pick the right one in the generator rather than fixing it in the print dialog. Grid Press
-        lays the page out at your chosen size with 16 mm margins on all four sides, which sits
+        Pick the right one in the generator rather than fixing it in the print dialog. The
+        generator lays the page out at your chosen size with 16 mm margins on all four sides, which sits
         comfortably inside the non-printable edge of every home and office printer we know of, so
         nothing needs adjusting afterwards.
       </p>
@@ -70,8 +70,8 @@ export default function HowToPrintSudoku() {
       <h2>Keep the answer key separate</h2>
       <p>
         If you are printing for anyone other than yourself, the placement of the answers matters.
-        Grid Press puts the whole answer key in its own section after the puzzles, never on the same
-        sheet as the puzzle it solves, so you can hand out the front half and keep the back. Each
+        The generated PDF puts the whole answer key in its own section after the puzzles, never on
+        the same sheet as the puzzle it solves, so you can hand out the front half and keep the back. Each
         solution carries the same six-digit ID as its puzzle, so the pages can be split up and still
         matched later.
       </p>

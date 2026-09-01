@@ -1,9 +1,12 @@
 import { ImageResponse } from 'next/og';
 import { SAMPLE_PUZZLES } from '@/lib/samples';
+import { SITE } from '@/lib/site';
 
 export const runtime = 'nodejs';
+// Emitted at build time into the static export.
+export const dynamic = 'force-static';
 export const alt =
-  'A Grid Press printable sudoku sheet: a 9x9 puzzle grid with heavy 3x3 box borders, beside the words free printable sudoku, download as a PDF';
+  'A printable sudoku sheet: a 9x9 puzzle grid with heavy 3x3 box borders, beside the words free printable sudoku, ready to download as a PDF';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -36,8 +39,8 @@ export default function OpengraphImage() {
       >
         <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
           <div style={{ display: 'flex', fontSize: 30, fontWeight: 700, letterSpacing: 2 }}>
-            <span style={{ color: INK }}>GRID&nbsp;</span>
-            <span style={{ color: STAMP }}>PRESS</span>
+            <span style={{ color: INK }}>{SITE.wordmark.lead}&nbsp;</span>
+            <span style={{ color: STAMP }}>{SITE.wordmark.accent}</span>
           </div>
           <div
             style={{

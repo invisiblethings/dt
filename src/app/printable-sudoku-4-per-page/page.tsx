@@ -10,7 +10,7 @@ import { PER_PAGE_FAQS } from '@/content/faqs';
 import { faqPageSchema, pageMetadata, webApplicationSchema } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: '4 Per Page Sudoku Printable — Free PDF | Grid Press',
+  title: '4 Per Page Sudoku Printable — Free PDF, 4 to a Sheet',
   description:
     'Print four sudoku puzzles per page and cut your paper use in half. Free PDF in A4 or US Letter, any difficulty, with a matching four-up answer key.',
   path: '/printable-sudoku-4-per-page',
@@ -29,7 +29,7 @@ export default function FourPerPagePage() {
       <JsonLd
         data={[
           webApplicationSchema({
-            name: 'Grid Press — 4 per page sudoku printable',
+            name: '4 per page sudoku printable — PDF generator',
             description:
               'Generate printable sudoku laid out four puzzles to a page and download it as a PDF.',
             path: '/printable-sudoku-4-per-page',

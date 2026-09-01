@@ -4,9 +4,9 @@ import { PageHero } from '@/components/page-hero';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Privacy — Nothing Leaves Your Browser | Grid Press',
+  title: 'Privacy — Nothing Leaves Your Browser',
   description:
-    'Grid Press generates puzzles and builds PDFs entirely in your browser. No accounts, no puzzle data sent to a server, and a plain account of what is collected.',
+    'This site generates puzzles and builds PDFs entirely in your browser. No accounts, no puzzle data sent to a server, and a plain account of what is collected.',
   path: '/privacy',
 });
 
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
 
         <h2>Cookies and local storage</h2>
         <p>
-          Grid Press sets no cookies of its own and does not write your settings to local storage.
+          This site sets no cookies of its own and does not write your settings to local storage.
           Your difficulty and layout choices live in the page while you are on it and are gone when
           you leave.
         </p>
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
 
         <h2>Hosting and server logs</h2>
         <p>
-          The site is served as static pages from a hosting provider (Vercel). Like essentially
+          The site is served as static pages from a hosting provider (Netlify). Like essentially
           every web host, the provider records standard request logs — IP address, timestamp, the
           page requested, browser user agent — for delivery and abuse prevention. That is a
           function of being on the internet at all rather than something this site does with your
@@ -67,8 +67,8 @@ export default function PrivacyPage() {
         <p>
           The three typefaces used here are served from this site&rsquo;s own domain rather than
           from Google Fonts, so loading a page does not tell a font provider that you visited. The
-          PDF library is likewise bundled with the site and loaded from our origin. Browsing Grid
-          Press should not cause your browser to contact a third party.
+          PDF library is likewise bundled with the site and loaded from our origin. Browsing this
+          site should not cause your browser to contact a third party.
         </p>
 
         <h2>Children</h2>

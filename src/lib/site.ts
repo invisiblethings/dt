@@ -2,21 +2,24 @@
  * Single source of truth for the site's identity and route list.
  *
  * `NEXT_PUBLIC_SITE_URL` should be set to the production origin (no trailing
- * slash) in Vercel's project settings — it drives canonicals, Open Graph URLs
- * and sitemap entries.
+ * slash) in Netlify's site settings — it drives canonicals, Open Graph URLs,
+ * sitemap entries and the footer printed inside generated PDFs. The default
+ * below is a placeholder for the Netlify preview domain; replace it via the
+ * environment variable rather than editing this file.
  */
 
-const RAW_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://gridpress.app';
+const RAW_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://printable-sudoku.netlify.app';
 
 export const SITE = {
-  name: 'Grid Press',
+  name: 'Printable Sudoku',
+  /** Uppercase lockup used in the header and at the top of every PDF page. */
+  wordmark: { lead: 'PRINTABLE', accent: 'SUDOKU' },
   /** Used in the PDF footer and other short labels. */
   shortDomain: RAW_URL.replace(/^https?:\/\//, '').replace(/\/$/, ''),
   url: RAW_URL.replace(/\/$/, ''),
-  tagline: 'printable sudoku, set like a press run',
+  tagline: 'free sudoku sheets, set to order and ready to print',
   description:
     'Generate free printable sudoku puzzles and download them as a print-ready PDF — pick a difficulty, choose 1, 2, 4 or 6 puzzles per page, and add a full answer key.',
-  twitter: '@gridpress',
   locale: 'en_US',
 } as const;
 

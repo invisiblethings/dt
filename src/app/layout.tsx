@@ -32,10 +32,10 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: {
-    default: 'Free Printable Sudoku — Download Puzzle PDFs | Grid Press',
-    template: `%s | ${SITE.name}`,
-  },
+  // Every page sets an absolute title via pageMetadata(); this is the fallback.
+  // There is no "%s | Printable Sudoku" template on purpose — the brand name is
+  // the primary keyword, so appending it to each title would just repeat it.
+  title: 'Free Printable Sudoku — Download Puzzle PDFs',
   description: SITE.description,
   applicationName: SITE.name,
   authors: [{ name: SITE.name }],
