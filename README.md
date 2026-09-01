@@ -125,6 +125,9 @@ The rest:
   pages, `FAQPage` wherever there is an FAQ, `BreadcrumbList` on the difficulty
   pages and guides, `Article` on the guides.
 - **robots.txt** (`app/robots.ts`) allows all crawling and points at the sitemap.
+- **`public/google*.html`** is the Google Search Console verification file. It
+  is served verbatim at the root and must stay there — deleting it un-verifies
+  the property.
 - All page content is prerendered. Nothing SEO-critical is injected by client
   JS — the generator is interactive, but its surrounding copy, FAQs and sample
   grid are in the HTML on first load.
