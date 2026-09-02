@@ -38,6 +38,7 @@ export const ROUTES = [
   { path: '/printable-sudoku/expert', priority: 0.9, changeFrequency: 'monthly' as const },
   { path: '/printable-sudoku-with-answers', priority: 0.9, changeFrequency: 'monthly' as const },
   { path: '/printable-sudoku-4-per-page', priority: 0.8, changeFrequency: 'monthly' as const },
+  { path: '/sudoku-answers', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/guides', priority: 0.7, changeFrequency: 'monthly' as const },
   { path: '/guides/how-to-solve-sudoku', priority: 0.7, changeFrequency: 'yearly' as const },
   { path: '/guides/sudoku-solving-techniques', priority: 0.7, changeFrequency: 'yearly' as const },

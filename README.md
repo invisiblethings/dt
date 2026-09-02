@@ -67,8 +67,6 @@ src/
 
 ### Puzzle generation
 
-Ported from the original prototype and unchanged in behaviour:
-
 1. Build a complete valid grid by randomised backtracking.
 2. Remove clues one at a time in random order.
 3. After each removal, run a bitmask solver with an MRV heuristic that counts
@@ -77,7 +75,37 @@ Ported from the original prototype and unchanged in behaviour:
 So every puzzle that reaches a PDF is solver-verified to have exactly one
 solution. This check is the expensive part of generation and it is not skipped.
 Difficulty is a clue-count target: easy 38–45, medium 30–37, hard 25–29,
-expert 20–24.
+expert 20–24. A run may mix levels; they are dealt out round-robin so the split
+is even, then ordered easiest first.
+
+### The puzzle code, and why `src/lib/sudoku.ts` is a published format
+
+Every puzzle prints a six-character code under its grid, e.g. `#K7M2A9`. That
+code is not a key into a database — there is no database. It carries the
+difficulty and the seed the puzzle was generated from, and `/sudoku-answers`
+recomputes the whole puzzle, and therefore its solution, from those two things.
+
+That only works because generation is **deterministic**: a puzzle is a pure
+function of `(difficulty, seed)`. Two consequences for anyone editing the
+engine:
+
+- Nothing in `src/lib/sudoku.ts` may use `Math.random()`, the clock, or
+  anything else that differs between machines. All randomness comes from the
+  seeded PRNG. (The prototype's wall-clock bail-out in the removal loop was
+  removed for exactly this reason; measurement showed the full loop costs about
+  1ms for an easy puzzle and 9ms for an expert one, so it was protecting
+  against nothing.)
+- **Changing the order of PRNG calls, the fill order, or the removal loop
+  changes what every code already printed on paper resolves to.** Codes would
+  silently start returning a different grid. Treat that file as a published
+  format rather than ordinary code.
+
+`src/lib/puzzle-code.ts` holds the encoding: 30 bits of Crockford base32 as
+seed (22) + difficulty (2) + checksum (6). Crockford's alphabet omits I, L, O
+and U so nothing is confusable with 1 and 0, and the checksum rejects about
+98.4% of single-character typos. The rest are caught by eye, because the lookup
+page shows the puzzle grid beside the solution and it will not match the
+reader's sheet.
 
 Batch generation runs in a Web Worker (`src/workers/sudoku.worker.ts`), so a
 60-puzzle run never blocks the UI. Progress is streamed back one puzzle at a
@@ -124,6 +152,11 @@ The rest:
 - **Structured data**: `WebSite` on the homepage, `WebApplication` on the tool
   pages, `FAQPage` wherever there is an FAQ, `BreadcrumbList` on the difficulty
   pages and guides, `Article` on the guides.
+- **Two answer pages, deliberately distinct.** `/printable-sudoku-with-answers`
+  is about printing a key at the back of the PDF and targets "printable sudoku
+  with answers"; `/sudoku-answers` is the code lookup and targets "sudoku
+  answers". They cross-link rather than repeat each other. Keep the intent
+  separate if you edit either, or they will compete for the same query.
 - **robots.txt** (`app/robots.ts`) allows all crawling and points at the sitemap.
 - **`public/google*.html`** is the Google Search Console verification file. It
   is served verbatim at the root and must stay there — deleting it un-verifies

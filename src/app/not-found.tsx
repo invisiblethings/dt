@@ -52,7 +52,7 @@ export default function NotFound() {
         <div className="flex justify-center">
           <PreviewSheet
             cells={SAMPLE_PUZZLES.easy.clues}
-            id={SAMPLE_PUZZLES.easy.id}
+            code={SAMPLE_PUZZLES.easy.code}
             difficulty="easy"
             clueCount={SAMPLE_PUZZLES.easy.clueCount}
             status="misprint"

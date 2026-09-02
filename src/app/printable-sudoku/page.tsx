@@ -55,7 +55,7 @@ export default function PrintableSudokuHub() {
           <div className="flex justify-center pt-2">
             <PreviewSheet
               cells={SAMPLE_PUZZLES.hard.clues}
-              id={SAMPLE_PUZZLES.hard.id}
+              code={SAMPLE_PUZZLES.hard.code}
               difficulty="hard"
               clueCount={SAMPLE_PUZZLES.hard.clueCount}
               status="sample sheet"

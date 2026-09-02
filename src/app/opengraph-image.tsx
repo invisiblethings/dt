@@ -129,7 +129,7 @@ export default function OpengraphImage() {
               color: INK_SOFT,
             }}
           >
-            <span>#{SAMPLE_PUZZLES.medium.id}</span>
+            <span>#{SAMPLE_PUZZLES.medium.code}</span>
             <span>medium · {SAMPLE_PUZZLES.medium.clueCount} clues</span>
           </div>
         </div>

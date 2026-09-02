@@ -8,6 +8,7 @@ const COLUMNS: { heading: string; links: { href: string; label: string }[] }[] =
       { href: '/printable-sudoku', label: 'All difficulty levels' },
       { href: '/printable-sudoku-with-answers', label: 'Printable sudoku with answers' },
       { href: '/printable-sudoku-4-per-page', label: '4 per page sudoku printable' },
+      { href: '/sudoku-answers', label: 'Sudoku answer lookup' },
     ],
   },
   {

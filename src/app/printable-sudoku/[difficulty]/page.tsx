@@ -82,7 +82,7 @@ export default async function DifficultyPage({
         <div className="mt-10">
           <Generator
             sample={SAMPLE_PUZZLES[content.slug]}
-            defaultDifficulty={content.slug}
+            defaultDifficulties={[content.slug]}
             heading={`Set ${'aeiou'.includes(content.slug[0]) ? 'an' : 'a'} ${content.slug} run`}
             subheading={`difficulty is already set to ${content.slug} — adjust the rest`}
           />

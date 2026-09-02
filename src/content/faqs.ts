@@ -94,3 +94,36 @@ export const PER_PAGE_FAQS: FaqItem[] = [
       'Six per page in two columns of three is the densest layout on offer. It is a good fit for easy and medium puzzles where you are not writing many notes in the margins; for hard and expert grids most people prefer four per page or fewer.',
   },
 ];
+
+export const LOOKUP_FAQS: FaqItem[] = [
+  {
+    question: 'Where do I find the puzzle code?',
+    answer:
+      'It is printed directly under the grid, just left of the difficulty. Six characters after a hash, like #K7M2A9. Every puzzle on every sheet carries its own.',
+  },
+  {
+    question: 'How can it know the answer without storing my puzzle?',
+    answer:
+      'Because the code is not a reference to a stored puzzle — it is the recipe for one. The generator turns a code into a grid by a fixed procedure with no randomness left in it, so feeding the same code back in rebuilds exactly the same puzzle, and its solution, from scratch. Nothing was ever uploaded and nothing needed to be kept.',
+  },
+  {
+    question: 'Does this work for a sheet I printed months ago?',
+    answer:
+      'Yes. There is no expiry and no database to go stale — the code is all that is needed. A sheet found at the back of a drawer in five years will still look up, as long as the code is legible.',
+  },
+  {
+    question: 'It says the code is not one we could have printed. What now?',
+    answer:
+      'Almost always a misread character. The codes never contain the letters I, L, O or U, precisely so they cannot be confused with 1 and 0 — so if you read one of those, try the digit instead. The check built into every code means a wrong entry is rejected rather than quietly returning somebody else\u2019s puzzle.',
+  },
+  {
+    question: 'Can I still get the answers printed in the PDF?',
+    answer:
+      'Yes, that has not gone anywhere. Leave the answer key switched on in the generator and the solutions come as a section at the back of the document, exactly as before. This page is for when you did not print the key, or no longer have it.',
+  },
+  {
+    question: 'Can I link straight to a solution?',
+    answer:
+      'Add the code to the address: /sudoku-answers?code=K7M2A9 opens with that puzzle already worked out. Handy if you are setting puzzles for other people and want to hand them the answer separately.',
+  },
+];

@@ -1,25 +1,26 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { PreviewSheet } from './preview-sheet';
-import type { DifficultyChoice, DifficultyKey, Puzzle } from '@/lib/sudoku';
+import { usePuzzleWorker } from './use-puzzle-worker';
+import type { DifficultyKey, Puzzle } from '@/lib/sudoku';
+import { DIFFICULTY_KEYS } from '@/lib/sudoku';
 import type { PageSize, PerPage } from '@/lib/pdf';
-import type { WorkerResponse } from '@/workers/sudoku.worker';
 
-const DIFFICULTIES: { value: DifficultyChoice; label: string }[] = [
-  { value: 'easy', label: 'easy' },
-  { value: 'medium', label: 'medium' },
-  { value: 'hard', label: 'hard' },
-  { value: 'expert', label: 'expert' },
-  { value: 'mixed', label: 'mixed' },
-];
+/** Reads "easy", "easy + medium", "easy, medium + hard". */
+function describeDifficulties(levels: DifficultyKey[]): string {
+  if (levels.length === 0) return 'none selected';
+  if (levels.length === DIFFICULTY_KEYS.length) return 'all levels';
+  if (levels.length === 1) return levels[0];
+  return `${levels.slice(0, -1).join(', ')} + ${levels[levels.length - 1]}`;
+}
 
 const PER_PAGE_OPTIONS: PerPage[] = [1, 2, 4, 6];
 
 export interface GeneratorProps {
   /** Sample rendered on the server so the sheet is real HTML on first paint. */
   sample: Puzzle;
-  defaultDifficulty?: DifficultyChoice;
+  defaultDifficulties?: DifficultyKey[];
   defaultCount?: number;
   defaultPerPage?: PerPage;
   defaultPageSize?: PageSize;
@@ -33,7 +34,7 @@ type Phase = 'idle' | 'generating' | 'laying-out' | 'ready' | 'error';
 
 export function Generator({
   sample,
-  defaultDifficulty = 'medium',
+  defaultDifficulties = ['medium'],
   defaultCount = 6,
   defaultPerPage = 2,
   defaultPageSize = 'a4',
@@ -42,7 +43,7 @@ export function Generator({
   subheading = 'configure the batch before printing',
 }: GeneratorProps) {
   const [count, setCount] = useState(String(defaultCount));
-  const [difficulty, setDifficulty] = useState<DifficultyChoice>(defaultDifficulty);
+  const [difficulties, setDifficulties] = useState<DifficultyKey[]>(defaultDifficulties);
   const [perPage, setPerPage] = useState<PerPage>(defaultPerPage);
   const [pageSize, setPageSize] = useState<PageSize>(defaultPageSize);
   const [includeSolutions, setIncludeSolutions] = useState(defaultIncludeSolutions);
@@ -56,78 +57,33 @@ export function Generator({
     puzzles: number;
     puzzlePages: number;
     solutionPages: number;
-    difficulty: DifficultyChoice;
+    difficulties: DifficultyKey[];
     includeSolutions: boolean;
     href: string;
     filename: string;
   } | null>(null);
 
-  const workerRef = useRef<Worker | null>(null);
   const urlRef = useRef<string | null>(null);
+  const { generate } = usePuzzleWorker();
 
   useEffect(() => {
     return () => {
-      workerRef.current?.terminate();
       if (urlRef.current) URL.revokeObjectURL(urlRef.current);
     };
   }, []);
 
-  /**
-   * Puzzle generation is the expensive part, so it runs in a worker that is
-   * only fetched the first time someone presses Generate. If workers are
-   * unavailable the engine is imported directly as a fallback — still lazily.
-   */
-  const generatePuzzles = useCallback(
-    (n: number, choice: DifficultyChoice, onProgress: (done: number, total: number, p: Puzzle) => void) =>
-      new Promise<Puzzle[]>((resolve, reject) => {
-        if (typeof Worker === 'undefined') {
-          import('@/lib/sudoku')
-            .then(({ generateSet }) => generateSet(n, choice, onProgress))
-            .then(resolve, reject);
-          return;
-        }
-
-        try {
-          workerRef.current ??= new Worker(
-            new URL('../workers/sudoku.worker.ts', import.meta.url),
-          );
-        } catch {
-          import('@/lib/sudoku')
-            .then(({ generateSet }) => generateSet(n, choice, onProgress))
-            .then(resolve, reject);
-          return;
-        }
-
-        const worker = workerRef.current;
-        const handle = (event: MessageEvent<WorkerResponse>) => {
-          const msg = event.data;
-          if (msg.type === 'progress') {
-            onProgress(msg.done, msg.total, msg.puzzle);
-          } else if (msg.type === 'done') {
-            cleanup();
-            resolve(msg.puzzles);
-          } else if (msg.type === 'error') {
-            cleanup();
-            reject(new Error(msg.message));
-          }
-        };
-        const handleError = () => {
-          cleanup();
-          reject(new Error('The puzzle generator could not start.'));
-        };
-        function cleanup() {
-          worker.removeEventListener('message', handle);
-          worker.removeEventListener('error', handleError);
-        }
-
-        worker.addEventListener('message', handle);
-        worker.addEventListener('error', handleError);
-        worker.postMessage({ type: 'generate', count: n, difficulty: choice });
-      }),
-    [],
-  );
-
   const busy = phase === 'generating' || phase === 'laying-out';
+
+  /** Levels are a multi-select; the last one cannot be turned off. */
+  function toggleDifficulty(level: DifficultyKey) {
+    setDifficulties((current) => {
+      if (current.includes(level)) {
+        const next = current.filter((d) => d !== level);
+        return next.length ? next : current;
+      }
+      return DIFFICULTY_KEYS.filter((d) => d === level || current.includes(d));
+    });
+  }
 
   async function handleGenerate() {
     const parsed = Number.parseInt(count, 10);
@@ -144,10 +100,10 @@ export function Generator({
     setStatusLine(`Setting puzzle 1 of ${n}…`);
 
     try {
-      const puzzles = await generatePuzzles(n, difficulty, (done, total, puzzle) => {
+      const puzzles = await generate(n, difficulties, (done, total, puzzle) => {
         setProgress({ done, total });
         setStatusLine(
-          `Setting puzzle ${done} of ${total} · #${puzzle.id} · ${puzzle.clueCount} clues`,
+          `Setting puzzle ${done} of ${total} · #${puzzle.code} · ${puzzle.difficulty} · ${puzzle.clueCount} clues`,
         );
         setPreview(puzzle);
         setPreviewStatus(`puzzle ${done} of ${total}`);
@@ -167,10 +123,10 @@ export function Generator({
         puzzles: puzzles.length,
         puzzlePages,
         solutionPages,
-        difficulty,
+        difficulties,
         includeSolutions,
         href,
-        filename: `printable-sudoku-${difficulty}-${puzzles.length}.pdf`,
+        filename: `printable-sudoku-${difficulties.join('-')}-${puzzles.length}.pdf`,
       });
       setPreview(puzzles[0]);
       setPreviewStatus('puzzle 1 of your run');
@@ -230,21 +186,31 @@ export function Generator({
             Difficulty
           </legend>
           <div className="flex overflow-hidden rounded-sm border border-rule">
-            {DIFFICULTIES.map((d) => (
-              <button
-                key={d.value}
-                type="button"
-                onClick={() => setDifficulty(d.value)}
-                aria-pressed={difficulty === d.value}
-                className={[
-                  'flex-1 border-r border-rule px-1 py-2 font-mono text-[12px] last:border-r-0',
-                  difficulty === d.value ? 'bg-ink text-white' : 'bg-white text-ink-soft hover:bg-paper-deep/40',
-                ].join(' ')}
-              >
-                {d.label}
-              </button>
-            ))}
+            {DIFFICULTY_KEYS.map((level) => {
+              const on = difficulties.includes(level);
+              return (
+                <button
+                  key={level}
+                  type="button"
+                  onClick={() => toggleDifficulty(level)}
+                  aria-pressed={on}
+                  className={[
+                    'flex-1 border-r border-rule px-1 py-2 font-mono text-[12px] last:border-r-0',
+                    on ? 'bg-ink text-white' : 'bg-white text-ink-soft hover:bg-paper-deep/40',
+                  ].join(' ')}
+                >
+                  {level}
+                </button>
+              );
+            })}
           </div>
+          <p className="mt-1.5 font-mono text-[10.5px] text-ink-soft">
+            {difficulties.length === 0
+              ? 'pick at least one level'
+              : difficulties.length === 1
+                ? `every puzzle will be ${difficulties[0]}`
+                : `mixed run · ${describeDifficulties(difficulties)}, split evenly and ordered easiest first`}
+          </p>
         </fieldset>
 
         <div className="mb-[18px]">
@@ -341,7 +307,7 @@ export function Generator({
       <div className="flex flex-col items-center pt-1.5">
         <PreviewSheet
           cells={preview.clues}
-          id={preview.id}
+          code={preview.code}
           difficulty={preview.difficulty as DifficultyKey}
           clueCount={preview.clueCount}
           status={previewStatus}
@@ -355,7 +321,7 @@ export function Generator({
                 label="Pages"
                 value={`${result.puzzlePages + result.solutionPages} (${result.puzzlePages} puzzle, ${result.solutionPages} key)`}
               />
-              <ResultRow label="Difficulty" value={result.difficulty} />
+              <ResultRow label="Difficulty" value={describeDifficulties(result.difficulties)} />
               <ResultRow
                 label="Answer key"
                 value={result.includeSolutions ? 'included' : 'not included'}

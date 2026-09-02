@@ -62,11 +62,13 @@ export default function WithAnswersPage() {
                 grid in front of them.
               </p>
               <p>
-                Matching a solution to its puzzle is done by ID. Each puzzle prints a six-digit
-                number under its grid, along with its difficulty and how many clues it started
-                with. The corresponding solution prints the same number followed by the word
+                Matching a solution to its puzzle is done by code. Each puzzle prints a
+                six-character code under its grid, along with its difficulty and how many clues it
+                started with. The corresponding solution prints the same code followed by the word
                 &ldquo;solution&rdquo;. Shuffle the pages, split them between two rooms, come back
-                to them a month later — the IDs still line up.
+                to them a month later — the codes still line up. And if the key goes missing
+                altogether, that code still fetches the answer on the{' '}
+                <Link href="/sudoku-answers">answer lookup page</Link>.
               </p>
               <p>
                 The key uses the same layout as the puzzles. Two puzzles per page means two
@@ -79,10 +81,10 @@ export default function WithAnswersPage() {
           <div className="flex justify-center pt-2">
             <PreviewSheet
               cells={SAMPLE_PUZZLES.medium.solution}
-              id={SAMPLE_PUZZLES.medium.id}
+              code={SAMPLE_PUZZLES.medium.code}
               difficulty="medium"
               clueCount={SAMPLE_PUZZLES.medium.clueCount}
-              caption={`solution to #${SAMPLE_PUZZLES.medium.id}`}
+              caption={`solution to #${SAMPLE_PUZZLES.medium.code}`}
               label="The completed solution grid for the sample medium sudoku puzzle"
               status="answer key"
             />

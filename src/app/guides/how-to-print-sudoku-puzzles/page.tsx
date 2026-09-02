@@ -72,8 +72,9 @@ export default function HowToPrintSudoku() {
         If you are printing for anyone other than yourself, the placement of the answers matters.
         The generated PDF puts the whole answer key in its own section after the puzzles, never on
         the same sheet as the puzzle it solves, so you can hand out the front half and keep the back. Each
-        solution carries the same six-digit ID as its puzzle, so the pages can be split up and still
-        matched later.
+        solution carries the same six-character code as its puzzle, so the pages can be split up
+        and still matched later — and that same code will fetch the answer on the{' '}
+        <Link href="/sudoku-answers">answer lookup page</Link> if the key ever goes missing.
       </p>
       <p>
         If you would rather not have the answers at all, untick the option before generating — or

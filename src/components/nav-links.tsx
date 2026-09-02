@@ -7,6 +7,7 @@ const NAV = [
   { href: '/', label: 'Generator' },
   { href: '/printable-sudoku', label: 'By difficulty' },
   { href: '/printable-sudoku-with-answers', label: 'With answers' },
+  { href: '/sudoku-answers', label: 'Answer lookup' },
   { href: '/guides', label: 'Guides' },
 ];
 

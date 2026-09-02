@@ -1,20 +1,37 @@
 /**
- * Sudoku engine — ported from the original single-file prototype.
+ * Sudoku engine — ported from the original single-file prototype, then made
+ * deterministic.
  *
- * Generation is a randomized backtracking fill for a complete grid, followed by
+ * Generation is a randomised backtracking fill for a complete grid, followed by
  * a removal loop that only keeps a clue removed when the puzzle still solves to
  * exactly one solution. Uniqueness is verified by a bitmask solver with an MRV
  * (minimum remaining values) heuristic, capped at two solutions.
  *
- * This module is pure and DOM-free so it can run on the server (for static
- * sample grids) and inside a Web Worker (for batch generation).
+ * DETERMINISM — please read before changing anything below.
+ *
+ * A puzzle is a pure function of (difficulty, seed). That is what lets someone
+ * type the code printed under a grid into /sudoku-answers weeks later and get
+ * the same puzzle back, with no database and nothing ever leaving the browser.
+ * Two rules follow:
+ *
+ *   1. Nothing here may use Math.random(), the clock, or anything else that
+ *      varies between machines. All randomness comes from the seeded PRNG.
+ *   2. Changing the order of PRNG calls, the fill order, or the removal loop
+ *      changes what every existing code resolves to. Codes already printed on
+ *      paper would silently start returning a different grid. Treat this file
+ *      as a published format, not as ordinary code.
+ *
+ * This module is pure and DOM-free so it runs on the server (for the baked-in
+ * sample grids) and inside a Web Worker (for batch generation and lookups).
  */
 
 export type DifficultyKey = 'easy' | 'medium' | 'hard' | 'expert';
-export type DifficultyChoice = DifficultyKey | 'mixed';
 
 export interface Puzzle {
-  id: number;
+  /** Short code printed under the grid, e.g. "K7M2A9". */
+  code: string;
+  /** The seed the puzzle was generated from. */
+  seed: number;
   difficulty: DifficultyKey;
   /** 81 cells, row-major. 0 = empty. */
   clues: number[];
@@ -30,11 +47,28 @@ export const DIFF_RANGES: Record<DifficultyKey, [number, number]> = {
   expert: [20, 24],
 };
 
+/** Easiest to hardest. The order is relied on when a run mixes levels. */
 export const DIFFICULTY_KEYS: DifficultyKey[] = ['easy', 'medium', 'hard', 'expert'];
 
-function shuffle<T>(arr: T[]): T[] {
+export type Rng = () => number;
+
+/**
+ * mulberry32 — small, fast, and identical on every engine because it is all
+ * integer arithmetic plus one division.
+ */
+export function makeRng(seed: number): Rng {
+  let a = seed >>> 0;
+  return function rng() {
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function shuffle<T>(arr: T[], rng: Rng): T[] {
   for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(rng() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
@@ -44,8 +78,8 @@ function boxOf(r: number, c: number): number {
   return Math.floor(r / 3) * 3 + Math.floor(c / 3);
 }
 
-/** Randomized backtracking fill producing a complete, valid 9x9 grid. */
-export function generateSolved(): number[] {
+/** Randomised backtracking fill producing a complete, valid 9x9 grid. */
+export function generateSolved(rng: Rng): number[] {
   const cells = new Array<number>(81).fill(0);
   const rows = new Array<number>(9).fill(0);
   const cols = new Array<number>(9).fill(0);
@@ -57,7 +91,7 @@ export function generateSolved(): number[] {
     const c = pos % 9;
     const b = boxOf(r, c);
     const used = rows[r] | cols[c] | boxes[b];
-    const nums = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    const nums = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9], rng);
     for (const n of nums) {
       const bit = 1 << (n - 1);
       if (used & bit) continue;
@@ -151,67 +185,36 @@ export function countSolutions(grid: number[], cap: number): number {
   return count;
 }
 
-function now(): number {
-  return typeof performance !== 'undefined' ? performance.now() : Date.now();
-}
-
 /**
- * Build one puzzle at the requested difficulty. A clue is only removed when the
- * remaining grid still has exactly one solution, so every puzzle returned here
- * is solver-verified as unique.
+ * Build the puzzle for a given difficulty and seed. A clue is only removed when
+ * the remaining grid still has exactly one solution, so every puzzle returned
+ * here is solver-verified as unique.
+ *
+ * The prototype bailed out of the removal loop on a wall clock budget. That has
+ * been dropped: it made the result depend on how fast the machine was, and
+ * measurement showed the full loop costs about 1ms for an easy puzzle and 9ms
+ * for an expert one, so there was nothing to protect against.
  */
-export function makePuzzle(diffKey: DifficultyKey, idNum: number): Puzzle {
-  const solution = generateSolved();
+export function buildPuzzle(diffKey: DifficultyKey, seed: number, code: string): Puzzle {
+  const rng = makeRng(seed);
+  const solution = generateSolved(rng);
   const clues = solution.slice();
   const [lo, hi] = DIFF_RANGES[diffKey];
-  const target = lo + Math.floor(Math.random() * (hi - lo + 1));
-  const positions = shuffle([...Array(81).keys()]);
+  const target = lo + Math.floor(rng() * (hi - lo + 1));
+  const positions = shuffle([...Array(81).keys()], rng);
   let clueCount = 81;
-  const start = now();
-  const budget = diffKey === 'expert' ? 1400 : 550;
 
   for (const pos of positions) {
     if (clueCount <= target) break;
-    if (now() - start > budget) break;
     const backup = clues[pos];
     if (backup === 0) continue;
     clues[pos] = 0;
-    const solCount = countSolutions(clues, 2);
-    if (solCount === 1) {
+    if (countSolutions(clues, 2) === 1) {
       clueCount--;
     } else {
       clues[pos] = backup;
     }
   }
 
-  return { id: idNum, difficulty: diffKey, clues, solution, clueCount };
-}
-
-export function randomId(): number {
-  return Math.floor(100000 + Math.random() * 900000);
-}
-
-function pick<T>(arr: T[]): T {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-export function resolveDifficulty(choice: DifficultyChoice): DifficultyKey {
-  return choice === 'mixed' ? pick(DIFFICULTY_KEYS) : choice;
-}
-
-/** Generate a batch, yielding to the host between puzzles via `onProgress`. */
-export async function generateSet(
-  n: number,
-  choice: DifficultyChoice,
-  onProgress: (done: number, total: number, puzzle: Puzzle) => void,
-): Promise<Puzzle[]> {
-  const puzzles: Puzzle[] = [];
-  for (let i = 0; i < n; i++) {
-    const d = resolveDifficulty(choice);
-    const p = makePuzzle(d, randomId());
-    puzzles.push(p);
-    onProgress(i + 1, n, p);
-    await new Promise((r) => setTimeout(r, 0));
-  }
-  return puzzles;
+  return { code, seed, difficulty: diffKey, clues, solution, clueCount };
 }

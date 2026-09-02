@@ -2,7 +2,8 @@ import type { DifficultyKey } from '@/lib/sudoku';
 
 interface PreviewSheetProps {
   cells: number[];
-  id: number;
+  /** The short code printed under the grid, e.g. "K7M2A9". */
+  code: string;
   difficulty: DifficultyKey;
   clueCount: number;
   /** Small caption in the bottom-right of the sheet. */
@@ -20,7 +21,7 @@ interface PreviewSheetProps {
  */
 export function PreviewSheet({
   cells,
-  id,
+  code,
   difficulty,
   clueCount,
   status,
@@ -43,7 +44,7 @@ export function PreviewSheet({
         </p>
 
         <div className="mb-3.5 flex items-baseline justify-between pr-9 font-mono text-[10.5px] tracking-[0.3px] text-ink-soft">
-          <span>#{id}</span>
+          <span>#{code}</span>
           <span>printable sudoku</span>
         </div>
 

@@ -195,7 +195,7 @@ export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise
         x,
         y,
         gridSize,
-        `#${pz.id}`,
+        `#${pz.code}`,
         solutions
           ? `Solution · ${pz.difficulty}`
           : `Difficulty: ${pz.difficulty} · ${pz.clueCount} clues`,
