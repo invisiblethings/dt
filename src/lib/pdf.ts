@@ -33,6 +33,26 @@ const LAYOUTS: Record<PerPage, { cols: number; rows: number }> = {
   6: { cols: 2, rows: 3 },
 };
 
+/*
+ * Page furniture, in millimetres.
+ *
+ * The aim is a sheet that fills the page: grids as large as the paper allows,
+ * a caption tucked under each one, and a hairline rule closing off each row.
+ * MARGIN stays at 12mm so the whole thing clears the non-printable edge of a
+ * domestic printer without anyone having to scale the page down.
+ */
+const MARGIN = 12;
+const HEADER_H = 5;
+const FOOTER_H = 5;
+/** Grid bottom to the caption baseline. */
+const CAPTION_BASELINE = 4.2;
+/** Caption baseline to the rule that closes the row. */
+const CAPTION_RULE_GAP = 2.6;
+const GUTTER_X = 9;
+const MIN_ROW_GAP = 5;
+/** Cap on how much leftover height is poured into the gaps between rows. */
+const MAX_EXTRA_ROW_GAP = 0.18;
+
 export function pageCounts(puzzleCount: number, perPage: PerPage, includeSolutions: boolean) {
   const puzzlePages = Math.ceil(puzzleCount / perPage);
   const solutionPages = includeSolutions ? Math.ceil(puzzleCount / perPage) : 0;
@@ -47,40 +67,60 @@ export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise
   const doc = new jsPDF({ unit: 'mm', format: pageSize });
   const pageW = doc.internal.pageSize.getWidth();
   const pageH = doc.internal.pageSize.getHeight();
-  const margin = 16;
   const { cols, rows } = LAYOUTS[perPage];
-  const gutterX = 10;
-  const gutterY = 16;
-  const headerH = 8;
-  const footerH = 8;
-  const labelH = 6;
-  const usableW = pageW - 2 * margin;
-  const usableH = pageH - 2 * margin - headerH - footerH;
-  const cellAreaW = (usableW - gutterX * (cols - 1)) / cols;
-  const cellAreaH = (usableH - gutterY * (rows - 1)) / rows;
-  const gridSize = Math.min(cellAreaW, cellAreaH - labelH);
+
+  const availW = pageW - 2 * MARGIN;
+  const availH = pageH - 2 * MARGIN - HEADER_H - FOOTER_H;
+  const captionH = CAPTION_BASELINE + CAPTION_RULE_GAP;
+
+  /*
+   * Size the grid from whichever axis runs out first. The width usually wins,
+   * which is the point: the old layout took the height every time and left a
+   * quarter of the page width empty on either side of the grids.
+   */
+  const gridFromW = (availW - GUTTER_X * (cols - 1)) / cols;
+  const gridFromH = (availH - MIN_ROW_GAP * (rows - 1)) / rows - captionH;
+  const gridSize = Math.min(gridFromW, gridFromH);
+
+  /*
+   * Any height left over is poured into the gaps between rows rather than
+   * left to pool at the foot of the page — capped, so two rows never end up
+   * marooned at opposite ends of the sheet. Whatever remains centres the block.
+   */
+  const slack = availH - rows * (gridSize + captionH) - MIN_ROW_GAP * (rows - 1);
+  const extraPerGap =
+    rows > 1 ? Math.min(Math.max(slack, 0) / (rows - 1), gridSize * MAX_EXTRA_ROW_GAP) : 0;
+  const rowGap = MIN_ROW_GAP + extraPerGap;
+  const rowPitch = gridSize + captionH + rowGap;
+
+  const blockW = cols * gridSize + GUTTER_X * (cols - 1);
+  const blockH = rows * (gridSize + captionH) + rowGap * (rows - 1);
+  const startX = (pageW - blockW) / 2;
+  const startY = MARGIN + HEADER_H + Math.max(0, (availH - blockH) / 2);
+
+  const captionFont = Math.min(9, Math.max(6.5, gridSize * 0.09));
 
   function drawHeader(label: string) {
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(10);
+    doc.setFontSize(9);
     doc.setTextColor(33, 38, 44);
-    doc.text(brand, margin, margin - 3);
+    doc.text(brand, startX, MARGIN + 3.5);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8);
     doc.setTextColor(130, 130, 120);
-    doc.text(label, pageW - margin, margin - 3, { align: 'right' });
+    doc.text(label, startX + blockW, MARGIN + 3.5, { align: 'right' });
   }
 
   function drawFooter(pageNum: number, totalPages: number) {
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(7.5);
     doc.setTextColor(150, 150, 140);
-    doc.text(`${SITE.shortDomain} · ${pageNum} / ${totalPages}`, pageW / 2, pageH - 7, {
+    doc.text(`${SITE.shortDomain} · ${pageNum} / ${totalPages}`, pageW / 2, pageH - MARGIN - 0.5, {
       align: 'center',
     });
   }
 
-  function drawGrid(x: number, y: number, size: number, cells: number[], label: string) {
+  function drawGrid(x: number, y: number, size: number, cells: number[]) {
     const c = size / 9;
 
     doc.setDrawColor(60, 60, 55);
@@ -106,15 +146,14 @@ export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise
      * from -0.019em (the slight overshoot under the baseline on round figures)
      * up to 0.703em, so its visual centre sits 0.342em above the baseline.
      * Dropping the baseline by exactly that much is what puts the digit in the
-     * middle of its cell; the prototype's fixed 0.17-of-a-cell nudge left every
-     * digit sitting about an eighth of a cell high.
+     * middle of its cell.
      */
-    const fontSize = c * 2.5;
+    const fontSize = c * 2.2;
     const digitCentreOffset = DIGIT_CENTRE_EM * fontSize * PT_TO_MM;
 
-    doc.setFont('helvetica', 'normal');
+    doc.setFont('helvetica', 'bold');
     doc.setFontSize(fontSize);
-    doc.setTextColor(25, 28, 32);
+    doc.setTextColor(20, 22, 26);
     for (let r = 0; r < 9; r++) {
       for (let cc = 0; cc < 9; cc++) {
         const v = cells[r * 9 + cc];
@@ -125,11 +164,45 @@ export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise
         }
       }
     }
+  }
 
-    doc.setFont('courier', 'normal');
-    doc.setFontSize(7.2);
-    doc.setTextColor(120, 120, 112);
-    doc.text(label, x, y + size + 4.5);
+  /** Puzzle number on the left, difficulty on the right, aligned to the grid. */
+  function drawCaption(x: number, y: number, size: number, left: string, right: string) {
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(captionFont);
+    doc.setTextColor(60, 62, 60);
+    const baseline = y + size + CAPTION_BASELINE + captionFont * PT_TO_MM * 0.5;
+    doc.text(left, x, baseline);
+    doc.text(right, x + size, baseline, { align: 'right' });
+  }
+
+  /** Hairline closing off a row of puzzles, spanning the whole block. */
+  function drawRowRule(rowIndex: number) {
+    const yRule = startY + rowIndex * rowPitch + gridSize + captionH + captionFont * PT_TO_MM * 0.5;
+    doc.setDrawColor(140, 138, 130);
+    doc.setLineWidth(0.25);
+    doc.line(startX, yRule, startX + blockW, yRule);
+  }
+
+  function drawSheet(slice: Puzzle[], solutions: boolean) {
+    slice.forEach((pz, idx) => {
+      const cx = idx % cols;
+      const cy = Math.floor(idx / cols);
+      const x = startX + cx * (gridSize + GUTTER_X);
+      const y = startY + cy * rowPitch;
+      drawGrid(x, y, gridSize, solutions ? pz.solution : pz.clues);
+      drawCaption(
+        x,
+        y,
+        gridSize,
+        `#${pz.id}`,
+        solutions
+          ? `Solution · ${pz.difficulty}`
+          : `Difficulty: ${pz.difficulty} · ${pz.clueCount} clues`,
+      );
+    });
+    const filledRows = Math.ceil(slice.length / cols);
+    for (let r = 0; r < filledRows; r++) drawRowRule(r);
   }
 
   const perPageCount = cols * rows;
@@ -144,14 +217,7 @@ export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise
     if (p > 0) doc.addPage();
     pageNum++;
     drawHeader('puzzles');
-    const slice = puzzles.slice(p * perPageCount, (p + 1) * perPageCount);
-    slice.forEach((pz, idx) => {
-      const cx = idx % cols;
-      const cy = Math.floor(idx / cols);
-      const x = margin + cx * (cellAreaW + gutterX) + (cellAreaW - gridSize) / 2;
-      const y = margin + headerH + cy * (cellAreaH + gutterY);
-      drawGrid(x, y, gridSize, pz.clues, `#${pz.id}  ·  ${pz.difficulty}  ·  ${pz.clueCount} clues`);
-    });
+    drawSheet(puzzles.slice(p * perPageCount, (p + 1) * perPageCount), false);
     drawFooter(pageNum, totalPages);
   }
 
@@ -160,14 +226,7 @@ export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise
       doc.addPage();
       pageNum++;
       drawHeader('answer key');
-      const slice = puzzles.slice(p * perPageCount, (p + 1) * perPageCount);
-      slice.forEach((pz, idx) => {
-        const cx = idx % cols;
-        const cy = Math.floor(idx / cols);
-        const x = margin + cx * (cellAreaW + gutterX) + (cellAreaW - gridSize) / 2;
-        const y = margin + headerH + cy * (cellAreaH + gutterY);
-        drawGrid(x, y, gridSize, pz.solution, `#${pz.id} solution`);
-      });
+      drawSheet(puzzles.slice(p * perPageCount, (p + 1) * perPageCount), true);
       drawFooter(pageNum, totalPages);
     }
   }
