@@ -44,7 +44,7 @@ export default function WithAnswersPage() {
             sample={SAMPLE_PUZZLES.medium}
             defaultIncludeSolutions
             heading="Set a run with answers"
-            subheading="the answer key is on — untick it any time"
+            subheading="answers are switched on here — untick any time"
           />
         </div>
 

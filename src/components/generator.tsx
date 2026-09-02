@@ -38,7 +38,7 @@ export function Generator({
   defaultCount = 6,
   defaultPerPage = 2,
   defaultPageSize = 'a4',
-  defaultIncludeSolutions = true,
+  defaultIncludeSolutions = false,
   heading = 'Set the run',
   subheading = 'configure the batch before printing',
 }: GeneratorProps) {
@@ -254,7 +254,7 @@ export function Generator({
               onChange={(e) => setIncludeSolutions(e.target.checked)}
               className="h-4 w-4 accent-stamp"
             />
-            <span className="text-[13px]">Include an answer key</span>
+            <span className="text-[13px]">Include answers</span>
           </label>
         </div>
 
@@ -323,7 +323,7 @@ export function Generator({
               />
               <ResultRow label="Difficulty" value={describeDifficulties(result.difficulties)} />
               <ResultRow
-                label="Answer key"
+                label="Answers"
                 value={result.includeSolutions ? 'included' : 'not included'}
               />
             </dl>

@@ -10,7 +10,7 @@ export const HOME_FAQS: FaqItem[] = [
   {
     question: 'Can I get the answers too?',
     answer:
-      'Leave "Include an answer key" switched on and the PDF gets a second section after the puzzles, laid out in the same order, with each solution labelled by its puzzle number. If you are printing for a class or a group, print the puzzle pages, keep the key pages, and nobody has to take your word for it.',
+      'Two ways. Tick "Include answers" before you generate and the PDF gets a second section after the puzzles, laid out in the same order, with each solution labelled by its puzzle code — useful if you are printing for a class and want to keep those pages back. Or leave it unticked and look a solution up later on the answer lookup page using the code printed under the grid.',
   },
   {
     question: 'What paper size does it print on?',
@@ -58,7 +58,7 @@ export const ANSWERS_FAQS: FaqItem[] = [
   {
     question: 'Can I print the puzzles without the answer key?',
     answer:
-      'Yes — untick "Include an answer key" and the PDF contains puzzle pages only. You can also generate once with the key included and simply print the first half of the document, since the answer section always comes last.',
+      'Yes — leave "Include answers" unticked and the PDF contains puzzle pages only. That is the default everywhere except this page. You can also generate once with the answers included and simply print the first half of the document, since the answer section always comes last.',
   },
   {
     question: 'Are the answers guaranteed correct?',
@@ -119,7 +119,7 @@ export const LOOKUP_FAQS: FaqItem[] = [
   {
     question: 'Can I still get the answers printed in the PDF?',
     answer:
-      'Yes, that has not gone anywhere. Leave the answer key switched on in the generator and the solutions come as a section at the back of the document, exactly as before. This page is for when you did not print the key, or no longer have it.',
+      'Yes, that has not gone anywhere. Tick "Include answers" in the generator and the solutions come as a section at the back of the document. It is off by default, since most people would rather have a clean set of puzzles and look up the odd answer here. This page is for exactly that.',
   },
   {
     question: 'Can I link straight to a solution?',
