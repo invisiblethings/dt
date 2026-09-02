@@ -17,6 +17,15 @@ export interface PdfOptions {
   includeSolutions: boolean;
 }
 
+/** jsPDF font sizes are in points regardless of the document unit. */
+const PT_TO_MM = 25.4 / 72;
+
+/**
+ * How far above the baseline a Helvetica digit's visual centre sits, in em.
+ * From the font's own metrics: figures span -0.019em to 0.703em.
+ */
+const DIGIT_CENTRE_EM = 0.342;
+
 const LAYOUTS: Record<PerPage, { cols: number; rows: number }> = {
   1: { cols: 1, rows: 1 },
   2: { cols: 1, rows: 2 },
@@ -89,14 +98,28 @@ export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise
       doc.line(x, y + i * c, x + size, y + i * c);
     }
 
+    /*
+     * Vertical placement of the digits.
+     *
+     * jsPDF positions text by its baseline, and font sizes are always points
+     * even when the document unit is millimetres. In Helvetica a digit runs
+     * from -0.019em (the slight overshoot under the baseline on round figures)
+     * up to 0.703em, so its visual centre sits 0.342em above the baseline.
+     * Dropping the baseline by exactly that much is what puts the digit in the
+     * middle of its cell; the prototype's fixed 0.17-of-a-cell nudge left every
+     * digit sitting about an eighth of a cell high.
+     */
+    const fontSize = c * 2.5;
+    const digitCentreOffset = DIGIT_CENTRE_EM * fontSize * PT_TO_MM;
+
     doc.setFont('helvetica', 'normal');
-    doc.setFontSize(c * 2.5);
+    doc.setFontSize(fontSize);
     doc.setTextColor(25, 28, 32);
     for (let r = 0; r < 9; r++) {
       for (let cc = 0; cc < 9; cc++) {
         const v = cells[r * 9 + cc];
         if (v) {
-          doc.text(String(v), x + cc * c + c / 2, y + r * c + c / 2 + c * 0.17, {
+          doc.text(String(v), x + cc * c + c / 2, y + r * c + c / 2 + digitCentreOffset, {
             align: 'center',
           });
         }
