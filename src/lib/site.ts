@@ -1,14 +1,15 @@
 /**
  * Single source of truth for the site's identity and route list.
  *
- * The default below is the current production origin. If a custom domain is
- * attached later, set `NEXT_PUBLIC_SITE_URL` to it (no trailing slash) under
- * Netlify → Site configuration → Environment variables rather than editing
- * this file. Either way it drives canonicals, Open Graph URLs, sitemap
- * entries and the footer printed inside generated PDFs.
+ * The default below is the production origin. Override it with
+ * `NEXT_PUBLIC_SITE_URL` (no trailing slash) under Netlify → Site
+ * configuration → Environment variables if the site ever moves again. Either
+ * way it drives canonicals, Open Graph URLs, sitemap entries and the footer
+ * printed inside generated PDFs — it is the only place the origin is written
+ * down.
  */
 
-const RAW_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://printable-sudoku.netlify.app';
+const RAW_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://printablesudoku.org';
 
 export const SITE = {
   name: 'Printable Sudoku',

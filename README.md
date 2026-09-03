@@ -5,7 +5,7 @@ layout, and download a print-ready PDF with an optional answer key. Puzzles are
 generated and verified in the browser; there is no backend and no database.
 
 Built with Next.js (App Router) + TypeScript + Tailwind CSS, deployed to
-Netlify as a static export. Live at <https://printable-sudoku.netlify.app>.
+Netlify as a static export. Live at <https://printablesudoku.org>.
 
 ## Getting started
 
@@ -167,12 +167,17 @@ The rest:
 
 ## Manual follow-ups before launch
 
-1. **Only if you attach a custom domain:** set `NEXT_PUBLIC_SITE_URL` under
+1. **Only if the site moves again:** set `NEXT_PUBLIC_SITE_URL` under
    Netlify → Site configuration → Environment variables (all deploy contexts)
    to the new origin, no trailing slash, then redeploy. The default in
-   `src/lib/site.ts` already matches the current `.netlify.app` origin, so
-   canonicals, the sitemap, Open Graph URLs and the PDF footer are correct as
-   deployed. The domain is not hard-coded anywhere else.
+   `src/lib/site.ts` is `https://printablesudoku.org`, so canonicals, the
+   sitemap, Open Graph URLs and the PDF footer are correct as deployed. The
+   origin is not written down anywhere else.
+
+   `printablesudoku.org` should stay the **primary** domain in Netlify, which
+   is what makes Netlify 301 the `.netlify.app` subdomain to it. Without that
+   the same pages answer on two hostnames and compete with each other in
+   search.
 2. **Submit the sitemap to Google Search Console** and Bing Webmaster Tools:
    verify the domain, then submit `https://your-domain/sitemap.xml`. Also worth
    running the difficulty pages through the Rich Results Test to confirm the FAQ
