@@ -15,6 +15,16 @@
   # baked into the repository. It drives canonicals, Open Graph URLs, the
   # sitemap and the footer printed inside generated PDFs.
 
+# printablesudoku.org is the production domain (see NEXT_PUBLIC_SITE_URL in
+# src/lib/site.ts). The site was originally live at this Netlify subdomain and
+# is still indexed under it, so every request there gets a permanent redirect
+# to the real domain rather than being served twice under two hostnames.
+[[redirects]]
+  from = "https://printable-sudoku.netlify.app/*"
+  to = "https://printablesudoku.org/:splat"
+  status = 301
+  force = true
+
 # Next writes the generated Open Graph and Apple touch icons without a file
 # extension, so Netlify cannot infer their type. Social scrapers reject an
 # image served as application/octet-stream, hence these two rules.

@@ -174,10 +174,13 @@ The rest:
    sitemap, Open Graph URLs and the PDF footer are correct as deployed. The
    origin is not written down anywhere else.
 
-   `printablesudoku.org` should stay the **primary** domain in Netlify, which
-   is what makes Netlify 301 the `.netlify.app` subdomain to it. Without that
-   the same pages answer on two hostnames and compete with each other in
-   search.
+   `netlify.toml` already carries a redirect from `printable-sudoku.netlify.app`
+   to `printablesudoku.org` with `force = true`, so the old subdomain 301s to
+   the real domain regardless of which one is set as primary in Netlify's
+   dashboard. If the domain changes again, update that redirect's `to` (and
+   add a new rule redirecting the previous domain, so old links and any
+   accumulated search ranking keep following through) rather than relying on
+   the primary-domain setting alone.
 2. **Submit the sitemap to Google Search Console** and Bing Webmaster Tools:
    verify the domain, then submit `https://your-domain/sitemap.xml`. Also worth
    running the difficulty pages through the Rich Results Test to confirm the FAQ
