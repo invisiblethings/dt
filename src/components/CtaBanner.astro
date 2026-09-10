@@ -1,0 +1,46 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../data/site.js';
+
+interface Props {
+  heading?: string;
+  subheading?: string;
+}
+const {
+  heading = 'Get a Free Roof Inspection',
+  subheading = 'Same-week appointments across Brooklyn. No obligation, no pressure — just a straight answer about your roof.',
+} = Astro.props;
+---
+<section class="cta-banner">
+  <div class="container cta-inner">
+    <div>
+      <h2>{heading}</h2>
+      <p>{subheading}</p>
+    </div>
+    <div class="cta-actions">
+      <a href={site.phoneHref} class="btn btn-primary"><Icon name="phone" size={18} color="#fff" /> {site.phone}</a>
+      <a href="/contact/" class="btn btn-ghost-light">Request Online</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-banner {
+    background: var(--color-navy);
+    color: #fff;
+    padding-block: 48px;
+  }
+  .cta-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .cta-banner h2 { color: #fff; margin-bottom: 0.3em; }
+  .cta-banner p { color: rgba(255,255,255,0.75); margin: 0; max-width: 52ch; }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  @media (min-width: 800px) {
+    .cta-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+  }
+</style>

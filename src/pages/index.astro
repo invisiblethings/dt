@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import NeighborhoodCard from '../components/NeighborhoodCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Faq from '../components/Faq.astro';
+import { services } from '../data/services.js';
+import { neighborhoods } from '../data/neighborhoods.js';
+import { site } from '../data/site.js';
+
+const featuredServices = services.filter((s) =>
+  ['roof-repair', 'emergency-roof-repair', 'roof-leak-repair', 'roof-replacement', 'flat-roof-repair', 'storm-damage-roof-repair'].includes(s.slug)
+);
+
+const homeFaqs = [
+  { q: 'What areas of Brooklyn do you serve?', a: 'All of Brooklyn — from Greenpoint to Bay Ridge, Williamsburg to Flatbush. We maintain dedicated crews familiar with the building stock in each of our 10 primary service neighborhoods, and take calls from every Brooklyn zip code.' },
+  { q: 'Are you licensed and insured?', a: `Yes — ${site.legalName} is a licensed and insured NYC home improvement contractor. We can provide proof of insurance and license number on request before any work begins.` },
+  { q: 'How fast can you come out?', a: 'For non-emergency repairs, same-week appointments are standard. For active leaks or storm damage, we offer 24/7 emergency service with typical response within a few hours.' },
+  { q: 'Do you offer free inspections?', a: 'Yes, for Brooklyn homeowners evaluating a repair or replacement. You get a written, photo-documented assessment with no obligation to book further work.' },
+  { q: 'What roof types do you work on?', a: 'Asphalt shingle, flat/low-slope membrane (TPO, EPDM, modified bitumen), and built-up roofing — covering the row houses, brownstones, and multi-family buildings that make up most of Brooklyn.' },
+];
+---
+<Layout
+  title="Roof Repair Brooklyn NY | Licensed & Insured | Brooklyn Roof Repair"
+  description="Brooklyn's roof repair specialists — leaks, storm damage, flat roofs, and full replacement. Free inspection, same-week scheduling, 24/7 emergency service. Serving all of Brooklyn."
+  path="/"
+>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="badge"><Icon name="shield" size={14} color="#d84c1e" /> {site.licenseNote}</span>
+        <h1>Roof Repair Across Brooklyn, Done Right the First Time</h1>
+        <p>From a single leak to a full roof replacement, we diagnose the real cause before we touch a shingle. Free inspection, a flat-rate written quote, and most repairs finished in one visit.</p>
+        <div class="hero-actions">
+          <a href={site.phoneHref} class="btn btn-primary"><Icon name="phone" size={18} color="#fff" /> Call {site.phone}</a>
+          <a href="/contact/" class="btn btn-secondary">Request a Free Inspection</a>
+        </div>
+        <ul class="hero-trust">
+          <li><Icon name="clock" size={16} color="#F05A28" /> 24/7 emergency service</li>
+          <li><Icon name="check" size={16} color="#F05A28" /> Free written quotes</li>
+          <li><Icon name="shield" size={16} color="#F05A28" /> Licensed &amp; insured</li>
+        </ul>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 320 260" class="hero-illustration">
+          <rect x="30" y="150" width="60" height="90" fill="#16324f" />
+          <rect x="100" y="110" width="70" height="130" fill="#0F243B" />
+          <rect x="180" y="160" width="55" height="80" fill="#16324f" />
+          <rect x="245" y="130" width="60" height="110" fill="#0F243B" />
+          <path d="M15 165 L160 55 L305 165" stroke="#F9FAFB" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+          <path d="M60 140 L110 75 L140 92 L88 158 Z" fill="#F05A28" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Roofing Services</span>
+      <h2>Every Roof Repair Service You Might Need, In One Place</h2>
+      <p class="section-sub">Whatever's going on with your roof, we've almost certainly seen it on a Brooklyn brownstone, row house, or building like yours.</p>
+      <div class="services-grid">
+        {featuredServices.map((s) => (
+          <ServiceCard service={s} />
+        ))}
+      </div>
+      <a href="/services/" class="link-more">View all 12 roofing services →</a>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="why-grid">
+        <div>
+          <span class="eyebrow">Why Brooklyn Roof Repair</span>
+          <h2>Straight Answers, Fair Prices, Work That Lasts</h2>
+          <p>We built this company on a simple idea: tell homeowners the truth about their roof, even when a smaller repair is the honest answer instead of the bigger sale. That approach is why most of our new calls come from referrals.</p>
+          <ul class="why-list">
+            <li><Icon name="check" size={18} color="#F05A28" /> <div><strong>Root-cause diagnosis.</strong> We trace leaks to their actual source, not just the visible symptom.</div></li>
+            <li><Icon name="check" size={18} color="#F05A28" /> <div><strong>Flat-rate written quotes.</strong> The price we quote is the price you pay — no change orders sprung on you mid-job.</div></li>
+            <li><Icon name="check" size={18} color="#F05A28" /> <div><strong>Brooklyn-specific experience.</strong> Brownstone parapets, row-house party walls, and pre-war flat roofs are our everyday work.</div></li>
+            <li><Icon name="check" size={18} color="#F05A28" /> <div><strong>Licensed, insured, and warrantied.</strong> Every repair is backed by a workmanship warranty.</div></li>
+          </ul>
+        </div>
+        <div class="testimonials">
+          <TestimonialCard quote="They found a flashing issue two other contractors missed and fixed it in an afternoon. No upsell, no runaround." author="Maria T." location="Park Slope" />
+          <TestimonialCard quote="Called at 11pm during a storm and someone actually picked up. Had a tarp on by morning." author="David K." location="Bushwick" />
+          <TestimonialCard quote="Replaced our brownstone's flat roof and handled the DOB permit without us lifting a finger." author="Angela R." location="Bedford-Stuyvesant" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Service Areas</span>
+      <h2>Serving All of Brooklyn</h2>
+      <p class="section-sub">Dedicated familiarity with the building stock in these 10 neighborhoods — plus every other block in Brooklyn.</p>
+      <div class="areas-grid">
+        {neighborhoods.map((n) => (
+          <NeighborhoodCard neighborhood={n} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+
+  <section class="section section-alt">
+    <div class="container">
+      <Faq items={homeFaqs} />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { padding-block: 40px 56px; overflow: hidden; }
+  .hero-inner { display: grid; gap: 32px; align-items: center; }
+  .hero h1 { margin-top: 0.4em; }
+  .hero-copy p { font-size: 1.05rem; color: var(--text-muted); max-width: 55ch; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-block: 24px 20px; }
+  .hero-trust { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 18px; font-size: 0.88rem; font-weight: 600; }
+  .hero-trust li { display: flex; align-items: center; gap: 8px; }
+  .hero-illustration { width: 100%; max-width: 420px; margin-inline: auto; }
+
+  .section-sub { color: var(--text-muted); max-width: 62ch; margin-top: -6px; margin-bottom: 28px; }
+  .services-grid { display: grid; gap: 20px; margin-bottom: 24px; }
+  .link-more { font-weight: 700; color: var(--accent); }
+
+  .why-grid { display: grid; gap: 36px; }
+  .why-list { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+  .why-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; }
+  .testimonials { display: grid; gap: 18px; }
+
+  .areas-grid { display: grid; gap: 12px; }
+
+  @media (min-width: 640px) {
+    .areas-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 700px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 960px) {
+    .hero-inner { grid-template-columns: 1.2fr 1fr; }
+    .why-grid { grid-template-columns: 1.2fr 1fr; }
+    .areas-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>

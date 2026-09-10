@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+import { services } from '../../data/services.js';
+import { breadcrumbSchema, faqSchema } from '../../lib/schema.js';
+
+const breadcrumbItems = [
+  { name: 'Home', path: '/' },
+  { name: 'FAQ', path: '/faq/' },
+];
+
+// Aggregate every service's FAQs into one comprehensive resource page —
+// distinct from the per-service pages since it's organized by topic breadth
+// rather than depth on a single service.
+const grouped = services.map((s) => ({ service: s, faqs: s.faqs }));
+const allFaqsFlat = services.flatMap((s) => s.faqs);
+---
+<Layout
+  title="Roof Repair FAQ | Brooklyn Roof Repair"
+  description="Answers to the most common questions about roof repair cost, timelines, insurance, materials, and scheduling in Brooklyn, NY."
+  path="/faq/"
+  schema={[breadcrumbSchema(breadcrumbItems), faqSchema(allFaqsFlat)]}
+>
+  <section class="section">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbItems} />
+      <span class="eyebrow">FAQ</span>
+      <h1>Roof Repair Questions, Answered</h1>
+      <p class="section-sub">Organized by service — jump to the topic you need, or browse all of it.</p>
+
+      {grouped.map((group) => (
+        <div class="faq-section">
+          <h2 class="faq-section-title">
+            <a href={`/services/${group.service.slug}/`}>{group.service.name}</a>
+          </h2>
+          <Faq items={group.faqs} title="" />
+        </div>
+      ))}
+    </div>
+  </section>
+  <CtaBanner heading="Still Have a Question?" subheading="Call us or send a message — we'll give you a straight answer." />
+</Layout>
+
+<style>
+  .section-sub { color: var(--text-muted); margin-bottom: 40px; }
+  .faq-section { margin-bottom: 40px; }
+  .faq-section-title { font-size: 1.2rem; margin-bottom: 16px; }
+  .faq-section-title a { color: var(--color-navy); }
+  .faq-section-title a:hover { color: var(--accent); }
+</style>

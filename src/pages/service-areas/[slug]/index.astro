@@ -1,0 +1,123 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Faq from '../../../components/Faq.astro';
+import CtaBanner from '../../../components/CtaBanner.astro';
+import Icon from '../../../components/Icon.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+import NeighborhoodCard from '../../../components/NeighborhoodCard.astro';
+import { neighborhoods, getNeighborhoodBySlug } from '../../../data/neighborhoods.js';
+import { services } from '../../../data/services.js';
+import { site } from '../../../data/site.js';
+import { neighborhoodSchema, faqSchema, breadcrumbSchema } from '../../../lib/schema.js';
+
+export function getStaticPaths() {
+  return neighborhoods.map((n) => ({ params: { slug: n.slug }, props: { neighborhood: n } }));
+}
+
+const { neighborhood } = Astro.props;
+const nearbyNeighborhoods = neighborhood.nearby
+  .map((slug) => getNeighborhoodBySlug(slug))
+  .filter(Boolean);
+const featuredServices = services.slice(0, 6);
+
+const breadcrumbItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Service Areas', path: '/service-areas/' },
+  { name: neighborhood.name, path: `/service-areas/${neighborhood.slug}/` },
+];
+
+const schema = [
+  neighborhoodSchema(neighborhood),
+  faqSchema(neighborhood.faqs),
+  breadcrumbSchema(breadcrumbItems),
+];
+---
+<Layout title={neighborhood.metaTitle} description={neighborhood.metaDescription} path={`/service-areas/${neighborhood.slug}/`} schema={schema}>
+  <section class="hero-area">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbItems} />
+      <span class="eyebrow"><Icon name="pin" size={16} /> Brooklyn Service Area</span>
+      <h1>{neighborhood.h1}</h1>
+      <p class="hero-intro">{neighborhood.intro}</p>
+      <div class="hero-actions">
+        <a href={site.phoneHref} class="btn btn-primary"><Icon name="phone" size={16} color="#fff" /> Call {site.phone}</a>
+        <a href="/contact/" class="btn btn-secondary">Request a Free Inspection</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="local-grid">
+        <div>
+          <h2>Common Roof Types in {neighborhood.name}</h2>
+          <ul class="roof-types-list">
+            {neighborhood.commonRoofTypes.map((type) => (
+              <li><Icon name="check" size={16} color="#F05A28" /> {type}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2>Nearby Landmarks We Reference for Access</h2>
+          <p class="landmarks-text">{neighborhood.landmarks.join(' · ')}</p>
+          {nearbyNeighborhoods.length > 0 && (
+            <>
+              <h3>We Also Serve Nearby</h3>
+              <div class="nearby-list">
+                {nearbyNeighborhoods.map((n) => (
+                  <NeighborhoodCard neighborhood={n} />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Roofing Services Available in {neighborhood.name}</h2>
+      <p class="section-sub">Every service we offer across Brooklyn is available in {neighborhood.name}, with technicians already familiar with the neighborhood's building stock.</p>
+      <div class="services-grid">
+        {featuredServices.map((s) => (
+          <ServiceCard service={s} />
+        ))}
+      </div>
+      <a href="/services/" class="link-more">View all services →</a>
+    </div>
+  </section>
+
+  <CtaBanner heading={`Roof Repair in ${neighborhood.name}, Ready When You Are`} subheading="Free inspection, a written flat-rate quote, and technicians who already know the local building stock." />
+
+  <section class="section section-alt">
+    <div class="container">
+      <Faq items={neighborhood.faqs} title={`${neighborhood.name} Roofing FAQs`} />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-area { padding-block: 12px 48px; }
+  .hero-area h1 { max-width: 20ch; }
+  .hero-intro { font-size: 1.05rem; color: var(--text-muted); max-width: 65ch; margin-top: 12px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+
+  .local-grid { display: grid; gap: 32px; }
+  .roof-types-list { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .roof-types-list li { display: flex; align-items: flex-start; gap: 10px; }
+  .landmarks-text { color: var(--text-muted); margin-top: 16px; }
+  .nearby-list { display: grid; gap: 10px; margin-top: 14px; }
+
+  .section-sub { color: var(--text-muted); max-width: 60ch; margin-top: -8px; margin-bottom: 24px; }
+  .services-grid { display: grid; gap: 20px; margin-bottom: 20px; }
+  .link-more { display: inline-block; font-weight: 700; color: var(--accent); }
+
+  @media (min-width: 700px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 960px) {
+    .local-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>

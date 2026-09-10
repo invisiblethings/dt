@@ -1,0 +1,64 @@
+---
+interface Props {
+  class?: string;
+  variant?: 'color' | 'reverse' | 'mono' | 'white';
+}
+const { class: className = '', variant = 'color' } = Astro.props;
+
+const palette = {
+  color: { roof: '#0F243B', accent: '#F05A28', skyline: '#0F243B', window: '#FFFFFF', windowFrame: '#0F243B' },
+  reverse: { roof: '#FFFFFF', accent: '#F05A28', skyline: '#FFFFFF', window: '#0F243B', windowFrame: '#FFFFFF' },
+  mono: { roof: '#0F243B', accent: '#0F243B', skyline: '#0F243B', window: '#FFFFFF', windowFrame: '#0F243B' },
+  white: { roof: '#FFFFFF', accent: '#FFFFFF', skyline: '#FFFFFF', window: '#0F243B', windowFrame: '#FFFFFF' },
+};
+const c = palette[variant];
+---
+<svg
+  class={className}
+  viewBox="0 0 240 150"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Brooklyn Roof Repair logo mark"
+>
+  <!-- Skyline (behind roofline) -->
+  <g>
+    <rect x="128" y="72" width="14" height="38" fill={c.skyline} />
+    <rect x="144" y="58" width="16" height="52" fill={c.skyline} />
+    <rect x="162" y="80" width="13" height="30" fill={c.skyline} />
+    <rect x="177" y="66" width="15" height="44" fill={c.skyline} />
+    <rect x="194" y="46" width="12" height="64" fill={c.skyline} />
+    <rect x="197.5" y="30" width="5" height="16" fill={c.skyline} />
+    <rect x="199.2" y="20" width="1.6" height="10" fill={c.skyline} />
+  </g>
+
+  <!-- Brooklyn Bridge towers -->
+  <g stroke={c.skyline} stroke-width="3" stroke-linecap="round">
+    <path d="M78 110 V54 M96 110 V54" stroke-width="5" />
+    <path d="M78 60 C78 48 96 48 96 60" stroke-width="5" fill="none" />
+    <path d="M74 46 C74 34 100 34 100 46" stroke-width="5" fill="none" />
+    <path d="M60 46 H114" stroke-width="5" />
+    <!-- cables -->
+    <path d="M64 110 L87 46 M72 110 L87 50 M102 110 L87 50 M110 110 L87 46" stroke-width="2" opacity="0.85" />
+    <path d="M40 110 L87 58 M134 110 L87 58" stroke-width="2" opacity="0.7" />
+  </g>
+
+  <!-- Roofline (drawn last, on top, acting as a frame over the skyline) -->
+  <path
+    d="M8 112 L120 16 L232 112"
+    stroke={c.roof}
+    stroke-width="13"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <!-- Orange diagonal band across the left roof slope -->
+  <path d="M40 96 L74 34 L92 44 L58 106 Z" fill={c.accent} />
+
+  <!-- Window on the left slope -->
+  <g>
+    <rect x="26" y="86" width="26" height="26" rx="2" fill={c.window} stroke={c.windowFrame} stroke-width="3.5" />
+    <path d="M39 86 V112 M26 99 H52" stroke={c.windowFrame} stroke-width="3.5" />
+  </g>
+</svg>

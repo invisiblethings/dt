@@ -1,0 +1,83 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import CtaBanner from '../../../components/CtaBanner.astro';
+import Icon from '../../../components/Icon.astro';
+import { getCollection, render } from 'astro:content';
+import { services } from '../../../data/services.js';
+import { breadcrumbSchema } from '../../../lib/schema.js';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const related = services.filter((s) => post.data.relatedServices.includes(s.slug));
+
+const breadcrumbItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Roofing Guides', path: '/blog/' },
+  { name: post.data.title, path: `/blog/${post.id}/` },
+];
+---
+<Layout
+  title={post.data.metaTitle}
+  description={post.data.metaDescription}
+  path={`/blog/${post.id}/`}
+  schema={breadcrumbSchema(breadcrumbItems)}
+>
+  <article class="section">
+    <div class="container article-container">
+      <Breadcrumbs items={breadcrumbItems} />
+      <span class="eyebrow"><Icon name="clock" size={14} /> {post.data.readingTime}</span>
+      <h1>{post.data.title}</h1>
+      <div class="prose">
+        <Content />
+      </div>
+
+      {related.length > 0 && (
+        <div class="related-services">
+          <h3>Related Services</h3>
+          <div class="related-links">
+            {related.map((s) => (
+              <a href={`/services/${s.slug}/`} class="related-link">{s.name} →</a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </article>
+  <CtaBanner />
+</Layout>
+
+<style>
+  .article-container { max-width: 760px; }
+  .prose { margin-top: 24px; }
+  .prose :global(h2) { margin-top: 2em; font-size: 1.4rem; }
+  .prose :global(h3) { margin-top: 1.6em; font-size: 1.1rem; }
+  .prose :global(p) { color: var(--text-muted); font-size: 1rem; }
+  .prose :global(li) { color: var(--text-muted); margin-bottom: 0.4em; }
+  .prose :global(a) { color: var(--accent); font-weight: 600; }
+  .prose :global(ul), .prose :global(ol) { margin-bottom: 1.2em; }
+  .prose :global(strong) { color: var(--text); }
+  .prose :global(li.task-list-item) { list-style: none; margin-left: -1.4em; }
+  .prose :global(li.task-list-item input) { margin-right: 8px; accent-color: var(--accent); }
+
+  .related-services {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .related-services h3 { font-size: 1.05rem; margin-bottom: 16px; }
+  .related-links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .related-link {
+    padding: 10px 18px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+  .related-link:hover { border-color: var(--accent); color: var(--accent); }
+</style>

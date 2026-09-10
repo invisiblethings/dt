@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { services } from '../data/services.js';
+import { site } from '../data/site.js';
+---
+<Layout
+  title="Page Not Found | Brooklyn Roof Repair"
+  description="This page couldn't be found. Browse our roofing services or contact us directly."
+  path="/404/"
+  noindex
+>
+  <section class="section not-found">
+    <div class="container">
+      <span class="eyebrow"><Icon name="pin" size={16} /> 404</span>
+      <h1>We Couldn't Find That Page</h1>
+      <p>The page you're looking for may have moved. Try one of these instead:</p>
+      <ul class="quick-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/">All Services</a></li>
+        <li><a href="/service-areas/">Service Areas</a></li>
+        <li><a href="/contact/">Contact Us</a></li>
+      </ul>
+      <div class="popular-services">
+        <h2>Popular Services</h2>
+        <div class="service-links">
+          {services.slice(0, 6).map((s) => (
+            <a href={`/services/${s.slug}/`}>{s.name}</a>
+          ))}
+        </div>
+      </div>
+      <a href={site.phoneHref} class="btn btn-primary"><Icon name="phone" size={16} color="#fff" /> Call {site.phone}</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .not-found { text-align: center; padding-block: 80px; }
+  .not-found p { color: var(--text-muted); margin-bottom: 24px; }
+  .quick-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 0;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
+  .quick-links a { color: var(--accent); }
+  .popular-services { margin-bottom: 40px; }
+  .popular-services h2 { font-size: 1.1rem; }
+  .service-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .service-links a {
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .service-links a:hover { border-color: var(--accent); color: var(--accent); }
+</style>

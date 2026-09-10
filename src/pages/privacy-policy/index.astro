@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { site } from '../../data/site.js';
+import { breadcrumbSchema } from '../../lib/schema.js';
+
+const breadcrumbItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Privacy Policy', path: '/privacy-policy/' },
+];
+const lastUpdated = 'September 2026';
+---
+<Layout
+  title="Privacy Policy | Brooklyn Roof Repair"
+  description="How Brooklyn Roof Repair collects, uses, and protects information submitted through this website."
+  path="/privacy-policy/"
+  schema={breadcrumbSchema(breadcrumbItems)}
+>
+  <section class="section legal-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbItems} />
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: {lastUpdated}</p>
+
+      <h2>Information We Collect</h2>
+      <p>When you request a free inspection or contact us through this website, we collect the information you provide directly: your name, phone number, email address, neighborhood, and any details about your roofing needs. We do not collect this information through hidden tracking or third-party data brokers.</p>
+
+      <h2>How We Use It</h2>
+      <p>Information submitted through our contact form or by phone is used solely to schedule inspections, provide quotes, and communicate about your roofing project. We do not sell or rent your contact information to third parties.</p>
+
+      <h2>Cookies &amp; Analytics</h2>
+      <p>This site may use standard analytics tools to understand aggregate traffic patterns (which pages are visited, general geographic region, device type). This data is not tied to your name or contact details unless you separately submit a form.</p>
+
+      <h2>Data Retention</h2>
+      <p>We retain customer contact and project information for as long as reasonably necessary to provide services, honor warranties, and meet legal and accounting obligations.</p>
+
+      <h2>Your Rights</h2>
+      <p>You may request that we delete your contact information from our records at any time by emailing <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy can be sent to <a href={`mailto:${site.email}`}>{site.email}</a> or by calling <a href={site.phoneHref}>{site.phone}</a>.</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page h1 { margin-top: 8px; }
+  .updated { color: var(--text-muted); margin-bottom: 32px; }
+  .legal-page h2 { font-size: 1.15rem; margin-top: 32px; }
+  .legal-page p { color: var(--text-muted); max-width: 72ch; }
+  .legal-page a { color: var(--accent); font-weight: 600; }
+</style>

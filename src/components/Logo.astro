@@ -1,0 +1,83 @@
+---
+import LogoMark from './LogoMark.astro';
+
+interface Props {
+  layout?: 'stacked' | 'horizontal' | 'mark-only';
+  tagline?: boolean;
+  variant?: 'color' | 'reverse';
+  class?: string;
+  markSize?: string;
+}
+const {
+  layout = 'horizontal',
+  tagline = false,
+  variant = 'color',
+  class: className = '',
+  markSize = '44px',
+} = Astro.props;
+
+const textPrimary = variant === 'reverse' ? '#FFFFFF' : '#0F243B';
+const textAccent = '#F05A28';
+const textTagline = variant === 'reverse' ? 'rgba(255,255,255,0.75)' : '#6B7280';
+---
+{layout === 'mark-only' ? (
+  <LogoMark variant={variant} class={`logo-mark-standalone ${className}`} />
+) : (
+  <a href="/" class={`logo logo-${layout} ${className}`} aria-label="Brooklyn Roof Repair — Home">
+    <LogoMark variant={variant} class="logo-mark" />
+    <span class="logo-text">
+      <span class="logo-wordmark">
+        <span style={`color:${textPrimary}`}>BROOKLYN</span>
+        <span style={`color:${textAccent}`}>ROOF.REPAIR</span>
+      </span>
+      {tagline && (
+        <span class="logo-tagline" style={`color:${textTagline}`}>Strong Roofs, Stronger Neighbors</span>
+      )}
+    </span>
+  </a>
+)}
+
+<style define:vars={{ markSize }}>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    text-decoration: none;
+  }
+  .logo-stacked {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.35em;
+  }
+  .logo-mark {
+    width: var(--mark-size);
+    height: auto;
+    flex-shrink: 0;
+  }
+  .logo-mark-standalone {
+    width: var(--mark-size);
+    height: auto;
+  }
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+  }
+  .logo-stacked .logo-text { align-items: center; }
+  .logo-wordmark {
+    font-weight: 800;
+    font-size: clamp(1rem, 1.6vw, 1.35rem);
+    letter-spacing: -0.01em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.32em;
+    white-space: nowrap;
+  }
+  .logo-tagline {
+    font-size: 0.62em;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 0.3em;
+  }
+</style>

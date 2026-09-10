@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NeighborhoodCard from '../../components/NeighborhoodCard.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+import { neighborhoods } from '../../data/neighborhoods.js';
+import { breadcrumbSchema } from '../../lib/schema.js';
+
+const breadcrumbItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Service Areas', path: '/service-areas/' },
+];
+---
+<Layout
+  title="Brooklyn Neighborhoods We Serve | Brooklyn Roof Repair"
+  description="Roof repair and replacement across every Brooklyn neighborhood, with dedicated local experience in Williamsburg, Bushwick, Bed-Stuy, Park Slope, and more."
+  path="/service-areas/"
+  schema={breadcrumbSchema(breadcrumbItems)}
+>
+  <section class="section">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbItems} />
+      <span class="eyebrow">Service Areas</span>
+      <h1>Brooklyn Neighborhoods We Serve</h1>
+      <p class="section-sub">We take calls from every Brooklyn zip code. These 10 neighborhoods are where we work most often, and where our crews have the deepest familiarity with local building styles and access.</p>
+      <div class="areas-grid">
+        {neighborhoods.map((n) => (
+          <NeighborhoodCard neighborhood={n} />
+        ))}
+      </div>
+      <p class="not-listed">Don't see your neighborhood listed? We still cover it — <a href="/contact/">get in touch</a> and we'll confirm availability.</p>
+    </div>
+  </section>
+  <CtaBanner />
+</Layout>
+
+<style>
+  .section-sub { color: var(--text-muted); max-width: 62ch; margin-bottom: 32px; }
+  .areas-grid { display: grid; gap: 14px; }
+  .not-listed { margin-top: 28px; color: var(--text-muted); }
+  .not-listed a { color: var(--accent); font-weight: 700; }
+  @media (min-width: 640px) {
+    .areas-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 960px) {
+    .areas-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>

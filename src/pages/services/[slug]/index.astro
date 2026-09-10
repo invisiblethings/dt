@@ -1,0 +1,172 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Faq from '../../../components/Faq.astro';
+import CtaBanner from '../../../components/CtaBanner.astro';
+import Icon from '../../../components/Icon.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+import NeighborhoodCard from '../../../components/NeighborhoodCard.astro';
+import { services, getServiceBySlug } from '../../../data/services.js';
+import { neighborhoods } from '../../../data/neighborhoods.js';
+import { site } from '../../../data/site.js';
+import { serviceSchema, faqSchema, breadcrumbSchema } from '../../../lib/schema.js';
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
+}
+
+const { service } = Astro.props;
+const related = services.filter((s) => service.relatedServices.includes(s.slug));
+const featuredNeighborhoods = neighborhoods.slice(0, 6);
+
+const breadcrumbItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+  { name: service.name, path: `/services/${service.slug}/` },
+];
+
+const schema = [
+  serviceSchema(service),
+  faqSchema(service.faqs),
+  breadcrumbSchema(breadcrumbItems),
+];
+---
+<Layout title={service.metaTitle} description={service.metaDescription} path={`/services/${service.slug}/`} schema={schema}>
+  <section class="hero-service">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbItems} />
+      <div class="hero-service-grid">
+        <div>
+          <span class="eyebrow"><Icon name={service.icon} size={16} /> {service.navLabel}</span>
+          <h1>{service.h1}</h1>
+          <p class="hero-intro">{service.intro}</p>
+          <div class="hero-actions">
+            <a href={site.phoneHref} class="btn btn-primary"><Icon name="phone" size={16} color="#fff" /> Call {site.phone}</a>
+            <a href="/contact/" class="btn btn-secondary">Request a Free Inspection</a>
+          </div>
+          <p class="hero-price"><strong>Typical cost:</strong> {service.priceRange}</p>
+        </div>
+        <div class="hero-service-panel">
+          <h2>Signs You Need This Service</h2>
+          <ul class="signs-list">
+            {service.signs.map((sign) => (
+              <li><Icon name="check" size={16} color="#F05A28" /> {sign}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Our {service.name} Process</h2>
+      <div class="process-grid">
+        {service.process.map((step, i) => (
+          <div class="process-step">
+            <span class="process-num">{i + 1}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="benefits-grid">
+        <div>
+          <h2>Why Brooklyn Homeowners Call Us for {service.navLabel}</h2>
+          <ul class="benefits-list">
+            {service.benefits.map((b) => (
+              <li><Icon name="shield" size={18} color="#F05A28" /> {b}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="benefits-areas">
+          <h3>Serving Neighborhoods Across Brooklyn</h3>
+          <div class="benefits-areas-grid">
+            {featuredNeighborhoods.map((n) => (
+              <NeighborhoodCard neighborhood={n} />
+            ))}
+          </div>
+          <a href="/service-areas/" class="link-more">See all 10 neighborhoods we serve →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner heading={`Need ${service.name} in Brooklyn?`} subheading={`Free inspection, a written flat-rate quote, and most ${service.navLabel.toLowerCase()} jobs completed in a single visit.`} />
+
+  <section class="section">
+    <div class="container">
+      <Faq items={service.faqs} title={`${service.name} FAQs`} />
+    </div>
+  </section>
+
+  {related.length > 0 && (
+    <section class="section section-alt">
+      <div class="container">
+        <h2>Related Services</h2>
+        <div class="related-grid">
+          {related.map((s) => (
+            <ServiceCard service={s} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Layout>
+
+<style>
+  .hero-service { padding-block: 12px 48px; }
+  .hero-service-grid { display: grid; gap: 32px; margin-top: 12px; }
+  .hero-intro { font-size: 1.05rem; color: var(--text-muted); max-width: 60ch; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-block: 20px 12px; }
+  .hero-price { font-size: 0.92rem; color: var(--text-muted); }
+  .hero-service-panel {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+  .hero-service-panel h2 { font-size: 1.15rem; }
+  .signs-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .signs-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.92rem; }
+
+  .process-grid { display: grid; gap: 24px; margin-top: 28px; }
+  .process-step { position: relative; padding-left: 4px; }
+  .process-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--color-navy);
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .process-step h3 { font-size: 1.02rem; }
+  .process-step p { color: var(--text-muted); font-size: 0.9rem; }
+
+  .benefits-grid { display: grid; gap: 40px; }
+  .benefits-list { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+  .benefits-list li { display: flex; align-items: flex-start; gap: 10px; }
+  .benefits-areas h3 { font-size: 1.05rem; margin-bottom: 16px; }
+  .benefits-areas-grid { display: grid; gap: 10px; }
+  .link-more { display: inline-block; margin-top: 16px; font-weight: 700; color: var(--accent); }
+
+  .related-grid { display: grid; gap: 20px; margin-top: 24px; }
+
+  @media (min-width: 700px) {
+    .benefits-areas-grid { grid-template-columns: 1fr 1fr; }
+    .related-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 960px) {
+    .hero-service-grid { grid-template-columns: 1.3fr 1fr; align-items: start; }
+    .process-grid { grid-template-columns: repeat(4, 1fr); }
+    .benefits-grid { grid-template-columns: 1.1fr 1fr; }
+  }
+</style>

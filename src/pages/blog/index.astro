@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+import Icon from '../../components/Icon.astro';
+import { getCollection } from 'astro:content';
+import { breadcrumbSchema } from '../../lib/schema.js';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const breadcrumbItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Roofing Guides', path: '/blog/' },
+];
+---
+<Layout
+  title="Roofing Guides & Resources | Brooklyn Roof Repair"
+  description="Practical guides on roof repair cost, repair vs. replacement, storm damage, flat vs. shingle roofing, and maintenance for Brooklyn homeowners."
+  path="/blog/"
+  schema={breadcrumbSchema(breadcrumbItems)}
+>
+  <section class="section">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbItems} />
+      <span class="eyebrow">Roofing Guides</span>
+      <h1>Roofing Guides &amp; Resources</h1>
+      <p class="section-sub">Straight answers to the questions Brooklyn homeowners actually ask us, written by the people who do the repairs.</p>
+
+      <div class="posts-grid">
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}/`} class="post-card">
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+            <span class="post-meta">
+              <Icon name="clock" size={14} color="#F05A28" /> {post.data.readingTime}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CtaBanner />
+</Layout>
+
+<style>
+  .section-sub { color: var(--text-muted); max-width: 62ch; margin-bottom: 32px; }
+  .posts-grid { display: grid; gap: 20px; }
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .post-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+  .post-card h2 { font-size: 1.15rem; margin-bottom: 0.5em; }
+  .post-card p { color: var(--text-muted); font-size: 0.92rem; flex-grow: 1; }
+  .post-meta { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-top: 12px; }
+
+  @media (min-width: 700px) {
+    .posts-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
