@@ -21,14 +21,16 @@ const textAccent = '#F05A28';
 const textTagline = variant === 'reverse' ? 'rgba(255,255,255,0.75)' : '#6B7280';
 ---
 {layout === 'mark-only' ? (
-  <LogoMark variant={variant} class={`logo-mark-standalone ${className}`} />
+  <span role="img" aria-label="Brooklyn Roof Repair logo" class={`logo-mark-standalone-wrap ${className}`}>
+    <LogoMark variant={variant} class="logo-mark-standalone" />
+  </span>
 ) : (
   <a href="/" class={`logo logo-${layout} ${className}`} aria-label="Brooklyn Roof Repair — Home">
     <LogoMark variant={variant} class="logo-mark" />
     <span class="logo-text">
       <span class="logo-wordmark">
         <span style={`color:${textPrimary}`}>BROOKLYN</span>
-        <span style={`color:${textAccent}`}>ROOF.REPAIR</span>
+        <span><span style={`color:${textAccent}`}>ROOF</span><span style={`color:${textPrimary}`}>.</span><span style={`color:${textPrimary}`}>REPAIR</span></span>
       </span>
       {tagline && (
         <span class="logo-tagline" style={`color:${textTagline}`}>Strong Roofs, Stronger Neighbors</span>
@@ -50,13 +52,13 @@ const textTagline = variant === 'reverse' ? 'rgba(255,255,255,0.75)' : '#6B7280'
     gap: 0.35em;
   }
   .logo-mark {
-    width: var(--mark-size);
-    height: auto;
+    height: var(--mark-size);
+    width: auto;
     flex-shrink: 0;
   }
   .logo-mark-standalone {
-    width: var(--mark-size);
-    height: auto;
+    height: var(--mark-size);
+    width: auto;
   }
   .logo-text {
     display: flex;
