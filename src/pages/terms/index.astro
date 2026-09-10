@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { site } from '../../data/site.js';
+import { breadcrumbSchema } from '../../lib/schema.js';
+
+const breadcrumbItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Terms of Service', path: '/terms/' },
+];
+const lastUpdated = 'September 2026';
+---
+<Layout
+  title="Terms of Service | Brooklyn Roof Repair"
+  description="Terms governing use of the Brooklyn Roof Repair website and the estimates and services described on it."
+  path="/terms/"
+  schema={breadcrumbSchema(breadcrumbItems)}
+>
+  <section class="section legal-page">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbItems} />
+      <h1>Terms of Service</h1>
+      <p class="updated">Last updated: {lastUpdated}</p>
+
+      <h2>Website Use</h2>
+      <p>This website provides general information about {site.legalName}'s roofing services in Brooklyn, NY. Content is for informational purposes and does not constitute a binding quote until confirmed in writing following an on-site inspection.</p>
+
+      <h2>Estimates &amp; Pricing</h2>
+      <p>Price ranges shown on service pages are general guidance based on typical jobs and are not a quote for your specific property. Final pricing is provided in writing after a free on-site inspection and is based on the actual scope of work identified.</p>
+
+      <h2>Service Availability</h2>
+      <p>While we aim to serve every Brooklyn neighborhood, availability and response times can vary based on weather conditions, seasonal demand, and technician scheduling.</p>
+
+      <h2>Limitation of Liability</h2>
+      <p>Information on this website is provided "as is" without warranty of any kind. Workmanship warranties apply only to completed, paid work performed under a signed service agreement, per the terms of that specific agreement.</p>
+
+      <h2>Intellectual Property</h2>
+      <p>All content, logos, and design elements on this site are the property of {site.legalName} and may not be reproduced without permission.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about these terms can be sent to <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page h1 { margin-top: 8px; }
+  .updated { color: var(--text-muted); margin-bottom: 32px; }
+  .legal-page h2 { font-size: 1.15rem; margin-top: 32px; }
+  .legal-page p { color: var(--text-muted); max-width: 72ch; }
+  .legal-page a { color: var(--accent); font-weight: 600; }
+</style>

@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+import { services } from '../../data/services.js';
+import { breadcrumbSchema } from '../../lib/schema.js';
+
+const breadcrumbItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+];
+---
+<Layout
+  title="Roofing Services in Brooklyn, NY | Brooklyn Roof Repair"
+  description="Full range of roofing services across Brooklyn: repair, replacement, leak detection, flat roofing, storm damage, inspections, gutters, and maintenance plans."
+  path="/services/"
+  schema={breadcrumbSchema(breadcrumbItems)}
+>
+  <section class="section">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbItems} />
+      <span class="eyebrow">All Services</span>
+      <h1>Roofing Services Across Brooklyn</h1>
+      <p class="section-sub">From a single leak to a full tear-off replacement, every service below is available anywhere in Brooklyn, with free inspections and flat-rate written quotes.</p>
+      <div class="services-grid">
+        {services.map((s) => (
+          <ServiceCard service={s} />
+        ))}
+      </div>
+    </div>
+  </section>
+  <CtaBanner />
+</Layout>
+
+<style>
+  .section-sub { color: var(--text-muted); max-width: 62ch; margin-bottom: 32px; }
+  .services-grid { display: grid; gap: 20px; }
+  @media (min-width: 700px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>

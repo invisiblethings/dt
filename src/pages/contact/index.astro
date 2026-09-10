@@ -1,0 +1,135 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+import { site } from '../../data/site.js';
+import { neighborhoods } from '../../data/neighborhoods.js';
+import { breadcrumbSchema } from '../../lib/schema.js';
+
+const breadcrumbItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Contact', path: '/contact/' },
+];
+---
+<Layout
+  title="Contact Brooklyn Roof Repair | Free Inspection Request"
+  description="Request a free roof inspection or call our 24/7 emergency line. Serving every neighborhood in Brooklyn, NY."
+  path="/contact/"
+  schema={breadcrumbSchema(breadcrumbItems)}
+>
+  <section class="section">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbItems} />
+      <span class="eyebrow">Contact</span>
+      <h1>Request a Free Roof Inspection</h1>
+      <p class="section-sub">Tell us what's going on and we'll follow up to schedule — usually same-week, faster for active leaks.</p>
+
+      <div class="contact-grid">
+        <form class="contact-form" name="inspection-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="inspection-request" />
+          <p class="hidden-field"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+
+          <label>
+            Full Name
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label>
+            Phone Number
+            <input type="tel" name="phone" required autocomplete="tel" />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+          <label>
+            Neighborhood
+            <select name="neighborhood">
+              {neighborhoods.map((n) => <option value={n.name}>{n.name}</option>)}
+              <option value="Other">Other Brooklyn neighborhood</option>
+            </select>
+          </label>
+          <label>
+            What's going on with your roof?
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Send Request</button>
+          <p class="form-note">We respond during business hours; for an active leak or emergency, please call {site.phone} directly.</p>
+        </form>
+
+        <div class="contact-info">
+          <div class="info-card">
+            <h3><Icon name="phone" size={18} color="#F05A28" /> Call or Text</h3>
+            <a href={site.phoneHref} class="info-phone">{site.phone}</a>
+            <p>24/7 for emergencies. Business hours for general inquiries.</p>
+          </div>
+          <div class="info-card">
+            <h3><Icon name="document" size={18} color="#F05A28" /> Email</h3>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </div>
+          <div class="info-card">
+            <h3><Icon name="clock" size={18} color="#F05A28" /> Hours</h3>
+            <ul>
+              <li>Monday – Friday: 7:00 AM – 7:00 PM</li>
+              <li>Saturday: 8:00 AM – 5:00 PM</li>
+              <li>Sunday: Emergency calls only</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3><Icon name="pin" size={18} color="#F05A28" /> Service Area</h3>
+            <p>All of Brooklyn, NY — every neighborhood, every zip code.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .section-sub { color: var(--text-muted); max-width: 62ch; margin-bottom: 32px; }
+  .contact-grid { display: grid; gap: 32px; }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+  .hidden-field { display: none; }
+  .contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .contact-form input, .contact-form select, .contact-form textarea {
+    font: inherit;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+  .form-note { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+
+  .contact-info { display: flex; flex-direction: column; gap: 16px; }
+  .info-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+  }
+  .info-card h3 { display: flex; align-items: center; gap: 8px; font-size: 1rem; margin-bottom: 10px; }
+  .info-phone { font-size: 1.3rem; font-weight: 800; color: var(--color-navy); }
+  .info-card p, .info-card ul { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+  .info-card ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+
+  @media (min-width: 900px) {
+    .contact-grid { grid-template-columns: 1.4fr 1fr; align-items: start; }
+  }
+</style>

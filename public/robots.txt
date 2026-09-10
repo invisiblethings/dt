@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brooklynroof.repair/sitemap-index.xml
