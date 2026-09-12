@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 638 234" width="100%" role="img" aria-labelledby="pt" style="max-width:638px;height:auto;display:block;margin:0 auto">
+<title id="pt">How to split a piano practice session: warm-up, focused work and cool-down for 30, 45 and 60 minute sessions</title>
+<style>
+  .viz{ --surface-1:#fcfcfb; --text-primary:#0b0b0b; --text-secondary:#52514e;
+        --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; }
+  @media (prefers-color-scheme: dark){
+    .viz{ --surface-1:#1a1a19; --text-primary:#ffffff; --text-secondary:#c3c2b7;
+          --s1:#3987e5; --s2:#d95926; --s3:#199e70; }
+  }
+  .viz .lbl{ font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; font-size:14px; fill:var(--text-primary); }
+  .viz .sub{ font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; font-size:12.5px; fill:var(--text-secondary); }
+  .viz .inbar{ font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; font-size:12.5px; font-weight:600; fill:#ffffff; }
+  .viz .a{ fill:var(--s1); } .viz .b{ fill:var(--s2); } .viz .c{ fill:var(--s3); }
+  .viz .spacer{ fill:var(--surface-1); }
+</style>
+<g class="viz">
+<rect x="62" y="10" width="11" height="11" rx="2.5" class="a"/>
+<text x="79" y="20" class="sub">Warm-up</text>
+<rect x="153" y="10" width="11" height="11" rx="2.5" class="b"/>
+<text x="170" y="20" class="sub">Focused work</text>
+<rect x="279" y="10" width="11" height="11" rx="2.5" class="c"/>
+<text x="296" y="20" class="sub">Cool-down</text>
+<text x="50" y="65" text-anchor="end" class="lbl">30 min</text>
+<path d="M66.0 44 h40.7 v30 h-40.7 a4,4 0 0 1 -4,-4 v-22 a4,4 0 0 1 4,-4 z" class="a"><title>Warm-up: 5 min</title></path>
+<text x="84.3" y="88" text-anchor="middle" class="sub">5</text>
+<rect x="108.7" y="44" width="184.7" height="30" class="b"><title>Focused work: 20 min</title></rect>
+<text x="201.0" y="64" text-anchor="middle" class="inbar">20 min</text>
+<path d="M295.3 44 h42.7 a4,4 0 0 1 4,4 v22 a4,4 0 0 1 -4,4 h-42.7 z" class="c"><title>Cool-down: 5 min</title></path>
+<text x="318.7" y="64" text-anchor="middle" class="inbar">5 min</text>
+<text x="50" y="127" text-anchor="end" class="lbl">45 min</text>
+<path d="M66.0 106 h59.3 v30 h-59.3 a4,4 0 0 1 -4,-4 v-22 a4,4 0 0 1 4,-4 z" class="a"><title>Warm-up: 7 min</title></path>
+<text x="93.7" y="126" text-anchor="middle" class="inbar">7 min</text>
+<rect x="127.3" y="106" width="287.3" height="30" class="b"><title>Focused work: 31 min</title></rect>
+<text x="271.0" y="126" text-anchor="middle" class="inbar">31 min</text>
+<path d="M416.7 106 h61.3 a4,4 0 0 1 4,4 v22 a4,4 0 0 1 -4,4 h-61.3 z" class="c"><title>Cool-down: 7 min</title></path>
+<text x="449.3" y="126" text-anchor="middle" class="inbar">7 min</text>
+<text x="50" y="189" text-anchor="end" class="lbl">60 min</text>
+<path d="M66.0 168 h87.3 v30 h-87.3 a4,4 0 0 1 -4,-4 v-22 a4,4 0 0 1 4,-4 z" class="a"><title>Warm-up: 10 min</title></path>
+<text x="107.7" y="188" text-anchor="middle" class="inbar">10 min</text>
+<rect x="155.3" y="168" width="390.0" height="30" class="b"><title>Focused work: 42 min</title></rect>
+<text x="350.3" y="188" text-anchor="middle" class="inbar">42 min</text>
+<path d="M547.3 168 h70.7 a4,4 0 0 1 4,4 v22 a4,4 0 0 1 -4,4 h-70.7 z" class="c"><title>Cool-down: 8 min</title></path>
+<text x="584.7" y="188" text-anchor="middle" class="inbar">8 min</text>
+</g>
+</svg>
