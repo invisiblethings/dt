@@ -143,3 +143,58 @@ piano basics guide. Both are natural in context rather than bolted on.
 Replace the HTML card contents with the updated ghost-ahmad-jamal.html, and
 replace the post header code injection with the updated
 ghost-ahmad-jamal-schema.html.
+
+---
+
+# SECOND ROUND OF FIXES (from your screenshots)
+
+Both problems in the screenshots were mine, and both are now fixed and verified
+in a headless browser at 390px in light and dark OS modes.
+
+## 1. The timeline text was almost invisible
+
+Your phone is set to dark mode. My CSS had a `prefers-color-scheme: dark` block
+that switched the component text to near-white. Your theme does NOT follow the OS
+setting, so the page background stayed white. Near-white text on a white page.
+
+Measured: text luminance 236 against a background of 255. Invisible, exactly as
+your screenshot shows.
+
+The components no longer carry a dark-mode block at all. They inherit the theme's
+own text colour and use neutral transparency for backgrounds and rules, so they
+match whatever the theme does. Contrast is now 17.96:1 in both OS modes, and the
+year labels moved from #2a78d6 to #2670c9 to clear 4.5:1 as well.
+
+## 2. The videos were blank
+
+Your theme has `.kg-embed-card { display:flex; align-items:center }`. In a column
+flex container, `align-items:center` stops children from stretching, so my
+aspect-ratio wrapper shrank to fit its contents. Its only child is an absolutely
+positioned iframe, which is out of flow, so the wrapper computed to ZERO width.
+
+The percentage padding still resolved against the figure, which is why you got a
+tall blank gap: a 390 x 0 iframe inside a 390 x 219 hole.
+
+Fixed by giving the wrapper `width:100%`, `align-self:stretch` and a real
+`aspect-ratio:16/9` instead of the padding hack. Measured after the fix: wrapper
+390 x 219, iframe 390 x 219, ratio 1.78.
+
+I also set each video's YouTube thumbnail as the wrapper background. If an embed
+is ever slow or blocked, the reader sees the still frame rather than a white void.
+
+## 3. Two captions tightened
+
+The Olympia thumbnail shows the concert year, so that caption now says 2012 and
+"more than fifty years after the Pershing recording". The Paris 2017 caption no
+longer claims he was 86, since his birthday falls mid-year and I cannot confirm
+the concert month.
+
+## What this means for the other two articles
+
+ghost-piano-basics.html and ghost-piano-practice.html had no dark-mode blocks and
+no video embeds, so neither bug applies. They only needed the table fix, which
+they already have.
+
+The lesson for anything else we build for this theme: it is light-only, it sets
+white-space:nowrap on table cells, and it makes embed cards centred flex
+containers. Custom HTML has to account for all three.

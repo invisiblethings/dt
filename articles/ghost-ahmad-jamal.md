@@ -145,11 +145,11 @@ Drills like these belong inside a structured session rather than bolted onto the
 
 <!--VIDEO1-->
 
-"Poinciana" live at the Olympia in Paris, decades after the Pershing recording, with the same vamp and the same refusal to rush.
+"Poinciana" at the Olympia in Paris in 2012, more than fifty years after the Pershing recording, with the same vamp and the same refusal to rush.
 
 <!--VIDEO2-->
 
-"Autumn Leaves" at the Palais des Congrès in Paris, 2017, when Jamal was 86.
+"Autumn Leaves" at the Palais des Congrès in Paris in 2017, near the end of his touring life.
 
 <!--VIDEO3-->
 
