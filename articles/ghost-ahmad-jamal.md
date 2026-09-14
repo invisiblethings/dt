@@ -116,6 +116,8 @@ Jamal is one of the few jazz greats whose lessons transfer to an intermediate pl
 
 I use the Pershing recording with students who over-play, and it works faster than telling them to play less.
 
+Drills like these belong inside a structured session rather than bolted onto the end of one. Our guide to [piano practice sessions](https://pianoers.com/piano-practice-4-tips-to-successful-sessions/) covers how to build that structure, and if you are earlier on, start with [the keyboard itself](https://pianoers.com/piano-basics-a-beginners-guide-to-the-keyboard/).
+
 ## Essential Ahmad Jamal albums
 
 | Album | Year | Why it matters |

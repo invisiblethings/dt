@@ -97,3 +97,49 @@ I wrote that Jamal disliked the word "jazz" and called his music American
 classical music. This is well documented across interviews and I am confident
 in it, but it is a claim about a person's stated views, so read that paragraph
 and confirm you are happy with how it is phrased.
+
+---
+
+# POST-PUBLICATION FIXES (checked live on 14 September 2026)
+
+The published page is correct: all 16 timeline entries, the 9-row fact box, the
+10 FAQ blocks, the FAQPage and Person schema, all three videos and all images
+render, and none of the old errors survive. Two things need a re-paste.
+
+## 1. Tables were running off the screen (fixed in ghost-ahmad-jamal.html)
+
+Your theme sets `white-space: nowrap` on table cells, which assumes the table
+sits in a scrolling container. It didn't, so the albums table rendered 1015px
+wide inside a 720px column. On a 390px phone the "Why it matters" column started
+at x=428 and ran to x=1035, entirely off screen and unreachable, because the page
+itself does not scroll sideways. Readers on phones could not see that column at
+all, and desktop readers lost the right-hand edge of it.
+
+The updated HTML adds a small style block that lets the cells wrap and keeps a
+scroll container as a fallback. Verified in a headless browser at 1280px and
+390px: cells wrap, both tables fit, nothing sits off screen, and the page still
+does not scroll sideways.
+
+The same fix is in the updated ghost-piano-basics.html and
+ghost-piano-practice.html, so apply it there too if you publish those.
+
+## 2. The MusicBrainz URL was wrong (fixed in ghost-ahmad-jamal-schema.html)
+
+The sameAs link I flagged before publishing is live and points at an artist ID
+that does not exist. I pulled the real identifiers from Wikidata and rebuilt the
+Person block. It now lists Wikipedia, Wikidata (Q379613), the correct MusicBrainz
+ID, Discogs, and the NEA. Adding Wikidata is a genuine improvement: it is the
+strongest single signal for tying the page to the real-world entity.
+
+## 3. Internal links added
+
+The published version links out to nothing on your own site, which wastes the
+authority the page will earn. The updated HTML adds one sentence at the end of
+"What pianists can learn from him" linking to the piano practice guide and the
+piano basics guide. Both are natural in context rather than bolted on.
+
+## To apply
+
+Replace the HTML card contents with the updated ghost-ahmad-jamal.html, and
+replace the post header code injection with the updated
+ghost-ahmad-jamal-schema.html.
