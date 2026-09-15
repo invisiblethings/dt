@@ -1,0 +1,62 @@
+# Netlify configuration for Printable Sudoku.
+#
+# The Next.js build runs `output: 'export'` (see next.config.mjs), so this is a
+# plain static site: Netlify publishes the `out/` directory to its CDN and no
+# serverless functions or Next.js runtime are involved.
+
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # NEXT_PUBLIC_SITE_URL is deliberately NOT set here. Set it in
+  # Site configuration → Environment variables so the production origin is not
+  # baked into the repository. It drives canonicals, Open Graph URLs, the
+  # sitemap and the footer printed inside generated PDFs.
+
+# printablesudoku.org is the production domain (see NEXT_PUBLIC_SITE_URL in
+# src/lib/site.ts). The site was originally live at this Netlify subdomain and
+# is still indexed under it, so every request there gets a permanent redirect
+# to the real domain rather than being served twice under two hostnames.
+[[redirects]]
+  from = "https://printable-sudoku.netlify.app/*"
+  to = "https://printablesudoku.org/:splat"
+  status = 301
+  force = true
+
+# Next writes the generated Open Graph and Apple touch icons without a file
+# extension, so Netlify cannot infer their type. Social scrapers reject an
+# image served as application/octet-stream, hence these two rules.
+[[headers]]
+  for = "/opengraph-image"
+  [headers.values]
+    Content-Type = "image/png"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/apple-icon"
+  [headers.values]
+    Content-Type = "image/png"
+    Cache-Control = "public, max-age=3600"
+
+# Build assets are content-hashed by Next, so they can be cached indefinitely.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Self-hosted font files, likewise content-hashed.
+[[headers]]
+  for = "/_next/static/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Security headers. These live here rather than in next.config.mjs because a
+# static export has no Next server left to apply headers().
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
