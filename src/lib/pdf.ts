@@ -7,6 +7,8 @@
 
 import type { Puzzle } from './sudoku';
 import { SITE } from './site';
+import { getDictionary } from '@/i18n/dictionary';
+import type { Locale } from '@/i18n/config';
 
 export type PerPage = 1 | 2 | 4 | 6;
 export type PageSize = 'a4' | 'letter';
@@ -15,6 +17,7 @@ export interface PdfOptions {
   perPage: PerPage;
   pageSize: PageSize;
   includeSolutions: boolean;
+  locale: Locale;
 }
 
 /** jsPDF font sizes are in points regardless of the document unit. */
@@ -61,7 +64,10 @@ export function pageCounts(puzzleCount: number, perPage: PerPage, includeSolutio
 
 export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise<Blob> {
   const { jsPDF } = await import('jspdf');
-  const { perPage, pageSize, includeSolutions } = opts;
+  const { perPage, pageSize, includeSolutions, locale } = opts;
+  const dict = getDictionary(locale);
+  // The wordmark itself is the brand name, which is not translated (see
+  // src/lib/site.ts); everything else printed on the sheet is.
   const brand = `${SITE.wordmark.lead} ${SITE.wordmark.accent}`;
 
   const doc = new jsPDF({ unit: 'mm', format: pageSize });
@@ -191,14 +197,15 @@ export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise
       const x = startX + cx * (gridSize + GUTTER_X);
       const y = startY + cy * rowPitch;
       drawGrid(x, y, gridSize, solutions ? pz.solution : pz.clues);
+      const difficultyLabel = dict.difficultyLabel[pz.difficulty];
       drawCaption(
         x,
         y,
         gridSize,
         `#${pz.code}`,
         solutions
-          ? `Solution · ${pz.difficulty}`
-          : `Difficulty: ${pz.difficulty} · ${pz.clueCount} clues`,
+          ? `${dict.pdf.solutionPrefix} · ${difficultyLabel}`
+          : `${dict.pdf.difficultyPrefix}: ${difficultyLabel} · ${pz.clueCount} ${dict.pdf.cluesSuffix}`,
       );
     });
     const filledRows = Math.ceil(slice.length / cols);
@@ -216,7 +223,7 @@ export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise
   for (let p = 0; p < puzzlePages; p++) {
     if (p > 0) doc.addPage();
     pageNum++;
-    drawHeader('puzzles');
+    drawHeader(dict.pdf.puzzlesHeader);
     drawSheet(puzzles.slice(p * perPageCount, (p + 1) * perPageCount), false);
     drawFooter(pageNum, totalPages);
   }
@@ -225,7 +232,7 @@ export async function buildPdfBlob(puzzles: Puzzle[], opts: PdfOptions): Promise
     for (let p = 0; p < solutionPages; p++) {
       doc.addPage();
       pageNum++;
-      drawHeader('answer key');
+      drawHeader(dict.pdf.answerKeyHeader);
       drawSheet(puzzles.slice(p * perPageCount, (p + 1) * perPageCount), true);
       drawFooter(pageNum, totalPages);
     }

@@ -6,9 +6,9 @@ export interface Crumb {
 }
 
 /** Visible breadcrumb trail. The matching BreadcrumbList JSON-LD is emitted by the page. */
-export function Breadcrumbs({ trail }: { trail: Crumb[] }) {
+export function Breadcrumbs({ trail, ariaLabel }: { trail: Crumb[]; ariaLabel: string }) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-6">
+    <nav aria-label={ariaLabel} className="mb-6">
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11.5px] text-ink-soft">
         {trail.map((crumb, i) => {
           const last = i === trail.length - 1;

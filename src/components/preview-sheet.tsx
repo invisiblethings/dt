@@ -1,3 +1,5 @@
+import { getDictionary } from '@/i18n/dictionary';
+import type { Locale } from '@/i18n/config';
 import type { DifficultyKey } from '@/lib/sudoku';
 
 interface PreviewSheetProps {
@@ -6,6 +8,7 @@ interface PreviewSheetProps {
   code: string;
   difficulty: DifficultyKey;
   clueCount: number;
+  locale: Locale;
   /** Small caption in the bottom-right of the sheet. */
   status?: string;
   /** Replaces the default "difficulty - clues" line in the bottom-left. */
@@ -24,10 +27,15 @@ export function PreviewSheet({
   code,
   difficulty,
   clueCount,
+  locale,
   status,
   caption,
   label,
 }: PreviewSheetProps) {
+  const dict = getDictionary(locale);
+  const p = dict.previewSheet;
+  const difficultyLabel = dict.difficultyLabel[difficulty];
+
   return (
     // The rubber stamp hangs 26px past the sheet's top-right corner, so the
     // wrapper reserves room for it — without this the page scrolls sideways
@@ -38,21 +46,19 @@ export function PreviewSheet({
           className="absolute -right-[26px] -top-[26px] m-0 flex h-[74px] w-[74px] rotate-[11deg] items-center justify-center rounded-full border-[2.5px] border-dashed border-stamp-green bg-white/85 text-center font-mono text-[10px] font-medium uppercase leading-tight tracking-[0.5px] text-stamp-green"
           aria-hidden="true"
         >
-          {difficulty}
+          {difficultyLabel}
           <br />
-          run
+          {p.stampSuffix}
         </p>
 
         <div className="mb-3.5 flex items-baseline justify-between pr-9 font-mono text-[10.5px] tracking-[0.3px] text-ink-soft">
           <span>#{code}</span>
-          <span>printable sudoku</span>
+          <span>{p.brandLabel}</span>
         </div>
 
         <div
           role="img"
-          aria-label={
-            label ?? `Sample ${difficulty} sudoku puzzle grid with ${clueCount} starting clues`
-          }
+          aria-label={label ?? p.sampleAriaLabel(difficultyLabel, clueCount)}
           className="grid aspect-square w-full grid-cols-9 grid-rows-9 border-2 border-ink"
         >
           {cells.map((value, i) => {
@@ -77,8 +83,8 @@ export function PreviewSheet({
         </div>
 
         <div className="mt-3.5 flex justify-between font-mono text-[10.5px] text-ink-soft">
-          <span>{caption ?? `difficulty: ${difficulty} · ${clueCount} clues`}</span>
-          <span>{status ?? 'proof copy'}</span>
+          <span>{caption ?? p.difficultyCaption(difficultyLabel, clueCount)}</span>
+          <span>{status ?? dict.generator.proofCopy}</span>
         </div>
       </div>
     </div>

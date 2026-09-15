@@ -3,23 +3,18 @@
 import { useEffect, useRef, useState } from 'react';
 import { PreviewSheet } from './preview-sheet';
 import { usePuzzleWorker } from './use-puzzle-worker';
+import { getDictionary } from '@/i18n/dictionary';
+import type { Locale } from '@/i18n/config';
 import type { DifficultyKey, Puzzle } from '@/lib/sudoku';
 import { DIFFICULTY_KEYS } from '@/lib/sudoku';
 import type { PageSize, PerPage } from '@/lib/pdf';
-
-/** Reads "easy", "easy + medium", "easy, medium + hard". */
-function describeDifficulties(levels: DifficultyKey[]): string {
-  if (levels.length === 0) return 'none selected';
-  if (levels.length === DIFFICULTY_KEYS.length) return 'all levels';
-  if (levels.length === 1) return levels[0];
-  return `${levels.slice(0, -1).join(', ')} + ${levels[levels.length - 1]}`;
-}
 
 const PER_PAGE_OPTIONS: PerPage[] = [1, 2, 4, 6];
 
 export interface GeneratorProps {
   /** Sample rendered on the server so the sheet is real HTML on first paint. */
   sample: Puzzle;
+  locale: Locale;
   defaultDifficulties?: DifficultyKey[];
   defaultCount?: number;
   defaultPerPage?: PerPage;
@@ -34,14 +29,25 @@ type Phase = 'idle' | 'generating' | 'laying-out' | 'ready' | 'error';
 
 export function Generator({
   sample,
+  locale,
   defaultDifficulties = ['medium'],
   defaultCount = 6,
   defaultPerPage = 2,
   defaultPageSize = 'a4',
   defaultIncludeSolutions = false,
-  heading = 'Set the run',
-  subheading = 'configure the batch before printing',
+  heading,
+  subheading,
 }: GeneratorProps) {
+  const dict = getDictionary(locale);
+  const g = dict.generator;
+
+  /** Reads "easy", "easy + medium", "easy, medium + hard". */
+  function describeDifficulties(levels: DifficultyKey[]): string {
+    if (levels.length === 0) return '';
+    if (levels.length === DIFFICULTY_KEYS.length) return g.allLevels;
+    return g.joinLevels(levels.map((l) => dict.difficultyLabel[l]));
+  }
+
   const [count, setCount] = useState(String(defaultCount));
   const [difficulties, setDifficulties] = useState<DifficultyKey[]>(defaultDifficulties);
   const [perPage, setPerPage] = useState<PerPage>(defaultPerPage);
@@ -52,7 +58,7 @@ export function Generator({
   const [progress, setProgress] = useState({ done: 0, total: 0 });
   const [statusLine, setStatusLine] = useState('');
   const [preview, setPreview] = useState<Puzzle>(sample);
-  const [previewStatus, setPreviewStatus] = useState('proof copy');
+  const [previewStatus, setPreviewStatus] = useState(g.proofCopy);
   const [result, setResult] = useState<{
     puzzles: number;
     puzzlePages: number;
@@ -97,23 +103,23 @@ export function Generator({
     setResult(null);
     setPhase('generating');
     setProgress({ done: 0, total: n });
-    setStatusLine(`Setting puzzle 1 of ${n}…`);
+    setStatusLine(g.statusSettingFirst(n));
 
     try {
       const puzzles = await generate(n, difficulties, (done, total, puzzle) => {
         setProgress({ done, total });
         setStatusLine(
-          `Setting puzzle ${done} of ${total} · #${puzzle.code} · ${puzzle.difficulty} · ${puzzle.clueCount} clues`,
+          g.statusSetting(done, total, puzzle.code, dict.difficultyLabel[puzzle.difficulty], puzzle.clueCount),
         );
         setPreview(puzzle);
-        setPreviewStatus(`puzzle ${done} of ${total}`);
+        setPreviewStatus(g.previewPuzzleOf(done, total));
       });
 
       setPhase('laying-out');
-      setStatusLine('Laying out the PDF…');
+      setStatusLine(g.statusLayout);
 
       const [{ buildPdfBlob, pageCounts }] = await Promise.all([import('@/lib/pdf')]);
-      const blob = await buildPdfBlob(puzzles, { perPage, pageSize, includeSolutions });
+      const blob = await buildPdfBlob(puzzles, { perPage, pageSize, includeSolutions, locale });
       const href = URL.createObjectURL(blob);
       urlRef.current = href;
 
@@ -129,14 +135,12 @@ export function Generator({
         filename: `printable-sudoku-${difficulties.join('-')}-${puzzles.length}.pdf`,
       });
       setPreview(puzzles[0]);
-      setPreviewStatus('puzzle 1 of your run');
+      setPreviewStatus(g.previewPuzzleOneOfRun);
       setPhase('ready');
-      setStatusLine(`Run complete — ${puzzles.length} puzzles ready to download.`);
+      setStatusLine(g.statusComplete(puzzles.length));
     } catch (err) {
       setPhase('error');
-      setStatusLine(
-        err instanceof Error ? err.message : 'Something went wrong while setting the run.',
-      );
+      setStatusLine(err instanceof Error ? err.message : g.statusError);
     }
   }
 
@@ -149,7 +153,7 @@ export function Generator({
     setPhase('idle');
     setStatusLine('');
     setPreview(sample);
-    setPreviewStatus('proof copy');
+    setPreviewStatus(g.proofCopy);
   }
 
   const pct = progress.total ? Math.round((progress.done / progress.total) * 100) : 0;
@@ -158,13 +162,13 @@ export function Generator({
     <div className="grid items-start gap-8 shelf:grid-cols-[360px_1fr]">
       <section className="press-card p-[26px_26px_28px]" aria-labelledby="generator-heading">
         <h2 id="generator-heading" className="m-0 font-display text-[16px] font-bold">
-          {heading}
+          {heading ?? g.headingDefault}
         </h2>
-        <p className="mb-6 mt-1 font-mono text-[11.5px] text-ink-soft">{subheading}</p>
+        <p className="mb-6 mt-1 font-mono text-[11.5px] text-ink-soft">{subheading ?? g.subheadingDefault}</p>
 
         <div className="mb-[18px]">
           <label htmlFor="gp-count" className="mb-1.5 block text-[12.5px] font-semibold tracking-[0.3px]">
-            Number of puzzles
+            {g.countLabel}
           </label>
           <input
             id="gp-count"
@@ -176,14 +180,12 @@ export function Generator({
             onChange={(e) => setCount(e.target.value)}
             className="w-full rounded-sm border border-rule bg-white px-2.5 py-2 font-mono text-[13.5px] text-ink"
           />
-          <p className="mt-1.5 font-mono text-[10.5px] text-ink-soft">
-            1–60 · each puzzle is solver-checked for a single solution before it goes in
-          </p>
+          <p className="mt-1.5 font-mono text-[10.5px] text-ink-soft">{g.countHint}</p>
         </div>
 
         <fieldset className="mb-[18px] border-0 p-0">
           <legend className="mb-1.5 block p-0 text-[12.5px] font-semibold tracking-[0.3px]">
-            Difficulty
+            {g.difficultyLegend}
           </legend>
           <div className="flex overflow-hidden rounded-sm border border-rule">
             {DIFFICULTY_KEYS.map((level) => {
@@ -199,23 +201,23 @@ export function Generator({
                     on ? 'bg-ink text-white' : 'bg-white text-ink-soft hover:bg-paper-deep/40',
                   ].join(' ')}
                 >
-                  {level}
+                  {dict.difficultyLabel[level]}
                 </button>
               );
             })}
           </div>
           <p className="mt-1.5 font-mono text-[10.5px] text-ink-soft">
             {difficulties.length === 0
-              ? 'pick at least one level'
+              ? g.hintNone
               : difficulties.length === 1
-                ? `every puzzle will be ${difficulties[0]}`
-                : `mixed run · ${describeDifficulties(difficulties)}, split evenly and ordered easiest first`}
+                ? g.hintSingle(dict.difficultyLabel[difficulties[0]])
+                : g.hintMixed(describeDifficulties(difficulties))}
           </p>
         </fieldset>
 
         <div className="mb-[18px]">
           <label htmlFor="gp-per-page" className="mb-1.5 block text-[12.5px] font-semibold tracking-[0.3px]">
-            Puzzles per page
+            {g.perPageLabel}
           </label>
           <select
             id="gp-per-page"
@@ -225,7 +227,7 @@ export function Generator({
           >
             {PER_PAGE_OPTIONS.map((n) => (
               <option key={n} value={n}>
-                {n} per page
+                {g.perPageOption(n)}
               </option>
             ))}
           </select>
@@ -233,7 +235,7 @@ export function Generator({
 
         <div className="mb-[18px]">
           <label htmlFor="gp-page-size" className="mb-1.5 block text-[12.5px] font-semibold tracking-[0.3px]">
-            Page size
+            {g.pageSizeLabel}
           </label>
           <select
             id="gp-page-size"
@@ -241,8 +243,8 @@ export function Generator({
             onChange={(e) => setPageSize(e.target.value as PageSize)}
             className="w-full rounded-sm border border-rule bg-white px-2.5 py-2 font-mono text-[13.5px] text-ink"
           >
-            <option value="a4">A4 (210 × 297 mm)</option>
-            <option value="letter">US Letter (8.5 × 11 in)</option>
+            <option value="a4">{g.pageSizeA4}</option>
+            <option value="letter">{g.pageSizeLetter}</option>
           </select>
         </div>
 
@@ -254,7 +256,7 @@ export function Generator({
               onChange={(e) => setIncludeSolutions(e.target.checked)}
               className="h-4 w-4 accent-stamp"
             />
-            <span className="text-[13px]">Include answers</span>
+            <span className="text-[13px]">{g.includeAnswers}</span>
           </label>
         </div>
 
@@ -264,7 +266,7 @@ export function Generator({
           disabled={busy}
           className="mt-1.5 w-full rounded-sm bg-stamp px-4 py-3.5 font-display text-[14.5px] font-bold tracking-[0.4px] text-white transition-colors hover:bg-stamp-dark disabled:cursor-default disabled:bg-[#B8AF9C]"
         >
-          {busy ? 'Setting the run…' : 'Generate PDF'}
+          {busy ? g.generateButtonBusy : g.generateButton}
         </button>
 
         <div className="mt-3.5" aria-live="polite" aria-atomic="true">
@@ -274,7 +276,7 @@ export function Generator({
               aria-valuemin={0}
               aria-valuemax={100}
               aria-valuenow={pct}
-              aria-label="Puzzle generation progress"
+              aria-label={g.progressAriaLabel}
               className="h-1.5 overflow-hidden rounded-full bg-paper-deep"
             >
               <div
@@ -297,9 +299,7 @@ export function Generator({
 
         <noscript>
           <p className="mt-4 rounded-sm border border-rule bg-white p-3 font-mono text-[11px] leading-relaxed text-ink-soft">
-            The PDF is built in your browser, so this generator needs JavaScript switched on.
-            Everything else on the page — the puzzle above, the guides, the FAQs — works without
-            it.
+            {g.noscript}
           </p>
         </noscript>
       </section>
@@ -311,20 +311,24 @@ export function Generator({
           difficulty={preview.difficulty as DifficultyKey}
           clueCount={preview.clueCount}
           status={previewStatus}
+          locale={locale}
         />
 
         {result ? (
           <div className="mt-7 w-full max-w-[420px]">
             <dl className="m-0">
-              <ResultRow label="Puzzles set" value={String(result.puzzles)} />
+              <ResultRow label={g.resultPuzzlesSet} value={String(result.puzzles)} />
               <ResultRow
-                label="Pages"
-                value={`${result.puzzlePages + result.solutionPages} (${result.puzzlePages} puzzle, ${result.solutionPages} key)`}
+                label={g.resultPages}
+                value={g.resultPagesValue(result.puzzlePages + result.solutionPages, result.puzzlePages, result.solutionPages)}
               />
-              <ResultRow label="Difficulty" value={describeDifficulties(result.difficulties)} />
               <ResultRow
-                label="Answers"
-                value={result.includeSolutions ? 'included' : 'not included'}
+                label={g.resultDifficulty}
+                value={describeDifficulties(result.difficulties)}
+              />
+              <ResultRow
+                label={g.resultAnswers}
+                value={result.includeSolutions ? g.resultAnswersIncluded : g.resultAnswersNotIncluded}
               />
             </dl>
             <a
@@ -332,19 +336,19 @@ export function Generator({
               download={result.filename}
               className="mt-4 block rounded-sm bg-ink px-4 py-3 text-center font-display text-[14px] font-bold tracking-[0.3px] text-white no-underline hover:bg-black"
             >
-              Download PDF
+              {g.download}
             </a>
             <button
               type="button"
               onClick={handleReset}
               className="mt-3 w-full text-center font-mono text-[11.5px] text-ink-soft underline"
             >
-              start a new run
+              {g.startNewRun}
             </button>
           </div>
         ) : (
           <p className="mt-4 max-w-[420px] text-center font-mono text-[11px] leading-relaxed text-ink-soft">
-            This is a live sample puzzle — it updates to your own puzzles once the run finishes.
+            {g.liveSampleNote}
           </p>
         )}
       </div>
