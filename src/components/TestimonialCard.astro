@@ -1,0 +1,37 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  quote: string;
+  author: string;
+  location: string;
+}
+const { quote, author, location } = Astro.props;
+---
+<figure class="testimonial">
+  <Icon name="quote" size={28} color="#F05A28" />
+  <blockquote>{quote}</blockquote>
+  <figcaption>
+    <strong>{author}</strong>
+    <span>{location}</span>
+  </figcaption>
+</figure>
+
+<style>
+  .testimonial {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    margin: 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .testimonial blockquote {
+    margin: 16px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .testimonial figcaption { display: flex; flex-direction: column; font-size: 0.85rem; }
+  .testimonial figcaption strong { color: var(--text); }
+  .testimonial figcaption span { color: var(--text-muted); }
+</style>

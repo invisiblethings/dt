@@ -1,0 +1,299 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { services } from '../data/services.js';
+import { neighborhoods } from '../data/neighborhoods.js';
+import { site } from '../data/site.js';
+
+const currentPath = Astro.url.pathname;
+---
+<header class="site-header" id="site-header">
+  <div class="header-bar">
+    <div class="container header-bar-inner">
+      <p class="header-note"><Icon name="clock" size={14} /> Emergency service available 24/7</p>
+      <a class="header-phone" href={site.phoneHref}><Icon name="phone" size={14} /> {site.phone}</a>
+    </div>
+  </div>
+
+  <div class="header-main">
+    <div class="container header-main-inner">
+      <Logo layout="horizontal" markSize="42px" />
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-toggle" aria-expanded="false">Services <Icon name="check" size={10} class="chev" /></button>
+            <div class="dropdown dropdown-services">
+              <div class="dropdown-grid">
+                {services.map((s) => (
+                  <a href={`/services/${s.slug}/`} class="dropdown-item">
+                    <Icon name={s.icon} size={20} color="#F05A28" />
+                    <span>{s.navLabel}</span>
+                  </a>
+                ))}
+              </div>
+              <a href="/services/" class="dropdown-viewall">View all services →</a>
+            </div>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-toggle" aria-expanded="false">Service Areas <Icon name="check" size={10} class="chev" /></button>
+            <div class="dropdown dropdown-areas">
+              <div class="dropdown-list">
+                {neighborhoods.map((n) => (
+                  <a href={`/service-areas/${n.slug}/`} class="dropdown-item-simple">{n.name}</a>
+                ))}
+              </div>
+              <a href="/service-areas/" class="dropdown-viewall">View all neighborhoods →</a>
+            </div>
+          </li>
+          <li><a href="/about/" class={currentPath === '/about/' ? 'active' : ''}>About</a></li>
+          <li><a href="/blog/" class={currentPath.startsWith('/blog') ? 'active' : ''}>Roofing Guides</a></li>
+          <li><a href="/contact/" class={currentPath === '/contact/' ? 'active' : ''}>Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href={site.phoneHref} class="btn btn-primary"><Icon name="phone" size={16} color="#fff" /> Call Now</a>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <div class="container">
+      <details>
+        <summary>Services</summary>
+        <div class="mobile-nav-list">
+          {services.map((s) => (
+            <a href={`/services/${s.slug}/`}>{s.navLabel}</a>
+          ))}
+          <a href="/services/" class="mobile-viewall">View all services →</a>
+        </div>
+      </details>
+      <details>
+        <summary>Service Areas</summary>
+        <div class="mobile-nav-list">
+          {neighborhoods.map((n) => (
+            <a href={`/service-areas/${n.slug}/`}>{n.name}</a>
+          ))}
+          <a href="/service-areas/" class="mobile-viewall">View all neighborhoods →</a>
+        </div>
+      </details>
+      <a href="/about/" class="mobile-link">About</a>
+      <a href="/blog/" class="mobile-link">Roofing Guides</a>
+      <a href="/contact/" class="mobile-link">Contact</a>
+      <a href={site.phoneHref} class="btn btn-primary mobile-cta"><Icon name="phone" size={16} color="#fff" /> Call {site.phone}</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    box-shadow: var(--shadow-sm);
+  }
+  .header-bar {
+    background: var(--color-navy);
+    color: #fff;
+    font-size: 0.8rem;
+  }
+  .header-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 7px;
+    gap: 12px;
+  }
+  .header-note {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    color: rgba(255,255,255,0.85);
+  }
+  .header-phone {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    color: var(--color-orange);
+  }
+  .header-main-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-block: 14px;
+  }
+  .nav-desktop { display: none; }
+  .nav-desktop ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+  .nav-desktop a, .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 0;
+    color: var(--text);
+    background: none;
+    border: none;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .nav-desktop a:hover, .nav-toggle:hover, .nav-desktop a.active { color: var(--accent); }
+  .chev { transform: rotate(90deg); opacity: 0.5; transition: transform 0.15s ease; }
+  .has-dropdown { position: relative; }
+  .has-dropdown:hover .chev, .nav-toggle[aria-expanded="true"] .chev { transform: rotate(-90deg); }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(6px);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+    z-index: 50;
+  }
+  .has-dropdown:hover .dropdown,
+  .has-dropdown:focus-within .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-services { width: 480px; }
+  .dropdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .dropdown-item:hover { background: var(--bg-alt); color: var(--accent); }
+  .dropdown-areas { width: 320px; }
+  .dropdown-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 8px;
+  }
+  .dropdown-item-simple {
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .dropdown-item-simple:hover { background: var(--bg-alt); color: var(--accent); }
+  .dropdown-viewall {
+    display: block;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .header-cta { display: flex; align-items: center; gap: 14px; }
+  .header-cta .btn { padding: 11px 20px; font-size: 0.88rem; }
+  .header-cta .btn span, .header-cta .btn { white-space: nowrap; }
+
+  .menu-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    align-items: center;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text);
+  }
+
+  .mobile-nav {
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+    padding-block: 8px 16px;
+  }
+  .mobile-nav details {
+    border-bottom: 1px solid var(--border);
+    padding-block: 10px;
+  }
+  .mobile-nav summary {
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  .mobile-nav summary::after { content: '+'; color: var(--accent); font-size: 1.3rem; }
+  .mobile-nav details[open] summary::after { content: '−'; }
+  .mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    gap: 2px;
+  }
+  .mobile-nav-list a {
+    padding: 8px 4px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+  }
+  .mobile-viewall { color: var(--accent); font-weight: 700; margin-top: 4px; }
+  .mobile-link {
+    display: block;
+    padding-block: 12px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 700;
+  }
+  .mobile-cta { width: 100%; margin-top: 16px; }
+
+  @media (min-width: 960px) {
+    .nav-desktop { display: block; }
+    .menu-toggle { display: none; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  toggle?.addEventListener('click', () => {
+    const isOpen = !mobileNav?.hidden;
+    if (mobileNav) mobileNav.hidden = isOpen;
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>
