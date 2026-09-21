@@ -8,19 +8,19 @@ readingTime: "5 min read"
 relatedServices: ["storm-damage-roof-repair", "emergency-roof-repair", "roof-inspection"]
 ---
 
-After any significant wind event or nor'easter, it's worth a quick check — most storm damage is visible if you know what you're looking for, and catching it early is the difference between a $500 repair and a $5,000 one. Here's what to look for, in order of urgency.
+After any significant wind event or nor'easter, a quick check is worth it. Most storm damage is visible if you know what you're looking for, and catching it early is the difference between a $500 repair and a $5,000 one. The list below goes in order of urgency.
 
 ## 1. Active Dripping or a Growing Ceiling Stain
 
-**Urgency: Immediate.** This means water is already inside. Don't wait to see if it "dries out" — call for [emergency service](/services/emergency-roof-repair/) the same day. A tarp today is far cheaper than replaced drywall and insulation next week.
+**Urgency: Immediate.** This means water is already inside. Don't wait to see if it "dries out." Call for [emergency service](/services/emergency-roof-repair/) the same day. A tarp today is far cheaper than replaced drywall and insulation next week.
 
 ## 2. Shingles or Membrane Visibly Torn or Missing
 
-**Urgency: Same day to next day.** Look from the ground or a safe window vantage point — don't climb onto a potentially damaged roof yourself. Missing shingles expose the underlayment to sun and water immediately, and that exposed area degrades far faster than the rest of your roof.
+**Urgency: Same day to next day.** Look from the ground or a safe window vantage point. Don't climb onto a potentially damaged roof yourself. Missing shingles expose the underlayment to sun and water immediately, and that exposed area degrades far faster than the rest of your roof.
 
 ## 3. Granules in Your Gutters or at the Base of Downspouts
 
-**Urgency: Within the week.** Asphalt shingles shed some granules over their lifespan normally, but a sudden pile after a storm — especially if it's more than a light dusting — usually means wind or hail impact accelerated wear on a specific section.
+**Urgency: Within the week.** Asphalt shingles shed some granules over their lifespan normally, but a sudden pile after a storm, especially if it's more than a light dusting, usually means wind or hail impact accelerated wear on a specific section.
 
 ## 4. Debris or a Fallen Branch on the Roof
 
@@ -36,11 +36,11 @@ After any significant wind event or nor'easter, it's worth a quick check — mos
 
 ## 7. Your Neighbors' Roofs Show Damage
 
-**Urgency: Preventive — worth a check.** Storm damage tends to follow wind direction and impact patterns across a block. If you can see torn shingles or displaced material on neighboring roofs, it's worth having yours checked even if nothing looks obviously wrong from the ground.
+**Urgency: Preventive, worth a check.** Storm damage tends to follow wind direction and impact patterns across a block. If you can see torn shingles or displaced material on neighboring roofs, it's worth having yours checked even if nothing looks obviously wrong from the ground.
 
 ## If You Find Damage: Document Before You Call
 
-Take dated photos from the ground of anything visible — this matters for insurance regardless of who repairs it. Then get a professional inspection; some of the most damaging storm effects (a cracked shingle that hasn't started leaking yet, a flashing seal that's loosened but not yet failed) aren't visible without someone actually on the roof.
+Take dated photos from the ground of anything visible. This matters for insurance regardless of who repairs it. Then get a professional inspection: some of the most damaging storm effects (a cracked shingle that hasn't started leaking yet, a flashing seal that's loosened but not yet failed) aren't visible without someone on the roof.
 
 We provide [free, photo-documented storm damage inspections](/services/storm-damage-roof-repair/) formatted for insurance claims, whether or not you end up doing the repair with us.
 

@@ -15,16 +15,16 @@ const featuredServices = services.filter((s) =>
 );
 
 const homeFaqs = [
-  { q: 'What areas of Brooklyn do you serve?', a: 'All of Brooklyn — from Greenpoint to Bay Ridge, Williamsburg to Flatbush. We maintain dedicated crews familiar with the building stock in each of our 10 primary service neighborhoods, and take calls from every Brooklyn zip code.' },
-  { q: 'Are you licensed and insured?', a: `Yes — ${site.legalName} is a licensed and insured NYC home improvement contractor. We can provide proof of insurance and license number on request before any work begins.` },
+  { q: 'What areas of Brooklyn do you serve?', a: 'All of Brooklyn, from Greenpoint to Bay Ridge, Williamsburg to Flatbush. We maintain dedicated crews familiar with the building stock in each of our 10 primary service neighborhoods, and take calls from every Brooklyn zip code.' },
+  { q: 'Are you licensed and insured?', a: `Yes. ${site.legalName} is a licensed and insured NYC home improvement contractor. We can provide proof of insurance and license number on request before any work begins.` },
   { q: 'How fast can you come out?', a: 'For non-emergency repairs, same-week appointments are standard. For active leaks or storm damage, we offer 24/7 emergency service with typical response within a few hours.' },
   { q: 'Do you offer free inspections?', a: 'Yes, for Brooklyn homeowners evaluating a repair or replacement. You get a written, photo-documented assessment with no obligation to book further work.' },
-  { q: 'What roof types do you work on?', a: 'Asphalt shingle, flat/low-slope membrane (TPO, EPDM, modified bitumen), and built-up roofing — covering the row houses, brownstones, and multi-family buildings that make up most of Brooklyn.' },
+  { q: 'What roof types do you work on?', a: 'Asphalt shingle, flat/low-slope membrane (TPO, EPDM, modified bitumen), and built-up roofing: covering the row houses, brownstones, and multi-family buildings that make up most of Brooklyn.' },
 ];
 ---
 <Layout
   title="Roof Repair Brooklyn NY | Licensed & Insured | Brooklyn Roof Repair"
-  description="Brooklyn's roof repair specialists — leaks, storm damage, flat roofs, and full replacement. Free inspection, same-week scheduling, 24/7 emergency service. Serving all of Brooklyn."
+  description="Brooklyn's roof repair specialists: leaks, storm damage, flat roofs, and full replacement. Free inspection, same-week scheduling, 24/7 emergency service. Serving all of Brooklyn."
   path="/"
 >
   <section class="hero">
@@ -78,15 +78,15 @@ const homeFaqs = [
           <h2>Straight Answers, Fair Prices, Work That Lasts</h2>
           <p>We built this company on a simple idea: tell homeowners the truth about their roof, even when a smaller repair is the honest answer instead of the bigger sale. That approach is why most of our new calls come from referrals.</p>
           <ul class="why-list">
-            <li><Icon name="check" size={18} color="#F05A28" /> <div><strong>Root-cause diagnosis.</strong> We trace leaks to their actual source, not just the visible symptom.</div></li>
-            <li><Icon name="check" size={18} color="#F05A28" /> <div><strong>Flat-rate written quotes.</strong> The price we quote is the price you pay — no change orders sprung on you mid-job.</div></li>
+            <li><Icon name="check" size={18} color="#F05A28" /> <div><strong>Root-cause diagnosis.</strong> We trace leaks to their actual source instead of the visible symptom.</div></li>
+            <li><Icon name="check" size={18} color="#F05A28" /> <div><strong>Flat-rate written quotes.</strong> The price we quote is the price you pay, with no change orders sprung on you mid-job.</div></li>
             <li><Icon name="check" size={18} color="#F05A28" /> <div><strong>Brooklyn-specific experience.</strong> Brownstone parapets, row-house party walls, and pre-war flat roofs are our everyday work.</div></li>
             <li><Icon name="check" size={18} color="#F05A28" /> <div><strong>Licensed, insured, and warrantied.</strong> Every repair is backed by a workmanship warranty.</div></li>
           </ul>
         </div>
         <div class="testimonials">
           <TestimonialCard quote="They found a flashing issue two other contractors missed and fixed it in an afternoon. No upsell, no runaround." author="Maria T." location="Park Slope" />
-          <TestimonialCard quote="Called at 11pm during a storm and someone actually picked up. Had a tarp on by morning." author="David K." location="Bushwick" />
+          <TestimonialCard quote="Called at 11pm during a storm and someone picked up. Had a tarp on by morning." author="David K." location="Bushwick" />
           <TestimonialCard quote="Replaced our brownstone's flat roof and handled the DOB permit without us lifting a finger." author="Angela R." location="Bedford-Stuyvesant" />
         </div>
       </div>
@@ -97,7 +97,7 @@ const homeFaqs = [
     <div class="container">
       <span class="eyebrow">Service Areas</span>
       <h2>Serving All of Brooklyn</h2>
-      <p class="section-sub">Dedicated familiarity with the building stock in these 10 neighborhoods — plus every other block in Brooklyn.</p>
+      <p class="section-sub">Dedicated familiarity with the building stock in these 10 neighborhoods, plus every other block in Brooklyn.</p>
       <div class="areas-grid">
         {neighborhoods.map((n) => (
           <NeighborhoodCard neighborhood={n} />

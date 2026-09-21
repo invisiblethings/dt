@@ -11,8 +11,8 @@ const breadcrumbItems = [
   { name: 'FAQ', path: '/faq/' },
 ];
 
-// Aggregate every service's FAQs into one comprehensive resource page —
-// distinct from the per-service pages since it's organized by topic breadth
+// Aggregate every service's FAQs into one comprehensive resource page.
+// Distinct from the per-service pages since it's organized by topic breadth
 // rather than depth on a single service.
 const grouped = services.map((s) => ({ service: s, faqs: s.faqs }));
 const allFaqsFlat = services.flatMap((s) => s.faqs);
@@ -28,7 +28,7 @@ const allFaqsFlat = services.flatMap((s) => s.faqs);
       <Breadcrumbs items={breadcrumbItems} />
       <span class="eyebrow">FAQ</span>
       <h1>Roof Repair Questions, Answered</h1>
-      <p class="section-sub">Organized by service — jump to the topic you need, or browse all of it.</p>
+      <p class="section-sub">Organized by service. Jump to the topic you need, or browse all of it.</p>
 
       {grouped.map((group) => (
         <div class="faq-section">
@@ -40,7 +40,7 @@ const allFaqsFlat = services.flatMap((s) => s.faqs);
       ))}
     </div>
   </section>
-  <CtaBanner heading="Still Have a Question?" subheading="Call us or send a message — we'll give you a straight answer." />
+  <CtaBanner heading="Still Have a Question?" subheading="Call us or send a message and we'll give you a straight answer." />
 </Layout>
 
 <style>

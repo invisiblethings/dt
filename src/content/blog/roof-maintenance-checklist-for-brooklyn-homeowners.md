@@ -1,14 +1,14 @@
 ---
 title: "The Roof Maintenance Checklist Every Brooklyn Homeowner Should Follow"
 metaTitle: "Roof Maintenance Checklist for Brooklyn Homeowners"
-metaDescription: "A seasonal roof maintenance checklist for Brooklyn row houses, brownstones, and single-family homes — what to check every spring and fall."
+metaDescription: "A seasonal roof maintenance checklist for Brooklyn row houses, brownstones, and single-family homes: what to check every spring and fall."
 description: "A seasonal roof maintenance checklist covering what to check every spring and fall, and when to call a professional."
 publishDate: 2026-05-08
 readingTime: "5 min read"
 relatedServices: ["roof-maintenance", "gutter-repair", "roof-inspection"]
 ---
 
-Most expensive roof repairs started as a small, catchable problem years earlier. This checklist covers what's worth checking twice a year — spring and fall — and what you can realistically assess yourself versus what needs a professional eye.
+Most expensive roof repairs started as a small, catchable problem years earlier. This checklist covers what's worth checking twice a year, in spring and fall, and what you can realistically assess yourself versus what needs a professional eye.
 
 ## Spring Checklist (After Winter)
 
@@ -32,7 +32,7 @@ Most expensive roof repairs started as a small, catchable problem years earlier.
 - [ ] Look at flashing around chimneys and vents for any separation
 
 **Gutters:**
-- [ ] Clear leaves and debris before winter — this is the single most valuable fall task, since clogged gutters in freezing weather cause ice damming, which forces water back up under your roof edge
+- [ ] Clear leaves and debris before winter. This is the single most valuable fall task, since clogged gutters in freezing weather cause ice damming, which forces water back up under your roof edge.
 - [ ] Confirm gutters are securely attached and properly pitched toward downspouts
 
 **Flat roofs specifically:**
@@ -43,7 +43,7 @@ Most expensive roof repairs started as a small, catchable problem years earlier.
 
 **You can typically check:** visible shingle condition from the ground, gutter debris buildup, interior ceiling/attic staining, obvious debris on a flat roof.
 
-**Get a professional for:** anything requiring you to get on the roof itself (steep pitches are genuinely dangerous, and even flat roofs have risks you may not know to watch for), flashing inspection (subtle failures aren't obvious to an untrained eye), and any interior staining you find — since tracing it to the actual source usually requires both interior and exterior assessment together.
+**Get a professional for:** anything requiring you to get on the roof itself (steep pitches are dangerous, and even flat roofs have risks you may not know to watch for), flashing inspection (subtle failures aren't obvious to an untrained eye), and any interior staining you find, since tracing it to the source usually requires both interior and exterior assessment together.
 
 ## Why Twice a Year, Specifically
 
