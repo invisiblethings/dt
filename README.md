@@ -12,6 +12,7 @@ Static site for [baltimorecomposersforum.org](https://baltimorecomposersforum.or
 | `information/`, `members/`, `dawn/`, `lounge/` | Redirects from the old site's URLs, so existing links and search rankings carry over |
 | `assets/` | Styles, script, self-hosted fonts, favicon and social share image |
 | `robots.txt`, `sitemap.xml` | For search engines |
+| `_redirects`, `_headers` | Netlify settings: 301 redirects for old URLs, caching and security headers |
 
 ## Common edits
 
@@ -27,7 +28,15 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
-## Publishing on GitHub Pages
+## Publishing on Netlify
+
+1. Go to https://app.netlify.com/drop and drag in the site folder (or the zip). Netlify reads `_redirects` and `_headers` automatically.
+2. **Domain management → Add a domain**: `baltimorecomposersforum.org`, then follow Netlify's DNS instructions at your registrar. HTTPS is issued automatically.
+3. Submit `https://baltimorecomposersforum.org/sitemap.xml` in Google Search Console.
+
+To update the site later, open the site in Netlify → **Deploys** and drag the new folder or zip onto the page.
+
+## Publishing on GitHub Pages (alternative)
 
 1. Repository **Settings → Pages**: deploy from this branch, root folder.
 2. Set the custom domain to `baltimorecomposersforum.org` (this adds a `CNAME` file) and enable **Enforce HTTPS**.

@@ -1,0 +1,12 @@
+# Netlify: permanent redirects from the old site's URLs
+/information/about.html               /#about             301!
+/information/contact.html             /#contact           301!
+/information/join.htm                 /#join              301!
+/information/events_mailing_list.htm  /#list              301!
+/information/news.htm                 /#concerts          301!
+/members                              /#composers         301!
+/members/*                            /#composers         301!
+/dawn                                 /dawn-culbertson/   301!
+/dawn/*                               /dawn-culbertson/   301!
+/lounge                               /                   301!
+/lounge/*                             /                   301!

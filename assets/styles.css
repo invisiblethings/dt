@@ -256,8 +256,9 @@ details p { color: var(--ink-2); margin: 0 0 18px; }
 a.sponsor:hover { transform: translateY(-3px); border-color: var(--gold); color: inherit; }
 .sponsor strong { display: block; font: 700 1.5rem var(--serif); margin-bottom: 4px; }
 .sponsor-desc { display: block; color: var(--muted); margin-bottom: 12px; font-size: .96rem; }
-.sponsor-logo { flex: none; width: 76px; height: 76px; border-radius: 18px; display: grid; place-items: center; background: var(--ink); color: var(--paper); }
-.sponsor-logo svg { width: 46px; }
+.sponsor-main { flex-direction: column; gap: 0; }
+.sponsor-plate { display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 28px 24px; margin-bottom: 18px; width: 100%; }
+.sponsor-plate img { width: min(360px, 100%); height: auto; }
 .sponsor-open { flex-direction: column; gap: 0; background: transparent; border-style: dashed; box-shadow: none; }
 
 /* Footer */
@@ -281,3 +282,6 @@ a.sponsor:hover { transform: translateY(-3px); border-color: var(--gold); color:
 .article p, .article li { color: var(--ink-2); }
 .crumbs { font-size: .88rem; color: var(--muted); margin-bottom: 1.5em; }
 .crumbs a { color: var(--muted); }
+
+/* keep anchored sections clear of the sticky header */
+section[id], footer[id] { scroll-margin-top: 72px; }
