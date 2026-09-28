@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    /* The faint press-shop grid the prototype prints its paper on. */
+    background-image:
+      linear-gradient(theme('colors.paper.deep') 1px, transparent 1px),
+      linear-gradient(90deg, theme('colors.paper.deep') 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Visible, high-contrast focus for keyboard users across the whole site. */
+  :focus-visible {
+    outline: 2px solid theme('colors.stamp.DEFAULT');
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .press-card {
+    @apply rounded-press border border-line bg-paper-card;
+  }
+
+  .ticket-strip {
+    height: 10px;
+    opacity: 0.55;
+    background-image: repeating-linear-gradient(
+      90deg,
+      theme('colors.ink.DEFAULT') 0 6px,
+      transparent 6px 14px
+    );
+  }
+
+  /* Long-form article styling — kept local so no typography plugin is needed. */
+  .prose-press {
+    @apply text-[15.5px] leading-[1.75] text-ink;
+  }
+  .prose-press h2 {
+    @apply mb-3 mt-11 font-display text-[22px] font-bold leading-snug text-ink;
+  }
+  .prose-press h3 {
+    @apply mb-2 mt-8 font-display text-[17px] font-bold text-ink;
+  }
+  .prose-press p {
+    @apply mb-4;
+  }
+  .prose-press ul,
+  .prose-press ol {
+    @apply mb-5 space-y-2 pl-6;
+  }
+  .prose-press ul {
+    @apply list-disc;
+  }
+  .prose-press ol {
+    @apply list-decimal;
+  }
+  .prose-press li::marker {
+    @apply text-rule;
+  }
+  .prose-press strong {
+    @apply font-semibold text-ink;
+  }
+  .prose-press a {
+    @apply font-medium text-stamp underline underline-offset-2 hover:text-stamp-dark;
+  }
+  .prose-press code {
+    @apply rounded-sm bg-paper-deep px-1.5 py-0.5 font-mono text-[13px];
+  }
+}
