@@ -1,0 +1,12 @@
+{
+  "name": "moldremediation-nyc",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static site for moldremediation.nyc (Netlify)",
+  "scripts": {
+    "build": "node build/build.mjs",
+    "serve": "node build/build.mjs && npx --yes serve dist -l 8080"
+  },
+  "engines": { "node": ">=18" }
+}
