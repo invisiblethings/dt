@@ -29,22 +29,22 @@ export const SITE_L10N: Record<Locale, { tagline: string; description: string }>
   en: {
     tagline: 'free sudoku sheets, set to order and ready to print',
     description:
-      'Generate free printable sudoku puzzles and download them as a print-ready PDF — pick a difficulty, choose 1, 2, 4 or 6 puzzles per page, and add a full answer key.',
+      'Generate free printable sudoku puzzles and download a print-ready PDF. Pick a difficulty and 1, 2, 4 or 6 puzzles per page, with an optional answer key.',
   },
   de: {
     tagline: 'kostenlose Sudoku-Blätter, nach Maß gesetzt und druckfertig',
     description:
-      'Erstelle kostenlose Sudoku-Rätsel zum Ausdrucken und lade sie als druckfertiges PDF herunter — wähle einen Schwierigkeitsgrad, 1, 2, 4 oder 6 Rätsel pro Seite, und füge einen vollständigen Lösungsschlüssel hinzu.',
+      'Erstelle kostenlose Sudoku-Rätsel zum Ausdrucken und lade ein druckfertiges PDF herunter. Wähle einen Schwierigkeitsgrad und 1, 2, 4 oder 6 Rätsel pro Seite, auf Wunsch mit Lösungen.',
   },
   fr: {
     tagline: 'grilles de sudoku gratuites, composées sur mesure et prêtes à imprimer',
     description:
-      'Générez des grilles de sudoku à imprimer gratuitement et téléchargez-les en PDF prêt à imprimer — choisissez un niveau de difficulté, 1, 2, 4 ou 6 grilles par page, et ajoutez un corrigé complet.',
+      'Générez des grilles de sudoku à imprimer et téléchargez un PDF prêt à imprimer, sans frais. Choisissez un niveau et 1, 2, 4 ou 6 grilles par page, avec corrigé en option.',
   },
   es: {
     tagline: 'hojas de sudoku gratis, compuestas a medida y listas para imprimir',
     description:
-      'Genera sudokus gratis para imprimir y descárgalos en un PDF listo para la impresora — elige una dificultad, 1, 2, 4 o 6 sudokus por página, y añade las soluciones completas.',
+      'Genera sudokus gratis para imprimir y descarga un PDF listo para la impresora. Elige una dificultad y 1, 2, 4 o 6 sudokus por página, con soluciones opcionales.',
   },
 };
 

@@ -14,68 +14,68 @@ const META: Record<
   { title: string; description: string; h1: string; lede: string; intro: string[]; printHeading: string; printBody: string[] }
 > = {
   en: {
-    title: 'Sudoku Guides — Solve Better, Print Better',
+    title: 'Sudoku Guides: Solve Better, Print Better',
     description:
       'Practical sudoku guides: how to solve your first grid, the techniques that get you past a stall, and how to print puzzles that are pleasant to work on.',
     h1: 'Sudoku guides',
-    lede: 'Three short guides — one to get you solving, one for when the grid stops giving anything up, and one about the unglamorous business of getting a good print.',
+    lede: 'Three short guides: one to get you solving, one for when a grid stalls, and one on getting a good print.',
     intro: [
-      'Sudoku is unusual among puzzles in that almost nobody is taught it. You pick up a grid somewhere, work out the rule in about a minute, and then either find your own way through or decide it is not for you. Plenty of people who would enjoy it stop at that second step, not because the puzzle is too hard but because nobody ever showed them the first move.',
-      'These guides are written to close that gap and then keep going. The first assumes no knowledge at all. The second assumes you can finish a medium grid and want to know what to do when a hard one goes quiet. The third has nothing to do with solving and everything to do with the printer, which turns out to matter more than most people expect.',
+      'Few people ever get taught sudoku. You pick up a grid somewhere, work out the rule in about a minute, and then either find your own way through or give up. Plenty of people who would enjoy it give up at that point because nobody showed them the first move.',
+      'The first guide assumes no prior knowledge. The second assumes you can finish a medium grid and want to know what to do when a hard one stalls. The third covers the printer settings that decide whether a grid is pleasant to write on.',
     ],
-    printHeading: 'Reading is not solving',
+    printHeading: 'Practise on paper',
     printBody: [
-      'None of this sticks until you do it on paper. Pick the level you are working at — |easy|, |medium|, |hard| or |expert| — print a handful with the answer key, and work them with a pencil. Ten grids will teach you more than any of these pages will.',
+      'You learn these techniques by using them. Pick your level (|easy|, |medium|, |hard| or |expert|), print a handful with the answer key, and work them with a pencil. Ten grids will teach you more than these pages can.',
     ],
   },
   de: {
-    title: 'Sudoku-Anleitungen — Besser Lösen, Besser Drucken',
+    title: 'Sudoku-Anleitungen: Besser Lösen, Besser Drucken',
     description:
       'Praktische Sudoku-Anleitungen: wie du dein erstes Raster löst, die Techniken, die dich über einen Stillstand hinausbringen, und wie du Rätsel druckst, die angenehm zu bearbeiten sind.',
     h1: 'Sudoku-Anleitungen',
-    lede: 'Drei kurze Anleitungen — eine, um dich ans Lösen zu bringen, eine für den Moment, in dem das Raster nichts mehr hergibt, und eine über das wenig glamouröse Geschäft, einen guten Ausdruck hinzubekommen.',
+    lede: 'Drei kurze Anleitungen: eine für den Einstieg, eine für den Moment, in dem ein Raster stockt, und eine für einen guten Ausdruck.',
     intro: [
-      'Sudoku ist unter den Rätseln ungewöhnlich, weil es fast niemandem beigebracht wird. Man nimmt sich irgendwo ein Raster, findet die Regel in etwa einer Minute heraus und findet dann entweder selbst einen Weg hindurch oder entscheidet, dass es nichts für einen ist. Viele, denen es Spaß machen würde, hören genau bei diesem zweiten Schritt auf — nicht, weil das Rätsel zu schwer ist, sondern weil ihnen nie jemand den ersten Zug gezeigt hat.',
-      'Diese Anleitungen sind dafür geschrieben, genau diese Lücke zu schließen und dann weiterzumachen. Die erste setzt kein Vorwissen voraus. Die zweite setzt voraus, dass du ein mittelschweres Raster fertig bekommst und wissen willst, was zu tun ist, wenn ein schweres verstummt. Die dritte hat nichts mit Lösen zu tun und alles mit dem Drucker, der sich als wichtiger erweist, als die meisten erwarten.',
+      'Kaum jemandem wird Sudoku beigebracht. Du nimmst dir irgendwo ein Raster, findest die Regel in etwa einer Minute heraus und findest dann entweder selbst einen Weg hindurch oder gibst auf. Viele, denen es Spaß machen würde, geben an dieser Stelle auf, weil ihnen niemand den ersten Zug gezeigt hat.',
+      'Die erste Anleitung setzt kein Vorwissen voraus. Die zweite setzt voraus, dass du ein mittelschweres Raster schaffst und wissen willst, was zu tun ist, wenn ein schweres stockt. Die dritte behandelt die Druckereinstellungen, die entscheiden, ob sich ein Raster angenehm beschriften lässt.',
     ],
-    printHeading: 'Lesen ist nicht Lösen',
+    printHeading: 'Auf Papier üben',
     printBody: [
-      'Nichts davon setzt sich fest, bis du es auf Papier machst. Wähle die Stufe, an der du gerade arbeitest — |easy|, |medium|, |hard| oder |expert| — drucke eine Handvoll mit Lösungsschlüssel, und arbeite sie mit einem Bleistift durch. Zehn Raster bringen dir mehr bei als jede dieser Seiten.',
+      'Du lernst diese Techniken, indem du sie anwendest. Wähle deine Stufe (|easy|, |medium|, |hard| oder |expert|), drucke eine Handvoll mit Lösungsschlüssel und arbeite sie mit einem Bleistift durch. Zehn Raster bringen dir mehr bei, als diese Seiten es können.',
     ],
   },
   fr: {
-    title: 'Guides Sudoku — Mieux Résoudre, Mieux Imprimer',
+    title: 'Guides Sudoku : Mieux Résoudre, Mieux Imprimer',
     description:
       'Guides pratiques du sudoku : comment résoudre votre première grille, les techniques qui vous font franchir un blocage, et comment imprimer des grilles agréables à travailler.',
     h1: 'Guides sudoku',
-    lede: 'Trois guides courts — un pour vous lancer dans la résolution, un pour le moment où la grille ne donne plus rien, et un sur l’aspect peu glamour de réussir une bonne impression.',
+    lede: 'Trois guides courts : un pour vous lancer, un pour le moment où une grille bloque, et un pour réussir l’impression.',
     intro: [
-      'Le sudoku est un jeu inhabituel en ce que presque personne ne l’apprend vraiment. On tombe sur une grille quelque part, on en déduit la règle en une minute environ, puis on trouve son propre chemin ou on décide que ce n’est pas pour soi. Beaucoup de gens qui y prendraient plaisir s’arrêtent à cette deuxième étape, non pas parce que le jeu est trop difficile, mais parce que personne ne leur a jamais montré le premier coup.',
-      'Ces guides sont écrits pour combler cet écart, puis aller plus loin. Le premier ne suppose aucune connaissance préalable. Le second suppose que vous savez terminer une grille moyenne et voulez savoir quoi faire quand une grille difficile se tait. Le troisième n’a rien à voir avec la résolution et tout à voir avec l’imprimante, qui s’avère compter plus que la plupart des gens ne le pensent.',
+      'Presque personne n’apprend le sudoku auprès de quelqu’un. On tombe sur une grille quelque part, on en déduit la règle en une minute environ, puis on trouve son propre chemin ou on abandonne. Beaucoup de gens qui y prendraient plaisir abandonnent à ce moment-là, parce que personne ne leur a montré le premier coup.',
+      'Le premier guide ne suppose aucune connaissance préalable. Le second suppose que vous savez terminer une grille moyenne et voulez savoir quoi faire quand une grille difficile bloque. Le troisième couvre les réglages d’impression qui décident si une grille est agréable à annoter.',
     ],
-    printHeading: 'Lire n’est pas résoudre',
+    printHeading: 'S’entraîner sur papier',
     printBody: [
-      'Rien de tout cela ne s’imprime vraiment dans la mémoire tant que vous ne le faites pas sur papier. Choisissez le niveau où vous en êtes — |easy|, |medium|, |hard| ou |expert| — imprimez-en quelques-unes avec le corrigé, et travaillez-les au crayon. Dix grilles vous apprendront plus que n’importe laquelle de ces pages.',
+      'Vous apprenez ces techniques en les appliquant. Choisissez votre niveau (|easy|, |medium|, |hard| ou |expert|), imprimez-en quelques-unes avec le corrigé et travaillez-les au crayon. Dix grilles vous en apprendront plus que ces pages.',
     ],
   },
   es: {
-    title: 'Guías de Sudoku — Resuelve Mejor, Imprime Mejor',
+    title: 'Guías de Sudoku: Resuelve Mejor, Imprime Mejor',
     description:
       'Guías prácticas de sudoku: cómo resolver tu primera cuadrícula, las técnicas que te sacan de un bloqueo, y cómo imprimir sudokus agradables de trabajar.',
     h1: 'Guías de sudoku',
-    lede: 'Tres guías breves — una para ponerte a resolver, una para cuando la cuadrícula deja de dar nada más, y una sobre el poco glamuroso asunto de conseguir una buena impresión.',
+    lede: 'Tres guías breves: una para empezar a resolver, otra para cuando una cuadrícula se atasca y otra para conseguir una buena impresión.',
     intro: [
-      'El sudoku es poco habitual entre los rompecabezas porque casi a nadie se lo enseñan de verdad. Te encuentras una cuadrícula en algún sitio, averiguas la regla en un minuto más o menos, y luego encuentras tu propio camino o decides que no es para ti. Mucha gente a la que le gustaría se queda justo en ese segundo paso, no porque el juego sea demasiado difícil, sino porque nadie les enseñó nunca el primer movimiento.',
-      'Estas guías están escritas para cerrar ese hueco y seguir a partir de ahí. La primera no da por hecho ningún conocimiento previo. La segunda da por hecho que puedes terminar una cuadrícula de nivel medio y quieres saber qué hacer cuando una difícil se queda en silencio. La tercera no tiene nada que ver con resolver y todo que ver con la impresora, que resulta importar más de lo que la mayoría espera.',
+      'Casi a nadie le enseñan sudoku. Te encuentras una cuadrícula en algún sitio, averiguas la regla en un minuto más o menos, y luego encuentras tu propio camino o lo dejas. Mucha gente a la que le gustaría lo deja en ese punto, porque nadie le enseñó el primer movimiento.',
+      'La primera guía no da por hecho ningún conocimiento previo. La segunda da por hecho que puedes terminar una cuadrícula de nivel medio y quieres saber qué hacer cuando una difícil se atasca. La tercera trata los ajustes de impresión que deciden si una cuadrícula resulta cómoda para escribir.',
     ],
-    printHeading: 'Leer no es resolver',
+    printHeading: 'Practica en papel',
     printBody: [
-      'Nada de esto se te queda hasta que lo haces en papel. Elige el nivel en el que estás trabajando — |easy|, |medium|, |hard| o |expert| — imprime unos cuantos con las soluciones, y trabájalos a lápiz. Diez cuadrículas te van a enseñar más que cualquiera de estas páginas.',
+      'Aprendes estas técnicas usándolas. Elige tu nivel (|easy|, |medium|, |hard| o |expert|), imprime unos cuantos con las soluciones y trabájalos a lápiz. Diez cuadrículas te enseñarán más que estas páginas.',
     ],
   },
 };
 
-/** Renders "... — |easy|, |medium|, |hard| or |expert| — ..." with real links, translated per locale. */
+/** Turns |easy|-style tokens into real links, with the level name translated per locale. */
 function withLevelLinks(text: string, locale: Locale) {
   const content = DIFFICULTY_CONTENT[locale];
   const parts = text.split(/\|(\w+)\|/g);

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DIFFICULTY_ORDER } from '@/content/difficulty';
+import { DIFFICULTY_CONTENT, DIFFICULTY_ORDER } from '@/content/difficulty';
 import { localizedPath, type Locale } from '@/i18n/config';
 import type { Dictionary } from '@/i18n/dictionary';
 
@@ -22,7 +22,7 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
       heading: d.byDifficulty.heading,
       links: DIFFICULTY_ORDER.map((level) => ({
         href: L(`/printable-sudoku/${level}`),
-        label: `${d.printableSudoku.heading} — ${dict.difficultyLabel[level]}`,
+        label: dict.difficultyCards.titlePrefix(DIFFICULTY_CONTENT[locale][level].name),
       })),
     },
     {

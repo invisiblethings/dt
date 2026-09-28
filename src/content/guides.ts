@@ -15,24 +15,24 @@ export interface GuideMeta {
 const en: GuideMeta[] = [
   {
     slug: 'how-to-solve-sudoku',
-    title: 'How to Solve Sudoku — A Beginner’s Guide',
+    title: 'How to Solve Sudoku: A Beginner’s Guide',
     h1: 'How to solve sudoku: a beginner’s guide',
     description:
-      'One rule, one first move, and the habits that get you through an easy grid without guessing. A practical starting guide for anyone holding a printed sudoku.',
+      'Learn the one rule of sudoku and the habits that carry you through an easy grid without guessing. Written for solving on paper.',
     summary:
-      'The single rule, where to make your first move, and how to work a whole easy grid without ever guessing.',
+      'The one rule of sudoku, and a method for finishing an easy grid without guessing.',
     published: '2026-01-14',
     updated: '2026-01-14',
     readingTime: '6 min read',
   },
   {
     slug: 'sudoku-solving-techniques',
-    title: 'Sudoku Solving Techniques — From Naked Pairs to X-Wings',
+    title: 'Sudoku Solving Techniques: From Naked Pairs to X-Wings',
     h1: 'Sudoku solving techniques for hard and expert grids',
     description:
       'The techniques that get you past a stalled grid: candidate marking, naked and hidden pairs, pointing pairs, box-line reduction and the X-wing.',
     summary:
-      'What to do when scanning runs out: candidate marking, naked and hidden pairs, pointing pairs, box-line reduction and the X-wing.',
+      'Techniques for when scanning runs out: candidate marking, naked and hidden pairs, pointing pairs, box-line reduction and the X-wing.',
     published: '2026-01-21',
     updated: '2026-01-21',
     readingTime: '8 min read',
@@ -42,9 +42,9 @@ const en: GuideMeta[] = [
     title: 'How to Print Sudoku Puzzles That Look Right',
     h1: 'How to print sudoku puzzles that look right',
     description:
-      'Paper size, scaling, puzzles per page, ink and paper choices — the practical settings that decide whether a printed sudoku is a pleasure or a squint.',
+      'Paper size, scaling and puzzles per page decide whether a printed grid leaves you room to write. This guide gives the settings to use and the paper to buy.',
     summary:
-      'Scaling, margins, layout and paper: the settings that decide whether your printed grid is a pleasure or a squint.',
+      'Scaling, margins, layout and paper: the settings for a grid you can read and write on.',
     published: '2026-02-04',
     updated: '2026-02-04',
     readingTime: '5 min read',
@@ -54,24 +54,24 @@ const en: GuideMeta[] = [
 const de: GuideMeta[] = [
   {
     slug: 'how-to-solve-sudoku',
-    title: 'Sudoku lösen — eine Anleitung für Einsteiger',
+    title: 'Sudoku lösen: eine Anleitung für Einsteiger',
     h1: 'Sudoku lösen: eine Anleitung für Einsteiger',
     description:
-      'Eine Regel, ein erster Zug und die Gewohnheiten, mit denen du ein einfaches Raster löst, ohne zu raten. Eine praktische Einstiegsanleitung für alle mit einem gedruckten Sudoku in der Hand.',
+      'Lerne die eine Regel des Sudoku und die Gewohnheiten, mit denen du ein einfaches Raster ohne Raten löst. Geschrieben für das Lösen auf Papier.',
     summary:
-      'Die eine Regel, wo du deinen ersten Zug machst, und wie du ein ganzes einfaches Raster löst, ohne je zu raten.',
+      'Die eine Regel des Sudoku und eine Methode, mit der du ein einfaches Raster ohne Raten löst.',
     published: '2026-01-14',
     updated: '2026-01-14',
     readingTime: '6 Min. Lesezeit',
   },
   {
     slug: 'sudoku-solving-techniques',
-    title: 'Sudoku-Lösungstechniken — von offenen Paaren bis zu X-Wings',
+    title: 'Sudoku-Lösungstechniken: von offenen Paaren bis zu X-Wings',
     h1: 'Sudoku-Lösungstechniken für schwere und Experten-Raster',
     description:
       'Die Techniken, mit denen du über ein festgefahrenes Raster hinauskommst: Kandidaten-Notation, offene und versteckte Paare, zeigende Paare, Block-Zeilen-Reduktion und der X-Wing.',
     summary:
-      'Was tun, wenn das bloße Absuchen nicht mehr reicht: Kandidaten-Notation, offene und versteckte Paare, zeigende Paare, Block-Zeilen-Reduktion und der X-Wing.',
+      'Techniken für den Moment, in dem Absuchen nicht mehr reicht: Kandidaten-Notation, offene und versteckte Paare, zeigende Paare, Block-Zeilen-Reduktion und der X-Wing.',
     published: '2026-01-21',
     updated: '2026-01-21',
     readingTime: '8 Min. Lesezeit',
@@ -81,9 +81,9 @@ const de: GuideMeta[] = [
     title: 'Sudoku richtig ausdrucken',
     h1: 'Sudoku richtig ausdrucken',
     description:
-      'Papierformat, Skalierung, Rätsel pro Seite, Tinte und Papierwahl — die praktischen Einstellungen, die entscheiden, ob ein gedrucktes Sudoku angenehm zu lösen ist oder zur Augenprobe wird.',
+      'Papierformat, Skalierung und Rätsel pro Seite entscheiden, ob dir ein gedrucktes Raster Platz zum Schreiben lässt. Diese Anleitung nennt die richtigen Einstellungen und das passende Papier.',
     summary:
-      'Skalierung, Ränder, Layout und Papier: die Einstellungen, die entscheiden, ob dein gedrucktes Raster ein Vergnügen ist oder eine Zumutung.',
+      'Skalierung, Ränder, Layout und Papier: die Einstellungen für ein Raster, das du gut lesen und beschriften kannst.',
     published: '2026-02-04',
     updated: '2026-02-04',
     readingTime: '5 Min. Lesezeit',
@@ -93,24 +93,24 @@ const de: GuideMeta[] = [
 const fr: GuideMeta[] = [
   {
     slug: 'how-to-solve-sudoku',
-    title: 'Comment résoudre un sudoku — guide du débutant',
+    title: 'Comment résoudre un sudoku : guide du débutant',
     h1: 'Comment résoudre un sudoku : guide du débutant',
     description:
-      'Une seule règle, un premier coup, et les habitudes qui vous font traverser une grille facile sans jamais deviner. Un guide de démarrage pratique pour quiconque tient un sudoku imprimé entre les mains.',
+      'Apprenez l’unique règle du sudoku et les habitudes qui vous mènent au bout d’une grille facile sans deviner. Écrit pour résoudre sur papier.',
     summary:
-      'La règle unique, où jouer votre premier coup, et comment venir à bout d’une grille facile entière sans jamais deviner.',
+      'L’unique règle du sudoku, et une méthode pour finir une grille facile sans deviner.',
     published: '2026-01-14',
     updated: '2026-01-14',
     readingTime: '6 min de lecture',
   },
   {
     slug: 'sudoku-solving-techniques',
-    title: 'Techniques de résolution du sudoku — des paires nues aux X-wings',
+    title: 'Techniques de résolution du sudoku : des paires nues aux X-wings',
     h1: 'Techniques de résolution pour les grilles difficiles et expert',
     description:
       'Les techniques qui vous font franchir une grille bloquée : notation des candidats, paires nues et cachées, paires pointantes, réduction bloc-ligne et le X-wing.',
     summary:
-      'Que faire quand le simple balayage ne suffit plus : notation des candidats, paires nues et cachées, paires pointantes, réduction bloc-ligne et le X-wing.',
+      'Les techniques à employer quand le balayage ne suffit plus : notation des candidats, paires nues et cachées, paires pointantes, réduction bloc-ligne et le X-wing.',
     published: '2026-01-21',
     updated: '2026-01-21',
     readingTime: '8 min de lecture',
@@ -120,9 +120,9 @@ const fr: GuideMeta[] = [
     title: 'Comment bien imprimer ses grilles de sudoku',
     h1: 'Comment bien imprimer ses grilles de sudoku',
     description:
-      'Format de papier, mise à l’échelle, grilles par page, choix de l’encre et du papier — les réglages pratiques qui déterminent si un sudoku imprimé est un plaisir ou un supplice pour les yeux.',
+      'Le format de papier, la mise à l’échelle et le nombre de grilles par page déterminent la place qu’il vous reste pour écrire. Ce guide donne les bons réglages et le papier à choisir.',
     summary:
-      'Mise à l’échelle, marges, mise en page et papier : les réglages qui déterminent si votre grille imprimée est un plaisir ou un supplice pour les yeux.',
+      'Mise à l’échelle, marges, mise en page et papier : les réglages pour une grille facile à lire et à annoter.',
     published: '2026-02-04',
     updated: '2026-02-04',
     readingTime: '5 min de lecture',
@@ -132,24 +132,24 @@ const fr: GuideMeta[] = [
 const es: GuideMeta[] = [
   {
     slug: 'how-to-solve-sudoku',
-    title: 'Cómo resolver un sudoku — guía para principiantes',
+    title: 'Cómo resolver un sudoku: guía para principiantes',
     h1: 'Cómo resolver un sudoku: guía para principiantes',
     description:
-      'Una regla, un primer movimiento y los hábitos que te permiten resolver una cuadrícula fácil sin adivinar. Una guía práctica para empezar, para cualquiera que tenga un sudoku impreso en las manos.',
+      'Aprende la única regla del sudoku y los hábitos que te llevan al final de una cuadrícula fácil sin adivinar. Pensada para resolver en papel.',
     summary:
-      'La única regla, dónde hacer tu primer movimiento y cómo resolver toda una cuadrícula fácil sin adivinar nunca.',
+      'La única regla del sudoku y un método para terminar una cuadrícula fácil sin adivinar.',
     published: '2026-01-14',
     updated: '2026-01-14',
     readingTime: '6 min de lectura',
   },
   {
     slug: 'sudoku-solving-techniques',
-    title: 'Técnicas de resolución de sudoku — de las parejas simples a los X-wing',
+    title: 'Técnicas de resolución de sudoku: de las parejas simples a los X-wing',
     h1: 'Técnicas de resolución de sudoku para cuadrículas difíciles y expertas',
     description:
       'Las técnicas que te sacan de una cuadrícula estancada: anotación de candidatos, parejas simples y ocultas, parejas apuntadoras, reducción caja-línea y el X-wing.',
     summary:
-      'Qué hacer cuando repasar la cuadrícula ya no basta: anotación de candidatos, parejas simples y ocultas, parejas apuntadoras, reducción caja-línea y el X-wing.',
+      'Técnicas para cuando repasar la cuadrícula ya no basta: anotación de candidatos, parejas simples y ocultas, parejas apuntadoras, reducción caja-línea y el X-wing.',
     published: '2026-01-21',
     updated: '2026-01-21',
     readingTime: '8 min de lectura',
@@ -159,9 +159,9 @@ const es: GuideMeta[] = [
     title: 'Cómo imprimir sudokus que se vean bien',
     h1: 'Cómo imprimir sudokus que se vean bien',
     description:
-      'Tamaño de papel, escala, sudokus por página, tinta y elección del papel — los ajustes prácticos que deciden si un sudoku impreso es un placer o un esfuerzo para la vista.',
+      'El tamaño de papel, la escala y los sudokus por página deciden cuánto sitio te queda para escribir. Esta guía da los ajustes correctos y el papel que conviene usar.',
     summary:
-      'Escala, márgenes, diseño y papel: los ajustes que deciden si tu cuadrícula impresa es un placer o un esfuerzo para la vista.',
+      'Escala, márgenes, diseño y papel: los ajustes para una cuadrícula fácil de leer y de anotar.',
     published: '2026-02-04',
     updated: '2026-02-04',
     readingTime: '5 min de lectura',

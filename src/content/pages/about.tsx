@@ -6,30 +6,30 @@ import { pageMetadata } from '@/lib/seo';
 
 const META: Record<Locale, { title: string; description: string; h1: string; lede: string }> = {
   en: {
-    title: 'About — Free Printable Sudoku, Made in Your Browser',
+    title: 'About: Free Printable Sudoku, Made in Your Browser',
     description:
-      'What this site is, how the puzzles are generated and verified, and why the whole thing runs in your browser with no account and no cost.',
+      'This site generates and verifies sudoku puzzles in your browser, with no account and no fee. This page explains the generator and the uniqueness check.',
     h1: 'About Printable Sudoku',
     lede: 'A puzzle generator built the way a small print shop would do it: set the run, pull a proof, print it.',
   },
   de: {
-    title: 'Über uns — Kostenloses Sudoku zum Ausdrucken, direkt im Browser',
+    title: 'Über uns: Kostenloses Sudoku zum Ausdrucken, direkt im Browser',
     description:
-      'Was diese Website ist, wie die Rätsel erzeugt und geprüft werden, und warum das Ganze im Browser läuft, ohne Konto und ohne Kosten.',
+      'Diese Website erzeugt und prüft Sudoku-Rätsel in deinem Browser, ohne Konto und ohne Kosten. Diese Seite erklärt den Generator und die Eindeutigkeitsprüfung.',
     h1: 'Über Printable Sudoku',
     lede: 'Ein Rätselgenerator, gebaut wie in einer kleinen Druckerei: die Auflage festlegen, einen Andruck ziehen, drucken.',
   },
   fr: {
-    title: 'À propos — Sudoku à imprimer gratuit, composé dans votre navigateur',
+    title: 'À propos : sudoku à imprimer gratuit, composé dans votre navigateur',
     description:
-      'Ce qu’est ce site, comment les grilles sont générées et vérifiées, et pourquoi tout fonctionne dans votre navigateur, sans compte et sans frais.',
+      'Ce site génère et vérifie des grilles de sudoku dans votre navigateur, sans compte et sans frais. Cette page explique le générateur et la vérification d’unicité.',
     h1: 'À propos de Printable Sudoku',
     lede: 'Un générateur de grilles conçu comme le ferait un petit atelier d’impression : composer le tirage, tirer une épreuve, imprimer.',
   },
   es: {
-    title: 'Acerca de — Sudoku gratis para imprimir, hecho en tu navegador',
+    title: 'Acerca de: sudoku gratis para imprimir, hecho en tu navegador',
     description:
-      'Qué es este sitio, cómo se generan y verifican los sudokus, y por qué todo funciona en tu navegador sin cuenta y sin coste.',
+      'Este sitio genera y comprueba sudokus en tu navegador, sin cuenta y sin coste. Esta página explica el generador y la comprobación de unicidad.',
     h1: 'Acerca de Printable Sudoku',
     lede: 'Un generador de sudokus construido como lo haría una pequeña imprenta: preparar la tirada, sacar una prueba, imprimir.',
   },
@@ -46,63 +46,64 @@ function Body({ locale }: { locale: Locale }) {
   if (locale === 'de') {
     return (
       <div className="prose-press mt-8 max-w-prose">
-        <h2>Worum es hier geht</h2>
+        <h2>Was die Website macht</h2>
         <p>
-          Diese Website erstellt Sudoku-PDFs zum Ausdrucken, nach Maß. Du wählst, wie viele Rätsel, wie
-          schwer, wie viele pro Seite und welches Papierformat; sie baut die Rätsel und das Dokument,
-          während du wartest. Es gibt sie, weil das meiste kostenlose Sudoku zum Ausdrucken im Netz ein
-          fest fertiges PDF ist, das irgendjemand einmal erstellt hat — vierzig Rätsel, ein Layout, friss
-          oder stirb — und das ist selten das Blatt, das man eigentlich wollte.
+          Diese Website erstellt Sudoku-PDFs zum Ausdrucken nach Maß. Du wählst, wie viele Rätsel,
+          wie schwer, wie viele pro Seite und welches Papierformat, und sie baut Rätsel und
+          Dokument, während du wartest. Wir haben sie gebaut, weil die meisten kostenlosen Sudokus
+          zum Ausdrucken im Netz als festes PDF mit vierzig Rätseln in einem Layout kommen, und das
+          ist selten das Blatt, das du willst.
         </p>
 
-        <h2>Wie die Rätsel entstehen</h2>
+        <h2>Wie der Generator Rätsel erzeugt</h2>
         <p>
-          Jedes Rätsel beginnt als vollständiges, gültiges 9×9-Raster, erzeugt durch randomisiertes
-          Backtracking. Danach werden nacheinander in zufälliger Reihenfolge Hinweise entfernt. Nach jeder
-          Entfernung durchsucht ein Lösungsalgorithmus das verbleibende Raster und zählt die Lösungen,
-          bis er eine zweite findet. Gibt es zwei, wird der Hinweis zurückgesetzt; nur Entfernungen, die
-          das Rätsel eindeutig lösbar lassen, bleiben bestehen.
+          Der Generator beginnt jedes Rätsel mit einem vollständigen, gültigen 9×9-Raster, erzeugt
+          durch randomisiertes Backtracking. Dann entfernt er nacheinander in zufälliger Reihenfolge
+          Hinweise. Nach jeder Entfernung zählt ein Lösungsalgorithmus die Lösungen des Rests und
+          hört auf, sobald er eine zweite findet. Findet er zwei, setzt der Generator den Hinweis
+          zurück und behält so nur Entfernungen, die eine eindeutige Lösung lassen.
         </p>
         <p>
-          Der Lösungsalgorithmus arbeitet mit Bitmasken für die Kandidaten und wählt zuerst das am
-          stärksten eingeschränkte Feld — dadurch bleibt er bei jeder einzelnen Entfernung schnell genug
-          für die Praxis. Diese Prüfung ist der aufwendige Teil der Erzeugung, und genau den lassen viele
-          kostenlose Generatoren weg. Wir nicht, denn ein Sudoku mit zwei Lösungen ist kein Sudoku — es
-          ist ein Raster, bei dem man irgendwann raten muss.
+          Der Lösungsalgorithmus verwaltet Kandidaten als Bitmasken und probiert zuerst das am
+          stärksten eingeschränkte Feld, was ihn schnell genug macht, um nach jeder Entfernung zu
+          laufen. Diese Prüfung kostet bei der Erzeugung die meiste Zeit, und viele kostenlose
+          Generatoren lassen sie weg. Wir führen sie durch, weil ein Raster mit zwei Lösungen dich
+          irgendwann zum Raten zwingt.
         </p>
         <p>
-          Die Schwierigkeit wird über die Anzahl der Hinweise definiert:{' '}
+          Die Anzahl der Hinweise bestimmt die Schwierigkeit:{' '}
           <Link href={L('/printable-sudoku/easy')}>einfach</Link> 38–45,{' '}
           <Link href={L('/printable-sudoku/medium')}>mittel</Link> 30–37,{' '}
           <Link href={L('/printable-sudoku/hard')}>schwer</Link> 25–29 und{' '}
-          <Link href={L('/printable-sudoku/expert')}>experte</Link> 20–24. Die Anzahl für jedes einzelne
-          Rätsel steht unter dessen Raster, sodass die Angabe durch eine nachprüfbare Zahl belegt ist.
+          <Link href={L('/printable-sudoku/expert')}>experte</Link> 20–24. Das PDF druckt die
+          Anzahl jedes Rätsels unter sein Raster, sodass du die Angabe an einer Zahl prüfen
+          kannst.
         </p>
 
         <h2>Alles läuft in deinem Browser</h2>
         <p>
           Kein Server ist an der Erstellung deiner Rätsel beteiligt. Der Generator, der prüfende
-          Lösungsalgorithmus und der Code, der das PDF setzt, laufen alle als JavaScript auf deinem
-          eigenen Gerät — die Erzeugung in einem Hintergrund-Thread, damit die Seite auch bei einer
-          großen Auflage reagibel bleibt. Nichts von deiner Auflage wird hochgeladen, deshalb ist der
-          Download sofort da, und deshalb wird nichts, was du erstellst, je irgendwo gespeichert. Die{' '}
-          <Link href={L('/privacy')}>Datenschutzseite</Link> erklärt genau, was das bedeutet.
+          Lösungsalgorithmus und der Code, der das PDF setzt, laufen alle als JavaScript auf
+          deinem eigenen Gerät, die Erzeugung in einem Hintergrund-Thread, damit die Seite auch
+          bei einer großen Auflage reagiert. Deine Auflage verlässt nie dein Gerät, deshalb ist
+          der Download sofort da, und deshalb speichern wir nichts, was du erzeugst. Die{' '}
+          <Link href={L('/privacy')}>Datenschutzseite</Link> nennt die Einzelheiten.
         </p>
 
-        <h2>Was es kostet</h2>
+        <h2>Kosten</h2>
         <p>
-          Nichts. Es gibt kein Konto, keine E-Mail-Abfrage, keine Testphase, kein Wasserzeichen und
-          keine kostenpflichtige Stufe, die die guten Rätsel zurückhält. Drucke sie für deine Klasse,
-          deine Familie, dein Pflegeheim oder deinen Newsletter — die Raster werden maschinell erzeugt,
-          und wir erheben keinen Eigentumsanspruch auf das, was du damit machst.
+          Keine. Du brauchst kein Konto und gibst keine E-Mail-Adresse an, und die Website hat keine
+          Testphase, kein Wasserzeichen und keine kostenpflichtige Stufe. Drucke die Rätsel für
+          deine Klasse, deine Familie oder deinen Newsletter. Ein Computer erzeugt die Raster, und
+          wir beanspruchen kein Eigentum an dem, was du erstellst.
         </p>
 
-        <h2>Was als Nächstes kommt</h2>
+        <h2>Was wir als Nächstes planen</h2>
         <p>
-          Naheliegende Ergänzungen sind weitere Rastergrößen, Großdruck-Layouts und Rätselvarianten.
-          Wenn du schon ein paar Sätze gedruckt hast und dir etwas an den Blättern im Weg stand, ist das
-          genau die Art von Rückmeldung, die hilft — die Layout-Entscheidungen hier entstanden dadurch,
-          dass viele Seiten gedruckt und angepasst wurden, und das wird auch so weitergehen.
+          Als Nächstes stehen weitere Rastergrößen, Großdruck-Layouts und Rätselvarianten auf der
+          Liste. Stand dir nach ein paar Auflagen etwas an den Blättern im Weg, wollen wir davon
+          hören. Wir haben das jetzige Layout festgelegt, indem wir viele Seiten gedruckt und
+          angepasst haben, und wir arbeiten weiter so.
         </p>
       </div>
     );
@@ -111,65 +112,65 @@ function Body({ locale }: { locale: Locale }) {
   if (locale === 'fr') {
     return (
       <div className="prose-press mt-8 max-w-prose">
-        <h2>Ce que c’est</h2>
+        <h2>Ce que fait le site</h2>
         <p>
           Ce site fabrique des PDF de sudoku à imprimer, sur mesure. Vous choisissez le nombre de
-          grilles, leur difficulté, leur nombre par page et le format de papier ; le site construit les
-          grilles et le document pendant que vous patientez. Il existe parce que la plupart des sudokus
-          gratuits à imprimer sur le web sont des PDF figés, composés une fois pour toutes — quarante
-          grilles, une seule mise en page, à prendre ou à laisser — et ce n’est rarement la feuille que
-          vous vouliez vraiment.
+          grilles, leur difficulté, leur nombre par page et le format de papier, et le site
+          construit les grilles et le document pendant que vous patientez. Nous l’avons créé parce
+          que la plupart des sudokus gratuits à imprimer sur le web se présentent comme un PDF figé
+          de quarante grilles dans une seule mise en page, et c’est rarement la feuille que vous
+          voulez.
         </p>
 
-        <h2>Comment les grilles sont fabriquées</h2>
+        <h2>Comment le générateur fabrique les grilles</h2>
         <p>
-          Chaque grille part d’un plateau 9×9 complet et valide, produit par retour arrière aléatoire
-          (backtracking). Les indices sont ensuite retirés un par un, dans un ordre aléatoire. Après
-          chaque retrait, un solveur parcourt ce qu’il reste et compte les solutions, s’arrêtant dès
-          qu’il en trouve une deuxième. S’il y en a deux, l’indice est remis en place ; seuls les
-          retraits qui laissent la grille résoluble de façon unique sont conservés.
+          Le générateur part, pour chaque grille, d’un plateau 9×9 complet et valide, produit par
+          retour arrière aléatoire (backtracking). Il retire ensuite les indices un par un dans un
+          ordre aléatoire. Après chaque retrait, un solveur compte les solutions de ce qui reste et
+          s’arrête dès qu’il en trouve une deuxième. S’il en trouve deux, le générateur remet
+          l’indice en place et ne garde ainsi que les retraits qui laissent une solution unique.
         </p>
         <p>
-          Le solveur utilise des ensembles de candidats par masques de bits et choisit d’abord la case
-          la plus contrainte, ce qui le rend assez rapide pour être exécuté après chaque retrait. Cette
-          vérification est la partie coûteuse de la génération, et c’est justement celle que beaucoup de
-          générateurs gratuits sautent. Pas nous, car un sudoku à deux solutions n’est pas un sudoku —
-          c’est une grille où, à un moment donné, il faut deviner.
+          Le solveur gère les candidats sous forme de masques de bits et essaie d’abord la case la
+          plus contrainte, ce qui le rend assez rapide pour tourner après chaque retrait. Cette
+          vérification coûte le plus de temps pendant la génération, et beaucoup de générateurs
+          gratuits la sautent. Nous la faisons, parce qu’une grille à deux solutions vous oblige à
+          deviner à un moment donné.
         </p>
         <p>
-          La difficulté se définit par le nombre d’indices :{' '}
+          Le nombre d’indices fixe la difficulté :{' '}
           <Link href={L('/printable-sudoku/easy')}>facile</Link> 38–45,{' '}
           <Link href={L('/printable-sudoku/medium')}>moyen</Link> 30–37,{' '}
           <Link href={L('/printable-sudoku/hard')}>difficile</Link> 25–29 et{' '}
-          <Link href={L('/printable-sudoku/expert')}>expert</Link> 20–24. Le nombre exact de chaque
-          grille est imprimé sous son plateau, si bien que l’étiquette repose sur un chiffre que vous
-          pouvez vérifier.
+          <Link href={L('/printable-sudoku/expert')}>expert</Link> 20–24. Le PDF imprime le nombre
+          de chaque grille sous son plateau, pour que vous puissiez vérifier l’étiquette sur un
+          chiffre.
         </p>
 
         <h2>Tout se passe dans votre navigateur</h2>
         <p>
-          Aucun serveur n’intervient dans la fabrication de vos grilles. Le générateur, le solveur qui
-          les vérifie et le code qui met en page le PDF s’exécutent tous en JavaScript sur votre propre
-          machine — la génération sur un fil d’arrière-plan pour que la page reste réactive lors d’un
-          gros tirage. Rien de votre tirage n’est envoyé, ce qui explique à la fois la rapidité du
-          téléchargement et le fait que rien de ce que vous générez n’est jamais stocké nulle part. La
-          page <Link href={L('/privacy')}>confidentialité</Link> précise exactement ce que cela signifie.
+          Aucun serveur n’intervient dans la fabrication de vos grilles. Le générateur, le solveur
+          qui les vérifie et le code qui met en page le PDF s’exécutent tous en JavaScript sur
+          votre propre machine, la génération sur un fil d’arrière-plan pour que la page reste
+          réactive lors d’un gros tirage. Votre tirage ne quitte jamais votre machine : c’est
+          pourquoi le téléchargement est immédiat et pourquoi nous ne stockons rien de ce que vous
+          générez. La page <Link href={L('/privacy')}>confidentialité</Link> donne les détails.
         </p>
 
         <h2>Ce que ça coûte</h2>
         <p>
-          Rien. Il n’y a ni compte, ni collecte d’e-mail, ni essai, ni filigrane, ni formule payante qui
-          réserverait les meilleures grilles. Imprimez-les pour votre classe, votre famille, votre
-          maison de retraite ou votre bulletin — les grilles sont générées par ordinateur et nous ne
-          revendiquons aucun droit de propriété sur ce que vous en faites.
+          Rien. Vous n’avez besoin d’aucun compte ni d’adresse e-mail, et le site n’a ni essai, ni
+          filigrane, ni formule payante. Imprimez les grilles pour votre classe, votre famille ou
+          votre bulletin. Un ordinateur génère les grilles, et nous ne revendiquons aucun droit sur
+          ce que vous en faites.
         </p>
 
-        <h2>Et ensuite</h2>
+        <h2>Ce que nous prévoyons</h2>
         <p>
-          Les ajouts les plus évidents sont d’autres tailles de grilles, des mises en page grands
-          caractères et des variantes du jeu. Si vous avez déjà imprimé quelques lots et que quelque
-          chose dans les feuilles vous a gêné, c’est exactement le genre de retour utile — les choix de
-          mise en page ici sont nés d’impressions répétées et d’ajustements, et cela continuera ainsi.
+          Prochaines étapes : d’autres tailles de grilles, des mises en page en grands caractères et
+          des variantes du jeu. Si quelque chose dans les feuilles vous a gêné après quelques
+          tirages, nous voulons le savoir. Nous avons fixé la mise en page actuelle en imprimant
+          beaucoup de pages et en ajustant, et nous continuerons ainsi.
         </p>
       </div>
     );
@@ -178,64 +179,63 @@ function Body({ locale }: { locale: Locale }) {
   if (locale === 'es') {
     return (
       <div className="prose-press mt-8 max-w-prose">
-        <h2>Qué es esto</h2>
+        <h2>Qué hace el sitio</h2>
         <p>
           Este sitio hace PDF de sudoku para imprimir, a medida. Eliges cuántos sudokus, con qué
-          dificultad, cuántos por página y en qué tamaño de papel; el sitio construye los sudokus y el
-          documento mientras esperas. Existe porque la mayoría del sudoku gratis para imprimir en
-          internet es un PDF fijo que alguien hizo una vez — cuarenta sudokus, un solo diseño, lo tomas o
-          lo dejas — y pocas veces es la hoja que realmente querías.
+          dificultad, cuántos por página y en qué tamaño de papel, y el sitio construye los sudokus
+          y el documento mientras esperas. Lo creamos porque la mayoría del sudoku gratis para
+          imprimir en internet llega como un PDF fijo de cuarenta sudokus en un solo diseño, y pocas
+          veces es la hoja que quieres.
         </p>
 
-        <h2>Cómo se hacen los sudokus</h2>
+        <h2>Cómo hace los sudokus el generador</h2>
         <p>
-          Cada sudoku empieza como una cuadrícula 9×9 completa y válida, generada por backtracking
-          aleatorio. Después se retiran las pistas una a una en orden aleatorio. Tras cada retirada, un
-          solucionador recorre lo que queda y cuenta las soluciones, deteniéndose en cuanto encuentra una
-          segunda. Si hay dos, la pista se vuelve a colocar; solo se conservan las retiradas que dejan el
-          sudoku con una única solución posible.
+          El generador empieza cada sudoku con una cuadrícula 9×9 completa y válida, generada por
+          backtracking aleatorio. Luego retira las pistas una a una en orden aleatorio. Tras cada
+          retirada, un solucionador cuenta las soluciones de lo que queda y se detiene en cuanto
+          encuentra una segunda. Si encuentra dos, el generador vuelve a colocar la pista, y así
+          solo conserva las retiradas que dejan una solución única.
         </p>
         <p>
-          El solucionador usa conjuntos de candidatos con máscaras de bits y elige primero la casilla más
-          restringida, lo que lo hace lo bastante rápido como para ejecutarlo después de cada retirada.
-          Esa comprobación es la parte costosa de la generación, y es justo la que muchos generadores
-          gratuitos se saltan. Nosotros no, porque un sudoku con dos soluciones no es un sudoku — es una
-          cuadrícula en la que, en algún momento, hay que adivinar.
+          El solucionador maneja los candidatos como máscaras de bits y prueba primero la casilla
+          más restringida, lo que lo hace lo bastante rápido para ejecutarlo tras cada retirada. Esa
+          comprobación es lo que más tiempo consume al generar, y muchos generadores gratuitos se la
+          saltan. Nosotros la hacemos, porque una cuadrícula con dos soluciones te obliga a adivinar
+          en algún momento.
         </p>
         <p>
-          La dificultad se define por el número de pistas:{' '}
+          El número de pistas fija la dificultad:{' '}
           <Link href={L('/printable-sudoku/easy')}>fácil</Link> 38–45,{' '}
           <Link href={L('/printable-sudoku/medium')}>medio</Link> 30–37,{' '}
           <Link href={L('/printable-sudoku/hard')}>difícil</Link> 25–29 y{' '}
-          <Link href={L('/printable-sudoku/expert')}>experto</Link> 20–24. El número exacto de cada
-          sudoku se imprime bajo su cuadrícula, así que la etiqueta está respaldada por una cifra que
-          puedes comprobar.
+          <Link href={L('/printable-sudoku/expert')}>experto</Link> 20–24. El PDF imprime el
+          número de cada sudoku bajo su cuadrícula, así que puedes comprobar la etiqueta con una
+          cifra.
         </p>
 
         <h2>Todo funciona en tu navegador</h2>
         <p>
-          Ningún servidor participa en la creación de tus sudokus. El generador, el solucionador que los
-          verifica y el código que maqueta el PDF se ejecutan como JavaScript en tu propio equipo — la
-          generación en un hilo en segundo plano para que la página siga respondiendo durante una tirada
-          grande. Nada de tu tirada se sube a ningún sitio, por eso la descarga es instantánea y por eso
-          nada de lo que generas se guarda en ningún lugar. La página de{' '}
-          <Link href={L('/privacy')}>privacidad</Link> explica exactamente qué significa eso.
+          Ningún servidor participa en la creación de tus sudokus. El generador, el solucionador
+          que los comprueba y el código que maqueta el PDF se ejecutan como JavaScript en tu
+          propio equipo, con la generación en un hilo en segundo plano para que la página siga
+          respondiendo durante una tirada grande. Tu tirada nunca sale de tu equipo, por eso la
+          descarga es instantánea y por eso no guardamos nada de lo que generas. La página de{' '}
+          <Link href={L('/privacy')}>privacidad</Link> da los detalles.
         </p>
 
         <h2>Lo que cuesta</h2>
         <p>
-          Nada. No hay cuenta, ni captación de correo, ni prueba, ni marca de agua, ni ningún plan de
-          pago que se guarde los mejores sudokus. Imprímelos para tu clase, tu familia, tu residencia o
-          tu boletín — las cuadrículas se generan por ordenador y no reclamamos ningún derecho sobre lo
-          que hagas con ellas.
+          Nada. No necesitas cuenta ni correo, y el sitio no tiene prueba, marca de agua ni plan de
+          pago. Imprime los sudokus para tu clase, tu familia o tu boletín. Un ordenador genera las
+          cuadrículas, y no reclamamos ningún derecho sobre lo que hagas con ellas.
         </p>
 
-        <h2>Qué viene después</h2>
+        <h2>Qué planeamos añadir</h2>
         <p>
-          Las incorporaciones más obvias son más tamaños de cuadrícula, diseños en letra grande y
-          variantes del juego. Si ya has impreso algunos lotes y algo de las hojas se te ha atravesado,
-          ese es justo el tipo de comentario que sirve — las decisiones de diseño de aquí nacieron de
-          imprimir muchas páginas y ajustarlas, y eso va a seguir siendo así.
+          Lo siguiente en la lista son más tamaños de cuadrícula, diseños en letra grande y
+          variantes del juego. Si algo de las hojas te ha molestado después de unas cuantas tiradas,
+          queremos saberlo. Decidimos el diseño actual imprimiendo muchas páginas y ajustándolo, y
+          seguiremos trabajando así.
         </p>
       </div>
     );
@@ -243,63 +243,58 @@ function Body({ locale }: { locale: Locale }) {
 
   return (
     <div className="prose-press mt-8 max-w-prose">
-      <h2>What this is</h2>
+      <h2>What the site does</h2>
       <p>
-        This site makes printable sudoku PDFs to order. You choose how many puzzles, how hard,
-        how many to a page and what size paper; it builds the puzzles and the document while you
-        wait. It exists because most free printable sudoku on the web is a fixed PDF somebody
-        made once — forty puzzles, one layout, take it or leave it — and that is rarely the sheet
-        you actually wanted.
+        This site makes printable sudoku PDFs to order. You choose how many puzzles, how hard, how
+        many to a page and what size paper, and it builds the puzzles and the document while you
+        wait. We built it because most free printable sudoku on the web comes as a fixed PDF of
+        forty puzzles in one layout, and that is rarely the sheet you want.
       </p>
 
-      <h2>How the puzzles are made</h2>
+      <h2>How the generator makes puzzles</h2>
       <p>
-        Each puzzle starts as a complete, valid 9×9 grid produced by randomised backtracking.
-        Clues are then removed one at a time in random order. After each removal a solver runs
-        over what is left and counts solutions, stopping as soon as it finds a second one. If
-        there are two, the clue is put back; only removals that leave the puzzle uniquely
-        solvable are kept.
+        The generator starts each puzzle from a complete, valid 9×9 grid produced by randomised
+        backtracking. It then removes clues one at a time in random order. After each removal a
+        solver counts the solutions of what is left, stopping as soon as it finds a second one. If
+        it finds two, the generator puts the clue back, so it keeps only removals that leave a
+        unique solution.
       </p>
       <p>
-        The solver uses bitmask candidate sets and picks the most constrained cell first, which
-        is what makes running it after every single removal fast enough to be practical. This
-        check is the expensive part of generation and it is the part plenty of free generators
-        skip. We do not, because a sudoku with two answers is not a sudoku — it is a grid where
-        at some point you have to pick.
+        The solver tracks candidates as bitmasks and tries the most constrained cell first, which
+        makes it fast enough to run after each removal. This check costs the most time during
+        generation, and plenty of free generators skip it. We run it because a grid with two answers
+        forces you to guess at some point.
       </p>
       <p>
-        Difficulty is defined by clue count:{' '}
-        <Link href={L('/printable-sudoku/easy')}>easy</Link> 38–45,{' '}
-        <Link href={L('/printable-sudoku/medium')}>medium</Link> 30–37,{' '}
+        Clue count sets the difficulty: <Link href={L('/printable-sudoku/easy')}>easy</Link>{' '}
+        38–45, <Link href={L('/printable-sudoku/medium')}>medium</Link> 30–37,{' '}
         <Link href={L('/printable-sudoku/hard')}>hard</Link> 25–29 and{' '}
-        <Link href={L('/printable-sudoku/expert')}>expert</Link> 20–24. The count for each individual
-        puzzle is printed under its grid, so the label is backed by a number you can check.
+        <Link href={L('/printable-sudoku/expert')}>expert</Link> 20–24. The PDF prints each
+        puzzle&rsquo;s count under its grid, so you can check the label against a number.
       </p>
 
       <h2>Everything runs in your browser</h2>
       <p>
-        There is no server involved in making your puzzles. The generator, the solver that
-        verifies them and the code that lays out the PDF all run as JavaScript on your own
-        machine — generation on a background thread so the page stays responsive during a large
-        batch. Nothing about your run is uploaded, which is why the download is instant and why
-        nothing you generate is ever stored anywhere. The{' '}
-        <Link href={L('/privacy')}>privacy page</Link> spells out exactly what that means.
+        No server takes part in making your puzzles. The generator, the solver that checks them
+        and the code that lays out the PDF all run as JavaScript on your own machine, with
+        generation on a background thread so the page stays responsive during a large batch.
+        Your run never leaves your machine, which is why the download is instant and why we
+        store nothing you generate. The <Link href={L('/privacy')}>privacy page</Link> covers
+        the details.
       </p>
 
-      <h2>What it costs</h2>
+      <h2>Cost</h2>
       <p>
-        Nothing. There is no account, no email capture, no trial, no watermark and no paid tier
-        holding back the good puzzles. Print them for your class, your family, your care home or
-        your newsletter — the grids are machine-generated and we make no ownership claim over
-        what you produce.
+        Nothing. You need no account and give no email address, and the site has no trial, watermark
+        or paid tier. Print the puzzles for your class, your family or your newsletter. A computer
+        generates the grids, and we claim no ownership of what you produce.
       </p>
 
-      <h2>Where it goes next</h2>
+      <h2>What we plan to add</h2>
       <p>
-        The obvious additions are more grid sizes, large-print layouts and puzzle variants. If
-        you have printed a few sets and something about the sheets got in your way, that is the
-        useful kind of feedback — the layout decisions here were made by printing a lot of pages
-        and adjusting, and they will keep being made that way.
+        Next on the list are more grid sizes, large-print layouts and puzzle variants. If something
+        about the sheets got in your way after a few runs, we want to hear about it. We settled the
+        current layout by printing many pages and adjusting, and we will keep working that way.
       </p>
     </div>
   );

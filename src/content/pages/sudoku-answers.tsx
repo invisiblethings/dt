@@ -11,48 +11,48 @@ import { faqPageSchema, pageMetadata, webApplicationSchema } from '@/lib/seo';
 
 const META: Record<Locale, { title: string; description: string; eyebrow: string; h1: string; lede: string; appName: string; appDescription: string; faqHeading: string }> = {
   en: {
-    title: 'Sudoku Answers — Look Up the Solution to Any Puzzle',
+    title: 'Sudoku Answers: Look Up the Solution to Any Puzzle',
     description:
-      'Lost the answer key? Type the code printed under any puzzle from this site and get its solution back instantly — no account, no sign-up, and nothing leaves your browser.',
+      'Lost the answer key? Type the code printed under any puzzle from this site to get its solution. You need no account, and the lookup runs in your browser.',
     eyebrow: 'solution lookup',
-    h1: 'Sudoku answers — look up the solution to any puzzle',
-    lede: 'Stuck on a grid, or checking a finished one? Type the code printed under the puzzle and its solution comes straight back. No answer key needed, and no account.',
+    h1: 'Sudoku answers: look up the solution to any puzzle',
+    lede: 'Type the code printed under a puzzle to see its solution, whether you are stuck or checking a finished grid. You need no answer key and no account.',
     appName: 'Sudoku answer lookup',
     appDescription: 'Rebuilds the solution to any puzzle generated on this site from the short code printed under its grid.',
-    faqHeading: 'Looking up answers — questions',
+    faqHeading: 'Looking up answers: questions',
   },
   de: {
-    title: 'Sudoku-Lösungen — Die Lösung zu jedem Rätsel nachschlagen',
+    title: 'Sudoku-Lösungen: Die Lösung zu jedem Rätsel nachschlagen',
     description:
-      'Lösungsschlüssel verloren? Gib den Code ein, der unter jedem Rätsel dieser Website steht, und erhalte sofort die Lösung — kein Konto, keine Anmeldung, nichts verlässt deinen Browser.',
+      'Lösungsschlüssel verloren? Gib den Code unter einem Rätsel dieser Website ein und erhalte seine Lösung. Du brauchst kein Konto, und die Suche läuft in deinem Browser.',
     eyebrow: 'Lösungssuche',
-    h1: 'Sudoku-Lösungen — die Lösung zu jedem Rätsel nachschlagen',
-    lede: 'Bei einem Raster hängen geblieben, oder ein fertiges prüfen? Gib den Code unter dem Rätsel ein, und die Lösung kommt sofort zurück. Kein Lösungsschlüssel nötig, kein Konto.',
+    h1: 'Sudoku-Lösungen: die Lösung zu jedem Rätsel nachschlagen',
+    lede: 'Gib den Code unter einem Rätsel ein, um seine Lösung zu sehen, ob du feststeckst oder ein fertiges Raster prüfst. Du brauchst weder Lösungsschlüssel noch Konto.',
     appName: 'Sudoku-Lösungssuche',
     appDescription: 'Baut die Lösung jedes auf dieser Website erzeugten Rätsels aus dem kurzen Code unter seinem Raster neu auf.',
-    faqHeading: 'Lösungen nachschlagen — Fragen',
+    faqHeading: 'Lösungen nachschlagen: Fragen',
   },
   fr: {
-    title: 'Solutions de Sudoku — Retrouvez la Solution de N’importe Quelle Grille',
+    title: 'Solutions de Sudoku : Retrouvez la Solution de N’importe Quelle Grille',
     description:
-      'Corrigé perdu ? Saisissez le code imprimé sous n’importe quelle grille de ce site et récupérez sa solution instantanément — sans compte, sans inscription, et rien ne quitte votre navigateur.',
+      'Corrigé perdu ? Saisissez le code imprimé sous une grille de ce site pour obtenir sa solution. Vous n’avez besoin d’aucun compte, et la recherche tourne dans votre navigateur.',
     eyebrow: 'recherche de solution',
-    h1: 'Solutions de sudoku — retrouvez la solution de n’importe quelle grille',
-    lede: 'Bloqué sur une grille, ou envie de vérifier une grille terminée ? Saisissez le code imprimé sous la grille et la solution revient aussitôt. Pas besoin de corrigé, ni de compte.',
+    h1: 'Solutions de sudoku : retrouvez la solution de n’importe quelle grille',
+    lede: 'Saisissez le code imprimé sous une grille pour voir sa solution, que vous soyez bloqué ou que vous vérifiiez une grille terminée. Vous n’avez besoin ni de corrigé ni de compte.',
     appName: 'Recherche de solution de sudoku',
     appDescription: 'Reconstruit la solution de n’importe quelle grille générée sur ce site à partir du code court imprimé sous son plateau.',
-    faqHeading: 'Retrouver une solution — questions',
+    faqHeading: 'Retrouver une solution : questions',
   },
   es: {
-    title: 'Soluciones de Sudoku — Busca la Solución de Cualquier Sudoku',
+    title: 'Soluciones de Sudoku: Busca la Solución de Cualquier Sudoku',
     description:
-      '¿Perdiste las soluciones? Escribe el código impreso bajo cualquier sudoku de este sitio y recupera su solución al instante — sin cuenta, sin registro, y nada sale de tu navegador.',
+      '¿Perdiste las soluciones? Escribe el código impreso bajo un sudoku de este sitio para obtener su solución. No necesitas cuenta, y la búsqueda funciona en tu navegador.',
     eyebrow: 'búsqueda de solución',
-    h1: 'Soluciones de sudoku — busca la solución de cualquier sudoku',
-    lede: '¿Atascado en una cuadrícula, o quieres comprobar una que ya terminaste? Escribe el código impreso bajo el sudoku y la solución vuelve al instante. No hace falta la clave de soluciones, ni cuenta.',
+    h1: 'Soluciones de sudoku: busca la solución de cualquier sudoku',
+    lede: 'Escribe el código impreso bajo un sudoku para ver su solución, tanto si estás atascado como si quieres comprobar una cuadrícula terminada. No necesitas las soluciones impresas ni una cuenta.',
     appName: 'Búsqueda de soluciones de sudoku',
     appDescription: 'Reconstruye la solución de cualquier sudoku generado en este sitio a partir del código corto impreso bajo su cuadrícula.',
-    faqHeading: 'Buscar soluciones — preguntas',
+    faqHeading: 'Buscar soluciones: preguntas',
   },
 };
 
@@ -66,144 +66,140 @@ function HowSection({ locale }: { locale: Locale }) {
     return (
       <section aria-labelledby="how-heading" className="mt-20 max-w-prose">
         <h2 id="how-heading" className="m-0 font-display text-[24px] font-bold">
-          Wie ein sechsstelliger Code die Antwort kennt
+          Wie die Suche die Antwort aus einem sechsstelligen Code findet
         </h2>
         <div className="prose-press mt-4">
           <p>
-            Das ist der Teil, der normalerweise die Augenbrauen hochzieht, denn es gibt hier keine
-            Datenbank, und dein Rätsel wurde nirgendwohin hochgeladen. Der Trick: Der Code ist kein
-            Verweis auf ein gespeichertes Rätsel. Er <em>ist</em> das Rätsel, in komprimierter Form.
+            Die Website hat keine Datenbank, und du hast dein Rätsel nie hochgeladen. Der Code
+            funktioniert als komprimierte Kopie des Rätsels, sodass die Suche es neu aufbauen kann,
+            ohne etwas zu speichern.
           </p>
           <p>
             Ein Sudoku zu erzeugen bedeutet viel Mischen: welche Ziffern im ersten vollständigen
-            Raster wohin kommen, und in welcher Reihenfolge die Hinweise entfernt werden. Dieses ganze
-            Mischen wird von einer einzigen Startzahl gesteuert. Legt man diese Zahl fest, läuft der
-            gesamte Prozess jedes Mal gleich ab, bis zum letzten Feld. Der Code trägt also zwei Dinge —
-            welche Schwierigkeit gewählt wurde und diese Startzahl — und daraus baut der Generator dein
-            genaues Rätsel und damit seine genaue Lösung auf der Stelle wieder auf.
+            Raster wohin kommen, und in welcher Reihenfolge der Generator Hinweise entfernt. Eine
+            einzige Startzahl steuert dieses ganze Mischen. Legst du die Zahl fest, läuft der
+            Generator jedes Mal gleich ab, bis zum letzten Feld. Der Code trägt die gewählte
+            Schwierigkeit und diese Startzahl, und daraus baut der Generator dein Rätsel samt Lösung
+            auf der Stelle wieder auf.
           </p>
           <p>
-            Zwei nützliche Folgen davon. Nichts läuft ab: Ein Blatt, das du heute druckst, lässt sich
-            auch in zehn Jahren noch nachschlagen, weil die Antwort neu berechnet statt abgerufen wird.
-            Und nichts kann durchsickern: Die Suche läuft in deinem Browser wie alles andere auf dieser
-            Website, sodass niemand, auch wir nicht, erfährt, an welchen Rätseln du gearbeitet hast.
+            Codes laufen nicht ab: Ein Blatt, das du heute druckst, lässt sich auch in zehn Jahren
+            noch nachschlagen, weil die Suche die Antwort neu berechnet. Und die Suche läuft wie der
+            Rest dieser Website in deinem Browser, sodass niemand, auch wir nicht, erfährt, an
+            welchen Rätseln du gearbeitet hast.
           </p>
           <p>
-            Die Codes sind absichtlich so gestaltet, dass sie sich schwer vertippen lassen. Sie
-            verwenden nie die Buchstaben I, L, O oder U, damit keine Verwechslung mit 1 und 0 möglich
-            ist, und jeder Code trägt eine kleine eingebaute Prüfung. Liest du ein Zeichen falsch,
-            bekommst du gesagt, dass der Code falsch ist — statt still die Antwort auf ein anderes
-            Rätsel zu erhalten und dich zu fragen, warum nichts zusammenpasst.
+            Wir haben die Codes gegen Tippfehler gebaut. Sie lassen die Buchstaben I, L, O und U
+            weg, damit du sie nicht mit 1 und 0 verwechselst, und jeder Code trägt eine kleine
+            eingebaute Prüfung. Liest du ein Zeichen falsch, sagt dir die Seite, dass der Code
+            falsch ist, statt dir die Antwort auf ein anderes Rätsel zu zeigen.
           </p>
         </div>
       </section>
     );
   }
+
   if (locale === 'fr') {
     return (
       <section aria-labelledby="how-heading" className="mt-20 max-w-prose">
         <h2 id="how-heading" className="m-0 font-display text-[24px] font-bold">
-          Comment un code à six caractères connaît la réponse
+          Comment la recherche retrouve la réponse à partir d’un code à six caractères
         </h2>
         <div className="prose-press mt-4">
           <p>
-            C’est la partie qui étonne généralement, car il n’y a ici aucune base de données et votre
-            grille n’a jamais été envoyée nulle part. L’astuce, c’est que le code n’est pas une
-            référence vers une grille stockée. Il <em>est</em> la grille, sous forme compressée.
+            Le site n’a pas de base de données, et vous n’avez jamais envoyé votre grille. Le code
+            fonctionne comme une copie compressée de la grille : la recherche peut donc la
+            reconstruire sans rien stocker.
           </p>
           <p>
             Générer un sudoku implique beaucoup de mélange : quels chiffres vont où dans le premier
-            plateau complet, et dans quel ordre les indices sont retirés. Tout ce mélange est piloté
-            par un seul nombre de départ. Fixez ce nombre, et tout le processus se déroule de la même
-            façon à chaque fois, jusqu’à la dernière case. Le code porte donc deux informations — la
-            difficulté demandée et ce nombre de départ — et à partir de là, le générateur reconstruit
-            votre grille exacte, et donc sa solution exacte, sur-le-champ.
+            plateau complet, et dans quel ordre le générateur retire les indices. Un seul nombre de
+            départ pilote tout ce mélange. Fixez ce nombre, et le générateur se déroule de la même
+            façon à chaque fois, jusqu’à la dernière case. Le code porte la difficulté choisie et ce
+            nombre de départ, et à partir de ces deux éléments le générateur reconstruit votre
+            grille et sa solution sur-le-champ.
           </p>
           <p>
-            Deux conséquences utiles. Rien n’expire : une feuille imprimée aujourd’hui se retrouvera
-            toujours dans dix ans, car la réponse est recalculée plutôt que récupérée. Et rien ne peut
-            fuiter : la recherche s’exécute dans votre navigateur comme tout le reste de ce site, si
-            bien que personne, nous y compris, ne sait sur quelles grilles vous avez travaillé.
+            Les codes n’expirent pas : une feuille imprimée aujourd’hui se retrouvera encore dans
+            dix ans, car la recherche recalcule la réponse. Et la recherche s’exécute dans votre
+            navigateur comme le reste du site : personne, nous y compris, ne sait sur quelles
+            grilles vous avez travaillé.
           </p>
           <p>
-            Les codes sont volontairement conçus pour être difficiles à mal saisir. Ils n’utilisent
-            jamais les lettres I, L, O ou U, pour éviter toute confusion avec 1 et 0, et chaque code
-            intègre une petite vérification. Une erreur sur un caractère, et le site vous indique que
-            le code est incorrect — plutôt que de vous donner la solution d’une autre grille en vous
-            laissant vous demander pourquoi rien ne correspond.
+            Nous avons conçu les codes pour résister aux fautes de frappe. Ils excluent les lettres
+            I, L, O et U pour éviter toute confusion avec 1 et 0, et chaque code intègre une petite
+            vérification. Si vous vous trompez d’un caractère, la page vous signale que le code est
+            incorrect au lieu d’afficher la solution d’une autre grille.
           </p>
         </div>
       </section>
     );
   }
+
   if (locale === 'es') {
     return (
       <section aria-labelledby="how-heading" className="mt-20 max-w-prose">
         <h2 id="how-heading" className="m-0 font-display text-[24px] font-bold">
-          Cómo un código de seis caracteres conoce la respuesta
+          Cómo encuentra la búsqueda la respuesta a partir de un código de seis caracteres
         </h2>
         <div className="prose-press mt-4">
           <p>
-            Esta es la parte que suele sorprender, porque aquí no hay ninguna base de datos y tu sudoku
-            nunca se subió a ningún sitio. El truco es que el código no es una referencia a un sudoku
-            guardado. <em>Es</em> el sudoku, en forma comprimida.
+            El sitio no tiene base de datos, y nunca subiste tu sudoku. El código funciona como una
+            copia comprimida del sudoku, así que la búsqueda puede reconstruirlo sin guardar nada.
           </p>
           <p>
             Generar un sudoku implica mucho barajar: qué números van dónde en la primera cuadrícula
-            completa, y en qué orden se retiran las pistas. Todo ese barajado está gobernado por un
-            único número de partida. Fija ese número y todo el proceso se repite igual cada vez, hasta
-            la última casilla. Así que el código lleva dos cosas — la dificultad pedida y ese número de
-            partida — y a partir de ahí el generador reconstruye tu sudoku exacto, y por tanto su
-            solución exacta, al instante.
+            completa, y en qué orden retira el generador las pistas. Un único número de partida
+            gobierna todo ese barajado. Fija ese número y el generador se ejecuta igual cada vez,
+            hasta la última casilla. El código lleva la dificultad que elegiste y ese número de
+            partida, y con esos dos datos el generador reconstruye tu sudoku y su solución al
+            momento.
           </p>
           <p>
-            De ahí salen dos consecuencias útiles. No hay nada que caduque: una hoja que imprimas hoy
-            se podrá seguir buscando dentro de diez años, porque la respuesta se recalcula en vez de
-            recuperarse. Y no hay nada que se filtre: la búsqueda se ejecuta en tu navegador como todo
-            lo demás en este sitio, así que nadie, ni siquiera nosotros, sabe en qué sudokus has estado
-            trabajando.
+            Los códigos no caducan: una hoja que imprimas hoy se podrá seguir buscando dentro de
+            diez años, porque la búsqueda recalcula la respuesta. Y la búsqueda se ejecuta en tu
+            navegador como el resto del sitio, así que nadie, ni siquiera nosotros, sabe en qué
+            sudokus has estado trabajando.
           </p>
           <p>
-            Los códigos están pensados a propósito para ser difíciles de teclear mal. Nunca usan las
-            letras I, L, O ni U, para que no se confundan con 1 y 0, y cada código lleva integrada una
-            pequeña comprobación. Si un carácter está mal, se te avisa de que el código es incorrecto —
-            en vez de darte en silencio la respuesta de otro sudoku y dejarte preguntándote por qué no
-            encaja nada.
+            Diseñamos los códigos para resistir las erratas. Excluyen las letras I, L, O y U para
+            que no las confundas con 1 y 0, y cada código lleva integrada una pequeña comprobación.
+            Si escribes mal un carácter, la página te avisa de que el código es incorrecto en vez de
+            mostrarte la respuesta de otro sudoku.
           </p>
         </div>
       </section>
     );
   }
+
   return (
     <section aria-labelledby="how-heading" className="mt-20 max-w-prose">
       <h2 id="how-heading" className="m-0 font-display text-[24px] font-bold">
-        How a six-character code knows the answer
+        How the lookup finds the answer from a six-character code
       </h2>
       <div className="prose-press mt-4">
         <p>
-          This is the part that usually raises an eyebrow, because there is no database here and
-          your puzzle was never uploaded anywhere. The trick is that the code is not a reference
-          to a stored puzzle. It <em>is</em> the puzzle, in compressed form.
+          The site has no database, and you never uploaded your puzzle. The code works as a
+          compressed copy of the puzzle, so the lookup can rebuild it without storing anything.
         </p>
         <p>
           Generating a sudoku involves a lot of shuffling: which digits go where in the first
-          complete grid, and which order the clues are taken out in. All of that shuffling is
-          driven by a single starting number. Fix that number and the whole process runs the
-          same way every time, down to the last cell. So the code carries two things — which
-          difficulty was asked for, and that starting number — and from those the generator
-          rebuilds your exact puzzle, and therefore its exact solution, on the spot.
+          complete grid, and in which order the generator removes clues. A single starting number
+          drives all of that shuffling. Fix the number and the generator runs the same way each
+          time, down to the last cell. The code carries the difficulty you chose and that starting
+          number, and from those two the generator rebuilds your puzzle, and its solution, on the
+          spot.
         </p>
         <p>
-          Two useful consequences. There is nothing to expire: a sheet you print today will
-          still look up in ten years, because the answer is recomputed rather than retrieved.
-          And there is nothing to leak: the lookup runs in your browser like everything else on
-          this site, so no one, including us, learns which puzzles you have been working on.
+          Codes do not expire, so a sheet you print today will still look up in ten years, because
+          the lookup recomputes the answer. And the lookup runs in your browser like the rest of
+          this site, so nobody, including us, learns which puzzles you have been working on.
         </p>
         <p>
-          The codes are deliberately awkward to mistype. They never use the letters I, L, O or
-          U, so there is no confusing them with 1 and 0, and each code carries a small check
-          built into it. Get a character wrong and you are told the code is wrong — rather than
-          being handed a different puzzle&rsquo;s answer and left to wonder why nothing lines up.
+          We designed the codes to resist typos. They leave out the letters I, L, O and U, so you
+          cannot confuse them with 1 and 0, and each code carries a small built-in check. If you get
+          a character wrong, the page tells you the code is wrong instead of showing the answer to a
+          different puzzle.
         </p>
       </div>
     </section>
@@ -221,22 +217,22 @@ function WhereSection({ locale }: { locale: Locale }) {
         </h2>
         <div className="prose-press mt-4">
           <p>
-            Schau direkt unter das Raster. Jedes Rätsel druckt seinen Code links — eine Raute gefolgt
-            von sechs Zeichen — mit Schwierigkeit und Anzahl der Hinweise rechts. Auf einem Blatt mit
-            vier oder sechs Rätseln pro Seite hat jedes Raster seinen eigenen, sodass du ein Rätsel
-            nachschlagen kannst, ohne den Rest der Seite zu verraten.
+            Schau unter das Raster. Jedes Rätsel druckt seinen Code links, eine Raute gefolgt von
+            sechs Zeichen, mit Schwierigkeit und Anzahl der Hinweise rechts. Auf einem Blatt mit
+            vier oder sechs Rätseln pro Seite hat jedes Raster seinen eigenen Code, sodass du ein
+            Rätsel nachschlagen kannst, ohne den Rest der Seite zu verraten.
           </p>
           <p>
-            Willst du die Lösungen lieber von Anfang an auf Papier, kann der Generator sie dir drucken:
-            siehe{' '}
+            Willst du die Lösungen von Anfang an auf Papier, nutze{' '}
             <Link href={L('/printable-sudoku-with-answers')}>Sudoku zum Ausdrucken mit Lösungen</Link>,
-            das einen vollständigen Lösungsschlüssel ans Ende des PDFs setzt. Diese Seite ist die
-            Rückfalllösung für den Fall, dass du keinen gedruckt hast oder ihn nicht mehr zur Hand hast.
+            das einen vollständigen Lösungsschlüssel ans Ende des PDFs setzt. Diese Seite hilft,
+            wenn du keinen Schlüssel gedruckt oder ihn verloren hast.
           </p>
         </div>
       </section>
     );
   }
+
   if (locale === 'fr') {
     return (
       <section aria-labelledby="where-heading" className="mt-16 max-w-prose">
@@ -245,22 +241,22 @@ function WhereSection({ locale }: { locale: Locale }) {
         </h2>
         <div className="prose-press mt-4">
           <p>
-            Regardez directement sous la grille. Chaque grille imprime son code à gauche — un dièse
-            suivi de six caractères — avec la difficulté et le nombre d’indices à droite. Sur une
-            feuille à quatre ou six grilles par page, chaque grille a le sien, si bien que vous pouvez
-            rechercher une solution sans gâcher le reste de la page.
+            Regardez sous la grille. Chaque grille imprime son code à gauche, un dièse suivi de six
+            caractères, avec la difficulté et le nombre d’indices à droite. Sur une feuille à quatre
+            ou six grilles par page, chaque grille a son propre code : vous pouvez rechercher une
+            solution sans gâcher le reste de la page.
           </p>
           <p>
-            Si vous préférez avoir les solutions sur papier dès le départ, le générateur peut les
-            imprimer pour vous : voir{' '}
+            Pour avoir les solutions sur papier dès le départ, utilisez{' '}
             <Link href={L('/printable-sudoku-with-answers')}>sudoku à imprimer avec solutions</Link>,
-            qui place un corrigé complet à la fin du PDF. Cette page est la solution de repli pour
-            quand vous n’en avez pas imprimé, ou que vous ne l’avez plus sous la main.
+            qui place un corrigé complet à la fin du PDF. Servez-vous de cette page si vous n’avez
+            pas imprimé de corrigé ou si vous l’avez perdu.
           </p>
         </div>
       </section>
     );
   }
+
   if (locale === 'es') {
     return (
       <section aria-labelledby="where-heading" className="mt-16 max-w-prose">
@@ -269,22 +265,22 @@ function WhereSection({ locale }: { locale: Locale }) {
         </h2>
         <div className="prose-press mt-4">
           <p>
-            Mira justo debajo de la cuadrícula. Cada sudoku imprime su código a la izquierda — una
-            almohadilla seguida de seis caracteres — con la dificultad y el número de pistas a la
-            derecha. En una hoja con cuatro o seis sudokus por página, cada cuadrícula tiene el suyo,
-            así que puedes buscar la solución de un sudoku sin estropear el resto de la página.
+            Mira bajo la cuadrícula. Cada sudoku imprime su código a la izquierda, una almohadilla
+            seguida de seis caracteres, con la dificultad y el número de pistas a la derecha. En una
+            hoja con cuatro o seis sudokus por página, cada cuadrícula tiene su propio código, así
+            que puedes buscar la solución de uno sin estropear el resto de la página.
           </p>
           <p>
-            Si prefieres tener las soluciones en papel desde el principio, el generador puede
-            imprimirlas por ti: mira{' '}
+            Para tener las soluciones en papel desde el principio, usa{' '}
             <Link href={L('/printable-sudoku-with-answers')}>sudoku para imprimir con soluciones</Link>,
-            que añade las soluciones completas al final del PDF. Esta página es la alternativa para
-            cuando no las imprimiste, o ya no las tienes a mano.
+            que añade las soluciones completas al final del PDF. Usa esta página cuando no las
+            imprimiste o las has perdido.
           </p>
         </div>
       </section>
     );
   }
+
   return (
     <section aria-labelledby="where-heading" className="mt-16 max-w-prose">
       <h2 id="where-heading" className="m-0 font-display text-[24px] font-bold">
@@ -292,17 +288,16 @@ function WhereSection({ locale }: { locale: Locale }) {
       </h2>
       <div className="prose-press mt-4">
         <p>
-          Look directly beneath the grid. Each puzzle prints its code on the left — a hash
-          followed by six characters — with the difficulty and clue count on the right. On a
-          sheet with four or six puzzles to a page, every grid has its own, so you can look up
-          one puzzle without spoiling the rest of the page.
+          Look under the grid. Each puzzle prints its code on the left, a hash followed by six
+          characters, with the difficulty and clue count on the right. On a sheet with four or six
+          puzzles to a page, each grid has its own code, so you can look up one puzzle without
+          spoiling the rest of the page.
         </p>
         <p>
-          If you would rather have the answers on paper from the start, the generator can print
-          them for you: see{' '}
+          To get the answers on paper from the start, use{' '}
           <Link href={L('/printable-sudoku-with-answers')}>printable sudoku with answers</Link>,
-          which puts a full key at the back of the PDF. This page is the fallback for when you
-          did not print one, or no longer have it to hand.
+          which puts a full key at the back of the PDF. Use this page when you did not print a key
+          or have lost it.
         </p>
       </div>
     </section>
@@ -314,33 +309,33 @@ const NEXT_SECTION: Record<Locale, { heading: string; pre: string; link1: string
     heading: 'Need more puzzles?',
     pre: 'The ',
     link1: 'free printable sudoku generator',
-    mid: ' will make you a fresh set at any difficulty, and you can now mix levels in one run. If you are checking a grid because you got stuck rather than because you finished, ',
+    mid: ' makes a fresh set at any difficulty, including runs that mix levels. If you are checking a grid because you got stuck, ',
     link2: 'the solving techniques guide',
-    post: ' may get you moving again without giving the whole thing away.',
+    post: ' can get you moving again without giving away the answer.',
   },
   de: {
     heading: 'Brauchst du mehr Rätsel?',
     pre: 'Der ',
     link1: 'kostenlose Sudoku-Generator zum Ausdrucken',
-    mid: ' erstellt dir ein frisches Set in jeder Schwierigkeit, und du kannst jetzt Stufen in einer Auflage mischen. Prüfst du ein Raster, weil du hängen geblieben bist und nicht, weil du fertig bist, bringt dich ',
+    mid: ' erstellt dir ein frisches Set in jeder Schwierigkeit, auch mit gemischten Stufen. Prüfst du ein Raster, weil du hängen geblieben bist, bringt dich ',
     link2: 'die Anleitung zu Lösungstechniken',
-    post: ' vielleicht weiter, ohne gleich alles zu verraten.',
+    post: ' vielleicht weiter, ohne die Lösung zu verraten.',
   },
   fr: {
     heading: 'Besoin de plus de grilles ?',
     pre: 'Le ',
     link1: 'générateur gratuit de sudoku à imprimer',
-    mid: ' vous composera un nouveau lot à n’importe quelle difficulté, et vous pouvez désormais mélanger les niveaux dans un même tirage. Si vous vérifiez une grille parce que vous êtes bloqué plutôt que parce que vous avez terminé, ',
+    mid: ' vous compose un nouveau lot à n’importe quelle difficulté, y compris en mélangeant les niveaux. Si vous vérifiez une grille parce que vous êtes bloqué, ',
     link2: 'le guide des techniques de résolution',
-    post: ' peut vous relancer sans tout révéler d’un coup.',
+    post: ' peut vous relancer sans révéler la réponse.',
   },
   es: {
     heading: '¿Necesitas más sudokus?',
     pre: 'El ',
     link1: 'generador gratuito de sudoku para imprimir',
-    mid: ' te prepara un set nuevo en cualquier dificultad, y ahora puedes mezclar niveles en una misma tirada. Si estás comprobando una cuadrícula porque te atascaste, y no porque la terminaste, ',
+    mid: ' te prepara un set nuevo en cualquier dificultad, también con niveles mezclados. Si estás comprobando una cuadrícula porque te atascaste, ',
     link2: 'la guía de técnicas de resolución',
-    post: ' puede ayudarte a avanzar sin desvelarlo todo de golpe.',
+    post: ' puede ayudarte a avanzar sin desvelar la respuesta.',
   },
 };
 

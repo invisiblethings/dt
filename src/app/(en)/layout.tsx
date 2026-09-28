@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   // Every page sets an absolute title via pageMetadata(); this is the fallback.
   // There is no "%s | Printable Sudoku" template on purpose — the brand name is
   // the primary keyword, so appending it to each title would just repeat it.
-  title: 'Free Printable Sudoku — Download Puzzle PDFs',
+  title: 'Free Printable Sudoku: Download Puzzle PDFs',
   description: SITE_L10N.en.description,
   applicationName: SITE.name,
   authors: [{ name: SITE.name }],

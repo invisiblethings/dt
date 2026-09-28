@@ -26,7 +26,7 @@ export function GET(): Response {
 
 > ${SITE_L10N.en.description}
 
-Every puzzle is generated and verified for a single solution in the browser — nothing is uploaded, and nothing is stored server-side. Also available in German, French and Spanish at the \`/de\`, \`/fr\` and \`/es\` path prefixes.
+The browser generates each puzzle and checks it for a single solution, so the site uploads and stores nothing. German, French and Spanish versions live at the \`/de\`, \`/fr\` and \`/es\` path prefixes.
 
 ## Generate
 
