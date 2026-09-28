@@ -186,7 +186,9 @@
         var hit = !q || i !== -1;
         li.hidden = !hit;
         if (hit) shown++;
-        li.innerHTML = q && hit
+        // Highlight inside the composer's link when they have one, so it survives filtering.
+        var target = li.querySelector("a") || li;
+        target.innerHTML = q && hit
           ? esc(name.slice(0, i)) + "<mark>" + esc(name.slice(i, i + q.length)) + "</mark>" + esc(name.slice(i + q.length))
           : esc(name);
       });
