@@ -1,7 +1,7 @@
 {
     "name": "pianoers",
     "description": "Custom Ghost theme for Pianoers.com: piano buying guides, reviews and lessons, with a piano finder, verdict cards and affiliate-safe buy buttons.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": "MIT",
     "author": {
         "name": "Pianoers.com",

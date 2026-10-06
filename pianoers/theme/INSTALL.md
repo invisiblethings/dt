@@ -132,3 +132,8 @@ Real-visitor numbers (Core Web Vitals) appear in Search Console about four weeks
 | `content/` | The converted beginner-pianos article and its cards |
 | `snippets/` | Reusable Quick answer, verdict card and finder snippets |
 | `design-preview-template.html` | The approved design preview |
+
+## Changelog
+
+- **1.0.1** (6 Oct 2026). Fixed the font preload: the fonts were being downloaded twice, and the late second copy made text jump on slow connections (live About page on phones: layout shift 0.278). Each font now downloads once, early. Also added size-matched fallback fonts, so text keeps its place while fonts load. Measured: layout shift 0 on About, beginner-pianos, tag and full-width pages, even with slowed requests.
+- **1.0.0** (6 Oct 2026). First release.
