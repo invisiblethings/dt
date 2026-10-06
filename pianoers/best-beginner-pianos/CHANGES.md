@@ -45,7 +45,7 @@ Part I lists the off-page work. Expect the page-level scores to land in the 90s 
   - Keyword sentence ("beginner keyboard piano" = digital piano)
   - Affiliate disclosure, now above the first link
   - "Quick answer" box linking to the top four picks
-- **Buying guide:** one budget range ($350–$500) used everywhere, a link to `/best-digital-piano/`, and "game-changer" removed.
+- **Buying guide:** one budget range ($400–$500) used everywhere, a link to `/best-digital-piano/`, and "game-changer" removed.
 - **Comparison table:** Weight column and a price-checked date.
 - **New "How I Tested These Pianos" section:** placeholders for your details and a photo.
 - **Every product section:**
@@ -53,7 +53,7 @@ Part I lists the off-page work. Expect the page-level scores to land in the 90s 
   - descriptive alt text
   - Amazon button with `rel="sponsored nofollow noopener"`
 - **FP-30X:** the key-action contradiction is fixed.
-- **Specs:** P-145 voices 24 → 10, FP-10 weight 31 → 27 lbs. **VERIFY both on Yamaha's and Roland's spec pages.**
+- **Specs and prices:** every product fact was checked against the manufacturer (or, where the manufacturer blocks access, an authorized retailer) on 6 Oct 2026. The 18 corrections are listed in `SOURCES.md`, each with its source link. The biggest: the Alesis now costs about $400 (not under $350), the Kawai ES60's list price is $599, the Korg B2 is sold out at Korg and replaced by the B2+, the FP-30X weighs 33 lbs and has no Headphones 3D Ambience, and the P-145BT has 10 voices.
 - **Links:** Simply Piano and Flowkey are each linked once (in the buying guide), down from four times.
 - **New section "Just Want a Keyboard to Try? (Kids and Tight Budgets)":** covers the 61-key/portable searchers every competitor serves. It links to the Loog review.
 - **FAQ:**
@@ -107,7 +107,7 @@ They're 24–41 KB, down from 41–61 KB, with filenames that describe the produ
 |---|---|
 | Post title (the H1) | `7 Best Beginner Keyboard & Digital Pianos in 2026 🎹 (That I've Actually Played)` |
 | Post URL | **leave as** `best-beginner-pianos` (changing it loses rankings) |
-| Excerpt | `Best beginner keyboard pianos of 2026, picked by a piano teacher since 2001: 7 weighted 88-key digital pianos from $350 to $730. Find the one for you.` |
+| Excerpt | `Best beginner keyboard pianos of 2026, picked by a piano teacher since 2001: 7 weighted 88-key digital pianos from $400 to $730. Find the one for you.` |
 | Tags | keep `Pianos` as the first (primary) tag |
 | Meta data → Meta title | `7 Best Beginner Keyboard & Digital Pianos (2026, Tested)` (56 chars) |
 | Meta data → Meta description | same text as the excerpt (150 chars) |
@@ -147,7 +147,7 @@ They're 24–41 KB, down from 41–61 KB, with filenames that describe the produ
 
 Follow `best-digital-piano-edits.md`:
 - Shorten its beginner section (about 820 words, including a near-copy of this page's FP-10 text) to a three-line summary that links here with the anchor "best digital pianos for beginners".
-- Make both pages agree on the P-145 (CFX vs CFIIIS sample, number of voices).
+- Correct the P-145 facts on that page: Yamaha lists the CFIIIS sample (not CFX) and 10 voices (not 24).
 
 This is the fix for the overlap between the two pages that the cluster check found.
 
@@ -162,11 +162,13 @@ This is the fix for the overlap between the two pages that the cluster check fou
 | How I Tested, paragraph 1 | Where and when you played these pianos. Delete the claim if you haven't played all seven. |
 | How I Tested, first bullet | The pieces you actually play when testing |
 | How I Tested, photo slot | A real photo of you at one of the pianos, with a caption saying where and when. This is the single biggest E-E-A-T gain available. |
-| Portable keyboards section | Prices for the Casio CT-S1, Yamaha NP-15 and Korg Liano. Keep only the models you've played. |
+| Portable keyboards section | Keep only the models you've played (prices are already verified) |
+| Alesis section | Optional: how the newer Recital Pro MKII compares, if you've played it |
+| Korg B2 section | Decide: keep the B2 (sold out at Korg), or swap in the B2+ if you've played it |
 
 Also re-check every price in the product sections and the Korg B2 stock note.
 
-**Before publishing:** search the editor for `⟦` and `VERIFY`. There must be no matches.
+**Before publishing:** search the editor for `⟦`. There must be no matches.
 
 ## Part F: Theme (site-wide)
 

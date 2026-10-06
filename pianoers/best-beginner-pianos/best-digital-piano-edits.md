@@ -13,7 +13,7 @@ Keep the H2 **Best Digital Pianos for Beginners (Under $500)** and its first par
 <ul>
   <li><strong>Yamaha P-145BT</strong> (about $500): the safest first piano. Reliable weighted keys, clean tone, Bluetooth audio.</li>
   <li><strong>Roland FP-10</strong> (about $499): the best key feel under $500, with the same PHA-4 action as the FP-30X.</li>
-  <li><strong>Kawai ES60</strong> (about $499): the best piano sound at this price.</li>
+  <li><strong>Kawai ES60</strong> (about $450–$550, list price $599): the best piano sound at this price.</li>
 </ul>
 <p>I compare all seven of my beginner picks, including budget and small-space options, in my guide to the
 <a href="https://pianoers.com/best-beginner-pianos/">best digital pianos for beginners</a>.</p>
@@ -23,8 +23,9 @@ Keep one Amazon button per model if you want them; give each `rel="sponsored nof
 
 ## 2. Make the two pages agree on the Yamaha P-145
 
-- This page says the P-145 uses a "Yamaha CFX-sampled piano voice"; the beginner page says "Yamaha CFIIIS concert grand piano voice". Check Yamaha's spec page and use the same answer on both.
-- Both pages list "24 instrument voices". The beginner kit changes that to 10 (VERIFY); make the same change here.
+- This page says the P-145 uses a "Yamaha CFX-sampled piano voice". Yamaha's spec page says **Yamaha CFIIIS** ([source](https://usa.yamaha.com/products/musical_instruments/pianos/p_series/p-145bt/specs.html)). Change it to "Yamaha CFIIIS concert grand piano voice"; the CFX sample is in the pricier P-225.
+- It lists "24 instrument voices". Yamaha lists **10** for the P-145BT (24 is the P-225's count). Change it to 10.
+- Also check the FP-10 and Kawai ES60 prices on this page against `SOURCES.md` in this folder.
 
 ## 3. Check the other links to the beginner page
 
