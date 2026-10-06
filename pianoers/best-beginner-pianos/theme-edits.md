@@ -1,3 +1,5 @@
+> **Replaced.** These edits were written for Ghost's Source theme, but the site runs Headline. Use the custom Pianoers theme in `../theme/` instead; it includes all of these fixes.
+
 # Theme edits (site-wide)
 
 These go in the Ghost theme (it looks like Ghost's "Source" theme), not in the post.

@@ -1,0 +1,23 @@
+<div class="pz-trust">
+    {{#primary_author}}
+        <a class="pz-trust-who" href="{{url}}">
+            {{#if profile_image}}
+                <img src="{{img_url profile_image size="xs" format="webp"}}" alt="{{name}}" width="44" height="44">
+            {{/if}}
+            <span class="pz-trust-text">
+                <span class="pz-trust-name">{{name}}</span>
+                {{#if bio}}<span class="pz-trust-bio">{{bio}}</span>{{/if}}
+            </span>
+        </a>
+    {{/primary_author}}
+    <span class="pz-chips">
+        <span class="pz-chip">Updated <time datetime="{{date updated_at format="YYYY-MM-DD"}}">{{date updated_at format="MMM D, YYYY"}}</time></span>
+        <span class="pz-chip pz-chip-quiet">{{reading_time}}</span>
+        {{#has tag="#verified"}}<span class="pz-chip">Specs checked with manufacturers</span>{{/has}}
+    </span>
+</div>
+{{#has tag="#affiliate"}}
+    {{#if @custom.affiliate_disclosure}}
+        <p class="pz-disclose">{{@custom.affiliate_disclosure}}</p>
+    {{/if}}
+{{/has}}

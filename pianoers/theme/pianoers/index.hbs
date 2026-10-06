@@ -1,0 +1,10 @@
+{{!< default}}
+<section class="pz-wrap pz-listing">
+    <header class="pz-listing-head">
+        <h1 class="pz-title">{{#is "home"}}Latest{{else}}All articles{{/is}}</h1>
+    </header>
+    <div class="pz-grid">
+        {{#foreach posts}}{{> "post-card"}}{{/foreach}}
+    </div>
+    {{pagination}}
+</section>

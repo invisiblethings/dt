@@ -1,0 +1,23 @@
+{{!< default}}
+<section class="pz-wrap pz-listing">
+    {{#author}}
+        <header class="pz-listing-head pz-author-head">
+            {{#if profile_image}}
+                <img class="pz-author-img" src="{{img_url profile_image size="xs" format="webp"}}" alt="{{name}}" width="96" height="96">
+            {{/if}}
+            <div>
+                <span class="pz-eyebrow">Author</span>
+                <h1 class="pz-title">{{name}}</h1>
+                {{#if bio}}<p class="pz-dek">{{bio}}</p>{{/if}}
+                <p class="pz-author-links">
+                    {{#if location}}<span>{{location}}</span>{{/if}}
+                    {{#if website}}<a href="{{website}}" rel="noopener" target="_blank">Website</a>{{/if}}
+                </p>
+            </div>
+        </header>
+    {{/author}}
+    <div class="pz-grid">
+        {{#foreach posts}}{{> "post-card"}}{{/foreach}}
+    </div>
+    {{pagination}}
+</section>

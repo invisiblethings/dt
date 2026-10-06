@@ -1,0 +1,22 @@
+<article class="pz-card {{post_class}}">
+    <a class="pz-card-link" href="{{url}}">
+        <figure class="pz-media pz-card-media"{{#if feature_image}} style="--pz-media-bg:url('{{img_url feature_image size="xs"}}')"{{/if}}>
+            {{#if feature_image}}
+                <img
+                    srcset="{{img_url feature_image size="s" format="webp"}} 300w,
+                            {{img_url feature_image size="m" format="webp"}} 720w"
+                    sizes="(min-width: 1080px) 340px, (min-width: 640px) 46vw, 100vw"
+                    src="{{img_url feature_image size="m" format="webp"}}"
+                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                    width="720" height="405" loading="lazy" decoding="async"
+                >
+            {{/if}}
+        </figure>
+        <div class="pz-card-body">
+            {{#primary_tag}}<span class="pz-eyebrow">{{name}}</span>{{/primary_tag}}
+            <h3 class="pz-card-title">{{title}}</h3>
+            {{#if excerpt}}<p class="pz-card-excerpt">{{excerpt words="24"}}</p>{{/if}}
+            <span class="pz-card-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM D, YYYY"}}</time> · {{reading_time}}</span>
+        </div>
+    </a>
+</article>

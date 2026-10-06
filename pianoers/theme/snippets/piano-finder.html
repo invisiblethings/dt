@@ -1,0 +1,33 @@
+<!-- Pianoers snippet: Piano finder. One per guide, placed after the Quick answer.
+     data-finder holds the questions and the answer for every combination, as JSON.
+     Keys in "matches" are the option values joined with "|", in question order, e.g. "mid|feel".
+     "pick" must equal the id of a verdict card on the same page. Add a "*" entry as a catch-all if you like.
+     Tip: edit the JSON in a text editor, then check it at jsonlint.com before pasting.
+     Without JavaScript, readers see the plain list of links instead, so nothing breaks. -->
+<div class="pz-finder" id="finder" data-finder='{
+  "prompt": "Press one key in each row and your match appears here.",
+  "questions": [
+    {"id": "budget", "label": "What&#39;s your budget?", "options": [
+      {"value": "low", "label": "Up to $450", "hint": "tight budget"},
+      {"value": "mid", "label": "About $500", "hint": "the sweet spot"},
+      {"value": "high", "label": "Up to $750", "hint": "buy once"}]},
+    {"id": "need", "label": "What matters most?", "options": [
+      {"value": "feel", "label": "Key feel", "hint": "like a real piano"},
+      {"value": "sound", "label": "Sound", "hint": "tone first"}]}],
+  "matches": {
+    "low|feel": {"pick": "product-slug-a", "why": "One sentence on why it fits."},
+    "low|sound": {"pick": "product-slug-b", "why": "…"},
+    "mid|feel": {"pick": "product-slug-a", "why": "…"},
+    "mid|sound": {"pick": "product-slug-b", "why": "…"},
+    "high|feel": {"pick": "product-slug-c", "why": "…"},
+    "high|sound": {"pick": "product-slug-b", "why": "…"}
+  }
+}'>
+  <p class="pz-eyebrow">Piano finder</p>
+  <h2>Find your piano in two taps</h2>
+  <ul class="pz-finder-fallback">
+    <li><a href="#product-slug-a">Best for key feel: Product A</a></li>
+    <li><a href="#product-slug-b">Best sound: Product B</a></li>
+    <li><a href="#product-slug-c">Best to grow into: Product C</a></li>
+  </ul>
+</div>

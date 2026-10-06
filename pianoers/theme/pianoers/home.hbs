@@ -1,0 +1,54 @@
+{{!< default}}
+<section class="pz-home-hero">
+    <div class="pz-wrap pz-home-hero-inner">
+        <h1 class="pz-home-title">{{#if @custom.homepage_heading}}{{@custom.homepage_heading}}{{else}}{{@site.title}}{{/if}}</h1>
+        {{#if @site.description}}<p class="pz-dek">{{@site.description}}</p>{{/if}}
+        <div class="pz-home-actions">
+            {{#if @custom.header_button_text}}
+                <a class="pz-btn pz-btn-buy" href="{{@custom.header_button_url}}">{{@custom.header_button_text}} {{> "icons/arrow"}}</a>
+            {{/if}}
+            {{#if @site.members_enabled}}{{#unless @member}}
+                <a class="pz-btn pz-btn-ghost" href="#/portal/signup" data-portal="signup">Get tips by email</a>
+            {{/unless}}{{/if}}
+        </div>
+    </div>
+</section>
+
+{{#get "posts" filter="featured:true" include="tags" limit="3" as |featured|}}
+    {{#if featured}}
+        <section class="pz-wrap pz-home-section" aria-labelledby="pz-start-h">
+            <h2 id="pz-start-h" class="pz-section-title">Start here</h2>
+            <div class="pz-grid">
+                {{#foreach featured}}{{> "post-card"}}{{/foreach}}
+            </div>
+        </section>
+    {{/if}}
+{{/get}}
+
+<section class="pz-wrap pz-home-section" aria-labelledby="pz-latest-h">
+    <div class="pz-section-head">
+        <h2 id="pz-latest-h" class="pz-section-title">Latest</h2>
+        {{#match pagination.pages ">" 1}}<a class="pz-more" href="{{@site.url}}/page/2/">All articles {{> "icons/arrow"}}</a>{{/match}}
+    </div>
+    <div class="pz-grid">
+        {{#foreach posts limit="6"}}{{> "post-card"}}{{/foreach}}
+    </div>
+</section>
+
+{{#if @custom.homepage_sections}}
+    {{#get "tags" filter="slug:[{{@custom.homepage_sections}}]" limit="10" as |sections|}}
+        {{#foreach sections}}
+            <section class="pz-wrap pz-home-section" aria-labelledby="pz-sec-{{slug}}">
+                <div class="pz-section-head">
+                    <h2 id="pz-sec-{{slug}}" class="pz-section-title">{{name}}</h2>
+                    <a class="pz-more" href="{{url}}">More {{name}} {{> "icons/arrow"}}</a>
+                </div>
+                <div class="pz-grid">
+                    {{#get "posts" filter="tag:{{slug}}" include="tags" limit="3"}}
+                        {{#foreach posts}}{{> "post-card"}}{{/foreach}}
+                    {{/get}}
+                </div>
+            </section>
+        {{/foreach}}
+    {{/get}}
+{{/if}}
