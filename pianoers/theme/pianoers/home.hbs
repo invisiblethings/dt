@@ -1,6 +1,7 @@
 {{!< default}}
 <section class="pz-home-hero">
     <div class="pz-wrap pz-home-hero-inner">
+        <div class="pz-home-hero-copy">
         <h1 class="pz-home-title">{{#if @custom.homepage_heading}}{{@custom.homepage_heading}}{{else}}{{@site.title}}{{/if}}</h1>
         {{#if @site.description}}<p class="pz-dek">{{@site.description}}</p>{{/if}}
         <div class="pz-home-actions">
@@ -10,6 +11,15 @@
             {{#if @site.members_enabled}}{{#unless @member}}
                 <a class="pz-btn pz-btn-ghost" href="#/portal/signup" data-portal="signup">Get tips by email</a>
             {{/unless}}{{/if}}
+        </div>
+        </div>
+        <div class="pz-home-hero-play">
+            <div class="pz-play-head">
+                <span class="pz-eyebrow">Go on, play a few notes</span>
+                <button class="pz-sound" type="button" aria-pressed="true">Sound on</button>
+            </div>
+            {{> "piano" label="Playable piano: tap the keys"}}
+            <p class="pz-play-hint">Tap the keys<span class="pz-play-hint-keys">, or play them with your computer keyboard: A to K</span>.</p>
         </div>
     </div>
 </section>
@@ -24,6 +34,10 @@
         </section>
     {{/if}}
 {{/get}}
+
+{{#if @custom.homepage_ear_game}}
+    <div class="pz-wrap pz-home-section">{{> "ear-game"}}</div>
+{{/if}}
 
 <section class="pz-wrap pz-home-section" aria-labelledby="pz-latest-h">
     <div class="pz-section-head">

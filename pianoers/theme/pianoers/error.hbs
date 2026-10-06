@@ -3,6 +3,10 @@
     <span class="pz-eyebrow">Error {{statusCode}}</span>
     <h1 class="pz-title">{{#match statusCode 404}}This page hit a wrong note.{{else}}Something went wrong.{{/match}}</h1>
     <p class="pz-dek">{{#match statusCode 404}}The page you're looking for doesn't exist or has moved.{{else}}{{message}}{{/match}}</p>
+    <div class="pz-error-piano">
+        {{> "piano" octaves="1" label="Play the right note"}}
+        <p class="pz-play-hint">Even pianists hit wrong notes. Play a right one, then try the links below.</p>
+    </div>
     <div class="pz-home-actions">
         <a class="pz-btn pz-btn-buy" href="{{@site.url}}">Go to the homepage</a>
         <button class="pz-btn pz-btn-ghost" type="button" data-ghost-search>Search the site</button>

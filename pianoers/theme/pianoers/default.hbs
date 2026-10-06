@@ -55,6 +55,9 @@
         <button class="pz-icon-btn pz-search" type="button" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
         <button class="pz-icon-btn pz-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="pz-menu">{{> "icons/menu"}}</button>
     </div>
+    {{#is "post"}}{{#if @custom.show_reading_progress}}
+        <div class="pz-progress" aria-hidden="true"><span class="pz-progress-fill"></span></div>
+    {{/if}}{{/is}}
 </header>
 
 <main id="pz-main" class="pz-main">
@@ -93,7 +96,9 @@
     window.PZ = {
         affiliateDomains: "{{@custom.affiliate_domains}}",
         stickyBar: {{#if @custom.show_sticky_buy_bar}}true{{else}}false{{/if}},
-        toc: {{#if @custom.show_table_of_contents}}true{{else}}false{{/if}}
+        toc: {{#if @custom.show_table_of_contents}}true{{else}}false{{/if}},
+        sounds: {{#if @custom.enable_piano_sounds}}true{{else}}false{{/if}},
+        animations: {{#if @custom.enable_animations}}true{{else}}false{{/if}}
     };
 </script>
 <script src="{{asset "js/main.js"}}" defer></script>

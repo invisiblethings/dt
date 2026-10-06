@@ -1,4 +1,4 @@
-<article class="pz-article {{post_class}}">
+<article class="pz-article {{post_class}}" data-minutes="{{reading_time minute="1" minutes="%"}}">
     <header class="pz-wrap pz-hero">
         {{> "breadcrumbs"}}
         {{#primary_tag}}<a class="pz-eyebrow pz-hero-tag" href="{{url}}">{{name}}</a>{{/primary_tag}}
@@ -23,6 +23,10 @@
             {{/if}}
             <div class="gh-content pz-content">
                 {{content}}
+            </div>
+            <div class="pz-share-row" hidden>
+                <span>Found this useful?</span>
+                <button class="pz-btn pz-btn-ghost" type="button" data-pz-share>Share this guide</button>
             </div>
             {{#if @custom.show_author_box}}
                 {{> "author-box"}}

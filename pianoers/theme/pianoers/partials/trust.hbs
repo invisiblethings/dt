@@ -13,6 +13,7 @@
     <span class="pz-chips">
         <span class="pz-chip">Updated <time datetime="{{date updated_at format="YYYY-MM-DD"}}">{{date updated_at format="MMM D, YYYY"}}</time></span>
         <span class="pz-chip pz-chip-quiet">{{reading_time}}</span>
+        <button class="pz-chip pz-chip-btn" type="button" data-pz-share hidden>Share</button>
         {{#has tag="#verified"}}<span class="pz-chip">Specs checked with manufacturers</span>{{/has}}
     </span>
 </div>

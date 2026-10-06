@@ -417,5 +417,106 @@ body.has-buybar .pz-foot { padding-bottom: 76px; }
 .pz-buybar-close { flex: none; padding: 4px 6px; border: 0; background: none; color: var(--muted); font-size: 1.3rem; line-height: 1; cursor: pointer; }
 @media (min-width: 1040px) { .pz-buybar { left: auto; right: 24px; bottom: 24px; width: 420px; border: 1px solid var(--line); border-radius: 16px; } }
 
+/* 13. Engagement: playable piano, ear trainer, progress, reading history ---- */
+
+/* Playable piano (homepage hero, ear trainer, 404) */
+.pz-piano { position: relative; user-select: none; -webkit-user-select: none; touch-action: manipulation; }
+.pz-piano-keys { position: relative; display: flex; height: 170px; padding-top: 8px; border-radius: 12px; background: var(--ebony); box-shadow: 0 12px 28px rgb(21 25 28 / 18%); overflow: hidden; }
+.pz-piano[data-octaves="1"] [data-oct="2"] { display: none; }
+.pz-pk { appearance: none; border: 0; padding: 0; margin: 0; cursor: pointer; font-family: var(--f-display); -webkit-tap-highlight-color: transparent; }
+.pz-pk-w { position: relative; flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 2px; padding-bottom: 10px; margin-inline: 1px; background: linear-gradient(#fff, #f2f5f6 85%, #e3e8ea); border-radius: 0 0 7px 7px; color: #6b7a81; font-size: 0.72rem; font-weight: 700; box-shadow: inset 0 -5px 0 #d9e0e3; transition: transform .08s ease, box-shadow .08s ease, background .15s ease; }
+.pz-pk-b { position: absolute; top: 8px; z-index: 2; width: calc(100% / var(--pz-whites, 14) * 0.62); height: 58%; left: calc(100% / var(--pz-whites, 14) * var(--i) - (100% / var(--pz-whites, 14) * 0.31)); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 6px; background: linear-gradient(#2b3237, #0b0f12 80%); border-radius: 0 0 5px 5px; box-shadow: inset 0 -4px 0 #000, 0 3px 6px rgb(0 0 0 / 35%); color: #9fb0b7; font-size: 0.62rem; transition: transform .08s ease, background .15s ease; }
+.pz-piano[data-octaves="1"] { --pz-whites: 7; }
+.pz-piano[data-octaves="2"] { --pz-whites: 14; }
+.pz-pk-label { pointer-events: none; }
+.pz-pk-kbd { font-family: var(--f-mono); font-size: 0.62rem; font-weight: 500; color: #9aa9b0; background: none; border: 0; padding: 0; min-height: 1em; }
+.pz-pk-kbd:empty { display: none; }
+.pz-pk:hover { filter: brightness(0.98); }
+.pz-pk.is-down, .pz-pk:active { transform: translateY(3px); }
+.pz-pk-w.is-down, .pz-pk-w:active { background: linear-gradient(#fff6dc, var(--amber) 160%); box-shadow: inset 0 -2px 0 #e0a514, 0 0 18px rgb(246 179 30 / 55%); }
+.pz-pk-b.is-down, .pz-pk-b:active { background: linear-gradient(#5a4612, #2a2006 80%); box-shadow: 0 0 14px rgb(246 179 30 / 60%); }
+.pz-pk.is-right { background: linear-gradient(#e9fbf1, #7fd7a6) !important; }
+.pz-pk-b.is-right { background: linear-gradient(#2f8a5b, #145034) !important; }
+.pz-pk.is-wrong { animation: pz-shake .3s ease; background: linear-gradient(#fff1ed, #f2a08c) !important; }
+@keyframes pz-shake { 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
+@media (max-width: 520px) { .pz-piano[data-octaves="2"] [data-oct="2"] { display: none; } .pz-piano[data-octaves="2"] { --pz-whites: 7; } .pz-piano-keys { height: 150px; } }
+
+/* Floating notes */
+.pz-note-fx { position: fixed; z-index: 60; pointer-events: none; font-family: var(--f-display); font-size: 1.4rem; color: var(--amber); text-shadow: 0 2px 6px rgb(0 0 0 / 25%); animation: pz-float 1.1s ease-out forwards; }
+@keyframes pz-float { from { opacity: 1; transform: translate(-50%, 0) scale(.8) rotate(0); } to { opacity: 0; transform: translate(calc(-50% + var(--dx, 0px)), -90px) scale(1.25) rotate(var(--rot, 10deg)); } }
+
+/* Sound toggle */
+.pz-sound { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border: 1.5px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--muted); font-family: var(--f-display); font-weight: 700; font-size: 0.8rem; cursor: pointer; }
+.pz-sound::before { content: ""; width: 14px; height: 14px; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z'/%3E%3C/svg%3E") center / contain no-repeat; }
+.pz-sound[aria-pressed="false"] { opacity: .7; text-decoration: line-through; }
+
+/* Homepage hero with piano */
+@media (min-width: 900px) { .pz-home-hero-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); align-items: center; gap: 48px; } }
+.pz-home-hero-copy { display: grid; gap: 16px; }
+.pz-home-hero-play { display: grid; gap: 12px; padding: 18px; border-radius: 20px; background: var(--paper); box-shadow: var(--shadow); }
+.pz-play-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.pz-play-hint { margin: 0; font-family: var(--f-display); font-size: 0.85rem; color: var(--muted); }
+@media (hover: none) { .pz-play-hint-keys { display: none; } }
+
+/* Ear trainer */
+.pz-game { display: grid; gap: 16px; padding: 26px 22px; border-radius: 20px; background: var(--surface); }
+.pz-game-head { display: grid; gap: 6px; }
+.pz-game-head p { margin: 0; color: var(--muted); }
+.pz-game-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; font-family: var(--f-display); }
+.pz-game-score { font-size: 0.95rem; color: var(--muted); }
+.pz-game-score b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.pz-game .pz-sound { margin-left: auto; }
+.pz-game-msg { margin: 0; min-height: 1.6em; font-family: var(--f-display); font-weight: 600; }
+.pz-game-msg a { font-weight: 800; }
+.pz-game .pz-piano-keys { height: 150px; }
+.gh-content .pz-game > * { margin: 0; }
+.pz-error-piano { display: grid; gap: 10px; max-width: 520px; }
+
+/* Reading progress: a row of piano keys that fills in amber */
+.pz-progress { position: absolute; left: 0; right: 0; bottom: -13px; height: 12px; pointer-events: none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='12'%3E%3Crect width='84' height='12' fill='%23ffffff'/%3E%3Cg fill='%23c9d3d7'%3E%3Crect x='11' width='1' height='12'/%3E%3Crect x='23' width='1' height='12'/%3E%3Crect x='35' width='1' height='12'/%3E%3Crect x='47' width='1' height='12'/%3E%3Crect x='59' width='1' height='12'/%3E%3Crect x='71' width='1' height='12'/%3E%3Crect x='83' width='1' height='12'/%3E%3C/g%3E%3Cg fill='%231c2226'%3E%3Crect x='8' width='7' height='7' rx='1'/%3E%3Crect x='20' width='7' height='7' rx='1'/%3E%3Crect x='44' width='7' height='7' rx='1'/%3E%3Crect x='56' width='7' height='7' rx='1'/%3E%3Crect x='68' width='7' height='7' rx='1'/%3E%3C/g%3E%3C/svg%3E") repeat-x;
+    border-bottom: 1px solid var(--line); opacity: .95; }
+.pz-progress-fill { position: absolute; inset: 0; background: var(--amber); mix-blend-mode: multiply; transform-origin: 0 50%; transform: scaleX(var(--p, 0)); }
+html[data-color-scheme="dark"] .pz-progress-fill { mix-blend-mode: normal; opacity: .85; }
+.pz-time-left { display: block; margin-top: 4px; font-size: 0.8rem; font-weight: 600; color: var(--muted); letter-spacing: 0; text-transform: none; }
+
+/* Reading history */
+.pz-badge { position: absolute; top: 10px; left: 10px; z-index: 2; padding: 3px 9px; border-radius: 999px; background: var(--ebony); color: #fff; font-family: var(--f-display); font-weight: 700; font-size: 0.75rem; }
+.pz-badge.is-done { background: var(--good); }
+.pz-continue { padding-top: 22px; }
+.pz-continue-card { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 14px 18px; border: 1.5px solid var(--amber); border-radius: var(--radius); background: var(--amber-soft); font-family: var(--f-display); color: var(--ink); text-decoration: none; }
+.pz-continue-card b { font-weight: 800; }
+.pz-continue-bar { flex: 1 1 120px; height: 6px; border-radius: 3px; background: var(--paper); overflow: hidden; }
+.pz-continue-bar span { display: block; height: 100%; background: var(--amber); }
+.pz-resume { position: fixed; left: 50%; bottom: 90px; z-index: 46; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 16px; border-radius: 999px; background: var(--ebony); color: #fff; font-family: var(--f-display); font-size: 0.9rem; box-shadow: var(--shadow); animation: pz-pop .3s ease-out; }
+.pz-resume button { border: 0; border-radius: 999px; padding: 7px 12px; font: 700 0.85rem var(--f-display); cursor: pointer; }
+.pz-resume .pz-resume-go { background: var(--amber); color: var(--amber-ink); }
+.pz-resume .pz-resume-x { background: transparent; color: #b8c6cc; }
+@keyframes pz-pop { from { opacity: 0; transform: translate(-50%, 12px); } }
+
+/* Share */
+.pz-chip-btn { border: 0; cursor: pointer; background: var(--amber-soft); color: var(--ink); }
+.pz-share-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; font-family: var(--f-display); font-weight: 700; }
+
+/* Sortable tables */
+.pz-sort { all: unset; display: inline-flex; align-items: center; gap: 4px; cursor: pointer; }
+.pz-sort::after { content: "↕"; font-size: 0.9em; opacity: .45; }
+th[aria-sort="ascending"] .pz-sort::after { content: "↑"; opacity: 1; color: var(--teal); }
+th[aria-sort="descending"] .pz-sort::after { content: "↓"; opacity: 1; color: var(--teal); }
+.pz-sort:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+.gh-content tbody tr { transition: background .15s ease; }
+.gh-content tbody tr:hover { background: var(--amber-soft); }
+
+/* Scroll reveal (added by main.js only to elements below the fold) */
+.pz-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s cubic-bezier(.2, .7, .2, 1); }
+.pz-reveal.is-in { opacity: 1; transform: none; }
+
+/* Key-press feel on buttons and cards */
+.pz-btn:active { transform: translateY(2px); box-shadow: inset 0 -1px 0 rgb(0 0 0 / 14%); }
+.pz-pick:hover .pz-rank { background: var(--amber); color: var(--amber-ink); transition: background .2s ease; }
+.pz-card-link:hover .pz-card-media { box-shadow: 0 10px 24px rgb(21 25 28 / 14%); }
+.gh-content a:not(.pz-btn):not(.kg-btn) { background: linear-gradient(var(--amber), var(--amber)) 0 100% / 0 2px no-repeat; transition: background-size .25s ease; }
+.gh-content a:not(.pz-btn):not(.kg-btn):hover { background-size: 100% 2px; text-decoration-color: transparent; }
+
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
 @media print { .pz-head, .pz-foot, .pz-rail, .pz-buybar, .pz-related, .pz-comments, .pz-post-signup, .pz-finder { display: none !important; } body { font-size: 12pt; } }
