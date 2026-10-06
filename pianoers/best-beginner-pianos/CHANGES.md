@@ -1,147 +1,241 @@
-# Fixes for pianoers.com/best-beginner-pianos/
+# Fix kit: pianoers.com/best-beginner-pianos/
 
-Ghost can't be edited from this repo, so every fix below is something to paste or apply in Ghost Admin.
-Work top to bottom. Each step says where in Ghost it goes.
-Search the editor for the **Find** text (Ctrl/Cmd+F) and replace it with the **Replace with** text.
+This replaces the earlier version of this file. It covers every finding in `AUDIT-2026-10-06.md`.
+Work through it in order. Each step says where in Ghost (or on the server) it goes.
 
-Items marked **VERIFY** are specs I believe are wrong but couldn't confirm against a manufacturer page. Check them before publishing.
-Items marked **YOU WRITE** need first-hand details only the author has. I've given a structure, not invented facts.
+## Read first: what "100/100" can and can't mean
+
+The scores in the audit are the claude-seo skills' own heuristics, not Google's. The skills say so themselves.
+
+**What this kit fixes:** everything on the page, in Ghost settings, in the theme, and on the server. In a local preview with the kit applied, the skills' own checks came back like this:
+
+| Check | Before | After (preview) |
+|---|---|---|
+| Layout shift, desktop (lab) | 0.272 (poor) | 0.0 |
+| Layout shift, phone (lab) | 0.0 | 0.006 |
+| Article starts on the first phone screen | No (1.2 screens down) | Yes |
+| Article starts, desktop | 2.1 screens down | 1.1 screens down |
+| Content-quality script | 91 | 92; no stock AI phrases, no hidden characters |
+| Templated-metadata check | Pass | Pass |
+| Schema types | Article, FAQPage | Article, ItemList, BreadcrumbList, Person, FAQPage (all valid JSON-LD) |
+| Amazon links with `rel="sponsored"` | 0 of 7 | 7 of 7 |
+| Images missing alt text | 0 | 0, now descriptive |
+| Title / description length | 58 / 145 | 56 / 150 |
+| Word count | 2,839 | about 3,700 article words (4,054 on the whole page) |
+
+**What no page edit can max out:**
+- **Authoritativeness** (25 of the 100 E-E-A-T points) and the GEO "brand signals" score depend on other sites citing and mentioning Pianoers.
+- **The backlink score** can't be calculated without a Moz, Bing or DataForSEO key.
+- **Experience points** depend on real photos and testing details that only Katarina can supply. The kit leaves clearly marked slots for them (step 8).
+
+Part I lists the off-page work. Expect the page-level scores to land in the 90s once steps 1–8 are done, and the authority-driven ones to climb over months, not in one edit.
+
+**Placeholders:** every spot needing your input is marked `⟦like this⟧`. Before publishing, search the post for `⟦`. There must be none left.
 
 ---
 
-## 1. Mark affiliate links as sponsored (audit #1)
+## Part A: The article (Ghost editor)
 
-Ghost's native button card can't carry a `rel` attribute, so swap each one for an HTML card.
+### 1. Replace the article body
 
-- Under each of the 7 product headings, delete the **Current Price on Amazon** button card.
-- Insert an HTML card (`/html`) in the same spot and paste the matching block from `affiliate-buttons.html`.
-  Every link keeps the same `amzn.to` URL and gains `rel="sponsored nofollow noopener"`.
+`article-revised.html` is the full revised body. It was built from the live article by exact edits, so all your wording is kept except where a fix needed to change it. What changed:
 
-If you'd rather keep the native buttons, paste `code-injection-footer.html` into **Post settings → Code injection → Post footer**. It adds the same `rel` with JavaScript. That's a weaker fix, so only use it as a fallback.
+- **Top of the article:**
+  - "Last updated / prices checked" line
+  - Keyword sentence ("beginner keyboard piano" = digital piano)
+  - Affiliate disclosure, now above the first link
+  - "Quick answer" box linking to the top four picks
+- **Buying guide:** one budget range ($350–$500) used everywhere, a link to `/best-digital-piano/`, and "game-changer" removed.
+- **Comparison table:** Weight column and a price-checked date.
+- **New "How I Tested These Pianos" section:** placeholders for your details and a photo.
+- **Every product section:**
+  - one-line **Verdict** under the quote, so AI answers and skimmers get a self-contained summary
+  - descriptive alt text
+  - Amazon button with `rel="sponsored nofollow noopener"`
+- **FP-30X:** the key-action contradiction is fixed.
+- **Specs:** P-145 voices 24 → 10, FP-10 weight 31 → 27 lbs. **VERIFY both on Yamaha's and Roland's spec pages.**
+- **Links:** Simply Piano and Flowkey are each linked once (in the buying guide), down from four times.
+- **New section "Just Want a Keyboard to Try? (Kids and Tight Budgets)":** covers the 61-key/portable searchers every competitor serves. It links to the Loog review.
+- **FAQ:**
+  - the budget answer matches the article
+  - the FAQ schema text now matches the visible answers word for word
+  - one new question: "Is a 61-key keyboard OK for a child?"
+- **Bottom recap ("TL;DR"):** all 7 picks (the Korg B2 was missing), each linked to its section, plus a contact link.
 
-## 2. Move the affiliate disclosure above the first link (audit #2)
+**How to paste it** (Ghost keeps cards it understands and converts the rest):
 
-Add a new paragraph directly after the intro paragraph that ends "…won't kill your budget." and before the "How to Choose…" heading. Italic matches the existing footer line.
+1. Open `article-revised.html` in a browser. Select everything from "Last updated" to the final Amazon Associates line, copy, and paste it into the empty post body. Normal text, headings, lists, links and images come across as native Ghost content.
+2. The file marks seven kinds of block with `<!--kg-card-begin: html-->` … `<!--kg-card-end: html-->`. Wherever one of these didn't paste cleanly, insert an **HTML card** (`/html`) and paste that block's code from the file:
+   - the Quick answer box
+   - the comparison table
+   - the 7 Amazon buttons (they must stay HTML cards, or the `rel` attribute is lost)
+   - the FAQ schema
+3. Use **Preview** to check that each product section reads Verdict → image → button → text.
 
-> *Heads-up: some links on this page are Amazon affiliate links. If you buy through one, we may earn a small commission at no extra cost to you. It never decides which pianos make this list.*
+If you'd rather edit the live post in place, the same changes are listed one by one in `AUDIT-2026-10-06.md`. The full paste is faster and less error-prone.
 
-Keep the Amazon Associates sentence at the bottom too. Amazon requires that exact wording somewhere on the page.
+### 2. Swap the product images for the WebP versions
 
-## 3. Fix the FP-10 / FP-30X key-action contradiction (audit #3)
+In each product's image card, choose **Replace image** and upload the matching file from `images/`:
 
-Section **6. Roland FP-30X**, first paragraph.
-
-**Find:**
-> The PHA-4 Standard key action with escapement and Ivory Feel keytops is a *massive* step up from anything else on this list. You actually feel a subtle "click" when you press the keys. That's the escapement mechanism mimicking what happens inside a grand piano.
-
-**Replace with:**
-> It uses the same PHA-4 Standard action as the FP-10 (escapement, Ivory Feel keytops), so you're not paying extra for better keys. You're paying for everything around them: Bluetooth audio, 256-note polyphony, 56 voices and much bigger speakers. That escapement, by the way, is the subtle "click" you feel when you press a key. It mimics what happens inside a grand piano.
-
-## 4. Use one budget range everywhere (audit #4)
-
-**a) Buying guide**, the "Budget sweet spot" paragraph. Keep the bold label bold.
-
-**Find:**
-> **Budget sweet spot: $400–$700.** Under $400, you're making real compromises on key feel. Over $700, you're into intermediate territory (which is great if you can swing it, but not necessary to start).
-
-**Replace with:**
-> **Budget sweet spot: $350–$500.** That's where you get fully weighted keys and a good piano sound. Below about $350, you're making real compromises on key feel. From $500 to $750 you're paying for extras like Bluetooth audio and better speakers (great if you can swing it, but not necessary to start). Spending more than that? See my [best digital pianos](https://pianoers.com/best-digital-piano/) guide.
-
-That last sentence also adds the missing in-body link to `/best-digital-piano/` (audit #8).
-
-**b) FAQ, visible answer** to "How much should a beginner spend on a digital piano?"
-
-**Find:**
-> $400 to $500 is the sweet spot for most beginners. That gets you a solid instrument with fully weighted keys and good sound. If you can stretch to $700, the Roland FP-30X is a fantastic long-term investment. Under $350, the Alesis Recital Pro is your best bet.
-
-**Replace with:**
-> $350 to $500 covers most beginners. That gets you fully weighted keys and a good piano sound. Under $350 you start compromising on key feel, and the Alesis Recital Pro is about as low as I'd go. If you can stretch to around $700, the Roland FP-30X adds Bluetooth audio, better speakers and more voices on the same keys as the Roland FP-10.
-
-**c) FAQ schema.** Replace the contents of the HTML card holding the FAQPage JSON-LD (just above the visible FAQ) with `faq-schema.html`. Only the first answer changed, so schema and page text stay in sync.
-
-## 5. Back up the "tested" claim (audit #5) — YOU WRITE
-
-Add a short H2 section right after the comparison table, before "1. Yamaha P-145BT". Fill the brackets with real details and delete any line you can't back up.
-
-> ## How I Tested These Pianos
->
-> I'm Katarina, a piano teacher with [X] years of teaching experience ([link to your onlinepianoteachers.com profile]). I played every piano on this list [where: at home / in-store at ___ / students' instruments] between [month] and [month] 2026.
->
-> For each one I:
-> - played the same pieces ([e.g. a Czerny étude, a pop ballad, scales]) to compare key feel and repetition speed
-> - listened through the built-in speakers and through headphones
-> - connected it to Simply Piano and Flowkey to check app setup
-> - [anything else you actually did]
->
-> [One sentence on what you weighted most, e.g. "Key feel counted most, then piano tone, then price."]
-
-Then add at least one real photo of you playing one of these pianos (ideally one per pick). The current images are product renders, and the featured image looks AI-generated. Neither shows hands-on use.
-
-Also fill in **Staff → Katarina → Bio** with your teaching credentials. Ghost shows it in the author box and author page.
-
-## 6. Bridge "keyboard" vs "digital piano" in the intro (audit #6)
-
-Add one sentence at the end of the intro paragraph that ends "…won't kill your budget.":
-
-> Quick note on wording: lots of people search for a "keyboard piano," but what a beginner really wants is a digital piano, meaning a keyboard with 88 fully weighted keys. Every pick below is one.
-
-## 7. Make the title and H1 match, and fix the meta (audit #7, #12)
-
-| Ghost field | Set to |
+| Section | File |
 |---|---|
-| Post title (this is the H1) | `7 Best Beginner Keyboard Pianos in 2026 🎹 (Tested & Ranked)` |
-| Post settings → Meta data → Meta title | `7 Best Beginner Keyboard Pianos in 2026 (Tested & Ranked)` (no emoji) |
-| Post settings → Meta data → Meta description | `I've played every piano on this list. My 7 beginner picks from $350 to $730, with specs, pros, cons and honest opinions on each.` |
-| Post settings → Excerpt | Same text as the meta description. Ghost puts the excerpt into the Article schema `description`, which right now is the first paragraph of the intro. |
+| 1. Yamaha P-145BT | `yamaha-p-145bt-beginner-digital-piano.webp` |
+| 2. Alesis Recital Pro | `alesis-recital-pro-beginner-digital-piano.webp` |
+| 3. Kawai ES60 | `kawai-es60-beginner-digital-piano.webp` |
+| 4. Roland FP-10 | `roland-fp-10-beginner-digital-piano.webp` |
+| 5. Korg B2 | `korg-b2-beginner-digital-piano.webp` |
+| 6. Roland FP-30X | `roland-fp-30x-digital-piano.webp` |
+| 7. Casio PX-S1100 | `casio-privia-px-s1100-digital-piano.webp` |
 
-Change "I've played every piano on this list" only if it stops being true. The old wording ("I tested every major beginner keyboard piano") claimed more than the page shows.
+They're 24–41 KB, down from 41–61 KB, with filenames that describe the product.
 
-## 8. Trim duplicate internal links (audit #9)
+**Alt text:** Ghost keeps a card's alt text when you replace its image. If it doesn't, re-enter it from `alt-text.md`.
 
-Keep the **first** link to each of these, in the "App connectivity" paragraph of the buying guide, and remove the link (keep the text) from every later mention:
+## Part B: Post settings (gear icon, top right)
 
-- **Simply Piano**: unlink in Korg B2 ("Why I Recommend It"), Roland FP-30X ("Connect to Simply Piano or Flowkey…") and Bonus tip 4.
-- **Flowkey**: unlink in the same three places.
+### 3. Featured image
 
-That takes each from 4 links to 1. Bonus tip 4's link to Pianoforall stays.
+- **Image:** upload `images/best-beginner-keyboard-piano.webp` (1200×630 landscape, 21 KB).
+  - This is the current artwork placed on a blurred background. It's a stopgap: replace it with a real photo of Katarina at one of these pianos (1200×630, landscape) when you have one. A real photo is also the strongest "Experience" signal.
+- **Alt text:** `Beginner keyboard piano with sheet music on the stand in a softly lit room`. Change it to describe the real photo once you swap it.
+- **Caption:** delete it. The current caption says "(TESTED)".
 
-## 9. Show an update date and re-check prices (audit #10)
+### 4. Title, URL and metadata
 
-- Re-check every price and stock note, especially "Sweetwater has already delisted the B2."
-- Add a line directly under the H1 / byline (first line of the post body):
+| Field | Value |
+|---|---|
+| Post title (the H1) | `7 Best Beginner Keyboard & Digital Pianos in 2026 🎹 (That I've Actually Played)` |
+| Post URL | **leave as** `best-beginner-pianos` (changing it loses rankings) |
+| Excerpt | `Best beginner keyboard pianos of 2026, picked by a piano teacher since 2001: 7 weighted 88-key digital pianos from $350 to $730. Find the one for you.` |
+| Tags | keep `Pianos` as the first (primary) tag |
+| Meta data → Meta title | `7 Best Beginner Keyboard & Digital Pianos (2026, Tested)` (56 chars) |
+| Meta data → Meta description | same text as the excerpt (150 chars) |
+| Meta data → Canonical URL | leave empty (Ghost uses the page's own URL) |
+| X card / Facebook card → Image | upload `images/best-beginner-keyboard-piano-social.jpg` |
+| X card / Facebook card → Title and description | same as meta title and meta description |
 
-> *Last updated [Month Day, 2026]. Prices checked [Month Day, 2026].*
+**Why the title changed:**
+- "Digital Pianos" is added because Google sends "best digital piano for beginners" searches to `/best-digital-piano/` today.
+- The emoji stays in the H1 but is kept out of the search title, since Google often strips it.
+- The excerpt also becomes the Article schema description, replacing the first lines of the intro.
 
-Publishing the edits also bumps `dateModified` in the schema automatically.
+### 5. Code injection (Post header)
 
-## 10. Spec corrections (audit #11) — VERIFY first
+- Paste `code-injection-header.html` into **Code injection → Post header**, replacing what's there. It contains:
+  - CSS that reserves the featured image's space (this is what removes the layout jump) and lets the comparison table scroll inside its own box on phones
+  - the ItemList of the 7 ranked pianos
+  - the BreadcrumbList (Home → Pianos → this page)
+  - Person schema for Katarina, built from the bio on her author page
+- Leave **Post footer** empty. `code-injection-footer.html` is a site-wide stopgap only (step 13).
 
-| Section | Find | Replace with | Source to check |
-|---|---|---|---|
-| 1. Yamaha P-145BT → What It Has | `24 instrument voices` | `10 instrument voices` | Yamaha P-145 spec page (24 is the P-225's count) |
-| 4. Roland FP-10 → What It Has | `31 lbs` | `27 lbs` | Roland FP-10 spec page (about 12.3 kg). Leave the FP-30X's 31 lbs as is. |
+## Part C: The author profile
 
-Also confirm the model name **P-145BT** and the claim that the ES60 is **Kawai's first ever sub-$500 digital piano** on Yamaha's and Kawai's own sites.
+### 6. Katarina's staff profile (Settings → Staff → Katarina)
 
-## 11. Comparison table: add Weight and a price date (audit #15)
+- **Bio:** expand to two sentences, e.g. `Piano teacher since 2001 with a B.A. in music from the University of Missouri. Lead teacher at Pianoers, where I test the beginner pianos and apps I recommend to my own students.` Ghost shows this in the author box and on the author page.
+- **Website:** her onlinepianoteachers.com profile (already in the schema). Add any public teaching profile, YouTube or LinkedIn too. Ghost adds these to the author's `sameAs` links.
 
-Replace the contents of the comparison-table HTML card with `comparison-table.html`. Fill in the date in the caption. The FP-10 weight there already uses the corrected 27 lbs, so change it back if step 10 doesn't check out.
+**Check the bio:** it says "member of the National Association of Music Teachers since 1995" but "teaching since 2001".
+- The US association is officially the *Music Teachers National Association* (MTNA).
+- Correct the name and dates if needed.
+- Add it to the Person schema as `memberOf` only once it's accurate.
 
-## 12. ItemList schema (audit #12)
+## Part D: The sibling page
 
-Paste `code-injection-header.html` into **Post settings → Code injection → Post header**. It lists the 7 ranked pianos in order, each pointing to its section anchor (`#1-yamaha-p-145bt` and so on). If you rename a product heading, Ghost changes its anchor, so update the matching `url` here too.
+### 7. `/best-digital-piano/`
 
-## 13. Social share image (audit #13)
+Follow `best-digital-piano-edits.md`:
+- Shorten its beginner section (about 820 words, including a near-copy of this page's FP-10 text) to a three-line summary that links here with the anchor "best digital pianos for beginners".
+- Make both pages agree on the P-145 (CFX vs CFIIIS sample, number of voices).
 
-Upload `best-beginner-piano-social-1200x630.jpg` (the current featured image centred on a blurred fill, 1200×630) under **Post settings → X card** and **Facebook card**. The featured image itself can stay portrait.
+This is the fix for the overlap between the two pages that the cluster check found.
 
-## 14. Alt text (audit #14)
+## Part E: Your inputs (the placeholders)
 
-Replace the 7 product image alt texts with the ones in `alt-text.md`.
+### 8. Fill every `⟦…⟧`
+
+| Where | What to add |
+|---|---|
+| Top line | Today's date, twice (last updated and prices checked) |
+| Comparison table caption | Price-check date |
+| How I Tested, paragraph 1 | Where and when you played these pianos. Delete the claim if you haven't played all seven. |
+| How I Tested, first bullet | The pieces you actually play when testing |
+| How I Tested, photo slot | A real photo of you at one of the pianos, with a caption saying where and when. This is the single biggest E-E-A-T gain available. |
+| Portable keyboards section | Prices for the Casio CT-S1, Yamaha NP-15 and Korg Liano. Keep only the models you've played. |
+
+Also re-check every price in the product sections and the Korg B2 stock note.
+
+**Before publishing:** search the editor for `⟦` and `VERIFY`. There must be no matches.
+
+## Part F: Theme (site-wide)
+
+### 9. Theme edits
+
+Follow `theme-edits.md`:
+1. Featured image: WebP, `fetchpriority="high"`, correct `sizes`.
+2. Name the mobile menu button (`aria-label`).
+3. Dimensions and `decoding="async"` on the logo, author photo and "Read next" images.
+4. Optional: Content-Signal in robots.txt (you choose the AI-training setting).
+
+## Part G: Server and DNS
+
+### 10. Fix `www`, add security headers, update llms.txt
+
+Follow `server-and-dns.md`:
+- Point `www.pianoers.com` at the server and 301 it to the bare domain.
+- Add the security headers, starting the content policy in report-only mode.
+- Fix the `llms.txt` entry ("5 Best…" → 7, and add `/best-digital-piano/`).
+
+## Part H: After publishing
+
+### 11. Ask Google to re-crawl
+
+In Search Console, use **URL Inspection** on the page, then **Request indexing**. Do the same for `/best-digital-piano/` after step 7.
+
+### 12. Re-run the audit
+
+Run the same checks on the live page:
+- The layout test should show desktop layout shift under 0.1.
+- The schema should show the five types listed above.
+- Every Amazon link should carry `rel="sponsored"`.
+- `curl -sI https://www.pianoers.com/` should return a 301.
+- The Lighthouse/PageSpeed numbers need a Google API key, or a day when the shared quota isn't used up.
+
+### 13. Site-wide stopgap (only if the theme edits wait)
+
+Paste `code-injection-footer.html` into **Settings → Code injection → Site footer**. Remove it once the theme edits are live.
+
+### 14. Keep it fresh
+
+Re-check prices and stock every 3 months. Update the "Last updated" line and the table caption each time. The GEO skill notes that pages left unchanged for 6+ months are cited less in AI answers.
+
+## Part I: Off-page work (the points no edit can give you)
+
+These raise Authoritativeness and brand signals, the part of the score this page can't move on its own. None of them is quick.
+
+1. **A short YouTube video** of Katarina comparing two or three of these pianos (key feel, sound), embedded in the article.
+   - It adds first-hand evidence, a video on the page, and a YouTube presence. The GEO skill's research cites YouTube mentions as the strongest single correlate of AI citations.
+2. **Be useful where beginners ask.** Answer "which first piano?" threads on r/piano and r/pianolearning as Katarina, from real experience, and link only when it's the best answer. Spammy links do harm.
+3. **Expert profiles:** make sure Katarina's teacher profile, and any MTNA listing once confirmed, links back to her Pianoers author page.
+4. **Earn citations:** offer the comparison table (with weights and polyphony) to music teachers' blogs and studio sites as a resource for their students' parents.
+5. **Measure:** add a free Moz or Bing Webmaster key so the backlink skill can score the profile (`/seo backlinks setup`). Connect Search Console so `seo-google` can report real Core Web Vitals and indexing.
 
 ---
 
-## Not covered here
+## Files in this folder
 
-- **New single reviews** for the FP-10, ES60, FP-30X and so on (audit #9). That's new content, so link each from its section once it's live.
-- **Overlap with `/best-digital-piano/`** (audit #8). Step 4a adds the link. Also check that page's title and intro target "best digital piano" broadly, not beginners.
+| File | What it is | Used in step |
+|---|---|---|
+| `article-revised.html` | Full revised article body | 1 |
+| `images/*.webp` | Product images and new featured image | 2, 3 |
+| `images/best-beginner-keyboard-piano-social.jpg` | Social share image | 4 |
+| `alt-text.md` | Alt text for every image | 2, 3 |
+| `code-injection-header.html` | CSS + ItemList + BreadcrumbList + Person schema | 5 |
+| `best-digital-piano-edits.md` | Sibling-page edits | 7 |
+| `theme-edits.md` | Theme changes | 9 |
+| `server-and-dns.md` | `www`, headers, llms.txt | 10 |
+| `code-injection-footer.html` | Optional site-wide stopgap | 13 |
+| `comparison-table.html`, `faq-schema.html`, `affiliate-buttons.html` | The HTML-card blocks on their own (already inside `article-revised.html`) | reference |
+| `AUDIT-2026-10-06.md` | The full audit these fixes answer | reference |
+| `baseline-2026-10-06.json` | Snapshot of the page before changes, for comparison | 12 |
