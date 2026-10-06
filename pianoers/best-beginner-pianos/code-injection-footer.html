@@ -1,0 +1,10 @@
+<!-- OPTIONAL fallback. Ghost: Post settings → Code injection → Post footer.
+     Only use this if you keep Ghost's native button cards instead of the HTML cards in
+     affiliate-buttons.html (native button cards can't carry a rel attribute).
+     Googlebot renders JavaScript, but putting rel in the HTML (affiliate-buttons.html) is the more reliable fix. -->
+<script>
+document.querySelectorAll('.gh-content a[href*="amzn.to"], .gh-content a[href*="amazon."]').forEach(function (a) {
+  a.rel = 'sponsored nofollow noopener';
+  a.target = '_blank';
+});
+</script>
