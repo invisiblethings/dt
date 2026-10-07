@@ -6,7 +6,7 @@
 
 - **New design.** Your teal and amber, new fonts (hosted by the theme, not Google), a sticky header with a "Find your piano" button, and an optional dark mode.
 - **Trust strip** under every post title: author, a one-line bio, the "Updated" date and reading time.
-- **Contents list** built automatically from each post's H2 headings: a sidebar on desktop, a collapsible "On this page" box on phones.
+- **Contents list** built automatically from each post's H2 headings (or H2 and H3 headings, when a post has fewer than 3 H2s): a sidebar on desktop, a collapsible "On this page" box on phones.
 - **Piano finder, verdict cards and Quick answer block** for buying guides, added with HTML cards (see "Writing buying guides").
 - **Buy bar.** On posts with verdict cards, a slim bar keeps the top pick's button in reach once the reader scrolls past it. If the reader uses the finder, it shows their match instead.
 - **Affiliate safety.** Every link to a domain in the "Affiliate domains" setting gets `rel="sponsored nofollow noopener"` automatically.
@@ -164,6 +164,8 @@ Real-visitor numbers (Core Web Vitals) appear in Search Console about four weeks
 | `design-preview-template.html` | The approved design preview |
 
 ## Changelog
+
+- **1.1.1** (7 Oct 2026). The contents list now also works on posts whose sections use H3 headings. If a post has fewer than 3 H2s, the list is built from its H2 and H3 headings instead (e.g. /yamaha-p-145-review/ now shows 9 entries). Posts with 3 or more H2s are unchanged.
 
 - **1.1.0** (6 Oct 2026). Engagement features: playable piano, ear trainer, singing finder, reading-progress keyboard, Continue reading and resume, read badges, sortable tables, share buttons, scroll reveal and key-press buttons. Five new settings. Measured locally: layout shift 0 on all 18 page and device checks; Lighthouse desktop performance 100 (was 95); accessibility and SEO still 100.
 

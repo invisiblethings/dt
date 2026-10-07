@@ -64,12 +64,17 @@
     }
     document.querySelectorAll('.gh-content a[href]').forEach(function (a) { if (isAffiliate(a)) markAffiliate(a); });
 
-    /* 5. Contents list from the post's H2 headings (3 or more). */
+    /* 5. Contents list: the post's H2 headings, or H2 + H3 when the post has fewer than 3 H2s
+       (some posts use H3 for their sections). Shown when there are 3 or more entries. */
     var tocLinks = [];
     if (cfg.toc && content) {
-        var heads = Array.prototype.filter.call(content.querySelectorAll('h2'), function (h) {
-            return !h.closest('.pz-answer, .pz-finder, .kg-signup-card, .kg-header-card') && text(h);
-        });
+        var tocHeads = function (sel) {
+            return Array.prototype.filter.call(content.querySelectorAll(sel), function (h) {
+                return !h.closest('.pz-answer, .pz-finder, .pz-game, .kg-signup-card, .kg-header-card, .kg-toggle-card') && text(h);
+            });
+        };
+        var heads = tocHeads('h2');
+        if (heads.length < 3) heads = tocHeads('h2, h3');
         if (heads.length >= 3) {
             var items = heads.map(function (h) {
                 if (!h.id) h.id = slugify(text(h)) || ('section-' + Math.random().toString(36).slice(2, 7));
