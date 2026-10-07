@@ -1,0 +1,31 @@
+# On-page SEO: titles, descriptions, headings, disclosures
+
+**Score: 58/100**
+
+Evidence: crawl of all 55 sitemap URLs on 7 Oct 2026 (`crawl/pages.json`, raw table in `crawl/onpage-raw.txt`).
+
+## What works
+
+- Every page returns 200, has exactly one canonical pointing to itself, and no stray `noindex`.
+- One H1 per page everywhere except /privacy-policy/ (two).
+- No duplicate titles or duplicate meta descriptions across the site.
+- Slugs are readable; trailing-slash and http→https redirects are single 301/308 hops.
+
+## Findings
+
+| # | Severity | Finding | Pages | Fix (where) |
+|---|---|---|---|---|
+| 1 | **Critical** | **18 posts with affiliate links have no affiliate disclosure** (no `#affiliate` tag, and no disclosure sentence in the text). Only /best-beginner-pianos/ and /best-digital-piano/ have a written one. US FTC rules and the Amazon Associates agreement require a clear disclosure near the links. | yamaha-p-145-review, teach-yourself-piano, skoove-review, piano-basics…, piano-practice…, worship-music-academy-review, hdpiano-review, open-studio-jazz-review, best-piano-lessons-online, simply-piano-review…, pianoforall-review, pianote-review, best-free-piano-learning-apps, synthesia-piano-review, piano-with-jonny-review, flowkey-review (+ best-beginner-pianos and best-digital-piano should switch to the tag) | Post settings → Tags → add `#affiliate` on each. The theme then shows the disclosure under the title. Delete the old in-text disclosure on the two posts that have one. |
+| 2 | **High** | **Affiliate links through your own redirects aren't marked `sponsored`.** `/PFA` and `/pianoforall` (ClickBank → Pianoforall), `/pbp` (Piano by Pictures) and `simplypiano.sjv.io` (Impact) appear on 15 posts with rel `none` or `noreferrer`. Google asks for `rel="sponsored"` on paid links; the theme only tags domains in the "Affiliate domains" setting (Amazon). | 15 posts | Theme fix: let "Affiliate domains" also match `/PFA`-style paths. Meanwhile add `sjv.io, clickbank.net` to Settings → Design → Post → Affiliate domains (catches direct links only, not the redirects). |
+| 3 | High | **`/pbp` lands on a vendor URL containing "copy-of-sms-fake-bfcm-recovery"** before redirecting to a "free gift" page. It's the vendor's funnel, but the readers of /best-piano-lessons-online/ arrive on a page that doesn't match the link. | best-piano-lessons-online | Check with Piano by Pictures that this is the intended landing page; ask for a clean product URL with your `affiliate_id=4282845`. |
+| 4 | High | **Missing meta descriptions** on 4 content pages; Google writes its own. | acoustic-vs-digital-piano, how-to-tune-a-piano-a-simple-guide, contact, (cookie-policy, privacy-policy: low priority) | Post settings → Meta data → Meta description (120–155 characters). |
+| 5 | High | **Sections built from H3s, or starting below H2** (the same issue the P-145 review had). Hurts the outline Google and AI tools read; the contents list now copes (theme 1.1.1), but the hierarchy is still wrong. | H3-only: worship-music-academy-review (0 H2, 9 H3), open-studio-jazz-review (0/7 + 6 H4), acoustic-vs-digital-piano (0/7), how-the-piano-works (0/3), bastien-piano-method (0/3 + 6 H4), are-piano-keys-still-made-of-ivory (0/6), piano-humidifier (1/7), piano-with-jonny-review (1/7). First heading H3/H4: stephen-ridley, skoove-review, loog-piano, ahmad-jamal-biography, simply-piano-review, pianote-review, cole-lam, lang-lang, piano-diy-repair-guide, how-to-tune-a-piano | In the editor, change each main section heading to H2 (big H), sub-points to H3. |
+| 6 | Medium | **Titles over 60 characters** (cut off in Google). | how-to-clean-and-maintain-your-piano (86), best-free-piano-learning-apps (80), piano-dehumidifier-101 (78), are-piano-keys-still-made-of-ivory (77), synthesia-piano-review (71), yamaha-p-145-review (69), acoustic-vs-digital-piano (66), piano-career-academy-review (65), flowkey-review (64), climate-control (62), piano-with-jonny-review (62), piano-humidifier (61) | Post settings → Meta data → Meta title. Keep the full headline as the post title; shorten only the meta title. |
+| 7 | Medium | **Old year in the title**: "(2025)" in 2026. | are-piano-keys-still-made-of-ivory, piano-career-academy-review | Update the year only after re-checking the content; otherwise remove the year. |
+| 8 | Medium | **Meta descriptions over 160 characters** (truncated). | pianote-review (224), are-piano-keys… (229), yamaha-p-145-review (215), bastien… (198), about (197), how-the-piano-works (194), piano-dehumidifier-101 (189), piano-diy-repair-guide (175), lang-lang (164), piano-career-academy (164), simply-piano-review (162); all 7 described tag pages (196–223); both author pages | Trim to 120–155 characters, lead with the benefit. |
+| 9 | Medium | **Thin pages under 900 words** for competitive queries. | acoustic-vs-digital-piano (681), piano-with-jonny-review (729), worship-music-academy-review (731), are-piano-keys… (740), cole-lam (760), open-studio-jazz-review (868), synthesia-piano-review (886) | See content findings for what to add; "acoustic vs digital piano" is the most valuable to expand. |
+| 10 | Medium | **Not updated in over a year** (no modified date since): how-to-clean-and-maintain-your-piano (May 2024), piano-diy-repair-guide (Jun 2024), how-to-tune-a-piano (Jun 2024), piano-career-academy-review (Jan 2025), piano-tuning-when-and-why (Apr 2025). | 5 posts | Review facts, then update (the theme shows "Updated"). |
+| 11 | Low | **Empty heading tags** (a heading block with no text). | piano-dehumidifier-101, pianoforall-review, pianovision-review | Delete the empty heading line in the editor. |
+| 12 | Low | **Two H1s on /privacy-policy/** ("Privacy Policy" twice: the theme title plus one in the text). | privacy-policy | Delete the "Privacy Policy" heading at the top of the page body. |
+| 13 | Low | **Thin tag pages with no description**: Books, Practice, Jazz Piano (titles "Books - Pianoers.com"). | /tag/books/, /tag/practice/, /tag/jazz-piano/ | Settings → Tags → each tag → add a description and meta title, or merge the tag into a bigger one. |
+| 14 | Low | Short titles on legal/contact pages ("Contact", "Privacy Policy"). | contact, privacy-policy, cookie-policy | Optional: "Contact Pianoers.com". |
