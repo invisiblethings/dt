@@ -165,6 +165,8 @@ Real-visitor numbers (Core Web Vitals) appear in Search Console about four weeks
 
 ## Changelog
 
+- **1.1.2** (7 Oct 2026). Fixed two display bugs. An empty "top pick" box showed in the desktop sidebar on posts without verdict cards, and on desktop the buy bar peeked about 17px above the bottom edge before it was meant to appear. Elements marked hidden now always stay hidden, and the bar waits fully off-screen.
+
 - **1.1.1** (7 Oct 2026). The contents list now also works on posts whose sections use H3 headings. If a post has fewer than 3 H2s, the list is built from its H2 and H3 headings instead (e.g. /yamaha-p-145-review/ now shows 9 entries). Posts with 3 or more H2s are unchanged.
 
 - **1.1.0** (6 Oct 2026). Engagement features: playable piano, ear trainer, singing finder, reading-progress keyboard, Continue reading and resume, read badges, sortable tables, share buttons, scroll reveal and key-press buttons. Five new settings. Measured locally: layout shift 0 on all 18 page and device checks; Lighthouse desktop performance 100 (was 95); accessibility and SEO still 100.

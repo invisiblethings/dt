@@ -73,6 +73,7 @@ html[data-color-scheme="dark"] {
 /* 2. Base ------------------------------------------------------------------- */
 
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--head-h) + 20px); }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: var(--step-0); line-height: 1.7; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
@@ -407,7 +408,7 @@ html[data-color-scheme="dark"] .pz-logo.has-dark-logo .pz-logo-dark { display: b
 .pz-foot-copy { margin: 0; }
 body.has-buybar .pz-foot { padding-bottom: 76px; }
 
-.pz-buybar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; display: flex; align-items: center; gap: 12px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--paper); border-top: 1px solid var(--line); box-shadow: 0 -8px 24px rgb(21 25 28 / 10%); font-family: var(--f-display); transform: translateY(110%); transition: transform .25s ease; }
+.pz-buybar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; display: flex; align-items: center; gap: 12px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--paper); border-top: 1px solid var(--line); box-shadow: 0 -8px 24px rgb(21 25 28 / 10%); font-family: var(--f-display); transform: translateY(calc(100% + 64px)); transition: transform .25s ease; }
 .pz-buybar.is-shown { transform: none; }
 .pz-buybar img { width: 44px; height: 44px; flex: none; object-fit: contain; background: var(--surface); border-radius: 8px; }
 .pz-buybar-text { display: grid; min-width: 0; line-height: 1.25; }
