@@ -165,6 +165,12 @@ Real-visitor numbers (Core Web Vitals) appear in Search Console about four weeks
 
 ## Changelog
 
+- **1.1.3** (7 Oct 2026). Fixes from the full-site audit:
+  - **Affiliate domains** now also accepts your own redirect paths, so links to `/PFA`, `/pianoforall` and `/pbp` get `rel="sponsored"`. The new default is `amzn.to, amazon.com, sjv.io, clickbank.net, /PFA, /pianoforall, /pbp`. On an existing install, paste that into Settings → Design & branding → Customize → Post → Affiliate domains, because Ghost keeps your saved value.
+  - The "Continue reading" pill stays on one line on phones and hides while the menu or the buy bar is open.
+  - On tag, author and paginated pages, the first post card's image loads immediately instead of lazily, since it's the main image on those pages.
+  - `llms.txt` was rebuilt from the live site: all 38 posts with current titles, proper Markdown links, no dead links, no image URLs.
+
 - **1.1.2** (7 Oct 2026). Fixed two display bugs. An empty "top pick" box showed in the desktop sidebar on posts without verdict cards, and on desktop the buy bar peeked about 17px above the bottom edge before it was meant to appear. Elements marked hidden now always stay hidden, and the bar waits fully off-screen.
 
 - **1.1.1** (7 Oct 2026). The contents list now also works on posts whose sections use H3 headings. If a post has fewer than 3 H2s, the list is built from its H2 and H3 headings instead (e.g. /yamaha-p-145-review/ now shows 9 entries). Posts with 3 or more H2s are unchanged.

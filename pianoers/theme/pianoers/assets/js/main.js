@@ -49,12 +49,19 @@
         });
     }
 
-    /* 4. Affiliate links always carry rel="sponsored" and open in a new tab. */
-    var domains = String(cfg.affiliateDomains || '').split(',').map(function (d) { return d.trim().toLowerCase().replace(/^https?:\/\//, '').replace(/\/.*$/, ''); }).filter(Boolean);
+    /* 4. Affiliate links always carry rel="sponsored" and open in a new tab.
+       The setting takes domains (amzn.to) and this site's own redirect paths (/PFA). */
+    var entries = String(cfg.affiliateDomains || '').split(',').map(function (d) { return d.trim().toLowerCase(); }).filter(Boolean);
+    var domains = entries.filter(function (d) { return d.charAt(0) !== '/'; }).map(function (d) { return d.replace(/^https?:\/\//, '').replace(/\/.*$/, '').replace(/^www\./, ''); });
+    var paths = entries.filter(function (d) { return d.charAt(0) === '/'; }).map(function (d) { return d.replace(/\/+$/, ''); });
     function isAffiliate(a) {
-        if (!domains.length || !a.hostname) return false;
+        if (!a.hostname) return false;
         var host = a.hostname.toLowerCase().replace(/^www\./, '');
-        return domains.some(function (d) { d = d.replace(/^www\./, ''); return host === d || host.slice(-(d.length + 1)) === '.' + d; });
+        if (host === location.hostname.toLowerCase().replace(/^www\./, '')) {
+            var path = a.pathname.toLowerCase().replace(/\/+$/, '');
+            return paths.some(function (p) { return path === p; });
+        }
+        return domains.some(function (d) { return host === d || host.slice(-(d.length + 1)) === '.' + d; });
     }
     function markAffiliate(a) {
         var rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);

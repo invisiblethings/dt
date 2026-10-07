@@ -4,7 +4,7 @@
         <h1 class="pz-title">{{#is "home"}}Latest{{else}}All articles{{/is}}</h1>
     </header>
     <div class="pz-grid">
-        {{#foreach posts}}{{> "post-card"}}{{/foreach}}
+        {{#foreach posts}}{{> "post-card" eager=@first}}{{/foreach}}
     </div>
     {{pagination}}
 </section>

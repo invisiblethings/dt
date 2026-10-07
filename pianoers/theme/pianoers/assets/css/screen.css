@@ -489,8 +489,10 @@ html[data-color-scheme="dark"] .pz-progress-fill { mix-blend-mode: normal; opaci
 .pz-continue-card b { font-weight: 800; }
 .pz-continue-bar { flex: 1 1 120px; height: 6px; border-radius: 3px; background: var(--paper); overflow: hidden; }
 .pz-continue-bar span { display: block; height: 100%; background: var(--amber); }
-.pz-resume { position: fixed; left: 50%; bottom: 90px; z-index: 46; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 16px; border-radius: 999px; background: var(--ebony); color: #fff; font-family: var(--f-display); font-size: 0.9rem; box-shadow: var(--shadow); animation: pz-pop .3s ease-out; }
-.pz-resume button { border: 0; border-radius: 999px; padding: 7px 12px; font: 700 0.85rem var(--f-display); cursor: pointer; }
+.pz-resume { position: fixed; left: 50%; bottom: 90px; z-index: 46; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 32px); display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 16px; border-radius: 999px; background: var(--ebony); color: #fff; font-family: var(--f-display); font-size: 0.9rem; box-shadow: var(--shadow); animation: pz-pop .3s ease-out; }
+.pz-resume > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pz-head.is-open ~ .pz-resume, body.has-buybar .pz-resume { display: none; }
+.pz-resume button { flex: none; border: 0; border-radius: 999px; padding: 7px 12px; font: 700 0.85rem var(--f-display); cursor: pointer; }
 .pz-resume .pz-resume-go { background: var(--amber); color: var(--amber-ink); }
 .pz-resume .pz-resume-x { background: transparent; color: #b8c6cc; }
 @keyframes pz-pop { from { opacity: 0; transform: translate(-50%, 12px); } }

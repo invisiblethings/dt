@@ -8,7 +8,7 @@
         </header>
     {{/tag}}
     <div class="pz-grid">
-        {{#foreach posts}}{{> "post-card"}}{{/foreach}}
+        {{#foreach posts}}{{> "post-card" eager=@first}}{{/foreach}}
     </div>
     {{pagination}}
 </section>

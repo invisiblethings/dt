@@ -8,7 +8,7 @@
                     sizes="(min-width: 1080px) 340px, (min-width: 640px) 46vw, 100vw"
                     src="{{img_url feature_image size="m" format="webp"}}"
                     alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                    width="720" height="405" loading="lazy" decoding="async"
+                    width="720" height="405" {{#if eager}}fetchpriority="high"{{else}}loading="lazy" decoding="async"{{/if}}
                 >
             {{/if}}
         </figure>

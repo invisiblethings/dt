@@ -1,0 +1,130 @@
+{
+ "summary": {
+  "health_score": 62,
+  "business_type": "Affiliate publisher (piano gear and online course reviews), Ghost 6.67",
+  "top_findings": [
+   "No affiliate disclosure on 20 posts with affiliate links",
+   "Defamation risk on /stephen-ridley/",
+   "Unsafe or wrong instructions in tuning and DIY repair guides; ivory history wrong",
+   "Author credentials contradictory (Katarina bio vs posts; About schema author)",
+   "Ratings, prices and specs inconsistent or wrong across round-ups and reviews"
+  ],
+  "quick_wins": [
+   "Add #affiliate tag to 20 posts",
+   "Install theme 1.1.3 and update Affiliate domains setting",
+   "Delete duplicate FAQ script on P-145 review",
+   "Fix beginner guide meta title/description and share image",
+   "Fix /best-piano-courses-online/ link on /piano-humidifier/"
+  ]
+ },
+ "categories": [
+  {
+   "name": "Technical SEO",
+   "score": 76,
+   "what_works": [],
+   "findings": []
+  },
+  {
+   "name": "Content Quality",
+   "score": 51,
+   "what_works": [],
+   "findings": []
+  },
+  {
+   "name": "On-Page SEO",
+   "score": 58,
+   "what_works": [],
+   "findings": []
+  },
+  {
+   "name": "Schema / Structured Data",
+   "score": 58,
+   "what_works": [],
+   "findings": []
+  },
+  {
+   "name": "Performance (CWV)",
+   "score": 62,
+   "what_works": [],
+   "findings": []
+  },
+  {
+   "name": "AI Search Readiness",
+   "score": 66,
+   "what_works": [],
+   "findings": []
+  },
+  {
+   "name": "Images",
+   "score": 58,
+   "what_works": [],
+   "findings": []
+  }
+ ],
+ "action_plan": {
+  "phases": [
+   {
+    "name": "Phase 1: Critical Fixes",
+    "timeframe": "Week 1",
+    "items": [
+     "Affiliate disclosures",
+     "Theme 1.1.3",
+     "Stephen Ridley post",
+     "Unsafe instructions",
+     "Ivory post",
+     "Author consistency",
+     "/pbp landing page",
+     "Privacy and cookie policies"
+    ]
+   },
+   {
+    "name": "Phase 2: High-Impact Improvements",
+    "timeframe": "Weeks 2-3",
+    "items": [
+     "Consistent ratings",
+     "Correct prices",
+     "best-digital-piano corrections",
+     "P-145 settings",
+     "Beginner guide metadata",
+     "Headings",
+     "Meta titles/descriptions",
+     "Biography updates",
+     "Heavy images",
+     "Deleted ranking page",
+     "Redirecting link",
+     "Contact page"
+    ]
+   },
+   {
+    "name": "Phase 3: Content & Authority",
+    "timeframe": "Month 2",
+    "items": [
+     "93 internal links",
+     "Humidity post merge",
+     "Tag cleanup",
+     "Answer-first intros + review schema",
+     "Expand thin pages",
+     "New pages",
+     "How-we-test page",
+     "Share images",
+     "Third-party scripts",
+     "Security headers + www DNS"
+    ]
+   },
+   {
+    "name": "Phase 4: Monitoring & Iteration",
+    "timeframe": "Ongoing",
+    "items": [
+     "Search Console + Bing",
+     "Off-site mentions",
+     "Quarterly price checks",
+     "AI training policy"
+    ]
+   }
+  ]
+ },
+ "artifacts": {
+  "findings_dir": "findings/",
+  "screenshots_dir": "screenshots/"
+ }
+}
