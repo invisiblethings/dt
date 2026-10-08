@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import FinalCta from '../components/FinalCta.astro';
+import FaqList from '../components/FaqList.astro';
+import { PRODUCTS } from '../data/site';
+import { faqsById } from '../data/faqs';
+import { faqPage, article } from '../lib/schema';
+
+const faqs = faqsById('vs-apps', 'vs-youtube', 'midi', 'kids');
+const rows = [
+  { name: 'Pianoforall', best: 'Adults who want to play from chords and by ear, then read', how: 'Video, audio and ebooks; chords and rhythm first', feedback: 'No (you compare with video and audio)', price: `One-time, $${PRODUCTS.pianoforall.price}`, free: 'Free lessons', us: true },
+  { name: 'Simply Piano', best: 'Beginners who like a guided, game-like app', how: 'App listens as you play along to on-screen notes', feedback: 'Yes, real-time', price: 'Subscription', free: 'Free basics course; trial' },
+  { name: 'flowkey', best: 'Learning specific songs from notation', how: 'Video plus scrolling sheet music; Wait Mode', feedback: 'Yes (waits for correct notes)', price: 'Subscription', free: 'Free account; trial' },
+  { name: 'Skoove', best: 'Beginners wanting feedback plus theory', how: 'Interactive lessons that listen to you', feedback: 'Yes, real-time', price: 'Subscription', free: 'Free basic tier; trial' },
+  { name: 'Yousician', best: 'People motivated by scores and levels', how: 'Gamified lessons, several instruments', feedback: 'Yes, real-time', price: 'Subscription', free: 'Trial' },
+  { name: 'Playground Sessions', best: 'Structured courses plus a large song library', how: 'Video lessons and interactive play-along', feedback: 'Yes, real-time', price: 'Subscription or lifetime', free: 'Limited' },
+  { name: 'Pianote', best: 'Learners who want teachers and a big membership', how: 'Large video library, live lessons, community', feedback: 'Teacher feedback on submitted videos', price: 'Membership', free: 'Trial' },
+  { name: 'Piano Marvel', best: 'Sight-reading and measurable progress', how: 'Graded library with reading assessments', feedback: 'Yes, scored', price: 'Free tier or subscription', free: 'Free account' },
+  { name: 'Hoffman Academy', best: 'Children and families', how: 'Video lessons, games, practice tools', feedback: 'No', price: 'Free lessons; optional premium', free: 'Hundreds of free videos' },
+];
+const schema = [
+  article({ title: 'Pianoforall vs piano apps: an honest comparison', description: 'How Pianoforall compares with Simply Piano, flowkey, Skoove, Yousician, Playground Sessions, Pianote, Piano Marvel and Hoffman Academy.', path: '/compare', datePublished: '2026-10-08' }),
+  faqPage(faqs),
+];
+---
+<Base
+  title="Pianoforall vs Piano Apps: Simply Piano, flowkey, Pianote and More"
+  description="Pianoforall vs Simply Piano, flowkey, Skoove, Yousician, Pianote, Piano Marvel and Hoffman Academy: who each suits, how they teach and how they charge."
+  ogImage="/og/learn.jpg"
+  crumbs={[{ name: 'Compare', href: '/compare' }]}
+  schema={schema}
+>
+  <section class="page-hero">
+    <div class="wrap-narrow">
+      <p class="eyebrow">Compare</p>
+      <h1>Pianoforall vs piano apps: which suits you?</h1>
+      <div class="answer-box">
+        <span class="label">Short answer</span>
+        <p>Choose an app like Simply Piano, Skoove or Yousician if you want software that listens and scores you. Choose flowkey to learn particular songs from notation, Piano Marvel for sight-reading, and Hoffman Academy for a young child. Choose Pianoforall if you want to play from chords and by ear, with one payment instead of a subscription.</p>
+      </div>
+      <p>No single course suits everyone. They teach in different ways, and the best one is the one you’ll keep using. We’ve tried to be fair, including about where other options do things Pianoforall doesn’t.</p>
+    </div>
+  </section>
+
+  <section class="section-tight" style="padding-top:0">
+    <div class="wrap">
+      <h2>At a glance</h2>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr><th scope="col">Course</th><th scope="col">Best for</th><th scope="col">How you learn</th><th scope="col">Checks your playing?</th><th scope="col">Pricing model</th><th scope="col">Free option</th></tr></thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr style={r.us ? 'background:var(--brass-soft)' : undefined}>
+                <th scope="row">{r.name}</th><td>{r.best}</td><td>{r.how}</td><td>{r.feedback}</td><td>{r.price}</td><td>{r.free}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted">Features and pricing models checked October 2026 from each provider’s site and independent reviews. Prices and plans change often, so check the provider before you buy.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-narrow prose">
+      <h2>Two different ideas about learning piano</h2>
+      <p>Most piano apps are built around note recognition. Notes scroll across the screen, the app listens through your microphone or a cable, and it tells you whether you hit the right key. That’s motivating, and it’s good at teaching you specific songs.</p>
+      <p>Pianoforall is built around understanding. You learn a chord, the rhythm to play it in, and where it fits in songs. Once you know a dozen chords and a few rhythm styles, you can play almost any song from a chord sheet, or work it out by ear. Nothing listens to you, so you compare yourself with Robin’s video and audio instead.</p>
+      <p>Neither approach is wrong. They suit different people, and plenty of students use both.</p>
+
+      <h2>Pianoforall vs Simply Piano</h2>
+      <p>Simply Piano is an app that guides you through exercises and songs while listening to what you play. If you love instant feedback and short, game-like sessions on a phone or tablet, it’s a good fit. Pianoforall is closer to sitting with a teacher: video and ebooks, chords and rhythm first, playing by ear, and reading later. It costs ${PRODUCTS.pianoforall.price} once rather than a yearly subscription.</p>
+
+      <h2>Pianoforall vs flowkey</h2>
+      <p>flowkey pairs video of hands on a keyboard with scrolling sheet music, and its Wait Mode pauses until you play the right notes. It suits you if your main goal is learning particular songs as written. Pianoforall teaches transferable skills, so you can improvise, play from chords and rely less on written music.</p>
+
+      <h2>Pianoforall vs Skoove and Yousician</h2>
+      <p>Both listen to your playing and give feedback, and Yousician adds levels and scores across several instruments. Some people find that very motivating. Pianoforall doesn’t score you. It concentrates on how music fits together: chords, rhythm patterns and listening.</p>
+
+      <h2>Pianoforall vs Playground Sessions</h2>
+      <p>Playground Sessions offers step-by-step lessons, a song library, real-time feedback and progress tracking, with subscription or lifetime plans. Some song access on lifetime plans has its own conditions. Pianoforall is simpler: one course, one payment, no song licensing.</p>
+
+      <h2>Pianoforall vs Pianote</h2>
+      <p>Pianote is closer to an online music school: a large video library, several teachers, live lessons, a community, and feedback on videos you submit. If you want ongoing teacher contact and a big library, it’s worth a look. Pianoforall is one focused, carefully ordered course that you buy once and work through at your own pace.</p>
+
+      <h2>Pianoforall vs Piano Marvel</h2>
+      <p>Piano Marvel focuses on reading, with assessments that measure your sight-reading. If reading fluently is your main goal, or you’re working towards exams, start there. Pianoforall starts with chords, rhythm and playing by ear and introduces reading gradually.</p>
+
+      <h2>Pianoforall vs Hoffman Academy</h2>
+      <p>Hoffman Academy is designed for children, with games and parent-friendly materials. For a young child learning alone, we’d recommend it before Pianoforall, which is built for teenagers and adults.</p>
+
+      <h2>Pianoforall vs YouTube</h2>
+      <p>YouTube is full of excellent single-song tutorials, and it’s free. The trouble is order. Nothing tells you what to learn next, so you collect half-learned songs and miss the basics underneath them. Pianoforall gives you one tested sequence, and you can still use YouTube for songs alongside it.</p>
+
+      <h2>Can I use Pianoforall with an app?</h2>
+      <p>Yes. Some students use Pianoforall as their main course and an app for sight-reading practice or for learning particular songs. Pianoforall works on any piano or keyboard and doesn’t need a cable or microphone.</p>
+    </div>
+  </section>
+
+  <section class="section section-paper">
+    <div class="wrap-narrow">
+      <h2>Questions</h2>
+      <FaqList items={faqs} />
+      <p style="margin-top:1.5rem">Still unsure which way of learning suits you? <a href="/start">Try the four-question course finder</a>.</p>
+    </div>
+  </section>
+
+  <FinalCta location="compare_final" heading="The easiest way to compare is to try it" body="Spend twenty minutes with the free Pianoforall lessons. You’ll know whether the chord-first approach suits you." />
+</Base>

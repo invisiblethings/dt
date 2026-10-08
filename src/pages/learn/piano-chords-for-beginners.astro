@@ -1,0 +1,106 @@
+---
+import Article from '../../layouts/Article.astro';
+import ChordExplorer from '../../components/ChordExplorer.astro';
+import type { Faq } from '../../data/faqs';
+
+const faqs: Faq[] = [
+  { id: 'c1', group: '', q: 'What are the easiest piano chords to learn first?', a: 'C major, F major, G major and A minor. All four use only white keys, they share the same hand shape, and together they accompany a huge number of pop songs and ballads.' },
+  { id: 'c2', group: '', q: 'How many chords do you need to know to play piano?', a: 'With the major and minor chords in one key, about six chords, you can accompany many simple songs. Learn the same shapes in a few more keys (G, F and D are good next steps) and you can cover most of a typical songbook.' },
+  { id: 'c3', group: '', q: 'Which fingers do I use for piano chords?', a: 'For a three-note chord, use your thumb, middle finger and little finger (1, 3 and 5) in the right hand, and little finger, middle finger and thumb (5, 3 and 1) in the left. Keep your fingers curved and your wrist relaxed.' },
+  { id: 'c4', group: '', q: 'What is a chord inversion?', a: 'An inversion is the same chord with its notes in a different order, for example C major played E–G–C instead of C–E–G. Inversions let you move between chords with very little hand movement, which makes changes smoother.' },
+];
+const toc = [
+  { id: 'what', text: 'What a chord is' },
+  { id: 'major-minor', text: 'Major and minor shapes' },
+  { id: 'try', text: 'Try it on the keyboard' },
+  { id: 'key-of-c', text: 'The chords in C major' },
+  { id: 'hands', text: 'Fingering and both hands' },
+  { id: 'progressions', text: 'Your first progressions' },
+  { id: 'next', text: 'Inversions and sevenths' },
+];
+---
+<Article
+  title="Piano Chords for Beginners: How They Work and Which to Learn First"
+  seoTitle="Piano Chords for Beginners: Easy Chords to Learn First (with Diagrams)"
+  description="Learn how piano chords are built, the seven chords in C major, fingering for both hands and your first progressions. Includes an interactive keyboard you can play."
+  path="/learn/piano-chords-for-beginners"
+  published="2026-10-08"
+  author="Pianoforall"
+  eyebrow="Beginner guide · Skills"
+  crumbs={[{ name: 'Learn', href: '/learn' }, { name: 'Piano chords for beginners', href: '/learn/piano-chords-for-beginners' }]}
+  answer="Start with <b>C, F, G and A minor</b>. A major chord is a root note plus the notes 4 and 7 semitones above it (C–E–G). A minor chord lowers the middle note by one semitone (A–C–E). Play them with fingers 1–3–5 in the right hand and the root note in the left, and you can accompany hundreds of songs."
+  toc={toc}
+  faqs={faqs}
+  cta="course"
+  related={[
+    { href: '/learn/play-piano-by-ear', title: 'How to play piano by ear', note: 'Use these chords to work out songs' },
+    { href: '/how-it-works', title: 'How Pianoforall works', note: 'Why we teach chords first' },
+    { href: '/learn/piano-practice-routine', title: 'A 20-minute practice routine' },
+  ]}
+>
+  <p>Chords are the fastest route from “I can’t play” to “I can play that song”. Most popular music is a melody sitting on top of a few repeating chords. Learn the chords and a rhythm to play them in, and you can accompany yourself or a singer long before you can read a page of music.</p>
+
+  <h2 id="what">What a chord is</h2>
+  <p>A chord is three or more notes played together. The simplest kind, a <b>triad</b>, has three: a root, a third and a fifth. The root gives the chord its name. C major starts on C.</p>
+  <p>You can build any triad by counting semitones, the distance from one key to the very next key, black or white:</p>
+  <ul>
+    <li><b>Major:</b> root, up 4 semitones, up 3 more. C → E → G.</li>
+    <li><b>Minor:</b> root, up 3 semitones, up 4 more. A → C → E.</li>
+  </ul>
+  <p>Major chords sound bright and settled. Minor chords sound softer and sadder. Play C major, then C minor (C–E♭–G), and you’ll hear the difference straight away.</p>
+
+  <h2 id="major-minor">Major and minor shapes</h2>
+  <p>On the white keys, a root-position triad always looks the same: play a key, skip one, play one, skip one, play one. Your hand makes the shape, and you slide it along to change chord. C, F and G major all use this shape on white keys only, and so do D minor, E minor and A minor.</p>
+  <p>That’s why the piano is friendly for beginners. On guitar, every chord has its own fingering. On the piano, you learn one shape and move it.</p>
+
+  <h2 id="try">Try it on the keyboard</h2>
+  <p>Tap a chord name to see which keys to press and hear how it sounds. The blue key is the bass note for your left hand. The gold keys are your right hand.</p>
+  <ChordExplorer id="chord-guide" />
+
+  <h2 id="key-of-c">The chords in C major</h2>
+  <p>Every major key has six chords you’ll use all the time, plus one you’ll rarely need. In C major they’re all on white keys:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Chord</th><th scope="col">Notes</th><th scope="col">Type</th><th scope="col">Roman numeral</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">C</th><td>C E G</td><td>Major</td><td>I</td></tr>
+        <tr><th scope="row">Dm</th><td>D F A</td><td>Minor</td><td>ii</td></tr>
+        <tr><th scope="row">Em</th><td>E G B</td><td>Minor</td><td>iii</td></tr>
+        <tr><th scope="row">F</th><td>F A C</td><td>Major</td><td>IV</td></tr>
+        <tr><th scope="row">G</th><td>G B D</td><td>Major</td><td>V</td></tr>
+        <tr><th scope="row">Am</th><td>A C E</td><td>Minor</td><td>vi</td></tr>
+        <tr><th scope="row">B°</th><td>B D F</td><td>Diminished</td><td>vii°</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The Roman numerals let musicians talk about progressions in any key. “I–V–vi–IV” means C–G–Am–F in C major, and G–D–Em–C in G major. Same pattern, different starting point.</p>
+  <p>Once C major feels comfortable, learn the same chords in G major (G, Am, Bm, C, D, Em) and F major (F, Gm, Am, B♭, C, Dm). Those three keys cover a large share of popular songs.</p>
+
+  <h2 id="hands">Fingering and both hands</h2>
+  <ul>
+    <li><b>Right hand:</b> thumb, middle finger and little finger (1–3–5) on the three notes.</li>
+    <li><b>Left hand:</b> start with just the root note, played with your little finger or thumb. Later, play the full chord with 5–3–1, or the root and fifth together.</li>
+    <li><b>Posture:</b> fingers curved as if holding a ball, wrists level, shoulders down. If anything tightens, stop and shake it out.</li>
+  </ul>
+  <p>Playing the root in the left hand while the right hand holds the chord gives you a full, two-handed sound from the first day. Add a rhythm in the right hand, and it already sounds like accompaniment.</p>
+
+  <h2 id="progressions">Your first progressions</h2>
+  <p>Practise changing between chords slowly and evenly, four beats on each. These progressions turn up again and again:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Progression</th><th scope="col">In C major</th><th scope="col">Where you’ll hear it</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">I–V–vi–IV</th><td>C–G–Am–F</td><td>Countless modern pop songs</td></tr>
+        <tr><th scope="row">I–vi–IV–V</th><td>C–Am–F–G</td><td>1950s doo-wop and ballads</td></tr>
+        <tr><th scope="row">I–IV–V</th><td>C–F–G</td><td>Folk, rock ’n’ roll, country</td></tr>
+        <tr><th scope="row">12-bar blues</th><td>C C C C · F F C C · G F C G</td><td>Blues and early rock ’n’ roll</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>When the changes feel smooth, try a rhythm: hold the bass note in the left hand and play the right-hand chord on every beat, or break it up into single notes (a broken chord). Pianoforall’s first book teaches fifteen of these rhythm styles.</p>
+
+  <h2 id="next">Inversions and seventh chords</h2>
+  <p>Playing every chord in root position makes your hand jump. <b>Inversions</b> fix that. C major can be C–E–G, E–G–C or G–C–E. Moving from C (C–E–G) to F, you can play F as C–F–A: your thumb stays on C and only two fingers move.</p>
+  <p><b>Seventh chords</b> add a fourth note and a richer sound. G7 is G–B–D–F, and it pulls strongly back to C. Cmaj7 (C–E–G–B) and Am7 (A–C–E–G) give ballads and jazz their soft colour. Try them in the keyboard above.</p>
+  <p>Pianoforall covers inversions in Book 3 and richer chords in Book 4, after the rhythm basics are in your hands.</p>
+</Article>

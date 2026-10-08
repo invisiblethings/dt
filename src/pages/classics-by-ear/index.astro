@@ -1,0 +1,124 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import FaqList from '../../components/FaqList.astro';
+import Guarantee from '../../components/Guarantee.astro';
+import BuyButton from '../../components/BuyButton.astro';
+import Video from '../../components/Video.astro';
+import { CLASSICS } from '../../data/classics';
+import { PRODUCTS, LINKS } from '../../data/site';
+import { faqsById } from '../../data/faqs';
+import { faqPage, course } from '../../lib/schema';
+import moonlightPoster from '../../assets/img/video-moonlight.jpg';
+
+const faqs = faqsById('cbe-what', 'cbe-need-pfa', 'cbe-reading', 'refund');
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: 'Classics By Ear courses',
+    itemListElement: CLASSICS.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(c.product.url, 'https://pianoforall.com').href, name: c.product.name })),
+  },
+  faqPage(faqs),
+];
+const order = ['bach-preludes', 'erik-satie-gnossiennes', 'moonlight-sonata'];
+const sorted = [...CLASSICS].sort((a, b) => order.indexOf(a.slug) - order.indexOf(b.slug));
+---
+<Base
+  title="Classics By Ear: Learn Classical Piano Pieces by Ear"
+  description="Learn the Moonlight Sonata, Satie’s Gnossiennes and Bach’s preludes step by step, by learning the chords and patterns underneath. No reading needed. $49 each."
+  ogImage="/og/classics.jpg"
+  crumbs={[{ name: 'Classics By Ear', href: '/classics-by-ear' }]}
+  schema={schema}
+>
+  <section class="page-hero">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Classics By Ear</p>
+        <h1>Play the classical pieces you love, one pattern at a time</h1>
+        <p class="lede">Each course teaches one famous piece. Robin finds the chords and repeating patterns underneath, then teaches you the piece in small sections with video, keyboard diagrams and annotated sheet music.</p>
+        <p>You don’t need to read music. You don’t need to finish Pianoforall first.</p>
+      </div>
+      <Video vimeoId={LINKS.moonlightVimeo} title="Classics By Ear: Moonlight Sonata trailer" poster={moonlightPoster} label="Moonlight Sonata trailer · 2:59" eager />
+    </div>
+  </section>
+
+  <section class="section-tight" id="courses">
+    <div class="wrap">
+      <h2 class="visually-hidden">The courses</h2>
+      <div class="grid grid-3">
+        {sorted.map((c, i) => (
+          <a class="card card-link" href={c.product.url}>
+            <span class="pill">{i === 0 ? 'Good first piece' : i === 1 ? 'Gentle start' : 'Most challenging'}</span>
+            <h3 style="margin-top:.9rem">{c.composer}: {c.piece}</h3>
+            <p class="muted">{c.product.lessons} lessons · {c.product.videoHours} hours of video · ${c.product.price}</p>
+            <p>{c.level}</p>
+            <span class="text-link">See the course</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow">Why it works</p>
+        <h2>Classical music is made of patterns too</h2>
+        <p>Most classical scores look like hundreds of separate notes. Most of those notes belong to a handful of chords played in a repeating figure. Learn the figure and the chord order, and you have most of the piece.</p>
+        <p>Robin teaches each piece the way Pianoforall teaches everything else: listen, watch the hands, play a small section, then add the next. The written music sits alongside, so you can connect what you play to the notes on the page.</p>
+      </div>
+      <div class="panel">
+        <h3>Each course includes</h3>
+        <ul class="check-list">
+          <li>Short video lessons covering the whole piece</li>
+          <li>Keyboard diagrams for every section</li>
+          <li>Annotated sheet music with chords and fingering marked</li>
+          <li>Online course player plus offline downloads</li>
+          <li>The Piano Lounge community and help from Robin</li>
+          <li>Lifetime access, one payment</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sand" id="bundles">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Courses and bundles</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="price-card">
+          <h3>One course</h3>
+          <p class="muted">Pick the piece you want to play most</p>
+          <p class="price">${PRODUCTS.bach.price}</p>
+          <p class="muted small">each, one payment</p>
+          <a class="btn btn-ghost" href="#courses">Choose a piece</a>
+        </div>
+        <div class="price-card featured">
+          <span class="tag">All three pieces</span>
+          <h3>{PRODUCTS.classicsBundle.name}</h3>
+          <p class="muted">{PRODUCTS.classicsBundle.short}</p>
+          <p class="price">${PRODUCTS.classicsBundle.price}</p>
+          <p class="muted small">instead of ${PRODUCTS.bach.price * 3} bought separately</p>
+          <BuyButton product="classicsBundle" location="classics_hub_bundle" label={`Get all three · $${PRODUCTS.classicsBundle.price}`} />
+        </div>
+        <div class="price-card">
+          <h3>{PRODUCTS.completeBundle.name}</h3>
+          <p class="muted">{PRODUCTS.completeBundle.short}</p>
+          <p class="price">${PRODUCTS.completeBundle.price}</p>
+          <p class="muted small">instead of ${PRODUCTS.bach.price * 4} bought separately</p>
+          <BuyButton product="completeBundle" location="classics_hub_complete" variant="btn btn-ghost" label={`Get all four · $${PRODUCTS.completeBundle.price}`} />
+        </div>
+      </div>
+      <div style="margin-top:2rem"><Guarantee /></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-narrow">
+      <h2>Questions about Classics By Ear</h2>
+      <FaqList items={faqs} />
+      <p class="muted" style="margin-top:1.5rem">Robin has announced three Chopin collections for the series. Join the <a href="/free-lessons">free lessons</a> list to hear when they open.</p>
+    </div>
+  </section>
+</Base>

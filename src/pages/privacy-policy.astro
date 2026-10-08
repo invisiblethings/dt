@@ -1,0 +1,7 @@
+---
+import Legal from '../layouts/Legal.astro';
+import body from '../data/legal-privacy.html?raw';
+---
+<Legal title="Privacy Policy" description="How Pianoforall Academy Limited collects, uses and protects your personal information, and the services that process it." h1="Privacy Policy" updated="September 2026" path="/privacy-policy">
+  <Fragment set:html={body} />
+</Legal>

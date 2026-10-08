@@ -1,0 +1,18 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { GUARANTEE_DAYS, BRAND, LINKS } from '../data/site';
+---
+<Legal title={`${GUARANTEE_DAYS}-Day Refund Policy`} description={`Every Pianoforall course comes with a ${GUARANTEE_DAYS}-day money-back guarantee. Email Robin or ask ClickBank directly. No reason needed.`} h1={`${GUARANTEE_DAYS}-day refund policy`} updated="October 2026" path="/refund-policy">
+  <p>Every Pianoforall course and bundle comes with a {GUARANTEE_DAYS}-day money-back guarantee. If you decide a course isn’t right for you, you can have your money back within {GUARANTEE_DAYS} days of purchase. You don’t need to give a reason.</p>
+  <h2>How to ask for a refund</h2>
+  <p>Choose whichever is easier:</p>
+  <ul>
+    <li>Email Robin at <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a> with the email address you used to buy. He will set up the refund through ClickBank.</li>
+    <li>Request the refund directly from <a href={LINKS.clickbankSupport} rel="nofollow">ClickBank</a>, the retailer that processed your payment, or call {LINKS.clickbankPhone} (US and Canada) or {LINKS.clickbankPhoneIntl}.</li>
+  </ul>
+  <h2>How long it takes</h2>
+  <p>ClickBank’s system usually completes a refund within a few days. The money goes back to the card or account you paid with.</p>
+  <h2>Subscriptions</h2>
+  <p>There aren’t any. Pianoforall courses are one-time purchases, so there is nothing to cancel and you won’t be charged again.</p>
+  <p>Questions? Email <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>.</p>
+</Legal>

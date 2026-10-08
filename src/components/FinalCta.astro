@@ -1,0 +1,27 @@
+---
+import Check from './Check.astro';
+import { PRODUCTS, GUARANTEE_DAYS } from '../data/site';
+interface Props { heading?: string; body?: string; location?: string }
+const {
+  heading = 'Sit down at the piano tonight and play something',
+  body = 'Start with the free lessons. You will learn a broken-chord ballad that sounds like real music, and you can decide about the full course afterwards.',
+  location = 'final_cta',
+} = Astro.props;
+---
+<section class="section section-dark">
+  <div class="wrap center">
+    <div class="section-head center" style="margin-bottom:2rem">
+      <h2>{heading}</h2>
+      <p class="lede">{body}</p>
+    </div>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn btn-lg" href="/free-lessons" data-track="cta_click" data-track-location={location}>Try the free lessons <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn-lg btn-ghost" href="/pricing" data-track="pricing_view_click" data-track-location={location}>See pricing</a>
+    </div>
+    <ul class="trust-strip" style="justify-content:center">
+      <li><Check /> No card for the free lessons</li>
+      <li><Check /> ${PRODUCTS.pianoforall.price} once, no subscription</li>
+      <li><Check /> {GUARANTEE_DAYS}-day money-back guarantee</li>
+    </ul>
+  </div>
+</section>

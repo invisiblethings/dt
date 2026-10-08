@@ -1,0 +1,69 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import ChordExplorer from '../../components/ChordExplorer.astro';
+import { GUIDES } from '../../data/guides';
+const groups = [...new Set(GUIDES.map((g) => g.group))];
+const latest = (await getCollection('blog')).filter((p) => ['learn-piano', 'piano-practice-tips', 'psychology-of-learning-piano', 'piano-gear-equipment'].includes(p.data.category)).sort((a, b) => +b.data.pubDate - +a.data.pubDate).slice(0, 6);
+const schema = [{
+  '@type': 'CollectionPage',
+  name: 'Learn piano: beginner guides',
+  hasPart: GUIDES.map((g) => ({ '@type': 'Article', headline: g.title, url: `https://pianoforall.com${g.href}` })),
+}];
+---
+<Base
+  title="Learn Piano: Free Guides for Adult Beginners"
+  description="Free, practical piano guides for adult beginners: learning online, chords, playing by ear, practice routines, choosing a keyboard and how long it really takes."
+  ogImage="/og/learn.jpg"
+  crumbs={[{ name: 'Learn', href: '/learn' }]}
+  schema={schema}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Learn</p>
+      <h1>Piano guides for adult beginners</h1>
+      <p class="lede">Straight answers to the questions people ask before and after they start. No sign-up needed.</p>
+      <div class="cta-row" style="margin-top:1.5rem">
+        <a class="btn btn-dark" href="/start">Where should I start? (4 questions)</a>
+        <a class="text-link" href="#tools">Interactive tools</a>
+      </div>
+    </div>
+  </section>
+
+  {groups.map((g) => (
+    <section class="section-tight" style="padding-top:0">
+      <div class="wrap">
+        <h2 style="font-size:var(--step-2)">{g}</h2>
+        <div class="grid grid-3">
+          {GUIDES.filter((x) => x.group === g).map((x) => (
+            <a class="card card-link" href={x.href}><h3>{x.title}</h3><p class="muted">{x.blurb}</p></a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="section section-paper" id="tools">
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow">Tools</p>
+        <h2>Play with it</h2>
+        <ul class="check-list">
+          <li><a href="/learn/piano-chords-for-beginners#try">Chord explorer</a>: see and hear any beginner chord</li>
+          <li><a href="/learn/piano-practice-routine#timer">Practice timer</a>: a guided 20-minute session</li>
+          <li><a href="/learn/how-long-does-it-take-to-learn-piano#calculator">Practice-hours calculator</a></li>
+          <li><a href="/start">Course finder</a>: an honest recommendation in four questions</li>
+        </ul>
+      </div>
+      <ChordExplorer compact id="hub-chords" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><h2>From the blog</h2><p><a href="/blog">All articles</a></p></div>
+      <div class="grid grid-3">{latest.map((p) => <PostCard post={p} />)}</div>
+    </div>
+  </section>
+</Base>

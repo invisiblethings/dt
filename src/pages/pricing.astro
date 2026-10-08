@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+import FaqList from '../components/FaqList.astro';
+import Guarantee from '../components/Guarantee.astro';
+import BuyButton from '../components/BuyButton.astro';
+import { PRODUCTS, GUARANTEE_DAYS, LINKS } from '../data/site';
+import { faqsById } from '../data/faqs';
+import { faqPage } from '../lib/schema';
+
+const pfa = PRODUCTS.pianoforall;
+const faqs = faqsById('price', 'refund', 'clickbank', 'free-trial', 'bundles', 'gift', 'devices');
+const singles = [PRODUCTS.moonlight, PRODUCTS.satie, PRODUCTS.bach];
+---
+<Base
+  title="Pianoforall Price: $49 Once, No Subscription"
+  description={`Pianoforall costs $${pfa.price}, one payment with lifetime access. Classics By Ear courses are $${PRODUCTS.moonlight.price} each, or get all four for $${PRODUCTS.completeBundle.price}. ${GUARANTEE_DAYS}-day refund.`}
+  crumbs={[{ name: 'Pricing', href: '/pricing' }]}
+  schema={[faqPage(faqs)]}
+  stickyCta={{ label: `Get Pianoforall · $${pfa.price}`, href: pfa.checkout, note: `<b>$${pfa.price} once</b>${GUARANTEE_DAYS}-day refund`, event: 'begin_checkout' }}
+>
+  <section class="page-hero">
+    <div class="wrap center">
+      <p class="eyebrow">Pricing</p>
+      <h1 style="margin-inline:auto">Pay once. Keep it for life.</h1>
+      <p class="lede">No subscriptions, no upgrades, no renewal emails. Every course comes with a {GUARANTEE_DAYS}-day money-back guarantee.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="grid grid-3" style="align-items:stretch">
+        <div class="price-card featured">
+          <span class="tag">Start here</span>
+          <h2 style="font-size:var(--step-2)">Pianoforall</h2>
+          <p class="muted">The complete course, beginner up</p>
+          <p class="price">${pfa.price}<small>once</small></p>
+          <ul class="check-list">
+            <li>9 books, {pfa.lessons} lessons</li>
+            <li>{pfa.videoHours} hours of video, plus audio</li>
+            <li>Online player and offline ebooks</li>
+            <li>Printable PDFs and keyboard diagrams</li>
+            <li>The Piano Lounge and email support</li>
+            <li>Free lifetime updates</li>
+          </ul>
+          <BuyButton product="pianoforall" location="pricing_main" variant="btn" size="btn-lg" label={`Get Pianoforall · $${pfa.price}`} />
+          <p class="fine"><a href="/course">What’s in the course</a></p>
+        </div>
+
+        <div class="price-card" id="bundles">
+          <span class="tag" style="background:var(--brass);color:var(--ink)">Best value</span>
+          <h2 style="font-size:var(--step-2)">{PRODUCTS.completeBundle.name}</h2>
+          <p class="muted">{PRODUCTS.completeBundle.short}</p>
+          <p class="price">${PRODUCTS.completeBundle.price}<small>once</small></p>
+          <ul class="check-list">
+            <li>Everything in Pianoforall</li>
+            <li>Moonlight Sonata (1st movement)</li>
+            <li>Satie’s three Gnossiennes</li>
+            <li>Bach preludes in C major and C minor</li>
+            <li>${pfa.price * 4 - PRODUCTS.completeBundle.price} less than buying all four separately</li>
+          </ul>
+          <BuyButton product="completeBundle" location="pricing_complete" size="btn-lg" label={`Get all four · $${PRODUCTS.completeBundle.price}`} />
+        </div>
+
+        <div class="price-card">
+          <h2 style="font-size:var(--step-2)">{PRODUCTS.classicsBundle.name}</h2>
+          <p class="muted">{PRODUCTS.classicsBundle.short}</p>
+          <p class="price">${PRODUCTS.classicsBundle.price}<small>once</small></p>
+          <ul class="check-list">
+            <li>All three Classics By Ear courses</li>
+            <li>{PRODUCTS.moonlight.lessons! + PRODUCTS.satie.lessons! + PRODUCTS.bach.lessons!} lessons in total</li>
+            <li>Video, keyboard diagrams and annotated scores</li>
+            <li>${PRODUCTS.moonlight.price * 3 - PRODUCTS.classicsBundle.price} less than buying separately</li>
+          </ul>
+          <BuyButton product="classicsBundle" location="pricing_classics" variant="btn btn-ghost" size="btn-lg" label={`Get the bundle · $${PRODUCTS.classicsBundle.price}`} />
+          <p class="fine"><a href="/classics-by-ear">About Classics By Ear</a></p>
+        </div>
+      </div>
+
+      <h2 style="margin-top:3.5rem;font-size:var(--step-2)">Single Classics By Ear courses</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Course</th><th scope="col">Lessons</th><th scope="col">Video</th><th scope="col">Price</th><th scope="col"><span class="visually-hidden">Buy</span></th></tr></thead>
+          <tbody>
+            {singles.map((s) => (
+              <tr>
+                <th scope="row"><a href={s.url}>{s.name.replace('Classics By Ear: ', '')}</a><br /><span class="muted small">{s.short}</span></th>
+                <td>{s.lessons}</td>
+                <td>{s.videoHours} hrs</td>
+                <td>${s.price}</td>
+                <td><a href={s.checkout} rel="nofollow" data-track="begin_checkout" data-product={s.id} data-track-location="pricing_table">Buy</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <Guarantee />
+      <div class="grid grid-3" style="margin-top:2.5rem">
+        <div><h3>Try before you pay</h3><p class="muted">The <a href="/free-lessons">free lessons</a> are real Pianoforall lessons. No card needed.</p></div>
+        <div><h3>Secure checkout</h3><p class="muted">ClickBank handles payment and refunds. You can review your order before you pay. Order help: {LINKS.clickbankPhone}.</p></div>
+        <div><h3>Give it as a gift</h3><p class="muted">Buy with your own details, then email Robin the recipient’s name. <a href="/gift">How gifting works</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-paper">
+    <div class="wrap-narrow">
+      <h2>Questions about price and payment</h2>
+      <FaqList items={faqs} />
+    </div>
+  </section>
+</Base>

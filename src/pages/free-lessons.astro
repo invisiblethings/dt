@@ -1,0 +1,102 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Video from '../components/Video.astro';
+import Check from '../components/Check.astro';
+import Quote from '../components/Quote.astro';
+import FaqList from '../components/FaqList.astro';
+import { LINKS } from '../data/site';
+import { byId } from '../data/testimonials';
+import { faqsById } from '../data/faqs';
+import { faqPage, video } from '../lib/schema';
+import tryFree from '../assets/img/try-free.jpg';
+import ballad from '../assets/img/video-ballad.jpg';
+import community from '../assets/img/community.jpg';
+
+const faqs = faqsById('free-trial', 'beginner', 'keyboard', 'midi');
+const schema = [
+  video({ name: 'The Amazing Broken Chord Ballad', description: 'A sample Pianoforall lesson from the free Test Drive: a broken-chord ballad pattern for beginners.', vimeoId: LINKS.sampleLessonVimeo, thumbnail: '/og/free-lessons.jpg', uploadDate: '2024-05-31', durationSec: 336 }),
+  faqPage(faqs),
+];
+---
+<Base
+  title="Free Piano Lessons for Beginners: Try Pianoforall Free"
+  description="Try real Pianoforall lessons free. Learn a broken-chord ballad, get the Mindful Notes ebook and join The Piano Lounge community. No card needed."
+  ogImage="/og/free-lessons.jpg"
+  crumbs={[{ name: 'Free lessons', href: '/free-lessons' }]}
+  schema={schema}
+  stickyCta={{ label: 'Start free', href: LINKS.freeTrial, note: '<b>Free</b>No card needed', event: 'trial_start_click' }}
+>
+  <section class="page-hero">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Free Test Drive</p>
+        <h1>Try Pianoforall free tonight</h1>
+        <p class="lede">Real lessons from the course, so you can find out whether this way of learning suits you before you spend anything.</p>
+        <ul class="check-list">
+          <li><b>Free piano lessons.</b> Learn a beautiful broken-chord ballad and see how chords and rhythm get you playing straight away.</li>
+          <li><b><em>Mindful Notes</em> ebook.</b> Robin’s short guide to staying calm, focused and patient at the piano, with simple practice ideas.</li>
+          <li><b>The Piano Lounge.</b> The student community: ask questions, share progress, meet other learners.</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn btn-lg" href={LINKS.freeTrial} data-track="trial_start_click" data-track-location="free_hero">Start the free lessons <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <ul class="trust-strip">
+          <li><Check /> No credit card</li>
+          <li><Check /> Occasional helpful emails, unsubscribe any time</li>
+        </ul>
+      </div>
+      <figure class="figure-frame" style="margin:0">
+        <Image src={tryFree} alt="The free Test Drive: lessons on a laptop, the Mindful Notes ebook and The Piano Lounge community" widths={[480, 800, 1200]} sizes="(min-width: 56rem) 520px, 100vw" loading="eager" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section-paper">
+    <div class="wrap split">
+      <Video vimeoId={LINKS.sampleLessonVimeo} title="The Amazing Broken Chord Ballad" poster={ballad} label="Preview a free lesson · 5:36" />
+      <div>
+        <h2>What you’ll play</h2>
+        <p>The free lessons open with <em>The Amazing Broken Chord Ballad</em>. Your left hand holds a bass note while your right hand ripples through a chord. Then you move the pattern through a progression, and it starts to sound like the opening of a film soundtrack.</p>
+        <p>You need a piano or keyboard and about twenty minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><h2>How the Test Drive works</h2></div>
+      <ol class="grid grid-3" style="list-style:none;padding:0">
+        <li class="card" style="margin:0"><span class="num">1</span><h3>Sign up free</h3><p>Enter your name and email on Pianoforall Academy. No card.</p></li>
+        <li class="card" style="margin:0"><span class="num">2</span><h3>Play the lessons</h3><p>They open in the same course player the full course uses, on any device.</p></li>
+        <li class="card" style="margin:0"><span class="num">3</span><h3>Decide later</h3><p>Buy the full course if you like it. If not, there’s nothing to cancel.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-sand">
+    <div class="wrap split">
+      <div>
+        <h2>You won’t be learning alone</h2>
+        <p>The Piano Lounge is where Pianoforall students introduce themselves, post videos of what they’re playing and ask questions about specific lessons. Robin takes part too.</p>
+        <Quote t={byId('le-busque')[0]} />
+      </div>
+      <figure class="figure-frame" style="margin:0">
+        <Image src={community} alt="The Piano Lounge community: discussion boards for introductions, student showcases and course Q&A" widths={[480, 900]} sizes="(min-width: 56rem) 480px, 100vw" loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-narrow">
+      <h2>Questions</h2>
+      <FaqList items={faqs} />
+      <div class="cta-box">
+        <h2>Ready when you are</h2>
+        <p>Grab a keyboard and give yourself twenty minutes.</p>
+        <a class="btn btn-lg" href={LINKS.freeTrial} data-track="trial_start_click" data-track-location="free_bottom">Start the free lessons</a>
+        <p class="cta-note">Free. No card. Already sure? <a href="/pricing">See pricing</a>.</p>
+      </div>
+    </div>
+  </section>
+</Base>

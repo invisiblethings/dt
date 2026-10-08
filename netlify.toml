@@ -1,0 +1,199 @@
+# Netlify configuration for pianoforall.com
+# Full page-by-page reasoning: docs/05-migration-and-redirects.md
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# ---------------------------------------------------------------------------
+# Domain consolidation (attach these domains to this Netlify site as aliases)
+# ---------------------------------------------------------------------------
+
+# www -> apex
+[[redirects]]
+  from = "https://www.pianoforall.com/*"
+  to = "https://pianoforall.com/:splat"
+  status = 301
+  force = true
+
+# pianoforall.academy (old single-page React site) -> pianoforall.com
+[[redirects]]
+  from = "https://pianoforall.academy/terms.html"
+  to = "https://pianoforall.com/terms-of-use"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://pianoforall.academy/privacy.html"
+  to = "https://pianoforall.com/privacy-policy"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://pianoforall.academy/*"
+  to = "https://pianoforall.com/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://www.pianoforall.academy/*"
+  to = "https://pianoforall.com/"
+  status = 301
+  force = true
+
+# ---------------------------------------------------------------------------
+# Old pianoforall.com WordPress URLs that changed (everything else is kept)
+# ---------------------------------------------------------------------------
+[[redirects]]
+  from = "/order"
+  to = "/pricing"
+  status = 301
+[[redirects]]
+  from = "/pianoforall-faqs"
+  to = "/faq"
+  status = 301
+[[redirects]]
+  from = "/frequently-asked-questions"
+  to = "/faq"
+  status = 301
+[[redirects]]
+  from = "/testimonials"
+  to = "/reviews"
+  status = 301
+[[redirects]]
+  from = "/reviews/pianoforall"
+  to = "/reviews"
+  status = 301
+[[redirects]]
+  from = "/reviews/classics-by-ear"
+  to = "/classics-by-ear"
+  status = 301
+[[redirects]]
+  from = "/reviews/moonlight-sonata"
+  to = "/classics-by-ear/moonlight-sonata"
+  status = 301
+[[redirects]]
+  from = "/reviews/bach-preludes"
+  to = "/classics-by-ear/bach-preludes"
+  status = 301
+[[redirects]]
+  from = "/reviews/erik-satie"
+  to = "/classics-by-ear/erik-satie-gnossiennes"
+  status = 301
+[[redirects]]
+  from = "/about-robin-pianoforall"
+  to = "/about"
+  status = 301
+[[redirects]]
+  from = "/contact-support"
+  to = "/contact"
+  status = 301
+[[redirects]]
+  from = "/home-page"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/learn-piano-online"
+  to = "/learn/learn-piano-online"
+  status = 301
+[[redirects]]
+  from = "/learn-piano-how-pianoforall-works"
+  to = "/how-it-works"
+  status = 301
+[[redirects]]
+  from = "/choosing-a-keyboard-or-digital-piano"
+  to = "/learn/choosing-a-keyboard"
+  status = 301
+[[redirects]]
+  from = "/pianoforall-vs-the-top-10-piano-learning-apps"
+  to = "/compare"
+  status = 301
+# Funnel page; 302 until the owner confirms whether this offer is still used
+[[redirects]]
+  from = "/exclusive-offer-classics-by-ear"
+  to = "/classics-by-ear"
+  status = 302
+[[redirects]]
+  from = "/log-in"
+  to = "https://academy.pianoforall.com/users/sign_in"
+  status = 301
+[[redirects]]
+  from = "/tag/*"
+  to = "/blog"
+  status = 301
+[[redirects]]
+  from = "/author/*"
+  to = "/about"
+  status = 301
+[[redirects]]
+  from = "/feed"
+  to = "/feed.xml"
+  status = 301
+[[redirects]]
+  from = "/comments/feed"
+  to = "/feed.xml"
+  status = 301
+[[redirects]]
+  from = "/sitemap_index.xml"
+  to = "/sitemap.xml"
+  status = 301
+[[redirects]]
+  from = "/page-sitemap.xml"
+  to = "/sitemap.xml"
+  status = 301
+[[redirects]]
+  from = "/post-sitemap.xml"
+  to = "/sitemap.xml"
+  status = 301
+[[redirects]]
+  from = "/category-sitemap.xml"
+  to = "/sitemap.xml"
+  status = 301
+# WordPress system paths: gone for good
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/404"
+  status = 410
+[[redirects]]
+  from = "/wp-login.php"
+  to = "/404"
+  status = 410
+[[redirects]]
+  from = "/xmlrpc.php"
+  to = "/404"
+  status = 410
+
+# Old trailing-slash variants resolve to the clean URL
+# (Netlify Pretty URLs handles /page/ -> /page for built files.)
+
+# ---------------------------------------------------------------------------
+# Headers
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/wp-content/uploads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/og/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"

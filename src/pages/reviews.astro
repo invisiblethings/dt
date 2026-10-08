@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import Quote from '../components/Quote.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { TESTIMONIALS } from '../data/testimonials';
+import { UDEMY } from '../data/site';
+
+const filters = [
+  { tag: 'all', label: 'All' },
+  { tag: 'beginner', label: 'Complete beginners' },
+  { tag: 'older', label: 'Started later in life' },
+  { tag: 'returning', label: 'Coming back to piano' },
+  { tag: 'reader', label: 'Already read music' },
+  { tag: 'guitar', label: 'Guitarists' },
+  { tag: 'teacher', label: 'Teachers' },
+  { tag: 'classics', label: 'Classics By Ear' },
+];
+const pfa = TESTIMONIALS.filter((t) => t.course === 'pianoforall');
+const cbe = TESTIMONIALS.filter((t) => t.course !== 'pianoforall');
+---
+<Base
+  title="Pianoforall Reviews: What Students Say After Learning"
+  description={`Pianoforall reviews from adult beginners, returning players and classically trained pianists, plus the course’s ${UDEMY.rating}/5 rating from about ${UDEMY.ratingCount} Udemy ratings.`}
+  crumbs={[{ name: 'Reviews', href: '/reviews' }]}
+  stickyCta={{ label: 'Try it free', href: '/free-lessons', note: '<b>Free lessons</b>No card needed' }}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Student reviews</p>
+      <h1>What students say about Pianoforall</h1>
+      <p class="lede">These come from emails students have sent Robin over the years, and from reviews on the Pianoforall Academy course pages. Names and towns are as the students gave them.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="stats" style="margin-bottom:2.5rem">
+        <div class="stat"><b>{UDEMY.rating}/5</b><span>average from about {UDEMY.ratingCount} ratings on <a href={UDEMY.url} rel="noopener">Udemy</a> (checked {UDEMY.checked})</span></div>
+        <div class="stat"><b>{UDEMY.students}</b><span>students enrolled on Udemy alone</span></div>
+        <div class="stat"><b>4.9/5</b><span>Udemy average for the Moonlight Sonata and Bach Preludes courses</span></div>
+        <div class="stat"><b>2006</b><span>the year the first students started</span></div>
+      </div>
+
+      <div class="chip-row" role="group" aria-label="Filter reviews" data-review-filter>
+        {filters.map((f, i) => <button type="button" class="chip" data-filter={f.tag} aria-pressed={i === 0 ? 'true' : 'false'}>{f.label}</button>)}
+      </div>
+      <p class="small muted" aria-live="polite" data-review-count style="margin:.75rem 0 1.5rem">{TESTIMONIALS.length} reviews</p>
+
+      <h2 class="visually-hidden">Pianoforall reviews</h2>
+      <div class="masonry" data-review-list>
+        {pfa.map((t) => <div data-tags={t.tags.join(' ')}><Quote t={t} /></div>)}
+      </div>
+      <h2 style="margin-top:2.5rem" data-cbe-heading>Classics By Ear reviews</h2>
+      <div class="masonry" data-review-list>
+        {cbe.map((t) => <div data-tags={t.tags.join(' ')}><Quote t={t} /></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-paper">
+    <div class="wrap-narrow">
+      <h2>What students find hard</h2>
+      <p>Reviews only help if they’re honest about the difficult parts. These come up again and again in student messages:</p>
+      <ul>
+        <li><b>Hands together takes repetition.</b> Several students mention watching a video many times before both hands click. That’s normal. Slow down and loop the section.</li>
+        <li><b>The Moonlight Sonata is a big piece.</b> Students who found it hard suggest learning the Bach or Satie course first.</li>
+        <li><b>No software checks your notes.</b> Pianoforall doesn’t listen to your playing, so you compare yourself with the video and audio. Recording yourself on your phone helps.</li>
+      </ul>
+      <p>Independent reviewers have made similar points. They praise the price, the chord-first approach and the range of styles, and note that you don’t get real-time feedback the way you do with app-based courses.</p>
+    </div>
+  </section>
+
+  <FinalCta location="reviews_final" heading="Find out for yourself" body="The free lessons are the quickest way to see whether Robin’s teaching suits you." />
+</Base>
+
+<script>
+  const group = document.querySelector('[data-review-filter]');
+  const items = [...document.querySelectorAll<HTMLElement>('[data-review-list] > [data-tags]')];
+  const count = document.querySelector('[data-review-count]')!;
+  const cbeHeading = document.querySelector<HTMLElement>('[data-cbe-heading]')!;
+  group?.addEventListener('click', (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-filter]');
+    if (!b) return;
+    const f = b.dataset.filter!;
+    group.querySelectorAll('[data-filter]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    let n = 0;
+    items.forEach((el) => { const show = f === 'all' || el.dataset.tags!.split(' ').includes(f); el.hidden = !show; if (show) n++; });
+    const cbeVisible = items.some((el) => !el.hidden && el.dataset.tags!.includes('classics'));
+    cbeHeading.hidden = !cbeVisible;
+    count.textContent = `${n} review${n === 1 ? '' : 's'}`;
+    window.pfaTrack?.('review_filter', { filter: f });
+  });
+</script>

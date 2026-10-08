@@ -1,0 +1,137 @@
+---
+import Article from '../../layouts/Article.astro';
+import type { Faq } from '../../data/faqs';
+
+const faqs: Faq[] = [
+  { id: 'p1', group: '', q: 'What should a beginner practise on piano every day?', a: 'A short warm-up, a quick review of something you already know, ten minutes on one new thing in small sections, and a few minutes playing for fun. That order keeps old skills fresh and gives new ones your best attention.' },
+  { id: 'p2', group: '', q: 'Is 20 minutes of piano practice a day enough?', a: 'Yes, for a beginner. Twenty focused minutes most days builds skills faster than occasional long sessions. Many adults find that once the habit is set, they play longer because they want to.' },
+  { id: 'p3', group: '', q: 'Should I practise scales as a beginner?', a: 'A little, once you can play some chords and songs. Scales build finger independence and help you know the keys. Pianoforall saves its scales book for last so that you’re playing music first.' },
+  { id: 'p4', group: '', q: 'What if I miss a day?', a: 'Pick up again the next day. Consistency over weeks matters more than an unbroken streak. If you keep missing days, try a shorter session at a fixed time, such as ten minutes after dinner.' },
+];
+const toc = [
+  { id: 'plan', text: 'The 20-minute plan' },
+  { id: 'timer', text: 'Practice timer' },
+  { id: 'principles', text: 'Six habits that make practice work' },
+  { id: 'stuck', text: 'When you get stuck' },
+];
+const segments = [
+  { min: 2, name: 'Warm up and relax', tip: 'Shoulders down, a few slow breaths. Play a chord you know softly, then loudly.' },
+  { min: 5, name: 'Review', tip: 'Play something from yesterday or last week. It should feel easy.' },
+  { min: 10, name: 'One new thing', tip: 'Work on one small section, slowly. Loop it. Stop if your hands tense up.' },
+  { min: 3, name: 'Play for fun', tip: 'Play anything you enjoy. End on something that sounds good.' },
+];
+---
+<Article
+  title="A 20-Minute Piano Practice Routine for Adult Beginners"
+  seoTitle="Piano Practice Routine for Beginners: A Simple 20-Minute Plan"
+  description="A simple 20-minute piano practice routine for busy adults: warm-up, review, one new skill, play for fun. With a free practice timer and tips for getting unstuck."
+  path="/learn/piano-practice-routine"
+  published="2026-10-08"
+  author="Pianoforall"
+  eyebrow="Beginner guide · Practice"
+  crumbs={[{ name: 'Learn', href: '/learn' }, { name: 'Practice routine', href: '/learn/piano-practice-routine' }]}
+  answer="A good beginner session is about <b>20 minutes</b>: 2 minutes to relax and warm up, 5 minutes reviewing something you know, 10 minutes on <b>one</b> new thing in small slow sections, and 3 minutes playing for fun. Do it most days rather than one long session a week."
+  toc={toc}
+  faqs={faqs}
+  cta="free"
+  related={[
+    { href: '/learn/how-long-does-it-take-to-learn-piano', title: 'How long does it take to learn piano?' },
+    { href: '/from-excited-to-consistent-mastering-the-habit-of-piano-practice', title: 'From excited to consistent: the practice habit' },
+    { href: '/woop-method-for-piano-practice', title: 'The WOOP method for piano practice' },
+  ]}
+>
+  <p>Most adults don’t lack talent. They lack a plan for the twenty minutes they have. Sit down without one and you’ll play the bits you already know, or attack a hard passage at full speed until you’re frustrated. A simple structure fixes both.</p>
+
+  <h2 id="plan">The 20-minute plan</h2>
+  <ol>
+    {segments.map((s) => <li><b>{s.name} ({s.min} min).</b> {s.tip}</li>)}
+  </ol>
+  <p>Have more time? Stretch the “one new thing” block, not the number of new things. Learning two new skills in one session usually means learning neither well.</p>
+
+  <h2 id="timer">Practice timer</h2>
+  <p>Press start, put your phone on the music stand and follow the prompts. A soft chime tells you when to move on.</p>
+  <div class="tool" data-timer>
+    <ol class="timer-steps" style="list-style:none;padding:0;margin:0 0 1rem">
+      {segments.map((s, i) => (
+        <li data-seg={i} data-sec={s.min * 60} style="display:flex;justify-content:space-between;gap:1rem;padding:.6rem .8rem;border-radius:8px;margin:0">
+          <span><b>{s.name}</b><span class="small muted" style="display:block">{s.tip}</span></span>
+          <span class="small" style="white-space:nowrap">{s.min} min</span>
+        </li>
+      ))}
+    </ol>
+    <p style="font:600 var(--step-3)/1 var(--serif);margin:.5rem 0 1rem" aria-live="polite" data-clock>20:00</p>
+    <div class="cta-row">
+      <button type="button" class="btn btn-dark" data-start>Start</button>
+      <button type="button" class="btn btn-ghost" data-skip>Next step</button>
+      <button type="button" class="chip" data-reset>Reset</button>
+    </div>
+  </div>
+
+  <h2 id="principles">Six habits that make practice work</h2>
+  <ul>
+    <li><b>Same time, same place.</b> Attach practice to something you already do every day, like your morning coffee. Leave the keyboard uncovered.</li>
+    <li><b>Slow is fast.</b> If you can’t play it right, you’re playing it too fast. Halve the speed.</li>
+    <li><b>Small sections.</b> Two bars, not the whole song. When two bars are easy, add the next two and join them.</li>
+    <li><b>Hands separately, then together.</b> Learn each hand’s part, then combine them at a crawl.</li>
+    <li><b>Notice tension.</b> Tight shoulders and a locked wrist slow you down and can cause pain. Stop, breathe, shake out your hands.</li>
+    <li><b>Record yourself weekly.</b> A phone video shows you what you can’t notice while playing, and it shows progress you’d otherwise miss.</li>
+  </ul>
+
+  <h2 id="stuck">When you get stuck</h2>
+  <p>Every learner hits a passage that won’t come. Try these, in this order:</p>
+  <ol>
+    <li>Slow it right down, slower than feels necessary.</li>
+    <li>Isolate the exact change that fails, often just two chords, and loop only that.</li>
+    <li>Play it with your eyes closed, so you feel the shape rather than look for it.</li>
+    <li>Leave it. Come back tomorrow. You’ll often find your hands have worked it out overnight.</li>
+  </ol>
+  <p>Robin includes simple mindfulness ideas in the Pianoforall courses for exactly these moments. The free <em>Mindful Notes</em> ebook in the <a href="/free-lessons">free lessons</a> collects them.</p>
+</Article>
+
+<style>
+  [data-seg][data-state='active'] { background: var(--brass-soft); }
+  [data-seg][data-state='done'] { opacity: .5; }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-timer]');
+  if (root) {
+    const segs = [...root.querySelectorAll<HTMLElement>('[data-seg]')];
+    const clock = root.querySelector<HTMLElement>('[data-clock]')!;
+    const startBtn = root.querySelector<HTMLButtonElement>('[data-start]')!;
+    let idx = 0, left = +segs[0].dataset.sec!, timer: number | undefined, ctx: AudioContext | null = null;
+    const total = () => segs.slice(idx + 1).reduce((a, s) => a + +s.dataset.sec!, 0) + left;
+    const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+    const chime = () => {
+      try {
+        ctx ??= new AudioContext();
+        [880, 1318.5].forEach((f, i) => {
+          const o = ctx!.createOscillator(), g = ctx!.createGain(), t = ctx!.currentTime + i * 0.18;
+          o.frequency.value = f; o.type = 'sine';
+          g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.2, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 1.2);
+          o.connect(g).connect(ctx!.destination); o.start(t); o.stop(t + 1.3);
+        });
+      } catch {}
+    };
+    const render = () => {
+      segs.forEach((s, i) => (s.dataset.state = i < idx ? 'done' : i === idx && timer ? 'active' : ''));
+      clock.textContent = `${segs[idx]?.querySelector('b')?.textContent ?? 'Done'} · ${fmt(left)}  (total ${fmt(total())})`;
+    };
+    const next = () => {
+      if (idx < segs.length - 1) { idx++; left = +segs[idx].dataset.sec!; chime(); }
+      else { clearInterval(timer); timer = undefined; chime(); clock.textContent = 'Session done. Nice work.'; startBtn.textContent = 'Start'; window.pfaTrack?.('tool_complete', { tool: 'practice_timer' }); return; }
+      render();
+    };
+    startBtn.addEventListener('click', () => {
+      if (timer) { clearInterval(timer); timer = undefined; startBtn.textContent = 'Resume'; render(); return; }
+      ctx ??= new AudioContext();
+      timer = window.setInterval(() => { left--; if (left <= 0) next(); else render(); }, 1000);
+      startBtn.textContent = 'Pause';
+      window.pfaTrack?.('tool_use', { tool: 'practice_timer' });
+      render();
+    });
+    root.querySelector('[data-skip]')!.addEventListener('click', () => { if (idx < segs.length - 1) { idx++; left = +segs[idx].dataset.sec!; render(); } });
+    root.querySelector('[data-reset]')!.addEventListener('click', () => { clearInterval(timer); timer = undefined; idx = 0; left = +segs[0].dataset.sec!; startBtn.textContent = 'Start'; render(); });
+    render();
+  }
+</script>
