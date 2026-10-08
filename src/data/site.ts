@@ -3,16 +3,7 @@
 // docs/01-strategy-and-findings.md). Change a price or link here and it
 // updates across the whole site, its structured data and its FAQ answers.
 
-export const PRODUCTION_URL = 'https://pianoforall.academy';
-
-// Netlify sets CONTEXT ('production', 'deploy-preview', 'branch-deploy') and
-// DEPLOY_PRIME_URL (the preview's own address) during builds. Preview builds
-// use their own address for the sitemap, canonicals and absolute links, so
-// testing a preview never sends you to the live domain, and they are
-// kept out of search engines. Local builds and production use the real domain.
-const env = typeof process !== 'undefined' ? process.env : {};
-export const IS_PREVIEW = !!env.CONTEXT && env.CONTEXT !== 'production';
-export const SITE_URL = IS_PREVIEW && env.DEPLOY_PRIME_URL ? env.DEPLOY_PRIME_URL.replace(/\/$/, '') : PRODUCTION_URL;
+export const SITE_URL = 'https://pianoforall.academy';
 
 // Turn sections on and off without deleting them.
 // freeLessons: the free Test Drive page and every 'Try it free' button.
