@@ -35,7 +35,7 @@ const ctaKind = cta === 'free' && !FEATURES.freeLessons ? 'course' : cta;
 
 const fmt = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const schema = [
-  articleSchema({ title, description, path, datePublished: published, dateModified: modified, image: heroImage ?? ogImage, author }),
+  articleSchema({ title, description, path, datePublished: published, dateModified: modified, image: heroImage ?? ogImage ?? '/og/learn.jpg', author }),
   ...(faqs?.length ? [faqPage(faqs)] : []),
   ...extraSchema,
 ];

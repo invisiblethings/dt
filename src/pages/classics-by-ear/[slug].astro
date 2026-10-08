@@ -23,7 +23,7 @@ const quotes = byId(...c.testimonialIds);
 const faqs = faqsById('cbe-reading', 'cbe-need-pfa', 'access', 'keyboard', 'refund');
 const schema = [
   course(p, c.metaDescription.replace(/ \$\d+ once\.$/, ''), { about: { '@type': 'MusicComposition', name: c.piece, composer: { '@type': 'Person', name: c.composer } } }),
-  ...(c.hasVideo ? [video({ name: 'Classics By Ear: Moonlight Sonata trailer', description: 'Robin Hall introduces his Moonlight Sonata course.', vimeoId: LINKS.moonlightVimeo, thumbnail: '/og/classics.jpg', uploadDate: '2022-11-07', durationSec: 179 })] : []),
+  ...(c.hasVideo ? [video({ name: 'Classics By Ear: Moonlight Sonata trailer', description: 'Robin Hall introduces his Moonlight Sonata course.', vimeoId: LINKS.moonlightVimeo, thumbnail: '/video/moonlight.jpg', uploadDate: '2022-11-07', durationSec: 179 })] : []),
   faqPage(faqs),
 ];
 ---
