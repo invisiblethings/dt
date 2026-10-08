@@ -26,7 +26,7 @@ Given <em>Ivories &amp; Oddities</em> mission to celebrate the piano, the music 
 <h2>Bringing the Circus to Abbey Road</h3>
 <p>When Lennon brought <em>Mr Kite</em> to the studio, he told producer George Martin he wanted the song to sound like “a circus in full swing — you should smell the sawdust.”</p>
 <p>Martin’s team couldn’t locate a real calliope in London, so they spliced together recordings of one, rearranging the tape pieces into a swirling fairground soundscape. Layered on top were multiple keyboard parts: Hammond organ, harmonium, mellotron, piano, Lowrey organ, and Wurlitzer.</p>
-<figure><img loading="lazy" src="/wp-content/uploads/2025/08/John-Lennon-Calliope.jpg" alt="Calliope" /></figure>
+<figure><img width="835" height="557" loading="lazy" src="/wp-content/uploads/2025/08/John-Lennon-Calliope.jpg" alt="Calliope" /></figure>
 <p>For pianists, it’s a case study in how keyboard instruments can do more than play melody — they can set an entire scene, from dreamy to chaotic, using tone, rhythm, and texture.</p>
 <h2>BBC Bans and Beatles Resilience</h3>
 <p>When <em>Sgt. Pepper’s Lonely Hearts Club Band</em> was released in May 1967, <em>Mr Kite</em> was track seven in an album that redefined popular music. The BBC promptly banned it, insisting that “Henry the horse” was slang for heroin. Lennon’s likely reply? Sometimes a horse is just a horse.</p>

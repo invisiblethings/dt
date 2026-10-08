@@ -21,7 +21,7 @@ wpId: 4786
 <p>Today, the piano is a relic, preserved by the freezing air that has kept the hut much as it was left in 1913.</p>
 <p>Visitors describe it as eerie: a proper upright piano, standing among sledges, frozen food tins, and the ghosts of explorers who once called this hut home.</p>
 <p>Why would anyone bring a piano here, to the world’s harshest environment?</p>
-<figure><img loading="lazy" alt="old piano antarctica" src="/wp-content/uploads/2025/08/old-piano-antarctica-1.jpg" /></figure>
+<figure><img width="835" height="534" loading="lazy" alt="old piano antarctica" src="/wp-content/uploads/2025/08/old-piano-antarctica-1.jpg" /></figure>
 
 <h2>The Man Behind The Expedition</h2>
 <p>The hut belonged to Captain Robert Falcon Scott, the British naval officer who led two major expeditions to Antarctica in the early 20th century.</p>
@@ -41,7 +41,7 @@ wpId: 4786
 Just getting it onto the ship must have been an ordeal.</p>
 <p>Then came the long sea voyage through the roaring forties, across the Southern Ocean, and finally into the ice‑choked waters of McMurdo Sound.</p>
 <p>When the hut at Cape Evans was erected in 1911, the piano was installed in the living quarters, a surprising splash of domesticity amid the crates of dried game meat &amp; berries, seal blubber, and scientific instruments.</p>
-<figure><img loading="lazy" alt="aerial view ship amidst glacier sea" src="/wp-content/uploads/2025/08/aerial-view-ship-amidst-glacier-sea.jpg" /></figure>
+<figure><img width="850" height="567" loading="lazy" alt="aerial view ship amidst glacier sea" src="/wp-content/uploads/2025/08/aerial-view-ship-amidst-glacier-sea.jpg" /></figure>
 
 <h2>Who Played It?</h2>
 <p>The hut’s piano was used often.</p>

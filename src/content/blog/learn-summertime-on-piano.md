@@ -17,7 +17,7 @@ wpId: 4865
 <p>So what makes <em>Summertime</em> the song that everyone loves to hear?</p>
 <h2>The Birth of a Classic</h2>
 <figure>
-  <img loading="lazy" alt="George Gershwin piano summertime" src="/wp-content/uploads/2025/08/George-Gershwin-piano-summertime.jpg" /><br />
+  <img width="625" height="352" loading="lazy" alt="George Gershwin piano summertime" src="/wp-content/uploads/2025/08/George-Gershwin-piano-summertime.jpg" /><br />
 </figure>
 <p>The story begins in the 1930s with George Gershwin, one of America’s most celebrated composers. Gershwin had already made his name with compositions like <em>Rhapsody in Blue</em> and <em>An American in Paris</em>. But in 1935, he took on his most ambitious project: an opera.</p>
 <p>The opera was called <em>Porgy and Bess</em>, and it told the story of African American life in Charleston, South Carolina. Gershwin wanted the music to feel authentic, rooted in the sounds of spirituals, blues, and folk traditions.</p>
@@ -40,7 +40,7 @@ wpId: 4865
 <p>Play it slowly, and it becomes a lullaby again. Add a jazz swing, and it comes alive in a smoky club. Push the tempo and it burns with rock energy. The song is endlessly adaptable, and yet always unmistakable.</p>
 <p>And then there’s the piano. Listen to how pianists approach <em>Summertime</em>. Some use the left hand to set up a slow, rocking rhythm—like a mother swaying a cradle. Others scatter chords like sunlight through leaves. Others still dig into the keys, pulling out bluesy growls or sparkling runs. The piano gives <em>Summertime</em> both structure and freedom, making it one of those songs that players and listeners never tire of.</p>
 <figure>
-  <img loading="lazy" alt="summertime piano learn" src="/wp-content/uploads/2025/08/summertime-piano-learn.jpg" /><br />
+  <img width="840" height="560" loading="lazy" alt="summertime piano learn" src="/wp-content/uploads/2025/08/summertime-piano-learn.jpg" /><br />
 </figure>
 <p>For those returning to the piano later in life, <em>Summertime</em> is a perfect piece to revisit. It can be as simple or as complex as you want it to be. While professionals can develop it with myriad keyboard flourishes and improvisations, the beauty of <em>Summertime</em> is that anyone who can play a little piano can learn it with just a handful of chords. A simple progression using Am, Dm, E7, and G is enough to bring the song to life, supporting that unforgettable melody. Just a few chords can carry the tune, but the possibilities for adding your own touch are endless. That’s why it continues to inspire both seasoned pianists and those rediscovering the joy of playing.</p>
 <h2>Everyone Loves to Hear It</h2>

@@ -71,7 +71,7 @@ It creates a shortcut in your brain: when X happens, I do Y.</p>
 <h2>Let’s put it together just for you</h2>
 <p>Here’s something you can print and fill in if you find it useful.</p>
 <figure>
-  <img loading="lazy" src="/wp-content/uploads/2025/08/Piano-routine.jpg" alt="Calliope" /><br />
+  <img width="840" height="1261" loading="lazy" src="/wp-content/uploads/2025/08/Piano-routine.jpg" alt="Calliope" /><br />
 </figure>
 <p>This isn’t about guilt or pushing yourself harder.<br />
 WOOP works because it activates non-conscious processes — your mind starts rehearsing better responses before the problem even hits.</p>

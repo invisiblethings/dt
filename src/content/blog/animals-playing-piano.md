@@ -28,7 +28,7 @@ wpId: 4841
 <p>Erik Satie, the eccentric French composer, once joked that his piano should be tuned to “cat mode.”<br />
 And many a pianist has confessed to being upstaged by their household feline mid‑practice.</p>
 <h2>Mozart’s Starling</h2>
-<p><img loading="lazy" src="/wp-content/uploads/2025/08/mozart-starling-piano.jpg" alt="" width="313" height="474" />Cats may play, but birds can sing. And none more famously than Mozart’s pet starling.</p>
+<p><img loading="lazy" src="/wp-content/uploads/2025/08/mozart-starling-piano.jpg" alt="Mozart’s pet starling perched by a piano" width="313" height="474" />Cats may play, but birds can sing. And none more famously than Mozart’s pet starling.</p>
 <p>In 1784, Mozart bought the bird from a Vienna pet shop after hearing it whistle a tune almost identical to a passage from his Piano Concerto No. 17.</p>
 <p>The starling became a constant companion, often perched near the keyboard as Mozart played.<br />
 He even claimed the bird could improvise variations on his themes.</p>
@@ -37,7 +37,7 @@ He even claimed the bird could improvise variations on his themes.</p>
 <p>If so, the bird must rank among the strangest “piano collaborators” in history.</p>
 <h2>Elephants at the Ivories</h2>
 <figure>
-  <img loading="lazy" alt="elephant plays piano" src="/wp-content/uploads/2025/08/elephant-plays-piano.jpg" /><br />
+  <img width="850" height="566" loading="lazy" alt="elephant plays piano" src="/wp-content/uploads/2025/08/elephant-plays-piano.jpg" /><br />
 </figure>
 <p>If Mozart’s starling was delicate, elephants at the piano are anything but.</p>
 <p>In Thailand, elephants rescued from logging camps have been taught to play specially built keyboards.</p>
@@ -46,7 +46,7 @@ He even claimed the bird could improvise variations on his themes.</p>
 <p>Listeners described the sound as oddly moving — clumsy perhaps, but filled with unexpected musicality.</p>
 <p>As one trainer said: <em>“They don’t just hit notes at random. They find patterns, they find joy.”</em></p>
 <h2>Dogs Who Play (or at Least Accompany)</h2>
-<p><img loading="lazy" src="/wp-content/uploads/2025/08/dog-playing-piano.jpg" alt="" width="395" height="536" />Dogs, too, have found their way to the piano.</p>
+<p><img loading="lazy" src="/wp-content/uploads/2025/08/dog-playing-piano.jpg" alt="A dog with its paws on a piano keyboard" width="395" height="536" />Dogs, too, have found their way to the piano.</p>
 <p>Viral videos abound of golden retrievers pressing keys while howling along in something resembling harmony.</p>
 <p>One bulldog became famous for pounding the lower octaves with its paws, tail wagging in time to its own “composition.”</p>
 <p>Though these performances are more comic than musical, they point to something deeper: dogs respond to piano sound with curiosity, sometimes with outright joy.</p>

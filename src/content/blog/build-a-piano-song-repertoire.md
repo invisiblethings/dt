@@ -52,7 +52,7 @@ wpId: 5149
 <p>Start with something you can play almost without thinking.</p>
 <p>Once you&#8217;ve played one song successfully, you&#8217;ll usually relax and the rest becomes much easier.</p>
 <h2>Include Something for Different Ages</h2>
-<p><img loading="lazy" src="/wp-content/uploads/2025/08/group-seniors-standing-by-piano-singing-together.jpg" alt="" width="1286" height="858" /></p>
+<p><img loading="lazy" src="/wp-content/uploads/2025/08/group-seniors-standing-by-piano-singing-together.jpg" alt="A group of older adults singing together around a piano" width="1286" height="858" /></p>
 <p>If you&#8217;re building a repertoire for parties or family gatherings, it&#8217;s worth having music from different periods.</p>
 <p>You might have some Beatles and Elton John, some ABBA, a few more recent songs and some old singalong favourites.</p>
 <p>You don&#8217;t need dozens from every period. Just enough that you&#8217;re not completely stumped when someone twenty years younger or forty years older than you asks for something.</p>

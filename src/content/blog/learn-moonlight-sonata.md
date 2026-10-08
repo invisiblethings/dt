@@ -25,7 +25,7 @@ But what is the story behind this beloved sonata? Why did Beethoven write it, an
 <p>The sonata’s nickname arrived in 1832, when poet Ludwig Rellstab compared the opening to moonlight shimmering on Lake Lucerne. From then on, it became known as the Moonlight Sonata.</p>
 <h2>Why It Is So Loved</h2>
 <p>Today, the piece ranks among the top five most-loved piano works worldwide. The reason is its perfect balance of simplicity and depth. The first movement, with its steady triplets, feels like meditation—calm but tinged with longing. The second movement offers a playful contrast, before the finale erupts into tempestuous passion. Few works capture such a wide range of emotion in twenty minutes.</p>
-<figure><img loading="lazy" alt="Pianoforall learn monnlight sonata beethoven" src="/wp-content/uploads/2025/08/Pianoforall-learn-monnlight-sonata-beethoven.jpg" /></figure>
+<figure><img width="850" height="567" loading="lazy" alt="Beethoven’s Moonlight Sonata" src="/wp-content/uploads/2025/08/Pianoforall-learn-monnlight-sonata-beethoven.jpg" /></figure>
 
 <h2>Has It Always Been Popular?</h2>
 <p>In Beethoven’s lifetime, the sonata was admired but not seen as his “greatest.” That reputation grew with time as pianists brought it to audiences everywhere. By the late 19th century, it was firmly part of the piano repertoire. Today, it is heard everywhere—from grand concert halls to students’ first recitals, and even on public pianos in railway stations.</p>

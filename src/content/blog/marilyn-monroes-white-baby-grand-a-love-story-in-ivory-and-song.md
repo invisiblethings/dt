@@ -42,7 +42,7 @@ wpId: 5178
 <p>Somewhere along the way, the memory of that piano lingered.</p>
 <p>In 1951, after a long and determined search, Marilyn found it. She bought it back, perhaps as a way to reclaim not just an object, but a fragment of the childhood she had lost.</p>
 <h2>A Piano That Travelled With Her</h2>
-<figure><img loading="lazy" alt="Marilyn monroe piano" src="/wp-content/uploads/2025/08/Marilyn-monroe-piano.jpg" /></figure>
+<figure><img width="835" height="527" loading="lazy" alt="Marilyn monroe piano" src="/wp-content/uploads/2025/08/Marilyn-monroe-piano.jpg" /></figure>
 
 <p>Marilyn took the white baby grand to every new home she acquired.</p>
 <p>When she moved to New York in the mid-1950s to study at the Actors Studio under Lee Strasberg, the piano went with her.</p>

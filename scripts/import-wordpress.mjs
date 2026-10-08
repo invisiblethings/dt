@@ -129,4 +129,5 @@ for (const p of posts) {
   index.push(p.slug);
   console.log(`✓ /${p.slug}  (${imgs.length} images)`);
 }
+// Dimensions and alt corrections: run scripts/fix-blog-images.mjs after importing.
 console.log(`\nImported ${index.length} posts, ${downloaded.size} images.`);

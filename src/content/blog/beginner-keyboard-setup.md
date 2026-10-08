@@ -29,7 +29,7 @@ wpId: 5326
 <p>But you certainly don&#8217;t need 88 keys to start learning.</p>
 <p>A 61-key keyboard is perfectly adequate for a beginner and will take you quite a long way. A 76-key keyboard gives you a little more room without taking up as much space as a full digital piano.</p>
 <p>Whatever size you choose, make sure the <strong>keys themselves are full size</strong>.</p>
-<figure><img loading="lazy" alt="Piano keyboard number of keys" src="/wp-content/uploads/2025/08/Piano-keyboard-number-of-keys.jpg" /></figure>
+<figure><img width="1356" height="742" loading="lazy" alt="Piano keyboard number of keys" src="/wp-content/uploads/2025/08/Piano-keyboard-number-of-keys.jpg" /></figure>
 
 <h2>Touch Sensitivity</h2>
 <p>This is one feature I would insist on.</p>

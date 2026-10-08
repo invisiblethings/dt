@@ -26,7 +26,7 @@ wpId: 5443
 <p>Elton John candidly admitting to years lost in a haze.</p>
 <p>But long before rock ’n’ roll, alcohol was already entwined with music. The great classical composers, architects of the great piano concertos, nocturnes, and sonatas we still play today, often lived lives that would shock even the most reckless rocker.</p>
 <h2>Franz Schubert: Wine, Song, And A Short Life</h2>
-<p><img loading="lazy" src="/wp-content/uploads/2025/09/Schubert-piano-drinking.jpg" alt="" width="1147" height="766" /></p>
+<p><img loading="lazy" src="/wp-content/uploads/2025/09/Schubert-piano-drinking.jpg" alt="Franz Schubert at the piano with friends and wine" width="1147" height="766" /></p>
 <p>Schubert was rarely without a glass of wine.</p>
 <p>He and his circle of friends, known as the Schubertiads, met frequently for evenings of drinking, singing, and revelry. His daily intake was staggering, measured in litres rather than glasses.</p>
 <p>This drinking worsened his health. Already weakened by syphilis, his body could not withstand years of alcohol abuse. He died in 1828 at just 31.</p>
@@ -78,7 +78,7 @@ wpId: 5443
 <p>In his youth, Liszt embodied excess: women, fame, and oceans of wine. His piano concerts caused near-riots, “Lisztomania” sweeping Europe.</p>
 <p>But in later life he turned austere. He gave up much drinking, entered minor religious orders, and produced sparse, introspective piano works.</p>
 <p>The flamboyant showman ended as a monkish figure, his late pieces foreshadowing modernism.</p>
-<p><img loading="lazy" src="/wp-content/uploads/2025/09/Franz-Listz.jpg" alt="Franz Listz" width="681" height="289" /><em>The Four ages of Franz Liszt.  The Etude magazine, 1913.</em></p>
+<p><img loading="lazy" src="/wp-content/uploads/2025/09/Franz-Listz.jpg" alt="Franz Liszt" width="681" height="289" /><em>The Four ages of Franz Liszt.  The Etude magazine, 1913.</em></p>
 <h2>Igor Stravinsky: “Stra-Whisky”</h2>
 <p>Moving into the 20th century, Igor Stravinsky was rarely without a hip flask of whisky. He was so fond of it that he once quipped, in heavily accented English: “My God, so much I like to drink Scotch, that sometimes I think my name is Igor Stra-whisky.”</p>
 <p>His modernist piano works — sharp, angular, rhythmic — show no sign of sloppiness. If anything, his fondness for Scotch kept pace with his disciplined compositional style.</p>

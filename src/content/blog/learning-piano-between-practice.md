@@ -63,5 +63,5 @@ wpId: 4969
 <p>Train your mind like you’d train your body — with care, rhythm, and breath. You don’t just learn in the action. You grow in the intervals.</p>
 <p>Will you share your thoughts in the comments section? Please, do!</p>
 <figure>
-  <img loading="lazy" alt="Brain learn piano" src="/wp-content/uploads/2025/08/Brain-learn-piano.jpg" /><br />
+  <img width="850" height="1276" loading="lazy" alt="Brain learn piano" src="/wp-content/uploads/2025/08/Brain-learn-piano.jpg" /><br />
 </figure>

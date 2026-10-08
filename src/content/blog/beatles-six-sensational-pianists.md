@@ -66,7 +66,7 @@ wpId: 5127
 <hr />
 <h2>So… Guitar Band?</h2>
 <p>Add up the credits and you’ll find that these <strong>six pianists</strong> — McCartney, Lennon, Martin, Preston, Thomas and Hopkins — played keyboards on <strong>over half</strong> of the Beatles’ recordings. Not bad for a so-called guitar band.</p>
-<p><img loading="lazy" src="/wp-content/uploads/2025/08/Beatles-keyboard-piano.jpg" alt="" width="835" height="580" /></p>
+<p><img loading="lazy" src="/wp-content/uploads/2025/08/Beatles-keyboard-piano.jpg" alt="The Beatles at the piano and keyboards" width="835" height="580" /></p>
 <hr />
 <h2>Postscripts</h2>
 <h3>1) Mal Evans: The Trusted Fixer</h3>

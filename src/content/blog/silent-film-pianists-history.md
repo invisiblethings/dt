@@ -38,7 +38,7 @@ Overall, roughly 70 to 80 percent of accompanists were pianists.</p>
 <li><strong>Bombay’s Metro Cinema:</strong> premieres occasionally mixed piano with harmonium and tabla, creating a unique East‑West blend.</li>
 </ul>
 <h2>The Decline: How The Talkies Silenced The Keys</h2>
-<p><img loading="lazy" src="/wp-content/uploads/2025/08/movie-micrphone-150x150.jpg" alt="" width="315" height="315" />The arrival of <em>talkies</em>—films with synchronized dialogue and orchestral soundtracks—changed everything.</p>
+<p><img loading="lazy" src="/wp-content/uploads/2025/08/movie-micrphone-150x150.jpg" alt="A vintage film-studio microphone" width="315" height="315" />The arrival of <em>talkies</em>—films with synchronized dialogue and orchestral soundtracks—changed everything.</p>
 <p>With the release of <em>The Jazz Singer</em> in 1927, the writing was on the wall.</p>
 <p>By 1929 most new feature films carried recorded sound, and live accompaniment rapidly disappeared.</p>
 <p>One silent‑film pianist later recalled, “the first time I heard voices on the screen, I knew my livelihood had vanished.”</p>

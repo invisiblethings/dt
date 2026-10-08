@@ -25,7 +25,7 @@ wpId: 4898
 <p>Interestingly, producer Hal B. Wallis initially considered casting jazz legend Ella Fitzgerald as Sam, flipping the gender and changing the dynamic. But in the end, it was clear: Rick needed a brotherly equal, not a flirtation. Wilson’s portrayal brought warmth, dignity, and heart to the role—and to the piano.</p>
 <p>And here’s the twist: Dooley Wilson couldn’t actually play piano. That’s right. While he performed <em>As Time Goes By</em> on-screen with convincing hand motions, the actual piano music was played off-camera by a real pianist. The piano on set even had only 58 keys instead of the full 88.</p>
 <p>So if you&#8217;re ever doubting your hand coordination while practicing a piece—remember, even Sam had help behind the scenes. It&#8217;s the feeling you put into the music that counts.</p>
-<figure><img loading="lazy" alt="play it again sam casablanca" src="/wp-content/uploads/2025/06/play-it-again-sam-casablanca.jpg" /></figure>
+<figure><img width="835" height="511" loading="lazy" alt="play it again sam casablanca" src="/wp-content/uploads/2025/06/play-it-again-sam-casablanca.jpg" /></figure>
 
 <h3>3. The Soundtrack That Echoes the Heart</h3>
 <p>Composer Max Steiner didn’t even want <em>As Time Goes By</em> in the film at first. But once it stayed, Steiner ran with it—crafting a score that wove the melody into every emotional twist and turn. In many ways, the tune becomes the film’s emotional barometer, subtly evolving alongside the characters.</p>

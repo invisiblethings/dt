@@ -24,7 +24,7 @@ This year marks a very special anniversary. It’s 200 years since the first pas
 <p>These pianos remind us that music is for everyone. No ticket is needed. No concert hall required. Just sit down and play.</p>
 <p>One of the most famous examples is the piano at St Pancras International in London. Over the years, world-class pianists such as <strong>Lang Lang</strong> have sat down to surprise commuters. But just as often it’s an everyday person, dusting off old skills and filling the station with melody.</p>
 <figure>
-  <img loading="lazy" alt="Public Piano" src="/wp-content/uploads/2025/08/Public-Piano.jpg" /><br />
+  <img width="865" height="607" loading="lazy" alt="Public Piano" src="/wp-content/uploads/2025/08/Public-Piano.jpg" /><br />
 </figure>
 <h2>Platform 88: Pianos with a Purpose</h2>
 <p>Now imagine this. You’ve just stepped off a crowded Tube train at Paddington or King’s Cross. You’re half-thinking about your next connection, half-wondering what to have for dinner. Then suddenly, music cuts through the station hum. A piano. Live, real, right there.</p>

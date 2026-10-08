@@ -32,6 +32,6 @@ wpId: 4982
 <p>So for those 65% of you who don’t favor the more extreme chronotypes, you’ll tend to feel at your peak in the late morning or early afternoon. Just be careful about how much you eat at lunchtime because no matter what kind of birds our chronotypes are we’re still humans who feel drowsy after a substantial midday meal.</p>
 <p>And as is the case for everything in life, if you only have that window of time at a specific moment of the day to sit down at your piano or keyboard and practice… throw everything I’ve told you out the window and just go for it whenever you can, with your mindset focused on getting the most out of those moments and enjoy yourself along the way!</p>
 <p><strong>Want to find out about your piano practice chronotype?</strong></p>
-<figure><img loading="lazy" alt="Pianoforall Chronotype" src="/wp-content/uploads/2025/08/Pianoforall-Chronotype.jpg" /></figure>
+<figure><img width="840" height="1258" loading="lazy" alt="Chronotype animals: bear, lion, wolf and dolphin" src="/wp-content/uploads/2025/08/Pianoforall-Chronotype.jpg" /></figure>
 <p>And do share in the comments section. We’d love to see if it’s also true for Piano For All students to be more of Third birds than Larks or Owls. And to know if you noticed a difference in your learning when you adapted your practice schedule to your chronotype.</p>
 <p>While you’re timing your practice, make sure the keyboard suits you: <a href="/choosing-a-keyboard-or-digital-piano">buying guide</a>.</p>
