@@ -25,22 +25,24 @@ Also in `findings/`:
 
 ## The 10 most important problems
 
+*Corrected 8 Oct 2026: the first version said 20 affiliate posts and 15 posts with redirect links. Links to your own /pianoforall-review/ page had been counted as affiliate links by mistake. The right numbers are 12 and 9.*
+
 | # | Severity | Problem | Where |
 |---|---|---|---|
-| 1 | Critical | **No affiliate disclosure on any post.** 20 posts carry affiliate links (Amazon, ClickBank via `/PFA` and `/pianoforall`, `/pbp`, the Simply Piano Impact link). Only 2 have a disclosure, and those are written into the text. The Pianoforall review even says it *isn't* "full of affiliate links" while it has 6. This breaks FTC rules and the Amazon Associates agreement. | 20 posts |
+| 1 | Critical | **Missing affiliate disclosures.** 12 posts carry affiliate links (55 links: Amazon, ClickBank via `/PFA` and `/pianoforall`, `/pbp`, the Simply Piano Impact link). 10 have no disclosure at all; 2 have one written into the text. The Pianoforall review even says it *isn't* "full of affiliate links" while it has 6. This breaks FTC rules and the Amazon Associates agreement. | 12 posts |
 | 2 | Critical | **Defamation risk on /stephen-ridley/.** It calls a named person a "scam" and a "con artist" and links his money to Scientology. The article itself admits there's "no concrete paper trail". | /stephen-ridley/ |
 | 3 | Critical | **Advice that could cause harm.** The tuning guide gives the wrong direction for tightening a string. The DIY repair guide says to tilt a piano. | /how-to-tune-a-piano-a-simple-guide/, /piano-diy-repair-guide/ |
 | 4 | Critical | **The ivory article's history is mostly wrong.** Cristofori used hammers. Érard, not Pape, invented double escapement. CITES banned the ivory trade, not "ivory in pianos". | /are-piano-keys-still-made-of-ivory/ |
 | 5 | High | **Author credentials contradict each other.** Katarina's bio: piano teacher since 2001, "member of the National Association of Music Teachers since 1995" (no such organisation; the real one is MTNA, and 1995 is before she started teaching). Her posts call her a touring concert pianist with her own Steinway. The About page's structured data credits Katarina, but the text is by Richard. | author bio, 5+ posts, /about/ |
 | 6 | High | **Ratings and verdicts disagree between the round-ups and the reviews.** Simply Piano is 4.7/5 in the round-up and 3.5/5 in its own review. Skoove, Pianote and Flowkey don't match either, and two "best for" labels contradict the reviews. | /best-piano-lessons-online/, /best-free-piano-learning-apps/, 4 reviews |
 | 7 | High | **Wrong prices and specs**, with about 40 confirmed errors across the site. Examples: Pianote is now sold through Musora at $30/month or $279/year; Piano With Jonny annual is $299.50; Skoove is $12.49 or $29.99; on /best-digital-piano/, the CLP-885, ES60, ES920 and KDP120 specs and the P-145BT "CFX / 24 voices". Lang Lang's career facts and Cole Lam's age are out of date. | see the content findings files |
-| 8 | High | **Affiliate links that go through your own redirects aren't marked `sponsored`.** 29 links on 15 posts. **Fixed in theme 1.1.3**; you also need to update one setting. | 15 posts |
+| 8 | High | **Affiliate links that go through your own redirects aren't marked `sponsored`.** 29 links on 9 posts. **Fixed in theme 1.1.3**; you also need to update one setting. | 9 posts |
 | 9 | High | **Internal links are thin.** 16 of 38 posts get no links from other posts, and the round-ups don't link to their own product reviews. A ready list of 93 links to add is in `clusters-internal-links.md`. | site-wide |
 | 10 | High | **Weak headings and metadata.** 18 posts have sections built from H3s or start below H2. 12 titles are over 60 characters. 4 content pages have no meta description. "(2025)" still appears in 2 titles. | see on-page.md |
 
 ## Quick wins (under an hour each)
 
-1. **Disclosure:** add the internal tag `#affiliate` to the 20 affiliate posts (Post settings → Tags). The theme then shows the disclosure under each title.
+1. **Disclosure:** add the internal tag `#affiliate` to the 12 affiliate posts (Post settings → Tags). The theme then shows the disclosure under each title.
 2. **Theme:** upload theme 1.1.3, then paste the new Affiliate domains value (see `../theme/INSTALL.md`).
 3. **P-145 review:** delete the old FAQ script in its Code injection, and shorten its meta title and description.
 4. **Beginner guide:** fix the meta title's ")" and the "$350" meta description, and upload the ready 1200×630 share image (`../best-beginner-pianos/images/best-beginner-keyboard-piano-social.jpg`).
