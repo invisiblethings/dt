@@ -7,5 +7,6 @@ export const GUIDES: Guide[] = [
   { href: '/learn/piano-chords-for-beginners', title: 'Piano chords for beginners', blurb: 'How chords are built, the seven chords in C major, and an interactive keyboard you can play.', group: 'Skills', published: '2026-10-08' },
   { href: '/learn/play-piano-by-ear', title: 'How to play piano by ear', blurb: 'Find the key, hear the chords, then add the melody. Step by step, with the progressions to learn first.', group: 'Skills', published: '2026-10-08' },
   { href: '/learn/piano-practice-routine', title: 'A 20-minute piano practice routine', blurb: 'A simple session plan for busy adults, with a built-in practice timer.', group: 'Practice', published: '2026-10-08' },
+  { href: '/learn/piano-backing-tracks', title: 'Free piano backing tracks', blurb: 'Drums and bass to play along with, in any key and tempo. Or type your own chords.', group: 'Practice', published: '2026-10-08' },
   { href: '/learn/choosing-a-keyboard', title: 'Choosing a keyboard or digital piano', blurb: 'Weighted keys, 61 vs 88, backing rhythms, and models worth looking at.', group: 'Gear', published: '2026-10-08' },
 ];

@@ -1,6 +1,6 @@
 # Page inventory: titles, descriptions, headings, schema
 
-Generated from the build by `node scripts/page-inventory.mjs`. 76 pages. Re-run after content changes.
+Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run after content changes.
 
 | URL | Title (chars) | Meta description (chars) | Index | Schema |
 |---|---|---|---|---|
@@ -30,6 +30,7 @@ Generated from the build by `node scripts/page-inventory.mjs`. 76 pages. Re-run 
 | `/learn/choosing-a-keyboard` | Best Keyboard or Digital Piano for Beginners: What to Buy (57) | Robin Hall’s advice on choosing a first keyboard or digital piano: touch-sensitive and weighted keys, 61 vs 88 keys, backing rhythms, and models worth comparing. (161) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
 | `/learn/how-long-does-it-take-to-learn-piano` | How Long Does It Take to Learn Piano? (Realistic Adult Timeline) (64) | How long it takes to learn piano as an adult: realistic milestones from first chords to intermediate, what speeds you up, and a practice calculator. (148) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
 | `/learn/learn-piano-online` | How to Learn Piano Online: A Clear Guide for Adult Beginners (60) | How to learn piano online as an adult: what to buy, apps vs video courses vs live teachers, a first-week plan, and checking yourself without a teacher. (151) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
+| `/learn/piano-backing-tracks` | Free Piano Backing Tracks to Play Along With (Any Key, Any Tempo) (65) | Free play-along drum and bass backing tracks for piano practice. Pick a chord progression, key, style and tempo, or type your own chords. Works in your browser. (160) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
 | `/learn/piano-chords-for-beginners` | Piano Chords for Beginners: Easy Chords to Learn First (with Diagrams) (70) | Learn how piano chords are built, the seven chords in C major, fingering for both hands and your first progressions. Includes an interactive keyboard you can play. (163) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
 | `/learn/piano-practice-routine` | Piano Practice Routine for Beginners: A Simple 20-Minute Plan (61) | A simple 20-minute piano practice routine for busy adults: warm-up, review, one new skill, play for fun. With a free practice timer and tips for getting unstuck. (161) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
 | `/learn/play-piano-by-ear` | How to Play Piano by Ear: A Step-by-Step Guide for Beginners (60) | Learn to play piano by ear: find the key, hear the chords, then add the melody. The chord progressions to learn first, simple ear exercises, and common mistakes. (161) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
@@ -400,6 +401,18 @@ Generated from the build by `node scripts/page-inventory.mjs`. 76 pages. Re-run 
   - H2: Your first week
   - H2: Checking yourself without a teacher
   - H2: When a live teacher helps
+  - H2: Common questions
+  - H2: Want a clear path from here?
+  - H2: Courses
+  - H2: Learn
+  - H2: Pianoforall
+  - H2: Help
+
+### `/learn/piano-backing-tracks`
+- **H1:** Free Piano Backing Tracks: Play Along in Your Browser
+  - H2: Backing track player
+  - H2: How to practise with it
+  - H2: What to play in each style
   - H2: Common questions
   - H2: Want a clear path from here?
   - H2: Courses
