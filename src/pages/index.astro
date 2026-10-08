@@ -7,7 +7,6 @@ import FaqList from '../components/FaqList.astro';
 import Guarantee from '../components/Guarantee.astro';
 import FinalCta from '../components/FinalCta.astro';
 import Check from '../components/Check.astro';
-import RatingBadge from '../components/RatingBadge.astro';
 import ChordExplorer from '../components/ChordExplorer.astro';
 import BuyButton from '../components/BuyButton.astro';
 import { PRODUCTS, UDEMY, GUARANTEE_DAYS, LINKS, FEATURES, PRIMARY_CTA } from '../data/site';
@@ -71,7 +70,7 @@ const schema = [
     <div class="wrap">
       <div class="stats">
         <div class="stat"><b>2006</b><span>Robin Hall created Pianoforall and still answers student emails himself</span></div>
-        <div class="stat"><b>{UDEMY.rating}/5</b><span>from about {UDEMY.ratingCount} ratings on <a href={UDEMY.url} rel="noopener">Udemy</a></span></div>
+        <div class="stat"><b>{UDEMY.ratingCount}+</b><span>student ratings, averaging {UDEMY.rating} out of 5</span></div>
         <div class="stat"><b>{pfa.lessons}</b><span>step-by-step lessons with {pfa.videoHours} hours of video</span></div>
         <div class="stat"><b>${pfa.price}</b><span>one payment. No subscription, ever.</span></div>
       </div>
@@ -192,7 +191,7 @@ const schema = [
       </div>
       <div class="cta-row" style="margin-top:2rem">
         <a class="btn btn-ghost" href="/reviews">Read more student stories</a>
-        <RatingBadge />
+        <span class="rating-badge"><span class="stars" aria-hidden="true">★</span><span><b>{UDEMY.rating}/5</b> from {UDEMY.ratingCount}+ student ratings</span></span>
       </div>
     </div>
   </section>

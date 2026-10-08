@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import { writeFileSync } from 'node:fs';
-import { SITE_URL, PRODUCTS, FEATURES } from './src/data/site.ts';
+import { SITE_URL, PRODUCTS, FEATURES, IS_PREVIEW } from './src/data/site.ts';
 import { PATH_REDIRECTS, OLD_HOSTS, GONE } from './src/data/redirects.ts';
 import rehypeBlogCleanup from './src/lib/rehype-blog-cleanup.mjs';
 
@@ -21,12 +21,12 @@ const redirectsFile = () => ({
         '', '# Checkout links',
         ...Object.values(PRODUCTS).map((p) => `${p.checkout}  ${p.orderUrl}  302`),
         '', '# Old hosts: changed URLs go straight to their final page',
-        ...OLD_HOSTS.flatMap((host) => paths.map(([from, to, code = 301]) => `${host}${from}  ${abs(to)}  ${code}!`)),
+        ...(IS_PREVIEW ? [] : OLD_HOSTS).flatMap((host) => paths.map(([from, to, code = 301]) => `${host}${from}  ${abs(to)}  ${code}!`)),
         '', '# Old paths on this host',
         ...paths.map(([from, to, code = 301]) => `${from}  ${to}  ${code}`),
         ...GONE.map((g) => `${g}  /404  410`),
         '', '# Old hosts: everything else keeps its path',
-        ...OLD_HOSTS.map((host) => `${host}/*  ${SITE_URL}/:splat  301!`),
+        ...(IS_PREVIEW ? [] : OLD_HOSTS).map((host) => `${host}/*  ${SITE_URL}/:splat  301!`),
       ];
       writeFileSync(new URL('_redirects', dir), lines.join('\n') + '\n');
     },
