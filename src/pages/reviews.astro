@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Quote from '../components/Quote.astro';
 import FinalCta from '../components/FinalCta.astro';
 import { TESTIMONIALS } from '../data/testimonials';
-import { UDEMY } from '../data/site';
+import { UDEMY, PRIMARY_CTA } from '../data/site';
 
 const filters = [
   { tag: 'all', label: 'All' },
@@ -22,7 +22,7 @@ const cbe = TESTIMONIALS.filter((t) => t.course !== 'pianoforall');
   title="Pianoforall Reviews: What Students Say After Learning"
   description={`Pianoforall reviews from adult beginners, returning players and classically trained pianists, plus the course’s ${UDEMY.rating}/5 rating from about ${UDEMY.ratingCount} Udemy ratings.`}
   crumbs={[{ name: 'Reviews', href: '/reviews' }]}
-  stickyCta={{ label: 'Try it free', href: '/free-lessons', note: '<b>Free lessons</b>No card needed' }}
+  stickyCta={PRIMARY_CTA}
 >
   <section class="page-hero">
     <div class="wrap">
@@ -70,7 +70,7 @@ const cbe = TESTIMONIALS.filter((t) => t.course !== 'pianoforall');
     </div>
   </section>
 
-  <FinalCta location="reviews_final" heading="Find out for yourself" body="The free lessons are the quickest way to see whether Robin’s teaching suits you." />
+  <FinalCta location="reviews_final" heading="Find out for yourself" />
 </Base>
 
 <script>

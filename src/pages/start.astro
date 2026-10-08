@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-import { PRODUCTS, LINKS } from '../data/site';
+import { PRODUCTS, LINKS, FEATURES } from '../data/site';
+const free = FEATURES.freeLessons;
 const pfa = PRODUCTS.pianoforall;
 
 // Results are rendered server-side (hidden) so they are crawlable, linkable
@@ -9,15 +10,15 @@ const results = [
   {
     id: 'pfa-beginner',
     title: 'Start with Pianoforall, from Book 1',
-    body: 'You want to play songs and understand what you’re doing, and you’re starting from scratch or close to it. Pianoforall was built for exactly this. Take the free lessons tonight, and if you like the way Robin teaches, carry on from Book 1.',
-    primary: { label: 'Start the free lessons', href: '/free-lessons' },
+    body: 'You want to play songs and understand what you’re doing, and you’re starting from scratch or close to it. Pianoforall was built for exactly this. Start at Book 1 and take it one short lesson at a time. If it doesn’t suit you, the 60-day guarantee means you can get your money back.',
+    primary: free ? { label: 'Start the free lessons', href: '/free-lessons' } : { label: `Get Pianoforall · $${PRODUCTS.pianoforall.price}`, href: PRODUCTS.pianoforall.checkout },
     secondary: { label: 'See what’s in the course', href: '/course' },
   },
   {
     id: 'pfa-returning',
     title: 'Pianoforall, moving quickly through Book 1',
     body: 'You’ve played before, so the first lessons will feel familiar. Don’t skip them, but move on once a pattern is comfortable. Students who read music get the most from the chord, inversion and ballad books, where playing by ear and improvising come in.',
-    primary: { label: 'Try the free lessons', href: '/free-lessons' },
+    primary: free ? { label: 'Try the free lessons', href: '/free-lessons' } : { label: 'See the course', href: '/course' },
     secondary: { label: 'See the nine books', href: '/course#curriculum' },
   },
   {
@@ -32,14 +33,14 @@ const results = [
     title: 'An app with real-time feedback may suit you better',
     body: 'You told us you want software that checks every note. Pianoforall doesn’t listen to your playing. Apps such as Simply Piano, Skoove or flowkey do, and they may keep you more motivated. Plenty of people use an app alongside Pianoforall later, once they want chords and playing by ear.',
     primary: { label: 'Read our honest comparison', href: '/compare' },
-    secondary: { label: 'Try Pianoforall free anyway', href: '/free-lessons' },
+    secondary: free ? { label: 'Try Pianoforall free anyway', href: '/free-lessons' } : { label: 'How Pianoforall works', href: '/how-it-works' },
   },
   {
     id: 'child',
     title: 'For a young child, start with a children’s course',
     body: 'Pianoforall is designed for teenagers and adults. For a child under about 12 learning alone, a course built for kids, such as Hoffman Academy, is a better first step. If you’d like to learn alongside your child, Pianoforall can work for both of you, with you adapting the lessons as you go.',
     primary: { label: 'See how the options compare', href: '/compare' },
-    secondary: { label: 'Learn alongside them', href: '/free-lessons' },
+    secondary: { label: 'Learn alongside them', href: '/course' },
   },
   {
     id: 'reading',

@@ -1,10 +1,10 @@
 # Page inventory: titles, descriptions, headings, schema
 
-Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run after content changes.
+Generated from the build by `node scripts/page-inventory.mjs`. 76 pages. Re-run after content changes.
 
 | URL | Title (chars) | Meta description (chars) | Index | Schema |
 |---|---|---|---|---|
-| `/` | Learn Piano Online: Lessons for Adult Beginners | Pianoforall (61) | Pianoforall is a piano course for adults. Start with chords and rhythm, play by ear, and read music as you go. 568 lessons, $49 once. Try it free. (146) | index | Organization, WebSite, Person, WebPage, Course, VideoObject, FAQPage |
+| `/` | Learn Piano Online: Lessons for Adult Beginners | Pianoforall (61) | Pianoforall is a piano course for adults. Start with chords and rhythm, play by ear, and read music as you go. 568 lessons, $49 once, 60-day refund. (148) | index | Organization, WebSite, Person, WebPage, Course, VideoObject, FAQPage |
 | `/404` | Page not found | Pianoforall (28) | This page has moved or no longer exists. (40) | noindex | Organization, WebSite, Person, WebPage |
 | `/about` | About Robin Hall, Creator of Pianoforall (40) | Robin Hall grew up in his father’s piano shop, has taught piano for over 30 years and created Pianoforall in 2006. He’s also a cartoonist and therapist. (152) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, AboutPage |
 | `/affiliate-program` | Pianoforall Affiliate Program: 60% Commission via ClickBank (59) | Recommend Pianoforall to your audience and earn 60% commission on every sale through ClickBank, with a 90-day tracking cookie. (126) | index | Organization, WebSite, Person, WebPage, BreadcrumbList |
@@ -12,7 +12,6 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
 | `/contact` | Contact Pianoforall: Course Help and Order Support (50) | Questions about Pianoforall lessons, downloads or which course to choose? Email Robin Hall directly. For orders and refunds, contact ClickBank. (143) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, ContactPage |
 | `/course` | The Pianoforall Course: Online Piano Lessons for Adults (55) | What you get with Pianoforall: 568 lessons, 25 hours of video, nine books from chords to jazz and classical. $49 once, lifetime access, 60-day refund. (150) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, Course, VideoObject, FAQPage |
 | `/faq` | Pianoforall FAQ: Beginners, Devices, Price and Refunds (54) | Pianoforall questions answered: complete beginners, reading music, which keyboard to use, devices and offline access, price and the 60-day refund. (146) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, FAQPage |
-| `/free-lessons` | Free Piano Lessons for Beginners: Try Pianoforall Free (54) | Try real Pianoforall lessons free. Learn a broken-chord ballad, get the Mindful Notes ebook and join The Piano Lounge community. No card needed. (144) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, VideoObject, FAQPage |
 | `/gift` | Give Pianoforall as a Gift (26) | Give piano lessons they can start today. Buy any Pianoforall course, email Robin the recipient’s name, and he’ll enrol them with a personal welcome. (148) | index | Organization, WebSite, Person, WebPage, BreadcrumbList |
 | `/pricing` | Pianoforall Price: $49 Once, No Subscription (44) | Pianoforall costs $49, one payment with lifetime access. Classics By Ear courses are $49 each, or get all four for $99. 60-day refund. (134) | index | Organization, WebSite, Person, WebPage, BreadcrumbList, FAQPage |
 | `/privacy-policy` | Privacy Policy | Pianoforall (28) | How Pianoforall Academy Limited collects, uses and protects your personal information, and the services that process it. (120) | index | Organization, WebSite, Person, WebPage, BreadcrumbList |
@@ -157,7 +156,7 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
   - H2: What students say about the course itself
   - H2: $49. Once.
   - H2: Questions about the course
-  - H2: Not sure yet? Start with the free lessons.
+  - H2: Start tonight, risk-free
   - H2: Courses
   - H2: Learn
   - H2: Pianoforall
@@ -170,18 +169,6 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
   - H2: Price, payment and refunds
   - H2: Classics By Ear
   - H2: Sit down at the piano tonight and play something
-  - H2: Courses
-  - H2: Learn
-  - H2: Pianoforall
-  - H2: Help
-
-### `/free-lessons`
-- **H1:** Try Pianoforall free tonight
-  - H2: What you’ll play
-  - H2: How the Test Drive works
-  - H2: You won’t be learning alone
-  - H2: Questions
-  - H2: Ready when you are
   - H2: Courses
   - H2: Learn
   - H2: Pianoforall
@@ -368,7 +355,7 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
   - H2: Why Summertime Endures
   - H2: Everyone Loves to Hear It
   - H2: A Song for All Seasons
-  - H2: Try this approach at your own piano
+  - H2: Want a clear path from here?
   - H2: Courses
   - H2: Learn
   - H2: Pianoforall
@@ -443,7 +430,7 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
   - H2: Six habits that make practice work
   - H2: When you get stuck
   - H2: Common questions
-  - H2: Try this approach at your own piano
+  - H2: Want a clear path from here?
   - H2: Courses
   - H2: Learn
   - H2: Pianoforall
@@ -458,7 +445,7 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
   - H2: Ear exercises that take five minutes
   - H2: Common mistakes
   - H2: Common questions
-  - H2: Try this approach at your own piano
+  - H2: Want a clear path from here?
   - H2: Courses
   - H2: Learn
   - H2: Pianoforall
@@ -466,7 +453,7 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
 
 ### `/learning-piano-between-practice`
 - **H1:** Learning piano also happens between practice sessions
-  - H2: Try this approach at your own piano
+  - H2: Want a clear path from here?
   - H2: Courses
   - H2: Learn
   - H2: Pianoforall
@@ -483,7 +470,7 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
   - H2: What older Pianoforall students say
   - H2: Are there other benefits to learning piano later in life?
   - H2: Common questions
-  - H2: Try this approach at your own piano
+  - H2: Want a clear path from here?
   - H2: Courses
   - H2: Learn
   - H2: Pianoforall

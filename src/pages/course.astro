@@ -9,7 +9,7 @@ import FinalCta from '../components/FinalCta.astro';
 import Check from '../components/Check.astro';
 import BuyButton from '../components/BuyButton.astro';
 import RatingBadge from '../components/RatingBadge.astro';
-import { PRODUCTS, GUARANTEE_DAYS, LINKS } from '../data/site';
+import { PRODUCTS, GUARANTEE_DAYS, LINKS, FEATURES } from '../data/site';
 import { BOOKS } from '../data/books';
 import { byId } from '../data/testimonials';
 import { faqsById } from '../data/faqs';
@@ -51,7 +51,9 @@ const schema = [
         <p class="lede">Nine books of short video lessons, taught by Robin Hall. You start with chords and rhythm, then move through blues, ballads, jazz and improvisation, and finish reading music and playing classical pieces.</p>
         <div class="cta-row">
           <BuyButton product="pianoforall" location="course_hero" size="btn-lg" variant="btn" label={`Get Pianoforall · $${pfa.price}`} />
-          <a class="btn btn-lg btn-ghost" href="/free-lessons" data-track="cta_click" data-track-location="course_hero_secondary">Try free lessons first</a>
+          {FEATURES.freeLessons
+            ? <a class="btn btn-lg btn-ghost" href="/free-lessons" data-track="cta_click" data-track-location="course_hero_secondary">Try free lessons first</a>
+            : <a class="btn btn-lg btn-ghost" href="#curriculum" data-track="cta_click" data-track-location="course_hero_secondary">See the nine books</a>}
         </div>
         <ul class="trust-strip">
           <li><Check /> One payment, lifetime access</li>
@@ -80,7 +82,7 @@ const schema = [
         <p class="eyebrow">Curriculum</p>
         <h2>The nine books</h2>
         <p>Work through them in order. Each book builds on the last, so you always know what to practise next.</p>
-        <p class="muted">Want to see the method before you buy? The <a href="/free-lessons">free lessons</a> come from this course.</p>
+        <p class="muted">Want to see the method before you buy? Watch the <a href="/">sample lesson on the home page</a>, or read <a href="/how-it-works">how the method works</a>.</p>
       </div>
       <ol class="books" role="list" style="list-style:none;padding:0;margin:0">
         {BOOKS.map((b) => (
@@ -215,5 +217,7 @@ const schema = [
     </div>
   </section>
 
-  <FinalCta location="course_final" heading="Not sure yet? Start with the free lessons." body="Real Pianoforall lessons, a free ebook and the student community. No card, no obligation." />
+  {FEATURES.freeLessons
+    ? <FinalCta location="course_final" heading="Not sure yet? Start with the free lessons." body="Real Pianoforall lessons, a free ebook and the student community. No card, no obligation." />
+    : <FinalCta location="course_final" heading="Start tonight, risk-free" />}
 </Base>

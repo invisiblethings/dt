@@ -219,7 +219,7 @@ a:hover { color: var(--ink); }
   .menu-toggle { display: none; }
   .header-actions .signin { display: inline-block; }
 }
-@media (max-width: 23rem) { .header-actions .btn { display: none; } }
+@media (max-width: 23rem) { .brand span { display: none; } }
 
 .mobile-menu { display: none; border-top: 1px solid var(--line); background: var(--ivory); }
 .mobile-menu[data-open='true'] { display: block; }
@@ -475,3 +475,5 @@ a:hover { color: var(--ink); }
 .footer-legal a { text-decoration: underline; }
 .cta-box .btn-ghost { --btn-fg: #fff; --btn-border: #fff; }
 .cta-box .btn-ghost:hover { --btn-bg: #fff; color: var(--ink); }
+.header-actions .btn { white-space: nowrap; }
+@media (max-width: 26rem) { .header-actions .btn { padding: 0.5rem 0.8rem; font-size: 0.9rem; } .brand span { font-size: 1.2rem; } }

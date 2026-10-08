@@ -1,5 +1,5 @@
 ---
-import { BRAND, LINKS, GUARANTEE_DAYS } from '../data/site';
+import { BRAND, LINKS, GUARANTEE_DAYS, FEATURES } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -22,7 +22,7 @@ const year = new Date().getFullYear();
           <li><a href="/classics-by-ear/erik-satie-gnossiennes">Satie Gnossiennes</a></li>
           <li><a href="/classics-by-ear/bach-preludes">Bach Preludes</a></li>
           <li><a href="/pricing">Pricing &amp; bundles</a></li>
-          <li><a href="/free-lessons">Free lessons</a></li>
+          {FEATURES.freeLessons && <li><a href="/free-lessons">Free lessons</a></li>}
         </ul>
       </nav>
       <nav aria-labelledby="f-learn">

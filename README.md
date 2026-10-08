@@ -1,8 +1,8 @@
 # Pianoforall website
 
-The rebuilt marketing site for Pianoforall: a static [Astro](https://astro.build) site intended to replace the WordPress site on **pianoforall.com** and absorb **pianoforall.academy**. The Thinkific course player at **academy.pianoforall.com** stays where it is.
+The rebuilt marketing site for Pianoforall: a static [Astro](https://astro.build) site for **pianoforall.academy**. **pianoforall.com** redirects into it page by page. The Thinkific course player at **academy.pianoforall.com** stays where it is.
 
-Start with **[docs/01-strategy-and-findings.md](docs/01-strategy-and-findings.md)**. It covers what exists today, what was kept and cut, the facts that need confirming, and an important note about checkout links.
+Start with **[docs/01-strategy-and-findings.md](docs/01-strategy-and-findings.md)**. It covers what exists today, what was kept and cut, and the facts that need confirming.
 
 ## Run it
 
@@ -14,13 +14,14 @@ npm run check:links    # QA: links, h1s, titles, descriptions, JSON-LD, alt text
 npm run import:blog    # re-import posts from the live WordPress site
 ```
 
-Node 22. Deploys to Netlify as-is (`netlify.toml` holds the build settings, redirects and headers).
+Node 22. Deploys to Netlify as-is (`netlify.toml` holds the build settings and headers; the build generates `dist/_redirects`).
 
 ## Where to change things
 
 | You want to change… | Edit |
 |---|---|
-| Prices, checkout links, Udemy rating, contact email, primary domain | `src/data/site.ts` |
+| Prices, checkout links (`/go/...` → ClickBank), Udemy rating, contact email, primary domain | `src/data/site.ts` |
+| Turn the free lessons back on | `FEATURES.freeLessons` in `src/data/site.ts`, then rename `src/pages/_free-lessons.astro` to `free-lessons.astro` (the temporary `/free-lessons` redirect switches off by itself) |
 | FAQ answers (also feed FAQ schema) | `src/data/faqs.ts` |
 | Testimonials | `src/data/testimonials.ts` |
 | Book descriptions | `src/data/books.ts` |
@@ -29,7 +30,8 @@ Node 22. Deploys to Netlify as-is (`netlify.toml` holds the build settings, redi
 | Which guide each blog category links to | `src/data/blog-map.ts` |
 | Colours, fonts, spacing | `src/styles/global.css` (`:root` tokens) |
 | Blog posts | `src/content/blog/*.md` (front matter + HTML) |
-| Redirects | `netlify.toml` |
+| Redirects (old URLs, old domains) | `src/data/redirects.ts` (the build writes `dist/_redirects`) |
+| Security and cache headers | `netlify.toml` |
 
 ## Structure
 

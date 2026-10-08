@@ -10,7 +10,7 @@ Each search need maps to **one** canonical page. If two pages could target the s
 
 | Query cluster | Tier | Intent | Page | Notes |
 |---|---|---|---|---|
-| pianoforall, piano for all, pianoforall.com | M | Navigational | `/` | Organization + WebSite schema, consistent entity facts |
+| pianoforall, piano for all, pianoforall.com, pianoforall academy | M | Navigational | `/` | Organization + WebSite schema, consistent entity facts |
 | pianoforall review(s), is pianoforall good, is pianoforall worth it | M | Commercial investigation | `/reviews` | Named testimonials, Udemy rating with link, honest "what students find hard" section. Affiliate review sites currently own much of this SERP. |
 | pianoforall price, pianoforall cost, pianoforall discount, pianoforall coupon | L–M | Transactional | `/pricing` | No fake coupons. A clear "$49, no subscription" answer beats coupon sites. |
 | pianoforall login, pianoforall sign in | L | Navigational | Header link → Thinkific sign-in; `/log-in` redirects | |

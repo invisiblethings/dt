@@ -6,7 +6,7 @@ import Guarantee from '../../components/Guarantee.astro';
 import BuyButton from '../../components/BuyButton.astro';
 import Video from '../../components/Video.astro';
 import { CLASSICS } from '../../data/classics';
-import { PRODUCTS, LINKS } from '../../data/site';
+import { PRODUCTS, LINKS, SITE_URL } from '../../data/site';
 import { faqsById } from '../../data/faqs';
 import { faqPage, course } from '../../lib/schema';
 import moonlightPoster from '../../assets/img/video-moonlight.jpg';
@@ -16,7 +16,7 @@ const schema = [
   {
     '@type': 'ItemList',
     name: 'Classics By Ear courses',
-    itemListElement: CLASSICS.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(c.product.url, 'https://pianoforall.com').href, name: c.product.name })),
+    itemListElement: CLASSICS.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(c.product.url, SITE_URL).href, name: c.product.name })),
   },
   faqPage(faqs),
 ];
@@ -118,7 +118,7 @@ const sorted = [...CLASSICS].sort((a, b) => order.indexOf(a.slug) - order.indexO
     <div class="wrap-narrow">
       <h2>Questions about Classics By Ear</h2>
       <FaqList items={faqs} />
-      <p class="muted" style="margin-top:1.5rem">Robin has announced three Chopin collections for the series. Join the <a href="/free-lessons">free lessons</a> list to hear when they open.</p>
+      <p class="muted" style="margin-top:1.5rem">Robin has announced three Chopin collections for the series.</p>
     </div>
   </section>
 </Base>

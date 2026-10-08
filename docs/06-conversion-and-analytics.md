@@ -1,5 +1,7 @@
 # Conversion strategy & analytics plan
 
+> **Current state:** the free lessons are switched off (`FEATURES.freeLessons = false`). Until they return, the primary call to action everywhere is the course itself (`/pricing` in the header and sticky bars, `/go/pianoforall` checkout in heroes and final sections). The free-first funnel below is the plan for when they come back.
+
 ## Funnel
 
 ```
@@ -71,7 +73,7 @@ Whichever you choose, name it in the privacy policy.
 
 ### Cross-domain journey
 Checkout happens on ClickBank and learning on Thinkific. To see the full funnel:
-- Pass a tracking ID into ClickBank pay links (`&tid=…`, ClickBank supports a `tid` parameter) and read sales by `tid` in ClickBank reporting.
+- Pass a tracking ID into ClickBank pay links (`&tid=…`, ClickBank supports a `tid` parameter) by adding it to `orderUrl` in `src/data/site.ts`, or make extra pretty links (e.g. `/go/pianoforall-email`) for each channel, and read sales by `tid` in ClickBank reporting.
 - Add the same analytics property to Thinkific (Settings → Code & analytics) to track Test Drive sign-ups and course starts.
 - Set ClickBank's thank-you page to a URL that fires a `purchase` event with value.
 

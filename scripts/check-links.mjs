@@ -10,7 +10,8 @@ const files = [];
 const walk = (d) => readdirSync(d).forEach((f) => { const p = path.join(d, f); statSync(p).isDirectory() ? walk(p) : files.push(p); });
 walk(DIST);
 
-const redirects = [...readFileSync('netlify.toml', 'utf8').matchAll(/from = "([^"]+)"/g)].map((m) => m[1]).filter((f) => f.startsWith('/'));
+// Redirects are generated into dist/_redirects at build time.
+const redirects = readFileSync(path.join(DIST, '_redirects'), 'utf8').split('\n').map((l) => l.trim().split(/\s+/)[0]).filter((f) => f && f.startsWith('/'));
 const isRedirect = (u) => redirects.some((r) => (r.endsWith('/*') ? u.startsWith(r.slice(0, -1)) : r === u));
 const resolves = (u) => {
   const clean = decodeURI(u.split('#')[0].split('?')[0]);

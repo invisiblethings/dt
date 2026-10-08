@@ -67,13 +67,20 @@ You currently run three sites that compete with each other for the same brand.
 | Yamaha endorsement | One old testimonial | Unverifiable | Not used. |
 | Strike-through "$79" | All sites | A permanent "sale" reference price is a consumer-protection risk (FTC Guides Against Deceptive Pricing; UK DMCC Act 2024) | Shows **$49, one-time**. No fake "was" price, no countdowns. |
 
-### Ownership and checkout links: please read
+### Checkout links
 
-The Buy buttons on **pianoforall.academy** point to `drilonnn_piano4all.pay.clickbank.net/?cbitems=60`. That URL carries an affiliate nickname in front of the vendor ID, and uses a different item number from the official checkout (`piano4all.pay.clickbank.net/?cbitems=71&template=PFA`). If you own the vendor account, that link pays a commission to the `drilonnn` account on every sale. If you are an affiliate rather than the vendor, the brand domains and the "I" voice of Robin Hall aren't yours to use, and the site would need an affiliate disclosure.
+The owner confirmed the `drilonnn_piano4all.pay.clickbank.net` order forms are the official checkout. All six were tested on 8 Oct 2026 and load the correct ClickBank order form and price. The site shows short links instead of the raw URLs:
 
-The new site keeps every checkout URL in one file (`src/data/site.ts`) and defaults to the **official vendor links**. Confirm which account should get paid before launch.
+| Pretty link | Goes to |
+|---|---|
+| `/go/pianoforall` | `?cbitems=60&exitoffer=exit3` ($49) |
+| `/go/moonlight-sonata` | `?cbitems=68&template=CBEM` ($49) |
+| `/go/erik-satie` | `?cbitems=70&template=CBES` ($49) |
+| `/go/bach-preludes` | `?cbitems=69&template=CBEB` ($49) |
+| `/go/classics-bundle` | `?cbitems=67&template=BUNDLE3` ($79) |
+| `/go/complete-bundle` | `?cbitems=79&template=BUNDLE4` ($99) |
 
----
+They are 302 redirects generated at build time from `src/data/site.ts` (`checkout` = pretty link, `orderUrl` = real URL), blocked in robots.txt and sent with `X-Robots-Tag: noindex`.
 
 ## 4. Keep / remove / rewrite / add
 
@@ -108,18 +115,14 @@ The new site keeps every checkout URL in one file (`src/data/site.ts`) and defau
 
 ---
 
-## 5. Recommended primary domain: **pianoforall.com**
+## 5. Primary domain: **pianoforall.academy**
 
-You asked for the new site to become the canonical hub, and the instinct is right. The domain choice is where I'd push back. **Build the new site on pianoforall.com, not pianoforall.academy.**
+The new site lives on **pianoforall.academy** (owner's decision). Everything else points at it:
 
-- pianoforall.com has 20 years of links, brand searches, Udemy/YouTube profile links and review-site citations. pianoforall.academy has close to nothing indexed.
-- Search engines and AI assistants already associate the entity "Pianoforall" with pianoforall.com.
-- Moving to a new domain means a site move: weeks to months of ranking volatility, for no gain.
-- People type "pianoforall.com". The `.academy` TLD reads as a sub-brand.
+- **pianoforall.com** and **www.pianoforall.com** 301 to pianoforall.academy. Every old URL keeps its path, and URLs that changed go straight to their new page in one hop.
+- **academy.pianoforall.com** stays as the Thinkific **course player** (logins and lessons); only its marketing pages change.
 
-So the plan is: **the new site *replaces* the WordPress site on pianoforall.com**; pianoforall.academy 301s into it; academy.pianoforall.com stays as the **course player** with its marketing pages redirected. Full URL map in `docs/05-migration-and-redirects.md`.
-
-If you still want `.academy` as primary, change `SITE_URL` in `src/data/site.ts`, swap the redirect direction, and run a Change of Address in Search Console. The code handles either.
+Because pianoforall.com is the older, more-linked domain, this is a full **domain move**. Run Search Console's Change of Address from the pianoforall.com property on launch day, keep the redirects forever, and expect some ranking movement for a few weeks. The checklist is in `docs/05-migration-and-redirects.md`. The domain is set once, in `SITE_URL` in `src/data/site.ts`.
 
 ---
 

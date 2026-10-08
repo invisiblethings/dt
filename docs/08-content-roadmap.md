@@ -47,7 +47,7 @@ Rule for every new page: one clear search need, one audience, one canonical URL,
 | "Piano at 60+" mini-report built from a student survey | Original data that journalists and AI answers can cite |
 
 ## Off-site (authority)
-- Update the Udemy instructor bio and course descriptions to link to pianoforall.com.
+- Update the Udemy instructor bio and course descriptions to link to pianoforall.academy.
 - Pitch Robin as a guest for adult-learning and retirement publications. The cartoonist + therapist + piano teacher story is unusual.
 - Ask long-time affiliates and teachers who recommend the course (e.g. zombieguitar.com) to link to the new canonical pages after migration.
 - No link buying, no PBNs, no exact-match anchor requests.

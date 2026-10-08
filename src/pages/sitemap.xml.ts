@@ -2,7 +2,7 @@
 // thin categories) so the sitemap only lists canonical, indexable URLs.
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { SITE_URL } from '../data/site';
+import { SITE_URL, FEATURES } from '../data/site';
 import { GUIDES } from '../data/guides';
 import { CLASSICS } from '../data/classics';
 
@@ -12,7 +12,7 @@ export const GET: APIRoute = async () => {
   const posts = await getCollection('blog');
   const cats = [...new Set(posts.map((p) => p.data.category))].filter((c) => posts.filter((p) => p.data.category === c).length >= 3);
   const urls: { loc: string; lastmod?: string }[] = [
-    ...['/', '/course', '/how-it-works', '/classics-by-ear', '/pricing', '/free-lessons', '/reviews', '/about', '/faq', '/compare', '/learn', '/start', '/blog', '/contact', '/gift', '/refund-policy', '/affiliate-program', '/privacy-policy', '/terms-of-use'].map((loc) => ({ loc, lastmod: BUILD })),
+    ...['/', '/course', '/how-it-works', '/classics-by-ear', '/pricing', ...(FEATURES.freeLessons ? ['/free-lessons'] : []), '/reviews', '/about', '/faq', '/compare', '/learn', '/start', '/blog', '/contact', '/gift', '/refund-policy', '/affiliate-program', '/privacy-policy', '/terms-of-use'].map((loc) => ({ loc, lastmod: BUILD })),
     ...CLASSICS.map((c) => ({ loc: c.product.url, lastmod: BUILD })),
     ...GUIDES.map((g) => ({ loc: g.href, lastmod: BUILD })),
     ...cats.map((c) => ({ loc: `/category/${c}` })),

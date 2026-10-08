@@ -10,7 +10,7 @@ import Check from '../components/Check.astro';
 import RatingBadge from '../components/RatingBadge.astro';
 import ChordExplorer from '../components/ChordExplorer.astro';
 import BuyButton from '../components/BuyButton.astro';
-import { PRODUCTS, UDEMY, GUARANTEE_DAYS, LINKS } from '../data/site';
+import { PRODUCTS, UDEMY, GUARANTEE_DAYS, LINKS, FEATURES, PRIMARY_CTA } from '../data/site';
 import { BOOKS } from '../data/books';
 import { byId } from '../data/testimonials';
 import { faqsById } from '../data/faqs';
@@ -34,10 +34,10 @@ const schema = [
 ---
 <Base
   title="Learn Piano Online: Lessons for Adult Beginners | Pianoforall"
-  description={`Pianoforall is a piano course for adults. Start with chords and rhythm, play by ear, and read music as you go. ${pfa.lessons} lessons, $${pfa.price} once. Try it free.`}
+  description={`Pianoforall is a piano course for adults. Start with chords and rhythm, play by ear, and read music as you go. ${pfa.lessons} lessons, $${pfa.price} once, 60-day refund.`}
   path="/"
   schema={schema}
-  stickyCta={{ label: 'Try it free', href: '/free-lessons', note: `<b>Free lessons</b>No card needed` }}
+  stickyCta={PRIMARY_CTA}
 >
   <!-- 1. Hero: what it is, who it's for, the first step -->
   <section class="hero">
@@ -47,11 +47,15 @@ const schema = [
         <h1>Learn piano by playing piano</h1>
         <p class="lede">Pianoforall starts you on chords and rhythms that sound like real music from the first lesson. You learn to play by ear, then pick up reading as you go. No scales marathon, no children’s songs.</p>
         <div class="cta-row">
-          <a class="btn btn-lg" href="/free-lessons" data-track="cta_click" data-track-location="hero">Try the free lessons <span class="arrow" aria-hidden="true">→</span></a>
+          {FEATURES.freeLessons ? (
+            <a class="btn btn-lg" href="/free-lessons" data-track="cta_click" data-track-location="hero">Try the free lessons <span class="arrow" aria-hidden="true">→</span></a>
+          ) : (
+            <BuyButton product="pianoforall" location="hero" variant="btn" size="btn-lg" label={`Get Pianoforall · $${pfa.price}`} />
+          )}
           <a class="btn btn-lg btn-ghost" href="/course" data-track="cta_click" data-track-location="hero_secondary">See the full course</a>
         </div>
         <ul class="trust-strip">
-          <li><Check /> No card for the free lessons</li>
+          {FEATURES.freeLessons && <li><Check /> No card for the free lessons</li>}
           <li><Check /> ${pfa.price} once, lifetime access</li>
           <li><Check /> {GUARANTEE_DAYS}-day refund</li>
         </ul>
@@ -102,7 +106,7 @@ const schema = [
         <p class="eyebrow">Hear it for yourself</p>
         <h2>Four chords, hundreds of songs</h2>
         <p>C, A minor, F and G turn up in a huge number of pop songs and ballads. In Book 1 you learn them as shapes your hands can find without looking, then play them in different rhythms.</p>
-        <p>Tap a chord to see where your hands go and hear how it sounds. Then press play to hear those four chords as a broken-chord pattern, the kind of thing you play in the free lessons.</p>
+        <p>Tap a chord to see where your hands go and hear how it sounds. Then press play to hear those four chords as a broken-chord pattern, the kind of thing you play early in Book 1.</p>
         <a class="text-link" href="/learn/piano-chords-for-beginners">Learn your first piano chords</a>
       </div>
       <ChordExplorer compact id="try-chords" />
@@ -167,9 +171,9 @@ const schema = [
       <div>
         <p class="eyebrow">Watch a real lesson</p>
         <h2>The Amazing Broken Chord Ballad</h2>
-        <p>This piece is part of the free lessons. Robin starts you with a single bass note in the left hand and a rippling broken chord in the right, then moves the pattern through a chord progression. It sounds much harder than it is, which is the point.</p>
+        <p>This is a real lesson from the course. Robin starts you with a single bass note in the left hand and a rippling broken chord in the right, then moves the pattern through a chord progression. It sounds much harder than it is, which is the point.</p>
         <p>Every Pianoforall lesson follows the same rhythm: watch, listen, play, then add one new idea.</p>
-        <a class="btn" href="/free-lessons" data-track="cta_click" data-track-location="sample_lesson">Get the free lessons</a>
+        <a class="btn" href="/course" data-track="cta_click" data-track-location="sample_lesson">See the whole course</a>
       </div>
       <Video vimeoId={LINKS.sampleLessonVimeo} title="The Amazing Broken Chord Ballad (sample lesson)" poster={ballad} label="Sample lesson · 5:36" />
     </div>

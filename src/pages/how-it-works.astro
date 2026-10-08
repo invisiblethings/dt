@@ -5,6 +5,7 @@ import Quote from '../components/Quote.astro';
 import FinalCta from '../components/FinalCta.astro';
 import ChordExplorer from '../components/ChordExplorer.astro';
 import FaqList from '../components/FaqList.astro';
+import { PRIMARY_CTA } from '../data/site';
 import { byId } from '../data/testimonials';
 import { faqsById } from '../data/faqs';
 import { faqPage, article } from '../lib/schema';
@@ -26,7 +27,7 @@ const schema = [
   ogImage="/og/learn.jpg"
   crumbs={[{ name: 'How it works', href: '/how-it-works' }]}
   schema={schema}
-  stickyCta={{ label: 'Try it free', href: '/free-lessons', note: '<b>Free lessons</b>No card needed' }}
+  stickyCta={PRIMARY_CTA}
 >
   <section class="page-hero">
     <div class="wrap-narrow">
@@ -139,5 +140,5 @@ const schema = [
     </div>
   </section>
 
-  <FinalCta location="method_final" heading="See the method for yourself" body="The free lessons take you through a real Pianoforall piece. You’ll know within an evening whether this way of learning suits you." />
+  <FinalCta location="method_final" heading="See the method for yourself" />
 </Base>

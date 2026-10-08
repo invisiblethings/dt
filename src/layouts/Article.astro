@@ -3,6 +3,7 @@ import Base from './Base.astro';
 import { article as articleSchema, faqPage } from '../lib/schema';
 import type { Faq } from '../data/faqs';
 import FaqList from '../components/FaqList.astro';
+import { FEATURES, PRIMARY_CTA, PRODUCTS } from '../data/site';
 
 interface Props {
   title: string;
@@ -29,6 +30,8 @@ const {
   title, seoTitle, description, path, published, modified, author = 'Robin Hall', eyebrow,
   crumbs, answer, toc, faqs, heroImage, heroAlt, ogImage, noindex, related = [], cta = 'free', extraSchema = [],
 } = Astro.props;
+// Without free lessons, the generic 'free' call to action becomes the course one.
+const ctaKind = cta === 'free' && !FEATURES.freeLessons ? 'course' : cta;
 
 const fmt = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const schema = [
@@ -47,7 +50,7 @@ const schema = [
   schema={schema}
   noindex={noindex}
   article={{ published, modified }}
-  stickyCta={cta ? { label: 'Try it free', href: '/free-lessons', note: '<b>Free lessons</b>No card needed' } : false}
+  stickyCta={cta ? PRIMARY_CTA : false}
 >
   <article>
     <header class="page-hero" style="padding-bottom:1.5rem">
@@ -77,19 +80,21 @@ const schema = [
         )}
         {cta && (
           <aside class="cta-box">
-            {cta === 'classics' ? (
+            {ctaKind === 'classics' ? (
               <>
                 <h2>Learn a classical piece the same way</h2>
                 <p>Robin’s Classics By Ear courses teach the Moonlight Sonata, Satie’s Gnossiennes and Bach’s preludes in small sections, chords and patterns first.</p>
                 <a class="btn" href="/classics-by-ear" data-track="cta_click" data-track-location="article_cta_classics">See Classics By Ear</a>
               </>
-            ) : cta === 'course' ? (
+            ) : ctaKind === 'course' ? (
               <>
                 <h2>Want a clear path from here?</h2>
                 <p>Pianoforall takes you from your first chord to blues, ballads, jazz and reading music, one short lesson at a time. $49 once, with a 60-day refund.</p>
                 <div class="cta-row">
                   <a class="btn" href="/course" data-track="cta_click" data-track-location="article_cta_course">See the course</a>
-                  <a class="btn btn-ghost" href="/free-lessons" data-track="cta_click" data-track-location="article_cta_course_free">Try free lessons</a>
+                  {FEATURES.freeLessons
+                    ? <a class="btn btn-ghost" href="/free-lessons" data-track="cta_click" data-track-location="article_cta_course_free">Try free lessons</a>
+                    : <a class="btn btn-ghost" href={PRODUCTS.pianoforall.checkout} rel="nofollow" data-track="begin_checkout" data-product="pianoforall" data-track-location="article_cta_course_buy">Get it · ${PRODUCTS.pianoforall.price}</a>}
                 </div>
               </>
             ) : (

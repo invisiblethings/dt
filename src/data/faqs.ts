@@ -1,4 +1,4 @@
-import { PRODUCTS, GUARANTEE_DAYS, LINKS, BRAND } from './site';
+import { PRODUCTS, GUARANTEE_DAYS, LINKS, BRAND, FEATURES } from './site';
 
 const pfa = PRODUCTS.pianoforall;
 
@@ -6,7 +6,7 @@ export type Faq = { id: string; q: string; a: string; group: string };
 
 // Plain text answers: rendered on the page as paragraphs and reused verbatim
 // in FAQPage structured data, so the markup always matches what people see.
-export const FAQS: Faq[] = [
+const ALL_FAQS: Faq[] = [
   // Is it right for me?
   {
     id: 'beginner',
@@ -171,6 +171,9 @@ export const FAQS: Faq[] = [
     a: `No. You learn each section by watching, listening and following keyboard diagrams. The written music is there alongside, so you can connect what you play to the notes on the page as you go.`,
   },
 ];
+
+// Hidden features drop their questions everywhere (pages and FAQ schema).
+export const FAQS = ALL_FAQS.filter((f) => FEATURES.freeLessons || f.id !== 'free-trial');
 
 export const faqsById = (...ids: string[]) => ids.map((id) => FAQS.find((f) => f.id === id)!).filter(Boolean);
 export const FAQ_GROUPS = [...new Set(FAQS.map((f) => f.group))];

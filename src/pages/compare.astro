@@ -8,7 +8,7 @@ import { faqPage, article } from '../lib/schema';
 
 const faqs = faqsById('vs-apps', 'vs-youtube', 'midi', 'kids');
 const rows = [
-  { name: 'Pianoforall', best: 'Adults who want to play from chords and by ear, then read', how: 'Video, audio and ebooks; chords and rhythm first', feedback: 'No (you compare with video and audio)', price: `One-time, $${PRODUCTS.pianoforall.price}`, free: 'Free lessons', us: true },
+  { name: 'Pianoforall', best: 'Adults who want to play from chords and by ear, then read', how: 'Video, audio and ebooks; chords and rhythm first', feedback: 'No (you compare with video and audio)', price: `One-time, $${PRODUCTS.pianoforall.price}`, free: '60-day refund', us: true },
   { name: 'Simply Piano', best: 'Beginners who like a guided, game-like app', how: 'App listens as you play along to on-screen notes', feedback: 'Yes, real-time', price: 'Subscription', free: 'Free basics course; trial' },
   { name: 'flowkey', best: 'Learning specific songs from notation', how: 'Video plus scrolling sheet music; Wait Mode', feedback: 'Yes (waits for correct notes)', price: 'Subscription', free: 'Free account; trial' },
   { name: 'Skoove', best: 'Beginners wanting feedback plus theory', how: 'Interactive lessons that listen to you', feedback: 'Yes, real-time', price: 'Subscription', free: 'Free basic tier; trial' },
@@ -105,5 +105,5 @@ const schema = [
     </div>
   </section>
 
-  <FinalCta location="compare_final" heading="The easiest way to compare is to try it" body="Spend twenty minutes with the free Pianoforall lessons. You’ll know whether the chord-first approach suits you." />
+  <FinalCta location="compare_final" heading="The easiest way to compare is to try it" />
 </Base>

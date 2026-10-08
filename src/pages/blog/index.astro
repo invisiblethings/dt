@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PostCard from '../../components/PostCard.astro';
+import { SITE_URL } from '../../data/site';
 const posts = (await getCollection('blog')).sort((a, b) => +b.data.pubDate - +a.data.pubDate);
 const cats = [...new Map(posts.map((p) => [p.data.category, p.data.categoryName])).entries()];
 ---
@@ -9,7 +10,7 @@ const cats = [...new Map(posts.map((p) => [p.data.category, p.data.categoryName]
   title="Piano Blog: Practice Tips, Learning Psychology and Piano Stories"
   description="Articles by Robin Hall on learning piano as an adult: practice habits, the psychology of learning, gear, classical pieces and stories from piano history."
   crumbs={[{ name: 'Blog', href: '/blog' }]}
-  schema={[{ '@type': 'Blog', name: 'Pianoforall blog', url: 'https://pianoforall.com/blog', publisher: { '@id': 'https://pianoforall.com/#organization' } }]}
+  schema={[{ '@type': 'Blog', name: 'Pianoforall blog', url: `${SITE_URL}/blog`, publisher: { '@id': `${SITE_URL}/#organization` } }]}
 >
   <section class="page-hero">
     <div class="wrap">

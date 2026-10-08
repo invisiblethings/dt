@@ -1,10 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
-import { BRAND, LINKS, GUARANTEE_DAYS } from '../data/site';
+import { BRAND, LINKS, GUARANTEE_DAYS, SITE_URL } from '../data/site';
 const schema = [{
   '@type': 'ContactPage',
   mainEntity: {
-    '@type': 'Organization', '@id': 'https://pianoforall.com/#organization',
+    '@type': 'Organization', '@id': `${SITE_URL}/#organization`,
     contactPoint: [
       { '@type': 'ContactPoint', contactType: 'customer support', email: BRAND.email, availableLanguage: 'English' },
       { '@type': 'ContactPoint', contactType: 'billing support', telephone: '+1-800-390-6035', areaServed: ['US', 'CA'], name: 'ClickBank order support' },
