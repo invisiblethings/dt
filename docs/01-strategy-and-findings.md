@@ -57,7 +57,7 @@ You currently run three sites that compete with each other for the same brand.
 
 | Claim | Where | Problem | What the new site does |
 |---|---|---|---|
-| "500,000+ students" | pianoforall.com | Plausible (Udemy alone shows ~421k) but not sourced | Uses "more than 500,000 students" only with "since 2006, across Udemy and our own site" wording. **Confirm the total.** |
+| "500,000+ students" | pianoforall.com | Plausible (Udemy alone shows ~421k) but not sourced | Not shown. The site uses the checkable Udemy figure (≈421,000 students). **Confirm the all-platform total**, then add it via `BRAND.studentsLabel` in `src/data/site.ts`. |
 | "30,000+" vs "35,000+ five-star reviews" | Home vs newer pages | Two different numbers; no source | Not used. Uses the checkable Udemy rating instead. |
 | "18 years of experience" | pianoforall.academy | Contradicts Robin's own "30+ years" | Dropped. Uses "30+ years". |
 | "Students from 12 to 90+" | pianoforall.academy | Not on any official page; contradicts the FAQ on children | Dropped. |
@@ -149,7 +149,7 @@ If you still want `.academy` as primary, change `SITE_URL` in `src/data/site.ts`
 /am-i-too-old-to-learn-piano    Adult-learner guide (existing URL kept)
 /start                          "Where should I start?" quiz
 /blog                           Existing posts, same URLs at root
-/contact
+/contact  /gift
 /privacy-policy  /terms-of-use  /refund-policy  /affiliate-program
 ```
 
