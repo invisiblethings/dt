@@ -1,0 +1,9 @@
+{{#if pages}}
+    {{#match pages ">" 1}}
+        <nav class="pz-pagination" aria-label="Pagination">
+            {{#if prev}}<a class="pz-btn pz-btn-ghost" href="{{page_url prev}}" rel="prev">← Newer</a>{{else}}<span></span>{{/if}}
+            <span class="pz-page-count">Page {{page}} of {{pages}}</span>
+            {{#if next}}<a class="pz-btn pz-btn-ghost" href="{{page_url next}}" rel="next">Older →</a>{{else}}<span></span>{{/if}}
+        </nav>
+    {{/match}}
+{{/if}}

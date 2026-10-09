@@ -1,0 +1,54 @@
+<article class="pz-article {{post_class}}" data-minutes="{{reading_time minute="1" minutes="%"}}">
+    <header class="pz-wrap pz-hero">
+        {{> "breadcrumbs"}}
+        {{#primary_tag}}<a class="pz-eyebrow pz-hero-tag" href="{{url}}">{{name}}</a>{{/primary_tag}}
+        <h1 class="pz-title">{{title}}</h1>
+        {{#if custom_excerpt}}<p class="pz-dek">{{custom_excerpt}}</p>{{/if}}
+        {{> "trust"}}
+    </header>
+
+    {{#if full}}
+        {{> "feature-image" full=true}}
+    {{else}}
+        <div class="pz-wrap">{{> "feature-image"}}</div>
+    {{/if}}
+
+    <div class="pz-wrap pz-layout">
+        <div class="pz-body">
+            {{#if @custom.show_table_of_contents}}
+                <details class="pz-toc-mobile" hidden>
+                    <summary>On this page</summary>
+                    <ol class="pz-toc-list"></ol>
+                </details>
+            {{/if}}
+            <div class="gh-content pz-content">
+                {{content}}
+            </div>
+            <div class="pz-share-row" hidden>
+                <span>Found this useful?</span>
+                <button class="pz-btn pz-btn-ghost" type="button" data-pz-share>Share this guide</button>
+            </div>
+            {{#if @custom.show_author_box}}
+                {{> "author-box"}}
+            {{/if}}
+            {{#if @site.members_enabled}}
+                {{#unless @member}}
+                    <aside class="pz-post-signup">
+                        {{> "signup-form" heading_level="h3"}}
+                    </aside>
+                {{/unless}}
+            {{/if}}
+        </div>
+        <aside class="pz-rail" aria-label="On this page">
+            <div class="pz-rail-inner">
+                {{#if @custom.show_table_of_contents}}
+                    <nav class="pz-toc" hidden>
+                        <span class="pz-eyebrow">On this page</span>
+                        <ol class="pz-toc-list"></ol>
+                    </nav>
+                {{/if}}
+                <div class="pz-rail-pick" hidden></div>
+            </div>
+        </aside>
+    </div>
+</article>

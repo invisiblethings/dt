@@ -1,0 +1,8 @@
+{{!< default}}
+{{#post}}
+    {{> "article"}}
+    {{> "comments"}}
+{{/post}}
+{{#if @custom.show_related_posts}}
+    {{> "related-posts"}}
+{{/if}}

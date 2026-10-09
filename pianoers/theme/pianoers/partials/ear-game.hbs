@@ -1,0 +1,14 @@
+<section class="pz-game" data-pz-game data-link="{{@custom.ear_game_link}}" aria-labelledby="pz-game-h">
+    <div class="pz-game-head">
+        <span class="pz-eyebrow">Ear trainer</span>
+        <h2 id="pz-game-h" class="pz-section-title">Name that note</h2>
+        <p>Press play, listen, then tap the key you heard. Every pianist starts here.</p>
+    </div>
+    <div class="pz-game-bar">
+        <button class="pz-btn pz-btn-buy pz-game-play" type="button">Play a note</button>
+        <span class="pz-game-score">Streak <b data-streak>0</b> · Best <b data-best>0</b></span>
+        <button class="pz-sound" type="button" aria-pressed="true">Sound on</button>
+    </div>
+    {{> "piano" octaves="1" label="Answer keys: tap the note you heard"}}
+    <p class="pz-game-msg" aria-live="polite">Tip: headphones help.</p>
+</section>

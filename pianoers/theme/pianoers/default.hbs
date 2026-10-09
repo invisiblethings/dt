@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}" data-color-scheme="{{#match @custom.color_scheme "Dark"}}dark{{else match @custom.color_scheme "Auto"}}auto{{else}}light{{/match}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{meta_title}}</title>
+    {{!-- Fonts are declared here, not in screen.css, so these URLs match the preloads exactly
+         (Ghost adds a ?v= version); otherwise the browser downloads each font twice. --}}
+    <link rel="preload" href="{{asset "fonts/schibsted-grotesk-normal-500-800.woff2"}}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{asset "fonts/lora-normal-400-600.woff2"}}" as="font" type="font/woff2" crossorigin>
+    <style>
+        @font-face { font-family: "Schibsted Grotesk"; src: url("{{asset "fonts/schibsted-grotesk-normal-500-800.woff2"}}") format("woff2"); font-weight: 500 800; font-style: normal; font-display: swap; }
+        @font-face { font-family: "Lora"; src: url("{{asset "fonts/lora-normal-400-600.woff2"}}") format("woff2"); font-weight: 400 600; font-style: normal; font-display: swap; }
+        @font-face { font-family: "Lora"; src: url("{{asset "fonts/lora-italic-400-600.woff2"}}") format("woff2"); font-weight: 400 600; font-style: italic; font-display: swap; }
+        @font-face { font-family: "IBM Plex Mono"; src: url("{{asset "fonts/ibm-plex-mono-normal-400.woff2"}}") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+        @font-face { font-family: "IBM Plex Mono"; src: url("{{asset "fonts/ibm-plex-mono-normal-500.woff2"}}") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+    </style>
+    <link rel="stylesheet" href="{{asset "css/screen.css"}}">
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}{{{block "body_class"}}}">
+<a class="pz-skip" href="#pz-main">Skip to content</a>
+
+<header class="pz-head" id="pz-head">
+    <div class="pz-wrap pz-head-inner">
+        <a class="pz-logo{{#if @custom.dark_mode_logo}} has-dark-logo{{/if}}" href="{{@site.url}}">
+            {{#if @site.logo}}
+                <img class="pz-logo-img" src="{{@site.logo}}" alt="{{@site.title}}" height="28">
+                {{#if @custom.dark_mode_logo}}
+                    <img class="pz-logo-img pz-logo-dark" src="{{@custom.dark_mode_logo}}" alt="{{@site.title}}" height="28">
+                {{/if}}
+            {{else}}
+                <span class="pz-logo-text">{{@site.title}}</span>
+            {{/if}}
+        </a>
+
+        <div class="pz-menu" id="pz-menu">
+            <nav class="pz-nav" aria-label="Main">
+                {{navigation}}
+            </nav>
+            <div class="pz-menu-actions">
+                {{#if @site.members_enabled}}
+                    {{#unless @member}}
+                        <a class="pz-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                    {{else}}
+                        <a class="pz-link" href="#/portal/account" data-portal="account">Account</a>
+                    {{/unless}}
+                {{/if}}
+                {{#if @custom.header_button_text}}
+                    <a class="pz-btn pz-btn-buy pz-head-cta" href="{{@custom.header_button_url}}">{{@custom.header_button_text}}</a>
+                {{/if}}
+            </div>
+        </div>
+
+        <button class="pz-icon-btn pz-search" type="button" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+        <button class="pz-icon-btn pz-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="pz-menu">{{> "icons/menu"}}</button>
+    </div>
+    {{#is "post"}}{{#if @custom.show_reading_progress}}
+        <div class="pz-progress" aria-hidden="true"><span class="pz-progress-fill"></span></div>
+    {{/if}}{{/is}}
+</header>
+
+<main id="pz-main" class="pz-main">
+    {{{body}}}
+</main>
+
+<footer class="pz-foot">
+    {{#if @site.members_enabled}}
+        {{#unless @member}}
+            <section class="pz-wrap pz-foot-signup">
+                {{> "signup-form" heading_level="h2"}}
+            </section>
+        {{/unless}}
+    {{/if}}
+    <div class="pz-wrap pz-foot-inner">
+        <div class="pz-foot-brand">
+            <a class="pz-foot-title" href="{{@site.url}}">{{@site.title}}</a>
+            {{#if @site.description}}<p>{{@site.description}}</p>{{/if}}
+        </div>
+        <nav class="pz-foot-nav" aria-label="Footer">
+            {{navigation type="secondary"}}
+        </nav>
+        <p class="pz-foot-copy">
+            {{#if @custom.footer_text}}
+                {{@custom.footer_text}}
+            {{else}}
+                {{@site.title}} © {{date format="YYYY"}}
+            {{/if}}
+        </p>
+    </div>
+</footer>
+
+<div class="pz-buybar" id="pz-buybar" role="region" aria-label="Recommended piano" hidden></div>
+
+<script>
+    window.PZ = {
+        affiliateDomains: "{{@custom.affiliate_domains}}",
+        stickyBar: {{#if @custom.show_sticky_buy_bar}}true{{else}}false{{/if}},
+        toc: {{#if @custom.show_table_of_contents}}true{{else}}false{{/if}},
+        sounds: {{#if @custom.enable_piano_sounds}}true{{else}}false{{/if}},
+        animations: {{#if @custom.enable_animations}}true{{else}}false{{/if}}
+    };
+</script>
+<script src="{{asset "js/main.js"}}" defer></script>
+{{ghost_foot}}
+</body>
+</html>
