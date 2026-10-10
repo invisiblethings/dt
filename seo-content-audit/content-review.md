@@ -5,9 +5,11 @@
 **Scope:** On-page content, metadata, headings, links, images, dates, and trust signals. The sitemap also lists `/archive` and `/about`; these are not articles. `/about` was read only for author context.
 **Evidence:** `raw/sitemap.xml`, `raw/extract.json` (per-page extraction), `raw/linkstatus.txt` and `raw/extlinks.json` (external link check).
 
+> **Update:** a 3-month Search Console export was added after this document was written. See [gsc-findings.md](gsc-findings.md); where it conflicts with the priorities and candidate titles below (notably #27, #28, #12–#20 priorities), it prevails.
+
 ## What this audit does not cover
 
-- No Google Search Console, Bing, analytics, or ranking data was available. Nothing below says which pages rank, get traffic, or convert. "Priority" means editorial priority only.
+- This review was written before Search Console data was available, so the per-article sections below use editorial priority only. Nothing in them says which pages rank, get traffic, or convert.
 - No SERP, keyword-volume, or competitor review was run. Query families are inferred from the titles and headings.
 - No Core Web Vitals, rendering, or accessibility testing. Image alt text was counted, not judged.
 - Facts flagged "verify" come from my general knowledge or from internal inconsistencies. They are not confirmed errors. The owner needs to check them against sources.
