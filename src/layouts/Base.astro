@@ -3,7 +3,8 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import { SITE_URL, BRAND } from '../data/site';
+import { SITE_URL, BRAND, ADS, PRODUCTS } from '../data/site';
+const adsConfig = ADS.googleAdsId ? { id: ADS.googleAdsId, label: ADS.checkoutConversionLabel, prices: Object.fromEntries(Object.values(PRODUCTS).map((p) => [p.id, p.price])) } : null;
 import { organization, website, person, breadcrumbs as crumbSchema, abs } from '../lib/schema';
 
 interface Props {
@@ -94,6 +95,18 @@ const graph = {
     {article?.modified && <meta property="article:modified_time" content={article.modified} />}
 
     <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+    {adsConfig && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${adsConfig.id}`}></script>
+        <script is:inline define:vars={{ adsConfig }}>
+          window.PFA_ADS = adsConfig;
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { window.dataLayer.push(arguments); };
+          window.gtag('js', new Date());
+          window.gtag('config', adsConfig.id);
+        </script>
+      </>
+    )}
     <slot name="head" />
   </head>
   <body>

@@ -144,6 +144,14 @@ export const PRODUCTS: Record<string, Product> = {
 
 export const GUARANTEE_DAYS = 60;
 
+// Google Ads conversion tracking. Paste your IDs from Google Ads
+// (Goals > Conversions > your 'Checkout click' action > Tag setup > Install
+// the tag yourself). Leave empty and no Google script loads at all.
+export const ADS = {
+  googleAdsId: '', // e.g. 'AW-123456789'
+  checkoutConversionLabel: '', // e.g. 'AbC-D_efG-h12_34-567'
+};
+
 // Main call to action used in the header, sticky bars and final sections.
 export const PRIMARY_CTA = FEATURES.freeLessons
   ? { label: 'Try it free', href: '/free-lessons', note: '<b>Free lessons</b>No card needed', event: 'cta_click' }

@@ -9,6 +9,7 @@ declare global {
     gtag?: (...args: unknown[]) => void;
     plausible?: (event: string, opts?: { props?: Payload }) => void;
     pfaTrack?: (event: string, props?: Payload) => void;
+    PFA_ADS?: { id: string; label: string; prices: Record<string, number> };
   }
 }
 
@@ -19,6 +20,16 @@ function track(event: string, props: Payload = {}) {
   window.dataLayer.push({ event, ...clean });
   window.gtag?.('event', event, clean);
   window.plausible?.(event, { props: clean as Payload });
+  // Google Ads: count every click to a checkout page as a conversion.
+  const ads = window.PFA_ADS;
+  if (event === 'begin_checkout' && ads?.label && window.gtag) {
+    window.gtag('event', 'conversion', {
+      send_to: `${ads.id}/${ads.label}`,
+      value: ads.prices[String(props.product)] ?? 49,
+      currency: 'USD',
+      transport_type: 'beacon',
+    });
+  }
 }
 window.pfaTrack = track;
 
