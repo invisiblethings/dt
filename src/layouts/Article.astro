@@ -1,0 +1,130 @@
+---
+import Base from './Base.astro';
+import { article as articleSchema, faqPage } from '../lib/schema';
+import type { Faq } from '../data/faqs';
+import FaqList from '../components/FaqList.astro';
+import { FEATURES, PRIMARY_CTA, PRODUCTS } from '../data/site';
+
+interface Props {
+  title: string;
+  seoTitle?: string;
+  description: string;
+  path: string;
+  published: string;
+  modified?: string;
+  author?: string;
+  eyebrow?: string;
+  crumbs: { name: string; href: string }[];
+  answer?: string;
+  toc?: { id: string; text: string }[];
+  faqs?: Faq[];
+  heroImage?: string;
+  heroAlt?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  related?: { href: string; title: string; note?: string }[];
+  cta?: 'course' | 'free' | 'classics' | false;
+  extraSchema?: Record<string, unknown>[];
+}
+const {
+  title, seoTitle, description, path, published, modified, author = 'Robin Hall', eyebrow,
+  crumbs, answer, toc, faqs, heroImage, heroAlt, ogImage, noindex, related = [], cta = 'free', extraSchema = [],
+} = Astro.props;
+// Without free lessons, the generic 'free' call to action becomes the course one.
+const ctaKind = cta === 'free' && !FEATURES.freeLessons ? 'course' : cta;
+
+const fmt = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const schema = [
+  articleSchema({ title, description, path, datePublished: published, dateModified: modified, image: heroImage ?? ogImage ?? '/og/learn.jpg', author }),
+  ...(faqs?.length ? [faqPage(faqs)] : []),
+  ...extraSchema,
+];
+---
+<Base
+  title={seoTitle || title}
+  description={description}
+  path={path}
+  ogType="article"
+  ogImage={ogImage ?? heroImage ?? '/og/learn.jpg'}
+  crumbs={crumbs}
+  schema={schema}
+  noindex={noindex}
+  article={{ published, modified }}
+  stickyCta={cta ? PRIMARY_CTA : false}
+>
+  <article>
+    <header class="page-hero" style="padding-bottom:1.5rem">
+      <div class="wrap">
+        <div style="max-width:46rem">
+          {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+          <h1 style="max-width:none">{title}</h1>
+          <div class="article-meta">
+            <span class="author-chip"><img src={author === 'Robin Hall' ? '/brand/robin-hall.jpg' : '/brand/icon-192.png'} alt="" width="40" height="40" loading="lazy" /><span>{author === 'Robin Hall' ? <>By <a href="/about">Robin Hall</a></> : <>By the <a href="/about">Pianoforall</a> team</>}</span></span>
+            <span>{modified && modified.slice(0, 10) !== published.slice(0, 10) ? <>Updated <time datetime={modified}>{fmt(modified)}</time></> : <time datetime={published}>{fmt(published)}</time>}</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="wrap article-layout" style="padding-bottom:4rem">
+      <div class="prose">
+        {answer && (
+          <div class="answer-box"><span class="label">Quick answer</span><p set:html={answer} /></div>
+        )}
+        {heroImage && <img src={heroImage} alt={heroAlt ?? ''} loading="eager" style="width:100%;border-radius:var(--radius)" />}
+        <slot />
+        {faqs && faqs.length > 0 && (
+          <section aria-labelledby="faq-h">
+            <h2 id="faq-h">Common questions</h2>
+            <FaqList items={faqs} />
+          </section>
+        )}
+        {cta && (
+          <aside class="cta-box">
+            {ctaKind === 'classics' ? (
+              <>
+                <h2>Learn a classical piece the same way</h2>
+                <p>Robin’s Classics By Ear courses teach the Moonlight Sonata, Satie’s Gnossiennes and Bach’s preludes in small sections, chords and patterns first.</p>
+                <a class="btn" href="/classics-by-ear" data-track="cta_click" data-track-location="article_cta_classics">See Classics By Ear</a>
+              </>
+            ) : ctaKind === 'course' ? (
+              <>
+                <h2>Want a clear path from here?</h2>
+                <p>Pianoforall takes you from your first chord to blues, ballads, jazz and reading music, one short lesson at a time. $49 once, with a 60-day refund.</p>
+                <div class="cta-row">
+                  <a class="btn" href="/course" data-track="cta_click" data-track-location="article_cta_course">See the course</a>
+                  {FEATURES.freeLessons
+                    ? <a class="btn btn-ghost" href="/free-lessons" data-track="cta_click" data-track-location="article_cta_course_free">Try free lessons</a>
+                    : <a class="btn btn-ghost" href={PRODUCTS.pianoforall.checkout} rel="nofollow" data-track="begin_checkout" data-product="pianoforall" data-track-location="article_cta_course_buy">Get it · ${PRODUCTS.pianoforall.price}</a>}
+                </div>
+              </>
+            ) : (
+              <>
+                <h2>Try this approach at your own piano</h2>
+                <p>The free Pianoforall lessons walk you through a broken-chord ballad with video, audio and keyboard diagrams. No card needed.</p>
+                <a class="btn" href="/free-lessons" data-track="cta_click" data-track-location="article_cta_free">Get the free lessons</a>
+              </>
+            )}
+          </aside>
+        )}
+      </div>
+      <aside>
+        <div class="aside-sticky">
+          {toc && toc.length > 0 && (
+            <nav class="toc" aria-labelledby="toc-h">
+              <p class="eyebrow" id="toc-h">On this page</p>
+              <ol>{toc.map((t) => <li><a href={`#${t.id}`}>{t.text}</a></li>)}</ol>
+            </nav>
+          )}
+          {related.length > 0 && (
+            <nav aria-labelledby="rel-h" style="margin-top:2rem">
+              <p class="eyebrow" id="rel-h">Related</p>
+              <ul style="list-style:none;padding:0;margin:0">
+                {related.map((r) => <li style="margin:0 0 .9rem"><a href={r.href} style="font-weight:600">{r.title}</a>{r.note && <span class="small muted" style="display:block">{r.note}</span>}</li>)}
+              </ul>
+            </nav>
+          )}
+        </div>
+      </aside>
+    </div>
+  </article>
+</Base>

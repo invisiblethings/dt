@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import FaqList from '../components/FaqList.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { FAQS, FAQ_GROUPS } from '../data/faqs';
+import { faqPage } from '../lib/schema';
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
+---
+<Base
+  title="Pianoforall FAQ: Beginners, Devices, Price and Refunds"
+  description="Pianoforall questions answered: complete beginners, reading music, which keyboard to use, devices and offline access, price and the 60-day refund."
+  crumbs={[{ name: 'FAQ', href: '/faq' }]}
+  schema={[faqPage(FAQS)]}
+>
+  <section class="page-hero">
+    <div class="wrap-narrow">
+      <p class="eyebrow">FAQ</p>
+      <h1>Questions about Pianoforall</h1>
+      <p class="lede">Can’t find your answer? Email <a href="mailto:robin@pianoforall.com">robin@pianoforall.com</a>. Robin replies personally.</p>
+      <nav aria-label="FAQ sections" class="chip-row" style="margin-top:1.5rem">
+        {FAQ_GROUPS.map((g) => <a class="chip" style="text-decoration:none;display:inline-flex;align-items:center" href={`#${slug(g)}`}>{g}</a>)}
+      </nav>
+    </div>
+  </section>
+  <section class="section-tight" style="padding-top:0">
+    <div class="wrap-narrow">
+      {FAQ_GROUPS.map((g) => (
+        <>
+          <h2 class="faq-group" id={slug(g)} style="font-size:var(--step-2);margin:2.5rem 0 .5rem">{g}</h2>
+          <FaqList items={FAQS.filter((f) => f.group === g)} />
+        </>
+      ))}
+    </div>
+  </section>
+  <FinalCta location="faq_final" />
+</Base>

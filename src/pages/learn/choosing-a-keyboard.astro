@@ -1,0 +1,120 @@
+---
+import Article from '../../layouts/Article.astro';
+import type { Faq } from '../../data/faqs';
+
+const faqs: Faq[] = [
+  { id: 'k1', group: '', q: 'How many keys does a beginner keyboard need?', a: 'At least 61 full-size keys. 76 keys is a useful middle ground, and 88 keys matches an acoustic piano. A 61-key keyboard will take you a long way as a beginner.' },
+  { id: 'k2', group: '', q: 'Do I need weighted keys to learn piano?', a: 'No, but they help. Weighted keys feel more like an acoustic piano, give you better control over volume, and make moving to a real piano easier later. Touch-sensitive keys are the must-have.' },
+  { id: 'k3', group: '', q: 'Is a keyboard or a digital piano better for beginners?', a: 'A digital piano (usually 88 weighted keys) feels and sounds more like a piano. A portable keyboard (usually 61 or 76 lighter keys) is cheaper, smaller and often has backing rhythms. Either works for Pianoforall.' },
+  { id: 'k4', group: '', q: 'Can I start on a cheap keyboard and upgrade later?', a: 'Yes. Just make sure even a cheap keyboard has full-size, touch-sensitive keys and a sustain pedal socket. Tiny keys without touch sensitivity will hold you back quickly.' },
+];
+const toc = [
+  { id: 'recommend', text: 'What I recommend' },
+  { id: 'piano-or-keyboard', text: 'Digital piano or keyboard?' },
+  { id: 'features', text: 'What to look for' },
+  { id: 'rhythms', text: 'Are backing rhythms worth it?' },
+  { id: 'models', text: 'Models worth looking at' },
+  { id: 'brands', text: 'The main brands' },
+  { id: 'extras', text: 'Stand, seat and pedal' },
+  { id: 'buying', text: 'Buying tips' },
+];
+---
+<Article
+  title="Choosing a Keyboard or Digital Piano for Learning"
+  seoTitle="Best Keyboard or Digital Piano for Beginners: What to Buy"
+  description="Robin Hall’s advice on choosing a first keyboard or digital piano: touch-sensitive and weighted keys, 61 vs 88 keys, backing rhythms, and models worth comparing."
+  path="/learn/choosing-a-keyboard"
+  published="2026-10-08"
+  author="Robin Hall"
+  eyebrow="Gear guide"
+  crumbs={[{ name: 'Learn', href: '/learn' }, { name: 'Choosing a keyboard', href: '/learn/choosing-a-keyboard' }]}
+  answer="If space and budget allow, choose an <b>88-key digital piano with weighted keys</b> from an established maker. If you need something smaller or cheaper, a <b>61 or 76-key keyboard</b> is fine to start, as long as it has <b>full-size, touch-sensitive keys</b> and a <b>sustain pedal socket</b>."
+  toc={toc}
+  faqs={faqs}
+  cta="course"
+  related={[
+    { href: '/beginner-keyboard-setup', title: 'Beginner keyboard setup', note: 'Stool height, posture, lighting' },
+    { href: '/acoustic-piano-vs-digital-keyboard', title: 'Acoustic piano vs digital keyboard' },
+    { href: '/learn/learn-piano-online', title: 'How to learn piano online' },
+  ]}
+>
+  <p>Choosing your first instrument can be confusing. There are hundreds of models and an enormous number of features, most of which you probably don’t need. You don’t need to spend a fortune. You need something that feels good to play, sounds reasonably good, and has the basic features for learning.</p>
+
+  <h2 id="recommend">What I recommend</h2>
+  <p>If your budget and space allow, my first choice would be an <b>88-key digital piano with weighted keys and built-in speakers</b>.</p>
+  <p>If you need something smaller or less expensive, a <b>61 or 76-key keyboard</b> is perfectly fine to get started. Make sure it has full-size, touch-sensitive keys and a socket for a sustain pedal.</p>
+
+  <h2 id="piano-or-keyboard">Digital piano or keyboard?</h2>
+  <p>I used to tell students to forget the extra sounds and rhythms and buy the best piano they could afford. I’ve changed my mind slightly. I’ve spent a lot of time with the backing rhythms on my Roland, and playing along with drums and bass is enjoyable, builds your sense of rhythm and is great for improvising.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col"></th><th scope="col">Digital piano</th><th scope="col">Portable keyboard</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Keys</th><td>Usually 88, weighted</td><td>Usually 61 or 76, lighter</td></tr>
+        <tr><th scope="row">Feel and sound</th><td>Designed to feel and sound like a piano</td><td>Lighter touch, many sounds</td></tr>
+        <tr><th scope="row">Backing rhythms</th><td>Few or none (some exceptions)</td><td>Often hundreds</td></tr>
+        <tr><th scope="row">Size and price</th><td>Larger, costs more</td><td>Smaller, cheaper, portable</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Instruments such as the Yamaha DGX-670 give you a bit of both: 88 weighted keys and a large selection of backing styles.</p>
+
+  <h2 id="features">What to look for</h2>
+  <h3>Touch-sensitive keys (essential)</h3>
+  <p>Touch sensitivity means the harder you play, the louder the note. Without it, you can’t control the expression in your playing. I wouldn’t buy a keyboard without it.</p>
+  <h3>Weighted keys (recommended)</h3>
+  <p>Weighted keys feel more like an acoustic piano. They give you better control over dynamics and make the move to an acoustic piano easier. Lighter keys aren’t bad, though, and they’re common on keyboards with accompaniment features.</p>
+  <h3>Number of keys</h3>
+  <p>A full piano has 88 keys, and ideally that’s what I’d choose. But you don’t need 88 to begin. A 61-key keyboard takes you a surprisingly long way, and 76 keys is a good compromise. Whatever you choose, make sure the keys are <b>full size</b>.</p>
+  <h3>Speakers and headphones</h3>
+  <p>Better speakers give a fuller piano sound. A headphone socket matters just as much if you need to practise quietly.</p>
+  <h3>Sustain pedal</h3>
+  <p>You’ll need a sustain pedal as you progress, so check for a socket. I prefer a proper piano-style pedal to the small square plastic ones that come with some keyboards.</p>
+  <h3>USB and Bluetooth</h3>
+  <p>USB-MIDI lets your keyboard talk to computers and apps, and some instruments send audio over USB, which helps for recording. Useful, but I’d put the feel and sound of the instrument well ahead of these extras. Pianoforall doesn’t need any connection.</p>
+
+  <h2 id="rhythms">Are backing rhythms worth having?</h2>
+  <p>I think so. They’re not essential, but having drums and bass play along makes practice more enjoyable, and they’re especially useful for the rhythm styles, blues, rock and jazz sections of Pianoforall. Yamaha’s PSR range is worth a look: the PSR-E473 has 61 keys and the PSR-EW425 has 76.</p>
+
+  <h2 id="models">Models worth looking at</h2>
+  <p>Prices change all the time, so I’ve avoided quoting them. Use these as models to investigate rather than a definitive shopping list.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Model</th><th scope="col">Type</th><th scope="col">Why look at it</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Yamaha P-145</th><td>88 weighted keys</td><td>A straightforward first digital piano if you mainly want to learn piano</td></tr>
+        <tr><th scope="row">Roland FP-10</th><td>88 weighted keys</td><td>Very good beginner piano; slightly firmer action than some Yamahas</td></tr>
+        <tr><th scope="row">Kawai ES120</th><td>88 weighted keys</td><td>A step up when piano feel and sound are your priority</td></tr>
+        <tr><th scope="row">Casio PX-S1100</th><td>88 weighted keys</td><td>Very slim and compact for small spaces</td></tr>
+        <tr><th scope="row">Yamaha P-225</th><td>88 weighted keys</td><td>A step up from the P-145 with a more refined sound</td></tr>
+        <tr><th scope="row">Roland FP-30X</th><td>88 weighted keys</td><td>A step up from the FP-10 with stronger speakers</td></tr>
+        <tr><th scope="row">Yamaha PSR-E473</th><td>61 keys, rhythms</td><td>Lots of sounds and accompaniment styles</td></tr>
+        <tr><th scope="row">Yamaha PSR-EW425</th><td>76 keys, rhythms</td><td>Like the E473 with more keys</td></tr>
+        <tr><th scope="row">Yamaha DGX-670</th><td>88 weighted, rhythms</td><td>Piano feel plus arranger features</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The Yamaha P-45 was a hugely popular beginner piano and is still fine second-hand or at a good price. It has been replaced by newer models, so at similar prices I’d choose the P-145 or compare it with the Roland FP-10. The Casio CDP-S110 and Korg B2 are other entry-level options.</p>
+
+  <h2 id="brands">The main brands</h2>
+  <ul>
+    <li><b>Yamaha</b> makes excellent digital pianos and a strong range of keyboards with backing rhythms.</li>
+    <li><b>Roland</b> pianos tend to have a slightly firmer action, which some people love and others don’t. I’ve owned and used Roland instruments for many years.</li>
+    <li><b>Kawai</b> has a very good reputation for natural piano sound and feel.</li>
+    <li><b>Casio</b> makes excellent compact digital pianos and often offers very good value.</li>
+    <li><b>Korg</b> makes good entry-level pianos as well as professional stage instruments.</li>
+  </ul>
+  <p>There isn’t a “best” brand. Keyboards feel surprisingly different, so try a few if you can. Cheaper unknown brands can be usable, but key action, sound and after-sales support vary a lot. If you go that way, buy from somewhere with a good returns policy. I’d much rather you started on an inexpensive keyboard than put off learning for two years while saving for the perfect piano.</p>
+
+  <h2 id="extras">Stand, seat and pedal</h2>
+  <ul>
+    <li><b>Stand:</b> a simple X-stand is cheap and usable, though some wobble. A matching wooden stand feels more stable.</li>
+    <li><b>Seat:</b> use a height-adjustable stool or bench, so your forearms sit roughly level with the keys.</li>
+    <li><b>Pedal:</b> get a sturdy piano-style sustain pedal. Three-pedal units become useful later, particularly for classical music.</li>
+  </ul>
+
+  <h2 id="buying">Buying tips</h2>
+  <p>Buying cheaply and upgrading later is perfectly sensible if you’re not sure piano will stick. The line to draw is between <em>inexpensive</em> and <em>unsuitable</em>: a cheap keyboard with full-size, touch-sensitive keys is fine; tiny keys with no touch sensitivity will limit you quickly.</p>
+  <p>Try before you buy if you can. Walking into a music shop when you can’t play yet feels daunting, but don’t let that stop you. Take a friend who plays, or ask the staff: “I’m just starting to learn and choosing my first piano. Could you play a few of these so I can hear the difference?” Most good shops are happy to help.</p>
+  <p>Above all, don’t get so caught up choosing the perfect instrument that you never start. Get something suitable, put it where you can sit down and play it easily, and begin.</p>
+</Article>

@@ -1,0 +1,108 @@
+---
+import Article from '../../layouts/Article.astro';
+import Quote from '../../components/Quote.astro';
+import type { Faq } from '../../data/faqs';
+import { byId } from '../../data/testimonials';
+
+const faqs: Faq[] = [
+  { id: 'l1', group: '', q: 'Can you really learn piano online?', a: 'Yes. Hundreds of thousands of adults have learned with online courses. Video lets you watch hands up close and replay any moment, which a weekly lesson can’t do. What you lose is a teacher correcting you live, so record yourself and compare with the lesson video.' },
+  { id: 'l2', group: '', q: 'Can I teach myself piano?', a: 'Yes, if you follow a structured course in order rather than random tutorials. A good course decides what you learn next, so you build skills without gaps.' },
+  { id: 'l3', group: '', q: 'Are free online piano lessons good enough?', a: 'Free lessons are great for trying things out and learning single songs. Their weakness is order: nothing tells you what to learn next. Many learners use free material alongside one structured course.' },
+  { id: 'l4', group: '', q: 'What is the best way to learn piano online as an adult?', a: 'Choose a course built for adults that gets you playing music you like early, practise 15 to 30 minutes most days, and work through it in order. Whether that course uses an app, video lessons or a live teacher depends on how you like to learn.' },
+];
+const toc = [
+  { id: 'can-you', text: 'Can you learn piano online?' },
+  { id: 'need', text: 'What you need' },
+  { id: 'types', text: 'Three kinds of online lessons' },
+  { id: 'choose', text: 'How to choose' },
+  { id: 'week', text: 'Your first week' },
+  { id: 'feedback', text: 'Checking yourself without a teacher' },
+  { id: 'teacher', text: 'When a live teacher helps' },
+];
+---
+<Article
+  title="How to Learn Piano Online as an Adult Beginner"
+  seoTitle="How to Learn Piano Online: A Clear Guide for Adult Beginners"
+  description="How to learn piano online as an adult: what to buy, apps vs video courses vs live teachers, a first-week plan, and checking yourself without a teacher."
+  path="/learn/learn-piano-online"
+  published="2026-10-08"
+  author="Pianoforall"
+  eyebrow="Beginner guide · Getting started"
+  crumbs={[{ name: 'Learn', href: '/learn' }, { name: 'Learn piano online', href: '/learn/learn-piano-online' }]}
+  answer="Yes, adults can learn piano online. You need a keyboard with at least 61 touch-sensitive keys, a structured course you follow in order, and 15 to 30 minutes most days. Choose between <b>apps</b> (instant feedback), <b>video courses</b> (a teacher’s explanation at your own pace) and <b>live online teachers</b> (personal correction), depending on how you like to learn."
+  toc={toc}
+  faqs={faqs}
+  cta="course"
+  related={[
+    { href: '/learn/choosing-a-keyboard', title: 'Choosing a keyboard or digital piano' },
+    { href: '/compare', title: 'Pianoforall vs piano apps' },
+    { href: '/start', title: 'Which course should I start with?' },
+  ]}
+>
+  <h2 id="can-you">Can you learn piano online?</h2>
+  <p>Yes. Learning online has real advantages over a weekly lesson. You can watch a pair of hands up close, replay any moment as many times as you need, and practise at 11pm in your pyjamas. Courses like Pianoforall have taught hundreds of thousands of adults this way since the 2000s.</p>
+  <p>The trade-off is feedback. Nobody stops you when your wrist drops or your rhythm drifts. You can make up for that, and we’ll show you how below.</p>
+
+  <h2 id="need">What you need</h2>
+  <ul>
+    <li><b>A piano or keyboard</b> with at least 61 full-size, touch-sensitive keys and a sustain pedal socket. See our <a href="/learn/choosing-a-keyboard">keyboard guide</a>.</li>
+    <li><b>A screen</b> you can see from the stool: a tablet on the music stand works well.</li>
+    <li><b>A height-adjustable seat</b>, so your forearms sit level with the keys.</li>
+    <li><b>Headphones</b> if you share your home.</li>
+    <li><b>Twenty minutes</b>, most days.</li>
+  </ul>
+  <p>You don’t need cables, a microphone or a MIDI connection unless your course listens to your playing.</p>
+
+  <h2 id="types">Three kinds of online piano lessons</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col"></th><th scope="col">Apps</th><th scope="col">Video courses</th><th scope="col">Live online teacher</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Examples</th><td>Simply Piano, flowkey, Skoove, Yousician</td><td>Pianoforall, Pianote</td><td>Preply, local teachers on video call</td></tr>
+        <tr><th scope="row">How it works</th><td>App listens and scores you as notes scroll</td><td>A teacher explains on video; you practise at your pace</td><td>Weekly lesson by video call</td></tr>
+        <tr><th scope="row">Feedback</th><td>Instant, on notes and timing</td><td>Self-checking, community, email</td><td>Personal, live</td></tr>
+        <tr><th scope="row">Strength</th><td>Motivating, game-like</td><td>Understanding, structure, low cost</td><td>Correction of technique</td></tr>
+        <tr><th scope="row">Pricing model</th><td>Subscription</td><td>One-time or membership</td><td>Per lesson</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Our <a href="/compare">comparison page</a> goes through the popular options one by one, including where they beat Pianoforall.</p>
+
+  <h2 id="choose">How to choose</h2>
+  <p>Ask yourself three questions:</p>
+  <ol>
+    <li><b>What do you want to play?</b> Songs from chords and by ear suits a chord-first course. Particular pieces from notation suits a song-library app. Exams suit a reading-focused course or teacher.</li>
+    <li><b>What keeps you going?</b> Points and streaks, or understanding why things work?</li>
+    <li><b>How do you want to pay?</b> A subscription you keep paying, or a one-time purchase?</li>
+  </ol>
+  <p>Then try before you commit. Most good courses offer free lessons. Spend a week with one before you sign up anywhere. Not sure where to begin? Our <a href="/start">four-question course finder</a> gives an honest recommendation.</p>
+
+  <h2 id="week">Your first week</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Day</th><th scope="col">Focus (20 minutes)</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1</th><td>Set up your seat and screen. Find middle C. Play C major (C–E–G) with your right hand, fingers 1–3–5.</td></tr>
+        <tr><th scope="row">2</th><td>Add F and G major. Move slowly between C, F and G, four beats each.</td></tr>
+        <tr><th scope="row">3</th><td>Add a bass note in your left hand under each chord.</td></tr>
+        <tr><th scope="row">4</th><td>Add A minor. Play C–Am–F–G round and round.</td></tr>
+        <tr><th scope="row">5</th><td>Play the same progression in a simple rhythm: chord on beats 1 and 3, or a broken chord.</td></tr>
+        <tr><th scope="row">6</th><td>Find a song that uses these chords and play along with a recording.</td></tr>
+        <tr><th scope="row">7</th><td>Record yourself. Rest. Listen back and notice how far you’ve come.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Our <a href="/learn/piano-chords-for-beginners">chords guide</a> has an interactive keyboard for days 1 to 4.</p>
+
+  <h2 id="feedback">Checking yourself without a teacher</h2>
+  <ul>
+    <li><b>Record a short video each week.</b> Watch your hands and shoulders. Compare with the lesson video.</li>
+    <li><b>Use a metronome</b> at a slow tempo. Uneven rhythm is the most common self-taught problem.</li>
+    <li><b>Listen to the lesson audio, then to yourself.</b> Does yours sound like that? If not, which part differs?</li>
+    <li><b>Ask.</b> Good courses have a community or a way to email the teacher. Pianoforall students post questions under each lesson and in The Piano Lounge.</li>
+  </ul>
+  <Quote t={byId('smith')[0]} />
+
+  <h2 id="teacher">When a live teacher helps</h2>
+  <p>Online courses and teachers aren’t either-or. A few live lessons are worth it if you feel pain or tension when playing, if you’re preparing for exams, or if you want detailed coaching on classical technique. Plenty of students use a video course day to day and see a teacher occasionally for a check-up.</p>
+</Article>

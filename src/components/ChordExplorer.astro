@@ -1,0 +1,195 @@
+---
+// Playable chord explorer. Static SVG keyboard rendered at build time, so
+// it shows the C major chord even with JavaScript off. The script adds
+// sound (Web Audio, no samples to download) and chord switching.
+interface Props { compact?: boolean; id?: string }
+const { compact = false, id = 'chords' } = Astro.props;
+
+// Two octaves from C3 (MIDI 48) to B4 (MIDI 71)
+const START = 48;
+const WHITE_PATTERN = [0, 2, 4, 5, 7, 9, 11];
+const BLACK_POS: Record<number, number> = { 1: 0, 3: 1, 6: 3, 8: 4, 10: 5 }; // semitone -> white index it sits after
+const NAMES = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
+const whites: { midi: number; x: number }[] = [];
+const blacks: { midi: number; x: number }[] = [];
+for (let o = 0; o < 2; o++) {
+  WHITE_PATTERN.forEach((s, i) => whites.push({ midi: START + o * 12 + s, x: (o * 7 + i) * 40 }));
+  Object.entries(BLACK_POS).forEach(([s, wi]) => blacks.push({ midi: START + o * 12 + Number(s), x: (o * 7 + wi) * 40 + 27 }));
+}
+const W = 14 * 40;
+
+const CHORDS = compact
+  ? ['C', 'Am', 'F', 'G']
+  : ['C', 'Dm', 'Em', 'F', 'G', 'Am', 'G7', 'Cmaj7', 'Am7', 'Fmaj7'];
+
+// Initial render: C major (LH C3, RH C4 E4 G4)
+const initial = { lh: [48], rh: [60, 64, 67] };
+const isOn = (m: number) => initial.lh.includes(m) || initial.rh.includes(m);
+const cls = (m: number) => (initial.lh.includes(m) ? 'lh' : initial.rh.includes(m) ? 'rh' : '');
+---
+<div class="tool chord-explorer" data-chord-explorer id={id}>
+  <div class="ce-top">
+    <div>
+      <p class="eyebrow" style="margin-bottom:.35rem">Try it</p>
+      <p class="ce-name" aria-live="polite"><b data-ce-name>C major</b> <span data-ce-notes>C · E · G</span></p>
+    </div>
+    <button type="button" class="btn btn-dark ce-play" data-ce-progression data-track="tool_use" data-track-location="chord_explorer_progression">
+      ▶ Play {compact ? 'C · Am · F · G' : 'a progression'}
+    </button>
+  </div>
+
+  <svg class="ce-keys" viewBox={`0 0 ${W} 170`} role="img" aria-label="Piano keyboard showing the selected chord. Left-hand note in blue, right-hand notes in gold.">
+    {whites.map((k) => (
+      <g>
+        <rect data-midi={k.midi} class:list={['w', cls(k.midi)]} x={k.x + 1} y="1" width="38" height="166" rx="5" />
+        {k.midi % 12 === 0 && <text x={k.x + 20} y="154" text-anchor="middle" class="lbl">C{Math.floor(k.midi / 12) - 1}</text>}
+      </g>
+    ))}
+    {blacks.map((k) => (
+      <rect data-midi={k.midi} class:list={['b', cls(k.midi)]} x={k.x} y="1" width="26" height="102" rx="4" />
+    ))}
+    {[...initial.lh, ...initial.rh].map((m) => {
+      const w = whites.find((k) => k.midi === m);
+      return w ? <circle class="dot" cx={w.x + 20} cy="128" r="7" data-dot={m} /> : null;
+    })}
+  </svg>
+
+  <div class="chip-row" role="group" aria-label="Choose a chord" style="margin-top:1rem">
+    {CHORDS.map((c, i) => (
+      <button type="button" class="chip" data-chord={c} aria-pressed={i === 0 ? 'true' : 'false'}>{c}</button>
+    ))}
+  </div>
+  <p class="small muted ce-help">
+    Tap a chord to see and hear it. The right hand stays near middle C, so some chords show as inversions. <span class="ce-legend"><i class="sw lh"></i>left hand <i class="sw rh"></i>right hand</span>
+  </p>
+  <noscript><p class="small">Turn on JavaScript to hear the chords.</p></noscript>
+</div>
+
+<style>
+  .chord-explorer { overflow: hidden; }
+  .ce-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1rem; }
+  .ce-name { margin: 0; font: 600 var(--step-2)/1.1 var(--serif); }
+  .ce-name span { display: block; font: 500 1rem/1.4 var(--sans); color: var(--muted); margin-top: .3rem; letter-spacing: .02em; }
+  .ce-play { min-height: 44px; }
+  .ce-keys { width: 100%; height: auto; display: block; touch-action: manipulation; }
+  .ce-keys .w { fill: #fff; stroke: #cfc6b6; stroke-width: 1.5; }
+  .ce-keys .b { fill: #1b1915; }
+  .ce-keys .w.rh { fill: #f4e1ae; }
+  .ce-keys .b.rh { fill: #c8962e; }
+  .ce-keys .w.lh { fill: #cfe0fb; }
+  .ce-keys .b.lh { fill: #3a6fd0; }
+  .ce-keys .w.on { fill: #e9c46a; }
+  .ce-keys .lbl { font: 600 11px var(--sans); fill: #8a8273; }
+  .ce-keys .dot { fill: #1b1915; opacity: .75; }
+  .ce-help { margin: .9rem 0 0; display: flex; flex-wrap: wrap; gap: .5rem 1rem; }
+  .ce-legend { display: inline-flex; align-items: center; gap: .4rem; }
+  .sw { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; border: 1px solid #cfc6b6; }
+  .sw.lh { background: #cfe0fb; }
+  .sw.rh { background: #f4e1ae; margin-left: .5rem; }
+</style>
+
+<script>
+  const NAMES = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
+  const ROOTS: Record<string, number> = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+  const QUAL: Record<string, { iv: number[]; label: string }> = {
+    '': { iv: [0, 4, 7], label: 'major' },
+    m: { iv: [0, 3, 7], label: 'minor' },
+    '7': { iv: [0, 4, 7, 10], label: 'seventh (dominant 7th)' },
+    maj7: { iv: [0, 4, 7, 11], label: 'major seventh' },
+    m7: { iv: [0, 3, 7, 10], label: 'minor seventh' },
+  };
+
+  function parse(sym: string) {
+    const root = ROOTS[sym[0]];
+    const q = QUAL[sym.slice(1)] ?? QUAL[''];
+    // Right hand stays in the octave above middle C (C4..B4). Chords that
+    // would run off the keyboard come out as inversions, which is also the
+    // smooth, close voicing you use when changing chords.
+    const rh = q.iv.map((i) => 60 + ((root + i) % 12)).sort((a, b) => a - b);
+    const lh = [48 + root];
+    return { lh, rh, name: `${sym[0]} ${q.label}`, notes: q.iv.map((i) => NAMES[(root + i) % 12]) };
+  }
+
+  let ctx: AudioContext | null = null;
+  function audio() {
+    ctx ??= new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+    if (ctx.state === 'suspended') ctx.resume();
+    return ctx;
+  }
+  // Simple piano-like tone: a few harmonics with a fast attack and long decay.
+  function note(midi: number, when = 0, dur = 1.6, vel = 0.22) {
+    const ac = audio();
+    const t = ac.currentTime + when;
+    const f = 440 * Math.pow(2, (midi - 69) / 12);
+    const out = ac.createGain();
+    out.gain.setValueAtTime(0, t);
+    out.gain.linearRampToValueAtTime(vel, t + 0.008);
+    out.gain.exponentialRampToValueAtTime(vel * 0.35, t + 0.35);
+    out.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    const lp = ac.createBiquadFilter();
+    lp.type = 'lowpass';
+    lp.frequency.setValueAtTime(Math.min(9000, f * 9), t);
+    lp.frequency.exponentialRampToValueAtTime(Math.max(600, f * 2), t + dur);
+    out.connect(lp).connect(ac.destination);
+    [[1, 1], [2, 0.45], [3, 0.2], [4, 0.1]].forEach(([h, a]) => {
+      const o = ac.createOscillator();
+      const g = ac.createGain();
+      o.type = h === 1 ? 'triangle' : 'sine';
+      o.frequency.value = f * h;
+      g.gain.value = a;
+      o.connect(g).connect(out);
+      o.start(t);
+      o.stop(t + dur + 0.05);
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-chord-explorer]').forEach((root) => {
+    const svg = root.querySelector('svg')!;
+    const nameEl = root.querySelector('[data-ce-name]')!;
+    const notesEl = root.querySelector('[data-ce-notes]')!;
+    const chips = [...root.querySelectorAll<HTMLButtonElement>('[data-chord]')];
+    let used = false;
+
+    function show(sym: string) {
+      const c = parse(sym);
+      svg.querySelectorAll('rect[data-midi]').forEach((r) => {
+        const m = Number(r.getAttribute('data-midi'));
+        r.classList.toggle('lh', c.lh.includes(m));
+        r.classList.toggle('rh', c.rh.includes(m));
+      });
+      svg.querySelectorAll('.dot').forEach((d) => d.remove());
+      nameEl.textContent = c.name;
+      notesEl.textContent = c.notes.join(' · ');
+      chips.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.chord === sym)));
+      return c;
+    }
+    function strike(sym: string, when = 0) {
+      const c = parse(sym);
+      c.lh.forEach((m) => note(m, when, 2.2, 0.26));
+      c.rh.forEach((m) => note(m, when + 0.01, 1.8, 0.16));
+    }
+
+    chips.forEach((b) =>
+      b.addEventListener('click', () => {
+        show(b.dataset.chord!);
+        strike(b.dataset.chord!);
+        if (!used) { used = true; window.pfaTrack?.('tool_use', { tool: 'chord_explorer', chord: b.dataset.chord }); }
+      }),
+    );
+
+    // Broken-chord pattern: bass, then the right-hand notes rippled upward and back.
+    root.querySelector('[data-ce-progression]')?.addEventListener('click', () => {
+      const prog = ['C', 'Am', 'F', 'G'];
+      const beat = 0.32;
+      prog.forEach((sym, i) => {
+        const c = parse(sym);
+        const t0 = i * beat * 8;
+        note(c.lh[0], t0, 2.4, 0.26);
+        const ripple = [c.rh[0], c.rh[1], c.rh[2], c.rh[0] + 12, c.rh[2], c.rh[1]];
+        ripple.forEach((m, j) => note(m, t0 + beat * (j + 1), 1.2, 0.13));
+        setTimeout(() => show(sym), t0 * 1000);
+      });
+      setTimeout(() => show('C'), prog.length * beat * 8 * 1000);
+    });
+  });
+</script>

@@ -1,0 +1,129 @@
+---
+import Base from '../../layouts/Base.astro';
+import Quote from '../../components/Quote.astro';
+import FaqList from '../../components/FaqList.astro';
+import Guarantee from '../../components/Guarantee.astro';
+import BuyButton from '../../components/BuyButton.astro';
+import Video from '../../components/Video.astro';
+import Check from '../../components/Check.astro';
+import { CLASSICS } from '../../data/classics';
+import { PRODUCTS, GUARANTEE_DAYS, LINKS } from '../../data/site';
+import { byId } from '../../data/testimonials';
+import { faqsById } from '../../data/faqs';
+import { course, faqPage, video } from '../../lib/schema';
+import moonlightPoster from '../../assets/img/video-moonlight.jpg';
+
+export function getStaticPaths() {
+  return CLASSICS.map((c) => ({ params: { slug: c.slug }, props: { c } }));
+}
+const { c } = Astro.props;
+const p = c.product;
+const others = CLASSICS.filter((o) => o.slug !== c.slug);
+const quotes = byId(...c.testimonialIds);
+const faqs = faqsById('cbe-reading', 'cbe-need-pfa', 'access', 'keyboard', 'refund');
+const schema = [
+  course(p, c.metaDescription.replace(/ \$\d+ once\.$/, ''), { about: { '@type': 'MusicComposition', name: c.piece, composer: { '@type': 'Person', name: c.composer } } }),
+  ...(c.hasVideo ? [video({ name: 'Classics By Ear: Moonlight Sonata trailer', description: 'Robin Hall introduces his Moonlight Sonata course.', vimeoId: LINKS.moonlightVimeo, thumbnail: '/video/moonlight.jpg', uploadDate: '2022-11-07', durationSec: 179 })] : []),
+  faqPage(faqs),
+];
+---
+<Base
+  title={c.title}
+  description={c.metaDescription}
+  ogImage="/og/classics.jpg"
+  crumbs={[{ name: 'Classics By Ear', href: '/classics-by-ear' }, { name: c.composer, href: p.url }]}
+  schema={schema}
+  stickyCta={{ label: `Get it · $${p.price}`, href: p.checkout, note: `<b>$${p.price} once</b>${GUARANTEE_DAYS}-day refund`, event: 'begin_checkout' }}
+>
+  <section class="page-hero">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Classics By Ear · {c.composer}</p>
+        <h1>{c.h1}</h1>
+        <p class="lede">{c.intro}</p>
+        <div class="cta-row">
+          <BuyButton product={p.id as keyof typeof PRODUCTS} location="classics_hero" variant="btn" size="btn-lg" label={`Get the course · $${p.price}`} />
+        </div>
+        <ul class="trust-strip">
+          <li><Check /> {p.lessons} lessons</li>
+          <li><Check /> {p.videoHours} hours of video</li>
+          <li><Check /> No reading needed</li>
+          <li><Check /> {GUARANTEE_DAYS}-day refund</li>
+        </ul>
+      </div>
+      {c.hasVideo ? (
+        <Video vimeoId={LINKS.moonlightVimeo} title="Classics By Ear: Moonlight Sonata trailer" poster={moonlightPoster} label="Watch the trailer · 2:59" eager />
+      ) : (
+        <div class="panel">
+          <h2 style="font-size:var(--step-1)">Is this the right piece to start with?</h2>
+          <p style="margin:0">{c.level}</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap split top">
+      <div>
+        <h2>What you’ll learn</h2>
+        <ul class="check-list">{c.youLearn.map((y) => <li>{y}</li>)}</ul>
+      </div>
+      <div>
+        <h2>How the lessons work</h2>
+        <p>Robin splits the piece into short sections. For each one you listen first, watch his hands on video, follow the keyboard diagram, then play. The annotated sheet music shows the same section, so you can see how the notes on the page match what your hands are doing.</p>
+        <p>Learn one section until it’s comfortable, then add the next. A few bars a day is plenty.</p>
+        {c.hasVideo && <p class="muted"><b>Level:</b> {c.level}</p>}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="wrap">
+      <div class="section-head"><h2>From students who’ve learned it</h2><p class="muted">Reviews published on the Pianoforall Academy course page.</p></div>
+      <div class="grid grid-2">{quotes.map((t) => <Quote t={t} />)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split top">
+      <div>
+        <h2>${p.price}, once</h2>
+        <ul class="check-list">
+          <li>{p.lessons} step-by-step video lessons ({p.videoHours} hours)</li>
+          <li>Keyboard diagrams and annotated sheet music</li>
+          <li>Online player and offline downloads</li>
+          <li>The Piano Lounge community and help from Robin</li>
+          <li>Lifetime access</li>
+        </ul>
+        <BuyButton product={p.id as keyof typeof PRODUCTS} location="classics_buy" size="btn-lg" label={`Get ${c.composer} · $${p.price}`} />
+        <p class="cta-note">Want all three pieces? The <a href="/pricing#bundles">Classics By Ear bundle</a> is ${PRODUCTS.classicsBundle.price}, or ${PRODUCTS.completeBundle.price} with Pianoforall included.</p>
+      </div>
+      <Guarantee />
+    </div>
+  </section>
+
+  <section class="section section-paper">
+    <div class="wrap-narrow">
+      <h2>Questions</h2>
+      <FaqList items={faqs} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>More in Classics By Ear</h2>
+      <div class="grid grid-3">
+        {others.map((o) => (
+          <a class="card card-link" href={o.product.url}>
+            <h3>{o.composer}: {o.piece}</h3>
+            <p class="muted">{o.product.lessons} lessons · ${o.product.price}</p>
+          </a>
+        ))}
+        <a class="card card-link" href="/course">
+          <h3>Pianoforall: the complete course</h3>
+          <p class="muted">Chords, rhythm and playing by ear, from beginner up. ${PRODUCTS.pianoforall.price}</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

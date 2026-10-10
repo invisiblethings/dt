@@ -1,0 +1,38 @@
+---
+// Blog posts live at the site root, exactly where they lived on WordPress.
+import { getCollection, render } from 'astro:content';
+import Article from '../layouts/Article.astro';
+import { CATEGORY_LINKS } from '../data/blog-map';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post, posts } }));
+}
+const { post, posts } = Astro.props;
+const { Content } = await render(post);
+const d = post.data;
+const map = CATEGORY_LINKS[d.category] ?? CATEGORY_LINKS['learn-piano'];
+const siblings = posts
+  .filter((p) => p.data.category === d.category && p.id !== post.id)
+  .sort((a, b) => +b.data.pubDate - +a.data.pubDate)
+  .slice(0, 3)
+  .map((p) => ({ href: `/${p.id}`, title: p.data.title }));
+---
+<Article
+  title={d.title}
+  seoTitle={d.seoTitle || d.title}
+  description={d.description}
+  path={`/${post.id}`}
+  published={d.pubDate.toISOString()}
+  modified={d.updatedDate?.toISOString()}
+  author={d.author}
+  eyebrow={d.categoryName}
+  crumbs={[{ name: 'Blog', href: '/blog' }, { name: d.categoryName, href: `/category/${d.category}` }, { name: d.title, href: `/${post.id}` }]}
+  heroImage={d.heroImage}
+  heroAlt={d.heroAlt}
+  noindex={d.noindex}
+  related={[...map.related, ...siblings]}
+  cta={map.cta}
+>
+  <Content />
+</Article>

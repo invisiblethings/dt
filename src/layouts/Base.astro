@@ -1,0 +1,128 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE_URL, BRAND, ADS, PRODUCTS } from '../data/site';
+const adsConfig = ADS.googleAdsId ? { id: ADS.googleAdsId, label: ADS.checkoutConversionLabel, prices: Object.fromEntries(Object.values(PRODUCTS).map((p) => [p.id, p.price])) } : null;
+import { organization, website, person, breadcrumbs as crumbSchema, abs } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path for canonical, e.g. "/course". Defaults to the current path. */
+  path?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+  crumbs?: { name: string; href: string }[];
+  schema?: Record<string, unknown>[];
+  stickyCta?: false | { label: string; href: string; note?: string; event?: string };
+  article?: { published: string; modified?: string };
+}
+
+const {
+  title,
+  description,
+  path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/',
+  ogImage = '/og/default.jpg',
+  ogType = 'website',
+  noindex = false,
+  crumbs,
+  schema = [],
+  stickyCta,
+  article,
+} = Astro.props;
+
+const canonical = path === '/' ? `${SITE_URL}/` : abs(path);
+// Brand suffix only when it fits in ~65 characters, so Google doesn't truncate the useful part.
+const fullTitle = title.includes('Pianoforall') || title.length > 51 ? title : `${title} | Pianoforall`;
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    organization(),
+    website(),
+    person(),
+    {
+      '@type': 'WebPage',
+      '@id': `${canonical}#webpage`,
+      url: canonical,
+      name: fullTitle,
+      description,
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      inLanguage: 'en',
+    },
+    ...(crumbs && crumbs.length ? [crumbSchema([{ name: 'Home', href: '/' }, ...crumbs])] : []),
+    ...schema,
+  ].map((n) => JSON.parse(JSON.stringify(n))),
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex, follow" /> : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
+    <meta name="theme-color" content="#faf7f2" />
+
+    <link rel="preload" href="/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="icon" href="/brand/icon-192.png" sizes="192x192" type="image/png" />
+    <link rel="icon" href="/brand/icon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/brand/icon-180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Pianoforall blog" href="/feed.xml" />
+
+    <meta property="og:site_name" content={BRAND.name} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={abs(ogImage)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={abs(ogImage)} />
+    {article && <meta property="article:published_time" content={article.published} />}
+    {article?.modified && <meta property="article:modified_time" content={article.modified} />}
+
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+    {adsConfig && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${adsConfig.id}`}></script>
+        <script is:inline define:vars={{ adsConfig }}>
+          window.PFA_ADS = adsConfig;
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { window.dataLayer.push(arguments); };
+          window.gtag('js', new Date());
+          window.gtag('config', adsConfig.id);
+        </script>
+      </>
+    )}
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header current={path} />
+    <main id="main">
+      {crumbs && crumbs.length > 0 && <Breadcrumbs items={crumbs} />}
+      <slot />
+    </main>
+    <Footer />
+    {stickyCta && (
+      <div class="sticky-cta" data-sticky-cta aria-hidden="true">
+        {stickyCta.note && <div class="sticky-price" set:html={stickyCta.note} />}
+        <a class="btn" href={stickyCta.href} data-track={stickyCta.event ?? 'cta_click'} data-track-location="sticky_mobile" tabindex="-1">{stickyCta.label}</a>
+      </div>
+    )}
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

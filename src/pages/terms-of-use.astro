@@ -1,0 +1,8 @@
+---
+import Legal from '../layouts/Legal.astro';
+import body from '../data/legal-terms.html?raw';
+---
+<Legal title="Terms of Use" description="Terms for buying and using Pianoforall Academy courses: personal use, course access, free trials, refunds and intellectual property." h1="Terms of Use" updated="September 2026" path="/terms-of-use">
+  <p>By purchasing or accessing a Pianoforall Academy course, you agree to the following terms.</p>
+  <Fragment set:html={body.replace('<p>By purchasing or accessing a Pianoforall Academy course, you agree to the following terms.</p>', '')} />
+</Legal>

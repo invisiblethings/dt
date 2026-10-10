@@ -1,0 +1,7 @@
+---
+import { PRODUCTS } from '../data/site';
+interface Props { product: keyof typeof PRODUCTS; label?: string; location: string; variant?: 'btn' | 'btn btn-dark' | 'btn btn-ghost'; size?: '' | 'btn-lg'; block?: boolean }
+const { product, label, location, variant = 'btn btn-dark', size = '', block = false } = Astro.props;
+const p = PRODUCTS[product];
+---
+<a class:list={[variant, size, { 'btn-block': block }]} href={p.checkout} rel="nofollow" data-track="begin_checkout" data-product={p.id} data-track-location={location}>{label ?? `Buy ${p.name} · $${p.price}`}</a>

@@ -1,0 +1,223 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Video from '../components/Video.astro';
+import Quote from '../components/Quote.astro';
+import FaqList from '../components/FaqList.astro';
+import Guarantee from '../components/Guarantee.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Check from '../components/Check.astro';
+import BuyButton from '../components/BuyButton.astro';
+import RatingBadge from '../components/RatingBadge.astro';
+import { PRODUCTS, GUARANTEE_DAYS, LINKS, FEATURES } from '../data/site';
+import { BOOKS } from '../data/books';
+import { byId } from '../data/testimonials';
+import { faqsById } from '../data/faqs';
+import { course, faqPage, video } from '../lib/schema';
+
+import trailer from '../assets/img/video-trailer.jpg';
+import devices from '../assets/img/devices.jpg';
+import ebooks from '../assets/img/ebooks.jpg';
+import songwriting from '../assets/img/song-writing.jpg';
+
+const pfa = PRODUCTS.pianoforall;
+const faqs = faqsById('beginner', 'read-music', 'access', 'devices', 'offline', 'keyboard', 'support', 'price', 'refund', 'clickbank');
+const quotes = byId('kidd', 'cheeseman', 'collinsworth', 'wortley', 'cook', 'stacey');
+
+const desc = `A step-by-step online piano course for adults: ${pfa.lessons} lessons and ${pfa.videoHours} hours of video across nine books, from rhythm-style chords to blues, ballads, jazz, reading music and classical pieces.`;
+const schema = [
+  course(pfa, desc, {
+    syllabusSections: BOOKS.map((b) => ({ '@type': 'Syllabus', name: `Book ${b.no}: ${b.title}`, description: b.body })),
+    teaches: ['Piano chords', 'Rhythm-style piano', 'Playing by ear', 'Blues and rock ’n’ roll piano', 'Ballad piano', 'Jazz piano', 'Improvisation', 'Reading sheet music', 'Scales and arpeggios'],
+    numberOfLessons: pfa.lessons,
+  }),
+  video({ name: 'Pianoforall trailer', description: 'Robin Hall introduces Pianoforall and shows what you play as you work through the course.', vimeoId: LINKS.trailerVimeo, thumbnail: '/video/trailer.jpg', uploadDate: '2024-06-09', durationSec: 235 }),
+  faqPage(faqs),
+];
+---
+<Base
+  title="The Pianoforall Course: Online Piano Lessons for Adults"
+  description={`What you get with Pianoforall: ${pfa.lessons} lessons, ${pfa.videoHours} hours of video, nine books from chords to jazz and classical. $${pfa.price} once, lifetime access, ${GUARANTEE_DAYS}-day refund.`}
+  ogImage="/og/course.jpg"
+  crumbs={[{ name: 'The course', href: '/course' }]}
+  schema={schema}
+  stickyCta={{ label: `Get it · $${pfa.price}`, href: pfa.checkout, note: `<b>$${pfa.price} once</b>${GUARANTEE_DAYS}-day refund`, event: 'begin_checkout' }}
+>
+  <section class="page-hero">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">The Pianoforall course</p>
+        <h1>Everything you need to go from first chord to playing by ear</h1>
+        <p class="lede">Nine books of short video lessons, taught by Robin Hall. You start with chords and rhythm, then move through blues, ballads, jazz and improvisation, and finish reading music and playing classical pieces.</p>
+        <div class="cta-row">
+          <BuyButton product="pianoforall" location="course_hero" size="btn-lg" variant="btn" label={`Get Pianoforall · $${pfa.price}`} />
+          {FEATURES.freeLessons
+            ? <a class="btn btn-lg btn-ghost" href="/free-lessons" data-track="cta_click" data-track-location="course_hero_secondary">Try free lessons first</a>
+            : <a class="btn btn-lg btn-ghost" href="#curriculum" data-track="cta_click" data-track-location="course_hero_secondary">See the nine books</a>}
+        </div>
+        <ul class="trust-strip">
+          <li><Check /> One payment, lifetime access</li>
+          <li><Check /> {GUARANTEE_DAYS}-day refund</li>
+          <li><Check /> Start in minutes</li>
+        </ul>
+      </div>
+      <Video vimeoId={LINKS.trailerVimeo} title="Pianoforall trailer" poster={trailer} label="Watch the trailer · 3:55" eager />
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat"><b>{pfa.lessons}</b><span>short, step-by-step lessons</span></div>
+        <div class="stat"><b>{pfa.videoHours} hrs</b><span>of video, plus audio for every exercise</span></div>
+        <div class="stat"><b>9</b><span>books, each adding a style and a skill</span></div>
+        <div class="stat"><b>${pfa.price}</b><span>once. Updates included for life.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="curriculum">
+    <div class="wrap split top">
+      <div class="aside-sticky">
+        <p class="eyebrow">Curriculum</p>
+        <h2>The nine books</h2>
+        <p>Work through them in order. Each book builds on the last, so you always know what to practise next.</p>
+        <p class="muted">Want to see the method before you buy? Watch the <a href="/">sample lesson on the home page</a>, or read <a href="/how-it-works">how the method works</a>.</p>
+      </div>
+      <ol class="books" role="list" style="list-style:none;padding:0;margin:0">
+        {BOOKS.map((b) => (
+          <li class="book">
+            <Image src={b.img} alt={`Pianoforall Book ${b.no}: ${b.title}`} widths={[180, 360]} sizes="180px" loading="lazy" />
+            <div>
+              <span class="book-no">Book {b.no} · {b.skill}</span>
+              <h3>{b.title}</h3>
+              <p>{b.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-paper">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What you get</p>
+        <h2>One course, two ways to use it</h2>
+        <p class="lede">You get the online course player and the full set of offline ebooks. Use whichever suits you, or both.</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card card-media">
+          <Image src={devices} alt="The Pianoforall course open on a desktop computer, a tablet and a phone" widths={[480, 800]} sizes="(min-width: 40rem) 50vw, 100vw" loading="lazy" />
+          <div class="card-body">
+            <h3>Online course player</h3>
+            <p>Start the first lesson a few minutes after you buy. The player saves your progress, works in any modern browser on a computer, tablet or phone, and lets you ask a question under any lesson.</p>
+          </div>
+        </div>
+        <div class="card card-media">
+          <Image src={ebooks} alt="A Pianoforall ebook page with embedded video and audio buttons beside the keyboard diagrams" widths={[480, 800]} sizes="(min-width: 40rem) 50vw, 100vw" loading="lazy" />
+          <div class="card-body">
+            <h3>Offline ebooks</h3>
+            <p>Download the books with the video and audio built into the page. Tap a diagram, hear it, watch it, play it. No Wi‑Fi needed, and you can print any page. They open in Apple Books on Mac and iOS, and in the free Kotobee Reader on Windows and Android.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-3" style="margin-top:2rem">
+        <div><h3>Audio for every exercise</h3><p class="muted">Hear how a rhythm should sound before you try it. Ear training happens as you go.</p></div>
+        <div><h3>Keyboard diagrams</h3><p class="muted">Coloured keys show exactly which notes to play, so you can start before you read music.</p></div>
+        <div><h3>The Piano Lounge</h3><p class="muted">A friendly student community where you can ask questions, share progress and hear from Robin.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Is it right for you?</p>
+        <h2>Pianoforall suits you if…</h2>
+      </div>
+      <div class="grid grid-2">
+        <div class="panel">
+          <h3>A good fit</h3>
+          <ul class="check-list">
+            <li>You’re an adult or teenager starting from zero, or coming back after years away</li>
+            <li>You want to play songs from chords, by ear, and make up your own parts</li>
+            <li>You like a clear order to follow at your own speed</li>
+            <li>You read music but can’t play without the page in front of you</li>
+            <li>You’d rather pay once than keep a subscription going</li>
+          </ul>
+        </div>
+        <div class="panel" style="background:var(--paper);border:1px solid var(--line)">
+          <h3>Probably not the best fit</h3>
+          <ul class="x-list">
+            <li>You want software that listens and scores every note. Try an app like Simply Piano or Skoove.</li>
+            <li>You’re buying for a young child working alone. Hoffman Academy is built for kids.</li>
+            <li>You’re preparing for graded exams or want sight-reading drills first. Piano Marvel focuses on reading.</li>
+            <li>You want weekly feedback from a live teacher. Look for a local teacher or a membership site.</li>
+          </ul>
+          <p class="small muted">More detail in our <a href="/compare">honest comparison with piano apps</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sand" id="for-guitarists">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Guitarists, singers and songwriters</p>
+        <h2>You already know the chords. Now find them on the keys.</h2>
+        <p>Pianoforall teaches piano the way most guitarists learned: chord shapes and rhythm patterns first. You’ll recognise the progressions straight away, and the rhythm books give your left hand the bass lines and patterns that make the piano sound full.</p>
+        <p>Singers use the rhythm styles to accompany themselves within the first books. Songwriters use the ballad and improvisation chapters to write at the keyboard.</p>
+        <a class="text-link" href="/if-you-play-guitar-you-can-play-piano">If you play guitar, you can play piano</a>
+      </div>
+      <figure class="figure-frame" style="margin:0">
+        <Image src={songwriting} alt="A songwriter with headphones writing at a keyboard" widths={[480, 800]} sizes="(min-width: 56rem) 480px, 100vw" loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Student stories</p>
+        <h2>What students say about the course itself</h2>
+        <RatingBadge />
+      </div>
+      <div class="masonry">
+        {quotes.map((t) => <Quote t={t} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-paper" id="buy">
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow">Price</p>
+        <h2>${pfa.price}. Once.</h2>
+        <ul class="check-list">
+          <li>All nine books: {pfa.lessons} lessons, {pfa.videoHours} hours of video</li>
+          <li>Online course player and offline ebooks</li>
+          <li>Audio lessons, printable PDFs and keyboard diagrams</li>
+          <li>The Piano Lounge community and email support from Robin</li>
+          <li>Free updates for life. No subscription.</li>
+        </ul>
+        <div class="cta-row">
+          <BuyButton product="pianoforall" location="course_buy" size="btn-lg" variant="btn" label={`Get Pianoforall · $${pfa.price}`} />
+        </div>
+        <p class="cta-note">You can review your order before paying. Checkout by ClickBank. Want the classical courses too? The <a href="/pricing#bundles">complete bundle</a> is ${PRODUCTS.completeBundle.price}.</p>
+      </div>
+      <Guarantee />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-narrow">
+      <h2>Questions about the course</h2>
+      <FaqList items={faqs} />
+    </div>
+  </section>
+
+  {FEATURES.freeLessons
+    ? <FinalCta location="course_final" heading="Not sure yet? Start with the free lessons." body="Real Pianoforall lessons, a free ebook and the student community. No card, no obligation." />
+    : <FinalCta location="course_final" heading="Start tonight, risk-free" />}
+</Base>

@@ -1,0 +1,144 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Quote from '../components/Quote.astro';
+import FinalCta from '../components/FinalCta.astro';
+import ChordExplorer from '../components/ChordExplorer.astro';
+import FaqList from '../components/FaqList.astro';
+import { PRIMARY_CTA } from '../data/site';
+import { byId } from '../data/testimonials';
+import { faqsById } from '../data/faqs';
+import { faqPage, article } from '../lib/schema';
+
+import playFirst from '../assets/img/how-it-works.jpg';
+import patterns from '../assets/img/chord-patterns.jpg';
+import byEar from '../assets/img/play-by-ear.jpg';
+import cartoon from '../assets/img/about-robin.jpg';
+
+const faqs = faqsById('read-music', 'already-play', 'practice-time', 'midi', 'vs-apps');
+const schema = [
+  article({ title: 'How Pianoforall works: the play-first method', description: 'How Pianoforall teaches piano: chords and rhythm first, playing by ear, then reading and theory once the notes mean something.', path: '/how-it-works', datePublished: '2026-10-08', image: '/og/learn.jpg' }),
+  faqPage(faqs),
+];
+---
+<Base
+  title="How Pianoforall Works: Learn Piano Chords First, Read Later"
+  description="Pianoforall teaches piano in the order adults learn best: chords and rhythm first, playing by ear, then reading music and theory once the notes mean something."
+  ogImage="/og/learn.jpg"
+  crumbs={[{ name: 'How it works', href: '/how-it-works' }]}
+  schema={schema}
+  stickyCta={PRIMARY_CTA}
+>
+  <section class="page-hero">
+    <div class="wrap-narrow">
+      <p class="eyebrow">The method</p>
+      <h1>How Pianoforall works</h1>
+      <div class="answer-box">
+        <span class="label">In short</span>
+        <p>Pianoforall teaches chords and rhythm patterns first, so both hands play music from the first lessons. You learn to play by ear, then reading and theory come in gradually, once the notes already mean something. Robin calls it “play first, ask questions later”.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap split">
+      <div>
+        <h2>Most courses teach piano backwards</h2>
+        <p>Traditional lessons start with the stave, note names, scales and simple tunes in one hand. It can be months before you play anything you’d want to play for a friend. Adults with jobs and families often stop there.</p>
+        <p>You learned to speak long before you learned to read. Pianoforall applies the same idea to the piano. You copy and play first. Reading comes later, and it’s easier because you already know what the notes sound like.</p>
+      </div>
+      <figure class="figure-frame" style="margin:0">
+        <Image src={playFirst} alt="Play first, read later: the same broken C chord shown as a keyboard diagram and as sheet music" widths={[480, 916]} sizes="(min-width: 56rem) 480px, 100vw" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Three steps, repeated</p>
+        <h2>Play, learn, understand</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card"><span class="num">1</span><h3>Play</h3><p>Robin shows a chord shape on a keyboard diagram and on video. You hear it on audio, then play it in a rhythm with both hands.</p></div>
+        <div class="card"><span class="num">2</span><h3>Learn</h3><p>Once your hands know it, you learn the chord’s name, how it’s built and where it turns up in songs.</p></div>
+        <div class="card"><span class="num">3</span><h3>Understand</h3><p>You see how chords, keys and rhythms fit together, and use them in new songs and your own ideas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-paper">
+    <div class="wrap split">
+      <figure class="figure-frame" style="margin:0">
+        <Image src={patterns} alt="Keyboard diagram with coloured chord tones for left and right hand above a video of hands playing" widths={[480, 900]} sizes="(min-width: 56rem) 480px, 100vw" loading="lazy" />
+      </figure>
+      <div>
+        <p class="eyebrow">Shapes and patterns</p>
+        <h2>You learn to see the keyboard in shapes</h2>
+        <p>Every major chord has the same shape. So does every minor chord. Once you see that, you’re no longer memorising hundreds of separate notes. You’re moving a handful of shapes around.</p>
+        <p>Robin uses colour-coded diagrams, cartoons and memory tricks to make those shapes stick. He trained as a cartoonist, and it shows: the explanations are visual first and wordy second.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split top">
+      <div>
+        <p class="eyebrow">Hear the idea</p>
+        <h2>A shape you can move</h2>
+        <p>Pick C, then Am, then F. Your right hand barely moves: only one finger changes each time. Small, easy chord changes like these are the first thing Pianoforall teaches, and they’re why beginners sound like they’re playing real music so early.</p>
+        <p>Tap the chord names on the keyboard to see and hear them.</p>
+      </div>
+      <ChordExplorer id="method-chords" />
+    </div>
+  </section>
+
+  <section class="section section-sand">
+    <div class="wrap split reverse">
+      <figure class="figure-frame" style="margin:0">
+        <Image src={byEar} alt="Pianoforall lesson page combining chord diagrams, audio and video" widths={[480, 900]} sizes="(min-width: 56rem) 480px, 100vw" loading="lazy" />
+      </figure>
+      <div>
+        <p class="eyebrow">By ear, then by eye</p>
+        <h2>Playing by ear and reading music</h2>
+        <p>Because you learn chords and rhythms by sound, you start to recognise them in songs you hear. That’s the core of playing by ear: hearing a progression and knowing roughly where your hands should go.</p>
+        <p>Reading comes in gradually. By Book 8 you work through classical pieces from sheet music, and the notes make sense because you already know the chords underneath. Students who already read find the reverse: chord knowledge makes their reading faster.</p>
+        <a class="text-link" href="/learn/play-piano-by-ear">How to play piano by ear</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Small steps</p>
+        <h2>One new idea per lesson</h2>
+        <p>Each lesson adds one thing: a new chord, a new rhythm, or a new way to combine them. The videos are short, so you can watch a lesson, practise it for twenty minutes, and stop.</p>
+        <p>There’s also some mindfulness in the course. Robin is a therapist as well as a teacher, and he reminds you to notice tension, drop your shoulders and slow down. Relaxed hands learn faster.</p>
+        <p>You can repeat any lesson as often as you like. Nobody is waiting for you to get it right.</p>
+      </div>
+      <figure class="figure-frame" style="margin:0">
+        <Image src={cartoon} alt="A cartoon by Robin Hall: a pianist in a top hat playing to a lively bar crowd" widths={[480, 900]} sizes="(min-width: 56rem) 480px, 100vw" loading="lazy" />
+        <figcaption class="small muted" style="margin-top:.5rem">Robin draws the cartoons in the course himself.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="wrap">
+      <div class="grid grid-2">
+        <Quote t={byId('alabama-david')[0]} />
+        <Quote t={byId('ravagli')[0]} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-narrow">
+      <h2>Questions about the method</h2>
+      <FaqList items={faqs} />
+    </div>
+  </section>
+
+  <FinalCta location="method_final" heading="See the method for yourself" />
+</Base>
