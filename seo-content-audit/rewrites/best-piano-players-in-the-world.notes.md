@@ -19,7 +19,6 @@ Wikipedia served as a pointer only; each row lists the source I relied on. "Sear
 | 1 | Yuja Wang born 1987, Beijing; Central Conservatory; Curtis with Gary Graffman | https://www.deutschegrammophon.com/en/artists/yujawang/biography (search) | 2026-10-10 |
 | 2 | Wang replaced Argerich, March 2007, Tchaikovsky 1, Boston Symphony | https://www.deutschegrammophon.com/en/artists/yujawang/biography ; https://en.wikipedia.org/wiki/Yuja_Wang (pointer) | 2026-10-10 |
 | 3 | 28 Jan 2023 Carnegie Hall all-Rachmaninoff afternoon, four concertos + Paganini Rhapsody, Philadelphia Orchestra, Nézet-Séguin, Third last | https://carnegiehall.org/calendar/2023/01/28/the-philadelphia-orchestra-0200pm ; https://theclassicalreview.com/2023/01/wang-triumphs-in-all-rachmaninoff-all-at-once-carnegie-marathon/ | 2026-10-10 |
-| 4 | Concert ran three and a half hours (The Classical Review) | https://theclassicalreview.com/2023/01/wang-triumphs-in-all-rachmaninoff-all-at-once-carnegie-marathon/ (search) | 2026-10-10 |
 | 5 | The American Project, Abrams, Louisville Orchestra, concerto written for Wang, Grammy Best Classical Instrumental Solo Feb 2024 | https://www.grammy.com/awards/categories/best-classical-instrumental-solo/2024/ ; https://www.teddyabrams.com/updates/2024/2/9/grammy-win-for-the-american-project | 2026-10-10 |
 | 6 | Lang Lang born 1982 Shenyang; lessons at 3; Central Conservatory 1991; 1999 Chicago Symphony gala replacement, Tchaikovsky 1 | https://www.britannica.com/biography/Lang-Lang ; https://www4.hku.hk/hongrads/citations/dr-lang-lang-lang-lang (search) | 2026-10-10 |
 | 7 | 2008 Beijing Olympics opening ceremony; Lang Lang International Music Foundation founded 2008 | same as #6 (one source, Verbier Festival, gives 2007 for a foundation; 2008 better supported) | 2026-10-10 |
@@ -51,9 +50,47 @@ Wikipedia served as a pointer only; each row lists the source I relied on. "Sear
 | 33 | Goldberg Variations, DG, Oct 2023; 2023-24 six-continent tour; Grammy Feb 2025, his first | https://www.deutschegrammophon.com/en/artists/vikingur-olafsson/news/vkingur-olafsson-wins-his-first-grammy-275053 ; https://www.grammy.com/awards/categories/best-classical-instrumental-solo/2025/ | 2026-10-10 |
 | 34 | Igor Levit house concerts on Twitter from 12 March 2020, Beethoven to Feldman | https://crosseyedpianist.com/tag/igor-levit-pianist/ ; https://interlude.hk/house-concert-by-igor-levit-book-review/ (secondary sources; Levit's book *House Concert*, 2022) | 2026-10-10 |
 | 35 | Buniatishvili born 1987, Georgia; Sony Classical 2010; Liszt debut 2011 for Liszt's 200th | https://www.salzburgerfestspiele.at/en/a/khatia-buniatishvili ; Sony Classical artist page | 2026-10-10 |
+| 37 | Trifonov recorded Fantaisie-Impromptu Op. 66 on *Chopin Evocations* (DG, 2017) | https://gramophone.co.uk/review/daniil-trifonov-chopin-evocations ; https://www.deutschegrammophon.com/en/artists/daniil-trifonov/videos/fantaisie-impromptu-in-cis-moll-op-post-66-teaser-446875 | 2026-10-10 |
+| 38 | "Desire" is on The Trio Project's *Voice* (Telarc, 2011), with Anthony Jackson and Simon Phillips | https://en.wikipedia.org/wiki/Voice_(Hiromi_album) (pointer) ; https://www.audaud.com/?p=17481 | 2026-10-10 |
+| 39 | Mehldau first recorded "Blackbird" on *The Art of the Trio, Volume One* (Warner Bros., 1997) | https://en.wikipedia.org/wiki/The_Art_of_the_Trio_Volume_One (pointer) ; https://jazz.com/encyclopedia/mehldau-brad-bradford-alexander | 2026-10-10 |
+| 40 | Ólafsson's Bach Organ Sonata No. 4 Andante (transcr. Stradal) comes from *Johann Sebastian Bach* (DG, 2018) | https://www.deutschegrammophon.com/en/artists/vikingur-olafsson/videos/bach-organ-sonata-no-4-bwv-528-2-andante-adagio-transcr-stradal-489989 ; https://www.highresaudio.com/album/view/g9xsvq/vkingur-lafsson-johann-sebastian-bach | 2026-10-10 |
+| 41 | BBC television filmed Argerich in Prokofiev 3 with Previn and the LSO in 1977 | https://warnerclassics.com/release/classic-archive-martha-argerich-plays-tchaikovsky-prokofiev (search) | 2026-10-10 |
+| 42 | Video titles and channels for VIDEO-1 to VIDEO-7 | Coordinator's YouTube oEmbed check (I did not re-check) | 2026-10-10 |
 | 36 | Joey Alexander born 2003 Bali; learned jazz by ear from father's records; two nominations at 2016 Grammys at 12; first Indonesian nominee | https://www.thejakartapost.com/news/2015/12/08/first-indonesian-jazz-pianist-nominated-a-grammy ; https://www.voanews.com/a/twelve-year-old-indonesian-pianist-wows-jazz-world/3122881.html | 2026-10-10 |
 
 Opinions in the rewrite (my reading of Hiromi's solos, "I listen for her range", the selection criteria) are labelled as the author's view and need no source.
+
+## Media (owner addition: keep one video and one image per pianist)
+
+The article keeps all seven existing YouTube embeds and all seven existing images, in their original order, as `![alt](IMAGE-n)` and `VIDEO-n: <url>` lines directly under each pianist's H2. The eighth image (the "Sponsored" danhonmusic.com/pfa banner) stays out.
+
+### "Start with" pointers: which videos I used
+
+All seven "Start with" pointers now point to the existing video. I moved the recordings I had used before into the body text so the facts stay.
+
+| # | Video | Used as "Start with"? | Fact-check note |
+|---|---|---|---|
+| 1 | Yuja Wang: Rachmaninoff's Third Piano Concerto (Carnegie Hall+) | Yes | The title gives no date. I could not confirm it shows the 28 Jan 2023 marathon, so the text says only that Carnegie Hall+ published it and the title gives no date. *The American Project* (old pointer) moved into the body. |
+| 2 | Für Elise Performed by Lang Lang (Steinway & Sons) | Yes | Fits: "Für Elise" is on *Piano Book* (DG, 2019), which moved into the body. |
+| 3 | Martha Argerich, Prokofiev Piano Concerto No 3, Previn (Classical Vault 1) | Yes, with caveat | A BBC 1977 film with Previn and the LSO exists (Warner Classic Archive). The upload comes from a third-party channel and I could not confirm it is that film; the text says so. Ownership/licensing of this upload is unclear (see open items). The 1967 Abbado recording (old pointer) moved into the body. |
+| 4 | Chopin: Fantaisie-Impromptu Op. 66 (Deutsche Grammophon) | Yes | Fits: Trifonov recorded it on *Chopin Evocations* (DG, 2017). The DG channel is a label channel. *Transcendental* (old pointer) moved into the body. |
+| 5 | Hiromi Uehara The Trio Project "Desire" | Yes | Fits: "Desire" is on *Voice* (Telarc, 2011) by The Trio Project. I dropped my earlier unverified "opens side two" wording before saving. *Another Mind* (old pointer) moved into the body. |
+| 6 | Brad Mehldau, Blackbird (Steinway & Sons) | Yes | Fits: he first recorded "Blackbird" on *The Art of the Trio, Volume One* (1997). I do not know when or where Steinway filmed the video, so the text gives no date. *Your Mother Should Know* (old pointer) moved into the body. |
+| 7 | Bach: Organ Sonata No. 4, BWV 528: II. Andante (Transcr. Stradal) (Deutsche Grammophon) | Yes | Fits: from *Johann Sebastian Bach* (DG, 2018). *Goldberg Variations* (old pointer) moved into the body. |
+
+### Alt text
+
+I downloaded the seven images at small size and looked at them, so the alt text describes what each one shows. I matched each image to a pianist by page order, as the coordinator listed them; I did not run any identity check. The old alt texts were page titles copied from other sites, and I replaced them.
+
+| # | New alt text | Old alt text |
+|---|---|---|
+| 1 | Yuja Wang in a teal dress, seated at a grand piano | (none) |
+| 2 | Lang Lang leaning on a piano keyboard, black-and-white portrait | The Olympian \| The New Yorker |
+| 3 | Martha Argerich seated at a grand piano, black-and-white archive photo | (none given) |
+| 4 | Daniil Trifonov in a blazer, leaning on a railing beside a grand piano | Star pianist Daniil Trifonov expands his repertoire once again \| Chicago Symphony Orchestra |
+| 5 | Hiromi smiling at a grand piano with a keyboard on top, black-and-white photo | No Strings Attached - VIE Magazine |
+| 6 | Brad Mehldau playing a Steinway grand piano on stage | About Brad - Brad Mehldau |
+| 7 | Víkingur Ólafsson on a concert stage at a grand piano, gesturing toward the audience | Vikingur Olafsson - phenomenal technique for a packed Opera House - classikON |
 
 ## Original claims dropped or changed
 
@@ -108,7 +145,8 @@ Opinions in the rewrite (my reading of Hiromi's solos, "I listen for her range",
 ## Open items for the owner
 
 1. **Affiliate CTA removed.** The `danhonmusic.com/pfa` "Sponsored" block and the "Support my work by subscribing" block came out of the body. If you want either back, put the subscribe button at the end and add an affiliate disclosure next to any affiliate link (the audit found no disclosure on the site; see content-review.md section 1).
-2. **Images.** The original has one image per pianist (Substack CDN). Placeholders `IMAGE-1` to `IMAGE-7` keep that order. Confirm each image shows the right person, and confirm the credit and licence for each. I did not open the images and did not describe photo details I cannot see. Alt text is generic ("X performing at the piano"); edit it if a photo shows something else (a portrait, an album cover).
+2. **Image licensing and credits (open).** The old alt texts point to press and media sources (The New Yorker, Chicago Symphony Orchestra, VIE Magazine, classikON, bradmehldau.com), so someone else probably owns these photos. Image 5 (Hiromi) carries an embedded EXIF copyright tag naming Robert Drozd. Image 3 (Argerich) looks like an archive photo. Before republishing, confirm you have permission for each image or swap in licensed ones (label/agency press kits often allow editorial use with credit), and add a credit line under each.
+   **Videos:** six of the seven come from official channels (Carnegie Hall+, Steinway & Sons, Deutsche Grammophon, Hiromi's own channel). Video 3 (Argerich/Previn) comes from "Classical Vault 1", a third-party upload of what looks like a broadcast film; it could vanish from YouTube or carry rights issues. Consider replacing it with an official source if one exists.
 3. **Internal links.** I used three: `/p/11-legendary-self-taught-pianists`, `/p/6-blind-african-american-pianists`, `/p/what-is-the-best-age-to-learn-piano`. I took the slugs from the audit inventory; I did not load the live pages today. Check they resolve.
 4. **Front block.** Paste the title into Substack's title field and the meta description into the SEO description field. The `# Title` line in the body mirrors the Substack title; drop it if Substack renders the title on its own, so the page keeps one H1.
 5. **Facts with dates.** Argerich's Feb 2027 Berlin Phil dates and "performs in public as of 2026" will go stale. Review the page by October 2027.
@@ -127,11 +165,11 @@ Quick checks run on the final draft: no adverbs found by grep; no em dashes; no 
 | Density | 8 |
 | **Total** | **38/50** |
 
-Grep results on the final article: em dashes 0; `\b\w+ly\b` matches 0 (one earlier hit, "early", rewritten); banned words (really, just, actually, truly, very, simply, always, never, every, everyone, nobody) 0; banned sentence openers 0. Word count: about 1,470 (body, excluding front block and URLs). Title 57 characters, meta description 151.
+Grep results on the final article: em dashes 0; `\b\w+ly\b` matches 0 (one earlier hit, "early", rewritten); banned words (really, just, actually, truly, very, simply, always, never, every, everyone, nobody) 0; banned sentence openers 0. Word count: about 1,590 (body, excluding front block, URLs and VIDEO lines), after adding the media and video-based pointers. Title 57 characters, meta description 151.
 
 ## Limitations
 
 - I checked most claims through search-result extracts, not full page reads. I fetched one page in full (daniiltrifonov.com concerto premiere). The Trifonov bio PDF on daniiltrifonov.com returned 404.
 - I did not open Vogue, The New Yorker or The Guardian archives directly; the quotes failed web search, and I dropped them on that basis.
-- I did not verify the existing images or their licences.
+- I viewed the existing images but could not check who owns them or how they are licensed. I took the video titles and channels from the coordinator's oEmbed check and did not watch the videos, so I cannot confirm the performance dates or orchestras shown.
 - For some dropped claims (Hiromi's Bohemian Rhapsody cover and Montreux 2022 anecdote, the Mehldau/Greenwood link, the Finding Gabriel/Baldwin link, Ólafsson's playlists, the remaining unattributed quotes) I ran no dedicated search. "Not verified" means I had no source, not that I proved them false. The owner can restore any of them with a source.
