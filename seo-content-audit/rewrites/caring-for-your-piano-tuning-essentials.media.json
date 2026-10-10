@@ -2,5 +2,13 @@
  "images": {
   "1": "99be1ef5-1dc5-4bf4-aacc-9e630e0e191e_1200x628.jpeg"
  },
- "videos": {}
+ "videos": {},
+ "checks": [
+  "Cost figures are US-only and come from Thumbtack guides updated in October 2025 (an aggregator of user quotes, not a technician survey). Open the current Thumbtack tuning and moving guides and update the numbers if they changed. The article says the data is dated and that prices vary by region.",
+  "No technician has reviewed this page. Have a registered piano technician check the tuning frequency, cost and humidity advice. If they agree, add a credit line with their name.",
+  "Unsourced items to confirm with a technician: the \"signs your piano needs tuning\" list, and the advice to wait three months after a move before tuning (Thumbtack's advice only).",
+  "The image looks AI-generated and its overlay still reads \"Caring for Your Piano Tuning Essentials\". Consider swapping it for an original or licensed photo of a piano being tuned.",
+  "The two humidity targets differ by source (PTG: 42% at 68\u00b0F; Steinway UK: 45% to 70%). The article gives both with attribution. Keep both unless a technician advises otherwise.",
+  "No UK, Canadian or Australian price data was found, so costs are labeled US. Add local figures only from a source you can name."
+ ]
 }
