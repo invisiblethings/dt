@@ -1,0 +1,25 @@
+{
+ "images": {
+  "1": "8fc753d1-718d-4293-a96a-53277cce7f26_880x542",
+  "2": "1bed9f37-59f5-464b-839f-8973aa27dc37_646x617",
+  "3": "f032ff8c-19f4-4123-bec5-0ffcd8481509_736x997",
+  "4": "251fe927-497e-4f5b-b540-318b20e944d7_1024x678",
+  "5": "e77e0826-1dd0-4c36-bc05-f0a5c3b9e28c_1000x712",
+  "6": "85b3431b-4c39-47f1-8338-ac21c7316afb_1000x667",
+  "7": "ab32ac15-12fa-479e-9747-51d0f8b0b44a_2048x1365"
+ },
+ "videos": {
+  "1": "ROFowmtW1eQ",
+  "2": "s71I_EWJk7I",
+  "3": "FgnE25-kvyk",
+  "4": "Gy5UHK4EeM8",
+  "5": "EFeouD2IWSA",
+  "6": "kruKQCY77bc",
+  "7": "h3-rNMhIyuQ"
+ },
+ "checks": [
+  "Image rights: the old alt texts name outside publishers (The New Yorker, Chicago Symphony Orchestra, VIE Magazine, classikON), and image 5's file metadata lists a photographer. Confirm you may use each photo.",
+  "Facts were checked from web sources on 2026-10-10. Spot-check the Grammy, date and album claims in the notes file before you publish.",
+  "The affiliate banner and subscribe block from the old page are left out on purpose. Decide whether to restore them, with a disclosure."
+ ]
+}

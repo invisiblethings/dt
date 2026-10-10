@@ -1,0 +1,19 @@
+{
+ "images": {
+  "1": "1776bee1-2197-4900-8ec6-4eb5bef9f679_2240x1260.jpeg",
+  "2": "d5317b29-0596-40c0-8976-8e836c750b47_815x727.png",
+  "3": "8583cf0d-2024-4cc7-8f38-ebf8e0c4624c_1280x720.jpeg",
+  "4": "4399777f-6602-4b2f-8fe8-d43f5eeb15d1_1280x682.jpeg",
+  "5": "9fd3c407-0cb8-44cc-9942-be766db68454_489x128.png",
+  "6": "88567712-890e-4e7b-9abe-831d921be9d3_1280x686.jpeg"
+ },
+ "videos": {},
+ "checks": [
+  "Prices come from Flowkey's US help center (checked 2026-10-10). The checkout page loads prices by script and could not be read. Open flowkey.com signed out in a US browser and confirm the Classic, Premium and Family prices and the autumn promotion before you publish.",
+  "First-person claims were carried over from your original and could not be verified. Confirm each is true: 20+ years playing and teaching; a few weeks in the app with a MIDI keyboard; microphone-mode testing; learned \"Someone You Loved\" in one sitting; cancelled twice; tested the six alternatives side by side; Skoove is the closest runner-up; the 7.2 out of 10 rating. Edit or delete any that are not.",
+  "The old pricing screenshot (it showed the discontinued 6-month plan) is left out on purpose. If you want a pricing image, take a fresh screenshot.",
+  "The hero image has \"is it more than just hype?\" baked into the graphic, which clashes with the new title. Consider swapping it.",
+  "Image rights: all six images look like Flowkey product screenshots or marketing graphics, and two may be video frames. Confirm you may use them for review commentary.",
+  "The Simply Piano link now goes to hellosimply.com instead of pianoers.com. A tracking link for Simply Piano appears in another article on your site, so if pianoers.com is yours or affiliated, decide whether to restore it and add a disclosure."
+ ]
+}
