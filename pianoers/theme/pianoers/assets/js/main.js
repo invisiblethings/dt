@@ -1,8 +1,9 @@
 /* Pianoers theme. No dependencies; every feature is optional and fails quietly.
-   1. Mobile menu            5. Contents list
-   2. Image framing          6. Picks, finder, rail pick and buy bar
-   3. Table scrolling        7. ItemList structured data
-   4. Affiliate links                                                        */
+   1. Mobile menu            5. Contents list                     9. Playable pianos
+   2. Image framing          6. Picks, finder, rail pick, buy bar 10. Ear trainer
+   3. Table scrolling        7. ItemList structured data          11. Reading progress
+   4. Affiliate links        8. Sound                             12. Share, course quiz, chord taste
+                                                                  13-14. Sortable tables, reveal  */
 (function () {
     'use strict';
 
@@ -119,6 +120,7 @@
             price: el.getAttribute('data-price') || '',
             img: img ? (img.currentSrc || img.src) : '',
             buyHref: buy ? buy.href : '',
+            buyRel: buy ? buy.getAttribute('rel') : '',
             buyText: buy ? text(buy) : ''
         };
     }).sort(function (a, b) { return a.rank - b.rank; });
@@ -128,7 +130,8 @@
     function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
     function buyLink(p, label, extraClass) {
         if (!p.buyHref) return '';
-        return '<a class="pz-btn pz-btn-buy ' + (extraClass || '') + '" href="' + esc(p.buyHref) + '" rel="sponsored nofollow noopener" target="_blank">' + esc(label || p.buyText || 'Check price') + '</a>';
+        /* Keep the card button's own rel (vendor links that aren't affiliate links carry no "sponsored"). */
+        return '<a class="pz-btn pz-btn-buy ' + (extraClass || '') + '" href="' + esc(p.buyHref) + '" rel="' + esc(p.buyRel || 'sponsored nofollow noopener') + '" target="_blank">' + esc(label || p.buyText || 'Check price') + '</a>';
     }
 
     var current = picks[0] || null;
@@ -554,23 +557,295 @@
     }
 
     /* 12. Share */
+    var canShare = !!(navigator.share || (navigator.clipboard && navigator.clipboard.writeText));
+    function pageUrl() { return (document.querySelector('link[rel="canonical"]') || {}).href || window.location.href.split('#')[0]; }
+    function shareLink(btn, url, title, message) {
+        if (navigator.share) { navigator.share({ title: title, text: message || undefined, url: url }).catch(function () {}); return; }
+        navigator.clipboard.writeText(url).then(function () {
+            var old = btn.textContent;
+            btn.textContent = 'Link copied ✓';
+            setTimeout(function () { btn.textContent = old; }, 2000);
+        }).catch(function () {});
+    }
     var shareBtns = document.querySelectorAll('[data-pz-share]');
-    if (shareBtns.length && (navigator.share || (navigator.clipboard && navigator.clipboard.writeText))) {
+    if (shareBtns.length && canShare) {
         document.querySelectorAll('.pz-share-row').forEach(function (r) { r.hidden = false; });
         shareBtns.forEach(function (btn) {
             btn.hidden = false;
-            btn.addEventListener('click', function () {
-                var url = (document.querySelector('link[rel="canonical"]') || {}).href || window.location.href;
-                var title = document.title;
-                if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); return; }
-                navigator.clipboard.writeText(url).then(function () {
-                    var old = btn.textContent;
-                    btn.textContent = 'Link copied ✓';
-                    setTimeout(function () { btn.textContent = old; }, 2000);
-                }).catch(function () {});
-            });
+            btn.addEventListener('click', function () { shareLink(btn, pageUrl(), document.title); });
         });
     }
+
+    /* 12b. Course quiz ([data-pz-quiz]): data-driven, one question at a time, answers are piano keys.
+       Data: a <script type="application/json" class="pz-quiz-data"> inside the box (format in snippets/course-quiz.html).
+       Scoring: points per answer, plus "headStart" for the favorite; answers with "requires" limit who can win;
+       ties go to the favorite, then to the course listed first. quiz-simulate.py mirrors this exactly. */
+    function quizScore(data, chosen) {
+        var ids = data.courses.map(function (c) { return c.id; });
+        var s = {}, allowed = {}, any = false;
+        ids.forEach(function (id) { s[id] = 0; allowed[id] = true; });
+        if (s.hasOwnProperty(data.favorite)) s[data.favorite] += data.headStart || 0;
+        chosen.forEach(function (o) {
+            Object.keys(o.points || {}).forEach(function (id) { if (s.hasOwnProperty(id)) s[id] += o.points[id]; });
+            if (o.requires && o.requires.length) ids.forEach(function (id) { if (o.requires.indexOf(id) === -1) allowed[id] = false; });
+        });
+        ids.forEach(function (id) { if (allowed[id]) any = true; });
+        if (!any) ids.forEach(function (id) { allowed[id] = true; });
+        var order = ids.slice().sort(function (a, b) {
+            return (allowed[b] - allowed[a]) || (s[b] - s[a]) ||
+                ((b === data.favorite) - (a === data.favorite)) || (ids.indexOf(a) - ids.indexOf(b));
+        });
+        return { scores: s, allowed: allowed, order: order };
+    }
+    function money(n) { return '$' + (Math.round(n * 100) % 100 ? n.toFixed(2) : String(Math.round(n))); }
+    function track(ev) { if (Array.isArray(window.dataLayer)) { try { window.dataLayer.push(ev); } catch (e) { /* ignore */ } } }
+
+    document.querySelectorAll('[data-pz-quiz]').forEach(function (box) {
+        var data;
+        try { data = JSON.parse((box.querySelector('script.pz-quiz-data') || {}).textContent || ''); }
+        catch (e) { return; } /* bad JSON: the fallback list stays */
+        if (!data || !data.questions || !data.courses || !data.questions.length) return;
+        var stage = box.querySelector('.pz-quiz-stage');
+        if (!stage) return;
+        var course = {};
+        data.courses.forEach(function (c) { course[c.id] = c; });
+        var fav = course[data.favorite] || data.courses[0];
+        var KEY = 'pz-quiz-' + (data.id || 'quiz');
+        var answers = [];          /* option index per question */
+        var step = 0;
+        var uid = Math.random().toString(36).slice(2, 7);
+        var SCALE = [0, 4, 7, 12, 16];
+        var result = document.createElement('div');
+        result.className = 'pz-quiz-result';
+        result.setAttribute('aria-live', 'polite');
+        result.hidden = true;
+        stage.parentNode.insertBefore(result, stage.nextSibling);
+
+        function chosenOpts(a) { return data.questions.map(function (q, i) { return q.options[a[i]]; }); }
+        function encode(a) { return a.map(function (v, i) { return data.questions[i].options[v].value; }).join('.'); }
+        function decode(str) {
+            var parts = String(str || '').split('.');
+            if (parts.length !== data.questions.length) return null;
+            var a = parts.map(function (v, i) {
+                for (var j = 0; j < data.questions[i].options.length; j++) if (data.questions[i].options[j].value === v) return j;
+                return -1;
+            });
+            return a.indexOf(-1) === -1 ? a : null;
+        }
+        function save() { localSet(KEY, JSON.stringify({ a: encode(answers), t: Date.now() })); }
+        function head(n) {
+            return '<div class="pz-quiz-top"><span class="pz-quiz-count">' + n + '</span>' +
+                (cfg.sounds ? '<button class="pz-sound pz-quiz-sound" type="button" aria-pressed="' + soundOn() + '">' + (soundOn() ? 'Sound on' : 'Sound off') + '</button>' : '') + '</div>';
+        }
+        function bindSound() {
+            var b = stage.querySelector('.pz-quiz-sound');
+            if (b) b.addEventListener('click', function () { setSound(!soundOn()); if (soundOn()) playNote(72, 0.6); });
+        }
+
+        function showQuestion(i, focus) {
+            step = i;
+            var q = data.questions[i];
+            var id = 'pz-qq-' + uid + '-' + i;
+            stage.innerHTML = head('Question ' + (i + 1) + ' of ' + data.questions.length) +
+                '<p class="pz-quiz-q" id="' + id + '" tabindex="-1">' + esc(q.label) + '</p>' +
+                '<div class="pz-keys pz-quiz-keys" role="group" aria-labelledby="' + id + '" data-n="' + q.options.length + '" style="--n:' + q.options.length + '">' +
+                q.options.map(function (o, j) {
+                    return '<button class="pz-key" type="button" aria-pressed="' + (answers[i] === j) + '" data-i="' + j + '">' + esc(o.label) + (o.hint ? '<small>' + esc(o.hint) + '</small>' : '') + '</button>';
+                }).join('') + '</div>' +
+                '<div class="pz-quiz-nav">' + (i > 0 ? '<button class="pz-quiz-back" type="button">← Back</button>' : '<span></span>') +
+                '<span class="pz-quiz-dots" aria-hidden="true">' + data.questions.map(function (_, k) { return '<i class="' + (k < i ? 'is-done' : k === i ? 'is-now' : '') + '"></i>'; }).join('') + '</span></div>';
+            bindSound();
+            stage.querySelector('.pz-keys').addEventListener('click', function (e) {
+                var key = e.target.closest('.pz-key');
+                if (!key) return;
+                var j = parseInt(key.getAttribute('data-i'), 10);
+                this.querySelectorAll('.pz-key').forEach(function (k) { k.setAttribute('aria-pressed', String(k === key)); });
+                answers[i] = j;
+                playNote(60 + [0, 2, 4, 5, 7, 9, 11][i % 7] + SCALE[j % 5] - (j > 2 ? 12 : 0), 0.7);
+                var r = key.getBoundingClientRect();
+                noteFx(r.left + r.width / 2, r.top + 8);
+                var next = function () { if (i + 1 < data.questions.length) showQuestion(i + 1, true); else finish(true); };
+                if (reduceMotion) next(); else setTimeout(next, 160);
+            });
+            var back = stage.querySelector('.pz-quiz-back');
+            if (back) back.addEventListener('click', function () { showQuestion(i - 1, true); });
+            if (focus) stage.querySelector('.pz-quiz-q').focus({ preventScroll: true });
+        }
+
+        function restart() { answers = []; localSet(KEY, ''); result.hidden = true; result.innerHTML = ''; showQuestion(0, true); }
+        function showDone(title, note, primary, onPrimary, secondary) {
+            stage.innerHTML = head(title) + '<p class="pz-quiz-q" tabindex="-1">' + note + '</p>' +
+                '<div class="pz-quiz-acts"><button class="pz-btn pz-btn-buy pz-quiz-go" type="button">' + esc(primary) + '</button>' +
+                (secondary ? '<button class="pz-btn pz-btn-ghost pz-quiz-redo" type="button">' + esc(secondary) + '</button>' : '') + '</div>';
+            bindSound();
+            stage.querySelector('.pz-quiz-go').addEventListener('click', onPrimary);
+            var redo = stage.querySelector('.pz-quiz-redo');
+            if (redo) redo.addEventListener('click', restart);
+        }
+
+        function finish(fromTap, shared) {
+            var opts = chosenOpts(answers);
+            var sc = quizScore(data, opts);
+            var win = course[sc.order[0]];
+            if (!shared) save();
+            if (shared) showDone('A shared result', 'These are someone else’s answers. Their match: <strong>' + esc(win.name) + '</strong>.', 'Take the quiz yourself', restart);
+            else showDone('All ' + data.questions.length + ' answered', 'Your match: <strong>' + esc(win.name) + '</strong>.', 'Change my answers', function () { showQuestion(0, true); }, 'Start over');
+            renderResult(sc, opts, win, shared);
+            if (fromTap) {
+                playChord([60, 64, 67, 72]);
+                burstNotes(result, 6);
+                track({ event: 'quiz_complete', quiz_id: data.id || 'quiz', quiz_result: win.id });
+                result.querySelector('.pz-quiz-name').focus({ preventScroll: true });
+                if (!reduceMotion) result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function ctaLink(c, cls, label) {
+            if (!c.cta || !c.cta.href) return '';
+            return '<a class="pz-btn ' + cls + '" href="' + esc(c.cta.href) + '" rel="' + (c.cta.sponsored ? 'sponsored nofollow noopener' : 'noopener noreferrer') + '" target="_blank" data-quiz-cta="' + esc(c.id) + '">' + esc(label || c.cta.label) + '</a>';
+        }
+
+        function renderResult(sc, opts, win, shared) {
+            var s = sc.scores;
+            var reasons = [];
+            opts.forEach(function (o) {
+                if (o.why && o.why[win.id]) reasons.push({ t: o.why[win.id], p: (o.points || {})[win.id] || 0 });
+            });
+            reasons.sort(function (a, b) { return b.p - a.p; });
+            var flags = [];
+            opts.forEach(function (o) {
+                if (!o.flag || !o.flag[win.id]) return;
+                var alt = sc.order.filter(function (id) { return id !== win.id && sc.allowed[id] && !(o.flag[id]); })[0];
+                flags.push({ t: o.flag[win.id], alt: alt && course[alt] });
+            });
+            var runner = course[sc.order.filter(function (id) { return id !== win.id; })[0]];
+            var top = Math.max(1, s[sc.order[0]]);
+            var gate = opts.filter(function (o) { return o.requires && o.requires.length; })[0];
+
+            var bars = sc.order.map(function (id) {
+                var c = course[id], v = s[id], out = !sc.allowed[id];
+                return '<li class="' + (id === win.id ? 'is-win' : '') + (out ? ' is-out' : '') + '">' +
+                    '<a href="#' + esc(c.pick) + '">' + esc(c.name) + '</a>' +
+                    '<span class="pz-bar" aria-hidden="true"><span style="--w:' + Math.max(0, Math.min(1, v / top)).toFixed(3) + '"></span></span>' +
+                    '<span class="pz-bar-val">' + v + ' pt' + (Math.abs(v) === 1 ? '' : 's') + (out && gate ? '<small>no ' + esc(gate.requireLabel || 'must-have') + '</small>' : '') + '</span></li>';
+            }).join('');
+
+            var costs = data.courses.slice().sort(function (a, b) {
+                if (a.year1 == null) return 1; if (b.year1 == null) return -1; return a.year1 - b.year1;
+            });
+            var maxCost = Math.max.apply(null, costs.filter(function (c) { return c.year1 != null; }).map(function (c) { return c.year1; }).concat([1]));
+            var race = costs.map(function (c, i) {
+                var known = c.year1 != null;
+                return '<li class="' + (c.id === win.id ? 'is-win' : '') + (c.id === fav.id ? ' is-fav' : '') + (known ? '' : ' is-unknown') + '">' +
+                    '<span class="pz-race-name">' + esc(c.name) + '</span>' +
+                    '<span class="pz-bar" aria-hidden="true">' + (known ? '<span style="--w:' + (c.year1 / maxCost).toFixed(3) + ';--d:' + (i * 90) + 'ms"></span>' : '') + '</span>' +
+                    '<span class="pz-bar-val">' + (known ? money(c.year1) : 'check price') + '<small>' + esc(c.year1Note || '') + '</small></span></li>';
+            }).join('');
+
+            var side = win.id !== fav.id
+                ? '<aside class="pz-quiz-side"><p class="pz-eyebrow">The $' + (fav.year1 || '') + ' option</p><p><strong>' + esc(fav.name) + '</strong> scored ' + s[fav.id] + ' points for you. ' + esc(fav.summary) + ' One payment, no subscription.</p>' +
+                    '<div class="pz-quiz-acts">' + ctaLink(fav, 'pz-btn-ghost') + '<a class="pz-quiz-link" href="#' + esc(fav.pick) + '">Read the verdict</a></div></aside>'
+                : (runner ? '<aside class="pz-quiz-side"><p class="pz-eyebrow">Runner-up for you</p><p><strong>' + esc(runner.name) + '</strong> (' + s[runner.id] + ' points). ' + esc(runner.summary) + '</p>' +
+                    '<div class="pz-quiz-acts">' + ctaLink(runner, 'pz-btn-ghost') + '<a class="pz-quiz-link" href="#' + esc(runner.pick) + '">Read the verdict</a></div></aside>' : '');
+
+            result.innerHTML =
+                '<div class="pz-quiz-match">' +
+                    '<p class="pz-eyebrow">' + (shared ? 'Their match' : 'Your match') + '</p>' +
+                    '<p class="pz-quiz-name" tabindex="-1">' + esc(win.name) + (win.best ? ' <span class="pz-best">' + esc(win.best) + '</span>' : '') + '</p>' +
+                    '<p class="pz-quiz-sum">' + esc(win.summary) + '</p>' +
+                    (reasons.length ? '<ul class="pz-quiz-why">' + reasons.slice(0, 3).map(function (r) { return '<li>' + esc(r.t) + '</li>'; }).join('') + '</ul>' : '') +
+                    flags.map(function (f) { return '<p class="pz-quiz-flag"><strong>Heads-up:</strong> ' + esc(f.t) + (f.alt ? ' If that matters most, look at <a href="#' + esc(f.alt.pick) + '">' + esc(f.alt.name) + '</a> (' + s[f.alt.id] + ' points).' : '') + '</p>'; }).join('') +
+                    '<p class="pz-quiz-watch"><strong>Watch out:</strong> ' + esc(win.watch) + '</p>' +
+                    '<div class="pz-quiz-acts">' + ctaLink(win, 'pz-btn-buy') + '<a class="pz-btn pz-btn-ghost" href="#' + esc(win.pick) + '">Read the verdict</a>' +
+                        (canShare && !shared ? '<button class="pz-btn pz-btn-ghost pz-quiz-share" type="button">Share my result</button>' : '') + '</div>' +
+                '</div>' + side +
+                '<div class="pz-quiz-panel"><p class="pz-quiz-h">Match scores for all ' + data.courses.length + ' courses</p><ol class="pz-quiz-bars">' + bars + '</ol>' +
+                    '<p class="pz-quiz-note">Points from your answers' + (data.headStart ? ', plus the ' + data.headStart + '-point head start for ' + esc(fav.name) : '') + '. Ties go to ' + esc(fav.name) + '.' + (gate ? ' Greyed-out courses don’t offer ' + esc(gate.requireLabel || 'your must-have') + ', so they can’t win.' : '') + '</p></div>' +
+                '<div class="pz-quiz-panel pz-race"><p class="pz-quiz-h">The 12-month cost race</p><ol class="pz-quiz-bars">' + race + '</ol>' +
+                    '<p class="pz-quiz-note">Cheapest plan you’d keep for a year, from each company’s own price page. Prices checked ' + esc(data.pricesChecked || '') + '; they change, so check before you buy.</p></div>';
+            result.hidden = false;
+            result.classList.remove('is-in', 'is-static');
+            if (!reduceMotion && cfg.animations) {
+                void result.offsetWidth; /* start the bars at zero so they grow (transform only: no layout shift) */
+                result.classList.add('is-in');
+            } else {
+                result.classList.add('is-static');
+            }
+
+            result.querySelectorAll('[data-quiz-cta]').forEach(function (a) {
+                a.addEventListener('click', function () { track({ event: 'quiz_cta_click', quiz_id: data.id || 'quiz', quiz_result: win.id, cta_course: a.getAttribute('data-quiz-cta') }); });
+            });
+            var sh = result.querySelector('.pz-quiz-share');
+            if (sh) sh.addEventListener('click', function () {
+                shareLink(sh, pageUrl() + '#quiz=' + encode(answers), document.title, 'My piano course match: ' + win.name + '. Find yours:');
+            });
+
+            var p = byId[win.pick];
+            if (p) { current = p; chosen = true; renderRail(); renderBar(); updateBar(); }
+        }
+
+        /* Start: a shared link (#quiz=...), a saved result, or question 1. Each fits the reserved stage, so nothing shifts. */
+        var hash = /^#quiz=(.+)$/.exec(window.location.hash || '');
+        var sharedA = hash ? decode(decodeURIComponent(hash[1])) : null;
+        var saved = null;
+        try { saved = decode((JSON.parse(localGet(KEY) || 'null') || {}).a); } catch (e) { saved = null; }
+        if (sharedA) {
+            var sw = course[quizScore(data, chosenOpts(sharedA)).order[0]];
+            showDone('A shared result', 'Someone shared their result with you: <strong>' + esc(sw.name) + '</strong>. Your answers may point somewhere else.', 'See their result', function () { answers = sharedA.slice(); finish(false, true); }, 'Take the quiz');
+            box.scrollIntoView({ block: 'start' });
+        } else if (saved) {
+            answers = saved;
+            var lw = course[quizScore(data, chosenOpts(saved)).order[0]];
+            showDone('Welcome back', 'Last time your match was <strong>' + esc(lw.name) + '</strong>.', 'Show my result', function () { finish(false); }, 'Start over');
+        } else {
+            showQuestion(0, false);
+        }
+        box.classList.add('is-ready');
+    });
+
+    /* 12c. Chord taste ([data-pz-taste]): play C, E, G one at a time, then hear them together. */
+    document.querySelectorAll('[data-pz-taste]').forEach(function (box) {
+        var piano = box.querySelector('[data-pz-piano]');
+        var msg = box.querySelector('.pz-taste-msg');
+        var hear = box.querySelector('.pz-taste-hear');
+        if (!piano || !msg) return;
+        var CHORD = [60, 64, 67];
+        var NAME = { 60: 'C', 64: 'E', 67: 'G' };
+        var at = 0;
+        function keyFor(n) { return piano.querySelector('.pz-pk[data-note="' + n + '"]'); }
+        function reset() {
+            at = 0;
+            piano.querySelectorAll('.pz-pk').forEach(function (k) { k.classList.remove('is-done', 'is-next'); });
+            keyFor(CHORD[0]).classList.add('is-next');
+        }
+        function chord() {
+            playChord(CHORD);
+            CHORD.forEach(function (n) { var k = keyFor(n); k.classList.add('is-down'); setTimeout(function () { k.classList.remove('is-down'); }, 600); });
+        }
+        box.classList.add('is-ready');
+        reset();
+        msg.textContent = cfg.sounds ? 'Step 1: press C, the white key just left of the two black keys.' : 'Sound is off on this site, but you can still find the three keys.';
+        if (hear) hear.addEventListener('click', function () { chord(); });
+        piano.addEventListener('pz:note', function (e) {
+            var n = e.detail.note;
+            if (at >= CHORD.length) { reset(); }
+            if (n === CHORD[at]) {
+                e.detail.key.classList.remove('is-next');
+                e.detail.key.classList.add('is-done');
+                at++;
+                if (at < CHORD.length) {
+                    keyFor(CHORD[at]).classList.add('is-next');
+                    msg.textContent = 'Nice, that’s ' + NAME[n] + '. Now ' + NAME[CHORD[at]] + (at === 1 ? ': skip one white key to the right.' : ': skip one more white key.');
+                } else {
+                    msg.textContent = 'Now all three together: that’s a C major chord. One hand shape, and you can already play the first chord of hundreds of songs.';
+                    setTimeout(chord, reduceMotion ? 0 : 450);
+                    burstNotes(piano, 5);
+                }
+            } else {
+                msg.textContent = 'That was ' + NAMES[n % 12] + '. Look for the glowing key: ' + NAME[CHORD[at]] + '.';
+            }
+        });
+    });
 
     /* 13. Sortable tables: tap a column heading to sort */
     if (content) {
