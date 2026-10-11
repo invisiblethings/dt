@@ -7,5 +7,14 @@
   "5": "a96ac6be-1eed-428c-9d65-02df940007ea_1152x768.jpeg",
   "6": "7b907166-220f-4d10-a4da-1214a31271d5_1152x768.jpeg"
  },
- "videos": {}
+ "videos": {},
+ "checks": [
+  "Prices are one US snapshot per model from a single retailer (Guitar Center; Korg's own store for the B2+), checked 11 October 2026. Sweetwater, B&H and Adorama blocked the check and Amazon showed a captcha. Spot-check the live prices before you publish and update the date line.",
+  "The Korg B2 is replaced by the B2+ because the original B2 showed as sold out at Korg's US store and Guitar Center. Korg's site does not say it is discontinued, so the page says \"sold out\".",
+  "Opinions to confirm or delete (carried over from your original, none added): the FP-10 as \"my first pick\"; \"Roland's PHA-4 action wins on feel\"; \"64 notes on the Yamaha will carry a beginner\"; simple songs in 1 to 2 months and recognizable pieces in about 6; and that the \"How I chose\" criteria match how you picked. The page no longer claims hands-on testing.",
+  "The old Korg image (labeled \"KORG B2\") is left out because it no longer matches the B2+. Add a B2+ photo from Korg's press kit if you have permission.",
+  "Image rights: images 2 to 5 look like the makers' own product photos on a DanHon Music card, which need the makers' permission. The hero image looks AI-generated, so check its tool's terms.",
+  "The P-145 and P-145BT look alike, so image 3 cannot confirm which model it shows. The Casio specs for polyphony, watts, weight and batteries rest on Piano Dreamers, Guitar Center and search extracts, because Casio's US page blocked the check.",
+  "No affiliate links are in this page. If you add tracked retailer links later, add a disclosure near the top."
+ ]
 }
