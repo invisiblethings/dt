@@ -35,6 +35,8 @@ Kept from your current setup: navigation, members and newsletter sign-up, Portal
 | Sortable tables | Any table in a post | Tap a column heading to sort by price, weight, polyphony and so on. |
 | Share | Trust strip and after the article | Opens the phone's share sheet; on computers it copies the link. |
 | Motion | Site-wide | Sections ease in as they scroll into view, and buttons press like keys. |
+| Course-finder quiz (1.2.0) | Course guides | One question at a time, answers are piano keys. The result shows why it fits, a heads-up if it misses something you asked for, every course's score, a 12-month cost race and a budget option, and it survives a reload. Shareable result link. Scoring is in JSON inside the card. |
+| Chord taste (1.2.0) | Any post | Readers play C, E, G and hear the chord. |
 
 **Guardrails:**
 - **Sound** plays only after the reader taps or presses a key, never on its own. Every piano has a "Sound on/off" switch, and the choice is remembered.
@@ -134,6 +136,8 @@ Save each file in `snippets/` as a Ghost snippet once, then reuse it in any post
 | `pick-card.html` | One per product. Give each a unique `id` and its `data-rank`. |
 | `piano-finder.html` | Optional. Map each answer combination to a card `id` (instructions are inside the file). |
 | `ear-trainer.html` | The "Name that note" game, for lesson or practice posts |
+| `course-quiz.html` | 1.2.0: the course-finder quiz (data-driven; see `best-piano-lessons-online/QUIZ.md`) |
+| `chord-taste.html` | 1.2.0: the 30-second "play a C chord" mini-lesson |
 
 ## Measured results (local copy of your site, same content, same scripts)
 
@@ -164,6 +168,8 @@ Real-visitor numbers (Core Web Vitals) appear in Search Console about four weeks
 | `design-preview-template.html` | The approved design preview |
 
 ## Changelog
+
+- **1.2.0** (11 Oct 2026). New course-finder quiz (`[data-pz-quiz]`, snippet `course-quiz.html`) and chord taste (`[data-pz-taste]`, snippet `chord-taste.html`), built for /best-piano-lessons-online/. Both use the existing piano sound (silent until a tap, "Sound on/off" respected, off when "Enable piano sounds" is off), work by keyboard and screen reader, respect reduced motion and dark mode, and measured layout shift 0. The quiz pushes `quiz_complete` and `quiz_cta_click` to `dataLayer` only if Google Tag Manager is present. Also: the buy bar keeps a card button's own `rel` (vendor links that aren't affiliate links no longer get `sponsored`), and the share code is shared with the quiz. No other component changed.
 
 - **1.1.3** (7 Oct 2026). Fixes from the full-site audit:
   - **Affiliate domains** now also accepts your own redirect paths, so links to `/PFA`, `/pianoforall` and `/pbp` get `rel="sponsored"`. The new default is `amzn.to, amazon.com, sjv.io, clickbank.net, /PFA, /pianoforall, /pbp`. On an existing install, paste that into Settings → Design & branding → Customize → Post → Affiliate domains, because Ghost keeps your saved value.

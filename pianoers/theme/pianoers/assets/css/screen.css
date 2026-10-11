@@ -309,7 +309,7 @@ html[data-color-scheme="dark"] .pz-logo.has-dark-logo .pz-logo-dark { display: b
 .gh-content .pz-pick h2, .gh-content .pz-pick h3 { margin: 0; font-size: 1.5rem; font-weight: 800; scroll-margin-top: calc(var(--head-h) + 20px); }
 .pz-pick-body { display: grid; gap: 18px; padding: 18px 22px 22px; }
 .pz-pick-top { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
-@media (min-width: 640px) { .pz-pick-top { grid-template-columns: 220px minmax(0, 1fr); align-items: start; } }
+@media (min-width: 640px) { .pz-pick-top { grid-template-columns: 220px minmax(0, 1fr); align-items: start; } .pz-pick-top.pz-pick-top-solo { grid-template-columns: minmax(0, 1fr); } }
 .pz-pick-top img { width: 100%; aspect-ratio: 1; object-fit: contain; margin: 0; background: var(--surface); border-radius: 12px; }
 .pz-pick-main { display: grid; gap: 14px; min-width: 0; align-content: start; }
 .pz-pick-main > * { margin: 0; }
