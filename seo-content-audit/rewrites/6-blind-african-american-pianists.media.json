@@ -18,5 +18,16 @@
   "5": "mq9XL0heEFA",
   "6": "97hwNY3ni10",
   "7": "fnWxZtI3ONY"
- }
+ },
+ "checks": [
+  "This page earns about 58% of your search clicks, so treat it as a controlled test. Baseline from Search Console (2026-07-07 to 2026-10-06): 2,182 clicks, 121,210 impressions, position 3.8, CTR 1.8%. Publish once, note the date, and compare at 2 and 4 weeks. If the core \"blind piano player\" queries lose rank, revert the title first.",
+  "The hero collage is left out because the image still reads \"6 Blind African-American Pianists Who Broke Barriers\", which no longer matches. Make a new hero or add a plain photo. The old image is image 1 in the media list.",
+  "Read the Blind Tom Wiggins section yourself before publishing. It covers slavery, exploitation and a disability, and it attributes the autism reading to the New Georgia Encyclopedia and Deirdre O'Connell's biography.",
+  "Sources disagree on several dates (Johnson's and McTell's birth years, Charles's age of sight loss, Wonder's signing age). The text shows the conflict or picks the best-sourced date. The notes file lists every conflict. McTell's heading now reads 1898, not 1901.",
+  "Some facts rest on search extracts because Britannica, All About Jazz and NPR blocked the check. Tatum's training and Davis's Hattiesburg birthplace rest on Wikipedia. The notes file marks each one.",
+  "The \"More blind Black musicians and singers\" section (Hibbler, Gary Davis, Blind Lemon Jefferson) is optional. If you cut it, edit the answer to \"Who are famous blind Black singers?\" in the FAQ.",
+  "Videos: Ray Charles is an official channel. The other six are third-party uploads, so they can be removed or blocked later. The Wiggins video is a later pianist playing his composition, since no recording of Wiggins survives, and the caption says so. Open the live page and confirm all seven play.",
+  "Image rights: Wiggins and McTell look like period photos that may be public domain. Charles, Johnson and Davis look like press or magazine images (the old alt texts name TIDAL Magazine and Sooze Blues & Jazz). The Wonder image is a modern press photo. Tatum may come from the Library of Congress Gottlieb collection, which is unconfirmed. Davis is plausibly the man pictured but unconfirmed.",
+  "The affiliate banner (a \"Sponsored\" image linking to an affiliate tracking page) and the links to pianoers.com and to your self-taught pianists post on the word \"Genius\" are gone on purpose."
+ ]
 }
