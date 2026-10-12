@@ -10,14 +10,14 @@ Checked 11 October 2026 (US prices) by the fact-checker; full detail and how eac
 | 4 | Pianoforall | "taught over half a million people" | "The company says it has taught over half a million students" | https://www.pianoforall.com/ | Verified (vendor's claim) |
 | 5 | Pianoforall | "jazz, blues, and classical" | "pop, blues, jazz and classical"; works offline; email questions to instructors | https://www.pianoforall.com/ | Verified |
 | 6 | Pianoforall | "interface feels a little dated" | "video and audio production feels plain next to newer apps" | https://www.toptenreviews.com/learn-piano-online-piano-for-all-review | Partly echoed by a reviewer |
-| 7 | Simply Piano | "$17.90/month" (stated as fact) | Prices shown only in the app: "check there" | https://www.hellosimply.com/simply-piano | Not checked (in-app only; sources conflict $119.99–$169.90/yr) |
+| 7 | Simply Piano | "$17.90/month" | Individual $17.90/month or $169.90/year; Family $23.90/month or $209.90/year (up to 5 profiles, includes all Simply apps) | Supplied by the site owner from the current Simply Piano plans, 12 Oct 2026 | Owner-confirmed (not on a public vendor page) |
 | 8 | Simply Piano | "listens through your device's mic" | Same, "on any piano or keyboard"; maker is Simply (formerly JoyTunes) | https://www.hellosimply.com/simply-piano | Verified |
 | 9 | Simply Piano | "pop, classical, jazz, and country" | "classical pieces, chart hits and Disney songs" | same | Verified |
 | 10 | Simply Piano | "Best for Gamified Beginners", 4.7/5, recommended to "a distractible adult" | "Best for kids and game-style practice"; no score; adults pointed to the review's value verdict | /simply-piano-review…/ (3.5/5, "Weak Value for Adults") | Editorial (resolves the audit conflict) |
 | 11 | Piano Marvel | "$17.99/month for Premium", free tier | $17.99/month or $129.99/year; free tier 150+ songs, 200+ exercises, 25 video lessons | https://www.pianomarvel.com/pricing | Verified |
 | 12 | Piano Marvel | "over 25,000 songs and exercises" | "25,000+ songs" on Premium | same | Verified |
 | 13 | Piano Marvel | SASR test; "works best with a MIDI keyboard"; monthly challenges | Kept as Katarina's experience | n/a | Not checked |
-| 14 | Playground Sessions | "$24.99/month" | "Prices only appear after sign-up; check before you commit" | https://www.playgroundsessions.com/ | Not checked (login wall) |
+| 14 | Playground Sessions | "$24.99/month" | $19.99/month; $149.99/year (the first year is often billed at a promotional $99.99); lifetime $219.99 to $349.99 | Supplied by the site owner from the current Playground Sessions plans, 12 Oct 2026 | Owner-confirmed (plans page needs a login) |
 | 15 | Playground Sessions | "Quincy Jones co-created the curriculum" | "The company says the app was co-created with Quincy Jones" | same | Verified (vendor's wording) |
 | 16 | Playground Sessions | "It's the priciest subscription here" | Removed (Piano by Pictures at $49/month is) | FACTS.md cost table | Fixed contradiction |
 | 17 | Skoove | "$12.99/month for yearly" | $12.49/month on the yearly plan ($149.99/yr); $19.99/month for 3 months; $29.99 monthly; free Basic tier | https://help.skoove.com/en/articles/5417607-what-is-skoove-premium-and-how-much-does-it-cost | Verified |
@@ -45,5 +45,11 @@ Checked 11 October 2026 (US prices) by the fact-checker; full detail and how eac
 | Flowkey | $149.99 | Premium yearly | Verified |
 | Pianote | $279 | Musora Plus yearly | Verified |
 | Piano by Pictures | $539 | free month + 11 × $49 | Verified price; assumes you stay subscribed |
-| Simply Piano | "check price" | in-app only | Not checked |
-| Playground Sessions | "check price" | after sign-up | Not checked |
+| Simply Piano | $169.90 (Individual yearly) | owner-supplied, 12 Oct 2026 | Owner-confirmed |
+| Playground Sessions | $149.99 (yearly; first year often $99.99) | owner-supplied, 12 Oct 2026 | Owner-confirmed |
+
+
+## Added 12 Oct 2026
+
+- Pianoforall "ten interactive eBooks": taken from the site's own Pianoforall and Skoove-related reviews, which both say ten (the vendor page does not state a number; its testimonials mention "all 10 books"). Please count the books in your copy once.
+- Starter pack and FAQ now recommend an 88-key weighted digital piano, matching the best beginner pianos guide; the earlier "61 keys is fine" wording is gone.

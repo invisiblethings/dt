@@ -4,7 +4,7 @@ Ghost Admin > the post > Post settings (gear icon).
 
 | Field | Value |
 |---|---|
-| Post title (H1) | **Leave as is:** `8 Best Online Piano Lessons for 2026, Tested by a Teacher` (only keep "Tested" once the ⟦How I tested⟧ details are filled in; otherwise change it to "Picked by a Teacher") |
+| Post title (H1) | **Leave as is:** `8 Best Online Piano Lessons for 2026, Tested by a Teacher` ("Tested" fits the five courses with full reviews; if you'd rather not claim it for the other three, change it to "Picked by a Teacher") |
 | URL | leave `best-piano-lessons-online` |
 | Meta title (55 chars) | `8 Best Online Piano Lessons (2026), Picked by a Teacher` |
 | Meta description (148 chars) | `A piano teacher compares 8 online piano lessons and apps, with prices checked Oct 2026, who each one suits, and a 30-second quiz to find your match.` |
