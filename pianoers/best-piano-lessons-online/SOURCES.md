@@ -6,7 +6,7 @@ Checked 11 October 2026 (US prices) by the fact-checker; full detail and how eac
 |---|---|---|---|---|---|
 | 1 | Pianoforall | $49 one-time, "39% off" | $49 one-time (normally $79), lifetime, 60-day guarantee | https://www.pianoforall.com/order | Verified |
 | 2 | Pianoforall | "over 300 video lessons" | "step-by-step video lessons" (no count) | https://www.pianoforall.com/order | Vendor gives no number: dropped |
-| 3 | Pianoforall | "nine interactive eBooks" | ⟦nine or ten⟧ placeholder: Katarina counts her copy | https://www.pianoforall.com/ | Not checked (vendor gives no count; testimonials say 10, page names 9 sections) |
+| 3 | Pianoforall | "nine interactive eBooks" | "ten interactive eBooks" (the site's own reviews say ten) | https://www.pianoforall.com/ | Not on the vendor page; please count your copy (vendor gives no count; testimonials say 10, page names 9 sections) |
 | 4 | Pianoforall | "taught over half a million people" | "The company says it has taught over half a million students" | https://www.pianoforall.com/ | Verified (vendor's claim) |
 | 5 | Pianoforall | "jazz, blues, and classical" | "pop, blues, jazz and classical"; works offline; email questions to instructors | https://www.pianoforall.com/ | Verified |
 | 6 | Pianoforall | "interface feels a little dated" | "video and audio production feels plain next to newer apps" | https://www.toptenreviews.com/learn-piano-online-piano-for-all-review | Partly echoed by a reviewer |
