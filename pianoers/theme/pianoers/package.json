@@ -1,7 +1,7 @@
 {
     "name": "pianoers",
     "description": "Custom Ghost theme for Pianoers.com: playable piano, ear trainer, piano finder, course quiz, verdict cards, reading progress and affiliate-safe buy buttons.",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "license": "MIT",
     "author": {
         "name": "Pianoers.com",
@@ -122,15 +122,15 @@
                 "default": true,
                 "group": "homepage"
             },
-            "ear_game_link": {
-                "type": "text",
-                "default": "/best-piano-lessons-online/",
-                "group": "homepage"
-            },
             "show_reading_progress": {
                 "type": "boolean",
                 "default": true,
                 "group": "post"
+            },
+            "fast_portal": {
+                "type": "boolean",
+                "default": true,
+                "description": "Loads sign-in on first scroll or tap (faster). Turn off if sign-in breaks after a Ghost update."
             }
         }
     }

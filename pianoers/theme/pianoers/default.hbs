@@ -7,7 +7,6 @@
     {{!-- Fonts are declared here, not in screen.css, so these URLs match the preloads exactly
          (Ghost adds a ?v= version); otherwise the browser downloads each font twice. --}}
     <link rel="preload" href="{{asset "fonts/schibsted-grotesk-normal-500-800.woff2"}}" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="{{asset "fonts/lora-normal-400-600.woff2"}}" as="font" type="font/woff2" crossorigin>
     <style>
         @font-face { font-family: "Schibsted Grotesk"; src: url("{{asset "fonts/schibsted-grotesk-normal-500-800.woff2"}}") format("woff2"); font-weight: 500 800; font-style: normal; font-display: swap; }
         @font-face { font-family: "Lora"; src: url("{{asset "fonts/lora-normal-400-600.woff2"}}") format("woff2"); font-weight: 400 600; font-style: normal; font-display: swap; }
@@ -16,7 +15,7 @@
         @font-face { font-family: "IBM Plex Mono"; src: url("{{asset "fonts/ibm-plex-mono-normal-500.woff2"}}") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
     </style>
     <link rel="stylesheet" href="{{asset "css/screen.css"}}">
-    {{ghost_head}}
+    {{#if @custom.fast_portal}}{{ghost_head exclude="portal"}}{{else}}{{ghost_head}}{{/if}}
 </head>
 <body class="{{body_class}}{{{block "body_class"}}}">
 <a class="pz-skip" href="#pz-main">Skip to content</a>
@@ -25,9 +24,9 @@
     <div class="pz-wrap pz-head-inner">
         <a class="pz-logo{{#if @custom.dark_mode_logo}} has-dark-logo{{/if}}" href="{{@site.url}}">
             {{#if @site.logo}}
-                <img class="pz-logo-img" src="{{@site.logo}}" alt="{{@site.title}}" height="28">
+                <img class="pz-logo-img" src="{{img_url @site.logo size="s" format="webp"}}" alt="{{@site.title}}" width="180" height="28" fetchpriority="high" decoding="async">
                 {{#if @custom.dark_mode_logo}}
-                    <img class="pz-logo-img pz-logo-dark" src="{{@custom.dark_mode_logo}}" alt="{{@site.title}}" height="28">
+                    <img class="pz-logo-img pz-logo-dark" src="{{img_url @custom.dark_mode_logo size="s" format="webp"}}" alt="{{@site.title}}" width="180" height="28" decoding="async">
                 {{/if}}
             {{else}}
                 <span class="pz-logo-text">{{@site.title}}</span>
@@ -98,8 +97,13 @@
         stickyBar: {{#if @custom.show_sticky_buy_bar}}true{{else}}false{{/if}},
         toc: {{#if @custom.show_table_of_contents}}true{{else}}false{{/if}},
         sounds: {{#if @custom.enable_piano_sounds}}true{{else}}false{{/if}},
-        animations: {{#if @custom.enable_animations}}true{{else}}false{{/if}}
+        animations: {{#if @custom.enable_animations}}true{{else}}false{{/if}},
+        fastPortal: {{#if @custom.fast_portal}}true{{else}}false{{/if}},
+        siteUrl: "{{@site.url}}"
     };
+</script>
+<script type="speculationrules">
+{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/ghost/*","/members/*","/r/*","/rss/*","/PFA","/pianoforall","/pbp","/*.xml","/*#*"]}},{"not":{"selector_matches":"[rel~=nofollow],[target=_blank],[download]"}}]},"eagerness":"moderate"}]}
 </script>
 <script src="{{asset "js/main.js"}}" defer></script>
 {{ghost_foot}}
