@@ -1,0 +1,17 @@
+{
+  "name": "alterphase-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI lead-capture chat assistant for alterphaseroofing.com (Cloudflare Worker + vanilla JS widget + Google Apps Script)",
+  "type": "module",
+  "scripts": {
+    "build": "node worker/scripts/build.mjs",
+    "test": "node worker/scripts/build.mjs && node --test worker/test/*.test.mjs",
+    "dev": "node worker/scripts/build.mjs && node dev/server.mjs",
+    "e2e": "node worker/scripts/build.mjs && node tests/e2e.mjs",
+    "deploy": "cd worker && npx wrangler deploy"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

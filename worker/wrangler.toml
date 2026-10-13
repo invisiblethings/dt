@@ -1,0 +1,33 @@
+# Cloudflare Worker config for the Alter Phase Roofing chat assistant.
+# Deploy:   cd worker && npx wrangler deploy
+# Secrets:  npx wrangler secret put GEMINI_API_KEY   (also LEAD_WEBHOOK_URL, LEAD_WEBHOOK_SECRET)
+name = "alterphase-chat"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+workers_dev = true
+
+# Regenerates src/*.generated.js from ../knowledge/*.md and ../widget/chat.js on every deploy/dev.
+[build]
+command = "node scripts/build.mjs"
+watch_dir = ["src", "../knowledge", "../widget"]
+
+[vars]
+GEMINI_MODEL = "gemini-2.5-flash-lite"
+ALLOWED_ORIGINS = "https://alterphaseroofing.com,https://www.alterphaseroofing.com"
+PHONE_DISPLAY = "(929) 370-1552"
+# Kill switch: set to "1" to turn off the AI (visitors see a call-us message + callback form).
+CHAT_DISABLED = "0"
+# Max AI calls per day across all visitors (0 = no cap). Protects the free tier.
+DAILY_CAP = "1000"
+RATE_PER_MINUTE = "12"
+RATE_PER_DAY = "200"
+# AI_PROVIDER = "gemini"   # or "anthropic" (then: wrangler secret put ANTHROPIC_API_KEY)
+
+# Optional: a KV namespace makes DAILY_CAP exact across all Cloudflare locations.
+# Create with `npx wrangler kv namespace create CHAT_KV` and paste the id here.
+# [[kv_namespaces]]
+# binding = "CHAT_KV"
+# id = "PASTE_ID_HERE"
+
+[observability]
+enabled = true

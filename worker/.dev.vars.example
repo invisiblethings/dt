@@ -1,0 +1,5 @@
+# Copy to worker/.dev.vars for `npx wrangler dev` (never commit the real file).
+GEMINI_API_KEY=paste-your-key-here
+LEAD_WEBHOOK_URL=https://script.google.com/macros/s/XXXX/exec
+LEAD_WEBHOOK_SECRET=same-long-random-string-as-the-apps-script-property
+ALLOWED_ORIGINS=http://localhost:8787,https://alterphaseroofing.com,https://www.alterphaseroofing.com
