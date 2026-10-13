@@ -1,7 +1,7 @@
 # Cloudflare Worker config for the Alter Phase Roofing chat assistant.
 # Deploy:   cd worker && npx wrangler deploy
 # Secrets:  npx wrangler secret put GEMINI_API_KEY   (also LEAD_WEBHOOK_URL, LEAD_WEBHOOK_SECRET)
-name = "alterphase-chat"
+name = "alterphasechatbot"
 main = "src/index.js"
 compatibility_date = "2025-09-01"
 workers_dev = true
@@ -12,7 +12,7 @@ command = "node scripts/build.mjs"
 watch_dir = ["src", "../knowledge", "../widget"]
 
 [vars]
-GEMINI_MODEL = "gemini-2.5-flash-lite"
+GEMINI_MODEL = "gemini-3.5-flash-lite"
 ALLOWED_ORIGINS = "https://alterphaseroofing.com,https://www.alterphaseroofing.com"
 PHONE_DISPLAY = "(929) 370-1552"
 # Kill switch: set to "1" to turn off the AI (visitors see a call-us message + callback form).
