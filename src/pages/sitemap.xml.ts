@@ -16,7 +16,7 @@ export const GET: APIRoute = async () => {
     ...CLASSICS.map((c) => ({ loc: c.product.url, lastmod: BUILD })),
     ...GUIDES.map((g) => ({ loc: g.href, lastmod: BUILD })),
     ...cats.map((c) => ({ loc: `/category/${c}` })),
-    ...posts.filter((p) => !p.data.noindex).map((p) => ({ loc: `/${p.id}`, lastmod: (p.data.updatedDate ?? p.data.pubDate).toISOString().slice(0, 10) })),
+    ...posts.filter((p) => !(p.data.noindex ?? p.data.wpId !== undefined)).map((p) => ({ loc: `/${p.id}`, lastmod: (p.data.updatedDate ?? p.data.pubDate).toISOString().slice(0, 10) })),
   ];
   const seen = new Set<string>();
   const body = urls

@@ -11,6 +11,7 @@ export async function getStaticPaths() {
 const { post, posts } = Astro.props;
 const { Content } = await render(post);
 const d = post.data;
+const noindex = d.noindex ?? d.wpId !== undefined;
 const map = CATEGORY_LINKS[d.category] ?? CATEGORY_LINKS['learn-piano'];
 const siblings = posts
   .filter((p) => p.data.category === d.category && p.id !== post.id)
@@ -30,7 +31,7 @@ const siblings = posts
   crumbs={[{ name: 'Blog', href: '/blog' }, { name: d.categoryName, href: `/category/${d.category}` }, { name: d.title, href: `/${post.id}` }]}
   heroImage={d.heroImage}
   heroAlt={d.heroAlt}
-  noindex={d.noindex}
+  noindex={noindex}
   related={[...map.related, ...siblings]}
   cta={map.cta}
 >

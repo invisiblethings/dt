@@ -16,7 +16,9 @@ const blog = defineCollection({
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
     wpId: z.number().optional(),
-    noindex: z.boolean().default(false),
+    // Posts imported from the old WordPress site (they have a wpId) are
+    // noindexed by default. Set noindex: false in a post to index it.
+    noindex: z.boolean().optional(),
   }),
 });
 
