@@ -1,0 +1,213 @@
+---
+// Play-along backing tracks: drums + bass (and an optional piano guide part)
+// synthesised in the browser with Web Audio. No audio files, no libraries.
+const START = 48;
+const WHITE = [0, 2, 4, 5, 7, 9, 11];
+const BLACK: Record<number, number> = { 1: 0, 3: 1, 6: 3, 8: 4, 10: 5 };
+const whites: { midi: number; x: number }[] = [];
+const blacks: { midi: number; x: number }[] = [];
+for (let o = 0; o < 2; o++) {
+  WHITE.forEach((s, i) => whites.push({ midi: START + o * 12 + s, x: (o * 7 + i) * 40 }));
+  Object.entries(BLACK).forEach(([s, wi]) => blacks.push({ midi: START + o * 12 + Number(s), x: (o * 7 + wi) * 40 + 27 }));
+}
+const PRESETS = [
+  ['I V vi IV', 'I–V–vi–IV (modern pop)'],
+  ['I vi IV V', 'I–vi–IV–V (50s ballad)'],
+  ['vi IV I V', 'vi–IV–I–V (moody pop)'],
+  ['I IV V IV', 'I–IV–V–IV (rock ’n’ roll)'],
+  ['I7 I7 I7 I7 IV7 IV7 I7 I7 V7 IV7 I7 V7', '12-bar blues'],
+  ['ii7 V7 Imaj7 Imaj7', 'ii–V–I (jazz)'],
+];
+const STYLES = [
+  ['ballad', 'Ballad', 72],
+  ['pop', 'Pop', 100],
+  ['blues', 'Slow blues shuffle', 66],
+  ['rocknroll', 'Rock ’n’ roll boogie', 150],
+];
+const KEYS = ['C', 'G', 'D', 'A', 'E', 'F', 'B♭', 'E♭'];
+---
+<div class="tool bt" data-backing>
+  <div class="bt-now" aria-live="polite">
+    <div><span class="eyebrow" style="margin:0">Now</span><b data-now>C</b></div>
+    <div class="bt-next"><span class="eyebrow" style="margin:0">Next</span><b data-next>G</b></div>
+    <div class="bt-beats" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  </div>
+
+  <svg class="bt-keys" viewBox="0 0 560 120" role="img" aria-label="Keyboard showing the current chord: left-hand root in blue, right-hand notes in gold">
+    {whites.map((k) => <rect data-midi={k.midi} class="w" x={k.x + 1} y="1" width="38" height="116" rx="4" />)}
+    {blacks.map((k) => <rect data-midi={k.midi} class="b" x={k.x} y="1" width="26" height="72" rx="3" />)}
+  </svg>
+
+  <div class="cta-row" style="margin-bottom:1.25rem">
+    <button type="button" class="btn btn-dark btn-lg" data-play>▶ Start (with count-in)</button>
+    <span class="small muted">Use headphones or turn your phone’s silent mode off.</span>
+  </div>
+
+  <div class="bt-controls">
+    <label>Progression
+      <select data-preset>{PRESETS.map(([v, l]) => <option value={v}>{l}</option>)}</select>
+    </label>
+    <label>Style
+      <select data-style>{STYLES.map(([v, l, t]) => <option value={v} data-tempo={t}>{l}</option>)}</select>
+    </label>
+    <label>Key
+      <select data-key>{KEYS.map((k) => <option value={k}>{k}</option>)}</select>
+    </label>
+    <label><span>Tempo: <output data-tempo-out>72</output> bpm</span>
+      <input type="range" min="50" max="180" step="2" value="72" data-bpm />
+    </label>
+    <label class="bt-custom">Or type your own chords <span class="muted small">(e.g. C G Am F)</span>
+      <input type="text" data-custom placeholder="C G Am F" autocomplete="off" spellcheck="false" />
+    </label>
+    <label class="bt-check"><input type="checkbox" data-bars2 /> Two bars per chord</label>
+    <label class="bt-check"><input type="checkbox" data-guide /> Add a piano guide part</label>
+  </div>
+  <p class="small" data-error role="alert" style="color:#a3341c;margin:.25rem 0 0"></p>
+
+  <noscript><p class="small">Turn on JavaScript to play the backing tracks.</p></noscript>
+</div>
+
+<style>
+  .bt-now { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .bt-now b { display: block; font: 600 var(--step-4)/1 var(--serif); }
+  .bt-next b { font-size: var(--step-2); color: var(--muted); }
+  .bt-beats { display: flex; gap: .4rem; margin-left: auto; }
+  .bt-beats i { width: 14px; height: 14px; border-radius: 99px; background: var(--sand); border: 1px solid var(--line); }
+  .bt-beats i.on { background: var(--brass); border-color: var(--brass); }
+  .bt-keys { width: 100%; height: auto; display: block; margin-bottom: 1.25rem; }
+  .bt-keys .w { fill: #fff; stroke: #cfc6b6; stroke-width: 1.5; }
+  .bt-keys .b { fill: #1b1915; }
+  .bt-keys .w.rh { fill: #f4e1ae; } .bt-keys .b.rh { fill: #c8962e; }
+  .bt-keys .w.lh { fill: #cfe0fb; } .bt-keys .b.lh { fill: #3a6fd0; }
+  .bt-controls { display: grid; gap: .9rem 1.25rem; grid-template-columns: 1fr; }
+  @media (min-width: 40rem) { .bt-controls { grid-template-columns: repeat(2, 1fr); } .bt-custom { grid-column: 1 / -1; } }
+  .bt-controls label { display: flex; flex-direction: column; gap: .3rem; font-weight: 600; font-size: .95rem; }
+  .bt-controls select, .bt-controls input[type=text] { min-height: 44px; padding: .5rem .7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--ivory); font: inherit; font-weight: 500; color: var(--ink); }
+  .bt-controls .bt-check { flex-direction: row; align-items: center; gap: .5rem; font-weight: 500; min-height: 44px; }
+  .bt-check input { width: 20px; height: 20px; accent-color: var(--ink); }
+  .bt-controls input[type=range] { accent-color: var(--brass-ink); min-height: 32px; }
+</style>
+
+<script>
+  type Chord = { name: string; root: number; iv: number[]; minor: boolean };
+  const NAMES_SHARP = ['C', 'C♯', 'D', 'E♭', 'E', 'F', 'F♯', 'G', 'A♭', 'A', 'B♭', 'B'];
+  const NAMES_FLAT = ['C', 'D♭', 'D', 'E♭', 'E', 'F', 'G♭', 'G', 'A♭', 'A', 'B♭', 'B'];
+  const KEY_PC: Record<string, number> = { C: 0, G: 7, D: 2, A: 9, E: 4, F: 5, 'B♭': 10, 'E♭': 3 };
+  const QUAL: Record<string, [number[], string]> = {
+    '': [[0, 4, 7], ''], m: [[0, 3, 7], 'm'], '7': [[0, 4, 7, 10], '7'], maj7: [[0, 4, 7, 11], 'maj7'], m7: [[0, 3, 7, 10], 'm7'],
+  };
+  const ROMAN: Record<string, number> = { i: 0, ii: 2, iii: 4, iv: 5, v: 7, vi: 9, vii: 11 };
+
+  function fromRoman(tok: string, key: number, names: string[]): Chord | null {
+    const m = tok.match(/^(i{1,3}|iv|vi{0,2}|v|I{1,3}|IV|VI{0,2}|V)(maj7|7)?$/);
+    if (!m) return null;
+    const lower = m[1] === m[1].toLowerCase();
+    const root = (key + ROMAN[m[1].toLowerCase()]) % 12;
+    const q = m[2] === 'maj7' ? 'maj7' : m[2] === '7' ? (lower ? 'm7' : '7') : lower ? 'm' : '';
+    return { name: names[root] + QUAL[q][1], root, iv: QUAL[q][0], minor: lower };
+  }
+  function fromSymbol(tok: string, names: string[]): Chord | null {
+    const m = tok.replace('♯', '#').replace('♭', 'b').match(/^([A-Ga-g])([#b]?)(maj7|m7|m|7)?$/);
+    if (!m) return null;
+    const base = { c: 0, d: 2, e: 4, f: 5, g: 7, a: 9, b: 11 }[m[1].toLowerCase() as 'c'];
+    const root = (base + (m[2] === '#' ? 1 : m[2] === 'b' ? 11 : 0)) % 12;
+    const q = m[3] ?? '';
+    return { name: names[root] + QUAL[q][1], root, iv: QUAL[q][0], minor: q.startsWith('m') && q !== 'maj7' };
+  }
+
+  // Patterns per bar. Bass degrees resolve against the chord (3 = minor or major third).
+  type Style = { steps: number; kick: number[]; snare: number[]; hat: number[]; bass: [number, string, number][]; guide: number[]; guideLen: number };
+  const STYLES: Record<string, Style> = {
+    ballad: { steps: 16, kick: [0, 10], snare: [4, 12], hat: [0, 2, 4, 6, 8, 10, 12, 14], bass: [[0, 'R', 8], [8, '5', 4], [12, '8', 4]], guide: [0, 8], guideLen: 8 },
+    pop: { steps: 16, kick: [0, 7, 8], snare: [4, 12], hat: [0, 2, 4, 6, 8, 10, 12, 14], bass: [0, 2, 4, 6, 8, 10, 12, 14].map((s) => [s, s === 14 ? '5' : 'R', 2] as [number, string, number]), guide: [0, 4, 8, 12], guideLen: 3 },
+    blues: { steps: 12, kick: [0, 6], snare: [3, 9], hat: [0, 2, 3, 5, 6, 8, 9, 11], bass: [[0, 'R', 2], [2, '5', 1], [3, '6', 2], [5, '5', 1], [6, 'R', 2], [8, '5', 1], [9, '6', 2], [11, '5', 1]], guide: [0, 6], guideLen: 5 },
+    rocknroll: { steps: 12, kick: [0, 6], snare: [3, 9], hat: [0, 2, 3, 5, 6, 8, 9, 11], bass: [[0, 'R', 2], [2, '3', 1], [3, '5', 2], [5, '6', 1], [6, 'b7', 2], [8, '6', 1], [9, '5', 2], [11, '3', 1]], guide: [2, 5, 8, 11], guideLen: 1 },
+  };
+  const deg = (d: string, c: Chord) => ({ R: 0, '3': c.minor ? 3 : 4, '5': 7, '6': 9, b7: 10, '8': 12 })[d] ?? 0;
+
+  document.querySelectorAll<HTMLElement>('[data-backing]').forEach((root) => {
+    const $ = <T extends Element>(s: string) => root.querySelector<T>(s)!;
+    const presetEl = $<HTMLSelectElement>('[data-preset]'), styleEl = $<HTMLSelectElement>('[data-style]'), keyEl = $<HTMLSelectElement>('[data-key]');
+    const tempoEl = $<HTMLInputElement>('[data-bpm]'), customEl = $<HTMLInputElement>('[data-custom]'), playBtn = $<HTMLButtonElement>('[data-play]');
+    const bars2 = $<HTMLInputElement>('[data-bars2]'), guideEl = $<HTMLInputElement>('[data-guide]'), errEl = $<HTMLElement>('[data-error]');
+    const beats = [...root.querySelectorAll('.bt-beats i')];
+    let ac: AudioContext | null = null, master: GainNode, noise: AudioBuffer, timer = 0, playing = false, tracked = false;
+    let chords: Chord[] = [], nextTime = 0, step = 0, bar = -1;
+
+    function readChords(): Chord[] {
+      const key = KEY_PC[keyEl.value], names = ['F', 'B♭', 'E♭'].includes(keyEl.value) ? NAMES_FLAT : NAMES_SHARP;
+      const custom = customEl.value.trim();
+      errEl.textContent = '';
+      if (custom) {
+        const parsed = custom.split(/[\s,|–-]+/).filter(Boolean).map((t) => fromSymbol(t, NAMES_SHARP));
+        if (parsed.every(Boolean) && parsed.length) return parsed as Chord[];
+        errEl.textContent = 'Use chord names like C, Am, G7, Fmaj7, Dm7, B♭. Playing the selected progression instead.';
+      }
+      return presetEl.value.split(' ').map((t) => fromRoman(t, key, names)!) ;
+    }
+    function show(i: number) {
+      const c = chords[i % chords.length], n = chords[(i + 1) % chords.length];
+      $('[data-now]').textContent = c.name; $('[data-next]').textContent = n.name;
+      const rh = c.iv.map((v) => 60 + ((c.root + v) % 12)), lh = 48 + c.root;
+      root.querySelectorAll('rect[data-midi]').forEach((r) => {
+        const m = Number((r as SVGElement).dataset.midi);
+        r.classList.toggle('rh', rh.includes(m)); r.classList.toggle('lh', m === lh);
+      });
+    }
+    function refresh() { chords = readChords(); show(0); }
+
+    // ---- synthesis ----
+    function env(t: number, peak: number, dur: number) { const g = ac!.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + 0.005); g.gain.exponentialRampToValueAtTime(0.0001, t + dur); g.connect(master); return g; }
+    function kick(t: number) { const o = ac!.createOscillator(); o.frequency.setValueAtTime(140, t); o.frequency.exponentialRampToValueAtTime(42, t + 0.12); o.connect(env(t, 0.9, 0.32)); o.start(t); o.stop(t + 0.35); }
+    function noiseHit(t: number, freq: number, peak: number, dur: number) { const s = ac!.createBufferSource(); s.buffer = noise; const f = ac!.createBiquadFilter(); f.type = 'highpass'; f.frequency.value = freq; s.connect(f).connect(env(t, peak, dur)); s.start(t); s.stop(t + dur + 0.02); }
+    function snare(t: number, soft: boolean) { noiseHit(t, 1500, soft ? 0.18 : 0.38, soft ? 0.09 : 0.16); const o = ac!.createOscillator(); o.type = 'triangle'; o.frequency.value = 190; o.connect(env(t, soft ? 0.08 : 0.18, 0.08)); o.start(t); o.stop(t + 0.1); }
+    function hat(t: number, accent: boolean) { noiseHit(t, 7500, accent ? 0.12 : 0.06, 0.045); }
+    function tone(t: number, midi: number, dur: number, peak: number, type: OscillatorType, cutoff: number) {
+      const o = ac!.createOscillator(); o.type = type; o.frequency.value = 440 * 2 ** ((midi - 69) / 12);
+      const f = ac!.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = cutoff;
+      o.connect(f).connect(env(t, peak, dur)); o.start(t); o.stop(t + dur + 0.05);
+    }
+
+    function schedule() {
+      const st = STYLES[styleEl.value], spb = 60 / Number(tempoEl.value), stepDur = (spb * 4) / st.steps;
+      while (nextTime < ac!.currentTime + 0.12) {
+        const t = nextTime, beatSteps = st.steps / 4;
+        if (bar < 0) {
+          if (step % beatSteps === 0) { hat(t, true); noiseHit(t, 3000, 0.1, 0.03); }
+        } else {
+          const ci = Math.floor(bar / (bars2.checked ? 2 : 1)) % chords.length, c = chords[ci];
+          if (st.kick.includes(step)) kick(t);
+          if (st.snare.includes(step)) snare(t, styleEl.value === 'ballad');
+          if (st.hat.includes(step)) hat(t, step % beatSteps === 0);
+          for (const [s, d, len] of st.bass) if (s === step) tone(t, 36 + c.root + deg(d, c), len * stepDur * 0.9, 0.32, 'sawtooth', 520);
+          if (guideEl.checked && st.guide.includes(step)) c.iv.forEach((v) => tone(t, 60 + ((c.root + v) % 12), st.guideLen * stepDur, 0.07, 'triangle', 2400));
+          if (step === 0 && (!bars2.checked || bar % 2 === 0)) setTimeout(() => playing && show(ci), Math.max(0, (t - ac!.currentTime) * 1000));
+        }
+        if (step % beatSteps === 0) { const b = step / beatSteps; setTimeout(() => beats.forEach((el, i) => el.classList.toggle('on', i === b && playing)), Math.max(0, (t - ac!.currentTime) * 1000)); }
+        nextTime += stepDur;
+        if (++step >= st.steps) { step = 0; bar++; }
+      }
+    }
+
+    function start() {
+      ac ??= new AudioContext();
+      ac.resume();
+      if (!noise) { noise = ac.createBuffer(1, ac.sampleRate * 0.5, ac.sampleRate); const d = noise.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; }
+      master = ac.createGain(); master.gain.value = 0.8; master.connect(ac.destination);
+      refresh(); step = 0; bar = -1; nextTime = ac.currentTime + 0.08; playing = true;
+      timer = window.setInterval(schedule, 25); schedule();
+      playBtn.textContent = '■ Stop';
+      if (!tracked) { tracked = true; window.pfaTrack?.('tool_use', { tool: 'backing_tracks', style: styleEl.value, progression: customEl.value || presetEl.value }); }
+    }
+    function stop() { playing = false; clearInterval(timer); master?.disconnect(); playBtn.textContent = '▶ Start (with count-in)'; beats.forEach((b) => b.classList.remove('on')); show(0); }
+
+    playBtn.addEventListener('click', () => (playing ? stop() : start()));
+    styleEl.addEventListener('change', () => {
+      tempoEl.value = styleEl.selectedOptions[0].dataset.tempo!; tempoEl.dispatchEvent(new Event('input'));
+      if (styleEl.value === 'blues' || styleEl.value === 'rocknroll') { if (!customEl.value) presetEl.value = presetEl.options[4].value; refresh(); }
+    });
+    tempoEl.addEventListener('input', () => ($('[data-tempo-out]').textContent = tempoEl.value));
+    [presetEl, keyEl, customEl].forEach((el) => el.addEventListener('change', () => { refresh(); if (playing) { stop(); start(); } }));
+    refresh();
+  });
+</script>

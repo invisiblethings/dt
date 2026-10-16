@@ -1,0 +1,35 @@
+---
+import Check from './Check.astro';
+import { PRODUCTS, GUARANTEE_DAYS, FEATURES } from '../data/site';
+interface Props { heading?: string; body?: string; location?: string }
+const pfa = PRODUCTS.pianoforall;
+const {
+  heading = 'Sit down at the piano tonight and play something',
+  body = FEATURES.freeLessons
+    ? 'Start with the free lessons. You will learn a broken-chord ballad that sounds like real music, and you can decide about the full course afterwards.'
+    : `Get all nine books for one payment of $${pfa.price}. If it isn’t right for you, ask for your money back within ${GUARANTEE_DAYS} days.`,
+  location = 'final_cta',
+} = Astro.props;
+---
+<section class="section section-dark">
+  <div class="wrap center">
+    <div class="section-head center" style="margin-bottom:2rem">
+      <h2>{heading}</h2>
+      <p class="lede">{body}</p>
+    </div>
+    <div class="cta-row" style="justify-content:center">
+      {FEATURES.freeLessons ? (
+        <a class="btn btn-lg" href="/free-lessons" data-track="cta_click" data-track-location={location}>Try the free lessons <span class="arrow" aria-hidden="true">→</span></a>
+      ) : (
+        <a class="btn btn-lg" href={pfa.checkout} rel="nofollow" data-track="begin_checkout" data-product={pfa.id} data-track-location={location}>Get Pianoforall · ${pfa.price} <span class="arrow" aria-hidden="true">→</span></a>
+      )}
+      <a class="btn btn-lg btn-ghost" href={FEATURES.freeLessons ? '/pricing' : '/course'} data-track="cta_click" data-track-location={`${location}_secondary`}>{FEATURES.freeLessons ? 'See pricing' : 'See what’s inside'}</a>
+    </div>
+    <ul class="trust-strip" style="justify-content:center">
+      {FEATURES.freeLessons && <li><Check /> No card for the free lessons</li>}
+      <li><Check /> ${pfa.price} once, no subscription</li>
+      <li><Check /> Lifetime access</li>
+      <li><Check /> {GUARANTEE_DAYS}-day money-back guarantee</li>
+    </ul>
+  </div>
+</section>

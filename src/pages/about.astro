@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { BRAND } from '../data/site';
+import { ROBIN_ID } from '../lib/schema';
+import robin from '../assets/img/robin-piano.jpg';
+import cartoonist from '../assets/img/robin-cartoonist.jpg';
+import community from '../assets/img/community.jpg';
+
+const schema = [{ '@type': 'AboutPage', mainEntity: { '@id': ROBIN_ID } }];
+---
+<Base
+  title="About Robin Hall, Creator of Pianoforall"
+  description="Robin Hall grew up in his father’s piano shop, has taught piano for over 30 years and created Pianoforall in 2006. He’s also a cartoonist and therapist."
+  ogImage="/og/robin.jpg"
+  crumbs={[{ name: 'About', href: '/about' }]}
+  schema={schema}
+>
+  <section class="page-hero">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">About Pianoforall</p>
+        <h1>Hi, I’m Robin Hall</h1>
+        <p class="lede">I created Pianoforall in 2006 and I’m still the person who teaches every lesson and answers your emails.</p>
+        <p>I grew up in my father’s piano shop and have been around pianos and piano teaching for most of my life. I’ve taught piano for more than 30 years.</p>
+        <p>Over that time I noticed something about adult students. They enjoy learning far more, and stick with it far longer, when they start by playing something. So that’s how Pianoforall begins: simple chords, rhythms and songs, much of it learned by ear. Reading and theory come in gradually as you go.</p>
+      </div>
+      <figure class="figure-frame" style="margin:0">
+        <Image src={robin} alt="Robin Hall at the piano in his studio" widths={[400, 600, 800]} sizes="(min-width: 56rem) 480px, 100vw" loading="eager" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section-paper">
+    <div class="wrap split reverse">
+      <div>
+        <h2>Cartoons, painting and therapy</h2>
+        <p>As well as teaching piano, I’m a cartoonist, painter and therapist. I’ve published two books on cartooning. The first, <cite>The Cartoonist’s Workbook</cite>, carries a back-cover quote from Charles Schulz, the creator of Snoopy: “The approach of this new book is one of the best I have ever seen.”</p>
+        <p>The art background shapes how I teach. I like to explain things with pictures and find simple ways to make them easier to remember. That’s why the course is full of keyboard diagrams, colour coding and the odd cartoon.</p>
+        <p>Working as a therapist made me interested in how we learn, especially how much easier it is when you’re relaxed and focused. I’ve put some simple mindfulness ideas into the courses for that reason.</p>
+      </div>
+      <figure class="figure-frame" style="margin:0">
+        <Image src={cartoonist} alt="Robin Hall’s cartooning books, including The Cartoonist’s Workbook, above one of his cartoons" widths={[400, 700, 1000]} sizes="(min-width: 56rem) 480px, 100vw" loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <figure class="figure-frame" style="margin:0">
+        <Image src={community} alt="The Piano Lounge: the Pianoforall student community" widths={[480, 900]} sizes="(min-width: 56rem) 480px, 100vw" loading="lazy" />
+      </figure>
+      <div>
+        <h2>Pianoforall today</h2>
+        <p>Pianoforall started as a set of ebooks with video and audio built into the pages. Today you can also take it in an online course player, and students around the world have used it. On Udemy alone it has more than 400,000 students.</p>
+        <p>I’ve added the Classics By Ear series, which uses the same approach to teach pieces by Beethoven, Satie and Bach, and there’s a student community called The Piano Lounge, where I answer questions too.</p>
+        <p>If you have any questions, email me at <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>. I read every message and reply personally.</p>
+        <p>Robin</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sand">
+    <div class="wrap">
+      <div class="section-head"><h2>Pianoforall at a glance</h2></div>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><th scope="row">Created</th><td>2006, by Robin Hall</td></tr>
+            <tr><th scope="row">What it is</th><td>An online piano course for adults and teenagers, plus the Classics By Ear series of single-piece classical courses</td></tr>
+            <tr><th scope="row">Method</th><td>Chords and rhythm first, playing by ear, reading and theory introduced gradually (“play first, ask questions later”)</td></tr>
+            <tr><th scope="row">Main course</th><td>9 books, 568 lessons, 25 hours of video, audio, printable PDFs, online player and offline ebooks</td></tr>
+            <tr><th scope="row">Styles</th><td>Rhythm-style pop, blues, rock ’n’ roll, ballads, jazz, improvisation, classical</td></tr>
+            <tr><th scope="row">Price</th><td>$49 one-time for the main course; no subscription; 60-day money-back guarantee</td></tr>
+            <tr><th scope="row">Payments</th><td>ClickBank (retailer)</td></tr>
+            <tr><th scope="row">Contact</th><td><a href={`mailto:${BRAND.email}`}>{BRAND.email}</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <FinalCta location="about_final" heading="Come and play" body="Try a few lessons free and see whether my way of teaching suits you." />
+</Base>

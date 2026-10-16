@@ -1,0 +1,167 @@
+---
+import Base from '../layouts/Base.astro';
+import { PRODUCTS, LINKS, FEATURES } from '../data/site';
+const free = FEATURES.freeLessons;
+const pfa = PRODUCTS.pianoforall;
+
+// Results are rendered server-side (hidden) so they are crawlable, linkable
+// and work as plain content; the script only decides which one to show.
+const results = [
+  {
+    id: 'pfa-beginner',
+    title: 'Start with Pianoforall, from Book 1',
+    body: 'You want to play songs and understand what you’re doing, and you’re starting from scratch or close to it. Pianoforall was built for exactly this. Start at Book 1 and take it one short lesson at a time. If it doesn’t suit you, the 60-day guarantee means you can get your money back.',
+    primary: free ? { label: 'Start the free lessons', href: '/free-lessons' } : { label: `Get Pianoforall · $${PRODUCTS.pianoforall.price}`, href: PRODUCTS.pianoforall.checkout },
+    secondary: { label: 'See what’s in the course', href: '/course' },
+  },
+  {
+    id: 'pfa-returning',
+    title: 'Pianoforall, moving quickly through Book 1',
+    body: 'You’ve played before, so the first lessons will feel familiar. Don’t skip them, but move on once a pattern is comfortable. Students who read music get the most from the chord, inversion and ballad books, where playing by ear and improvising come in.',
+    primary: free ? { label: 'Try the free lessons', href: '/free-lessons' } : { label: 'See the course', href: '/course' },
+    secondary: { label: 'See the nine books', href: '/course#curriculum' },
+  },
+  {
+    id: 'classics',
+    title: 'Start with a Classics By Ear course',
+    body: 'You want to play a particular classical piece. Each Classics By Ear course stands on its own. If you’re new to piano, start with the Bach preludes or Satie’s Gnossiennes, then try the Moonlight Sonata. If you’d like all-round skills too, the complete bundle includes Pianoforall.',
+    primary: { label: 'Explore Classics By Ear', href: '/classics-by-ear' },
+    secondary: { label: `Complete bundle · $${PRODUCTS.completeBundle.price}`, href: '/pricing#bundles' },
+  },
+  {
+    id: 'app',
+    title: 'An app with real-time feedback may suit you better',
+    body: 'You told us you want software that checks every note. Pianoforall doesn’t listen to your playing. Apps such as Simply Piano, Skoove or flowkey do, and they may keep you more motivated. Plenty of people use an app alongside Pianoforall later, once they want chords and playing by ear.',
+    primary: { label: 'Read our honest comparison', href: '/compare' },
+    secondary: free ? { label: 'Try Pianoforall free anyway', href: '/free-lessons' } : { label: 'How Pianoforall works', href: '/how-it-works' },
+  },
+  {
+    id: 'child',
+    title: 'For a young child, start with a children’s course',
+    body: 'Pianoforall is designed for teenagers and adults. For a child under about 12 learning alone, a course built for kids, such as Hoffman Academy, is a better first step. If you’d like to learn alongside your child, Pianoforall can work for both of you, with you adapting the lessons as you go.',
+    primary: { label: 'See how the options compare', href: '/compare' },
+    secondary: { label: 'Learn alongside them', href: '/course' },
+  },
+  {
+    id: 'reading',
+    title: 'If reading is your priority, add a reading course',
+    body: 'Pianoforall teaches reading, but it starts with chords and playing by ear, and reading comes later. If sight-reading or exams are your main goal, a reading-focused tool such as Piano Marvel should come first. Pianoforall makes a strong partner to it for chords and improvising.',
+    primary: { label: 'Read our honest comparison', href: '/compare' },
+    secondary: { label: 'See how Pianoforall teaches reading', href: '/how-it-works' },
+  },
+];
+
+const questions = [
+  { q: 'Who is learning?', opts: [['me', 'Me, an adult or teenager'], ['child', 'A child under 12, learning on their own']] },
+  { q: 'Have you played piano before?', opts: [['never', 'Never, or barely'], ['some', 'A little, or I had lessons years ago'], ['reader', 'Yes, I can read music']] },
+  { q: 'What would you most like to play?', opts: [['songs', 'Pop, rock, blues or ballads'], ['classical', 'A particular classical piece'], ['everything', 'A bit of everything, including jazz and improvising'], ['exams', 'Whatever helps me sight-read or pass exams']] },
+  { q: 'Which sounds more like you?', opts: [['teacher', 'I like a teacher explaining things, at my own pace'], ['game', 'I want software that checks every note I play']] },
+];
+---
+<Base
+  title="Which Piano Course Should I Start With? A 4-Question Guide"
+  description="Answer four questions and get an honest recommendation: Pianoforall, Classics By Ear, or a different kind of course if it suits you better."
+  crumbs={[{ name: 'Where should I start?', href: '/start' }]}
+>
+  <section class="page-hero">
+    <div class="wrap-narrow">
+      <p class="eyebrow">Course finder</p>
+      <h1>Where should you start?</h1>
+      <p class="lede">Four quick questions. We’ll tell you which course fits, and if Pianoforall isn’t the right choice, we’ll say so.</p>
+    </div>
+  </section>
+
+  <section class="section-tight" style="padding-top:0">
+    <div class="wrap-narrow">
+      <div class="tool" data-quiz>
+        <div class="quiz-progress" aria-hidden="true"><span data-quiz-bar></span></div>
+        {questions.map((qq, i) => (
+          <fieldset class="quiz-step" data-step={i} data-active={i === 0 ? 'true' : 'false'} style="border:0;padding:0;margin:0">
+            <legend class="eyebrow">Question {i + 1} of {questions.length}</legend>
+            <h2 style="font-size:var(--step-2)">{qq.q}</h2>
+            <div class="quiz-options">
+              {qq.opts.map(([v, label]) => <button type="button" class="quiz-option" data-answer={v}>{label}</button>)}
+            </div>
+            {i > 0 && <button type="button" class="chip" data-back>← Back</button>}
+          </fieldset>
+        ))}
+        <noscript><p>Turn on JavaScript to use the course finder, or read the recommendations below.</p></noscript>
+      </div>
+
+      <div data-results>
+        <h2 class="visually-hidden">Recommendations</h2>
+        {results.map((r) => (
+          <article class="cta-box" id={`result-${r.id}`} data-result={r.id} hidden>
+            <p class="eyebrow" style="color:var(--brass)">Our recommendation</p>
+            <h3 style="font-size:var(--step-2)">{r.title}</h3>
+            <p>{r.body}</p>
+            <div class="cta-row">
+              <a class="btn" href={r.primary.href} data-track="quiz_result_click" data-track-location={r.id}>{r.primary.label}</a>
+              <a class="btn btn-ghost" style="--btn-fg:#fff;--btn-border:#fff" href={r.secondary.href} data-track="quiz_result_click" data-track-location={`${r.id}_secondary`}>{r.secondary.label}</a>
+            </div>
+            <p class="cta-note"><button type="button" class="chip" data-restart style="background:transparent;color:#fff;border-color:#4a453b">Start again</button></p>
+          </article>
+        ))}
+      </div>
+
+      <details class="faq" style="margin-top:2rem">
+        <summary>See every recommendation without answering</summary>
+        <div class="faq-a">
+          {results.map((r) => (<><h3>{r.title}</h3><p>{r.body} <a href={r.primary.href}>{r.primary.label}</a></p></>))}
+        </div>
+      </details>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-quiz]')!;
+  const steps = [...root.querySelectorAll<HTMLElement>('[data-step]')];
+  const bar = root.querySelector<HTMLElement>('[data-quiz-bar]')!;
+  const answers: string[] = [];
+  let cur = 0;
+
+  function go(i: number) {
+    cur = i;
+    steps.forEach((s, j) => (s.dataset.active = String(j === i)));
+    bar.style.width = `${(i / steps.length) * 100}%`;
+    steps[i]?.querySelector<HTMLButtonElement>('.quiz-option')?.focus();
+  }
+  function decide(a: string[]): string {
+    const [who, exp, goal, style] = a;
+    if (who === 'child') return 'child';
+    if (style === 'game') return 'app';
+    if (goal === 'exams') return 'reading';
+    if (goal === 'classical') return 'classics';
+    if (exp === 'never') return 'pfa-beginner';
+    return 'pfa-returning';
+  }
+  function finish() {
+    const id = decide(answers);
+    root.hidden = true;
+    const el = document.getElementById(`result-${id}`)!;
+    el.hidden = false;
+    el.setAttribute('tabindex', '-1');
+    el.focus();
+    window.pfaTrack?.('quiz_complete', { result: id, answers: answers.join('|') });
+  }
+
+  root.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement;
+    const opt = t.closest<HTMLButtonElement>('[data-answer]');
+    if (opt) {
+      if (cur === 0) window.pfaTrack?.('quiz_start');
+      answers[cur] = opt.dataset.answer!;
+      // A child learner skips straight to the result.
+      if (cur === 0 && answers[0] === 'child') return finish();
+      if (cur + 1 < steps.length) go(cur + 1); else finish();
+    }
+    if (t.closest('[data-back]')) go(Math.max(0, cur - 1));
+  });
+  document.querySelectorAll('[data-restart]').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll<HTMLElement>('[data-result]').forEach((r) => (r.hidden = true));
+    answers.length = 0;
+    root.hidden = false;
+    go(0);
+  }));
+</script>

@@ -1,0 +1,16 @@
+---
+import Base from './Base.astro';
+interface Props { title: string; description: string; h1: string; updated: string; path: string; noindex?: boolean }
+const { title, description, h1, updated, path, noindex = false } = Astro.props;
+---
+<Base title={title} description={description} path={path} noindex={noindex} crumbs={[{ name: h1, href: path }]}>
+  <section class="page-hero">
+    <div class="wrap-narrow">
+      <h1>{h1}</h1>
+      <p class="muted">Last updated: {updated}</p>
+    </div>
+  </section>
+  <section class="section-tight" style="padding-top:0">
+    <div class="wrap-narrow prose"><slot /></div>
+  </section>
+</Base>

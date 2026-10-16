@@ -1,0 +1,10 @@
+---
+import type { Testimonial } from '../data/testimonials';
+interface Props { t: Testimonial; feature?: boolean; showPull?: boolean }
+const { t, feature = false, showPull = true } = Astro.props;
+---
+<figure class:list={['quote', { 'quote-feature': feature }]}>
+  {showPull && !feature && <span class="pull">{t.pull}</span>}
+  <blockquote><p>{feature ? t.pull.replace(/^“|”$/g, '') : t.quote}</p></blockquote>
+  <figcaption><b>{t.name}</b>{t.place}</figcaption>
+</figure>

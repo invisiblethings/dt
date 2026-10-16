@@ -1,0 +1,17 @@
+{
+  "name": "pianoforall-site",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check:links": "node scripts/check-links.mjs",
+    "import:blog": "node scripts/import-wordpress.mjs && node scripts/fix-blog-images.mjs"
+  },
+  "dependencies": {
+    "astro": "5.18.2",
+    "sharp": "0.34.5"
+  }
+}

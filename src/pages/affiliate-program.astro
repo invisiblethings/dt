@@ -1,0 +1,24 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { BRAND, PRODUCTS } from '../data/site';
+---
+<Legal title="Pianoforall Affiliate Program: 60% Commission via ClickBank" description="Recommend Pianoforall to your audience and earn 60% commission on every sale through ClickBank, with a 90-day tracking cookie." h1="Pianoforall affiliate program" updated="October 2026" path="/affiliate-program">
+  <p>If you teach music, review courses or have an audience of would-be pianists, you can earn commission by recommending Pianoforall.</p>
+  <h2>The terms</h2>
+  <ul>
+    <li><b>60% commission</b> on every sale, paid by ClickBank.</li>
+    <li>A <b>90-day</b> tracking cookie, so you’re credited if your visitor buys later.</li>
+    <li>Pianoforall sells for ${PRODUCTS.pianoforall.price}. The Classics By Ear courses earn commission too.</li>
+    <li>ClickBank pays you by cheque or bank transfer, weekly or every two weeks, and shows your clicks, sales and commissions in your dashboard.</li>
+  </ul>
+  <h2>How to start</h2>
+  <ol>
+    <li>Create a free affiliate account at ClickBank. You’ll get a unique ClickBank ID.</li>
+    <li>Build a hoplink that contains your ID and Pianoforall’s vendor ID (<code>piano4all</code>).</li>
+    <li>Use that link wherever you recommend Pianoforall.</li>
+  </ol>
+  <h2>Help and materials</h2>
+  <p>Robin can provide banners, promotional videos, product images and a review copy. Email <a href={`mailto:${BRAND.email}?subject=Affiliate%20program`}>{BRAND.email}</a>.</p>
+  <h2>Please keep it honest</h2>
+  <p>Disclose your affiliate relationship clearly, as the US FTC and UK ASA require. Don’t bid on “Pianoforall” brand terms in paid search, don’t use fake countdowns or invented discounts, and don’t make claims about results that the course pages don’t make.</p>
+</Legal>
