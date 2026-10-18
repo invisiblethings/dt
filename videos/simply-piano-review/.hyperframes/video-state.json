@@ -372,7 +372,6 @@
         {
           "scope": "full",
           "id": "dc9ba69b-92b2-4f88-a4ce-b56b245e514e-0",
-          "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/bfe37167-bdf8-48a1-b888-b95a78493f9a/frame-00-at-67.5s.png",
           "time": 67.5,
           "metadata": {
             "width": 1920,
@@ -387,12 +386,13 @@
           "revision": "ea95d847-b46d-4fd9-b607-008a6f7759b5",
           "inputFingerprint": "26a797125945f02e83ff0305bf2076c0510c6616adf31e0b875f1e1aeab09a00",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "400f375a-481f-421b-a2c4-0f4551560e9a"
         },
         {
           "scope": "full",
           "id": "dc9ba69b-92b2-4f88-a4ce-b56b245e514e-1",
-          "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/bfe37167-bdf8-48a1-b888-b95a78493f9a/frame-01-at-73.8s.png",
           "time": 73.8,
           "metadata": {
             "width": 1920,
@@ -407,12 +407,13 @@
           "revision": "ea95d847-b46d-4fd9-b607-008a6f7759b5",
           "inputFingerprint": "26a797125945f02e83ff0305bf2076c0510c6616adf31e0b875f1e1aeab09a00",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "400f375a-481f-421b-a2c4-0f4551560e9a"
         },
         {
           "scope": "full",
           "id": "dc9ba69b-92b2-4f88-a4ce-b56b245e514e-2",
-          "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/bfe37167-bdf8-48a1-b888-b95a78493f9a/frame-02-at-72.572s.png",
           "time": 72.572,
           "metadata": {
             "width": 1920,
@@ -427,14 +428,15 @@
           "revision": "ea95d847-b46d-4fd9-b607-008a6f7759b5",
           "inputFingerprint": "26a797125945f02e83ff0305bf2076c0510c6616adf31e0b875f1e1aeab09a00",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "400f375a-481f-421b-a2c4-0f4551560e9a"
         }
       ],
       "b9acee53-2152-4e4d-89ed-b91117fe249c": [
         {
           "scope": "full",
           "id": "59b5b644-b6dc-4661-91ea-390255dfdf4f-0",
-          "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/47d25c6a-36ff-4178-abdc-9e502741cccf/frame-00-at-67.5s.png",
           "time": 67.5,
           "metadata": {
             "width": 1920,
@@ -449,12 +451,13 @@
           "revision": "b9acee53-2152-4e4d-89ed-b91117fe249c",
           "inputFingerprint": "2a57018917ce425d266837af76346cdece37b3f54110ffd6bbc764c94168d264",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "400f375a-481f-421b-a2c4-0f4551560e9a"
         },
         {
           "scope": "full",
           "id": "59b5b644-b6dc-4661-91ea-390255dfdf4f-1",
-          "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/47d25c6a-36ff-4178-abdc-9e502741cccf/frame-01-at-72.572s.png",
           "time": 72.572,
           "metadata": {
             "width": 1920,
@@ -469,7 +472,9 @@
           "revision": "b9acee53-2152-4e4d-89ed-b91117fe249c",
           "inputFingerprint": "2a57018917ce425d266837af76346cdece37b3f54110ffd6bbc764c94168d264",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "400f375a-481f-421b-a2c4-0f4551560e9a"
         }
       ],
       "f4531dd9-1300-4605-804e-066c2cf0c9c1": [
@@ -717,5 +722,18 @@
         "attribution": "unversioned"
       }
     ]
-  }
+  },
+  "renders": {
+    "latest": {
+      "id": "400f375a-481f-421b-a2c4-0f4551560e9a",
+      "completedAt": 1792336265875,
+      "output": "/home/user/dt/videos/simply-piano-review/renders/video.mp4",
+      "status": "completed",
+      "revision": "f4531dd9-1300-4605-804e-066c2cf0c9c1"
+    },
+    "retainedRevisions": [
+      "f4531dd9-1300-4605-804e-066c2cf0c9c1"
+    ]
+  },
+  "pendingArtifactCleanup": []
 }
