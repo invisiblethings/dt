@@ -1,0 +1,721 @@
+{
+  "version": 1,
+  "historyId": "7c28ef70-259c-416d-9d0f-f160b2228c04",
+  "currentRevision": "f4531dd9-1300-4605-804e-066c2cf0c9c1",
+  "pendingChanges": false,
+  "files": {
+    ".media/manifest.jsonl": {
+      "hash": "0fcfaa06e85dad45d998c69d0a20d142c38fe19c9443cccedd938093d597cc02",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/0f/0fcfaa06e85dad45d998c69d0a20d142c38fe19c9443cccedd938093d597cc02"
+    },
+    "AGENTS.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "BRIEF.md": {
+      "hash": "22451b2baa1a16e0ea332ad7c612364850d3704b6e644efa5ada3f75531559ec",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/22/22451b2baa1a16e0ea332ad7c612364850d3704b6e644efa5ada3f75531559ec"
+    },
+    "CLAUDE.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "SCRIPT.md": {
+      "hash": "d3964e8c3e25f8ed19ae7cbcff8711c22d791d142195beb82aae586b7896e1ea",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/d3/d3964e8c3e25f8ed19ae7cbcff8711c22d791d142195beb82aae586b7896e1ea"
+    },
+    "STORYBOARD.md": {
+      "hash": "32aa9fa971872c9cb644a61e4bfc1e3a4f6f2fe498e98fe1e4da901d18a4c220",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/32/32aa9fa971872c9cb644a61e4bfc1e3a4f6f2fe498e98fe1e4da901d18a4c220"
+    },
+    "assets/fonts/Barlow-Black.ttf": {
+      "hash": "fc4f74e8475b181003f7597450c62d630622b417e367a6842972b286c49f9440",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/fc/fc4f74e8475b181003f7597450c62d630622b417e367a6842972b286c49f9440"
+    },
+    "assets/fonts/Barlow-Bold.ttf": {
+      "hash": "84e6a4d61e7c3e21f3c50ea6a4f7e5303a3467864c038be6ea3759bab8d547f9",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/84/84e6a4d61e7c3e21f3c50ea6a4f7e5303a3467864c038be6ea3759bab8d547f9"
+    },
+    "assets/fonts/Barlow-ExtraBold.ttf": {
+      "hash": "5234d91030e1bb89525cbaccc4386892c3fe005a0582c705264ce3572d96a1a1",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/52/5234d91030e1bb89525cbaccc4386892c3fe005a0582c705264ce3572d96a1a1"
+    },
+    "assets/fonts/Barlow-Regular.ttf": {
+      "hash": "95aa02c7c43096e0dd44d787ba6216864a67157e402adab59b35572e0c1577ea",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/95/95aa02c7c43096e0dd44d787ba6216864a67157e402adab59b35572e0c1577ea"
+    },
+    "assets/fonts/IBMPlexMono-Medium.ttf": {
+      "hash": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/a9/a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755"
+    },
+    "assets/fonts/IBMPlexMono-Regular.ttf": {
+      "hash": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/6a/6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46"
+    },
+    "assets/sfx/CREDITS.md": {
+      "hash": "1e5301325e264d8d93037c22b6af1f8dc95b8746b494ec0d61900f379d430acf",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/1e/1e5301325e264d8d93037c22b6af1f8dc95b8746b494ec0d61900f379d430acf"
+    },
+    "assets/sfx/click-soft.mp3": {
+      "hash": "00475bbb8541bde8a7a2de09c4656e9229d2f9222a156e16a72f59a297c9345e",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/00/00475bbb8541bde8a7a2de09c4656e9229d2f9222a156e16a72f59a297c9345e"
+    },
+    "assets/sfx/impact-bass-1.mp3": {
+      "hash": "76c351caeebc1503170daba067ea5234cba553b434280aba2c3de60c46e43fc8",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/76/76c351caeebc1503170daba067ea5234cba553b434280aba2c3de60c46e43fc8"
+    },
+    "assets/sfx/impact-bass-2.mp3": {
+      "hash": "6de2fb99ce627b30e200ec3ce7f8afc859528fc54ddc25a2011ac32914f33c45",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/6d/6de2fb99ce627b30e200ec3ce7f8afc859528fc54ddc25a2011ac32914f33c45"
+    },
+    "assets/sfx/impact-soft.mp3": {
+      "hash": "a3bfbdfa7189127b17f0091920059fd674a69766e20d1239212659a6c523e7e3",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/a3/a3bfbdfa7189127b17f0091920059fd674a69766e20d1239212659a6c523e7e3"
+    },
+    "assets/sfx/impact.mp3": {
+      "hash": "1c105912efe3b185d97ee753d3f056296b7d8da0aef8c20fbcb44f2f9155ee1e",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/1c/1c105912efe3b185d97ee753d3f056296b7d8da0aef8c20fbcb44f2f9155ee1e"
+    },
+    "assets/sfx/key-press.mp3": {
+      "hash": "bc86b5849da5b66aae8a4be128c39de4d74370fde9b233e210132dd2c4a9169d",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/bc/bc86b5849da5b66aae8a4be128c39de4d74370fde9b233e210132dd2c4a9169d"
+    },
+    "assets/sfx/ping-soft.mp3": {
+      "hash": "a310fadbea497d6b287a524b8be0ed8f85b1d83891c570cc50341a747342fae1",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/a3/a310fadbea497d6b287a524b8be0ed8f85b1d83891c570cc50341a747342fae1"
+    },
+    "assets/sfx/ping.mp3": {
+      "hash": "79adae4921a36fe28fff95af570d1f19569b35725eb91bdd0babe0087b8ae57d",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/79/79adae4921a36fe28fff95af570d1f19569b35725eb91bdd0babe0087b8ae57d"
+    },
+    "assets/sfx/tick.mp3": {
+      "hash": "d77edaf7177cce78bdca271881e936c3c5526a497f981b1570ad3b83ddfb2f11",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/d7/d77edaf7177cce78bdca271881e936c3c5526a497f981b1570ad3b83ddfb2f11"
+    },
+    "assets/sfx/whoosh-short.mp3": {
+      "hash": "f39070a0c51faa7548c42c545d66587241ea0a962d584f6746b899b2ca638678",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/f3/f39070a0c51faa7548c42c545d66587241ea0a962d584f6746b899b2ca638678"
+    },
+    "assets/sfx/whoosh-soft.mp3": {
+      "hash": "8663fefd66229df03e73d837f4ba0f5c279de32df6ec520a81b256e8bbf63193",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/86/8663fefd66229df03e73d837f4ba0f5c279de32df6ec520a81b256e8bbf63193"
+    },
+    "assets/voice/01.wav": {
+      "hash": "16aab6bb84874212bdc516eeb9d3bc9824a7abc43271426ce11712c991dbd43d",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/16/16aab6bb84874212bdc516eeb9d3bc9824a7abc43271426ce11712c991dbd43d"
+    },
+    "assets/voice/02.wav": {
+      "hash": "9f6902c84e4dcdcc52ff329444a848c8f0a8e1ea0549d6b9b47267489a888c78",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/9f/9f6902c84e4dcdcc52ff329444a848c8f0a8e1ea0549d6b9b47267489a888c78"
+    },
+    "assets/voice/03.wav": {
+      "hash": "0dd073c03b4fa1d14e759658dd3485c239290b5bad78da4837fc73f66c90f148",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/0d/0dd073c03b4fa1d14e759658dd3485c239290b5bad78da4837fc73f66c90f148"
+    },
+    "assets/voice/04.wav": {
+      "hash": "73565ee57aaf73fc171a3bf0ec755f58ee8dd553b32a779da481108cc10b92b6",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/73/73565ee57aaf73fc171a3bf0ec755f58ee8dd553b32a779da481108cc10b92b6"
+    },
+    "assets/voice/05.wav": {
+      "hash": "f7068031794d97bcd6ba144f5d99ae179806393b7d0c8ff836b532e24875cb99",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/f7/f7068031794d97bcd6ba144f5d99ae179806393b7d0c8ff836b532e24875cb99"
+    },
+    "assets/voice/06.wav": {
+      "hash": "a6d7d5f0442b12607a831b72bf712288d57eb6811d0ed0be0cb8e3c13faf3e0b",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/a6/a6d7d5f0442b12607a831b72bf712288d57eb6811d0ed0be0cb8e3c13faf3e0b"
+    },
+    "assets/voice/07.wav": {
+      "hash": "a1293428590bf7e07926fd1933ad3208ec8441f9ea0b4d6e56e9afff73128ef2",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/a1/a1293428590bf7e07926fd1933ad3208ec8441f9ea0b4d6e56e9afff73128ef2"
+    },
+    "assets/voice/08.wav": {
+      "hash": "12970ce6ea60162e741ac427fb3eba30ee70acd737afa3184d89ee8cd8ecaa8f",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/12/12970ce6ea60162e741ac427fb3eba30ee70acd737afa3184d89ee8cd8ecaa8f"
+    },
+    "assets/voice/09.wav": {
+      "hash": "ff3a1ba084bb61969a44f4fe2d1033e903cd88aa15c6ff0acb3546af1c6512e8",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/ff/ff3a1ba084bb61969a44f4fe2d1033e903cd88aa15c6ff0acb3546af1c6512e8"
+    },
+    "audio_engine_meta.json": {
+      "hash": "691553bcd5c533fd33cf2a6a91a0272c20a6d8105eeccae79321de25e09cc02b",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/69/691553bcd5c533fd33cf2a6a91a0272c20a6d8105eeccae79321de25e09cc02b"
+    },
+    "audio_meta.json": {
+      "hash": "04b96fe1be255d435ba106630382e74f8493fbdec3b15e8e4ccfe595e4f92eca",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/04/04b96fe1be255d435ba106630382e74f8493fbdec3b15e8e4ccfe595e4f92eca"
+    },
+    "audio_request.json": {
+      "hash": "d18939ca81482286c1d2c1ca08d6af7edc703adae2e915ac102d91f2c7f1d7f9",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/d1/d18939ca81482286c1d2c1ca08d6af7edc703adae2e915ac102d91f2c7f1d7f9"
+    },
+    "caption-overrides.json": {
+      "hash": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/37/37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "caption_groups.json": {
+      "hash": "4a16c413809ef7f5dc8fca776e830362b72b9a2acee3515a2c12caf472987d48",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/4a/4a16c413809ef7f5dc8fca776e830362b72b9a2acee3515a2c12caf472987d48"
+    },
+    "capture/extracted/tokens.json": {
+      "hash": "a032faafb20ac3f1deddad7dd6e922eb558aaece13f2778e5a71a3d9c2057ede",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/a0/a032faafb20ac3f1deddad7dd6e922eb558aaece13f2778e5a71a3d9c2057ede"
+    },
+    "capture/extracted/visible-text.txt": {
+      "hash": "d75b9449f745690721d1b377a27dfd56eae08eb810fad127db771e573c246d5e",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/d7/d75b9449f745690721d1b377a27dfd56eae08eb810fad127db771e573c246d5e"
+    },
+    "compositions/captions.html": {
+      "hash": "5cc06dbb82206d54e3fbaba825f5299361ddd155dceeda590c806adc620c951f",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/5c/5cc06dbb82206d54e3fbaba825f5299361ddd155dceeda590c806adc620c951f"
+    },
+    "compositions/components/count-up.html": {
+      "hash": "6b34b9873a243fedb060d23f4eb5cef1b61a5b169ec1ae064030b70b48beea66",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/6b/6b34b9873a243fedb060d23f4eb5cef1b61a5b169ec1ae064030b70b48beea66"
+    },
+    "compositions/components/star-rating-fill.html": {
+      "hash": "6d9c5ecd6fe80a7608db0118e20c29e5e9b64d3a4d9659977ed5402509aebc57",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/6d/6d9c5ecd6fe80a7608db0118e20c29e5e9b64d3a4d9659977ed5402509aebc57"
+    },
+    "compositions/frames/01-three-and-a-half-stars.html": {
+      "hash": "ea8a1bc0dd48bfb20cf7229aec12d849982132fa561b9c8c1d3124c7336cfed6",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/ea/ea8a1bc0dd48bfb20cf7229aec12d849982132fa561b9c8c1d3124c7336cfed6"
+    },
+    "compositions/frames/02-the-short-answer.html": {
+      "hash": "51fd2de29efecde31fc844c05ad71717b6172a0872362ecbdae85a8489e730ae",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/51/51fd2de29efecde31fc844c05ad71717b6172a0872362ecbdae85a8489e730ae"
+    },
+    "compositions/frames/03-a-note-checker.html": {
+      "hash": "60dd319ac81f3b23918712ac9f47f81ce68498995e66ab9cd40c5539f0216b5c",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/60/60dd319ac81f3b23918712ac9f47f81ce68498995e66ab9cd40c5539f0216b5c"
+    },
+    "compositions/frames/04-what-actually-works.html": {
+      "hash": "409786fb8fb8ac067f845dd9ec957edddb1666ced6492e6a70035ceef512cd73",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/40/409786fb8fb8ac067f845dd9ec957edddb1666ced6492e6a70035ceef512cd73"
+    },
+    "compositions/frames/05-it-cant-see-you.html": {
+      "hash": "6edb6abb7eb807706dabbf1e7480bb2a2b19025acfe4df00f75dbee6394f5404",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/6e/6edb6abb7eb807706dabbf1e7480bb2a2b19025acfe4df00f75dbee6394f5404"
+    },
+    "compositions/frames/06-the-ceiling.html": {
+      "hash": "c8b4ea528e247b28307423b3b635191cca050df9b0649462f6f04bbe291c7456",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/c8/c8b4ea528e247b28307423b3b635191cca050df9b0649462f6f04bbe291c7456"
+    },
+    "compositions/frames/07-the-math.html": {
+      "hash": "6ec0fe6c6152ed26b13048b914fc656999c484c9413ba6afbc4e7790ed3930f2",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/6e/6ec0fe6c6152ed26b13048b914fc656999c484c9413ba6afbc4e7790ed3930f2"
+    },
+    "compositions/frames/08-who-should-buy-it.html": {
+      "hash": "8c4331e2e9ef379e2b40550aa96b9e697b9b75e7e0a0e3e7196ea0042b5aaf00",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/8c/8c4331e2e9ef379e2b40550aa96b9e697b9b75e7e0a0e3e7196ea0042b5aaf00"
+    },
+    "compositions/frames/09-appetizer.html": {
+      "hash": "ac87fd03560b68700344401bc79c80354e6a4081c4fcb86e12d781dee387a5dd",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/ac/ac87fd03560b68700344401bc79c80354e6a4081c4fcb86e12d781dee387a5dd"
+    },
+    "frame.md": {
+      "hash": "3af0a1e5e61bece19841671672d7732082f03d5699b713475e90323a21dbcc89",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/3a/3af0a1e5e61bece19841671672d7732082f03d5699b713475e90323a21dbcc89"
+    },
+    "hyperframes.json": {
+      "hash": "c0a9bc642f47f3da3448c9e100c3b865eeb41eb2c28457459ec4021d83bfde5a",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/c0/c0a9bc642f47f3da3448c9e100c3b865eeb41eb2c28457459ec4021d83bfde5a"
+    },
+    "hyperframes.lock.json": {
+      "hash": "8f4778a63a26121933377ab4ceab24f50944d7cbc01d5635a22de0da64931378",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/8f/8f4778a63a26121933377ab4ceab24f50944d7cbc01d5635a22de0da64931378"
+    },
+    "index.html": {
+      "hash": "7e8c1a5616dba390ad26e63751e6f06e2e64c9c7b47e138c38b8a6a9d155872d",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/7e/7e8c1a5616dba390ad26e63751e6f06e2e64c9c7b47e138c38b8a6a9d155872d"
+    },
+    "meta.json": {
+      "hash": "39909813c854f0b0071f6736c66879dbb150f0be8d8299af2a22cb1a300e7dd8",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/39/39909813c854f0b0071f6736c66879dbb150f0be8d8299af2a22cb1a300e7dd8"
+    },
+    "package.json": {
+      "hash": "8987e25a75cdc52f392970f0c87ddd3a454bd9d8bee12cf4f94f8003d5f27aad",
+      "content": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/89/8987e25a75cdc52f392970f0c87ddd3a454bd9d8bee12cf4f94f8003d5f27aad"
+    }
+  },
+  "revisions": {
+    "ea95d847-b46d-4fd9-b607-008a6f7759b5": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792336046927,
+      "endedAt": 1792336046944,
+      "files": {
+        "audio_meta.json": {
+          "before": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/29/290e00766cdffa4530437b58b3fbfab995307dbe3684698a8557c74d83dec90e",
+          "after": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/04/04b96fe1be255d435ba106630382e74f8493fbdec3b15e8e4ccfe595e4f92eca"
+        },
+        "caption_groups.json": {
+          "before": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/1e/1e39b50cca60caa199edb559ba5b9b208e052669e6071298e1a5451cbc971fa7",
+          "after": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/4a/4a16c413809ef7f5dc8fca776e830362b72b9a2acee3515a2c12caf472987d48"
+        },
+        "compositions/captions.html": {
+          "before": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/a4/a4fb581cb81f51a6ed5d6e1286af607be26da2bd223b189e2b04a7b023cbe80c",
+          "after": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/5c/5cc06dbb82206d54e3fbaba825f5299361ddd155dceeda590c806adc620c951f"
+        },
+        "compositions/frames/08-who-should-buy-it.html": {
+          "before": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/42/427f18d25cdf6c345ba50e7b074fcb99fff692ba0aae0bd0904b312acc38780f",
+          "after": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/f6/f6293c69738796d3e5805908f74e2c0104e9485279c2360cebbf9e8171ad5241"
+        }
+      }
+    },
+    "b9acee53-2152-4e4d-89ed-b91117fe249c": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792336061785,
+      "endedAt": 1792336061786,
+      "files": {
+        "compositions/frames/08-who-should-buy-it.html": {
+          "before": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/f6/f6293c69738796d3e5805908f74e2c0104e9485279c2360cebbf9e8171ad5241",
+          "after": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/87/8788fa2ec0a868b05c72f061290c17dc2548a5b4beda42b82d37b90a860e2cc9"
+        }
+      }
+    },
+    "f4531dd9-1300-4605-804e-066c2cf0c9c1": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792336073168,
+      "endedAt": 1792336073169,
+      "files": {
+        "compositions/frames/08-who-should-buy-it.html": {
+          "before": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/87/8788fa2ec0a868b05c72f061290c17dc2548a5b4beda42b82d37b90a860e2cc9",
+          "after": "/root/.cache/hyperframes/history/7c28ef70-259c-416d-9d0f-f160b2228c04/blobs/8c/8c4331e2e9ef379e2b40550aa96b9e697b9b75e7e0a0e3e7196ea0042b5aaf00"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "f4531dd9-1300-4605-804e-066c2cf0c9c1",
+      "id": "046b1ab5-6e6c-4788-87e1-fe77ae9ee093"
+    },
+    "revisions": {
+      "f4531dd9-1300-4605-804e-066c2cf0c9c1": [
+        {
+          "id": "046b1ab5-6e6c-4788-87e1-fe77ae9ee093",
+          "scope": "project",
+          "report": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/checks/046b1ab5-6e6c-4788-87e1-fe77ae9ee093.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792336106598,
+          "contentHash": "eb91871e8b89de526d6dca824cebdced7e6e824dac79394a263cda602966eb90",
+          "revision": "f4531dd9-1300-4605-804e-066c2cf0c9c1",
+          "inputFingerprint": "3a489abd24ce7819a5b6022ee226b58ca5fe9a4de3b64cb107919fa993207a64",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "d8c548e1-0c47-4161-b307-b874dd5abb61",
+        "scope": "project",
+        "report": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/checks/d8c548e1-0c47-4161-b307-b874dd5abb61.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1792336007382,
+        "contentHash": "eb91871e8b89de526d6dca824cebdced7e6e824dac79394a263cda602966eb90",
+        "revision": null,
+        "inputFingerprint": "a85e06f6d88df142f9e6526a0184d9772c371afdb66e937df59b7fc8303e384b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": "f4531dd9-1300-4605-804e-066c2cf0c9c1",
+      "id": "15ad5928-e2ba-42ed-8371-f9e09ae88bbe-1"
+    },
+    "revisions": {
+      "ea95d847-b46d-4fd9-b607-008a6f7759b5": [
+        {
+          "scope": "full",
+          "id": "dc9ba69b-92b2-4f88-a4ce-b56b245e514e-0",
+          "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/bfe37167-bdf8-48a1-b888-b95a78493f9a/frame-00-at-67.5s.png",
+          "time": 67.5,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792336051475,
+          "contentHash": "09bb50ae8b8814fda0063985e1b32abf9db8bf9d9f8abb9683d0ae9e8dad71ba",
+          "revision": "ea95d847-b46d-4fd9-b607-008a6f7759b5",
+          "inputFingerprint": "26a797125945f02e83ff0305bf2076c0510c6616adf31e0b875f1e1aeab09a00",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "dc9ba69b-92b2-4f88-a4ce-b56b245e514e-1",
+          "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/bfe37167-bdf8-48a1-b888-b95a78493f9a/frame-01-at-73.8s.png",
+          "time": 73.8,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792336051475,
+          "contentHash": "82ed7b06ad1528e003ba748e9d2f6c80f0b60b7854e0a6c5a83a7ee7dee4ba44",
+          "revision": "ea95d847-b46d-4fd9-b607-008a6f7759b5",
+          "inputFingerprint": "26a797125945f02e83ff0305bf2076c0510c6616adf31e0b875f1e1aeab09a00",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "dc9ba69b-92b2-4f88-a4ce-b56b245e514e-2",
+          "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/bfe37167-bdf8-48a1-b888-b95a78493f9a/frame-02-at-72.572s.png",
+          "time": 72.572,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792336051475,
+          "contentHash": "108be9aa35d415dc70f257cc886e09233e2a868a3b43ed3cbce72eed09315f09",
+          "revision": "ea95d847-b46d-4fd9-b607-008a6f7759b5",
+          "inputFingerprint": "26a797125945f02e83ff0305bf2076c0510c6616adf31e0b875f1e1aeab09a00",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "b9acee53-2152-4e4d-89ed-b91117fe249c": [
+        {
+          "scope": "full",
+          "id": "59b5b644-b6dc-4661-91ea-390255dfdf4f-0",
+          "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/47d25c6a-36ff-4178-abdc-9e502741cccf/frame-00-at-67.5s.png",
+          "time": 67.5,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792336066190,
+          "contentHash": "f8ec3396d1bf9eba7bbd68b89f561b92c9ff2056ac45c1e3a7d2abd9cf21522e",
+          "revision": "b9acee53-2152-4e4d-89ed-b91117fe249c",
+          "inputFingerprint": "2a57018917ce425d266837af76346cdece37b3f54110ffd6bbc764c94168d264",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "59b5b644-b6dc-4661-91ea-390255dfdf4f-1",
+          "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/47d25c6a-36ff-4178-abdc-9e502741cccf/frame-01-at-72.572s.png",
+          "time": 72.572,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792336066190,
+          "contentHash": "40f7fd905d0da1187aec57236d10c772698bc56695615fd2ad709fe1947eaf31",
+          "revision": "b9acee53-2152-4e4d-89ed-b91117fe249c",
+          "inputFingerprint": "2a57018917ce425d266837af76346cdece37b3f54110ffd6bbc764c94168d264",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "f4531dd9-1300-4605-804e-066c2cf0c9c1": [
+        {
+          "scope": "full",
+          "id": "15ad5928-e2ba-42ed-8371-f9e09ae88bbe-0",
+          "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/08f36bb7-9a95-49f4-a575-9acec12128e9/frame-00-at-67.5s.png",
+          "time": 67.5,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792336077526,
+          "contentHash": "ec4ab240bae1839f5bfa1e7802bad395e587a1602b16175e2c40550850145c47",
+          "revision": "f4531dd9-1300-4605-804e-066c2cf0c9c1",
+          "inputFingerprint": "3a489abd24ce7819a5b6022ee226b58ca5fe9a4de3b64cb107919fa993207a64",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "15ad5928-e2ba-42ed-8371-f9e09ae88bbe-1",
+          "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/08f36bb7-9a95-49f4-a575-9acec12128e9/frame-01-at-72.572s.png",
+          "time": 72.572,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792336077526,
+          "contentHash": "40f7fd905d0da1187aec57236d10c772698bc56695615fd2ad709fe1947eaf31",
+          "revision": "f4531dd9-1300-4605-804e-066c2cf0c9c1",
+          "inputFingerprint": "3a489abd24ce7819a5b6022ee226b58ca5fe9a4de3b64cb107919fa993207a64",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "bef55c58-bf8a-4f06-a36a-8bafee13f2a2-0",
+        "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/16e82657-e1b3-4437-961d-302da5c45021/frame-00-at-4.8s.png",
+        "time": 4.8,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792336021107,
+        "contentHash": "43f594c57db599a662b5c11c1b7b77dd3dc00d68fc3771d011a8854cf9ea51e4",
+        "revision": null,
+        "inputFingerprint": "a85e06f6d88df142f9e6526a0184d9772c371afdb66e937df59b7fc8303e384b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "bef55c58-bf8a-4f06-a36a-8bafee13f2a2-1",
+        "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/16e82657-e1b3-4437-961d-302da5c45021/frame-01-at-10s.png",
+        "time": 10,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792336021107,
+        "contentHash": "eb4458ab6833da70b27fcf2633b2b58774bf7046da9f959a5077d5e0aedceef2",
+        "revision": null,
+        "inputFingerprint": "a85e06f6d88df142f9e6526a0184d9772c371afdb66e937df59b7fc8303e384b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "bef55c58-bf8a-4f06-a36a-8bafee13f2a2-2",
+        "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/16e82657-e1b3-4437-961d-302da5c45021/frame-02-at-16.5s.png",
+        "time": 16.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792336021107,
+        "contentHash": "c9a05ac4df42c7b607aea0f643c1f439efca549b64e2f84027d02e2a633bbf0e",
+        "revision": null,
+        "inputFingerprint": "a85e06f6d88df142f9e6526a0184d9772c371afdb66e937df59b7fc8303e384b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "bef55c58-bf8a-4f06-a36a-8bafee13f2a2-3",
+        "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/16e82657-e1b3-4437-961d-302da5c45021/frame-03-at-24.5s.png",
+        "time": 24.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792336021107,
+        "contentHash": "9c2b6461784959a230f5cf540f318b0429b029192bfd5c6e216a3f8ed974c896",
+        "revision": null,
+        "inputFingerprint": "a85e06f6d88df142f9e6526a0184d9772c371afdb66e937df59b7fc8303e384b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "bef55c58-bf8a-4f06-a36a-8bafee13f2a2-4",
+        "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/16e82657-e1b3-4437-961d-302da5c45021/frame-04-at-36.5s.png",
+        "time": 36.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792336021107,
+        "contentHash": "b6d557988600867dbe5ab747f2a2f8bf835a11063a6743e2497eade5da9e865a",
+        "revision": null,
+        "inputFingerprint": "a85e06f6d88df142f9e6526a0184d9772c371afdb66e937df59b7fc8303e384b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "bef55c58-bf8a-4f06-a36a-8bafee13f2a2-5",
+        "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/16e82657-e1b3-4437-961d-302da5c45021/frame-05-at-45.5s.png",
+        "time": 45.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792336021108,
+        "contentHash": "c6955bcfa7d6d954f4d90bf2a95b32bf92c391753dad23be49cde65ec8ea0a86",
+        "revision": null,
+        "inputFingerprint": "a85e06f6d88df142f9e6526a0184d9772c371afdb66e937df59b7fc8303e384b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "bef55c58-bf8a-4f06-a36a-8bafee13f2a2-6",
+        "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/16e82657-e1b3-4437-961d-302da5c45021/frame-06-at-55.5s.png",
+        "time": 55.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792336021108,
+        "contentHash": "b01ee4f78d9dba79b65806e52cb94e12c79e280401bee9469458eb77ed294998",
+        "revision": null,
+        "inputFingerprint": "a85e06f6d88df142f9e6526a0184d9772c371afdb66e937df59b7fc8303e384b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "bef55c58-bf8a-4f06-a36a-8bafee13f2a2-7",
+        "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/16e82657-e1b3-4437-961d-302da5c45021/frame-07-at-67.5s.png",
+        "time": 67.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792336021108,
+        "contentHash": "df8ba7a421aaa05b52a982071bf8b3955beea305c41d28387fc87800f641731b",
+        "revision": null,
+        "inputFingerprint": "a85e06f6d88df142f9e6526a0184d9772c371afdb66e937df59b7fc8303e384b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "bef55c58-bf8a-4f06-a36a-8bafee13f2a2-8",
+        "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/16e82657-e1b3-4437-961d-302da5c45021/frame-08-at-73.8s.png",
+        "time": 73.8,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792336021108,
+        "contentHash": "e562642963c3df92f53af510af32112aa09d1ab3f80cd331e5a743a8ce04390a",
+        "revision": null,
+        "inputFingerprint": "a85e06f6d88df142f9e6526a0184d9772c371afdb66e937df59b7fc8303e384b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "bef55c58-bf8a-4f06-a36a-8bafee13f2a2-9",
+        "image": "/home/user/dt/videos/simply-piano-review/.hyperframes/artifacts/snapshots/16e82657-e1b3-4437-961d-302da5c45021/frame-09-at-72.572s.png",
+        "time": 72.572,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792336021108,
+        "contentHash": "108be9aa35d415dc70f257cc886e09233e2a868a3b43ed3cbce72eed09315f09",
+        "revision": null,
+        "inputFingerprint": "a85e06f6d88df142f9e6526a0184d9772c371afdb66e937df59b7fc8303e384b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  }
+}

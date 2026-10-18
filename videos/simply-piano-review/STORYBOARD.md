@@ -23,7 +23,7 @@ music: none
 - voiceover: "Simply Piano. Three and a half stars. A hundred and seventy dollars a year. Is it worth it?"
 - duration: 5.739s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/01-three-and-a-half-stars.html
 - type: hook
 - persuasion: Shocking statistic + rhetorical question
@@ -49,7 +49,7 @@ Scene 4 (5.2–end): on "is it worth it?", "worth it?" enters via per-word stagg
 - voiceover: "Short answer: for kids — maybe. For adults who want to really play — no."
 - duration: 4.629s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/02-the-short-answer.html
 - type: branding
 - persuasion: Distillation + comparison of two options
@@ -74,7 +74,7 @@ Scene 4 (4.4–end): held beat — completely still.
 - voiceover: "Here's what it is: an app that listens through your phone's mic — and checks if you hit the right note, at the right time."
 - duration: 7.168s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - src: compositions/frames/03-a-note-checker.html
 - type: product_intro
 - persuasion: Demonstration (show the mechanism running)
@@ -100,7 +100,7 @@ Scene 4 (6.2–end): on "at the right time", a second key presses and fills fire
 - voiceover: "Credit where it's due. The onboarding is easy. Streaks and points keep you coming back. And there are over five thousand songs."
 - duration: 8.235s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - src: compositions/frames/04-what-actually-works.html
 - type: benefit_highlight
 - persuasion: Rule of three + numbered enumeration
@@ -126,7 +126,7 @@ Scene 4 (6.0–end): on "over five thousand songs", card 3 fills: "03 · LIBRARY
 - voiceover: "But here's the catch. It can't see your hands — so bad habits slip right through. And the feedback is just green or red. No fingering. No dynamics. No musicality."
 - duration: 11.307s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/05-it-cant-see-you.html
 - type: feature_showcase
 - persuasion: Common-belief vs reality + progressive disclosure
@@ -152,7 +152,7 @@ Scene 4 (7.4–end): on each of "no fingering" / "no dynamics" / "no musicality"
 - voiceover: "The songs are simplified sketches, not what you hear on Spotify. And the ceiling? Early intermediate. About one to two years of lessons."
 - duration: 9.259s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - src: compositions/frames/06-the-ceiling.html
 - type: feature_showcase
 - persuasion: Concretization (ladder with a lid) + before/after
@@ -178,7 +178,7 @@ Scene 4 (7.4–end): on "one to two years of lessons", h2 "≈ 1–2 years of le
 - voiceover: "Now the math. A hundred and seventy dollars a year. Two years to hit that ceiling — about three hundred and forty dollars — with no technique coaching."
 - duration: 9.749s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/07-the-math.html
 - type: social_proof
 - persuasion: Worked example with real numbers
@@ -204,7 +204,7 @@ Scene 5 (7.6–end): on "with no technique coaching", mono line "+ $0 OF TECHNIQ
 - voiceover: "Buying for a kid who needs motivation? Try the free trial. An adult who wants to actually play? Skip the subscription — a one-time course like Pianoforall will take you further."
 - duration: 12.075s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - src: compositions/frames/08-who-should-buy-it.html
 - type: cta
 - persuasion: Comparison of two options
@@ -231,7 +231,7 @@ Scene 5 (8.6–end): on "a one-time course like Pianoforall", lead line "→ a o
 - voiceover: "Simply Piano: an appetizer, priced like a main course. Full review at pianoers dot com."
 - duration: 6.656s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - src: compositions/frames/09-appetizer.html
 - type: branding
 - persuasion: Callback + distillation (the article's own metaphor)

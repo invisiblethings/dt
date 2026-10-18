@@ -2006,7 +2006,7 @@
       "frame": 9,
       "start": 73.041,
       "end": 74.921,
-      "text": "at pianoers dot com.",
+      "text": "at pianoers.com",
       "words": [
         {
           "id": "caption-word-92-0",
@@ -2016,20 +2016,8 @@
         },
         {
           "id": "caption-word-92-1",
-          "text": "pianoers",
+          "text": "pianoers.com",
           "start": 73.201,
-          "end": 74.001
-        },
-        {
-          "id": "caption-word-92-2",
-          "text": "dot",
-          "start": 74.161,
-          "end": 74.401
-        },
-        {
-          "id": "caption-word-92-3",
-          "text": "com.",
-          "start": 74.401,
           "end": 74.801
         }
       ]

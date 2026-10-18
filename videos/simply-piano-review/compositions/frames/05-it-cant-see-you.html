@@ -1,7 +1,12 @@
 <template>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800;900&family=IBM+Plex+Mono:wght@500&display=block");
 
+    @font-face { font-family: 'Barlow'; src: url('assets/fonts/Barlow-Regular.ttf') format('truetype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'Barlow'; src: url('assets/fonts/Barlow-Bold.ttf') format('truetype'); font-weight: 500 700; font-display: block; }
+    @font-face { font-family: 'Barlow'; src: url('assets/fonts/Barlow-ExtraBold.ttf') format('truetype'); font-weight: 800; font-display: block; }
+    @font-face { font-family: 'Barlow'; src: url('assets/fonts/Barlow-Black.ttf') format('truetype'); font-weight: 900; font-display: block; }
+    @font-face { font-family: 'IBM Plex Mono'; src: url('assets/fonts/IBMPlexMono-Regular.ttf') format('truetype'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'IBM Plex Mono'; src: url('assets/fonts/IBMPlexMono-Medium.ttf') format('truetype'); font-weight: 500 700; font-display: block; }
     #root {
       position: absolute;
       inset: 0;
@@ -300,11 +305,11 @@
     data-width="1920"
     data-height="1080"
     data-start="0"
-    data-duration="11.307"
+    data-duration="11.807"
   >
-    <div id="f05-ground" class="f05-ground clip" data-start="0" data-duration="11.307" data-track-index="0"></div>
+    <div id="f05-ground" class="f05-ground clip" data-start="0" data-duration="11.807" data-track-index="0"></div>
 
-    <div id="f05-stage" class="f05-stage clip" data-layout-allow-overflow data-start="0" data-duration="11.307" data-track-index="1">
+    <div id="f05-stage" class="f05-stage clip" data-layout-allow-overflow data-start="0" data-duration="11.807" data-track-index="1">
       <div class="f05-keys" data-layout-allow-overflow></div>
 
       <div class="f05-kicker"><span class="f05-stub"></span><span class="f05-kick-text">The catch</span></div>
@@ -408,8 +413,10 @@
 
       // Scene 2 (1.45–4.7): "it can't see your hands" — per-word reveal, hand draws, eye stamps
       tl.fromTo(qa(".f05-w"), { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.5, ease: "power3.out", stagger: 0.16 }, 1.45);
+      tl.fromTo(hand, { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, 1.6);
       tl.to(hand, { strokeDashoffset: 0, duration: 1.1, ease: "power2.out" }, 1.6);
       tl.fromTo(q(".f05-eye"), { scale: 1.7, opacity: 0, svgOrigin: "210 330" }, { scale: 1, opacity: 1, svgOrigin: "210 330", duration: 0.35, ease: "power4.out" }, 2.55);
+      tl.fromTo(slash, { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, 2.8);
       tl.to(slash, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 2.8);
       // "so bad habits slip right through"
       tl.fromTo(q(".f05-habits"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 3.35);

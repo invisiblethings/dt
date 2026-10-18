@@ -1,0 +1,601 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 347 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/dt/videos/simply-piano-review/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split coherent scenes or layers into separate .html files under compositions/, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      }
+    ],
+    "filesScanned": 11
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 9,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 4.156,
+        "selector": "#f01-content",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -3.03,
+          "top": -12.4,
+          "right": 1972.07,
+          "bottom": 1098.6,
+          "width": 1975.1,
+          "height": 1111
+        },
+        "containerSelector": "#el-01-three-and-a-half-stars > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 3.03,
+          "right": 52.07,
+          "top": 12.4,
+          "bottom": 18.6
+        },
+        "dataAttributes": {
+          "data-start": "0",
+          "data-duration": "5.739",
+          "data-track-index": "1"
+        },
+        "sourceFile": "compositions/frames/01-three-and-a-half-stars.html",
+        "bbox": {
+          "x": -3.03,
+          "y": -12.4,
+          "width": 1975.1,
+          "height": 1111
+        },
+        "firstSeen": 4.156,
+        "lastSeen": 4.156,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4.156
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 12.469,
+        "selector": "#n03-stage",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -12.93,
+          "top": -5.29,
+          "right": 1926.66,
+          "bottom": 1085.73,
+          "width": 1939.58,
+          "height": 1091.02
+        },
+        "containerSelector": "#el-03-a-note-checker > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 12.93,
+          "right": 6.66,
+          "top": 5.29,
+          "bottom": 5.73
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/03-a-note-checker.html",
+        "bbox": {
+          "x": -12.93,
+          "y": -5.29,
+          "width": 1939.58,
+          "height": 1091.02
+        },
+        "firstSeen": 12.469,
+        "lastSeen": 12.469,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          12.469
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 20.783,
+        "selector": "#waw04-stage",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -1.04,
+          "top": -2.94,
+          "right": 1937.78,
+          "bottom": 1087.64,
+          "width": 1938.82,
+          "height": 1090.58
+        },
+        "containerSelector": "#el-04-what-actually-works > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "right": 17.78,
+          "top": 2.94,
+          "bottom": 7.64
+        },
+        "dataAttributes": {
+          "data-start": "0",
+          "data-duration": "8.235",
+          "data-track-index": "1"
+        },
+        "sourceFile": "compositions/frames/04-what-actually-works.html",
+        "bbox": {
+          "x": -1.04,
+          "y": -2.94,
+          "width": 1938.82,
+          "height": 1090.58
+        },
+        "firstSeen": 20.783,
+        "lastSeen": 20.783,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          20.783
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 37.409,
+        "selector": "#c06-keyrule",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 246.02,
+          "top": 63.43,
+          "right": 2168.33,
+          "bottom": 64.43,
+          "width": 1922.3,
+          "height": 1
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "right": 248.33
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/06-the-ceiling.html",
+        "bbox": {
+          "x": 246.02,
+          "y": 63.43,
+          "width": 1922.3,
+          "height": 1
+        },
+        "firstSeen": 37.409,
+        "lastSeen": 45.722,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          37.409,
+          45.722
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 37.409,
+        "selector": "#c06-staff > div:nth-of-type(1)",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 352.15,
+          "top": 269.68,
+          "right": 2034.67,
+          "bottom": 271.68,
+          "width": 1682.52,
+          "height": 2
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "right": 114.67
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/06-the-ceiling.html",
+        "bbox": {
+          "x": 352.15,
+          "y": 269.68,
+          "width": 1682.52,
+          "height": 2
+        },
+        "firstSeen": 37.409,
+        "lastSeen": 37.409,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          37.409
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 37.409,
+        "selector": "#c06-staff > div:nth-of-type(2)",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 352.15,
+          "top": 305.72,
+          "right": 2000.47,
+          "bottom": 307.72,
+          "width": 1648.32,
+          "height": 2
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "right": 80.47
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/06-the-ceiling.html",
+        "bbox": {
+          "x": 352.15,
+          "y": 305.72,
+          "width": 1648.32,
+          "height": 2
+        },
+        "firstSeen": 37.409,
+        "lastSeen": 37.409,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          37.409
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 45.722,
+        "selector": "#c06-stage",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -18.78,
+          "top": -17.6,
+          "right": 1963.81,
+          "bottom": 1097.6,
+          "width": 1982.59,
+          "height": 1115.21
+        },
+        "containerSelector": "#el-06-the-ceiling > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 18.78,
+          "right": 43.81,
+          "top": 17.6,
+          "bottom": 17.6
+        },
+        "dataAttributes": {
+          "data-start": "0",
+          "data-duration": "9.259",
+          "data-track-index": "1"
+        },
+        "sourceFile": "compositions/frames/06-the-ceiling.html",
+        "bbox": {
+          "x": -18.78,
+          "y": -17.6,
+          "width": 1982.59,
+          "height": 1115.21
+        },
+        "firstSeen": 45.722,
+        "lastSeen": 45.722,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          45.722
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 54.034,
+        "selector": "#the-math-07-stage",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -22.75,
+          "top": -10.75,
+          "right": 1942.75,
+          "bottom": 1094.85,
+          "width": 1965.5,
+          "height": 1105.6
+        },
+        "containerSelector": "#el-07-the-math > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 22.75,
+          "right": 22.75,
+          "top": 10.75,
+          "bottom": 14.85
+        },
+        "dataAttributes": {
+          "data-start": "0",
+          "data-duration": "10.249",
+          "data-track-index": "1"
+        },
+        "sourceFile": "compositions/frames/07-the-math.html",
+        "bbox": {
+          "x": -22.75,
+          "y": -10.75,
+          "width": 1965.5,
+          "height": 1105.6
+        },
+        "firstSeen": 54.034,
+        "lastSeen": 54.034,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          54.034
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 70.66,
+        "selector": "#appetizer-09-stage",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 0,
+          "top": -4.02,
+          "right": 1937.86,
+          "bottom": 1086.03,
+          "width": 1937.86,
+          "height": 1090.04
+        },
+        "containerSelector": "#el-09-appetizer > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "right": 17.86,
+          "top": 4.02,
+          "bottom": 6.03
+        },
+        "dataAttributes": {
+          "data-start": "0",
+          "data-duration": "6.656",
+          "data-track-index": "1"
+        },
+        "sourceFile": "compositions/frames/09-appetizer.html",
+        "bbox": {
+          "x": 0,
+          "y": -4.02,
+          "width": 1937.86,
+          "height": 1090.04
+        },
+        "firstSeen": 70.66,
+        "lastSeen": 70.66,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          70.66
+        ]
+      }
+    ],
+    "duration": 74.817,
+    "samples": [
+      4.156,
+      12.469,
+      20.783,
+      29.095,
+      37.409,
+      45.722,
+      54.034,
+      62.348,
+      70.66
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 9,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.32:1; WCAG AA requires 3:1.",
+        "text": "/ 5",
+        "fg": "rgb(80,80,72)",
+        "bg": "rgb(17,17,17)",
+        "ratio": 2.32,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(97,97,90)",
+        "large": true,
+        "selector": "div > div:nth-of-type(1) > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/01-three-and-a-half-stars.html",
+        "bbox": {
+          "x": 1355.9622802734375,
+          "y": 241.8833770751953,
+          "width": 125.67822265625,
+          "height": 108.62428283691406
+        },
+        "time": 4.156,
+        "times": [
+          4.156
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.93:1; WCAG AA requires 4.5:1.",
+        "text": "Simply Piano",
+        "fg": "rgb(71,36,22)",
+        "bg": "rgb(232,93,38)",
+        "ratio": 3.93,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(55,28,17)",
+        "large": false,
+        "selector": "div > div:nth-of-type(9) > div > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/09-appetizer.html",
+        "bbox": {
+          "x": 162.27651977539062,
+          "y": 102.55815887451172,
+          "width": 154.76983642578125,
+          "height": 23.213905334472656
+        },
+        "time": 70.66,
+        "times": [
+          70.66
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.73:1; WCAG AA requires 4.5:1.",
+        "text": "3.5 / 5",
+        "fg": "rgb(114,51,26)",
+        "bg": "rgb(232,93,38)",
+        "ratio": 2.73,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(58,26,13)",
+        "large": false,
+        "selector": "#appetizer-09-score",
+        "dataAttributes": {},
+        "sourceFile": "compositions/frames/09-appetizer.html",
+        "bbox": {
+          "x": 400.061279296875,
+          "y": 173.3037872314453,
+          "width": 90.2850341796875,
+          "height": 23.213897705078125
+        },
+        "time": 70.66,
+        "times": [
+          70.66
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      4.156,
+      20.783,
+      37.409,
+      54.034,
+      70.66
+    ],
+    "checked": 59,
+    "passed": 56
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
