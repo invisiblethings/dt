@@ -1,0 +1,217 @@
+<template>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@800;900&family=IBM+Plex+Mono:wght@500&display=swap");
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+    }
+    #root .f02-the-short-answer-ground {
+      position: absolute;
+      inset: 0;
+      background: #111111;
+    }
+    #root .f02-the-short-answer-stage {
+      position: absolute;
+      inset: 0;
+      container-type: size;
+    }
+
+    /* — kicker (mono chrome) — */
+    #root .f02-the-short-answer-kicker {
+      position: absolute;
+      left: 5.5cqw;
+      top: 5.5cqw;
+      display: flex;
+      align-items: center;
+      gap: 0.9cqw;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 0.72cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #e85d26;
+      white-space: nowrap;
+    }
+    #root .f02-the-short-answer-stub {
+      width: 36px;
+      height: 2px;
+      background: #e85d26;
+    }
+
+    /* — verdict lines (Barlow lowercase, negative-tracked) — */
+    #root .f02-the-short-answer-line {
+      position: absolute;
+      left: 5.5cqw;
+      display: flex;
+      align-items: baseline;
+      gap: 1.6cqw;
+      font-family: "Barlow", sans-serif;
+      text-transform: lowercase;
+      white-space: nowrap;
+      color: #f0ece5;
+    }
+    #root .f02-the-short-answer-kids {
+      top: 13cqw;
+      font-size: 7.5cqw;
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+    }
+    #root .f02-the-short-answer-adults {
+      top: 22.2cqw;
+      font-weight: 800;
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+    }
+    #root .f02-the-short-answer-adults .f02-the-short-answer-word {
+      font-size: 7.5cqw;
+    }
+    #root .f02-the-short-answer-no {
+      font-size: 25cqw;
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      color: #111111;
+      transform-origin: 0% 85%;
+      margin-left: 0.6cqw;
+    }
+
+    /* — arrows: flat stroke glyphs, colored via currentColor — */
+    #root .f02-the-short-answer-arrow {
+      display: inline-block;
+      width: 5.4cqw;
+      height: 3.2cqw;
+      color: #e85d26;
+      transform-origin: 0% 50%;
+      align-self: center;
+    }
+    #root .f02-the-short-answer-kids .f02-the-short-answer-arrow {
+      margin-top: 0.4cqw;
+    }
+    #root .f02-the-short-answer-adults .f02-the-short-answer-arrow {
+      align-self: flex-end;
+      margin-bottom: 4.2cqw;
+    }
+    #root .f02-the-short-answer-arrow svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+  </style>
+
+  <div
+    id="root"
+    data-composition-id="02-the-short-answer"
+    data-start="0"
+    data-duration="4.629"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- full-bleed register ground (dark → hard-cut to orange on "no") -->
+    <div
+      id="f02-the-short-answer-ground"
+      class="clip f02-the-short-answer-ground"
+      data-start="0"
+      data-duration="4.629"
+      data-track-index="0"
+    ></div>
+
+    <div
+      id="f02-the-short-answer-stage" class="clip f02-the-short-answer-stage"
+      data-start="0"
+      data-duration="4.629"
+      data-track-index="1"
+    >
+      <div id="f02-the-short-answer-kicker" class="f02-the-short-answer-kicker">
+        <span id="f02-the-short-answer-stub" class="f02-the-short-answer-stub"></span>
+        <span>Short answer</span>
+      </div>
+
+      <div id="f02-the-short-answer-kids" class="f02-the-short-answer-line f02-the-short-answer-kids">
+        <span id="f02-the-short-answer-kids-word" class="f02-the-short-answer-word">kids</span>
+        <span id="f02-the-short-answer-arrow1" class="f02-the-short-answer-arrow">
+          <svg viewBox="0 0 104 60" aria-hidden="true">
+            <path d="M0 30 H92 M66 6 L94 30 L66 54" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter" />
+          </svg>
+        </span>
+        <span id="f02-the-short-answer-maybe" class="f02-the-short-answer-word">maybe</span>
+      </div>
+
+      <div id="f02-the-short-answer-adults" class="f02-the-short-answer-line f02-the-short-answer-adults">
+        <span id="f02-the-short-answer-adults-word" class="f02-the-short-answer-word">adults</span>
+        <span id="f02-the-short-answer-arrow2" class="f02-the-short-answer-arrow">
+          <svg viewBox="0 0 104 60" aria-hidden="true">
+            <path d="M0 30 H92 M66 6 L94 30 L66 54" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter" />
+          </svg>
+        </span>
+        <span id="f02-the-short-answer-no" class="f02-the-short-answer-no">no.</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      const ID = "02-the-short-answer";
+      const $ = (s) => document.getElementById("f" + ID + "-" + s);
+      const tl = gsap.timeline({ paused: true });
+
+      // One beat array, locked to the voiceover (02.wav energy):
+      // "Short answer" ~0.05 · "for kids" ~1.1 · "maybe" ~1.6 · "for adults…" ~2.6 · "no" ~3.85
+      const BEATS = { kicker: 0.05, kids: 1.1, maybe: 1.55, adults: 2.6, no: 3.85 };
+
+      const INK = "#111111";
+      const CREAM = "#F0ECE5";
+      const ORANGE = "#E85D26";
+      const INK_HINT = "rgba(17,17,17,0.55)";
+
+      // Dark register baseline (explicit so seeking backward restores it).
+      tl.set($("ground"), { backgroundColor: INK }, 0);
+      tl.set($("no"), { opacity: 0 }, 0);
+
+      // Scene 1 — mono kicker enters top-left on the VO.
+      tl.fromTo($("stub"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.35, ease: "expo.out" }, BEATS.kicker);
+      tl.fromTo($("kicker"), { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, BEATS.kicker);
+
+      // Scene 2 — "kids → maybe": side-snap, then "maybe" scale+blur slam.
+      tl.fromTo($("kids-word"), { x: -320, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, BEATS.kids);
+      tl.fromTo($("arrow1"), { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.35, ease: "expo.out" }, BEATS.kids + 0.15);
+      tl.fromTo(
+        $("maybe"),
+        { scale: 1.5, filter: "blur(16px)", opacity: 0, transformOrigin: "0% 80%" },
+        { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.5, ease: "power4.out" },
+        BEATS.maybe,
+      );
+
+      // Scene 3a — "adults →" rises in on the line below.
+      tl.fromTo($("adults-word"), { y: 90, rotation: 4, opacity: 0 }, { y: 0, rotation: 0, opacity: 1, duration: 0.55, ease: "circ.out" }, BEATS.adults);
+      tl.fromTo($("arrow2"), { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.4, ease: "expo.out" }, BEATS.adults + 0.35);
+
+      // Scene 3b — on "no": hard cut to the ORANGE register (instant, no fade) …
+      tl.set($("ground"), { backgroundColor: ORANGE }, BEATS.no);
+      tl.set($("kicker"), { color: INK_HINT }, BEATS.no);
+      tl.set($("stub"), { backgroundColor: INK }, BEATS.no);
+      tl.set($("kids"), { color: INK_HINT }, BEATS.no);
+      tl.set($("arrow1"), { color: INK_HINT }, BEATS.no);
+      tl.set($("adults"), { color: INK }, BEATS.no);
+      tl.set($("arrow2"), { color: INK }, BEATS.no);
+
+      // … and "no." scale-slams at display scale, smooth settle.
+      tl.fromTo(
+        $("no"),
+        { scale: 1.6, filter: "blur(18px)", opacity: 0 },
+        { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.5, ease: "power4.out" },
+        BEATS.no,
+      );
+
+      // Scene 4 (≈4.4s → end) — held beat, completely still. No exit (the root transition is the exit).
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

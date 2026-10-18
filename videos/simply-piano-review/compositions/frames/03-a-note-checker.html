@@ -1,0 +1,347 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      color: #F0ECE5;
+      font-family: "Barlow", "Montserrat", sans-serif;
+    }
+    .n03-ground {
+      position: absolute;
+      inset: 0;
+      background: #111111;
+    }
+    .n03-stage {
+      position: absolute;
+      inset: 0;
+      transform-origin: 66% 48%;
+    }
+    /* chrome rail */
+    .n03-rail {
+      position: absolute;
+      left: 106px;
+      right: 106px;
+      top: 72px;
+      height: 1px;
+      background: #282826;
+      transform-origin: 0 50%;
+    }
+    .n03-mono {
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 400;
+      font-size: 0.72cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .n03-railnum {
+      position: absolute;
+      right: 106px;
+      top: 40px;
+      color: #888880;
+    }
+    .n03-kicker {
+      position: absolute;
+      left: 106px;
+      top: 40px;
+      color: #E85D26;
+    }
+    /* h2 coined term */
+    .n03-h2 {
+      position: absolute;
+      left: 106px;
+      top: 118px;
+      margin: 0;
+      font-size: 4.5cqw;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+    .n03-word {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+      padding-bottom: 0.08em;
+    }
+    .n03-word-in {
+      display: inline-block;
+    }
+    .n03-word-accent {
+      color: #E85D26;
+    }
+    /* key strip ground */
+    .n03-strip {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 312px;
+      height: 396px;
+      background: #1A1A18;
+      border-top: 1px solid #282826;
+      border-bottom: 1px solid #282826;
+      transform-origin: 100% 50%;
+    }
+    /* keys */
+    .n03-keys {
+      position: absolute;
+      left: 660px;
+      top: 330px;
+      width: 1144px;
+      height: 360px;
+    }
+    .n03-wkey {
+      position: absolute;
+      top: 0;
+      width: 136px;
+      height: 360px;
+      background: #111111;
+      border: 1px solid #888880;
+      box-sizing: border-box;
+      z-index: 2;
+      transform-origin: 50% 50%;
+    }
+    .n03-wkey-lbl {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 22px;
+      text-align: center;
+      color: #888880;
+    }
+    .n03-ring {
+      position: absolute;
+      top: 0;
+      width: 136px;
+      height: 360px;
+      box-sizing: border-box;
+      z-index: 1;
+      opacity: 0;
+      transform-origin: 50% 50%;
+    }
+    .n03-ring-ok { border: 2px solid #F0ECE5; }
+    .n03-ring-bad { border: 2px solid #E85D26; }
+    .n03-bkey {
+      position: absolute;
+      top: 0;
+      width: 84px;
+      height: 214px;
+      background: #505048;
+      z-index: 3;
+    }
+    /* connector */
+    .n03-dash {
+      position: absolute;
+      left: 392px;
+      top: 540px;
+      width: 266px;
+      height: 0;
+      border-top: 2px dashed #888880;
+      transform-origin: 100% 50%;
+    }
+    .n03-pulse {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #E85D26;
+      opacity: 0;
+    }
+    .n03-phonelbl {
+      position: absolute;
+      left: 150px;
+      top: 800px;
+      width: 240px;
+      text-align: center;
+      color: #888880;
+    }
+    .n03-verdict {
+      position: absolute;
+      left: 660px;
+      top: 742px;
+      color: #F0ECE5;
+      font-size: 1.05cqw;
+    }
+    .n03-verdict-bad { color: #E85D26; }
+    .n03-verdict-stub {
+      position: absolute;
+      left: 660px;
+      top: 728px;
+      width: 36px;
+      height: 2px;
+      background: #E85D26;
+      transform-origin: 0 50%;
+    }
+    /* svg overlay */
+    .n03-svg {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: visible;
+      z-index: 5;
+    }
+    .n03-svg .n03-stroke {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+
+  <div id="root" data-composition-id="03-a-note-checker" data-width="1920" data-height="1080">
+    <div class="n03-ground clip" data-start="0" data-duration="7.168" data-track-index="0"></div>
+
+    <div class="n03-stage" id="n03-stage">
+      <!-- chrome -->
+      <div class="n03-rail" id="n03-rail"></div>
+      <div class="n03-kicker n03-mono" id="n03-kicker">What it is</div>
+      <div class="n03-railnum n03-mono" id="n03-railnum">03/09</div>
+
+      <!-- coined term -->
+      <h2 class="n03-h2">
+        <span class="n03-word"><span class="n03-word-in" id="n03-w1">a</span></span>
+        <span class="n03-word"><span class="n03-word-in n03-word-accent" id="n03-w2">note-checker</span></span>
+      </h2>
+
+      <!-- key strip ground -->
+      <div class="n03-strip" id="n03-strip"></div>
+
+      <!-- keys (one octave, C to C) -->
+      <div class="n03-keys" id="n03-keys">
+        <div class="n03-ring n03-ring-ok" id="n03-ring-ok" style="left:288px"></div>
+        <div class="n03-ring n03-ring-bad" id="n03-ring-bad" style="left:720px"></div>
+
+        <div class="n03-wkey" id="n03-k0" style="left:0px"><div class="n03-wkey-lbl n03-mono">C</div></div>
+        <div class="n03-wkey" id="n03-k1" style="left:144px"><div class="n03-wkey-lbl n03-mono">D</div></div>
+        <div class="n03-wkey" id="n03-k2" style="left:288px"><div class="n03-wkey-lbl n03-mono" id="n03-l2">E</div></div>
+        <div class="n03-wkey" id="n03-k3" style="left:432px"><div class="n03-wkey-lbl n03-mono">F</div></div>
+        <div class="n03-wkey" id="n03-k4" style="left:576px"><div class="n03-wkey-lbl n03-mono">G</div></div>
+        <div class="n03-wkey" id="n03-k5" style="left:720px"><div class="n03-wkey-lbl n03-mono" id="n03-l5">A</div></div>
+        <div class="n03-wkey" id="n03-k6" style="left:864px"><div class="n03-wkey-lbl n03-mono">B</div></div>
+        <div class="n03-wkey" id="n03-k7" style="left:1008px"><div class="n03-wkey-lbl n03-mono">C</div></div>
+
+        <div class="n03-bkey" id="n03-b0" style="left:98px"></div>
+        <div class="n03-bkey" id="n03-b1" style="left:242px"></div>
+        <div class="n03-bkey" id="n03-b2" style="left:530px"></div>
+        <div class="n03-bkey" id="n03-b3" style="left:674px"></div>
+        <div class="n03-bkey" id="n03-b4" style="left:818px"></div>
+      </div>
+
+      <!-- connector: keys -> phone -->
+      <div class="n03-dash" id="n03-dash"></div>
+      <div class="n03-pulse" id="n03-pulse-a"></div>
+      <div class="n03-pulse" id="n03-pulse-b"></div>
+      <div class="n03-pulse" id="n03-pulse-c"></div>
+
+      <div class="n03-phonelbl n03-mono" id="n03-phonelbl">Mic / listening</div>
+
+      <!-- verdict line -->
+      <div class="n03-verdict-stub" id="n03-stub"></div>
+      <div class="n03-verdict n03-mono" id="n03-verdict">Right <span class="n03-verdict-bad">/ Wrong</span> &mdash; that's it</div>
+
+      <!-- vector layer: phone, mic wave, check, cross -->
+      <svg class="n03-svg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+        <!-- phone body -->
+        <path class="n03-stroke n03-draw" id="n03-phone" d="M 270 300 L 390 300 L 390 780 L 150 780 L 150 300 Z" stroke="#F0ECE5" stroke-width="3" />
+        <!-- speaker slot + home bar -->
+        <path class="n03-stroke n03-draw" id="n03-slot" d="M 245 326 L 295 326" stroke="#888880" stroke-width="3" />
+        <path class="n03-stroke n03-draw" id="n03-home" d="M 240 752 L 300 752" stroke="#888880" stroke-width="3" />
+        <!-- mic waveform -->
+        <polyline class="n03-stroke n03-draw" id="n03-wave" stroke="#E85D26" stroke-width="4"
+          points="172,540 184,540 192,522 200,560 208,500 216,584 224,470 232,612 240,488 248,596 256,446 264,636 272,476 280,600 288,510 296,568 304,524 312,552 320,532 328,546 336,540 368,540" />
+        <!-- check above E -->
+        <path class="n03-stroke n03-draw" id="n03-check" d="M 990 262 L 1010 284 L 1046 238" stroke="#F0ECE5" stroke-width="7" />
+        <!-- cross above A -->
+        <path class="n03-stroke n03-draw" id="n03-x1" d="M 1428 240 L 1468 284" stroke="#E85D26" stroke-width="7" />
+        <path class="n03-stroke n03-draw" id="n03-x2" d="M 1468 240 L 1428 284" stroke="#E85D26" stroke-width="7" />
+      </svg>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var ID = "03-a-note-checker";
+      var root = document.querySelector('[data-composition-id="' + ID + '"]');
+      var q = function (sel) { return root.querySelector(sel); };
+      var qa = function (sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); };
+
+      // svg-path-draw setup: measured lengths
+      qa(".n03-draw").forEach(function (p) {
+        var len = p.getTotalLength() * 1.02;
+        p.style.strokeDasharray = len + "";
+        p.style.strokeDashoffset = len + "";
+      });
+
+      var tl = gsap.timeline({ paused: true });
+
+      // Macro camera: slow push toward the key row across the whole shot
+      tl.fromTo(q("#n03-stage"), { scale: 1 }, { scale: 1.035, duration: 7.168, ease: "none" }, 0);
+
+      // ---- Scene 1 (0.0-2.0): keys (focal) arrive fast, then the coined term ----
+      tl.fromTo(q("#n03-strip"), { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo(qa(".n03-wkey"), { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power3.out", stagger: 0.04 }, 0.05);
+      tl.fromTo(qa(".n03-bkey"), { y: -30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.45, ease: "power3.out", stagger: 0.04 }, 0.3);
+
+      tl.fromTo(q("#n03-rail"), { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, 0.1);
+      tl.fromTo(q("#n03-railnum"), { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.out" }, 0.4);
+      tl.fromTo(q("#n03-kicker"), { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.4, ease: "power1.out" }, 0.45);
+      // per-word reveal
+      tl.fromTo(q("#n03-w1"), { yPercent: 110 }, { yPercent: 0, duration: 0.55, ease: "power3.out" }, 0.55);
+      tl.fromTo(q("#n03-w2"), { yPercent: 110 }, { yPercent: 0, duration: 0.6, ease: "power3.out" }, 0.72);
+
+      // ---- Scene 2 (2.0-4.2): phone self-draws, mic wave draws, dashed hairline links keys ----
+      tl.to(q("#n03-phone"), { strokeDashoffset: 0, duration: 0.8, ease: "power2.out" }, 2.05);
+      tl.to(q("#n03-slot"), { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 2.65);
+      tl.to(q("#n03-home"), { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 2.75);
+      tl.to(q("#n03-wave"), { strokeDashoffset: 0, duration: 0.9, ease: "none" }, 2.85);
+      tl.fromTo(q("#n03-dash"), { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 3.3);
+      tl.fromTo(q("#n03-phonelbl"), { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.out" }, 3.6);
+
+      // sound travelling key-row -> phone along the hairline
+      function pulse(sel, t) {
+        tl.fromTo(q(sel), { x: 652, y: 533, opacity: 0 },
+          { x: 392, opacity: 1, duration: 0.45, ease: "power1.in" }, t);
+        tl.set(q(sel), { opacity: 0 }, t + 0.46);
+        // mic "hears" it
+        tl.fromTo(q("#n03-wave"), { scaleY: 1 }, { scaleY: 1.35, duration: 0.12, ease: "power1.out", svgOrigin: "270 540" }, t + 0.45);
+        tl.to(q("#n03-wave"), { scaleY: 1, duration: 0.35, ease: "power2.out" }, t + 0.57);
+      }
+      pulse("#n03-pulse-a", 3.75);
+
+      // ---- Scene 3 (4.2-6.2): "the right note" -> E presses, fills cream, check ----
+      var P1 = 4.3, PD = 0.16, RD = 0.55;
+      tl.to(q("#n03-k2"), { scale: 0.93, backgroundColor: "#2A2A26", duration: PD, ease: "power1.in" }, P1);
+      tl.to(q("#n03-k2"), { scale: 1, backgroundColor: "#F0ECE5", borderColor: "#F0ECE5", duration: RD, ease: "power3.out" }, P1 + PD);
+      tl.to(q("#n03-l2"), { color: "#111111", duration: 0.3, ease: "power1.out" }, P1 + PD);
+      tl.fromTo(q("#n03-ring-ok"), { scale: 1, opacity: 0 }, { scale: 1.18, opacity: 0.8, duration: 0.45, ease: "power2.out" }, P1 + PD);
+      tl.to(q("#n03-ring-ok"), { opacity: 0, duration: 0.5, ease: "power2.in" }, P1 + PD + 0.45);
+      pulse("#n03-pulse-b", P1 + PD + 0.02);
+      tl.to(q("#n03-check"), { strokeDashoffset: 0, duration: 0.4, ease: "power2.out" }, P1 + PD + 0.3);
+
+      // ---- Scene 4 (6.2-end): "at the right time" -> A presses, fills fire-orange, cross, verdict ----
+      var P2 = 6.2;
+      tl.to(q("#n03-k5"), { scale: 0.93, backgroundColor: "#2A2A26", duration: PD, ease: "power1.in" }, P2);
+      tl.to(q("#n03-k5"), { scale: 1, backgroundColor: "#E85D26", borderColor: "#E85D26", duration: 0.5, ease: "power3.out" }, P2 + PD);
+      tl.to(q("#n03-l5"), { color: "#111111", duration: 0.3, ease: "power1.out" }, P2 + PD);
+      tl.fromTo(q("#n03-ring-bad"), { scale: 1, opacity: 0 }, { scale: 1.18, opacity: 0.9, duration: 0.4, ease: "power2.out" }, P2 + PD);
+      tl.to(q("#n03-ring-bad"), { opacity: 0, duration: 0.4, ease: "power2.in" }, P2 + PD + 0.4);
+      pulse("#n03-pulse-c", P2 + PD + 0.02);
+      tl.to(q("#n03-x1"), { strokeDashoffset: 0, duration: 0.2, ease: "power2.out" }, P2 + PD + 0.15);
+      tl.to(q("#n03-x2"), { strokeDashoffset: 0, duration: 0.2, ease: "power2.out" }, P2 + PD + 0.3);
+      tl.fromTo(q("#n03-stub"), { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, P2 + 0.35);
+      tl.fromTo(q("#n03-verdict"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power1.out" }, P2 + 0.42);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

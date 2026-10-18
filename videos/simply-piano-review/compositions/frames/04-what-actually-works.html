@@ -1,0 +1,362 @@
+<template>
+  <div id="root" data-composition-id="04-what-actually-works" data-duration="8.235">
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;900&family=IBM+Plex+Mono:wght@500&display=swap");
+
+      #root {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Barlow", sans-serif;
+        color: #f0ece5;
+      }
+      .waw04-bg {
+        position: absolute;
+        inset: 0;
+        background: #111111;
+      }
+      .waw04-keys {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1920px;
+        height: 96px;
+        opacity: 0.55;
+      }
+      .waw04-stage {
+        position: absolute;
+        inset: 0;
+        transform-origin: 106px 300px;
+      }
+      .waw04-stub {
+        position: absolute;
+        left: 106px;
+        top: 150px;
+        width: 36px;
+        height: 2px;
+        background: #e85d26;
+        transform-origin: left center;
+      }
+      .waw04-kicker {
+        position: absolute;
+        left: 106px;
+        top: 170px;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 500;
+        font-size: 22px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #e85d26;
+        white-space: pre;
+      }
+      .waw04-rules {
+        position: absolute;
+        left: 106px;
+        top: 299px;
+        width: 1708px;
+        height: 2px;
+        overflow: visible;
+      }
+      .waw04-rules line {
+        fill: none;
+        stroke: #505048;
+        stroke-width: 1;
+      }
+      .waw04-card {
+        position: absolute;
+        top: 300px;
+        width: 544px;
+        height: 540px;
+      }
+      .waw04-card-1 { left: 106px; }
+      .waw04-card-2 { left: 688px; }
+      .waw04-card-3 { left: 1270px; }
+      .waw04-card-accent {
+        position: absolute;
+        left: 0;
+        top: -1px;
+        width: 72px;
+        height: 3px;
+        background: #e85d26;
+        transform-origin: left center;
+      }
+      .waw04-label {
+        position: absolute;
+        left: 0;
+        top: 36px;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #888880;
+        white-space: nowrap;
+      }
+      .waw04-h2 {
+        position: absolute;
+        left: 0;
+        top: 92px;
+        width: 544px;
+        font-family: "Barlow", sans-serif;
+        font-weight: 700;
+        font-size: 86px;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        text-transform: lowercase;
+        color: #f0ece5;
+      }
+      /* card 1 — gentle ramp */
+      .waw04-ramp {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 150px;
+        display: flex;
+        align-items: flex-end;
+        gap: 14px;
+      }
+      .waw04-ramp-bar {
+        width: 56px;
+        background: #505048;
+        transform-origin: bottom center;
+      }
+      .waw04-ramp-bar.waw04-accent { background: #e85d26; }
+      /* card 2 — streak ticks */
+      .waw04-ticks {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        gap: 12px;
+      }
+      .waw04-tick {
+        position: relative;
+        width: 52px;
+      }
+      .waw04-tick-box {
+        position: relative;
+        width: 52px;
+        height: 52px;
+        background: #282826;
+      }
+      .waw04-tick-fill {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        background: #e85d26;
+        transform-origin: bottom center;
+      }
+      .waw04-tick-day {
+        margin-top: 14px;
+        text-align: center;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 0.14em;
+        color: #888880;
+      }
+      /* card 3 — the count */
+      .waw04-count-wrap {
+        position: absolute;
+        left: 0;
+        top: 70px;
+        width: 544px;
+        display: flex;
+        align-items: baseline;
+      }
+      .waw04-count {
+        display: inline-block;
+        font-family: "Barlow", sans-serif;
+        font-weight: 900;
+        font-size: 172px;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        font-variant-numeric: tabular-nums;
+        font-feature-settings: "tnum" 1;
+        color: #e85d26;
+        transform-origin: left bottom;
+        white-space: nowrap;
+      }
+      .waw04-count-suffix {
+        display: inline-block;
+        font-family: "Barlow", sans-serif;
+        font-weight: 900;
+        font-size: 172px;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        color: #e85d26;
+      }
+      .waw04-songs {
+        top: 262px;
+      }
+    </style>
+
+    <div class="clip waw04-bg" data-start="0" data-duration="8.235" data-track-index="0">
+      <svg class="waw04-keys" id="waw04-keys" viewBox="0 0 1920 96" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+
+    <div class="clip waw04-stage" id="waw04-stage" data-start="0" data-duration="8.235" data-track-index="1">
+      <div class="waw04-stub" id="waw04-stub"></div>
+      <div class="waw04-kicker" id="waw04-kicker"></div>
+
+      <svg class="waw04-rules" viewBox="0 0 1708 2" xmlns="http://www.w3.org/2000/svg">
+        <line id="waw04-rule-1" x1="0" y1="1" x2="544" y2="1" />
+        <line id="waw04-rule-2" x1="582" y1="1" x2="1126" y2="1" />
+        <line id="waw04-rule-3" x1="1164" y1="1" x2="1708" y2="1" />
+      </svg>
+
+      <div class="waw04-card waw04-card-1">
+        <div class="waw04-card-accent" id="waw04-acc-1"></div>
+        <div class="waw04-label" id="waw04-label-1">01 · Onboarding</div>
+        <div class="waw04-h2" id="waw04-h2-1">easy start</div>
+        <div class="waw04-ramp">
+          <div class="waw04-ramp-bar" style="height: 44px"></div>
+          <div class="waw04-ramp-bar" style="height: 74px"></div>
+          <div class="waw04-ramp-bar" style="height: 104px"></div>
+          <div class="waw04-ramp-bar waw04-accent" style="height: 134px"></div>
+        </div>
+      </div>
+
+      <div class="waw04-card waw04-card-2">
+        <div class="waw04-card-accent" id="waw04-acc-2"></div>
+        <div class="waw04-label" id="waw04-label-2">02 · Motivation</div>
+        <div class="waw04-h2" id="waw04-h2-2">streaks &amp; points</div>
+        <div class="waw04-ticks" id="waw04-ticks"></div>
+      </div>
+
+      <div class="waw04-card waw04-card-3">
+        <div class="waw04-card-accent" id="waw04-acc-3"></div>
+        <div class="waw04-label" id="waw04-label-3">03 · Library</div>
+        <div class="waw04-count-wrap">
+          <span class="waw04-count" id="waw04-count">0</span><span class="waw04-count-suffix" id="waw04-suffix">+</span>
+        </div>
+        <div class="waw04-h2 waw04-songs" id="waw04-songs">songs</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        var ID = "04-what-actually-works";
+        var root = document.querySelector('[data-composition-id="' + ID + '"]');
+        var q = function (sel) { return root.querySelector(sel); };
+        var qa = function (sel) { return root.querySelectorAll(sel); };
+        var NS = "http://www.w3.org/2000/svg";
+
+        // ---- background key strip (deterministic geometry) ----
+        var keys = q("#waw04-keys");
+        var WHITE = 36, KW = 1920 / WHITE;
+        var bgRect = document.createElementNS(NS, "rect");
+        bgRect.setAttribute("x", "0"); bgRect.setAttribute("y", "0");
+        bgRect.setAttribute("width", "1920"); bgRect.setAttribute("height", "96");
+        bgRect.setAttribute("fill", "#1A1A18");
+        keys.appendChild(bgRect);
+        for (var i = 1; i < WHITE; i++) {
+          var l = document.createElementNS(NS, "line");
+          l.setAttribute("x1", (i * KW).toFixed(2)); l.setAttribute("x2", (i * KW).toFixed(2));
+          l.setAttribute("y1", "0"); l.setAttribute("y2", "96");
+          l.setAttribute("stroke", "#282826"); l.setAttribute("stroke-width", "1");
+          keys.appendChild(l);
+        }
+        var BLACK_AFTER = [0, 1, 3, 4, 5];
+        for (var w = 0; w < WHITE - 1; w++) {
+          if (BLACK_AFTER.indexOf(w % 7) === -1) continue;
+          var b = document.createElementNS(NS, "rect");
+          b.setAttribute("x", ((w + 1) * KW - 15).toFixed(2)); b.setAttribute("y", "0");
+          b.setAttribute("width", "30"); b.setAttribute("height", "58");
+          b.setAttribute("fill", "#111111");
+          keys.appendChild(b);
+        }
+        var base = document.createElementNS(NS, "line");
+        base.setAttribute("x1", "0"); base.setAttribute("x2", "1920");
+        base.setAttribute("y1", "95.5"); base.setAttribute("y2", "95.5");
+        base.setAttribute("stroke", "#282826"); base.setAttribute("stroke-width", "1");
+        keys.appendChild(base);
+
+        // ---- kicker chars (typed) ----
+        var kicker = q("#waw04-kicker");
+        var KTEXT = "CREDIT WHERE IT’S DUE";
+        var chars = [];
+        for (var c = 0; c < KTEXT.length; c++) {
+          var s = document.createElement("span");
+          s.textContent = KTEXT.charAt(c);
+          kicker.appendChild(s);
+          chars.push(s);
+        }
+
+        // ---- streak ticks ----
+        var ticksWrap = q("#waw04-ticks");
+        var DAYS = ["M", "T", "W", "T", "F", "S", "S"];
+        var tickFills = [];
+        for (var d = 0; d < 7; d++) {
+          var t = document.createElement("div"); t.className = "waw04-tick";
+          var box = document.createElement("div"); box.className = "waw04-tick-box";
+          var fill = document.createElement("div"); fill.className = "waw04-tick-fill";
+          var day = document.createElement("div"); day.className = "waw04-tick-day"; day.textContent = DAYS[d];
+          box.appendChild(fill); t.appendChild(box); t.appendChild(day);
+          ticksWrap.appendChild(t);
+          tickFills.push(fill);
+        }
+
+        // ---- rule draw setup (measured) ----
+        var rules = [q("#waw04-rule-1"), q("#waw04-rule-2"), q("#waw04-rule-3")];
+        rules.forEach(function (p) {
+          var len = p.getTotalLength ? p.getTotalLength() : 544;
+          if (!len) len = 544;
+          p.style.strokeDasharray = len;
+          p.style.strokeDashoffset = len;
+          p.__len = len;
+        });
+
+        var tl = gsap.timeline({ paused: true });
+        var DUR = 8.235;
+
+        // Macro camera: slow steady push underneath the whole shot
+        tl.fromTo(q("#waw04-stage"), { scale: 1 }, { scale: 1.025, duration: DUR, ease: "none" }, 0);
+
+        // Scene 1 (0.0–1.6): stub + kicker types + triptych rules draw L→R
+        tl.fromTo(q("#waw04-stub"), { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, 0.05);
+        chars.forEach(function (ch, i) {
+          tl.fromTo(ch, { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, 0.12 + i * 0.035);
+        });
+        rules.forEach(function (p, i) {
+          tl.fromTo(p, { strokeDashoffset: p.__len }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 0.3 + i * 0.45);
+        });
+
+        // Scene 2 (1.6–3.6): card 1 fills — "the onboarding is easy"
+        tl.fromTo(q("#waw04-acc-1"), { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.out" }, 1.6);
+        tl.fromTo(q("#waw04-label-1"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 1.65);
+        tl.fromTo(q("#waw04-h2-1"), { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 1.8);
+        tl.fromTo(qa(".waw04-card-1 .waw04-ramp-bar"), { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: "power3.out", stagger: 0.09 }, 2.15);
+
+        // Scene 3 (3.6–6.0): card 2 fills — "streaks and points"
+        tl.fromTo(q("#waw04-acc-2"), { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.out" }, 3.6);
+        tl.fromTo(q("#waw04-label-2"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 3.65);
+        tl.fromTo(q("#waw04-h2-2"), { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 3.8);
+        tl.fromTo(qa(".waw04-card-2 .waw04-tick"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out", stagger: 0.04 }, 4.0);
+        tl.fromTo(tickFills, { scaleY: 0 }, { scaleY: 1, duration: 0.3, ease: "power3.out", stagger: 0.14 }, 4.35);
+
+        // Scene 4 (6.0–end): card 3 fills — "over five thousand songs", count-up hero
+        tl.fromTo(q("#waw04-acc-3"), { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.out" }, 6.0);
+        tl.fromTo(q("#waw04-label-3"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 6.0);
+        var counter = q("#waw04-count");
+        var state = { value: 0 };
+        var COUNT_AT = 6.1, COUNT_DUR = 1.4, START_SCALE = 0.5;
+        tl.fromTo(counter, { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "power1.out" }, COUNT_AT);
+        tl.fromTo(state, { value: 0 }, {
+          value: 5000, duration: COUNT_DUR, ease: "power3.out",
+          onUpdate: function () { counter.textContent = Math.round(state.value).toLocaleString("en-US"); }
+        }, COUNT_AT);
+        tl.fromTo(counter, { scale: START_SCALE }, { scale: 1, duration: COUNT_DUR, ease: "power3.out" }, COUNT_AT);
+        tl.fromTo(q("#waw04-songs"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, COUNT_AT + 0.45);
+        tl.fromTo(q("#waw04-suffix"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.7)" }, COUNT_AT + COUNT_DUR);
+        // hold to end (no exit — root transition owns it)
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines[ID] = tl;
+      })();
+    </script>
+  </div>
+</template>

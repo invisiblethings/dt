@@ -1,0 +1,459 @@
+<template>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;700;800;900&family=IBM+Plex+Mono:wght@500&display=swap");
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      color: #f0ece5;
+      font-family: "Barlow", sans-serif;
+    }
+
+    #root *,
+    #root *::before,
+    #root *::after {
+      box-sizing: border-box;
+    }
+
+    /* Full-bleed ground on its own clip layer (never on #root). */
+    .f01-ground {
+      position: absolute;
+      inset: 0;
+      background: #111111;
+    }
+
+    /* Background: faint piano-key strip across the top edge (~15%). */
+    .f01-keys {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100cqw;
+      height: 6.4cqw;
+      opacity: 0.15;
+    }
+    .f01-keys svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Camera wrapper — slow continuous lean-in, origin on the left anchor. */
+    .f01-camera {
+      position: absolute;
+      inset: 0;
+      transform-origin: 5.5cqw 40cqh;
+    }
+
+    /* Kicker: rule stub + mono eyebrow, upper-left. */
+    .f01-kicker {
+      position: absolute;
+      left: 5.5cqw;
+      top: 6.4cqw;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9cqw;
+    }
+    .f01-rule {
+      width: 36px;
+      height: 2px;
+      background: #e85d26;
+      transform-origin: left center;
+    }
+    .f01-kicker-text {
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 1.15cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #e85d26;
+      white-space: pre;
+    }
+    .f01-ch {
+      opacity: 0;
+    }
+
+    /* Star row + rating value. */
+    .f01-rating {
+      position: absolute;
+      left: 5.5cqw;
+      top: 11.2cqw;
+      display: flex;
+      align-items: center;
+      gap: 3.2cqw;
+      transform-origin: left center;
+    }
+    .f01-stars {
+      position: relative;
+      width: 52.6cqw; /* 5 × 8.85cqw stars + 4 × 2.08cqw gaps ≈ 55% of the frame */
+      height: 8.85cqw;
+    }
+    .f01-star-layer {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      gap: 2.08cqw;
+    }
+    .f01-star {
+      flex: 0 0 8.85cqw;
+      width: 8.85cqw;
+      height: 8.85cqw;
+      transform-origin: center center;
+    }
+    .f01-star svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+    .f01-base path {
+      fill: none;
+      stroke: #888880;
+      stroke-width: 3;
+      stroke-linejoin: miter;
+    }
+    .f01-fill {
+      clip-path: inset(0 100% 0 0);
+    }
+    .f01-fill path {
+      fill: #e85d26;
+      stroke: #e85d26;
+      stroke-width: 3;
+      stroke-linejoin: miter;
+    }
+
+    .f01-value {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6cqw;
+      font-weight: 900;
+      font-size: 5.5cqw;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+    .f01-value-num {
+      display: inline-block;
+      min-width: 2.1ch;
+      color: #f0ece5;
+    }
+    .f01-value-max {
+      color: #505048;
+    }
+
+    /* Price — the dominant display moment. */
+    .f01-price {
+      position: absolute;
+      left: 5.5cqw;
+      top: 23.4cqw;
+      display: flex;
+      align-items: baseline;
+      gap: 1.6cqw;
+    }
+    .f01-price-num {
+      display: inline-block;
+      width: 7ch; /* fixed width — no layout shift as digits change */
+      font-weight: 900;
+      font-size: 13cqw;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
+      color: #f0ece5;
+      transform-origin: left bottom;
+      white-space: nowrap;
+    }
+    .f01-price-unit {
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 1.6cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888880;
+    }
+
+    /* Question — fire-orange, under the price. */
+    .f01-question {
+      position: absolute;
+      left: 5.5cqw;
+      top: 39.4cqw;
+      display: flex;
+      gap: 1.3cqw;
+      font-weight: 800;
+      font-size: 4.5cqw;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: lowercase;
+      color: #e85d26;
+    }
+    .f01-word,
+    .f01-qmark {
+      display: inline-block;
+    }
+  </style>
+
+  <div
+    id="root"
+    data-composition-id="01-three-and-a-half-stars"
+    data-start="0"
+    data-duration="5.739"
+    data-width="1920"
+    data-height="1080"
+  >
+    <div
+      id="f01-ground"
+      class="f01-ground clip"
+      data-start="0"
+      data-duration="5.739"
+      data-track-index="0"
+    >
+      <div class="f01-keys" id="f01-keys">
+        <svg id="f01-keys-svg" viewBox="0 0 1920 123" preserveAspectRatio="none" aria-hidden="true"></svg>
+      </div>
+    </div>
+
+    <div
+      id="f01-content"
+      class="f01-camera clip"
+      data-start="0"
+      data-duration="5.739"
+      data-track-index="1"
+    >
+      <div class="f01-kicker">
+        <div class="f01-rule" id="f01-rule"></div>
+        <div class="f01-kicker-text" id="f01-kicker-text"></div>
+      </div>
+
+      <div class="f01-rating" id="f01-rating">
+        <div class="f01-stars" role="img" aria-label="3.5 out of 5 stars">
+          <div class="f01-star-layer f01-base" id="f01-base"></div>
+          <div class="f01-star-layer f01-fill" id="f01-fill"></div>
+        </div>
+        <div class="f01-value" id="f01-value">
+          <span class="f01-value-num" id="f01-value-num">0.0</span><span class="f01-value-max">/ 5</span>
+        </div>
+      </div>
+
+      <div class="f01-price" id="f01-price">
+        <span class="f01-price-num" id="f01-price-num">$0.00</span>
+        <span class="f01-price-unit" id="f01-price-unit">/ year</span>
+      </div>
+
+      <div class="f01-question" id="f01-question">
+        <span class="f01-word">worth</span><span class="f01-word">it<span class="f01-qmark" id="f01-qmark">?</span></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      "use strict";
+      var ID = "01-three-and-a-half-stars";
+      var root = document.querySelector('[data-composition-id="' + ID + '"]');
+      var q = function (sel) {
+        return root.querySelector(sel);
+      };
+      var qa = function (sel) {
+        return root.querySelectorAll(sel);
+      };
+      var SVG_NS = "http://www.w3.org/2000/svg";
+
+      /* ---------- Static build (synchronous, deterministic) ---------- */
+
+      // Piano-key strip: 40 white keys with the standard 2+3 black-key pattern.
+      var keysSvg = q("#f01-keys-svg");
+      var WHITE = 40;
+      var KW = 1920 / WHITE;
+      for (var k = 0; k < WHITE; k += 1) {
+        var wk = document.createElementNS(SVG_NS, "rect");
+        wk.setAttribute("x", (k * KW + 1).toFixed(2));
+        wk.setAttribute("y", "0");
+        wk.setAttribute("width", (KW - 2).toFixed(2));
+        wk.setAttribute("height", "123");
+        wk.setAttribute("fill", "#F0ECE5");
+        keysSvg.appendChild(wk);
+      }
+      var BLACK_AFTER = [0, 1, 3, 4, 5]; // within each 7-key octave
+      for (var b = 0; b < WHITE - 1; b += 1) {
+        if (BLACK_AFTER.indexOf(b % 7) === -1) continue;
+        var bk = document.createElementNS(SVG_NS, "rect");
+        bk.setAttribute("x", ((b + 1) * KW - KW * 0.3).toFixed(2));
+        bk.setAttribute("y", "0");
+        bk.setAttribute("width", (KW * 0.6).toFixed(2));
+        bk.setAttribute("height", "76");
+        bk.setAttribute("fill", "#111111");
+        keysSvg.appendChild(bk);
+      }
+
+      // Kicker characters (typed in).
+      var kickerText = q("#f01-kicker-text");
+      var KICKER = "SIMPLY PIANO";
+      for (var c = 0; c < KICKER.length; c += 1) {
+        var ch = document.createElement("span");
+        ch.className = "f01-ch";
+        ch.textContent = KICKER[c];
+        kickerText.appendChild(ch);
+      }
+
+      // Star row: outline base layer + fire-orange fill layer, same geometry.
+      var STAR_PATH =
+        "M50 0 61.8 36.2 100 36.2 69.1 58.6 80.9 95 50 72.4 19.1 95 30.9 58.6 0 36.2 38.2 36.2Z";
+      function buildStars(layer) {
+        for (var s = 0; s < 5; s += 1) {
+          var cell = document.createElement("span");
+          cell.className = "f01-star";
+          var svg = document.createElementNS(SVG_NS, "svg");
+          svg.setAttribute("viewBox", "0 0 100 100");
+          svg.setAttribute("aria-hidden", "true");
+          var p = document.createElementNS(SVG_NS, "path");
+          p.setAttribute("d", STAR_PATH);
+          svg.appendChild(p);
+          cell.appendChild(svg);
+          layer.appendChild(cell);
+        }
+      }
+      var baseLayer = q("#f01-base");
+      var fillLayer = q("#f01-fill");
+      buildStars(baseLayer);
+      buildStars(fillLayer);
+      var baseCells = baseLayer.querySelectorAll(".f01-star");
+      var fillCells = fillLayer.querySelectorAll(".f01-star");
+
+      // Fill endpoint: halfway through star four, measured in star+gap units.
+      var STAR = 8.85;
+      var GAP = 2.08;
+      var ROW = 5 * STAR + 4 * GAP;
+      var RATING = 3.5;
+      var fillRight = 3 * (STAR + GAP) + STAR * 0.5; // edge at half of star four
+      var fillInsetRight = (((ROW - fillRight) / ROW) * 100).toFixed(2);
+
+      /* ---------- Timeline ---------- */
+      var DUR = 5.739;
+      var FPS = 30;
+      var tl = gsap.timeline({ paused: true });
+
+      // Camera: slow continuous lean-in under the whole shot.
+      tl.fromTo(
+        "#f01-content",
+        { scale: 1 },
+        { scale: 1.035, duration: DUR, ease: "sine.inOut" },
+        0,
+      );
+
+      // Scene 1 (0.0–1.4): key strip settles, kicker types in.
+      tl.fromTo("#f01-keys", { opacity: 0, y: -12 }, { opacity: 0.15, y: 0, duration: 0.6, ease: "power2.out" }, 0);
+      tl.fromTo("#f01-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 0.05);
+      var chars = qa(".f01-ch");
+      var TYPE_START = 0.15;
+      var TYPE_STEP = 0.055;
+      for (var i = 0; i < chars.length; i += 1) {
+        tl.set(chars[i], { opacity: 1 }, TYPE_START + i * TYPE_STEP);
+      }
+
+      // Scene 2 (1.4–3.0): five outline stars spring in as one staggered beat.
+      var STAR_IN = 1.4;
+      for (var si = 0; si < 5; si += 1) {
+        tl.fromTo(
+          [baseCells[si], fillCells[si]],
+          { scale: 0.35, opacity: 0, y: 24 },
+          { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.8)" },
+          STAR_IN + si * 0.06,
+        );
+      }
+
+      // Fire-orange fill sweeps left→right, stops halfway through star four.
+      var FILL_START = 1.8;
+      var FILL_DUR = 1.05;
+      tl.fromTo(
+        fillLayer,
+        { clipPath: "inset(0 100% 0 0)" },
+        { clipPath: "inset(0 " + fillInsetRight + "% 0 0)", duration: FILL_DUR, ease: "power2.out" },
+        FILL_START,
+      );
+
+      // Per-star pops riding the sweep (subordinate, never move the endpoint).
+      for (var pi = 0; pi < Math.ceil(RATING); pi += 1) {
+        var popAt = FILL_START + FILL_DUR * (pi / RATING) * 0.82;
+        tl.to([baseCells[pi].firstChild, fillCells[pi].firstChild], { scale: 1.07, duration: 0.09, ease: "power2.out" }, popAt);
+        tl.to([baseCells[pi].firstChild, fillCells[pi].firstChild], { scale: 1, duration: 0.12, ease: "power2.out" }, popAt + 0.09);
+      }
+
+      // "3.5 / 5" lands beside, its value counting with the fill (same ease).
+      tl.fromTo("#f01-value", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, FILL_START);
+      var valueEl = q("#f01-value-num");
+      var valueEase = gsap.parseEase("power2.out");
+      var valueFrames = Math.round(FILL_DUR * FPS);
+      for (var vf = 0; vf <= valueFrames; vf += 1) {
+        var vp = valueEase(vf / valueFrames);
+        tl.set(valueEl, { textContent: (RATING * vp).toFixed(1) }, FILL_START + FILL_DUR * (vf / valueFrames));
+      }
+
+      // Scene 3 (3.0–5.2): "$169.90" counts up from $0 with dynamic scale;
+      // stars dim to 60% so the price takes hierarchy.
+      var PRICE_START = 3.0;
+      var COUNT_DUR = 1.6;
+      var PRICE = 169.9;
+      var START_SCALE = 0.5;
+      tl.to("#f01-rating", { opacity: 0.6, duration: 0.5, ease: "power2.out" }, PRICE_START);
+      tl.fromTo("#f01-price-num", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, PRICE_START);
+      tl.fromTo(
+        "#f01-price-num",
+        { scale: START_SCALE },
+        { scale: 1, duration: COUNT_DUR, ease: "power3.out" },
+        PRICE_START,
+      );
+      var priceEl = q("#f01-price-num");
+      var priceEase = gsap.parseEase("power3.out");
+      var priceFrames = Math.round(COUNT_DUR * FPS);
+      for (var pf = 0; pf <= priceFrames; pf += 1) {
+        var pp = priceEase(pf / priceFrames);
+        var val = pf === priceFrames ? PRICE : PRICE * pp;
+        tl.set(priceEl, { textContent: "$" + val.toFixed(2) }, PRICE_START + COUNT_DUR * (pf / priceFrames));
+      }
+      // "/ year" mono label — slides in after the count lands.
+      tl.fromTo(
+        "#f01-price-unit",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" },
+        PRICE_START + COUNT_DUR - 0.15,
+      );
+
+      // Scene 4 (5.2–end): "worth it?" per-word staggered reveal, then hold
+      // still with a subtle jitter on the question mark only.
+      var Q_START = 5.2;
+      tl.fromTo(
+        qa(".f01-word"),
+        { opacity: 0, y: 36 },
+        { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", stagger: 0.1 },
+        Q_START,
+      );
+      var JITTER = [
+        [3, -4],
+        [-2, 3],
+        [2, -2],
+        [-1, 2],
+        [0, 0],
+      ];
+      var J_START = Q_START + 0.36;
+      var J_STEP = 0.035;
+      for (var j = 0; j < JITTER.length; j += 1) {
+        tl.to(
+          "#f01-qmark",
+          { x: JITTER[j][0], rotation: JITTER[j][1], duration: J_STEP, ease: "none" },
+          J_START + j * J_STEP,
+        );
+      }
+
+      // Pad to the full frame length (no exit — the root transition is the exit).
+      tl.set({}, {}, DUR);
+
+      tl.seek(0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

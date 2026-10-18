@@ -1,0 +1,284 @@
+<template>
+  <div id="root" data-composition-id="09-appetizer" data-start="0" data-duration="6.656" data-width="1920" data-height="1080">
+    <style>
+      @font-face {
+        font-family: "Barlow";
+        font-style: normal;
+        font-weight: 600;
+        font-display: block;
+        src: url(https://fonts.gstatic.com/s/barlow/v13/7cHqv4kjgoGqM7E30-8s51os.woff2) format("woff2");
+      }
+      @font-face {
+        font-family: "Barlow";
+        font-style: normal;
+        font-weight: 900;
+        font-display: block;
+        src: url(https://fonts.gstatic.com/s/barlow/v13/7cHqv4kjgoGqM7E3j-ws51os.woff2) format("woff2");
+      }
+      @font-face {
+        font-family: "IBM Plex Mono";
+        font-style: normal;
+        font-weight: 500;
+        font-display: block;
+        src: url(https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgg.woff2) format("woff2");
+      }
+
+      #root {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        container-type: size;
+        color: #111111;
+        font-family: "Barlow", sans-serif;
+      }
+
+      /* full-bleed ORANGE register on its own clip layer */
+      #appetizer-09-bg {
+        position: absolute;
+        inset: 0;
+        background: #e85d26;
+      }
+
+      #appetizer-09-stage {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* — chrome: mono kicker + 3.5-star callback row (supporting) — */
+      #appetizer-09-kicker {
+        position: absolute;
+        left: 5.5cqw;
+        top: 5.5cqw;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 500;
+        font-size: 0.9cqw;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.75);
+        display: flex;
+        align-items: center;
+        gap: 1cqw;
+      }
+      #appetizer-09-kicker .appetizer-09-stub {
+        display: block;
+        width: 36px;
+        height: 2px;
+        background: #111111;
+      }
+
+      #appetizer-09-stars {
+        position: absolute;
+        left: 5.5cqw;
+        top: 8.6cqw;
+        display: flex;
+        align-items: center;
+        gap: 0.55cqw;
+      }
+      .appetizer-09-star {
+        display: block;
+        width: 2.3cqw;
+        height: 2.3cqw;
+      }
+      .appetizer-09-star svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .appetizer-09-star .appetizer-09-base {
+        fill: rgba(17, 17, 17, 0.2);
+      }
+      .appetizer-09-star .appetizer-09-fill {
+        fill: #111111;
+      }
+      #appetizer-09-score {
+        margin-left: 0.9cqw;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 500;
+        font-size: 0.9cqw;
+        letter-spacing: 0.14em;
+        color: rgba(17, 17, 17, 0.55);
+      }
+
+      /* — the statement (foreground subject / focal) — */
+      #appetizer-09-statement {
+        position: absolute;
+        left: 5.5cqw;
+        top: 14.2cqw;
+        width: 78cqw;
+        transform-origin: 0% 0%;
+      }
+      #appetizer-09-line1 {
+        display: block;
+        font-weight: 900;
+        font-size: 10.5cqw;
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+        text-transform: lowercase;
+        white-space: nowrap;
+        transform-origin: 0% 100%;
+      }
+      #appetizer-09-line2 {
+        display: block;
+        margin-top: 1.4cqw;
+        font-weight: 900;
+        font-size: 7.5cqw;
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+        text-transform: lowercase;
+      }
+      .appetizer-09-row {
+        display: block;
+        white-space: nowrap;
+      }
+      .appetizer-09-word {
+        display: inline-block;
+        margin-right: 0.22em;
+      }
+
+      /* — end card (foreground, final beat) — */
+      #appetizer-09-endcard {
+        position: absolute;
+        left: 5.5cqw;
+        top: 38.6cqw;
+        width: 78cqw;
+      }
+      #appetizer-09-rule {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: #111111;
+        transform-origin: 0% 50%;
+      }
+      #appetizer-09-url {
+        margin-top: 1.6cqw;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 500;
+        font-size: 2.8cqw;
+        line-height: 1.2;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        color: #111111;
+      }
+      #appetizer-09-url .appetizer-09-ch {
+        display: inline-block;
+        white-space: pre;
+      }
+
+      /* final frame's own soft fade to black */
+      #appetizer-09-fade {
+        position: absolute;
+        inset: 0;
+        background: #000000;
+        opacity: 0;
+      }
+    </style>
+
+    <div id="appetizer-09-bg" class="clip" data-start="0" data-duration="6.656" data-track-index="0"></div>
+
+    <div id="appetizer-09-stage" class="clip" data-start="0" data-duration="6.656" data-track-index="1">
+      <div id="appetizer-09-kicker"><span class="appetizer-09-stub"></span><span>Simply Piano</span></div>
+
+      <div id="appetizer-09-stars" aria-label="3.5 out of 5 stars">
+        <span class="appetizer-09-star"><svg viewBox="0 0 100 100"><path class="appetizer-09-fill" d="M50 0 61.8 36.2 100 36.2 69.1 58.6 80.9 95 50 72.4 19.1 95 30.9 58.6 0 36.2 38.2 36.2Z" /></svg></span>
+        <span class="appetizer-09-star"><svg viewBox="0 0 100 100"><path class="appetizer-09-fill" d="M50 0 61.8 36.2 100 36.2 69.1 58.6 80.9 95 50 72.4 19.1 95 30.9 58.6 0 36.2 38.2 36.2Z" /></svg></span>
+        <span class="appetizer-09-star"><svg viewBox="0 0 100 100"><path class="appetizer-09-fill" d="M50 0 61.8 36.2 100 36.2 69.1 58.6 80.9 95 50 72.4 19.1 95 30.9 58.6 0 36.2 38.2 36.2Z" /></svg></span>
+        <span class="appetizer-09-star"><svg viewBox="0 0 100 100"><defs><clipPath id="appetizer-09-half"><rect x="0" y="0" width="50" height="100" /></clipPath></defs><path class="appetizer-09-base" d="M50 0 61.8 36.2 100 36.2 69.1 58.6 80.9 95 50 72.4 19.1 95 30.9 58.6 0 36.2 38.2 36.2Z" /><path class="appetizer-09-fill" clip-path="url(#appetizer-09-half)" d="M50 0 61.8 36.2 100 36.2 69.1 58.6 80.9 95 50 72.4 19.1 95 30.9 58.6 0 36.2 38.2 36.2Z" /></svg></span>
+        <span class="appetizer-09-star"><svg viewBox="0 0 100 100"><path class="appetizer-09-base" d="M50 0 61.8 36.2 100 36.2 69.1 58.6 80.9 95 50 72.4 19.1 95 30.9 58.6 0 36.2 38.2 36.2Z" /></svg></span>
+        <span id="appetizer-09-score">3.5 / 5</span>
+      </div>
+
+      <div id="appetizer-09-statement">
+        <div id="appetizer-09-line1">an appetizer,</div>
+        <div id="appetizer-09-line2">
+          <span class="appetizer-09-row"><span class="appetizer-09-word">priced</span><span class="appetizer-09-word">like</span></span>
+          <span class="appetizer-09-row"><span class="appetizer-09-word">a</span><span class="appetizer-09-word">main</span><span class="appetizer-09-word">course.</span></span>
+        </div>
+      </div>
+
+      <div id="appetizer-09-endcard">
+        <span id="appetizer-09-rule"></span>
+        <div id="appetizer-09-url"></div>
+      </div>
+    </div>
+
+    <div id="appetizer-09-fade" class="clip" data-start="0" data-duration="6.656" data-track-index="2"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        var DURATION = 6.656;
+        var q = function (sel) { return document.querySelector(sel); };
+        var qa = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
+
+        // Build the end-card characters once (deterministic type-on targets).
+        var URL_TEXT = "Full review at pianoers.com";
+        var urlEl = q("#appetizer-09-url");
+        var frag = document.createDocumentFragment();
+        for (var i = 0; i < URL_TEXT.length; i++) {
+          var ch = document.createElement("span");
+          ch.className = "appetizer-09-ch";
+          ch.textContent = URL_TEXT.charAt(i);
+          frag.appendChild(ch);
+        }
+        urlEl.replaceChildren(frag);
+
+        // One beat array — every reveal reads its onset from here (VO cues).
+        var BEATS = {
+          name: 0.15,     // "Simply Piano"
+          appetizer: 1.0, // "an appetizer"
+          priced: 2.4,    // "priced like a main course"
+          review: 4.2     // "full review at pianoers dot com"
+        };
+
+        var tl = gsap.timeline({ paused: true });
+
+        // Scene 0–6.656: slow push under everything (camera modifier)
+        tl.fromTo("#appetizer-09-stage", { scale: 1, transformOrigin: "0% 40%" }, { scale: 1.025, duration: DURATION, ease: "none" }, 0);
+
+        // Scene 1 — callback chrome: kicker + static 3.5-star row
+        tl.fromTo("#appetizer-09-kicker", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, BEATS.name);
+        tl.fromTo(".appetizer-09-star", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(2)", stagger: 0.06 }, BEATS.name + 0.12);
+        tl.fromTo("#appetizer-09-score", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, BEATS.name + 0.5);
+
+        // Scene 2 — "an appetizer," slams up (kinetic-beat-slam: rise + rotate, circ.out)
+        tl.fromTo("#appetizer-09-line1",
+          { y: 110, rotation: 5, opacity: 0, filter: "blur(10px)" },
+          { y: 0, rotation: 0, opacity: 1, filter: "blur(0px)", duration: 0.55, ease: "circ.out" },
+          BEATS.appetizer);
+
+        // Scene 3 — "priced like a main course." per-word reveal (distinct axis + ease)
+        var words = qa("#appetizer-09-line2 .appetizer-09-word");
+        var wordOffsets = [0, 0.22, 0.62, 0.78, 0.98];
+        words.forEach(function (w, idx) {
+          tl.fromTo(w,
+            { y: 70, opacity: 0, filter: "blur(8px)" },
+            { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" },
+            BEATS.priced + wordOffsets[idx]);
+        });
+        // payoff weight on "course." — a small settle pop
+        tl.fromTo(words[4], { scale: 1 }, { scale: 1.06, duration: 0.18, ease: "power2.out", transformOrigin: "0% 100%" }, BEATS.priced + 1.25);
+        tl.to(words[4], { scale: 1, duration: 0.3, ease: "power2.inOut" }, BEATS.priced + 1.43);
+
+        // Scene 4 — statement lifts + dims to 55% ink; rule draws; URL types on
+        tl.to("#appetizer-09-statement", { y: -70, opacity: 0.55, duration: 0.6, ease: "power2.inOut" }, BEATS.review);
+        tl.fromTo("#appetizer-09-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "expo.out" }, BEATS.review + 0.15);
+        tl.fromTo("#appetizer-09-url", { y: 18, scale: 0.92, transformOrigin: "0% 50%" }, { y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, BEATS.review + 0.3);
+        var chars = qa("#appetizer-09-url .appetizer-09-ch");
+        var typeStart = BEATS.review + 0.3;
+        var perChar = 0.022;
+        chars.forEach(function (c, idx) {
+          tl.fromTo(c, { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, typeStart + idx * perChar);
+        });
+
+        // Hold still on the end card, then final-frame soft fade to black (last 0.4s)
+        tl.fromTo("#appetizer-09-fade", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.in" }, DURATION - 0.4);
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["09-appetizer"] = tl;
+      })();
+    </script>
+  </div>
+</template>

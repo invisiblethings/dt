@@ -1,0 +1,367 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      color: #f0ece5;
+      font-family: "Barlow", "Montserrat", sans-serif;
+    }
+
+    .the-math-07-bg {
+      position: absolute;
+      inset: 0;
+      background: #111111;
+    }
+
+    /* key strip — background, dimmed schematic keyboard under the chrome rail */
+    .the-math-07-keys {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 6.6cqw;
+      height: 4.6cqw;
+      opacity: 0.55;
+    }
+    .the-math-07-wkey {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      border-left: 1px solid #282826;
+    }
+    .the-math-07-bkey {
+      position: absolute;
+      top: 0;
+      height: 60%;
+      background: #282826;
+    }
+    .the-math-07-keys-base {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: #282826;
+    }
+
+    .the-math-07-stage {
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 42%;
+    }
+
+    /* chrome rail */
+    .the-math-07-rail {
+      position: absolute;
+      left: 5.5cqw;
+      right: 5.5cqw;
+      top: 3.4cqw;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 400;
+      font-size: 0.85cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .the-math-07-kicker {
+      color: #e85d26;
+    }
+    .the-math-07-num {
+      color: #888880;
+    }
+    .the-math-07-rail-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 6.6cqw;
+      height: 1px;
+      background: #282826;
+      transform-origin: 0 50%;
+    }
+
+    /* left math stack */
+    .the-math-07-left {
+      position: absolute;
+      left: 5.5cqw;
+      top: 14.2cqw;
+      width: 40cqw;
+    }
+    .the-math-07-rate {
+      display: flex;
+      align-items: baseline;
+      gap: 1.1cqw;
+    }
+    .the-math-07-rate-fig {
+      display: inline-block;
+      font-size: 5.5cqw;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
+      color: #f0ece5;
+      white-space: nowrap;
+      width: 21cqw;
+      transform-origin: 0% 80%;
+    }
+    .the-math-07-rate-unit {
+      font-size: 2.2cqw;
+      font-weight: 600;
+      line-height: 1;
+      color: #888880;
+      text-transform: lowercase;
+    }
+    .the-math-07-mult {
+      margin-top: 1.6cqw;
+      font-size: 2.8cqw;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #f0ece5;
+      text-transform: lowercase;
+    }
+    .the-math-07-mult b {
+      color: #e85d26;
+      font-weight: 900;
+      margin-right: 0.3em;
+    }
+    .the-math-07-total-rule {
+      margin-top: 1.4cqw;
+      width: 30cqw;
+      height: 1px;
+      background: #888880;
+      transform-origin: 0 50%;
+    }
+    .the-math-07-stub {
+      margin-top: 1.2cqw;
+      width: 36px;
+      height: 2px;
+      background: #e85d26;
+      transform-origin: 0 50%;
+    }
+
+    /* right hero */
+    .the-math-07-right {
+      position: absolute;
+      right: 5.5cqw;
+      top: 16.6cqw;
+      width: 52cqw;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .the-math-07-hero-jit {
+      display: block;
+    }
+    .the-math-07-hero {
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-start;
+      width: 37cqw;
+      font-size: 18cqw;
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      color: #e85d26;
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
+      white-space: nowrap;
+      transform-origin: 85% 85%;
+    }
+    .the-math-07-hero-cur {
+      font-size: 0.55em;
+      margin-right: 0.04em;
+      position: relative;
+      top: -0.62em;
+    }
+    .the-math-07-lead {
+      margin-top: 1.4cqw;
+      font-size: 1.9cqw;
+      font-weight: 400;
+      line-height: 1.4;
+      color: #f0ece5;
+      text-transform: lowercase;
+      width: 46cqw;
+    }
+    .the-math-07-coach {
+      margin-top: 1.4cqw;
+      width: 46cqw;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 400;
+      font-size: 1.4cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888880;
+      border-top: 1px solid #282826;
+      padding-top: 1.1cqw;
+    }
+    .the-math-07-coach b {
+      color: #e85d26;
+      font-weight: 700;
+    }
+
+    .the-math-07-foot {
+      position: absolute;
+      right: 5.5cqw;
+      top: 43.6cqw;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 400;
+      font-size: 0.8cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888880;
+    }
+  </style>
+
+  <div id="root" data-composition-id="07-the-math" data-width="1920" data-height="1080" data-duration="9.749">
+    <div
+      id="the-math-07-bg"
+      class="the-math-07-bg clip"
+      data-start="0"
+      data-duration="9.749"
+      data-track-index="0"
+    >
+      <div class="the-math-07-keys" id="the-math-07-keys">
+        <div class="the-math-07-keys-base"></div>
+      </div>
+    </div>
+
+    <div
+      id="the-math-07-stage"
+      class="the-math-07-stage clip"
+      data-start="0"
+      data-duration="9.749"
+      data-track-index="1"
+    >
+      <div class="the-math-07-rail-line" id="the-math-07-rail-line"></div>
+      <div class="the-math-07-rail">
+        <span class="the-math-07-kicker" id="the-math-07-kicker">The math</span>
+        <span class="the-math-07-num" id="the-math-07-num">07/09</span>
+      </div>
+
+      <div class="the-math-07-left">
+        <div class="the-math-07-rate">
+          <span class="the-math-07-rate-fig" id="the-math-07-rate-fig">$0.00</span>
+          <span class="the-math-07-rate-unit" id="the-math-07-rate-unit">/ year</span>
+        </div>
+        <div class="the-math-07-mult" id="the-math-07-mult"><b>×</b>2 years</div>
+        <div class="the-math-07-total-rule" id="the-math-07-total-rule"></div>
+        <div class="the-math-07-stub" id="the-math-07-stub"></div>
+      </div>
+
+      <div class="the-math-07-right">
+        <div class="the-math-07-hero-jit" id="the-math-07-hero-jit">
+          <div class="the-math-07-hero" id="the-math-07-hero">
+            <span class="the-math-07-hero-cur">$</span><span id="the-math-07-hero-val">0</span>
+          </div>
+        </div>
+        <div class="the-math-07-lead" id="the-math-07-lead">to reach early intermediate</div>
+        <div class="the-math-07-coach" id="the-math-07-coach"><b>+ $0</b> of technique coaching</div>
+      </div>
+
+      <div class="the-math-07-foot" id="the-math-07-foot">Prices as of July 2026 · USD</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      "use strict";
+      var FID = "07-the-math";
+      var DUR = 9.749;
+      var FPS = 30;
+      var root = document.querySelector('[data-composition-id="' + FID + '"]');
+      function $(id) {
+        return root.querySelector("#" + id);
+      }
+
+      // ---- key strip (background): 36 white keys, black keys on the 2+3 pattern ----
+      var keys = $("the-math-07-keys");
+      var WHITE = 36;
+      var w = 100 / WHITE;
+      var blackAfter = [true, true, false, true, true, true, false]; // C D (E) F G A (B)
+      for (var i = 0; i < WHITE; i++) {
+        var wk = document.createElement("div");
+        wk.className = "the-math-07-wkey";
+        wk.style.left = (i * w).toFixed(4) + "%";
+        wk.style.width = w.toFixed(4) + "%";
+        keys.appendChild(wk);
+        if (blackAfter[i % 7] && i < WHITE - 1) {
+          var bk = document.createElement("div");
+          bk.className = "the-math-07-bkey";
+          bk.style.left = ((i + 1) * w - w * 0.3).toFixed(4) + "%";
+          bk.style.width = (w * 0.6).toFixed(4) + "%";
+          keys.appendChild(bk);
+        }
+      }
+
+      var tl = gsap.timeline({ paused: true });
+
+      // ---- camera: slow continuous push underneath the whole shot ----
+      tl.fromTo($("the-math-07-stage"), { scale: 1 }, { scale: 1.03, duration: DUR, ease: "none" }, 0);
+
+      // ---- Scene 1 (0.0–1.4): kicker + chrome rail ----
+      tl.fromTo($("the-math-07-rail-line"), { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power3.out" }, 0);
+      tl.fromTo($("the-math-07-kicker"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.1);
+      tl.fromTo($("the-math-07-num"), { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.3);
+
+      // ---- frame-row counter helper (deterministic, seek-safe) ----
+      function countRows(el, from, to, start, dur, easeName, fmt) {
+        var ease = gsap.parseEase(easeName);
+        var last = Math.max(1, Math.round(dur * FPS));
+        for (var f = 0; f <= last; f++) {
+          var v = from + (to - from) * ease(f / last);
+          tl.set(el, { textContent: fmt(v) }, start + dur * (f / last));
+        }
+      }
+
+      // ---- Scene 2 (1.4–3.6): $169.90 counts up with dynamic scale ----
+      var rate = $("the-math-07-rate-fig");
+      var RATE_AT = 1.4, RATE_DUR = 1.6;
+      tl.fromTo(rate, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, RATE_AT);
+      tl.fromTo(rate, { scale: 0.5 }, { scale: 1, duration: RATE_DUR, ease: "power3.out" }, RATE_AT);
+      countRows(rate, 0, 169.9, RATE_AT, RATE_DUR, "power3.out", function (v) {
+        return "$" + v.toFixed(2);
+      });
+      tl.fromTo($("the-math-07-rate-unit"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 1.85);
+      // footnote sits from Scene 2 on
+      tl.fromTo($("the-math-07-foot"), { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 1.7);
+
+      // ---- Scene 3 (3.6–5.6): × 2 years slides in, total rule draws ----
+      tl.fromTo($("the-math-07-mult"), { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 3.6);
+      tl.fromTo($("the-math-07-total-rule"), { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, 4.1);
+      tl.fromTo($("the-math-07-stub"), { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 4.75);
+
+      // ---- Scene 4 (5.6–7.6): $340 counts from 0 at display scale, value-scaled ----
+      var hero = $("the-math-07-hero");
+      var heroVal = $("the-math-07-hero-val");
+      var HERO_AT = 5.6, HERO_DUR = 1.8;
+      tl.fromTo(hero, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, HERO_AT);
+      tl.fromTo(hero, { scale: 0.45 }, { scale: 1, duration: HERO_DUR, ease: "power3.out" }, HERO_AT);
+      countRows(heroVal, 0, 340, HERO_AT, HERO_DUR, "power3.out", function (v) {
+        return String(Math.round(v));
+      });
+      tl.fromTo($("the-math-07-lead"), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 6.2);
+
+      // ---- Scene 5 (7.6–end): coaching line + held beat, subtle jitter on $340 only ----
+      tl.fromTo($("the-math-07-coach"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 7.7);
+
+      var jit = $("the-math-07-hero-jit");
+      var seed = 7;
+      function rnd() {
+        seed = (seed * 1103515245 + 12345) % 2147483648;
+        return seed / 2147483648;
+      }
+      var JIT_STEP = 2 / FPS;
+      for (var t = 7.6; t < DUR - 0.05; t += JIT_STEP) {
+        tl.set(jit, { x: (rnd() - 0.5) * 3, y: (rnd() - 0.5) * 3 }, t);
+      }
+
+      window.__timelines[FID] = tl;
+    })();
+  </script>
+</template>

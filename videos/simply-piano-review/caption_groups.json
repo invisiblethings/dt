@@ -1,0 +1,2038 @@
+{
+  "total_duration_s": 74.817,
+  "width": 1920,
+  "height": 1080,
+  "groups": [
+    {
+      "id": "caption-group-0",
+      "frame": 1,
+      "start": 0,
+      "end": 1.2,
+      "text": "Simply Piano.",
+      "words": [
+        {
+          "id": "caption-word-0-0",
+          "text": "Simply",
+          "start": 0,
+          "end": 0.56
+        },
+        {
+          "id": "caption-word-0-1",
+          "text": "Piano.",
+          "start": 0.56,
+          "end": 1.2
+        }
+      ]
+    },
+    {
+      "id": "caption-group-1",
+      "frame": 1,
+      "start": 1.2,
+      "end": 1.68,
+      "text": "Three and",
+      "words": [
+        {
+          "id": "caption-word-1-0",
+          "text": "Three",
+          "start": 1.2,
+          "end": 1.52
+        },
+        {
+          "id": "caption-word-1-1",
+          "text": "and",
+          "start": 1.52,
+          "end": 1.68
+        }
+      ]
+    },
+    {
+      "id": "caption-group-2",
+      "frame": 1,
+      "start": 1.68,
+      "end": 2.8,
+      "text": "a half stars.",
+      "words": [
+        {
+          "id": "caption-word-2-0",
+          "text": "a",
+          "start": 1.68,
+          "end": 1.76
+        },
+        {
+          "id": "caption-word-2-1",
+          "text": "half",
+          "start": 1.76,
+          "end": 2
+        },
+        {
+          "id": "caption-word-2-2",
+          "text": "stars.",
+          "start": 2,
+          "end": 2.8
+        }
+      ]
+    },
+    {
+      "id": "caption-group-3",
+      "frame": 1,
+      "start": 2.8,
+      "end": 3.28,
+      "text": "A hundred",
+      "words": [
+        {
+          "id": "caption-word-3-0",
+          "text": "A",
+          "start": 2.8,
+          "end": 3.04
+        },
+        {
+          "id": "caption-word-3-1",
+          "text": "hundred",
+          "start": 3.04,
+          "end": 3.28
+        }
+      ]
+    },
+    {
+      "id": "caption-group-4",
+      "frame": 1,
+      "start": 3.28,
+      "end": 3.84,
+      "text": "and seventy",
+      "words": [
+        {
+          "id": "caption-word-4-0",
+          "text": "and",
+          "start": 3.28,
+          "end": 3.36
+        },
+        {
+          "id": "caption-word-4-1",
+          "text": "seventy",
+          "start": 3.44,
+          "end": 3.84
+        }
+      ]
+    },
+    {
+      "id": "caption-group-5",
+      "frame": 1,
+      "start": 3.84,
+      "end": 4.4,
+      "text": "dollars a",
+      "words": [
+        {
+          "id": "caption-word-5-0",
+          "text": "dollars",
+          "start": 3.84,
+          "end": 4.24
+        },
+        {
+          "id": "caption-word-5-1",
+          "text": "a",
+          "start": 4.24,
+          "end": 4.4
+        }
+      ]
+    },
+    {
+      "id": "caption-group-6",
+      "frame": 1,
+      "start": 4.4,
+      "end": 4.8,
+      "text": "year.",
+      "words": [
+        {
+          "id": "caption-word-6-0",
+          "text": "year.",
+          "start": 4.4,
+          "end": 4.8
+        }
+      ]
+    },
+    {
+      "id": "caption-group-7",
+      "frame": 1,
+      "start": 4.8,
+      "end": 5.2,
+      "text": "Is it",
+      "words": [
+        {
+          "id": "caption-word-7-0",
+          "text": "Is",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "id": "caption-word-7-1",
+          "text": "it",
+          "start": 5.04,
+          "end": 5.2
+        }
+      ]
+    },
+    {
+      "id": "caption-group-8",
+      "frame": 1,
+      "start": 5.2,
+      "end": 5.739,
+      "text": "worth it?",
+      "words": [
+        {
+          "id": "caption-word-8-0",
+          "text": "worth",
+          "start": 5.2,
+          "end": 5.44
+        },
+        {
+          "id": "caption-word-8-1",
+          "text": "it?",
+          "start": 5.44,
+          "end": 5.68
+        }
+      ]
+    },
+    {
+      "id": "caption-group-9",
+      "frame": 2,
+      "start": 5.739,
+      "end": 6.779,
+      "text": "Short answer:",
+      "words": [
+        {
+          "id": "caption-word-9-0",
+          "text": "Short",
+          "start": 5.739,
+          "end": 6.219
+        },
+        {
+          "id": "caption-word-9-1",
+          "text": "answer:",
+          "start": 6.219,
+          "end": 6.779
+        }
+      ]
+    },
+    {
+      "id": "caption-group-10",
+      "frame": 2,
+      "start": 6.779,
+      "end": 7.459,
+      "text": "for kids,",
+      "words": [
+        {
+          "id": "caption-word-10-0",
+          "text": "for",
+          "start": 6.779,
+          "end": 7.019
+        },
+        {
+          "id": "caption-word-10-1",
+          "text": "kids,",
+          "start": 7.019,
+          "end": 7.339
+        }
+      ]
+    },
+    {
+      "id": "caption-group-11",
+      "frame": 2,
+      "start": 7.499,
+      "end": 8.139,
+      "text": "maybe.",
+      "words": [
+        {
+          "id": "caption-word-11-0",
+          "text": "maybe.",
+          "start": 7.499,
+          "end": 8.139
+        }
+      ]
+    },
+    {
+      "id": "caption-group-12",
+      "frame": 2,
+      "start": 8.139,
+      "end": 8.779,
+      "text": "For adults",
+      "words": [
+        {
+          "id": "caption-word-12-0",
+          "text": "For",
+          "start": 8.139,
+          "end": 8.379
+        },
+        {
+          "id": "caption-word-12-1",
+          "text": "adults",
+          "start": 8.379,
+          "end": 8.779
+        }
+      ]
+    },
+    {
+      "id": "caption-group-13",
+      "frame": 2,
+      "start": 8.779,
+      "end": 9.099,
+      "text": "who want",
+      "words": [
+        {
+          "id": "caption-word-13-0",
+          "text": "who",
+          "start": 8.779,
+          "end": 8.939
+        },
+        {
+          "id": "caption-word-13-1",
+          "text": "want",
+          "start": 8.939,
+          "end": 9.099
+        }
+      ]
+    },
+    {
+      "id": "caption-group-14",
+      "frame": 2,
+      "start": 9.099,
+      "end": 9.499,
+      "text": "to really",
+      "words": [
+        {
+          "id": "caption-word-14-0",
+          "text": "to",
+          "start": 9.099,
+          "end": 9.179
+        },
+        {
+          "id": "caption-word-14-1",
+          "text": "really",
+          "start": 9.259,
+          "end": 9.499
+        }
+      ]
+    },
+    {
+      "id": "caption-group-15",
+      "frame": 2,
+      "start": 9.499,
+      "end": 9.819,
+      "text": "play,",
+      "words": [
+        {
+          "id": "caption-word-15-0",
+          "text": "play,",
+          "start": 9.499,
+          "end": 9.739
+        }
+      ]
+    },
+    {
+      "id": "caption-group-16",
+      "frame": 2,
+      "start": 9.819,
+      "end": 10.368,
+      "text": "no.",
+      "words": [
+        {
+          "id": "caption-word-16-0",
+          "text": "no.",
+          "start": 9.819,
+          "end": 10.299
+        }
+      ]
+    },
+    {
+      "id": "caption-group-17",
+      "frame": 3,
+      "start": 10.368,
+      "end": 10.928,
+      "text": "Here's what",
+      "words": [
+        {
+          "id": "caption-word-17-0",
+          "text": "Here's",
+          "start": 10.368,
+          "end": 10.768
+        },
+        {
+          "id": "caption-word-17-1",
+          "text": "what",
+          "start": 10.768,
+          "end": 10.928
+        }
+      ]
+    },
+    {
+      "id": "caption-group-18",
+      "frame": 3,
+      "start": 10.928,
+      "end": 11.648,
+      "text": "it is:",
+      "words": [
+        {
+          "id": "caption-word-18-0",
+          "text": "it",
+          "start": 10.928,
+          "end": 11.168
+        },
+        {
+          "id": "caption-word-18-1",
+          "text": "is:",
+          "start": 11.168,
+          "end": 11.648
+        }
+      ]
+    },
+    {
+      "id": "caption-group-19",
+      "frame": 3,
+      "start": 11.648,
+      "end": 12.208,
+      "text": "an app",
+      "words": [
+        {
+          "id": "caption-word-19-0",
+          "text": "an",
+          "start": 11.648,
+          "end": 11.888
+        },
+        {
+          "id": "caption-word-19-1",
+          "text": "app",
+          "start": 11.888,
+          "end": 12.208
+        }
+      ]
+    },
+    {
+      "id": "caption-group-20",
+      "frame": 3,
+      "start": 12.208,
+      "end": 12.848,
+      "text": "that listens",
+      "words": [
+        {
+          "id": "caption-word-20-0",
+          "text": "that",
+          "start": 12.208,
+          "end": 12.368
+        },
+        {
+          "id": "caption-word-20-1",
+          "text": "listens",
+          "start": 12.368,
+          "end": 12.848
+        }
+      ]
+    },
+    {
+      "id": "caption-group-21",
+      "frame": 3,
+      "start": 12.848,
+      "end": 13.888,
+      "text": "through your phone's",
+      "words": [
+        {
+          "id": "caption-word-21-0",
+          "text": "through",
+          "start": 12.848,
+          "end": 13.168
+        },
+        {
+          "id": "caption-word-21-1",
+          "text": "your",
+          "start": 13.168,
+          "end": 13.328
+        },
+        {
+          "id": "caption-word-21-2",
+          "text": "phone's",
+          "start": 13.328,
+          "end": 13.888
+        }
+      ]
+    },
+    {
+      "id": "caption-group-22",
+      "frame": 3,
+      "start": 13.888,
+      "end": 14.368,
+      "text": "mic,",
+      "words": [
+        {
+          "id": "caption-word-22-0",
+          "text": "mic,",
+          "start": 13.888,
+          "end": 14.368
+        }
+      ]
+    },
+    {
+      "id": "caption-group-23",
+      "frame": 3,
+      "start": 14.368,
+      "end": 15.088,
+      "text": "and checks",
+      "words": [
+        {
+          "id": "caption-word-23-0",
+          "text": "and",
+          "start": 14.368,
+          "end": 14.608
+        },
+        {
+          "id": "caption-word-23-1",
+          "text": "checks",
+          "start": 14.608,
+          "end": 15.088
+        }
+      ]
+    },
+    {
+      "id": "caption-group-24",
+      "frame": 3,
+      "start": 15.088,
+      "end": 15.408,
+      "text": "if you",
+      "words": [
+        {
+          "id": "caption-word-24-0",
+          "text": "if",
+          "start": 15.088,
+          "end": 15.248
+        },
+        {
+          "id": "caption-word-24-1",
+          "text": "you",
+          "start": 15.248,
+          "end": 15.408
+        }
+      ]
+    },
+    {
+      "id": "caption-group-25",
+      "frame": 3,
+      "start": 15.408,
+      "end": 15.808,
+      "text": "hit the",
+      "words": [
+        {
+          "id": "caption-word-25-0",
+          "text": "hit",
+          "start": 15.408,
+          "end": 15.648
+        },
+        {
+          "id": "caption-word-25-1",
+          "text": "the",
+          "start": 15.648,
+          "end": 15.808
+        }
+      ]
+    },
+    {
+      "id": "caption-group-26",
+      "frame": 3,
+      "start": 15.808,
+      "end": 16.368,
+      "text": "right note,",
+      "words": [
+        {
+          "id": "caption-word-26-0",
+          "text": "right",
+          "start": 15.808,
+          "end": 16.048
+        },
+        {
+          "id": "caption-word-26-1",
+          "text": "note,",
+          "start": 16.048,
+          "end": 16.288
+        }
+      ]
+    },
+    {
+      "id": "caption-group-27",
+      "frame": 3,
+      "start": 16.368,
+      "end": 16.688,
+      "text": "at the",
+      "words": [
+        {
+          "id": "caption-word-27-0",
+          "text": "at",
+          "start": 16.368,
+          "end": 16.528
+        },
+        {
+          "id": "caption-word-27-1",
+          "text": "the",
+          "start": 16.528,
+          "end": 16.688
+        }
+      ]
+    },
+    {
+      "id": "caption-group-28",
+      "frame": 3,
+      "start": 16.688,
+      "end": 17.528,
+      "text": "right time.",
+      "words": [
+        {
+          "id": "caption-word-28-0",
+          "text": "right",
+          "start": 16.688,
+          "end": 17.008
+        },
+        {
+          "id": "caption-word-28-1",
+          "text": "time.",
+          "start": 17.008,
+          "end": 17.408
+        }
+      ]
+    },
+    {
+      "id": "caption-group-29",
+      "frame": 4,
+      "start": 17.616,
+      "end": 18.176,
+      "text": "Credit where",
+      "words": [
+        {
+          "id": "caption-word-29-0",
+          "text": "Credit",
+          "start": 17.616,
+          "end": 18.016
+        },
+        {
+          "id": "caption-word-29-1",
+          "text": "where",
+          "start": 18.016,
+          "end": 18.176
+        }
+      ]
+    },
+    {
+      "id": "caption-group-30",
+      "frame": 4,
+      "start": 18.176,
+      "end": 18.976,
+      "text": "it's due.",
+      "words": [
+        {
+          "id": "caption-word-30-0",
+          "text": "it's",
+          "start": 18.176,
+          "end": 18.416
+        },
+        {
+          "id": "caption-word-30-1",
+          "text": "due.",
+          "start": 18.416,
+          "end": 18.976
+        }
+      ]
+    },
+    {
+      "id": "caption-group-31",
+      "frame": 4,
+      "start": 18.976,
+      "end": 20.096,
+      "text": "The onboarding is",
+      "words": [
+        {
+          "id": "caption-word-31-0",
+          "text": "The",
+          "start": 18.976,
+          "end": 19.136
+        },
+        {
+          "id": "caption-word-31-1",
+          "text": "onboarding",
+          "start": 19.136,
+          "end": 19.936
+        },
+        {
+          "id": "caption-word-31-2",
+          "text": "is",
+          "start": 19.936,
+          "end": 20.096
+        }
+      ]
+    },
+    {
+      "id": "caption-group-32",
+      "frame": 4,
+      "start": 20.096,
+      "end": 20.816,
+      "text": "easy.",
+      "words": [
+        {
+          "id": "caption-word-32-0",
+          "text": "easy.",
+          "start": 20.096,
+          "end": 20.816
+        }
+      ]
+    },
+    {
+      "id": "caption-group-33",
+      "frame": 4,
+      "start": 20.816,
+      "end": 22.016,
+      "text": "Streaks and points",
+      "words": [
+        {
+          "id": "caption-word-33-0",
+          "text": "Streaks",
+          "start": 20.816,
+          "end": 21.376
+        },
+        {
+          "id": "caption-word-33-1",
+          "text": "and",
+          "start": 21.376,
+          "end": 21.536
+        },
+        {
+          "id": "caption-word-33-2",
+          "text": "points",
+          "start": 21.536,
+          "end": 22.016
+        }
+      ]
+    },
+    {
+      "id": "caption-group-34",
+      "frame": 4,
+      "start": 22.016,
+      "end": 22.416,
+      "text": "keep you",
+      "words": [
+        {
+          "id": "caption-word-34-0",
+          "text": "keep",
+          "start": 22.016,
+          "end": 22.256
+        },
+        {
+          "id": "caption-word-34-1",
+          "text": "you",
+          "start": 22.256,
+          "end": 22.416
+        }
+      ]
+    },
+    {
+      "id": "caption-group-35",
+      "frame": 4,
+      "start": 22.416,
+      "end": 23.296,
+      "text": "coming back,",
+      "words": [
+        {
+          "id": "caption-word-35-0",
+          "text": "coming",
+          "start": 22.416,
+          "end": 22.816
+        },
+        {
+          "id": "caption-word-35-1",
+          "text": "back,",
+          "start": 22.816,
+          "end": 23.296
+        }
+      ]
+    },
+    {
+      "id": "caption-group-36",
+      "frame": 4,
+      "start": 23.296,
+      "end": 23.696,
+      "text": "and there",
+      "words": [
+        {
+          "id": "caption-word-36-0",
+          "text": "and",
+          "start": 23.296,
+          "end": 23.456
+        },
+        {
+          "id": "caption-word-36-1",
+          "text": "there",
+          "start": 23.456,
+          "end": 23.696
+        }
+      ]
+    },
+    {
+      "id": "caption-group-37",
+      "frame": 4,
+      "start": 23.696,
+      "end": 24.976,
+      "text": "are over 5,000",
+      "words": [
+        {
+          "id": "caption-word-37-0",
+          "text": "are",
+          "start": 23.696,
+          "end": 23.856
+        },
+        {
+          "id": "caption-word-37-1",
+          "text": "over",
+          "start": 23.856,
+          "end": 24.096
+        },
+        {
+          "id": "caption-word-37-2",
+          "text": "5,000",
+          "start": 24.096,
+          "end": 24.976
+        }
+      ]
+    },
+    {
+      "id": "caption-group-38",
+      "frame": 4,
+      "start": 24.976,
+      "end": 25.771,
+      "text": "songs.",
+      "words": [
+        {
+          "id": "caption-word-38-0",
+          "text": "songs.",
+          "start": 24.976,
+          "end": 25.696
+        }
+      ]
+    },
+    {
+      "id": "caption-group-39",
+      "frame": 5,
+      "start": 25.771,
+      "end": 26.251,
+      "text": "But here's",
+      "words": [
+        {
+          "id": "caption-word-39-0",
+          "text": "But",
+          "start": 25.771,
+          "end": 25.931
+        },
+        {
+          "id": "caption-word-39-1",
+          "text": "here's",
+          "start": 25.931,
+          "end": 26.251
+        }
+      ]
+    },
+    {
+      "id": "caption-group-40",
+      "frame": 5,
+      "start": 26.251,
+      "end": 27.051,
+      "text": "the catch.",
+      "words": [
+        {
+          "id": "caption-word-40-0",
+          "text": "the",
+          "start": 26.251,
+          "end": 26.411
+        },
+        {
+          "id": "caption-word-40-1",
+          "text": "catch.",
+          "start": 26.411,
+          "end": 27.051
+        }
+      ]
+    },
+    {
+      "id": "caption-group-41",
+      "frame": 5,
+      "start": 27.051,
+      "end": 27.611,
+      "text": "It can't",
+      "words": [
+        {
+          "id": "caption-word-41-0",
+          "text": "It",
+          "start": 27.051,
+          "end": 27.291
+        },
+        {
+          "id": "caption-word-41-1",
+          "text": "can't",
+          "start": 27.291,
+          "end": 27.611
+        }
+      ]
+    },
+    {
+      "id": "caption-group-42",
+      "frame": 5,
+      "start": 27.611,
+      "end": 28.091,
+      "text": "see your",
+      "words": [
+        {
+          "id": "caption-word-42-0",
+          "text": "see",
+          "start": 27.611,
+          "end": 27.851
+        },
+        {
+          "id": "caption-word-42-1",
+          "text": "your",
+          "start": 27.851,
+          "end": 28.091
+        }
+      ]
+    },
+    {
+      "id": "caption-group-43",
+      "frame": 5,
+      "start": 28.091,
+      "end": 28.491,
+      "text": "hands,",
+      "words": [
+        {
+          "id": "caption-word-43-0",
+          "text": "hands,",
+          "start": 28.091,
+          "end": 28.491
+        }
+      ]
+    },
+    {
+      "id": "caption-group-44",
+      "frame": 5,
+      "start": 28.491,
+      "end": 29.051,
+      "text": "so bad",
+      "words": [
+        {
+          "id": "caption-word-44-0",
+          "text": "so",
+          "start": 28.491,
+          "end": 28.731
+        },
+        {
+          "id": "caption-word-44-1",
+          "text": "bad",
+          "start": 28.731,
+          "end": 29.051
+        }
+      ]
+    },
+    {
+      "id": "caption-group-45",
+      "frame": 5,
+      "start": 29.051,
+      "end": 30.171,
+      "text": "habits slip right",
+      "words": [
+        {
+          "id": "caption-word-45-0",
+          "text": "habits",
+          "start": 29.051,
+          "end": 29.451
+        },
+        {
+          "id": "caption-word-45-1",
+          "text": "slip",
+          "start": 29.451,
+          "end": 29.931
+        },
+        {
+          "id": "caption-word-45-2",
+          "text": "right",
+          "start": 29.931,
+          "end": 30.171
+        }
+      ]
+    },
+    {
+      "id": "caption-group-46",
+      "frame": 5,
+      "start": 30.171,
+      "end": 30.731,
+      "text": "through.",
+      "words": [
+        {
+          "id": "caption-word-46-0",
+          "text": "through.",
+          "start": 30.171,
+          "end": 30.731
+        }
+      ]
+    },
+    {
+      "id": "caption-group-47",
+      "frame": 5,
+      "start": 30.731,
+      "end": 31.131,
+      "text": "And the",
+      "words": [
+        {
+          "id": "caption-word-47-0",
+          "text": "And",
+          "start": 30.731,
+          "end": 30.971
+        },
+        {
+          "id": "caption-word-47-1",
+          "text": "the",
+          "start": 30.971,
+          "end": 31.131
+        }
+      ]
+    },
+    {
+      "id": "caption-group-48",
+      "frame": 5,
+      "start": 31.131,
+      "end": 32.171,
+      "text": "feedback is just",
+      "words": [
+        {
+          "id": "caption-word-48-0",
+          "text": "feedback",
+          "start": 31.131,
+          "end": 31.691
+        },
+        {
+          "id": "caption-word-48-1",
+          "text": "is",
+          "start": 31.691,
+          "end": 31.931
+        },
+        {
+          "id": "caption-word-48-2",
+          "text": "just",
+          "start": 31.931,
+          "end": 32.171
+        }
+      ]
+    },
+    {
+      "id": "caption-group-49",
+      "frame": 5,
+      "start": 32.171,
+      "end": 33.691,
+      "text": "green or red.",
+      "words": [
+        {
+          "id": "caption-word-49-0",
+          "text": "green",
+          "start": 32.171,
+          "end": 32.731
+        },
+        {
+          "id": "caption-word-49-1",
+          "text": "or",
+          "start": 32.731,
+          "end": 33.051
+        },
+        {
+          "id": "caption-word-49-2",
+          "text": "red.",
+          "start": 33.051,
+          "end": 33.691
+        }
+      ]
+    },
+    {
+      "id": "caption-group-50",
+      "frame": 5,
+      "start": 33.691,
+      "end": 34.811,
+      "text": "No fingering.",
+      "words": [
+        {
+          "id": "caption-word-50-0",
+          "text": "No",
+          "start": 33.691,
+          "end": 34.011
+        },
+        {
+          "id": "caption-word-50-1",
+          "text": "fingering.",
+          "start": 34.011,
+          "end": 34.811
+        }
+      ]
+    },
+    {
+      "id": "caption-group-51",
+      "frame": 5,
+      "start": 34.811,
+      "end": 35.931,
+      "text": "No dynamics.",
+      "words": [
+        {
+          "id": "caption-word-51-0",
+          "text": "No",
+          "start": 34.811,
+          "end": 35.051
+        },
+        {
+          "id": "caption-word-51-1",
+          "text": "dynamics.",
+          "start": 35.051,
+          "end": 35.931
+        }
+      ]
+    },
+    {
+      "id": "caption-group-52",
+      "frame": 5,
+      "start": 35.931,
+      "end": 37.078,
+      "text": "No musicality.",
+      "words": [
+        {
+          "id": "caption-word-52-0",
+          "text": "No",
+          "start": 35.931,
+          "end": 36.171
+        },
+        {
+          "id": "caption-word-52-1",
+          "text": "musicality.",
+          "start": 36.171,
+          "end": 37.051
+        }
+      ]
+    },
+    {
+      "id": "caption-group-53",
+      "frame": 6,
+      "start": 37.078,
+      "end": 37.718,
+      "text": "The songs",
+      "words": [
+        {
+          "id": "caption-word-53-0",
+          "text": "The",
+          "start": 37.078,
+          "end": 37.318
+        },
+        {
+          "id": "caption-word-53-1",
+          "text": "songs",
+          "start": 37.318,
+          "end": 37.718
+        }
+      ]
+    },
+    {
+      "id": "caption-group-54",
+      "frame": 6,
+      "start": 37.718,
+      "end": 39.318,
+      "text": "are simplified sketches,",
+      "words": [
+        {
+          "id": "caption-word-54-0",
+          "text": "are",
+          "start": 37.718,
+          "end": 37.878
+        },
+        {
+          "id": "caption-word-54-1",
+          "text": "simplified",
+          "start": 37.878,
+          "end": 38.598
+        },
+        {
+          "id": "caption-word-54-2",
+          "text": "sketches,",
+          "start": 38.598,
+          "end": 39.318
+        }
+      ]
+    },
+    {
+      "id": "caption-group-55",
+      "frame": 6,
+      "start": 39.318,
+      "end": 39.718,
+      "text": "not what",
+      "words": [
+        {
+          "id": "caption-word-55-0",
+          "text": "not",
+          "start": 39.318,
+          "end": 39.558
+        },
+        {
+          "id": "caption-word-55-1",
+          "text": "what",
+          "start": 39.558,
+          "end": 39.718
+        }
+      ]
+    },
+    {
+      "id": "caption-group-56",
+      "frame": 6,
+      "start": 39.718,
+      "end": 40.198,
+      "text": "you hear",
+      "words": [
+        {
+          "id": "caption-word-56-0",
+          "text": "you",
+          "start": 39.718,
+          "end": 39.878
+        },
+        {
+          "id": "caption-word-56-1",
+          "text": "hear",
+          "start": 39.878,
+          "end": 40.198
+        }
+      ]
+    },
+    {
+      "id": "caption-group-57",
+      "frame": 6,
+      "start": 40.198,
+      "end": 41.558,
+      "text": "on Spotify.",
+      "words": [
+        {
+          "id": "caption-word-57-0",
+          "text": "on",
+          "start": 40.198,
+          "end": 40.438
+        },
+        {
+          "id": "caption-word-57-1",
+          "text": "Spotify.",
+          "start": 40.438,
+          "end": 41.558
+        }
+      ]
+    },
+    {
+      "id": "caption-group-58",
+      "frame": 6,
+      "start": 41.558,
+      "end": 42.758,
+      "text": "And the ceiling?",
+      "words": [
+        {
+          "id": "caption-word-58-0",
+          "text": "And",
+          "start": 41.558,
+          "end": 41.718
+        },
+        {
+          "id": "caption-word-58-1",
+          "text": "the",
+          "start": 41.718,
+          "end": 41.878
+        },
+        {
+          "id": "caption-word-58-2",
+          "text": "ceiling?",
+          "start": 41.878,
+          "end": 42.758
+        }
+      ]
+    },
+    {
+      "id": "caption-group-59",
+      "frame": 6,
+      "start": 42.758,
+      "end": 44.278,
+      "text": "Early intermediate.",
+      "words": [
+        {
+          "id": "caption-word-59-0",
+          "text": "Early",
+          "start": 42.758,
+          "end": 43.238
+        },
+        {
+          "id": "caption-word-59-1",
+          "text": "intermediate.",
+          "start": 43.238,
+          "end": 44.278
+        }
+      ]
+    },
+    {
+      "id": "caption-group-60",
+      "frame": 6,
+      "start": 44.278,
+      "end": 44.838,
+      "text": "About one",
+      "words": [
+        {
+          "id": "caption-word-60-0",
+          "text": "About",
+          "start": 44.278,
+          "end": 44.518
+        },
+        {
+          "id": "caption-word-60-1",
+          "text": "one",
+          "start": 44.518,
+          "end": 44.838
+        }
+      ]
+    },
+    {
+      "id": "caption-group-61",
+      "frame": 6,
+      "start": 44.838,
+      "end": 45.238,
+      "text": "to two",
+      "words": [
+        {
+          "id": "caption-word-61-0",
+          "text": "to",
+          "start": 44.838,
+          "end": 44.998
+        },
+        {
+          "id": "caption-word-61-1",
+          "text": "two",
+          "start": 44.998,
+          "end": 45.238
+        }
+      ]
+    },
+    {
+      "id": "caption-group-62",
+      "frame": 6,
+      "start": 45.238,
+      "end": 46.158,
+      "text": "years of lessons.",
+      "words": [
+        {
+          "id": "caption-word-62-0",
+          "text": "years",
+          "start": 45.238,
+          "end": 45.478
+        },
+        {
+          "id": "caption-word-62-1",
+          "text": "of",
+          "start": 45.478,
+          "end": 45.558
+        },
+        {
+          "id": "caption-word-62-2",
+          "text": "lessons.",
+          "start": 45.558,
+          "end": 46.038
+        }
+      ]
+    },
+    {
+      "id": "caption-group-63",
+      "frame": 7,
+      "start": 46.337,
+      "end": 47.697,
+      "text": "Now the math.",
+      "words": [
+        {
+          "id": "caption-word-63-0",
+          "text": "Now",
+          "start": 46.337,
+          "end": 46.657
+        },
+        {
+          "id": "caption-word-63-1",
+          "text": "the",
+          "start": 46.657,
+          "end": 46.897
+        },
+        {
+          "id": "caption-word-63-2",
+          "text": "math.",
+          "start": 46.897,
+          "end": 47.697
+        }
+      ]
+    },
+    {
+      "id": "caption-group-64",
+      "frame": 7,
+      "start": 47.697,
+      "end": 48.257,
+      "text": "A hundred",
+      "words": [
+        {
+          "id": "caption-word-64-0",
+          "text": "A",
+          "start": 47.697,
+          "end": 47.937
+        },
+        {
+          "id": "caption-word-64-1",
+          "text": "hundred",
+          "start": 47.937,
+          "end": 48.257
+        }
+      ]
+    },
+    {
+      "id": "caption-group-65",
+      "frame": 7,
+      "start": 48.257,
+      "end": 49.377,
+      "text": "and seventy dollars",
+      "words": [
+        {
+          "id": "caption-word-65-0",
+          "text": "and",
+          "start": 48.257,
+          "end": 48.337
+        },
+        {
+          "id": "caption-word-65-1",
+          "text": "seventy",
+          "start": 48.417,
+          "end": 48.897
+        },
+        {
+          "id": "caption-word-65-2",
+          "text": "dollars",
+          "start": 48.897,
+          "end": 49.377
+        }
+      ]
+    },
+    {
+      "id": "caption-group-66",
+      "frame": 7,
+      "start": 49.377,
+      "end": 50.257,
+      "text": "a year.",
+      "words": [
+        {
+          "id": "caption-word-66-0",
+          "text": "a",
+          "start": 49.377,
+          "end": 49.537
+        },
+        {
+          "id": "caption-word-66-1",
+          "text": "year.",
+          "start": 49.537,
+          "end": 50.257
+        }
+      ]
+    },
+    {
+      "id": "caption-group-67",
+      "frame": 7,
+      "start": 50.257,
+      "end": 50.897,
+      "text": "Two years",
+      "words": [
+        {
+          "id": "caption-word-67-0",
+          "text": "Two",
+          "start": 50.257,
+          "end": 50.417
+        },
+        {
+          "id": "caption-word-67-1",
+          "text": "years",
+          "start": 50.577,
+          "end": 50.897
+        }
+      ]
+    },
+    {
+      "id": "caption-group-68",
+      "frame": 7,
+      "start": 50.897,
+      "end": 51.377,
+      "text": "to hit",
+      "words": [
+        {
+          "id": "caption-word-68-0",
+          "text": "to",
+          "start": 50.897,
+          "end": 51.137
+        },
+        {
+          "id": "caption-word-68-1",
+          "text": "hit",
+          "start": 51.137,
+          "end": 51.377
+        }
+      ]
+    },
+    {
+      "id": "caption-group-69",
+      "frame": 7,
+      "start": 51.377,
+      "end": 52.337,
+      "text": "that ceiling,",
+      "words": [
+        {
+          "id": "caption-word-69-0",
+          "text": "that",
+          "start": 51.377,
+          "end": 51.617
+        },
+        {
+          "id": "caption-word-69-1",
+          "text": "ceiling,",
+          "start": 51.617,
+          "end": 52.337
+        }
+      ]
+    },
+    {
+      "id": "caption-group-70",
+      "frame": 7,
+      "start": 52.337,
+      "end": 52.977,
+      "text": "about three",
+      "words": [
+        {
+          "id": "caption-word-70-0",
+          "text": "about",
+          "start": 52.337,
+          "end": 52.497
+        },
+        {
+          "id": "caption-word-70-1",
+          "text": "three",
+          "start": 52.657,
+          "end": 52.977
+        }
+      ]
+    },
+    {
+      "id": "caption-group-71",
+      "frame": 7,
+      "start": 52.977,
+      "end": 53.457,
+      "text": "hundred and",
+      "words": [
+        {
+          "id": "caption-word-71-0",
+          "text": "hundred",
+          "start": 52.977,
+          "end": 53.297
+        },
+        {
+          "id": "caption-word-71-1",
+          "text": "and",
+          "start": 53.297,
+          "end": 53.457
+        }
+      ]
+    },
+    {
+      "id": "caption-group-72",
+      "frame": 7,
+      "start": 53.457,
+      "end": 54.377,
+      "text": "forty dollars,",
+      "words": [
+        {
+          "id": "caption-word-72-0",
+          "text": "forty",
+          "start": 53.457,
+          "end": 53.857
+        },
+        {
+          "id": "caption-word-72-1",
+          "text": "dollars,",
+          "start": 53.857,
+          "end": 54.257
+        }
+      ]
+    },
+    {
+      "id": "caption-group-73",
+      "frame": 7,
+      "start": 54.417,
+      "end": 55.457,
+      "text": "with no technique",
+      "words": [
+        {
+          "id": "caption-word-73-0",
+          "text": "with",
+          "start": 54.417,
+          "end": 54.657
+        },
+        {
+          "id": "caption-word-73-1",
+          "text": "no",
+          "start": 54.657,
+          "end": 54.897
+        },
+        {
+          "id": "caption-word-73-2",
+          "text": "technique",
+          "start": 54.897,
+          "end": 55.457
+        }
+      ]
+    },
+    {
+      "id": "caption-group-74",
+      "frame": 7,
+      "start": 55.457,
+      "end": 56.057,
+      "text": "coaching.",
+      "words": [
+        {
+          "id": "caption-word-74-0",
+          "text": "coaching.",
+          "start": 55.457,
+          "end": 55.937
+        }
+      ]
+    },
+    {
+      "id": "caption-group-75",
+      "frame": 8,
+      "start": 56.086,
+      "end": 56.806,
+      "text": "Buying for",
+      "words": [
+        {
+          "id": "caption-word-75-0",
+          "text": "Buying",
+          "start": 56.086,
+          "end": 56.646
+        },
+        {
+          "id": "caption-word-75-1",
+          "text": "for",
+          "start": 56.646,
+          "end": 56.806
+        }
+      ]
+    },
+    {
+      "id": "caption-group-76",
+      "frame": 8,
+      "start": 56.806,
+      "end": 57.206,
+      "text": "a kid",
+      "words": [
+        {
+          "id": "caption-word-76-0",
+          "text": "a",
+          "start": 56.806,
+          "end": 56.966
+        },
+        {
+          "id": "caption-word-76-1",
+          "text": "kid",
+          "start": 56.966,
+          "end": 57.206
+        }
+      ]
+    },
+    {
+      "id": "caption-group-77",
+      "frame": 8,
+      "start": 57.206,
+      "end": 58.726,
+      "text": "who needs motivation?",
+      "words": [
+        {
+          "id": "caption-word-77-0",
+          "text": "who",
+          "start": 57.206,
+          "end": 57.446
+        },
+        {
+          "id": "caption-word-77-1",
+          "text": "needs",
+          "start": 57.446,
+          "end": 57.766
+        },
+        {
+          "id": "caption-word-77-2",
+          "text": "motivation?",
+          "start": 57.766,
+          "end": 58.726
+        }
+      ]
+    },
+    {
+      "id": "caption-group-78",
+      "frame": 8,
+      "start": 58.726,
+      "end": 59.206,
+      "text": "try the",
+      "words": [
+        {
+          "id": "caption-word-78-0",
+          "text": "try",
+          "start": 58.726,
+          "end": 59.046
+        },
+        {
+          "id": "caption-word-78-1",
+          "text": "the",
+          "start": 59.046,
+          "end": 59.206
+        }
+      ]
+    },
+    {
+      "id": "caption-group-79",
+      "frame": 8,
+      "start": 59.206,
+      "end": 60.406,
+      "text": "free trial,",
+      "words": [
+        {
+          "id": "caption-word-79-0",
+          "text": "free",
+          "start": 59.206,
+          "end": 59.606
+        },
+        {
+          "id": "caption-word-79-1",
+          "text": "trial,",
+          "start": 59.606,
+          "end": 60.406
+        }
+      ]
+    },
+    {
+      "id": "caption-group-80",
+      "frame": 8,
+      "start": 60.406,
+      "end": 60.966,
+      "text": "an adult",
+      "words": [
+        {
+          "id": "caption-word-80-0",
+          "text": "an",
+          "start": 60.406,
+          "end": 60.566
+        },
+        {
+          "id": "caption-word-80-1",
+          "text": "adult",
+          "start": 60.566,
+          "end": 60.966
+        }
+      ]
+    },
+    {
+      "id": "caption-group-81",
+      "frame": 8,
+      "start": 60.966,
+      "end": 61.446,
+      "text": "who wants",
+      "words": [
+        {
+          "id": "caption-word-81-0",
+          "text": "who",
+          "start": 60.966,
+          "end": 61.206
+        },
+        {
+          "id": "caption-word-81-1",
+          "text": "wants",
+          "start": 61.206,
+          "end": 61.446
+        }
+      ]
+    },
+    {
+      "id": "caption-group-82",
+      "frame": 8,
+      "start": 61.446,
+      "end": 62.726,
+      "text": "to actually play?",
+      "words": [
+        {
+          "id": "caption-word-82-0",
+          "text": "to",
+          "start": 61.446,
+          "end": 61.606
+        },
+        {
+          "id": "caption-word-82-1",
+          "text": "actually",
+          "start": 61.606,
+          "end": 62.006
+        },
+        {
+          "id": "caption-word-82-2",
+          "text": "play?",
+          "start": 62.006,
+          "end": 62.726
+        }
+      ]
+    },
+    {
+      "id": "caption-group-83",
+      "frame": 8,
+      "start": 62.726,
+      "end": 64.486,
+      "text": "skip the subscription.",
+      "words": [
+        {
+          "id": "caption-word-83-0",
+          "text": "skip",
+          "start": 62.726,
+          "end": 63.046
+        },
+        {
+          "id": "caption-word-83-1",
+          "text": "the",
+          "start": 63.206,
+          "end": 63.366
+        },
+        {
+          "id": "caption-word-83-2",
+          "text": "subscription.",
+          "start": 63.366,
+          "end": 64.486
+        }
+      ]
+    },
+    {
+      "id": "caption-group-84",
+      "frame": 8,
+      "start": 64.486,
+      "end": 65.686,
+      "text": "A one-time course",
+      "words": [
+        {
+          "id": "caption-word-84-0",
+          "text": "A",
+          "start": 64.486,
+          "end": 64.726
+        },
+        {
+          "id": "caption-word-84-1",
+          "text": "one-time",
+          "start": 64.726,
+          "end": 65.206
+        },
+        {
+          "id": "caption-word-84-2",
+          "text": "course",
+          "start": 65.366,
+          "end": 65.686
+        }
+      ]
+    },
+    {
+      "id": "caption-group-85",
+      "frame": 8,
+      "start": 65.686,
+      "end": 67.446,
+      "text": "like Pianoforall will take",
+      "words": [
+        {
+          "id": "caption-word-85-0",
+          "text": "like",
+          "start": 65.686,
+          "end": 65.926
+        },
+        {
+          "id": "caption-word-85-1",
+          "text": "Pianoforall",
+          "start": 65.926,
+          "end": 66.966
+        },
+        {
+          "id": "caption-word-85-2",
+          "text": "will",
+          "start": 67.126,
+          "end": 67.286
+        },
+        {
+          "id": "caption-word-85-3",
+          "text": "take",
+          "start": 67.286,
+          "end": 67.446
+        }
+      ]
+    },
+    {
+      "id": "caption-group-86",
+      "frame": 8,
+      "start": 67.446,
+      "end": 68.161,
+      "text": "you further.",
+      "words": [
+        {
+          "id": "caption-word-86-0",
+          "text": "you",
+          "start": 67.446,
+          "end": 67.606
+        },
+        {
+          "id": "caption-word-86-1",
+          "text": "further.",
+          "start": 67.606,
+          "end": 68.086
+        }
+      ]
+    },
+    {
+      "id": "caption-group-87",
+      "frame": 9,
+      "start": 68.161,
+      "end": 69.441,
+      "text": "Simply Piano:",
+      "words": [
+        {
+          "id": "caption-word-87-0",
+          "text": "Simply",
+          "start": 68.161,
+          "end": 68.721
+        },
+        {
+          "id": "caption-word-87-1",
+          "text": "Piano:",
+          "start": 68.721,
+          "end": 69.441
+        }
+      ]
+    },
+    {
+      "id": "caption-group-88",
+      "frame": 9,
+      "start": 69.441,
+      "end": 70.481,
+      "text": "an appetizer,",
+      "words": [
+        {
+          "id": "caption-word-88-0",
+          "text": "an",
+          "start": 69.441,
+          "end": 69.681
+        },
+        {
+          "id": "caption-word-88-1",
+          "text": "appetizer,",
+          "start": 69.681,
+          "end": 70.481
+        }
+      ]
+    },
+    {
+      "id": "caption-group-89",
+      "frame": 9,
+      "start": 70.481,
+      "end": 71.121,
+      "text": "priced like",
+      "words": [
+        {
+          "id": "caption-word-89-0",
+          "text": "priced",
+          "start": 70.481,
+          "end": 70.961
+        },
+        {
+          "id": "caption-word-89-1",
+          "text": "like",
+          "start": 70.961,
+          "end": 71.121
+        }
+      ]
+    },
+    {
+      "id": "caption-group-90",
+      "frame": 9,
+      "start": 71.121,
+      "end": 72.401,
+      "text": "a main course.",
+      "words": [
+        {
+          "id": "caption-word-90-0",
+          "text": "a",
+          "start": 71.121,
+          "end": 71.281
+        },
+        {
+          "id": "caption-word-90-1",
+          "text": "main",
+          "start": 71.281,
+          "end": 71.441
+        },
+        {
+          "id": "caption-word-90-2",
+          "text": "course.",
+          "start": 71.601,
+          "end": 72.401
+        }
+      ]
+    },
+    {
+      "id": "caption-group-91",
+      "frame": 9,
+      "start": 72.401,
+      "end": 73.041,
+      "text": "Full review",
+      "words": [
+        {
+          "id": "caption-word-91-0",
+          "text": "Full",
+          "start": 72.401,
+          "end": 72.721
+        },
+        {
+          "id": "caption-word-91-1",
+          "text": "review",
+          "start": 72.721,
+          "end": 73.041
+        }
+      ]
+    },
+    {
+      "id": "caption-group-92",
+      "frame": 9,
+      "start": 73.041,
+      "end": 74.921,
+      "text": "at pianoers dot com.",
+      "words": [
+        {
+          "id": "caption-word-92-0",
+          "text": "at",
+          "start": 73.041,
+          "end": 73.201
+        },
+        {
+          "id": "caption-word-92-1",
+          "text": "pianoers",
+          "start": 73.201,
+          "end": 74.001
+        },
+        {
+          "id": "caption-word-92-2",
+          "text": "dot",
+          "start": 74.161,
+          "end": 74.401
+        },
+        {
+          "id": "caption-word-92-3",
+          "text": "com.",
+          "start": 74.401,
+          "end": 74.801
+        }
+      ]
+    }
+  ]
+}

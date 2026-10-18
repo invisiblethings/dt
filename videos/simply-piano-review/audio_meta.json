@@ -1,0 +1,1210 @@
+{
+  "bgm": null,
+  "bgm_pending": false,
+  "voices": [
+    {
+      "frame": 1,
+      "path": "assets/voice/01.wav",
+      "duration_s": 5.739,
+      "words": [
+        {
+          "text": "Simply",
+          "start": 0,
+          "end": 0.56
+        },
+        {
+          "text": "Piano.",
+          "start": 0.56,
+          "end": 1.2
+        },
+        {
+          "text": "Three",
+          "start": 1.2,
+          "end": 1.52
+        },
+        {
+          "text": "and",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "a",
+          "start": 1.68,
+          "end": 1.76
+        },
+        {
+          "text": "half",
+          "start": 1.76,
+          "end": 2
+        },
+        {
+          "text": "stars.",
+          "start": 2,
+          "end": 2.8
+        },
+        {
+          "text": "A",
+          "start": 2.8,
+          "end": 3.04
+        },
+        {
+          "text": "hundred",
+          "start": 3.04,
+          "end": 3.28
+        },
+        {
+          "text": "and",
+          "start": 3.28,
+          "end": 3.36
+        },
+        {
+          "text": "seventy",
+          "start": 3.44,
+          "end": 3.84
+        },
+        {
+          "text": "dollars",
+          "start": 3.84,
+          "end": 4.24
+        },
+        {
+          "text": "a",
+          "start": 4.24,
+          "end": 4.4
+        },
+        {
+          "text": "year.",
+          "start": 4.4,
+          "end": 4.8
+        },
+        {
+          "text": "Is",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "text": "it",
+          "start": 5.04,
+          "end": 5.2
+        },
+        {
+          "text": "worth",
+          "start": 5.2,
+          "end": 5.44
+        },
+        {
+          "text": "it?",
+          "start": 5.44,
+          "end": 5.68
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "path": "assets/voice/02.wav",
+      "duration_s": 4.629,
+      "words": [
+        {
+          "text": "Short",
+          "start": 0,
+          "end": 0.48
+        },
+        {
+          "text": "answer:",
+          "start": 0.48,
+          "end": 1.04
+        },
+        {
+          "text": "for",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "kids,",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "text": "maybe.",
+          "start": 1.76,
+          "end": 2.4
+        },
+        {
+          "text": "For",
+          "start": 2.4,
+          "end": 2.64
+        },
+        {
+          "text": "adults",
+          "start": 2.64,
+          "end": 3.04
+        },
+        {
+          "text": "who",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "want",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "text": "to",
+          "start": 3.36,
+          "end": 3.44
+        },
+        {
+          "text": "really",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "text": "play,",
+          "start": 3.76,
+          "end": 4
+        },
+        {
+          "text": "no.",
+          "start": 4.08,
+          "end": 4.56
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "path": "assets/voice/03.wav",
+      "duration_s": 7.168,
+      "words": [
+        {
+          "text": "Here's",
+          "start": 0,
+          "end": 0.4
+        },
+        {
+          "text": "what",
+          "start": 0.4,
+          "end": 0.56
+        },
+        {
+          "text": "it",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "text": "is:",
+          "start": 0.8,
+          "end": 1.28
+        },
+        {
+          "text": "an",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "app",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "text": "that",
+          "start": 1.84,
+          "end": 2
+        },
+        {
+          "text": "listens",
+          "start": 2,
+          "end": 2.48
+        },
+        {
+          "text": "through",
+          "start": 2.48,
+          "end": 2.8
+        },
+        {
+          "text": "your",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "text": "phone's",
+          "start": 2.96,
+          "end": 3.52
+        },
+        {
+          "text": "mic,",
+          "start": 3.52,
+          "end": 4
+        },
+        {
+          "text": "and",
+          "start": 4,
+          "end": 4.24
+        },
+        {
+          "text": "checks",
+          "start": 4.24,
+          "end": 4.72
+        },
+        {
+          "text": "if",
+          "start": 4.72,
+          "end": 4.88
+        },
+        {
+          "text": "you",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "text": "hit",
+          "start": 5.04,
+          "end": 5.28
+        },
+        {
+          "text": "the",
+          "start": 5.28,
+          "end": 5.44
+        },
+        {
+          "text": "right",
+          "start": 5.44,
+          "end": 5.68
+        },
+        {
+          "text": "note,",
+          "start": 5.68,
+          "end": 5.92
+        },
+        {
+          "text": "at",
+          "start": 6,
+          "end": 6.16
+        },
+        {
+          "text": "the",
+          "start": 6.16,
+          "end": 6.32
+        },
+        {
+          "text": "right",
+          "start": 6.32,
+          "end": 6.64
+        },
+        {
+          "text": "time.",
+          "start": 6.64,
+          "end": 7.04
+        }
+      ]
+    },
+    {
+      "frame": 4,
+      "path": "assets/voice/04.wav",
+      "duration_s": 8.235,
+      "words": [
+        {
+          "text": "Credit",
+          "start": 0.08,
+          "end": 0.48
+        },
+        {
+          "text": "where",
+          "start": 0.48,
+          "end": 0.64
+        },
+        {
+          "text": "it's",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "due.",
+          "start": 0.88,
+          "end": 1.44
+        },
+        {
+          "text": "The",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "onboarding",
+          "start": 1.6,
+          "end": 2.4
+        },
+        {
+          "text": "is",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "text": "easy.",
+          "start": 2.56,
+          "end": 3.28
+        },
+        {
+          "text": "Streaks",
+          "start": 3.28,
+          "end": 3.84
+        },
+        {
+          "text": "and",
+          "start": 3.84,
+          "end": 4
+        },
+        {
+          "text": "points",
+          "start": 4,
+          "end": 4.48
+        },
+        {
+          "text": "keep",
+          "start": 4.48,
+          "end": 4.72
+        },
+        {
+          "text": "you",
+          "start": 4.72,
+          "end": 4.88
+        },
+        {
+          "text": "coming",
+          "start": 4.88,
+          "end": 5.28
+        },
+        {
+          "text": "back,",
+          "start": 5.28,
+          "end": 5.76
+        },
+        {
+          "text": "and",
+          "start": 5.76,
+          "end": 5.92
+        },
+        {
+          "text": "there",
+          "start": 5.92,
+          "end": 6.16
+        },
+        {
+          "text": "are",
+          "start": 6.16,
+          "end": 6.32
+        },
+        {
+          "text": "over",
+          "start": 6.32,
+          "end": 6.56
+        },
+        {
+          "text": "5,000",
+          "start": 6.56,
+          "end": 7.44
+        },
+        {
+          "text": "songs.",
+          "start": 7.44,
+          "end": 8.16
+        }
+      ]
+    },
+    {
+      "frame": 5,
+      "path": "assets/voice/05.wav",
+      "duration_s": 11.307,
+      "words": [
+        {
+          "text": "But",
+          "start": 0,
+          "end": 0.16
+        },
+        {
+          "text": "here's",
+          "start": 0.16,
+          "end": 0.48
+        },
+        {
+          "text": "the",
+          "start": 0.48,
+          "end": 0.64
+        },
+        {
+          "text": "catch.",
+          "start": 0.64,
+          "end": 1.28
+        },
+        {
+          "text": "It",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "can't",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "text": "see",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "text": "your",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "text": "hands,",
+          "start": 2.32,
+          "end": 2.72
+        },
+        {
+          "text": "so",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "text": "bad",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "text": "habits",
+          "start": 3.28,
+          "end": 3.68
+        },
+        {
+          "text": "slip",
+          "start": 3.68,
+          "end": 4.16
+        },
+        {
+          "text": "right",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "text": "through.",
+          "start": 4.4,
+          "end": 4.96
+        },
+        {
+          "text": "And",
+          "start": 4.96,
+          "end": 5.2
+        },
+        {
+          "text": "the",
+          "start": 5.2,
+          "end": 5.36
+        },
+        {
+          "text": "feedback",
+          "start": 5.36,
+          "end": 5.92
+        },
+        {
+          "text": "is",
+          "start": 5.92,
+          "end": 6.16
+        },
+        {
+          "text": "just",
+          "start": 6.16,
+          "end": 6.4
+        },
+        {
+          "text": "green",
+          "start": 6.4,
+          "end": 6.96
+        },
+        {
+          "text": "or",
+          "start": 6.96,
+          "end": 7.28
+        },
+        {
+          "text": "red.",
+          "start": 7.28,
+          "end": 7.92
+        },
+        {
+          "text": "No",
+          "start": 7.92,
+          "end": 8.24
+        },
+        {
+          "text": "fingering.",
+          "start": 8.24,
+          "end": 9.04
+        },
+        {
+          "text": "No",
+          "start": 9.04,
+          "end": 9.28
+        },
+        {
+          "text": "dynamics.",
+          "start": 9.28,
+          "end": 10.16
+        },
+        {
+          "text": "No",
+          "start": 10.16,
+          "end": 10.4
+        },
+        {
+          "text": "musicality.",
+          "start": 10.4,
+          "end": 11.28
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "path": "assets/voice/06.wav",
+      "duration_s": 9.259,
+      "words": [
+        {
+          "text": "The",
+          "start": 0,
+          "end": 0.24
+        },
+        {
+          "text": "songs",
+          "start": 0.24,
+          "end": 0.64
+        },
+        {
+          "text": "are",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "simplified",
+          "start": 0.8,
+          "end": 1.52
+        },
+        {
+          "text": "sketches,",
+          "start": 1.52,
+          "end": 2.24
+        },
+        {
+          "text": "not",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "text": "what",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "text": "you",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "text": "hear",
+          "start": 2.8,
+          "end": 3.12
+        },
+        {
+          "text": "on",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "text": "Spotify.",
+          "start": 3.36,
+          "end": 4.48
+        },
+        {
+          "text": "And",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "text": "the",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "text": "ceiling?",
+          "start": 4.8,
+          "end": 5.68
+        },
+        {
+          "text": "Early",
+          "start": 5.68,
+          "end": 6.16
+        },
+        {
+          "text": "intermediate.",
+          "start": 6.16,
+          "end": 7.2
+        },
+        {
+          "text": "About",
+          "start": 7.2,
+          "end": 7.44
+        },
+        {
+          "text": "one",
+          "start": 7.44,
+          "end": 7.76
+        },
+        {
+          "text": "to",
+          "start": 7.76,
+          "end": 7.92
+        },
+        {
+          "text": "two",
+          "start": 7.92,
+          "end": 8.16
+        },
+        {
+          "text": "years",
+          "start": 8.16,
+          "end": 8.4
+        },
+        {
+          "text": "of",
+          "start": 8.4,
+          "end": 8.48
+        },
+        {
+          "text": "lessons.",
+          "start": 8.48,
+          "end": 8.96
+        }
+      ]
+    },
+    {
+      "frame": 7,
+      "path": "assets/voice/07.wav",
+      "duration_s": 9.749,
+      "words": [
+        {
+          "text": "Now",
+          "start": 0,
+          "end": 0.32
+        },
+        {
+          "text": "the",
+          "start": 0.32,
+          "end": 0.56
+        },
+        {
+          "text": "math.",
+          "start": 0.56,
+          "end": 1.36
+        },
+        {
+          "text": "A",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "text": "hundred",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "and",
+          "start": 1.92,
+          "end": 2
+        },
+        {
+          "text": "seventy",
+          "start": 2.08,
+          "end": 2.56
+        },
+        {
+          "text": "dollars",
+          "start": 2.56,
+          "end": 3.04
+        },
+        {
+          "text": "a",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "year.",
+          "start": 3.2,
+          "end": 3.92
+        },
+        {
+          "text": "Two",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "text": "years",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "text": "to",
+          "start": 4.56,
+          "end": 4.8
+        },
+        {
+          "text": "hit",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "text": "that",
+          "start": 5.04,
+          "end": 5.28
+        },
+        {
+          "text": "ceiling,",
+          "start": 5.28,
+          "end": 6
+        },
+        {
+          "text": "about",
+          "start": 6,
+          "end": 6.16
+        },
+        {
+          "text": "three",
+          "start": 6.32,
+          "end": 6.64
+        },
+        {
+          "text": "hundred",
+          "start": 6.64,
+          "end": 6.96
+        },
+        {
+          "text": "and",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "text": "forty",
+          "start": 7.12,
+          "end": 7.52
+        },
+        {
+          "text": "dollars,",
+          "start": 7.52,
+          "end": 7.92
+        },
+        {
+          "text": "with",
+          "start": 8.08,
+          "end": 8.32
+        },
+        {
+          "text": "no",
+          "start": 8.32,
+          "end": 8.56
+        },
+        {
+          "text": "technique",
+          "start": 8.56,
+          "end": 9.12
+        },
+        {
+          "text": "coaching.",
+          "start": 9.12,
+          "end": 9.6
+        }
+      ]
+    },
+    {
+      "frame": 8,
+      "path": "assets/voice/08.wav",
+      "duration_s": 12.075,
+      "words": [
+        {
+          "text": "Buying",
+          "start": 0,
+          "end": 0.56
+        },
+        {
+          "text": "for",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "text": "a",
+          "start": 0.72,
+          "end": 0.88
+        },
+        {
+          "text": "kid",
+          "start": 0.88,
+          "end": 1.12
+        },
+        {
+          "text": "who",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "text": "needs",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "motivation?",
+          "start": 1.68,
+          "end": 2.64
+        },
+        {
+          "text": "try",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "text": "free",
+          "start": 3.12,
+          "end": 3.52
+        },
+        {
+          "text": "trial,",
+          "start": 3.52,
+          "end": 4.32
+        },
+        {
+          "text": "an",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "text": "adult",
+          "start": 4.48,
+          "end": 4.88
+        },
+        {
+          "text": "who",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "text": "wants",
+          "start": 5.12,
+          "end": 5.36
+        },
+        {
+          "text": "to",
+          "start": 5.36,
+          "end": 5.52
+        },
+        {
+          "text": "actually",
+          "start": 5.52,
+          "end": 5.92
+        },
+        {
+          "text": "play?",
+          "start": 5.92,
+          "end": 6.64
+        },
+        {
+          "text": "skip",
+          "start": 6.64,
+          "end": 6.96
+        },
+        {
+          "text": "the",
+          "start": 7.12,
+          "end": 7.28
+        },
+        {
+          "text": "subscription.",
+          "start": 7.28,
+          "end": 8.4
+        },
+        {
+          "text": "A",
+          "start": 8.4,
+          "end": 8.64
+        },
+        {
+          "text": "one-time",
+          "start": 8.64,
+          "end": 9.12
+        },
+        {
+          "text": "course",
+          "start": 9.28,
+          "end": 9.6
+        },
+        {
+          "text": "like",
+          "start": 9.6,
+          "end": 9.84
+        },
+        {
+          "text": "Pianoforall",
+          "start": 9.84,
+          "end": 10.88
+        },
+        {
+          "text": "will",
+          "start": 11.04,
+          "end": 11.2
+        },
+        {
+          "text": "take",
+          "start": 11.2,
+          "end": 11.36
+        },
+        {
+          "text": "you",
+          "start": 11.36,
+          "end": 11.52
+        },
+        {
+          "text": "further.",
+          "start": 11.52,
+          "end": 12
+        }
+      ]
+    },
+    {
+      "frame": 9,
+      "path": "assets/voice/09.wav",
+      "duration_s": 6.656,
+      "words": [
+        {
+          "text": "Simply",
+          "start": 0,
+          "end": 0.56
+        },
+        {
+          "text": "Piano:",
+          "start": 0.56,
+          "end": 1.28
+        },
+        {
+          "text": "an",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "appetizer,",
+          "start": 1.52,
+          "end": 2.32
+        },
+        {
+          "text": "priced",
+          "start": 2.32,
+          "end": 2.8
+        },
+        {
+          "text": "like",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "text": "a",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "text": "main",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "text": "course.",
+          "start": 3.44,
+          "end": 4.24
+        },
+        {
+          "text": "Full",
+          "start": 4.24,
+          "end": 4.56
+        },
+        {
+          "text": "review",
+          "start": 4.56,
+          "end": 4.88
+        },
+        {
+          "text": "at",
+          "start": 4.88,
+          "end": 5.04
+        },
+        {
+          "text": "pianoers",
+          "start": 5.04,
+          "end": 5.84
+        },
+        {
+          "text": "dot",
+          "start": 6,
+          "end": 6.24
+        },
+        {
+          "text": "com.",
+          "start": 6.24,
+          "end": 6.64
+        }
+      ]
+    }
+  ],
+  "sfx": [
+    {
+      "frame": 1,
+      "file": "assets/sfx/click-soft.mp3",
+      "offset_s": 0,
+      "duration_s": 0.061,
+      "volume": 0.35,
+      "license": "cc0",
+      "credit": "\"Click_1.wav\" by JonnyRuss01 is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/."
+    },
+    {
+      "frame": 1,
+      "file": "assets/sfx/impact-bass-2.mp3",
+      "offset_s": 0,
+      "duration_s": 7.5,
+      "volume": 0.35,
+      "license": "cc0",
+      "credit": "\"Bass Impact 2\" by D4XX is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/."
+    },
+    {
+      "frame": 2,
+      "file": "assets/sfx/whoosh-short.mp3",
+      "offset_s": 0,
+      "duration_s": 4.511,
+      "volume": 0.35,
+      "license": "by",
+      "credit": "\"Swoosh.wav\" by Brsjak is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/."
+    },
+    {
+      "frame": 2,
+      "file": "assets/sfx/impact-bass-1.mp3",
+      "offset_s": 0,
+      "duration_s": 0.78,
+      "volume": 0.35,
+      "license": "by",
+      "credit": "\"bass impact 1.wav\" by aropson is licensed under CC BY 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/."
+    },
+    {
+      "frame": 3,
+      "file": "assets/sfx/key-press.mp3",
+      "offset_s": 0,
+      "duration_s": 0.182,
+      "volume": 0.35,
+      "license": "cc0",
+      "credit": "\"Enter Key Press Mechanical Keyboard\" by alpinemesh is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/."
+    },
+    {
+      "frame": 3,
+      "file": "assets/sfx/ping.mp3",
+      "offset_s": 0,
+      "duration_s": 0.454,
+      "volume": 0.35,
+      "license": "cc0",
+      "credit": "\"Ping pong ball hit\" by michorvath is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/."
+    },
+    {
+      "frame": 4,
+      "file": "assets/sfx/click-soft.mp3",
+      "offset_s": 0,
+      "duration_s": 0.061,
+      "volume": 0.35,
+      "license": "cc0",
+      "credit": "\"Click_1.wav\" by JonnyRuss01 is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/."
+    },
+    {
+      "frame": 5,
+      "file": "assets/sfx/whoosh-short.mp3",
+      "offset_s": 0,
+      "duration_s": 4.511,
+      "volume": 0.35,
+      "license": "by",
+      "credit": "\"Swoosh.wav\" by Brsjak is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/."
+    },
+    {
+      "frame": 5,
+      "file": "assets/sfx/click-soft.mp3",
+      "offset_s": 0,
+      "duration_s": 0.061,
+      "volume": 0.35,
+      "license": "cc0",
+      "credit": "\"Click_1.wav\" by JonnyRuss01 is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/."
+    },
+    {
+      "frame": 6,
+      "file": "assets/sfx/whoosh-short.mp3",
+      "offset_s": 0,
+      "duration_s": 4.511,
+      "volume": 0.35,
+      "license": "by",
+      "credit": "\"Swoosh.wav\" by Brsjak is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/."
+    },
+    {
+      "frame": 6,
+      "file": "assets/sfx/impact-bass-2.mp3",
+      "offset_s": 0,
+      "duration_s": 7.5,
+      "volume": 0.35,
+      "license": "cc0",
+      "credit": "\"Bass Impact 2\" by D4XX is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/."
+    },
+    {
+      "frame": 7,
+      "file": "assets/sfx/click-soft.mp3",
+      "offset_s": 0,
+      "duration_s": 0.061,
+      "volume": 0.35,
+      "license": "cc0",
+      "credit": "\"Click_1.wav\" by JonnyRuss01 is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/."
+    },
+    {
+      "frame": 7,
+      "file": "assets/sfx/impact-bass-1.mp3",
+      "offset_s": 0,
+      "duration_s": 0.78,
+      "volume": 0.35,
+      "license": "by",
+      "credit": "\"bass impact 1.wav\" by aropson is licensed under CC BY 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/."
+    },
+    {
+      "frame": 8,
+      "file": "assets/sfx/whoosh-short.mp3",
+      "offset_s": 0,
+      "duration_s": 4.511,
+      "volume": 0.35,
+      "license": "by",
+      "credit": "\"Swoosh.wav\" by Brsjak is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/."
+    },
+    {
+      "frame": 8,
+      "file": "assets/sfx/ping.mp3",
+      "offset_s": 0,
+      "duration_s": 0.454,
+      "volume": 0.35,
+      "license": "cc0",
+      "credit": "\"Ping pong ball hit\" by michorvath is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/."
+    },
+    {
+      "frame": 9,
+      "file": "assets/sfx/impact-bass-2.mp3",
+      "offset_s": 0,
+      "duration_s": 7.5,
+      "volume": 0.35,
+      "license": "cc0",
+      "credit": "\"Bass Impact 2\" by D4XX is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/."
+    }
+  ]
+}

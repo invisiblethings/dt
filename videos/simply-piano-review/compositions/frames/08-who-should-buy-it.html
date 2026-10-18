@@ -1,0 +1,346 @@
+<template>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;900&family=IBM+Plex+Mono:wght@500&display=block");
+
+    #root {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      font-family: "Barlow", sans-serif;
+      color: #f0ece5;
+    }
+
+    #\30 8-who-should-buy-it-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      background: #111111;
+    }
+
+    #\30 8-who-should-buy-it-stage {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      perspective: 1800px;
+      transform-style: preserve-3d;
+    }
+
+    /* kicker — mono eyebrow, slides down from above */
+    #\30 8-who-should-buy-it-kicker {
+      position: absolute;
+      left: 100px;
+      top: 92px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 0.9cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #e85d26;
+    }
+    .\30 8-who-should-buy-it-stub {
+      display: block;
+      width: 36px;
+      height: 2px;
+      background: #e85d26;
+    }
+    #\30 8-who-should-buy-it-topline {
+      position: absolute;
+      left: 100px;
+      top: 140px;
+      width: 1720px;
+      height: 1px;
+      background: #282826;
+      transform-origin: 0% 50%;
+    }
+
+    /* two-layer split: outer wrap carries the idle bob, inner card carries the entry */
+    .\30 8-who-should-buy-it-wrap {
+      position: absolute;
+      top: 190px;
+      width: 780px;
+      height: 510px;
+      transform-style: preserve-3d;
+    }
+    #\30 8-who-should-buy-it-wrap-left { left: 100px; }
+    #\30 8-who-should-buy-it-wrap-right { left: 1040px; }
+
+    .\30 8-who-should-buy-it-card {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 780px;
+      height: 510px;
+      box-sizing: border-box;
+      padding: 52px 56px;
+      background: #1a1a18;
+      border: 1px solid #282826;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    #\30 8-who-should-buy-it-card-left { transform-origin: 100% 50%; }
+    #\30 8-who-should-buy-it-card-right { transform-origin: 0% 50%; }
+
+    #\30 8-who-should-buy-it-topborder {
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      width: 780px;
+      height: 6px;
+      background: #e85d26;
+      transform-origin: 0% 50%;
+    }
+
+    .\30 8-who-should-buy-it-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 0.9cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #e85d26;
+    }
+    .\30 8-who-should-buy-it-num { color: #505048; }
+
+    .\30 8-who-should-buy-it-h2 {
+      position: absolute;
+      left: 56px;
+      bottom: 110px;
+      width: 668px;
+      font-family: "Barlow", sans-serif;
+      font-weight: 900;
+      font-size: 5cqw;
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      text-transform: lowercase;
+      color: #f0ece5;
+    }
+
+    /* verdict pills — on the PARENT, never inside a tilted card */
+    .\30 8-who-should-buy-it-pill {
+      position: absolute;
+      top: 642px;
+      height: 76px;
+      box-sizing: border-box;
+      padding: 0 30px 0 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: "Barlow", sans-serif;
+      font-weight: 700;
+      font-size: 1.75cqw;
+      letter-spacing: -0.01em;
+      text-transform: lowercase;
+      color: #111111;
+      white-space: nowrap;
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+    .\30 8-who-should-buy-it-pill svg { width: 30px; height: 30px; flex: none; }
+    #\30 8-who-should-buy-it-pill-left {
+      right: 1010px; /* right edge at x=910 → overhangs the left card's inner edge (880) */
+      background: #f0ece5;
+    }
+    #\30 8-who-should-buy-it-pill-right {
+      left: 1010px; /* left edge at x=1010 → overhangs the right card's inner edge (1040) */
+      background: #e85d26;
+    }
+
+    /* center hairline divider (compare-panel) */
+    #\30 8-who-should-buy-it-divider {
+      position: absolute;
+      left: 960px;
+      top: 190px;
+      width: 1px;
+      height: 510px;
+      background: #282826;
+      transform-origin: 50% 0%;
+    }
+
+    /* lead line typed under the right panel */
+    #\30 8-who-should-buy-it-lead {
+      position: absolute;
+      left: 1040px;
+      top: 778px;
+      width: 820px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-family: "Barlow", sans-serif;
+      font-weight: 400;
+      font-size: 1.6cqw;
+      line-height: 1.3;
+      color: #f0ece5;
+      white-space: nowrap;
+    }
+    #\30 8-who-should-buy-it-arrow { width: 34px; height: 22px; flex: none; }
+    #\30 8-who-should-buy-it-type { position: relative; }
+    .\30 8-who-should-buy-it-ch { display: inline-block; white-space: pre; }
+    .\30 8-who-should-buy-it-hl { font-weight: 700; color: #e85d26; }
+    #\30 8-who-should-buy-it-underline {
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 0;
+      height: 2px;
+      background: #e85d26;
+      transform-origin: 0% 50%;
+    }
+  </style>
+
+  <div id="root" data-composition-id="08-who-should-buy-it" data-start="0" data-duration="12.075" data-width="1920" data-height="1080">
+    <div id="08-who-should-buy-it-bg" class="clip" data-start="0" data-duration="12.075" data-track-index="0"></div>
+
+    <div id="08-who-should-buy-it-stage">
+      <div id="08-who-should-buy-it-kicker"><span class="08-who-should-buy-it-stub"></span><span>Who should buy it</span></div>
+      <div id="08-who-should-buy-it-topline"></div>
+
+      <div id="08-who-should-buy-it-divider"></div>
+
+      <div id="08-who-should-buy-it-wrap-left" class="08-who-should-buy-it-wrap">
+        <div id="08-who-should-buy-it-card-left" class="08-who-should-buy-it-card">
+          <div id="08-who-should-buy-it-label-left" class="08-who-should-buy-it-label"><span>Kids &amp; casual players</span><span class="08-who-should-buy-it-num">01</span></div>
+          <div id="08-who-should-buy-it-h2-left" class="08-who-should-buy-it-h2">need<br />motivation</div>
+        </div>
+      </div>
+
+      <div id="08-who-should-buy-it-wrap-right" class="08-who-should-buy-it-wrap">
+        <div id="08-who-should-buy-it-card-right" class="08-who-should-buy-it-card">
+          <div id="08-who-should-buy-it-topborder"></div>
+          <div id="08-who-should-buy-it-label-right" class="08-who-should-buy-it-label"><span>Serious adults</span><span class="08-who-should-buy-it-num">02</span></div>
+          <div id="08-who-should-buy-it-h2-right" class="08-who-should-buy-it-h2">want to<br />actually play</div>
+        </div>
+      </div>
+
+      <div id="08-who-should-buy-it-pill-left" class="08-who-should-buy-it-pill">
+        <svg viewBox="0 0 30 30" aria-hidden="true"><path d="M5 15.5 L12 22.5 L25 8" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="square" /></svg>
+        <span>try the free trial</span>
+      </div>
+      <div id="08-who-should-buy-it-pill-right" class="08-who-should-buy-it-pill">
+        <svg viewBox="0 0 30 30" aria-hidden="true"><path d="M7 7 L23 23 M23 7 L7 23" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="square" /></svg>
+        <span>skip the subscription</span>
+      </div>
+
+      <div id="08-who-should-buy-it-lead">
+        <svg id="08-who-should-buy-it-arrow" viewBox="0 0 34 22" aria-hidden="true"><path d="M0 11 H30 M21 2 L31 11 L21 20" fill="none" stroke="#e85d26" stroke-width="3" /></svg>
+        <span id="08-who-should-buy-it-type"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var FID = "08-who-should-buy-it";
+      var $ = function (s) { return document.getElementById(FID + "-" + s); };
+      var DUR = 12.075;
+
+      // Build the typed lead line as per-character spans (deterministic, no runtime randomness).
+      var typeHost = $("type");
+      var segments = [
+        { text: "a one-time course like ", hl: false },
+        { text: "pianoforall", hl: true },
+        { text: " goes further", hl: false }
+      ];
+      var chars = [];
+      var hlWrap = null;
+      segments.forEach(function (seg) {
+        var parent = typeHost;
+        if (seg.hl) {
+          hlWrap = document.createElement("span");
+          hlWrap.className = FID + "-hl";
+          hlWrap.style.position = "relative";
+          hlWrap.style.display = "inline-block";
+          typeHost.appendChild(hlWrap);
+          parent = hlWrap;
+        }
+        for (var i = 0; i < seg.text.length; i++) {
+          var c = document.createElement("span");
+          c.className = FID + "-ch";
+          c.textContent = seg.text[i];
+          parent.appendChild(c);
+          chars.push(c);
+        }
+      });
+      var underline = document.createElement("span");
+      underline.id = FID + "-underline";
+      underline.style.width = "100%";
+      hlWrap.appendChild(underline);
+
+      var TILT = 8;
+      var OVER = 8;
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 0 — kicker slides down, hairline draws (sets the concept)
+      tl.fromTo($("kicker"), { y: -24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.0);
+      tl.fromTo($("topline"), { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: "power3.out" }, 0.1);
+
+      // Scene 1 (0.0–2.6) — left card from the left wing, book-open tilt facing right
+      tl.fromTo($("card-left"),
+        { x: -380, rotateY: TILT + OVER, scale: 0.88, opacity: 0 },
+        { x: 0, rotateY: TILT, scale: 1, opacity: 1, duration: 1.0, ease: "power3.out" }, 0.12);
+      tl.fromTo($("label-left"), { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 0.55);
+      tl.fromTo($("h2-left"), { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.75);
+
+      // Scene 2 (2.6–4.2) — cream verdict pill pops on the left card's inner edge
+      tl.fromTo($("pill-left"), { scale: 0, opacity: 0, y: 16 }, { scale: 1, opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 2.6);
+
+      // Divider draws in, anticipating the second side
+      tl.fromTo($("divider"), { scaleY: 0 }, { scaleY: 1, duration: 0.8, ease: "power3.out" }, 3.7);
+
+      // Scene 3 (4.2–6.6) — right card from the right wing, mirrored tilt facing left
+      tl.fromTo($("card-right"),
+        { x: 380, rotateY: -TILT - OVER, scale: 0.88, opacity: 0 },
+        { x: 0, rotateY: -TILT, scale: 1, opacity: 1, duration: 1.0, ease: "power3.out" }, 4.2);
+      tl.fromTo($("label-right"), { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 4.6);
+      tl.fromTo($("h2-right"), { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 4.8);
+      tl.fromTo($("topborder"), { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power3.out" }, 5.0);
+
+      // Scene 4 (6.6–8.6) — orange verdict pill pops on the right card's inner edge
+      tl.fromTo($("pill-right"), { scale: 0, opacity: 0, y: 16 }, { scale: 1, opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 6.6);
+
+      // Scene 5 (8.6–end) — lead line types under the right panel, then holds
+      tl.fromTo($("arrow"), { x: -24, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 8.6);
+      var TYPE_AT = 8.8;
+      var STEP = 0.03;
+      chars.forEach(function (c, i) {
+        tl.fromTo(c, { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, TYPE_AT + i * STEP);
+      });
+      var typedEnd = TYPE_AT + chars.length * STEP;
+      tl.fromTo(underline, { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, typedEnd + 0.15);
+
+      // Counter-phase idle bob on the outer wraps (explicit finite tweens — left sin(t), right sin(t+π))
+      function bob(el, start, amp, sign) {
+        var half = 1.2;
+        var t = start;
+        var dir = sign;
+        tl.fromTo(el, { y: 0 }, { y: -amp * dir, duration: half / 2, ease: "sine.out" }, t);
+        t += half / 2;
+        while (t + half <= DUR) {
+          dir = -dir;
+          tl.to(el, { y: -amp * dir, duration: half, ease: "sine.inOut" }, t);
+          t += half;
+        }
+      }
+      bob($("wrap-left"), 1.2, 4, 1);
+      bob($("wrap-right"), 5.2, 4, -1);
+
+      // Pad timeline to the fixed frame length
+      tl.set({}, {}, DUR);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[FID] = tl;
+    })();
+  </script>
+</template>

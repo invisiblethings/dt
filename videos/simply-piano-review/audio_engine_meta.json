@@ -1,0 +1,248 @@
+{
+  "tts_provider": "kokoro",
+  "voice_id": "am_michael",
+  "bgm": null,
+  "bgm_pending": false,
+  "bgm_provider": null,
+  "bgm_pid": null,
+  "bgm_log": null,
+  "bgm_mode": null,
+  "bgm_target_duration_s": null,
+  "bgm_seed_duration_s": null,
+  "bgm_loop_count": null,
+  "voices": [
+    {
+      "id": "01",
+      "path": "assets/voice/01.wav",
+      "duration_s": 5.739,
+      "words": []
+    },
+    {
+      "id": "02",
+      "path": "assets/voice/02.wav",
+      "duration_s": 4.629,
+      "words": []
+    },
+    {
+      "id": "03",
+      "path": "assets/voice/03.wav",
+      "duration_s": 7.168,
+      "words": []
+    },
+    {
+      "id": "04",
+      "path": "assets/voice/04.wav",
+      "duration_s": 8.235,
+      "words": []
+    },
+    {
+      "id": "05",
+      "path": "assets/voice/05.wav",
+      "duration_s": 11.307,
+      "words": []
+    },
+    {
+      "id": "06",
+      "path": "assets/voice/06.wav",
+      "duration_s": 9.259,
+      "words": []
+    },
+    {
+      "id": "07",
+      "path": "assets/voice/07.wav",
+      "duration_s": 9.749,
+      "words": []
+    },
+    {
+      "id": "08",
+      "path": "assets/voice/08.wav",
+      "duration_s": 12.075,
+      "words": []
+    },
+    {
+      "id": "09",
+      "path": "assets/voice/09.wav",
+      "duration_s": 6.656,
+      "words": []
+    }
+  ],
+  "sfx": [
+    {
+      "id": "01",
+      "name": "click-soft",
+      "file": "assets/sfx/click-soft.mp3",
+      "source": "openverse",
+      "duration_s": 0.061,
+      "license": "cc0",
+      "credit": "\"Click_1.wav\" by JonnyRuss01 is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "01",
+      "name": "impact-bass-2",
+      "file": "assets/sfx/impact-bass-2.mp3",
+      "source": "openverse",
+      "duration_s": 7.5,
+      "license": "cc0",
+      "credit": "\"Bass Impact 2\" by D4XX is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "02",
+      "name": "whoosh-short",
+      "file": "assets/sfx/whoosh-short.mp3",
+      "source": "openverse",
+      "duration_s": 4.511,
+      "license": "by",
+      "credit": "\"Swoosh.wav\" by Brsjak is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "02",
+      "name": "impact-bass-1",
+      "file": "assets/sfx/impact-bass-1.mp3",
+      "source": "openverse",
+      "duration_s": 0.78,
+      "license": "by",
+      "credit": "\"bass impact 1.wav\" by aropson is licensed under CC BY 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "03",
+      "name": "key-press",
+      "file": "assets/sfx/key-press.mp3",
+      "source": "openverse",
+      "duration_s": 0.182,
+      "license": "cc0",
+      "credit": "\"Enter Key Press Mechanical Keyboard\" by alpinemesh is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "03",
+      "name": "ping",
+      "file": "assets/sfx/ping.mp3",
+      "source": "openverse",
+      "duration_s": 0.454,
+      "license": "cc0",
+      "credit": "\"Ping pong ball hit\" by michorvath is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "04",
+      "name": "click-soft",
+      "file": "assets/sfx/click-soft.mp3",
+      "source": "openverse",
+      "duration_s": 0.061,
+      "license": "cc0",
+      "credit": "\"Click_1.wav\" by JonnyRuss01 is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "05",
+      "name": "whoosh-short",
+      "file": "assets/sfx/whoosh-short.mp3",
+      "source": "openverse",
+      "duration_s": 4.511,
+      "license": "by",
+      "credit": "\"Swoosh.wav\" by Brsjak is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "05",
+      "name": "click-soft",
+      "file": "assets/sfx/click-soft.mp3",
+      "source": "openverse",
+      "duration_s": 0.061,
+      "license": "cc0",
+      "credit": "\"Click_1.wav\" by JonnyRuss01 is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "06",
+      "name": "whoosh-short",
+      "file": "assets/sfx/whoosh-short.mp3",
+      "source": "openverse",
+      "duration_s": 4.511,
+      "license": "by",
+      "credit": "\"Swoosh.wav\" by Brsjak is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "06",
+      "name": "impact-bass-2",
+      "file": "assets/sfx/impact-bass-2.mp3",
+      "source": "openverse",
+      "duration_s": 7.5,
+      "license": "cc0",
+      "credit": "\"Bass Impact 2\" by D4XX is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "07",
+      "name": "click-soft",
+      "file": "assets/sfx/click-soft.mp3",
+      "source": "openverse",
+      "duration_s": 0.061,
+      "license": "cc0",
+      "credit": "\"Click_1.wav\" by JonnyRuss01 is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "07",
+      "name": "impact-bass-1",
+      "file": "assets/sfx/impact-bass-1.mp3",
+      "source": "openverse",
+      "duration_s": 0.78,
+      "license": "by",
+      "credit": "\"bass impact 1.wav\" by aropson is licensed under CC BY 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "08",
+      "name": "whoosh-short",
+      "file": "assets/sfx/whoosh-short.mp3",
+      "source": "openverse",
+      "duration_s": 4.511,
+      "license": "by",
+      "credit": "\"Swoosh.wav\" by Brsjak is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "08",
+      "name": "ping",
+      "file": "assets/sfx/ping.mp3",
+      "source": "openverse",
+      "duration_s": 0.454,
+      "license": "cc0",
+      "credit": "\"Ping pong ball hit\" by michorvath is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "09",
+      "name": "impact-bass-2",
+      "file": "assets/sfx/impact-bass-2.mp3",
+      "source": "openverse",
+      "duration_s": 7.5,
+      "license": "cc0",
+      "credit": "\"Bass Impact 2\" by D4XX is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    }
+  ],
+  "total_duration_s": 74.817
+}
