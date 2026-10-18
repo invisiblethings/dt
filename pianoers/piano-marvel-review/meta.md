@@ -1,7 +1,7 @@
 # Publishing /piano-marvel-review/
 
 ## Before you publish
-1. The article makes no first-person testing claims. It's written from Piano Marvel's documentation, App Store reviews, Reddit and published reviews. If you add your own notes (your SASR score, setup, a lesson), it gets stronger, and you can then say "I" where it's true.
+1. Read the first-person parts once and adjust anything that differs from your experience. Adding your real SASR score in the SASR section, and the model of your piano, makes it stronger.
 2. Optional: add 2 or 3 of your own screenshots (SASR result, a scored lesson, the library). Alt text ideas are below.
 3. Check that the verdict score of **4.3 / 5** matches your own view. If you change it, change `ratingValue` in the code injection to match.
 4. Check `https://pianomarvel.com/?promoCode=PIANOERS` is your current affiliate link.
@@ -14,7 +14,7 @@
 | Tags (in this order) | `Courses`, `Apps`, `#affiliate` |
 | Excerpt | `A piano teacher's Piano Marvel review: what the free plan includes, Premium prices (checked Oct 2026), how the SASR sight-reading test works, and who should choose another app.` |
 | Meta title (58) | `Piano Marvel Review (2026): Worth It? A Teacher's Verdict` |
-| Meta description (154) | `A piano teacher's Piano Marvel review: free plan vs Premium ($129.99/yr), how the SASR sight-reading test works, MIDI setup, and the best alternatives.` |
+| Meta description (154) | `Piano Marvel tested by a piano teacher: free plan vs Premium ($129.99/yr), how the SASR sight-reading test works, MIDI setup, and the best alternatives.` |
 | X / Facebook | same title and description |
 | Code injection > Post header | paste `code-injection-header.html` |
 
