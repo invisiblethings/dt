@@ -73,15 +73,10 @@ Primary: **piano marvel review**. Secondary, used as H2s and FAQ items:
 - Be honest about who should pick something else. Pianoforall for chords and songs, Flowkey for a big song library.
 - Use the free plan as a low-risk call to action: "Start free, no card".
 
-## 6. What you need to add before publishing (first-hand)
+## 6. First-hand experience
 
-The article has **9 marked first-hand slots** (`⟦FIRST-HAND: …⟧`). They are the one thing the competitors can't copy. Fill them after **at least one week on the free account plus the Premium trial**, on your digital piano over USB:
-1. How long setup took, and which cable and piano you used.
-2. Your SASR score from your first test (plus a student's, if you have one).
-3. One Method lesson you did, and what the feedback caught.
-4. Something that annoyed you.
-5. How the microphone mode did on an acoustic piano, if you have one.
-6. A student or family story (optional).
-7. 2 to 3 screenshots of your own screen: the SASR result, a scored lesson, the library.
-
-If a slot can't be filled honestly, delete the sentence. Don't publish a "tested" title without having tested it.
+The article makes no first-person testing claims. Where a personal note would go, it uses what Piano Marvel documents and what App Store users, Reddit and other reviewers report. Your own notes would make it stronger, since that's what Reddit ranks for here:
+- your SASR score,
+- your setup,
+- one lesson,
+- what annoyed you.
