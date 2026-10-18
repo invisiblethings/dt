@@ -1,0 +1,448 @@
+<template>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800;900&family=IBM+Plex+Mono:wght@500&display=block");
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      color: #f0ece5;
+      font-family: "Barlow", sans-serif;
+    }
+    #root .f05-ground {
+      position: absolute;
+      inset: 0;
+      background: #111111;
+    }
+    #root .f05-stage {
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 42%;
+    }
+    /* chrome */
+    #root .f05-kicker {
+      position: absolute;
+      left: 106px;
+      top: 100px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 0.72cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #e85d26;
+    }
+    #root .f05-stub {
+      width: 36px;
+      height: 2px;
+      background: #e85d26;
+      transform-origin: left center;
+    }
+    #root .f05-rail {
+      position: absolute;
+      right: 106px;
+      top: 100px;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 0.72cqw;
+      letter-spacing: 0.14em;
+      color: #888880;
+    }
+    #root .f05-rail b {
+      color: #f0ece5;
+      font-weight: 500;
+    }
+    #root .f05-hairline {
+      position: absolute;
+      left: 106px;
+      right: 106px;
+      top: 146px;
+      height: 1px;
+      background: #282826;
+      transform-origin: left center;
+    }
+
+    /* key strip (background) */
+    #root .f05-keys {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 790px;
+      height: 100px;
+      opacity: 0.55;
+    }
+    #root .f05-wkey {
+      position: absolute;
+      top: 0;
+      height: 100px;
+      border: 1px solid #282826;
+      border-top: none;
+    }
+    #root .f05-bkey {
+      position: absolute;
+      top: 0;
+      height: 60px;
+      background: #1a1a18;
+      border: 1px solid #282826;
+      border-top: none;
+    }
+
+    /* scene A: headline + hand */
+    #root .f05-sceneA {
+      position: absolute;
+      inset: 0;
+    }
+    #root .f05-h1 {
+      position: absolute;
+      left: 106px;
+      top: 300px;
+      width: 1060px;
+      font-weight: 800;
+      font-size: 7.5cqw;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      text-transform: lowercase;
+    }
+    #root .f05-line {
+      display: block;
+      overflow: hidden;
+      padding-bottom: 0.08em;
+    }
+    #root .f05-w {
+      display: inline-block;
+      margin-right: 0.22em;
+    }
+    #root .f05-w.f05-accent {
+      color: #e85d26;
+    }
+    #root .f05-habits {
+      position: absolute;
+      left: 106px;
+      top: 650px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 1.4cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888880;
+    }
+    #root .f05-habits b {
+      color: #e85d26;
+      font-weight: 500;
+    }
+    #root .f05-handwrap {
+      position: absolute;
+      left: 1270px;
+      top: 200px;
+      width: 470px;
+      height: 564px;
+    }
+    #root .f05-hand path {
+      fill: none;
+      stroke: #f0ece5;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    #root .f05-eye {
+      transform-origin: 210px 330px;
+      transform-box: view-box;
+    }
+    #root .f05-eye .f05-disc {
+      fill: #111111;
+      stroke: #e85d26;
+      stroke-width: 4;
+    }
+    #root .f05-eye .f05-eyeline {
+      fill: none;
+      stroke: #e85d26;
+      stroke-width: 7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    #root .f05-eye .f05-pupil {
+      fill: #e85d26;
+    }
+    #root .f05-slash {
+      fill: none;
+      stroke: #e85d26;
+      stroke-width: 9;
+      stroke-linecap: round;
+    }
+
+    /* scene B: pills + struck lines */
+    #root .f05-sceneB {
+      position: absolute;
+      inset: 0;
+    }
+    #root .f05-fblabel {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 236px;
+      text-align: center;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 0.9cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888880;
+    }
+    #root .f05-pills {
+      position: absolute;
+      left: 460px;
+      top: 290px;
+      width: 1000px;
+      height: 200px;
+      display: flex;
+      gap: 40px;
+    }
+    #root .f05-pill {
+      position: relative;
+      flex: 1;
+      height: 200px;
+      color: #111111;
+    }
+    #root .f05-pill.f05-right {
+      background: #f0ece5;
+    }
+    #root .f05-pill.f05-wrong {
+      background: #e85d26;
+    }
+    #root .f05-pill .f05-tag {
+      position: absolute;
+      left: 28px;
+      top: 22px;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 0.72cqw;
+      letter-spacing: 0.14em;
+      color: rgba(17, 17, 17, 0.55);
+    }
+    #root .f05-pill .f05-word {
+      position: absolute;
+      left: 28px;
+      bottom: 22px;
+      font-weight: 900;
+      font-size: 5.5cqw;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      text-transform: lowercase;
+    }
+    #root .f05-pill .f05-glyph {
+      position: absolute;
+      right: 30px;
+      bottom: 34px;
+      width: 64px;
+      height: 64px;
+    }
+    #root .f05-pill .f05-glyph path {
+      fill: none;
+      stroke: #111111;
+      stroke-width: 8;
+      stroke-linecap: square;
+    }
+    #root .f05-nos {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 590px;
+      display: flex;
+      justify-content: center;
+      gap: 70px;
+    }
+    #root .f05-no {
+      position: relative;
+      display: inline-block;
+      font-weight: 600;
+      font-size: 2.8cqw;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      text-transform: lowercase;
+      color: #888880;
+    }
+    #root .f05-no .f05-notext {
+      position: relative;
+      z-index: 0;
+    }
+    #root .f05-no .f05-noslash {
+      color: #e85d26;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      margin-right: 0.3em;
+    }
+    #root .f05-strike {
+      position: absolute;
+      inset: 0 -8px;
+      overflow: hidden;
+      z-index: 1;
+    }
+    #root .f05-sline {
+      position: absolute;
+      display: block;
+      top: 54%;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: #e85d26;
+      transform-origin: left center;
+    }
+  </style>
+
+  <div
+    id="root"
+    data-composition-id="05-it-cant-see-you"
+    data-width="1920"
+    data-height="1080"
+    data-start="0"
+    data-duration="11.307"
+  >
+    <div class="f05-ground clip" data-start="0" data-duration="11.307" data-track-index="0"></div>
+
+    <div class="f05-stage clip" data-start="0" data-duration="11.307" data-track-index="1">
+      <div class="f05-keys"></div>
+
+      <div class="f05-kicker"><span class="f05-stub"></span><span class="f05-kick-text">The catch</span></div>
+      <div class="f05-rail"><b>05</b>/09</div>
+      <div class="f05-hairline"></div>
+
+      <div class="f05-sceneA">
+        <div class="f05-h1">
+          <span class="f05-line"><span class="f05-w">it</span><span class="f05-w">can't</span><span class="f05-w">see</span></span>
+          <span class="f05-line"><span class="f05-w">your</span><span class="f05-w f05-accent">hands.</span></span>
+        </div>
+        <div class="f05-habits"><span>Bad habits:</span><b class="f05-unchecked">Unchecked</b></div>
+
+        <div class="f05-handwrap">
+          <svg class="f05-hand" viewBox="0 0 400 480" width="470" height="564" xmlns="http://www.w3.org/2000/svg">
+            <path
+              class="f05-handpath"
+              d="M 130 470 L 120 330 C 95 300 60 250 45 215 C 35 190 65 175 80 195 L 135 265 L 135 120 C 135 95 175 95 175 120 L 175 245 L 180 90 C 180 65 220 65 220 90 L 220 245 L 225 105 C 225 82 263 82 263 105 L 263 255 L 268 150 C 268 130 302 130 302 150 L 300 330 C 298 400 280 440 270 470"
+            />
+            <g class="f05-eye">
+              <circle class="f05-disc" cx="210" cy="330" r="92" />
+              <path class="f05-eyeline" d="M 148 330 Q 210 272 272 330 Q 210 388 148 330 Z" />
+              <circle class="f05-pupil" cx="210" cy="330" r="20" />
+            </g>
+            <path class="f05-slash" d="M 152 392 L 268 268" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="f05-sceneB">
+        <div class="f05-fblabel">Feedback /// binary</div>
+        <div class="f05-pills">
+          <div class="f05-pill f05-right">
+            <span class="f05-tag">GREEN</span>
+            <span class="f05-word">right</span>
+            <svg class="f05-glyph" viewBox="0 0 64 64"><path d="M 8 34 L 26 52 L 58 14" /></svg>
+          </div>
+          <div class="f05-pill f05-wrong">
+            <span class="f05-tag">RED</span>
+            <span class="f05-word">wrong</span>
+            <svg class="f05-glyph" viewBox="0 0 64 64"><path d="M 12 12 L 52 52 M 52 12 L 12 52" /></svg>
+          </div>
+        </div>
+        <div class="f05-nos">
+          <span class="f05-no f05-no1"><span class="f05-notext"><span class="f05-noslash">/</span>no fingering</span><span class="f05-strike"><span class="f05-sline"></span></span></span>
+          <span class="f05-no f05-no2"><span class="f05-notext"><span class="f05-noslash">/</span>no dynamics</span><span class="f05-strike"><span class="f05-sline"></span></span></span>
+          <span class="f05-no f05-no3"><span class="f05-notext"><span class="f05-noslash">/</span>no musicality</span><span class="f05-strike"><span class="f05-sline"></span></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var ID = "05-it-cant-see-you";
+      var root = document.querySelector('[data-composition-id="' + ID + '"]');
+      var q = function (s) { return root.querySelector(s); };
+      var qa = function (s) { return Array.prototype.slice.call(root.querySelectorAll(s)); };
+
+      // --- build the key strip (static DOM, deterministic) ---
+      var keys = q(".f05-keys");
+      var W = 1920, N = 36, kw = W / N;
+      var blackAfter = [0, 1, 3, 4, 5]; // C D F G A within each 7-key octave
+      for (var i = 0; i < N; i++) {
+        var wk = document.createElement("div");
+        wk.className = "f05-wkey";
+        wk.style.left = (i * kw) + "px";
+        wk.style.width = kw + "px";
+        keys.appendChild(wk);
+      }
+      for (var j = 0; j < N - 1; j++) {
+        if (blackAfter.indexOf(j % 7) !== -1) {
+          var bk = document.createElement("div");
+          bk.className = "f05-bkey";
+          bk.style.left = ((j + 1) * kw - kw * 0.3) + "px";
+          bk.style.width = (kw * 0.6) + "px";
+          keys.appendChild(bk);
+        }
+      }
+
+      // --- path-draw setup (measured lengths) ---
+      var hand = q(".f05-handpath");
+      var handLen = hand.getTotalLength() * 1.02;
+      gsap.set(hand, { strokeDasharray: handLen, strokeDashoffset: handLen });
+      var slash = q(".f05-slash");
+      var slashLen = slash.getTotalLength() * 1.05;
+      gsap.set(slash, { strokeDasharray: slashLen, strokeDashoffset: slashLen });
+
+      var tl = gsap.timeline({ paused: true });
+
+      // camera: slow push underneath the whole shot
+      tl.fromTo(q(".f05-stage"), { scale: 1 }, { scale: 1.03, duration: 11.307, ease: "none" }, 0);
+
+      // Scene 1 (0.0–1.6): "but here's the catch" — kicker, rail, key strip
+      tl.fromTo(qa(".f05-wkey, .f05-bkey"), { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out", stagger: 0.008 }, 0);
+      tl.fromTo(q(".f05-stub"), { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, 0.1);
+      tl.fromTo(q(".f05-kick-text"), { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 0.15);
+      tl.fromTo(q(".f05-rail"), { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.out" }, 0.2);
+      tl.fromTo(q(".f05-hairline"), { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, 0.25);
+
+      // Scene 2 (1.45–4.7): "it can't see your hands" — per-word reveal, hand draws, eye stamps
+      tl.fromTo(qa(".f05-w"), { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.5, ease: "power3.out", stagger: 0.16 }, 1.45);
+      tl.to(hand, { strokeDashoffset: 0, duration: 1.1, ease: "power2.out" }, 1.6);
+      tl.fromTo(q(".f05-eye"), { scale: 1.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power4.out" }, 2.55);
+      tl.to(slash, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 2.8);
+      // "so bad habits slip right through"
+      tl.fromTo(q(".f05-habits"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 3.35);
+      tl.fromTo(q(".f05-unchecked"), { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 3.85);
+
+      // Scene 3 (5.3–7.5): cut-the-curve seam — headline + hand accelerate up and out,
+      // pills decelerate in from below as one beat on "just green or red"
+      tl.to(q(".f05-sceneA"), { y: -420, opacity: 0, filter: "blur(10px)", duration: 0.45, ease: "power3.in" }, 5.45);
+      tl.fromTo(q(".f05-pills"), { y: 360, scale: 0.9, opacity: 0, filter: "blur(10px)" },
+        { y: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.7, ease: "back.out(1.6)" }, 5.88);
+      tl.fromTo(q(".f05-fblabel"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 6.4);
+      tl.to(q(".f05-kick-text"), { opacity: 0.5, duration: 0.3, ease: "power1.out" }, 6.4);
+      tl.fromTo(qa(".f05-glyph path"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" },
+        { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", stagger: 0.12 }, 6.55);
+
+      // Scene 4 (8.0–end): three cues, three reveals, each struck through
+      var cues = [8.0, 9.1, 10.2];
+      [".f05-no1", ".f05-no2", ".f05-no3"].forEach(function (sel, k) {
+        var el = q(sel);
+        var t = cues[k];
+        tl.fromTo(el, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        tl.fromTo(el.querySelector(".f05-sline"), { scaleX: 0, rotation: -2 },
+          { scaleX: 1, rotation: -2, duration: 0.3, ease: "power2.out" }, t + 0.42);
+        tl.to(el, { color: "#505048", duration: 0.25, ease: "power1.out" }, t + 0.5);
+      });
+      // hold — quiet settle on the pills (no exit)
+      tl.to(q(".f05-pills"), { y: -6, duration: 0.9, ease: "sine.inOut" }, 10.4);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
