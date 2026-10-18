@@ -152,10 +152,6 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-    #root .f05-eye {
-      transform-origin: 210px 330px;
-      transform-box: view-box;
-    }
     #root .f05-eye .f05-disc {
       fill: #111111;
       stroke: #e85d26;
@@ -412,7 +408,7 @@
       // Scene 2 (1.45–4.7): "it can't see your hands" — per-word reveal, hand draws, eye stamps
       tl.fromTo(qa(".f05-w"), { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.5, ease: "power3.out", stagger: 0.16 }, 1.45);
       tl.to(hand, { strokeDashoffset: 0, duration: 1.1, ease: "power2.out" }, 1.6);
-      tl.fromTo(q(".f05-eye"), { scale: 1.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power4.out" }, 2.55);
+      tl.fromTo(q(".f05-eye"), { scale: 1.7, opacity: 0, svgOrigin: "210 330" }, { scale: 1, opacity: 1, svgOrigin: "210 330", duration: 0.35, ease: "power4.out" }, 2.55);
       tl.to(slash, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 2.8);
       // "so bad habits slip right through"
       tl.fromTo(q(".f05-habits"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 3.35);
