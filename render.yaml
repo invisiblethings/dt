@@ -1,0 +1,39 @@
+# Render Blueprint for the static site. Optional: you can also set these in the Render dashboard.
+services:
+  - type: web
+    runtime: static
+    name: tom-brier
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    routes:
+      - type: redirect
+        source: /feed.xml
+        destination: /
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: camera=(), microphone=(), geolocation=()
+      - path: /*
+        name: Strict-Transport-Security
+        value: max-age=31536000; includeSubDomains
+      - path: /*
+        name: Content-Security-Policy
+        value: "default-src 'self'; img-src 'self' https://i.ytimg.com data:; frame-src https://www.youtube-nocookie.com; script-src 'self'; style-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
+      - path: /img/*
+        name: Cache-Control
+        value: public, max-age=2592000
+      - path: /css/*
+        name: Cache-Control
+        value: public, max-age=3600, must-revalidate
+      - path: /js/*
+        name: Cache-Control
+        value: public, max-age=3600, must-revalidate

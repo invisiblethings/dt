@@ -1,6 +1,6 @@
 # tom-brier.com
 
-Static website for ragtime pianist and composer Tom Brier. Plain HTML, CSS and a little JavaScript: no build step, no frameworks, no third-party scripts. Hosted on Netlify.
+Static website for ragtime pianist and composer Tom Brier. Plain HTML, CSS and a little JavaScript: no build step, no frameworks, no third-party scripts. Hosted on Render (static site).
 
 ## Structure
 
@@ -11,10 +11,10 @@ Static website for ragtime pianist and composer Tom Brier. Plain HTML, CSS and a
 | `music/` | Discography and streaming links |
 | `videos/` | Video gallery (click-to-load YouTube players) |
 | `compositions/` | Searchable composition list |
-| `contact/` | Contact form (Netlify Forms) and thank-you page |
+| `contact/` | Contact details (email) |
 | `404.html` | Not-found page |
 | `sitemap.xml`, `robots.txt`, `llms.txt` | Search and AI-crawler discovery |
-| `netlify.toml` | Redirects, security and cache headers |
+| `render.yaml` | Render config: redirects, security and cache headers |
 | `css/`, `js/`, `img/` | Assets |
 
 ## Common edits
@@ -24,6 +24,11 @@ Static website for ragtime pianist and composer Tom Brier. Plain HTML, CSS and a
 - **Add a composition:** add a `<tr>` to the table in `compositions/index.html`.
 - **After any page change:** update the `<lastmod>` date for that URL in `sitemap.xml`.
 
-## Deploy
+## Deploy (Render)
 
-Netlify: connect this repository, leave the build command empty and set the publish directory to `.` (already set in `netlify.toml`). Enable **Forms** in the Netlify site settings so the contact form works and set an email notification for submissions.
+1. In Render, create a **Static Site** from the Git repository (GitLab works directly).
+2. Leave the build command empty and set the publish directory to `.`.
+3. Under **Settings → Custom Domains**, add `tom-brier.com` and `www.tom-brier.com`; Render redirects www to the apex domain automatically.
+4. Security and cache headers live in `render.yaml`. If the service wasn't created from that Blueprint, copy the headers into **Settings → Headers** in the dashboard.
+
+Every push to the connected branch redeploys the site.
