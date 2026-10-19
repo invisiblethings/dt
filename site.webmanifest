@@ -1,0 +1,13 @@
+{
+  "name": "Tom Brier",
+  "short_name": "Tom Brier",
+  "description": "Ragtime pianist and composer Tom Brier: biography, albums, videos and compositions.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f7f0e1",
+  "theme_color": "#7a1f2b",
+  "icons": [
+    {"src": "/img/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}
