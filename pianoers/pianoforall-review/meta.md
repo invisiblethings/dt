@@ -18,7 +18,7 @@ In the article there's an image at `/content/images/2026/10/pianoforall-course-p
 | Tags (in this order) | `Courses`, `Lessons`, `#affiliate` |
 | Excerpt | `A piano teacher's Pianoforall review: how the online course works, the new 7-day free trial and $49 one-time price, who it suits, and the best alternatives.` |
 | Meta title (58) | `Pianoforall Review 2026: Worth It? A Piano Teacher's Verdict` |
-| Meta description (151) | `A piano teacher reviews Pianoforall: how the course works, the 7-day free trial, the $49 price, what it doesn't teach, and who should pick something else.` |
+| Meta description (154) | `A piano teacher reviews Pianoforall: how the course works, the 7-day free trial, the $49 price, what it doesn't teach, and who should pick something else.` |
 | X / Facebook | same title and description |
 | Feature image | keep `Pianoforall_Review.jpg` (1200 × 675) |
 
