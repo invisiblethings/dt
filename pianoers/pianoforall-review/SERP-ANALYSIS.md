@@ -19,7 +19,7 @@ The results are weak and dated, so a current, honest review from a teacher can l
 
 ## Gaps the rewrite fills
 - **The new 7-day free trial and $49 one-time price**, with a 60-day refund and no reason needed. Nobody else covers the trial yet.
-- **Current contents:** 9 books, 568 lessons, about 25 hours of video. The old review said 10 books and 24.5 hours.
+- **Current contents and delivery:** an online course player (Pianoforall Academy dashboard) with 10 sections, 568 lessons and about 25 hours of video, plus downloadable ebooks for offline use. The old review described it as ebooks only.
 - **A cost table:** year 1 and year 2 against the subscriptions. This is the strongest conversion argument.
 - **"Is Pianoforall legit?"**: a short section with the trust facts.
 - **Classics By Ear and the $99 Complete Bundle.**
