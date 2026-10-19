@@ -174,7 +174,8 @@
     var picks = pickEls.map(function (el, i) {
         var buy = el.querySelector('.pz-buy a.pz-btn-buy') || el.querySelector('a.pz-btn-buy');
         var img = el.querySelector('.pz-pick-top img') || el.querySelector('img');
-        var name = text(el.querySelector('h2, h3'));
+        /* data-name sets a short name for the sticky bar and rail (e.g. "Pianoforall" instead of the card heading). */
+        var name = el.getAttribute('data-name') || text(el.querySelector('h2, h3'));
         if (!el.id) el.id = slugify(name) || ('pick-' + (i + 1));
         return {
             el: el, id: el.id, name: name,
@@ -184,7 +185,9 @@
             img: img ? (img.currentSrc || img.src) : '',
             buyHref: buy ? buy.href : '',
             buyRel: buy ? buy.getAttribute('rel') : '',
-            buyText: buy ? text(buy) : ''
+            buyText: buy ? text(buy) : '',
+            /* data-bar-label sets the sticky bar's button text; it defaults to "Check price". */
+            barLabel: el.getAttribute('data-bar-label') || ''
         };
     }).sort(function (a, b) { return a.rank - b.rank; });
     var byId = {};
@@ -218,7 +221,7 @@
         bar.innerHTML =
             (current.img ? '<img src="' + esc(current.img) + '" alt="" width="44" height="44" loading="lazy" decoding="async">' : '') +
             '<span class="pz-buybar-text"><b>' + esc(current.name) + '</b><span>' + esc(chosen ? 'Your match' : (current.best || 'Top pick')) + (current.price ? ' · ' + esc(current.price) : '') + '</span></span>' +
-            buyLink(current, 'Check price') +
+            buyLink(current, current.barLabel || 'Check price') +
             '<button class="pz-buybar-close" type="button" aria-label="Hide this bar">×</button>';
         bar.querySelector('.pz-buybar-close').addEventListener('click', function () {
             barClosed = true; storageSet('pz-buybar-closed', '1'); updateBar();
