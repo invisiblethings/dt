@@ -20,6 +20,8 @@ export function organization() {
     foundingDate: BRAND.founded,
     founder: { '@id': ROBIN_ID },
     email: BRAND.email,
+    legalName: BRAND.legalName,
+    address: { '@type': 'PostalAddress', streetAddress: BRAND.address.street, addressLocality: BRAND.address.city, addressRegion: BRAND.address.region, postalCode: BRAND.address.postalCode, addressCountry: BRAND.address.country },
     sameAs: BRAND.sameAs,
     description:
       'Pianoforall is an online piano course for adults created by Robin Hall in 2006. Students start with chords, rhythm and playing by ear, then learn to read music as they go.',

@@ -12,6 +12,7 @@ const year = new Date().getFullYear();
         </a>
         <p>Piano lessons for adults, created by Robin Hall in 2006. Start with chords and rhythm, play by ear, and learn to read as you go.</p>
         <p><a href={`mailto:${BRAND.email}`}>{BRAND.email}</a><br />Robin reads every message.</p>
+        <address style="font-style:normal">{BRAND.legalName}<br />{BRAND.address.street}, {BRAND.address.city}, {BRAND.address.region} {BRAND.address.postalCode}, USA</address>
       </div>
       <nav aria-labelledby="f-courses">
         <h2 id="f-courses">Courses</h2>

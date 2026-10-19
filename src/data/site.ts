@@ -17,6 +17,7 @@ export const BRAND = {
   name: 'Pianoforall',
   legalName: 'Pianoforall Academy Limited',
   legalEmail: 'info@pianoforall.com',
+  address: { street: '917 Lusk St', city: 'Boise', region: 'ID', postalCode: '83706', country: 'US' },
   tagline: 'Learn piano by playing piano',
   founded: '2006',
   founder: 'Robin Hall',
