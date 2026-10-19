@@ -239,10 +239,11 @@ html[data-color-scheme="dark"] .pz-logo.has-dark-logo .pz-logo-dark { display: b
 .gh-content td strong { font-weight: 700; }
 
 /* Wide and full-width images (required by Ghost) */
-.gh-content .kg-width-wide { position: relative; width: min(1000px, calc(100vw - 32px)); max-width: none; margin-left: 50%; transform: translateX(-50%); }
-.gh-content .kg-width-full { position: relative; width: 100vw; max-width: none; margin-left: 50%; transform: translateX(-50%); }
+/* Centred with `translate`, not `transform`, so the scroll-in animation (.pz-reveal) can't undo the centring. */
+.gh-content .kg-width-wide { position: relative; width: min(1000px, calc(100vw - 32px)); max-width: none; margin-left: 50%; translate: -50% 0; }
+.gh-content .kg-width-full { position: relative; width: 100vw; max-width: none; margin-left: 50%; translate: -50% 0; }
 .gh-content .kg-width-full img { border-radius: 0; }
-@media (min-width: 1040px) { .gh-content .kg-width-wide { width: 100%; margin-left: 0; transform: none; } }
+@media (min-width: 1040px) { .gh-content .kg-width-wide { width: 100%; margin-left: 0; translate: none; } }
 
 /* 8. Ghost cards (Ghost supplies base styles; these align them with the theme) */
 
