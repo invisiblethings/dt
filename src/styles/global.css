@@ -376,7 +376,8 @@ a:hover { color: var(--ink); }
 .article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; font-size: var(--step--1); color: var(--muted); margin-bottom: 1.5rem; }
 .author-chip { display: flex; align-items: center; gap: 0.6rem; }
 .author-chip img { width: 40px; height: 40px; border-radius: 999px; object-fit: cover; }
-.aside-sticky { position: sticky; top: calc(var(--header-h) + 1.5rem); }
+/* Only pin side columns when they actually sit beside the content. */
+@media (min-width: 56rem) { .aside-sticky { position: sticky; top: calc(var(--header-h) + 1.5rem); } }
 .toc { font-size: 0.95rem; }
 .toc ol { list-style: none; padding: 0; margin: 0; }
 .toc li + li { margin-top: 0.15rem; }
