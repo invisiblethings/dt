@@ -1,0 +1,64 @@
+---
+import Article from '../../layouts/Article.astro';
+import BackingTracks from '../../components/BackingTracks.astro';
+import type { Faq } from '../../data/faqs';
+
+const faqs: Faq[] = [
+  { id: 'bt1', group: '', q: 'Do I need to connect my keyboard to use the backing tracks?', a: 'No. The drums and bass play through your computer, tablet or phone speakers or headphones, and you play along on any piano or keyboard. Nothing needs to be plugged in.' },
+  { id: 'bt2', group: '', q: 'Why can’t I hear anything on my phone?', a: 'On iPhone, the silent switch mutes browser audio. Turn silent mode off or plug in headphones, then press Start again.' },
+  { id: 'bt3', group: '', q: 'What should I play over the backing track?', a: 'Start with the right-hand chord on the first beat of each bar and the root note in your left hand. When that feels easy, play the chord on every beat, then try a broken-chord or rhythm pattern.' },
+  { id: 'bt4', group: '', q: 'Can I use my own chord progression?', a: 'Yes. Type chord names separated by spaces, such as C G Am F or Dm7 G7 Cmaj7, and press Start. Major, minor, 7, maj7 and m7 chords are supported.' },
+];
+const toc = [
+  { id: 'tool', text: 'Backing track player' },
+  { id: 'how', text: 'How to practise with it' },
+  { id: 'styles', text: 'What to play in each style' },
+];
+---
+<Article
+  title="Free Piano Backing Tracks: Play Along in Your Browser"
+  seoTitle="Free Piano Backing Tracks to Play Along With (Any Key, Any Tempo)"
+  description="Free play-along drum and bass backing tracks for piano practice. Pick a chord progression, key, style and tempo, or type your own chords. Works in your browser."
+  path="/learn/piano-backing-tracks"
+  published="2026-10-08"
+  author="Pianoforall"
+  eyebrow="Practice tool"
+  crumbs={[{ name: 'Learn', href: '/learn' }, { name: 'Piano backing tracks', href: '/learn/piano-backing-tracks' }]}
+  answer="Choose a chord progression, a key, a style and a tempo, then press <b>Start</b>. After a one-bar count-in, drums and bass play the progression on a loop while you play the chords on your piano or keyboard. The display shows the current and next chord, with the notes marked on the keyboard."
+  toc={toc}
+  faqs={faqs}
+  cta="course"
+  related={[
+    { href: '/learn/piano-chords-for-beginners', title: 'Piano chords for beginners', note: 'Learn the chords first' },
+    { href: '/learn/play-piano-by-ear', title: 'How to play piano by ear' },
+    { href: '/learn/piano-practice-routine', title: 'A 20-minute practice routine' },
+  ]}
+>
+  <p>Practising chords alone can feel like homework. Put a drummer and a bass player behind you and the same four chords suddenly sound like a song. These backing tracks run in your browser, in any key and at any tempo, so you can start slow and speed up as your changes get smoother.</p>
+
+  <h2 id="tool">Backing track player</h2>
+  <BackingTracks />
+
+  <h2 id="how">How to practise with it</h2>
+  <ol>
+    <li><b>Start slow.</b> Set the tempo low enough that you can change chord on the first beat of every bar without stopping. Speed comes later.</li>
+    <li><b>Turn on the piano guide part</b> for a couple of loops to hear how the chords should sound, then turn it off and play them yourself.</li>
+    <li><b>Hold the chord, then add rhythm.</b> Play each chord once per bar. Next, play it on every beat. Then try a broken chord (one note at a time) or a rhythm pattern.</li>
+    <li><b>Change one thing at a time:</b> a new key, a faster tempo, or a new style. Not all three at once.</li>
+  </ol>
+  <p>Not sure where the chords are? Each one appears on the keyboard above as it plays: the blue key is your left-hand bass note, the gold keys are your right hand. Our <a href="/learn/piano-chords-for-beginners">chords guide</a> explains how the shapes work.</p>
+
+  <h2 id="styles">What to play in each style</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Style</th><th scope="col">Try playing</th><th scope="col">Where Pianoforall teaches it</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Ballad</th><td>Bass note on beat 1, then a slow broken chord rippling upward</td><td>Book 5, Ballad Style</td></tr>
+        <tr><th scope="row">Pop</th><td>Chord on every beat, or on beats 1, 2 and the “and” of 3</td><td>Book 1, Rhythm Style</td></tr>
+        <tr><th scope="row">Slow blues shuffle</th><td>Chord on the off-beats with a lazy, swung feel</td><td>Books 2 and 7, Blues</td></tr>
+        <tr><th scope="row">Rock ’n’ roll boogie</th><td>Right-hand chords on every beat over the walking bass</td><td>Book 2, Blues &amp; Rock ’n’ Roll</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Select the 12-bar blues progression with either shuffle style for the classic blues form. It uses seventh chords, as most blues songs do.</p>
+</Article>

@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { SITE_URL } from '../../data/site';
+const posts = (await getCollection('blog')).sort((a, b) => +b.data.pubDate - +a.data.pubDate);
+const cats = [...new Map(posts.map((p) => [p.data.category, p.data.categoryName])).entries()];
+---
+<Base
+  title="Piano Blog: Practice Tips, Learning Psychology and Piano Stories"
+  description="Articles by Robin Hall on learning piano as an adult: practice habits, the psychology of learning, gear, classical pieces and stories from piano history."
+  crumbs={[{ name: 'Blog', href: '/blog' }]}
+  schema={[{ '@type': 'Blog', name: 'Pianoforall blog', url: `${SITE_URL}/blog`, publisher: { '@id': `${SITE_URL}/#organization` } }]}
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Blog</p>
+      <h1>Notes from the piano stool</h1>
+      <p class="lede">Practice ideas, learning psychology, gear, and stories from piano history. Looking for step-by-step help? Start with the <a href="/learn">beginner guides</a>.</p>
+      <nav class="chip-row" aria-label="Categories" style="margin-top:1.5rem">
+        {cats.map(([slug, name]) => <a class="chip" style="text-decoration:none;display:inline-flex;align-items:center" href={`/category/${slug}`}>{name}</a>)}
+      </nav>
+    </div>
+  </section>
+  <section class="section-tight" style="padding-top:0">
+    <div class="wrap grid grid-3">
+      {posts.map((p) => <PostCard post={p} />)}
+    </div>
+  </section>
+</Base>

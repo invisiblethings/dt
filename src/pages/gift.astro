@@ -1,0 +1,22 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { PRODUCTS, BRAND } from '../data/site';
+const items = [PRODUCTS.pianoforall, PRODUCTS.completeBundle, PRODUCTS.classicsBundle, PRODUCTS.moonlight, PRODUCTS.satie, PRODUCTS.bach];
+---
+<Legal title="Give Pianoforall as a Gift" description="Give piano lessons they can start today. Buy any Pianoforall course, email Robin the recipient’s name, and he’ll enrol them with a personal welcome." h1="Give a course as a gift" updated="October 2026" path="/gift">
+  <p>A course is a good present for someone who has always said they’d like to play. They can start the day they open it.</p>
+  <h2>How it works</h2>
+  <ol>
+    <li>Choose a course below and buy it with <b>your own</b> details on the order form.</li>
+    <li>Email <a href={`mailto:${BRAND.email}?subject=Gift%20course`}>{BRAND.email}</a> with the recipient’s name and email address, and a personal message if you like.</li>
+    <li>Robin enrols them and sends a personal email welcoming them to Pianoforall Academy.</li>
+  </ol>
+  <h2>Choose a gift</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th scope="col">Course</th><th scope="col">Price</th><th scope="col"><span class="visually-hidden">Buy</span></th></tr></thead>
+    <tbody>
+      {items.map((p) => <tr><th scope="row"><a href={p.url}>{p.name}</a><br /><span class="muted small">{p.short}</span></th><td>${p.price}</td><td><a href={p.checkout} rel="nofollow" data-track="begin_checkout" data-product={p.id} data-track-location="gift">Buy as gift</a></td></tr>)}
+    </tbody>
+  </table></div>
+  <p>The {PRODUCTS.pianoforall.name} gift includes the same 60-day money-back guarantee as any purchase.</p>
+</Legal>

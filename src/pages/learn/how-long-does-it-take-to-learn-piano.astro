@@ -1,0 +1,117 @@
+---
+import Article from '../../layouts/Article.astro';
+import type { Faq } from '../../data/faqs';
+
+const faqs: Faq[] = [
+  { id: 'h1', group: '', q: 'Can I learn piano in 3 months?', a: 'In three months of regular practice you can learn your main chords, play two-handed accompaniments to simple songs and learn a few short pieces. You won’t be an advanced pianist, but you can be playing music you enjoy.' },
+  { id: 'h2', group: '', q: 'How many hours a day should a beginner practise piano?', a: '15 to 30 minutes a day is enough for most adult beginners. Short daily sessions work better than long weekly ones, because your hands consolidate new movements between sessions.' },
+  { id: 'h3', group: '', q: 'Is it harder to learn piano as an adult?', a: 'Adults may need a little longer to make new movements automatic, but they understand patterns and theory faster than children and choose music they want to play. Many adults progress quickly with a chord-based approach.' },
+  { id: 'h4', group: '', q: 'How long does it take to learn piano by yourself?', a: 'Teaching yourself takes about as long as lessons if you follow a structured course in order. Self-taught learners slow down when they jump between random tutorials and skip the basics.' },
+];
+const toc = [
+  { id: 'milestones', text: 'Realistic milestones' },
+  { id: 'factors', text: 'What speeds you up' },
+  { id: 'calculator', text: 'Practice-hours calculator' },
+  { id: 'goal', text: 'It depends what “learn” means' },
+];
+---
+<Article
+  title="How Long Does It Take to Learn Piano? Realistic Timelines for Adults"
+  seoTitle="How Long Does It Take to Learn Piano? (Realistic Adult Timeline)"
+  description="How long it takes to learn piano as an adult: realistic milestones from first chords to intermediate, what speeds you up, and a practice calculator."
+  path="/learn/how-long-does-it-take-to-learn-piano"
+  published="2026-10-08"
+  author="Pianoforall"
+  eyebrow="Beginner guide · Getting started"
+  crumbs={[{ name: 'Learn', href: '/learn' }, { name: 'How long does it take?', href: '/learn/how-long-does-it-take-to-learn-piano' }]}
+  answer="With 20 to 30 minutes of practice most days, adult beginners typically play simple two-handed songs within <b>a few months</b>, reach a solid beginner level in <b>6 to 12 months</b>, and reach an early-intermediate level in <b>1 to 3 years</b>. What you learn first, and how regularly you practise, matter more than age or talent."
+  toc={toc}
+  faqs={faqs}
+  cta="course"
+  related={[
+    { href: '/learn/piano-practice-routine', title: 'A 20-minute practice routine' },
+    { href: '/am-i-too-old-to-learn-piano', title: 'Am I too old to learn piano?' },
+    { href: '/learn/learn-piano-online', title: 'How to learn piano online' },
+  ]}
+>
+  <p>Nobody can give you an exact number. Pianoforall’s creator, Robin Hall, refuses to promise “piano in three weeks” for that reason. What we can give you is the range most adult learners fall into, and the things that move you towards the fast end of it.</p>
+
+  <h2 id="milestones">Realistic milestones</h2>
+  <p>These ranges assume 20 to 30 minutes of focused practice, five or more days a week. They’re typical estimates from teachers, not results from controlled studies, so treat them as a guide.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Milestone</th><th scope="col">Typical time</th><th scope="col">What you can do</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">First chords</th><td>Your first week</td><td>Play C, F, G and Am with the right hand and a bass note in the left</td></tr>
+        <tr><th scope="row">Simple accompaniment</th><td>A few weeks to 3 months</td><td>Accompany easy songs from a chord sheet in a steady rhythm</td></tr>
+        <tr><th scope="row">Solid beginner</th><td>6 to 12 months</td><td>Play two-handed songs and simple pieces, use inversions, start reading basic notation</td></tr>
+        <tr><th scope="row">Early intermediate</th><td>1 to 3 years</td><td>Play a range of styles, improvise over common progressions, work out songs by ear</td></tr>
+        <tr><th scope="row">Advanced</th><td>Many years</td><td>Demanding classical repertoire, fluent jazz, sight-reading</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Where you are on this table also depends on <em>how</em> you learn. Chord-based methods get you to “simple accompaniment” sooner, because you play full-sounding music from the start. Reading-first methods take longer to sound musical but build sight-reading earlier.</p>
+
+  <h2 id="factors">What speeds you up</h2>
+  <ul>
+    <li><b>Practising often, not long.</b> Twenty minutes every day beats two hours on Sunday. Your brain consolidates new movements between sessions, partly while you sleep.</li>
+    <li><b>Following one course in order.</b> Jumping between tutorials leaves gaps. A sequenced course means each lesson builds on the last.</li>
+    <li><b>Playing music you like.</b> You’ll practise more often if the material makes you want to sit down. Children’s tunes rarely do that for adults.</li>
+    <li><b>Practising slowly.</b> Play a passage slowly enough to get it right. Speed comes from accuracy, not the other way round.</li>
+    <li><b>Staying relaxed.</b> Tension in your hands and shoulders slows learning and tires you out. Stop, shake out, start again.</li>
+    <li><b>Prior experience.</b> If you play guitar or sing, you already understand chords and rhythm. Expect to move faster through the early stages.</li>
+  </ul>
+
+  <h2 id="calculator">Practice-hours calculator</h2>
+  <p>Small daily sessions add up faster than you’d think. Set your routine:</p>
+  <div class="tool" data-calc>
+    <div class="grid grid-2" style="gap:1rem">
+      <label>Minutes per session
+        <input type="range" min="5" max="90" step="5" value="20" data-min style="width:100%" />
+        <output data-min-out>20 minutes</output>
+      </label>
+      <label>Days per week
+        <input type="range" min="1" max="7" step="1" value="5" data-days style="width:100%" />
+        <output data-days-out>5 days</output>
+      </label>
+    </div>
+    <div class="stats" style="margin-top:1.25rem" aria-live="polite">
+      <div class="stat"><b data-week>1.7 h</b><span>per week</span></div>
+      <div class="stat"><b data-month>7 h</b><span>per month</span></div>
+      <div class="stat"><b data-year>87 h</b><span>per year</span></div>
+      <div class="stat"><b data-lessons>~1 lesson</b><span>a day pace through a short-lesson course</span></div>
+    </div>
+    <p class="small muted" style="margin:1rem 0 0" data-note>That’s about 87 hours a year, more than a weekly one-hour lesson gives you (52 hours), and it’s all hands-on time.</p>
+  </div>
+
+  <h2 id="goal">It depends what “learn piano” means to you</h2>
+  <p>“Learning piano” means different things to different people. Accompanying friends singing round the piano might take a few months. Playing the Moonlight Sonata might take a year. Playing Chopin’s études takes most people a lifetime. Decide what you want to play, and judge your progress by that.</p>
+  <p>Whatever the goal, the early milestones are the same: chords, rhythm, both hands working together. Get those right and everything after is easier.</p>
+</Article>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-calc]');
+  if (root) {
+    const min = root.querySelector<HTMLInputElement>('[data-min]')!;
+    const days = root.querySelector<HTMLInputElement>('[data-days]')!;
+    const set = (sel: string, v: string) => (root.querySelector(sel)!.textContent = v);
+    let tracked = false;
+    const update = () => {
+      const m = +min.value, d = +days.value;
+      const week = (m * d) / 60;
+      set('[data-min-out]', `${m} minutes`);
+      set('[data-days-out]', `${d} day${d > 1 ? 's' : ''}`);
+      set('[data-week]', `${week.toFixed(1)} h`);
+      set('[data-month]', `${Math.round(week * 4.33)} h`);
+      set('[data-year]', `${Math.round(week * 52)} h`);
+      set('[data-lessons]', m >= 15 && d >= 5 ? '~1 lesson' : m >= 10 ? '2–3 lessons' : '1–2 lessons');
+      root.querySelectorAll('.stat span')[3].textContent = m >= 15 && d >= 5 ? 'a day, at a comfortable pace' : 'a week, at a comfortable pace';
+      const yearH = week * 52;
+      set('[data-note]', yearH >= 52
+        ? `That’s about ${Math.round(yearH)} hours a year, more than a weekly one-hour lesson gives you (52 hours), and it’s all hands-on time.`
+        : 'Even short sessions add up. Try nudging the days up before the minutes: frequency matters most.');
+    };
+    [min, days].forEach((i) => i.addEventListener('input', () => { update(); if (!tracked) { tracked = true; window.pfaTrack?.('tool_use', { tool: 'practice_calculator' }); } }));
+    update();
+  }
+</script>

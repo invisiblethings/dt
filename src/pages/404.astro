@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Page not found" description="This page has moved or no longer exists." noindex path="/404">
+  <section class="page-hero">
+    <div class="wrap-narrow">
+      <p class="eyebrow">404</p>
+      <h1>That note isn’t on this keyboard</h1>
+      <p class="lede">The page you were looking for has moved or doesn’t exist. One of these should help:</p>
+      <ul class="check-list">
+        <li><a href="/">Home page</a></li>
+        <li><a href="/course">The Pianoforall course</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/learn">Piano guides</a> and the <a href="/blog">blog</a></li>
+        <li><a href="/contact">Contact Robin</a></li>
+      </ul>
+    </div>
+  </section>
+</Base>
+<script>
+  window.addEventListener('load', () => window.pfaTrack?.('page_not_found', { path: location.pathname, referrer: document.referrer }));
+</script>

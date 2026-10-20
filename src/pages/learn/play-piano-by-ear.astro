@@ -1,0 +1,98 @@
+---
+import Article from '../../layouts/Article.astro';
+import type { Faq } from '../../data/faqs';
+import { byId } from '../../data/testimonials';
+import Quote from '../../components/Quote.astro';
+
+const faqs: Faq[] = [
+  { id: 'e1', group: '', q: 'Can anyone learn to play piano by ear?', a: 'Yes. Playing by ear is a skill you build, like reading. If you can hum a tune and tell whether two notes sound the same or different, you have enough to start. Learning the common chord progressions speeds it up a lot.' },
+  { id: 'e2', group: '', q: 'Should I learn to read music or play by ear first?', a: 'You can do both, but starting with chords and ear work gets most adults playing music sooner. Reading then makes more sense, because the notes on the page describe chords and patterns you already know.' },
+  { id: 'e3', group: '', q: 'How long does it take to learn to play by ear?', a: 'Most learners can find the key and the main chords of simple songs after a few months of regular practice with chords. Picking out full arrangements by ear takes longer, and it keeps improving for as long as you play.' },
+  { id: 'e4', group: '', q: 'Do I need perfect pitch?', a: 'No. Perfect pitch (naming a note with no reference) is rare and you don’t need it. Playing by ear relies on relative pitch: hearing how notes and chords relate to each other, which anyone can train.' },
+];
+const toc = [
+  { id: 'what', text: 'What “by ear” means' },
+  { id: 'before', text: 'What to learn first' },
+  { id: 'steps', text: 'Five steps to work out a song' },
+  { id: 'progressions', text: 'Progressions to know by sound' },
+  { id: 'exercises', text: 'Ear exercises' },
+  { id: 'mistakes', text: 'Common mistakes' },
+];
+const q = byId('hoare')[0];
+---
+<Article
+  title="How to Play Piano by Ear: A Step-by-Step Guide for Beginners"
+  description="Learn to play piano by ear: find the key, hear the chords, then add the melody. The chord progressions to learn first, simple ear exercises, and common mistakes."
+  path="/learn/play-piano-by-ear"
+  published="2026-10-08"
+  author="Pianoforall"
+  eyebrow="Beginner guide · Skills"
+  crumbs={[{ name: 'Learn', href: '/learn' }, { name: 'Play piano by ear', href: '/learn/play-piano-by-ear' }]}
+  answer="To play a song by ear: <b>find the key</b> (the note that sounds like home), <b>work out the chords</b> using the bass line as a guide, then <b>pick out the melody</b> on top. Learning the four or five progressions that most songs use makes every step faster."
+  toc={toc}
+  faqs={faqs}
+  cta="free"
+  related={[
+    { href: '/learn/piano-chords-for-beginners', title: 'Piano chords for beginners', note: 'Learn these first' },
+    { href: '/how-it-works', title: 'How Pianoforall teaches by ear' },
+    { href: '/if-you-play-guitar-you-can-play-piano', title: 'If you play guitar, you can play piano' },
+  ]}
+>
+  <p>Some people assume playing by ear is a gift you’re born with. It’s closer to learning a language. You recognise a few common phrases, then you start to hear them everywhere, and after a while you can make sense of things you’ve never heard before.</p>
+
+  <h2 id="what">What “playing by ear” means</h2>
+  <p>Playing by ear means working out music by listening rather than reading it. At the simplest level, that’s finding a melody one note at a time. More useful is hearing the <b>chords</b>, because once you know the chords you can play an accompaniment, sing over it, or improvise.</p>
+  <p>You don’t need perfect pitch. You need <b>relative pitch</b>: hearing whether a note goes up or down, whether a chord sounds major or minor, and when the harmony changes. Everyone can train that.</p>
+
+  <h2 id="before">What to learn first</h2>
+  <ul>
+    <li><b>The main chords in two or three keys.</b> Start with C, G and F major. Our <a href="/learn/piano-chords-for-beginners">chords guide</a> shows them.</li>
+    <li><b>The sound of major and minor.</b> Play C major then A minor until you can tell them apart with your eyes closed.</li>
+    <li><b>A few rhythm patterns</b> so that the chords you find sound like music.</li>
+  </ul>
+  <p>This is the order Pianoforall teaches in. By the time you try to work out a song, your hands already know where the chords are.</p>
+
+  <h2 id="steps">Five steps to work out a song</h2>
+  <ol>
+    <li><b>Pick an easy song.</b> Choose something slow with a clear piano or guitar part. Folk songs, ballads and 1950s rock ’n’ roll are ideal.</li>
+    <li><b>Find home.</b> Play the song and hum the note that the song seems to end on, the one that feels finished. Find that note on the piano. That’s usually the key. If the last chord sounds sad, the song may be in a minor key.</li>
+    <li><b>Try the main chords of that key.</b> If home is C, start with C, F, G and Am. Play along and listen for which one fits each section. Most songs use three or four chords.</li>
+    <li><b>Follow the bass.</b> When you’re unsure, listen to the lowest notes. The bass usually plays the root of each chord, and it moves when the chord changes.</li>
+    <li><b>Add the melody.</b> With the chords in your left hand, hum the tune and look for its first note. Melody notes often belong to the chord underneath, so try those first.</li>
+  </ol>
+  <p>Expect to get it wrong at first. Every wrong chord teaches your ear something. Within a few songs you’ll start to guess right on the first try.</p>
+
+  <h2 id="progressions">Progressions to know by sound</h2>
+  <p>A small number of chord progressions account for a large share of popular songs. Learn to recognise these and you’ll have a head start on most of what you hear.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Progression</th><th scope="col">In C</th><th scope="col">How it sounds</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">I–V–vi–IV</th><td>C G Am F</td><td>Uplifting, modern pop</td></tr>
+        <tr><th scope="row">I–vi–IV–V</th><td>C Am F G</td><td>Fifties ballads and doo-wop</td></tr>
+        <tr><th scope="row">I–IV–V</th><td>C F G</td><td>Rock ’n’ roll, folk, country</td></tr>
+        <tr><th scope="row">vi–IV–I–V</th><td>Am F C G</td><td>Moodier pop, starts on the minor</td></tr>
+        <tr><th scope="row">12-bar blues</th><td>C×4 · F×2 · C×2 · G F C G</td><td>Blues, boogie and early rock</td></tr>
+        <tr><th scope="row">ii–V–I</th><td>Dm7 G7 Cmaj7</td><td>The backbone of jazz standards</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Play each one, then play it again in the key of G. Training your ear to recognise the <em>pattern</em> rather than the specific chords is what lets you play by ear in any key.</p>
+
+  <h2 id="exercises">Ear exercises that take five minutes</h2>
+  <ul>
+    <li><b>Higher or lower.</b> Have someone play two notes (or use a free ear-training app). Say whether the second is higher or lower. Then narrow the gap.</li>
+    <li><b>Major or minor.</b> Ask a friend to play random major and minor chords while you look away.</li>
+    <li><b>Sing the root.</b> While a song plays, hum the bass note under each chord.</li>
+    <li><b>Copy short phrases.</b> Play two or three notes, then find them again with your eyes closed.</li>
+  </ul>
+
+  <h2 id="mistakes">Common mistakes</h2>
+  <ul>
+    <li><b>Starting with the melody of a complicated song.</b> Work out the chords first. They give you a map.</li>
+    <li><b>Choosing songs that are too busy.</b> Dense production hides the harmony. Look for acoustic or live versions.</li>
+    <li><b>Ignoring rhythm.</b> The right chords in a stiff rhythm still sound wrong. Rhythm is half of playing by ear.</li>
+    <li><b>Giving up on reading entirely.</b> Reading and ear playing help each other. You’ll want both eventually.</li>
+  </ul>
+  <Quote t={q} />
+</Article>
