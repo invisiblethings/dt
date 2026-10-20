@@ -3,36 +3,41 @@
    Headlines in Barlow Semi Condensed (truck-lettering feel), body in Source Sans 3. */
 
 :root {
-  --asphalt: #1c2228;
-  --asphalt-2: #262e36;
-  --slate: #33414e;
+  /* Deep harbor navy for dark surfaces (the old "asphalt" token name is kept so components follow). */
+  --asphalt: #10233a;
+  --asphalt-2: #183250;
+  --slate: #2b4560;
   --orange: #e8562a;
   --orange-dark: #c4421a;
-  --orange-soft: #fde9e1;
-  --navy: #1f4e8c;
+  --orange-soft: #fdebe3;
+  --navy: #1d4f91;
   --sky: #6cb4e4;
-  --cloud: #f4f6f8;
+  --sky-50: #eef6fc;
+  --sky-100: #dcecf8;
+  --cloud: #f3f7fa;
   --paper: #ffffff;
-  --ink: #14181c;
-  --muted: #56616c;
-  --line: #dde2e7;
-  --gold: #f5b400;
-  --green: #2f7d4f;
+  --ink: #13202e;
+  --muted: #45525f;
+  --line: #d6dfe7;
+  --gold: #f2a900;
+  --green: #2a7a4b;
 
   --font-display: 'Barlow Semi Condensed', 'Arial Narrow', Arial, sans-serif;
   --font-body: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  --step--1: 0.9375rem;
-  --step-0: 1.0625rem;
-  --step-1: 1.25rem;
-  --step-2: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
-  --step-3: clamp(2rem, 1.5rem + 2vw, 2.75rem);
-  --step-4: clamp(2.5rem, 1.6rem + 3.6vw, 4.25rem);
+  /* Sized for readers 40+: 19px body, 22px lead. */
+  --step--1: 1.0625rem;
+  --step-0: 1.1875rem;
+  --step-1: 1.375rem;
+  --step-2: clamp(1.625rem, 1.3rem + 1vw, 2rem);
+  --step-3: clamp(2.125rem, 1.6rem + 2vw, 3rem);
+  --step-4: clamp(2.75rem, 1.8rem + 3.6vw, 4.5rem);
 
-  --radius: 10px;
-  --wrap: 1180px;
-  --gutter: max(16px, env(safe-area-inset-left, 0px));
-  --shadow: 0 14px 34px rgba(20, 24, 28, 0.14);
+  --radius: 14px;
+  --wrap: 1200px;
+  --gutter: max(18px, env(safe-area-inset-left, 0px));
+  --shadow: 0 18px 40px -12px rgba(16, 35, 58, 0.28);
+  --shadow-sm: 0 6px 18px -6px rgba(16, 35, 58, 0.22);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -70,17 +75,20 @@ ul, ol { margin: 0; padding: 0; }
 .stack { display: grid; gap: 16px; }
 .stack-lg { display: grid; gap: 32px; }
 
-.eyebrow { font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); }
-.section--dark .eyebrow { color: #ff8a5c; }
+.eyebrow { font-weight: 700; font-size: 0.9375rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange-dark); display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ''; width: 26px; height: 3px; border-radius: 2px; background: currentColor; }
+.center .eyebrow { justify-content: center; }
+.section--dark .eyebrow { color: #ff9a70; }
 .lead { font-size: var(--step-1); color: var(--muted); max-width: 62ch; }
-.section--dark .lead { color: #c9d2da; }
+.section--dark .lead { color: #d5e0ea; }
 .muted { color: var(--muted); }
 .head { display: grid; gap: 12px; max-width: 760px; }
 
 /* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 14px 24px; border-radius: 8px; font-weight: 700; font-size: 1.0625rem; text-decoration: none; border: 2px solid transparent; cursor: pointer; line-height: 1.1; transition: background-color .15s, color .15s, transform .15s; font-family: var(--font-body); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 58px; padding: 14px 28px; border-radius: 12px; font-weight: 700; font-size: 1.1875rem; text-decoration: none; border: 2px solid transparent; cursor: pointer; line-height: 1.1; transition: background-color .15s, color .15s, transform .15s, box-shadow .15s; font-family: var(--font-body); }
 .btn:active { transform: translateY(1px); }
-.btn--primary { background: var(--orange); color: #fff; }
+.btn--primary { background: var(--orange); color: #fff; box-shadow: 0 10px 22px -10px rgba(232, 86, 42, .9); }
+@media (hover: hover) { .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 14px 26px -10px rgba(232, 86, 42, .95); } }
 .btn--primary:hover { background: var(--orange-dark); color: #fff; }
 .btn--ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
 .btn--ghost:hover { background: #fff; color: var(--asphalt); }
@@ -89,20 +97,22 @@ ul, ol { margin: 0; padding: 0; }
 .btn--outline { background: transparent; color: var(--asphalt); border-color: var(--asphalt); }
 .btn--outline:hover { background: var(--asphalt); color: #fff; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
-.btn svg { width: 20px; height: 20px; flex: none; }
+.btn svg { width: 22px; height: 22px; flex: none; }
+.btn--light { background: #fff; color: var(--asphalt); border-color: var(--line); }
+.btn--light:hover { border-color: var(--asphalt); color: var(--asphalt); }
 
 /* Trust strip */
-.trust { display: flex; flex-wrap: wrap; gap: 8px 22px; font-weight: 600; font-size: var(--step--1); }
+.trust { display: flex; flex-wrap: wrap; gap: 10px 24px; font-weight: 600; font-size: var(--step--1); }
 .trust li { list-style: none; display: inline-flex; align-items: center; gap: 8px; }
-.trust svg { width: 18px; height: 18px; color: var(--gold); flex: none; }
+.trust svg { width: 22px; height: 22px; color: var(--gold); flex: none; }
 
 /* Cards & grids */
 .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
 .grid-3 { display: grid; gap: 20px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 960px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px) { .grid-3 { grid-template-columns: minmax(0, 1fr); } }
-.card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: grid; gap: 10px; align-content: start; min-width: 0; }
-.card h3 { font-size: 1.5rem; }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-sm); display: grid; gap: 10px; align-content: start; min-width: 0; }
+.card h3 { font-size: 1.625rem; }
 .card p { color: var(--muted); }
 .card--accent { border-top: 5px solid var(--orange); }
 
@@ -114,22 +124,27 @@ ul, ol { margin: 0; padding: 0; }
 
 /* Forms */
 .field { display: grid; gap: 6px; }
-.field label { font-weight: 700; font-size: 0.9375rem; color: var(--ink); }
+.field label { font-weight: 700; font-size: 1.0625rem; color: var(--ink); }
 .field input, .field select, .field textarea {
-  font: inherit; font-size: 1rem; color: var(--ink); background: #fff; border: 1.5px solid #aab4be; border-radius: 8px; min-height: 50px; padding: 10px 14px; width: 100%;
+  font: inherit; font-size: 1.125rem; color: var(--ink); background: #fff; border: 2px solid #9fb0bf; border-radius: 10px; min-height: 56px; padding: 10px 14px; width: 100%;
 }
 .field textarea { min-height: 110px; resize: vertical; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: 3px solid var(--sky); outline-offset: 1px; border-color: var(--navy); }
-.field .hint { font-size: 0.875rem; color: var(--muted); }
+.field .hint { font-size: 0.9375rem; font-weight: 400; color: var(--muted); }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* Breadcrumbs */
-.crumbs { font-size: 0.9375rem; }
+.crumbs { font-size: 1rem; }
 .crumbs ol { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
 .crumbs li + li::before { content: '/'; margin-right: 6px; opacity: .6; }
 .crumbs a { color: inherit; }
 
 /* Utility */
-.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8125rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--orange-soft); color: var(--orange-dark); }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9375rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--orange-soft); color: var(--orange-dark); }
 .chip--dark { background: rgba(255,255,255,.12); color: #fff; }
 .center { text-align: center; justify-items: center; margin-inline: auto; }
+
+/* Scroll reveal: only armed when JS runs (Base.astro adds .js-reveal), so content is never hidden without it. */
+.js-reveal [data-reveal] { opacity: 0; translate: 0 26px; transition: opacity .7s ease, translate .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
+.js-reveal [data-reveal].is-in { opacity: 1; translate: 0 0; }
+@media (prefers-reduced-motion: reduce) { .js-reveal [data-reveal] { opacity: 1; translate: none; } }

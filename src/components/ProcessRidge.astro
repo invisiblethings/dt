@@ -3,7 +3,7 @@
 interface Props { steps: { title: string; body: string }[] }
 const { steps } = Astro.props;
 ---
-<ol class="ridge" style={`--n: ${steps.length}`}>
+<ol class="ridge" data-animate style={`--n: ${steps.length}`}>
   {steps.map((s, i) => (
     <li class="ridge__step" style={`--i: ${i}`}>
       <span class="ridge__dot" aria-hidden="true">{i + 1}</span>
@@ -19,10 +19,18 @@ const { steps } = Astro.props;
     background: linear-gradient(to bottom right, transparent calc(50% - 2px), var(--orange) calc(50% - 2px) calc(50% + 2px), transparent calc(50% + 2px)) left / 50% 100% no-repeat,
                 linear-gradient(to bottom left, transparent calc(50% - 2px), var(--orange) calc(50% - 2px) calc(50% + 2px), transparent calc(50% + 2px)) right / 50% 100% no-repeat; }
   .ridge__step { position: relative; display: grid; gap: 8px; align-content: start; }
-  .ridge__dot { position: absolute; top: calc(-130px + var(--y, 0px)); left: 50%; translate: -50% 0; width: 44px; height: 44px; border-radius: 50%; background: var(--orange); color: #fff;
+  .ridge__dot { position: absolute; top: calc(-130px + var(--y, 0px)); left: 50%; translate: -50% 0; width: 50px; height: 50px; border-radius: 50%; background: var(--orange); color: #fff;
     display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; box-shadow: 0 0 0 6px var(--asphalt); }
   .ridge__step h3 { font-size: 1.375rem; text-align: center; color: #fff; }
   .ridge__step p { color: #c9d2da; text-align: center; font-size: 1rem; }
+  .ridge__step h3 { font-size: 1.5rem; }
+  .ridge__step p { font-size: 1.0625rem; color: #d5e0ea; }
+  @media (prefers-reduced-motion: no-preference) {
+    .ridge::before { transition: clip-path 1.6s ease-in-out; clip-path: inset(0 0 0 0); }
+    .ridge__dot { transition: scale .45s cubic-bezier(.3,1.6,.5,1), background-color .3s; transition-delay: calc(.2s + var(--i) * .28s); }
+    :global(.js-reveal) .ridge:not(.is-in)::before { clip-path: inset(0 100% 0 0); }
+    :global(.js-reveal) .ridge:not(.is-in) .ridge__dot { scale: 0; }
+  }
   @media (min-width: 901px) {
     .ridge__step { --mid: calc((var(--n) - 1) / 2); --dist: max(var(--i) - var(--mid), var(--mid) - var(--i)); --y: calc(var(--dist) / var(--mid) * 76px); }
   }

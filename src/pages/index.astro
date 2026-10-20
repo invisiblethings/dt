@@ -10,6 +10,9 @@ import ProjectCard from '../components/ProjectCard.astro';
 import ReviewSigns from '../components/ReviewSigns.astro';
 import ProcessRidge from '../components/ProcessRidge.astro';
 import Faq from '../components/Faq.astro';
+import HeroStreet from '../components/HeroStreet.astro';
+import ServiceIcon from '../components/ServiceIcon.astro';
+import StormBand from '../components/StormBand.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { business } from '../data/business';
 import { services } from '../data/services';
@@ -17,6 +20,7 @@ import { projects, findProject } from '../data/projects';
 import trucks from '../assets/site/trucks-job-site.jpg';
 import bill from '../assets/site/owner-bill.jpg';
 import brian from '../assets/site/owner-brian.png';
+import oc from '../assets/brand/owens-corning-preferred.png';
 
 const hero = findProject('great-kills');
 const featured = [findProject('willowbrook'), findProject('bay-ridge'), findProject('tottenville-2022'), findProject('mariners-harbor-2022'), findProject('stapleton'), findProject('kensington')];
@@ -41,56 +45,74 @@ const faqs = [
 >
   <!-- HERO -->
   <section class="hero">
+    <svg class="hero__clouds" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMin slice" aria-hidden="true" focusable="false">
+      <g class="cloud c1"><circle cx="160" cy="90" r="34" /><circle cx="205" cy="74" r="44" /><circle cx="255" cy="92" r="32" /><rect x="128" y="92" width="160" height="32" rx="16" /></g>
+      <g class="cloud c2"><circle cx="1080" cy="60" r="26" /><circle cx="1118" cy="46" r="36" /><circle cx="1160" cy="62" r="26" /><rect x="1054" y="62" width="132" height="26" rx="13" /></g>
+      <g class="cloud c3"><circle cx="700" cy="150" r="20" /><circle cx="728" cy="140" r="27" /><circle cx="758" cy="152" r="19" /><rect x="680" y="152" width="98" height="20" rx="10" /></g>
+    </svg>
     <div class="wrap hero__in">
       <div class="hero__copy">
-        <p class="eyebrow">Family-owned · Licensed · GAF Master Elite</p>
-        <h1>Staten Island roofing contractor. <span>We've got you covered.</span></h1>
-        <p class="lead">Roof replacement, repairs, flat roofs and gutters from a local crew run by owners Bill and Brian. Clear options, clean job sites, and warranties that last.</p>
+        <a class="hero__rating" href={business.social.googleReviews} rel="noopener">
+          <span class="stars" aria-hidden="true">{[0, 1, 2, 3, 4].map(() => <Icon name="star" />)}</span>
+          <span><strong>{business.stats.rating} on Google</strong> from {business.stats.reviews} reviews</span>
+        </a>
+        <h1><span class="hero__kicker">Staten Island roofing contractor</span> We've got you <span class="hl">covered.<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 16C60 6 150 4 296 12" /></svg></span></h1>
+        <p class="lead">Roof replacement, repairs, flat roofs and gutters from a family crew run by owners Bill and Brian. Clear prices, clean job sites and warranties that last.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="/free-estimate/">Get my free estimate <Icon name="arrow" /></a>
-          <a class="btn btn--ghost" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a>
+          <a class="btn btn--light" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a>
         </div>
-        <ul class="trust">
-          <li><Icon name="star" /> {business.stats.rating} on Google · {business.stats.reviews} reviews</li>
-          <li><Icon name="clock" /> Reply within 24 hours</li>
-          <li><Icon name="dollar" /> Financing available</li>
+        <ul class="hero__assure">
+          <li><Icon name="check" /> Free, no-pressure estimates</li>
+          <li><Icon name="check" /> {business.responsePromise.replace('We contact you', 'We call you back')}</li>
+          <li><Icon name="check" /> Financing available</li>
         </ul>
       </div>
       <div class="hero__proof">
-        <BeforeAfter before={hero.before} after={hero.after} label={hero.title} eager sizes="(max-width: 960px) 100vw, 560px" />
-        <p class="hero__caption"><Icon name="arrow" /> Drag the handle: a real {hero.service.toLowerCase()} in {hero.area.replace(/, Staten Island$/, "")}, photographed from the same spot before and after.</p>
+        <div class="hero__frame">
+          <BeforeAfter before={hero.before} after={hero.after} label={hero.title} eager peek sizes="(max-width: 960px) 100vw, 560px" />
+          <p class="hero__tag"><Icon name="pin" /> Real B&amp;B job · {hero.area.replace(/, Staten Island$/, '')} · {hero.monthYear}</p>
+        </div>
+        <p class="hero__caption"><span class="hero__hand" aria-hidden="true">⟷</span> Slide the circle left and right to see this roof before and after.</p>
       </div>
     </div>
-    <Skyline class="hero__edge" />
+    <ul class="wrap hero__creds" aria-label="Credentials">
+      <li><Icon name="shield" /><span><strong>GAF Master Elite®</strong> contractor</span></li>
+      <li><Image src={oc} alt="Owens Corning Preferred Contractor" width={150} quality={80} class="hero__oc" /></li>
+      <li><Icon name="check" /><span><strong>Licensed &amp; insured</strong> NYC HIC #2125865</span></li>
+      <li><Icon name="pin" /><span><strong>Local storefront</strong> 145 Cedar Ave</span></li>
+    </ul>
+    <HeroStreet />
   </section>
 
   <!-- STATS -->
   <section class="stats" aria-label="B&B by the numbers">
-    <ul class="wrap stats__row">
-      <li><strong>{business.stats.projects}</strong><span>projects completed</span></li>
-      <li><strong>{business.stats.satisfaction}</strong><span>customer satisfaction</span></li>
-      <li><strong>{business.stats.rating}★</strong><span>{business.stats.reviews} Google reviews</span></li>
-      <li><strong>50 yr</strong><span>non-prorated GAF coverage*</span></li>
-      <li><strong>24/7</strong><span>emergency leak service</span></li>
+    <ul class="wrap stats__row" data-animate>
+      <li><span class="stats__ic"><Icon name="roof" /></span><strong><span data-count="2000">2,000</span>+</strong><span>local projects completed</span></li>
+      <li><span class="stats__ic"><Icon name="check" /></span><strong><span data-count="99">99</span>%</strong><span>customer satisfaction</span></li>
+      <li><span class="stats__ic stats__ic--gold"><Icon name="star" /></span><strong><span data-count="5.0">5.0</span></strong><span>stars, {business.stats.reviews} Google reviews</span></li>
+      <li><span class="stats__ic"><Icon name="shield" /></span><strong><span data-count="50">50</span> yr</strong><span>manufacturer coverage*</span></li>
+      <li><span class="stats__ic"><Icon name="clock" /></span><strong>24/7</strong><span>emergency leak service</span></li>
     </ul>
-    <p class="wrap stats__fine">*GAF Golden Pledge® on qualifying roof systems, with up to 30 years of workmanship coverage.</p>
+    <p class="wrap stats__fine">*Up to 50 years non-prorated through GAF Golden Pledge® on qualifying roof systems, with up to 30 years of workmanship coverage.</p>
   </section>
 
   <!-- SERVICES -->
   <section class="section">
     <div class="wrap stack-lg">
-      <div class="head">
+      <div class="head" data-reveal>
         <p class="eyebrow">What we do</p>
-        <h2>Every part of the roof, and what keeps water off it</h2>
+        <h2>Roofs, gutters and siding, all from one local crew</h2>
+        <p class="lead">Pick what you need. Not sure? Call us and describe it; we'll tell you what it sounds like.</p>
       </div>
       <ul class="svc">
-        {services.map((s) => (
-          <li class:list={['svc__item', { 'svc__item--live': s.built }]}>
-            <a href={s.href ?? '/services/'}>
-              <span class="svc__group">{s.group}</span>
+        {services.map((s, i) => (
+          <li data-reveal style={`--d: ${(i % 3) * 0.08}s`}>
+            <a class="svc__card" href={s.href ?? '/free-estimate/'}>
+              <ServiceIcon slug={s.slug} />
               <span class="svc__name">{s.name}</span>
               <span class="svc__short">{s.short}</span>
-              <span class="svc__go" aria-hidden="true">→</span>
+              <span class="svc__go">{s.href ? 'Learn more' : 'Get a free estimate'} <Icon name="arrow" /></span>
             </a>
           </li>
         ))}
@@ -102,7 +124,7 @@ const faqs = [
   <section class="section section--dark has-skyline" id="roof-check">
     <Skyline class="edge" />
     <div class="wrap stack-lg">
-      <div class="head">
+      <div class="head" data-reveal>
         <p class="eyebrow">60-second roof check</p>
         <h2>What's your roof telling you?</h2>
         <p class="lead">Three quick questions. We'll tell you honestly whether it sounds like a repair, a replacement, or an emergency.</p>
@@ -114,7 +136,7 @@ const faqs = [
   <!-- ZIP MAP -->
   <section class="section">
     <div class="wrap stack-lg">
-      <div class="head">
+      <div class="head" data-reveal>
         <p class="eyebrow">Your neighbors already know us</p>
         <h2>Roofs we've done on your side of the island</h2>
         <p class="lead">Every job we do is photo-documented. Here's where those jobs are, ZIP by ZIP.</p>
@@ -127,7 +149,7 @@ const faqs = [
   <section class="section section--cloud has-skyline">
     <Skyline class="edge" flip />
     <div class="wrap stack-lg">
-      <div class="head">
+      <div class="head" data-reveal>
         <p class="eyebrow">Before &amp; after</p>
         <h2>Real roofs, same angle, before and after</h2>
         <p class="lead">Drone photos from our own job records, taken from the same spot so you can see exactly what changed.</p>
@@ -137,10 +159,18 @@ const faqs = [
     </div>
   </section>
 
+  <StormBand />
+
   <!-- OWNERS -->
   <section class="section">
     <div class="wrap owners">
       <div class="owners__photos">
+        <svg class="stamp" viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+          <defs><path id="stamp-c" d="M80 80m-58 0a58 58 0 1 1 116 0a58 58 0 1 1 -116 0" /></defs>
+          <circle cx="80" cy="80" r="76" class="stamp__bg" />
+          <g class="stamp__ring"><text><textPath href="#stamp-c" startOffset="0">FAMILY OWNED · STATEN ISLAND · 145 CEDAR AVE ·</textPath></text></g>
+          <path d="M50 92 80 66l30 26" class="stamp__roof" /><path d="M58 88v22h44V88" class="stamp__house" />
+        </svg>
         <Image quality={72} src={bill} alt="Bill, co-owner of B&B Roofing, in front of a B&B truck" widths={[320, 560]} sizes="(max-width: 760px) 45vw, 260px" class="owners__p owners__p--1" />
         <Image quality={72} src={brian} alt="Brian, co-owner of B&B Roofing" widths={[320, 560]} sizes="(max-width: 760px) 45vw, 260px" class="owners__p owners__p--2" />
       </div>
@@ -163,7 +193,7 @@ const faqs = [
   <section class="section section--dark has-skyline">
     <Skyline class="edge" />
     <div class="wrap stack-lg">
-      <div class="head center">
+      <div class="head center" data-reveal>
         <p class="eyebrow">How it works</p>
         <h2>From first call to final walkthrough</h2>
       </div>
@@ -175,7 +205,7 @@ const faqs = [
   <section class="section section--cloud has-skyline">
     <Skyline class="edge" />
     <div class="wrap stack-lg">
-      <div class="head center">
+      <div class="head center" data-reveal>
         <p class="eyebrow">You'll see our signs around the island</p>
         <h2>What homeowners say</h2>
       </div>
@@ -202,47 +232,94 @@ const faqs = [
 </Base>
 
 <style>
-  .hero { background: var(--asphalt); color: #fff; position: relative; padding-block: clamp(36px, 5vw, 72px) clamp(90px, 9vw, 130px);
-    background-image: radial-gradient(900px 420px at 92% 0%, rgba(108,180,228,.18), transparent 60%), radial-gradient(700px 360px at 0% 100%, rgba(232,86,42,.14), transparent 60%); }
-  .hero__in { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(28px, 4vw, 56px); align-items: center; }
+  .hero { position: relative; overflow: hidden; color: var(--ink); padding-top: clamp(28px, 4vw, 56px);
+    background: linear-gradient(180deg, #cfe6f8 0%, #e6f2fb 45%, #f6fafd 80%, #fff 100%); }
+  .hero__clouds { position: absolute; inset: 0 0 auto; width: 100%; height: 260px; fill: #fff; opacity: .85; pointer-events: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .cloud { animation: drift 38s ease-in-out infinite alternate; }
+    .c2 { animation-duration: 46s; animation-direction: alternate-reverse; }
+    .c3 { animation-duration: 30s; }
+  }
+  @keyframes drift { from { translate: -40px 0; } to { translate: 60px 0; } }
+  .hero__in { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(28px, 4vw, 60px); align-items: center; }
   @media (max-width: 960px) { .hero__in { grid-template-columns: 1fr; } }
-  .hero__copy { display: grid; gap: 20px; }
-  .hero h1 { font-size: clamp(2.6rem, 1.6rem + 3.8vw, 4.6rem); }
-  .hero h1 span { display: block; color: var(--orange); }
-  .hero .lead { color: #d3dbe2; }
-  .hero .trust { color: #e8edf1; }
-  .hero__proof { display: grid; gap: 10px; }
-  .hero__caption { display: flex; gap: 8px; align-items: center; font-size: .9375rem; color: #b9c4ce; }
-  .hero__caption :global(svg) { width: 18px; color: var(--orange); flex: none; }
-  .hero :global(.hero__edge) { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 60px; color: var(--paper); }
+  .hero__copy { display: grid; gap: 22px; justify-items: start; }
+  .hero__rating { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; background: #fff; border-radius: 999px; padding: 8px 18px 8px 12px; box-shadow: var(--shadow-sm); color: var(--ink); text-decoration: none; font-size: 1.0625rem; }
+  .hero__rating:hover { color: var(--ink); box-shadow: var(--shadow); }
+  .stars { display: inline-flex; gap: 1px; color: var(--gold); }
+  .stars :global(svg) { width: 22px; height: 22px; }
+  .hero h1 { font-size: clamp(3rem, 1.9rem + 4.4vw, 5.5rem); color: var(--asphalt); line-height: 1; }
+  .hero__kicker { display: block; font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem); color: var(--orange-dark); margin-bottom: 10px; letter-spacing: .3px; }
+  .hl { position: relative; white-space: nowrap; color: var(--orange); }
+  .hl svg { position: absolute; left: 0; right: 0; bottom: -14px; width: 100%; height: 18px; overflow: visible; }
+  .hl path { fill: none; stroke: var(--asphalt); stroke-width: 6; stroke-linecap: round; stroke-dasharray: 1; }
+  @media (prefers-reduced-motion: no-preference) { .hl path { animation: underline .9s ease-out .5s both; } }
+  @keyframes underline { from { stroke-dashoffset: 1; } }
+  .hero .lead { color: #2f3e4d; font-size: clamp(1.25rem, 1.1rem + .4vw, 1.4375rem); }
+  @media (max-width: 560px) { .hero .btn-row .btn { flex: 1 1 100%; } }
+  .hero__assure { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 22px; font-weight: 600; }
+  .hero__assure li { display: inline-flex; align-items: center; gap: 8px; }
+  .hero__assure :global(svg) { width: 22px; height: 22px; color: var(--green); flex: none; }
+  .hero__proof { display: grid; gap: 14px; }
+  .hero__frame { position: relative; background: #fff; padding: 10px 10px 0; border-radius: 20px; box-shadow: 0 30px 60px -20px rgba(16,35,58,.45); rotate: 1deg; }
+  @media (max-width: 960px) { .hero__frame { rotate: none; } }
+  .hero__tag { display: flex; align-items: center; gap: 8px; padding: 12px 6px; font-weight: 600; color: var(--muted); }
+  .hero__tag :global(svg) { width: 20px; height: 20px; color: var(--orange); flex: none; }
+  .hero__caption { display: flex; gap: 12px; align-items: center; font-size: 1.0625rem; font-weight: 600; color: var(--asphalt); }
+  .hero__hand { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--asphalt); color: #fff; font-size: 1.25rem; flex: none; }
+  @media (prefers-reduced-motion: no-preference) { .hero__hand { animation: nudge 1.6s ease-in-out 3 1.2s; } }
+  @keyframes nudge { 0%, 100% { translate: 0; } 30% { translate: -6px; } 60% { translate: 6px; } }
+  .hero__creds { position: relative; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: clamp(28px, 4vw, 48px); }
+  @media (max-width: 960px) { .hero__creds { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .hero__creds li { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.85); border: 1px solid #fff; border-radius: 14px; padding: 12px 16px; min-height: 72px; line-height: 1.25; font-size: 1rem; }
+  .hero__creds strong { display: block; font-size: 1.0625rem; }
+  .hero__creds :global(svg) { width: 30px; height: 30px; color: var(--navy); flex: none; }
+  .hero__creds :global(.hero__oc) { width: auto; height: 52px; max-width: 100%; object-fit: contain; margin: auto; }
 
-  .stats { padding-block: 8px 28px; }
-  .stats__row { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+  .stats { padding-block: 0 16px; background: #fff; }
+  .stats__row { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; background: var(--asphalt); color: #fff; border-radius: 20px; padding: 10px; box-shadow: var(--shadow); }
   @media (max-width: 900px) { .stats__row { grid-template-columns: repeat(2, minmax(0, 1fr)); } .stats__row li:last-child { grid-column: 1 / -1; } }
-  .stats__row li { display: grid; gap: 2px; padding: 14px 16px; border-left: 4px solid var(--orange); background: var(--cloud); border-radius: 0 8px 8px 0; }
-  .stats__row strong { font-family: var(--font-display); font-size: var(--step-3); line-height: 1; }
-  .stats__row span { color: var(--muted); font-weight: 600; font-size: .9375rem; }
-  .stats__fine { font-size: .8125rem; color: var(--muted); margin-top: 10px; }
+  .stats__row li { display: grid; justify-items: center; text-align: center; gap: 4px; padding: 18px 10px; }
+  @media (min-width: 901px) { .stats__row li + li { border-left: 1px solid rgba(255,255,255,.14); } }
+  .stats__ic { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: rgba(108,180,228,.18); color: var(--sky); margin-bottom: 4px; }
+  .stats__ic--gold { color: var(--gold); background: rgba(242,169,0,.16); }
+  .stats__ic :global(svg) { width: 24px; height: 24px; }
+  .stats__row strong { font-family: var(--font-display); font-size: clamp(2.25rem, 1.8rem + 1.4vw, 3rem); line-height: 1; font-variant-numeric: tabular-nums; }
+  .stats__row li > span:last-child { color: #d5e0ea; font-weight: 600; font-size: 1rem; }
+  .stats__fine { font-size: .9375rem; color: var(--muted); margin-top: 12px; text-align: center; }
 
-  .svc { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--asphalt); }
+  .svc { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
   @media (max-width: 960px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 620px) { .svc { grid-template-columns: 1fr; } }
-  .svc__item a { position: relative; display: grid; gap: 6px; padding: 22px 48px 22px 4px; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; height: 100%; }
-  @media (min-width: 621px) { .svc__item a { padding-left: 18px; border-right: 1px solid var(--line); } }
-  .svc__group { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-  .svc__name { font-family: var(--font-display); font-weight: 700; font-size: 1.625rem; line-height: 1.1; }
+  .svc li { display: grid; }
+  .svc__card { display: grid; grid-template-rows: auto auto 1fr auto; gap: 10px; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; color: inherit; text-decoration: none; box-shadow: var(--shadow-sm); transition: transform .2s, box-shadow .2s, border-color .2s; }
+  .svc__card :global(.sicon) { width: 64px; height: 64px; transition: transform .3s cubic-bezier(.3,1.6,.5,1); }
+  .svc__name { font-family: var(--font-display); font-weight: 700; font-size: 1.75rem; line-height: 1.1; color: var(--asphalt); }
   .svc__short { color: var(--muted); }
-  .svc__go { position: absolute; right: 14px; top: 22px; font-size: 1.5rem; color: var(--orange); transition: translate .2s; }
-  .svc__item a:hover { background: var(--cloud); }
-  .svc__item a:hover .svc__go { translate: 4px 0; }
-  .svc__item--live .svc__name::after { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); margin-left: 8px; vertical-align: middle; }
+  .svc__go { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--navy); }
+  .svc__go :global(svg) { width: 20px; height: 20px; transition: translate .2s; }
+  @media (hover: hover) {
+    .svc__card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--sky); color: inherit; }
+    .svc__card:hover :global(.sicon) { transform: scale(1.08) rotate(-4deg); }
+    .svc__card:hover .svc__go :global(svg) { translate: 4px 0; }
+  }
 
   .owners { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
   @media (max-width: 860px) { .owners { grid-template-columns: 1fr; } }
   .owners__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: end; }
   .owners__photos :global(.owners__p) { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
   .owners__photos :global(.owners__p--2) { margin-bottom: 36px; }
-  .checks { list-style: none; display: grid; gap: 10px; }
+  .owners__photos { position: relative; }
+  .stamp { position: absolute; z-index: 2; width: clamp(110px, 14vw, 150px); left: -20px; top: -30px; }
+  @media (max-width: 860px) { .stamp { left: auto; right: -6px; } }
+  .stamp__bg { fill: var(--orange); }
+  .stamp text { font: 700 13.5px var(--font-display); letter-spacing: 2.2px; fill: #fff; }
+  .stamp__ring { transform-origin: 80px 80px; }
+  @media (prefers-reduced-motion: no-preference) { .stamp__ring { animation: turn 28s linear infinite; } }
+  @keyframes turn { to { rotate: 360deg; } }
+  .stamp__roof { fill: none; stroke: #fff; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+  .stamp__house { fill: none; stroke: #fff; stroke-width: 4; stroke-linejoin: round; }
+  .checks { list-style: none; display: grid; gap: 12px; font-size: 1.125rem; }
   .checks li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; }
   .checks :global(svg) { width: 22px; height: 22px; color: var(--green); flex: none; margin-top: 2px; }
 

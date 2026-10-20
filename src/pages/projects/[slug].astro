@@ -66,8 +66,8 @@ const schema = { '@type': 'CreativeWork', name: p.title, about: p.service, dateC
 </Base>
 <style>
   .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 0; }
-  .facts div { background: rgba(255,255,255,.08); border-radius: 8px; padding: 10px 14px; }
-  .facts dt { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #b9c4ce; }
+  .facts div { background: #fff; border-radius: 12px; padding: 12px 16px; box-shadow: var(--shadow-sm); }
+  .facts dt { font-size: .875rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
   .facts dd { margin: 0; font-weight: 700; }
   .pj { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: start; }
   @media (max-width: 960px) { .pj { grid-template-columns: 1fr; } }

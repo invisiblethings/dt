@@ -70,9 +70,9 @@ const count = (r: string) => projects.filter((p) => p.region === r).length;
 <style>
   .filters { display: flex; flex-wrap: wrap; gap: 16px 32px; }
   .filters fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-  .filters legend { font-weight: 700; font-size: .8125rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; width: 100%; }
-  .filters label { position: relative; display: inline-flex; gap: 6px; align-items: center; padding: 8px 14px; border: 2px solid var(--line); border-radius: 999px; font-weight: 600; cursor: pointer; }
-  .filters label span { font-size: .8125rem; color: var(--muted); }
+  .filters legend { font-weight: 700; font-size: .9375rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; width: 100%; }
+  .filters label { position: relative; display: inline-flex; gap: 6px; align-items: center; min-height: 50px; padding: 8px 18px; border: 2px solid var(--line); border-radius: 999px; font-weight: 600; font-size: 1.125rem; cursor: pointer; background: #fff; }
+  .filters label span { font-size: .9375rem; color: var(--muted); }
   .filters input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
   .filters label:has(input:checked) { background: var(--asphalt); border-color: var(--asphalt); color: #fff; }
   .filters label:has(input:checked) span { color: #c9d2da; }

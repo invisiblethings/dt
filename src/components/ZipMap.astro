@@ -44,15 +44,16 @@ const regionHref = (r: string) => `/projects/?area=${encodeURIComponent(r)}`;
 <style>
   .zmap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 28px; align-items: center; }
   @media (max-width: 900px) { .zmap { grid-template-columns: 1fr; } }
-  .zmap__grid { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(5, minmax(84px, auto)); gap: 8px; }
-  .zmap__tile { height: 100%; display: grid; align-content: space-between; gap: 4px; padding: 10px 12px; border-radius: 10px; text-decoration: none;
-    background: color-mix(in srgb, var(--orange) calc(var(--d) * 100%), #fff4ee); color: var(--ink); border: 1px solid rgba(0,0,0,.06); transition: transform .15s; }
+  .zmap__grid { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(5, minmax(96px, auto)); gap: 8px; }
+  .zmap__tile { height: 100%; display: grid; align-content: space-between; gap: 4px; padding: 12px 14px; border-radius: 12px; text-decoration: none;
+    background: color-mix(in srgb, var(--orange) calc(var(--d) * 100%), #fff4ee); color: var(--ink); border: 1px solid rgba(0,0,0,.06); transition: transform .15s, box-shadow .15s; }
   .deep .zmap__tile { color: #fff; }
-  .zmap__tile:hover { transform: translateY(-2px); color: inherit; }
+  .zmap__tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); color: inherit; }
+  .deep .zmap__tile:hover { color: #fff; }
   .zmap__jobs { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem); line-height: 1; }
-  .zmap__name { font-weight: 700; font-size: clamp(0.75rem, 0.6rem + 0.5vw, 0.9375rem); line-height: 1.15; }
-  .zmap__zip { font-size: 0.75rem; opacity: .8; font-variant-numeric: tabular-nums; }
-  .zmap__land { border-radius: 10px; display: grid; place-items: center; text-align: center; padding: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #6b7d68;
+  .zmap__name { font-weight: 700; font-size: clamp(0.875rem, 0.7rem + 0.5vw, 1.0625rem); line-height: 1.15; }
+  .zmap__zip { font-size: 0.875rem; opacity: .8; font-variant-numeric: tabular-nums; }
+  .zmap__land { border-radius: 10px; display: grid; place-items: center; text-align: center; padding: 6px; font-size: 0.875rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #5b6f58;
     background: repeating-linear-gradient(135deg, #e9efe6 0 8px, #f2f6ef 8px 16px); }
   .zmap__land--green { color: #4f7a4a; background: repeating-linear-gradient(135deg, #dcebd6 0 8px, #e9f3e5 8px 16px); }
   .zmap__land--water { color: #3f6f97; background: repeating-linear-gradient(0deg, #dbeaf6 0 6px, #e8f2fa 6px 12px); }
@@ -61,5 +62,5 @@ const regionHref = (r: string) => `/projects/?area=${encodeURIComponent(r)}`;
   .zmap__total strong { font-family: var(--font-display); font-size: var(--step-4); line-height: 1; display: block; color: var(--orange); }
   .zmap__scale { display: flex; gap: 10px; align-items: center; color: var(--muted); }
   .zmap__scale span { width: 90px; height: 12px; border-radius: 6px; flex: none; background: linear-gradient(90deg, #fbd9c9, var(--orange)); }
-  .zmap__note { font-size: .875rem; color: var(--muted); }
+  .zmap__note { font-size: 1rem; color: var(--muted); }
 </style>

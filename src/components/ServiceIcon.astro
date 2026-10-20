@@ -1,0 +1,55 @@
+---
+// Illustrated two-tone service icons (64px grid): navy line work, orange for the part we work on.
+interface Props { slug: string; class?: string }
+const art: Record<string, string> = {
+  'roof-replacement': `
+    <path class="o" d="M8 30 32 12l24 18v4H8z"/>
+    <path d="M14 26h36M20 21.5h24M26 17h12"/>
+    <path d="M13 34v20h38V34"/><path d="M27 54V43h10v11"/><rect x="40" y="39" width="7" height="6"/>
+    <path d="M8 30 32 12l24 18"/>`,
+  'flat-roofing': `
+    <rect class="o" x="9" y="18" width="46" height="7" rx="1"/>
+    <path d="M11 25v29h42V25"/><path d="M17 31h8v7h-8zM28 31h8v7h-8zM39 31h8v7h-8zM17 43h8v7h-8zM39 43h8v11"/>
+    <path d="M40 18v-6h8v6"/>`,
+  'roof-repair': `
+    <path d="M6 34 30 16l24 18"/><path d="M11 30v22h38V30"/>
+    <path class="o" d="M30 24l9 7-9 7-9-7z"/>
+    <path d="M43 10l9 9M41 16l6-6 4 4-6 6zM45 18 33 30"/>`,
+  'emergency-roof-repair': `
+    <path d="M6 30 28 13l22 17"/><path d="M11 27v25h34V27"/>
+    <path class="o" d="M28 27s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>
+    <circle class="o" cx="50" cy="16" r="9"/><path class="w" d="M50 11v5l3 2"/>`,
+  'commercial-roofing': `
+    <rect class="o" x="12" y="14" width="40" height="6" rx="1"/>
+    <path d="M14 20v34h36V20"/><path d="M20 26h6v5h-6zM29 26h6v5h-6zM38 26h6v5h-6zM20 36h6v5h-6zM29 36h6v5h-6zM38 36h6v5h-6zM28 54v-8h8v8"/>
+    <rect x="18" y="7" width="10" height="7"/><path d="M38 14V9h6v5"/>`,
+  'skylights': `
+    <path d="M6 44 32 18l26 26"/><path d="M12 38v16h40V38"/>
+    <path class="o" d="M27 30l8-8 8 8-8 8z"/><path d="M35 22v16M27 30h16"/>`,
+  'gutters': `
+    <path d="M6 30 30 12l20 15"/><path d="M12 26v28h30V26"/>
+    <path class="o" d="M38 26h18v6a3 3 0 0 1-3 3H41a3 3 0 0 1-3-3z"/>
+    <path d="M50 35v19h-6"/><path class="drip" d="M53 42v4M53 50v2"/>`,
+  'siding': `
+    <path d="M6 28 32 10l26 18"/>
+    <path d="M12 24v30h40V24"/>
+    <path class="o" d="M12 30h40v6H12z"/>
+    <path d="M12 42h40M12 48h40M26 54V42"/>`,
+  'soffit-fascia': `
+    <path d="M6 22h40L56 34"/><path class="o" d="M6 22h40v6H6z"/>
+    <path d="M10 28v26M46 28 56 34v4H46z"/><path d="M14 34h28M14 40h28M14 46h28"/>
+    <path d="M48 36h6"/>`,
+};
+const { slug, class: cls } = Astro.props;
+---
+<svg class:list={['sicon', cls]} viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false">
+  <circle class="bg" cx="32" cy="34" r="30" />
+  <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" set:html={art[slug] ?? art['roof-replacement']} />
+</svg>
+<style>
+  .sicon { color: var(--asphalt); flex: none; }
+  .sicon .bg { fill: var(--sky-50); stroke: none; }
+  .sicon :global(.o) { fill: var(--orange); stroke: var(--asphalt); }
+  .sicon :global(.w) { stroke: #fff; }
+  .sicon :global(.drip) { stroke: var(--sky); }
+</style>

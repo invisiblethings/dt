@@ -1,0 +1,107 @@
+---
+// A Staten Island street drawn in SVG along the bottom of the homepage hero. On load the B&B van pulls up,
+// new shingles go on the middle house row by row, the drip edge is drawn and the yard sign pops up.
+// The static (no-animation) state is the finished roof, so reduced-motion users see the end result.
+const G = 172; // ground line
+type H = [x: number, w: number, h: number, roof: 'gable' | 'flat' | 'hip', rh: number];
+const roofPath = ([x, w, h, roof, rh]: H) => {
+  const top = G - h;
+  if (roof === 'flat') return `M${x - 4} ${top - 8}h${w + 8}v8h-${w + 8}z`;
+  if (roof === 'hip') return `M${x - 8} ${top}L${x + w * 0.28} ${top - rh}H${x + w * 0.72}L${x + w + 8} ${top}z`;
+  return `M${x - 8} ${top}L${x + w / 2} ${top - rh}L${x + w + 8} ${top}z`;
+};
+const far: H[] = [[10, 90, 70, 'gable', 40], [130, 70, 96, 'flat', 0], [230, 110, 64, 'hip', 34], [380, 80, 84, 'gable', 44], [500, 70, 100, 'flat', 0], [900, 90, 92, 'flat', 0], [1020, 120, 66, 'gable', 46], [1180, 80, 88, 'hip', 30], [1300, 130, 70, 'gable', 42]];
+const near: H[] = [[60, 120, 54, 'gable', 46], [470, 110, 48, 'hip', 30], [960, 100, 58, 'gable', 50], [1110, 70, 76, 'flat', 0], [1230, 140, 50, 'gable', 40]];
+const rows = [96, 82, 68, 54, 40];
+---
+<svg class="street" viewBox="0 0 1440 180" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="hs-roof"><path d="M604 110L720 40L836 110z" /></clipPath>
+  </defs>
+  <g class="street__far">
+    {far.map((h) => <><rect x={h[0]} y={G - h[2]} width={h[1]} height={h[2]} /><path d={roofPath(h)} /></>)}
+  </g>
+  <g class="street__trees">
+    <circle cx="215" cy="128" r="26" /><rect x="212" y="140" width="6" height="32" />
+    <circle cx="1185" cy="132" r="22" /><rect x="1182" y="146" width="6" height="26" />
+    <circle cx="880" cy="122" r="24" /><rect x="877" y="134" width="6" height="38" />
+  </g>
+  <g class="street__near">
+    {near.map((h) => <><rect x={h[0]} y={G - h[2]} width={h[1]} height={h[2]} /><path d={roofPath(h)} /></>)}
+  </g>
+
+  <!-- The B&B job -->
+  <g class="job">
+    <rect x="776" y="50" width="16" height="40" class="job__chimney" />
+    <rect x="620" y="110" width="200" height="62" class="job__wall" />
+    <rect x="642" y="124" width="34" height="26" rx="2" class="job__win" />
+    <rect x="764" y="124" width="34" height="26" rx="2" class="job__win" />
+    <rect x="704" y="132" width="32" height="40" rx="2" class="job__door" />
+    <path d="M604 110L720 40L836 110z" class="job__old" />
+    <g clip-path="url(#hs-roof)">
+      {rows.map((y, i) => <rect class="job__row" x="600" y={y} width="240" height="14.5" style={`--i: ${i}`} />)}
+      {rows.map((y) => <path class="job__line" d={`M600 ${y + 0.5}H840`} />)}
+    </g>
+    <path d="M604 110L720 40L836 110" class="job__edge" pathLength="1" />
+    <g class="job__ladder"><path d="M846 172L832 98M858 172L844 98M843 158h12M840 142h12M837 126h12M834 110h12" /></g>
+  </g>
+
+  <g class="sign"><rect x="896" y="140" width="4" height="32" class="sign__post" /><rect x="872" y="116" width="52" height="27" rx="3" class="sign__board" /><rect x="872" y="116" width="52" height="7" rx="2" class="sign__top" /><text x="898" y="138" text-anchor="middle">B&amp;B</text></g>
+
+  <g class="van">
+    <g transform="translate(400 0)">
+      <rect x="10" y="116" width="62" height="4" rx="2" class="van__rack" />
+      <path d="M0 162V128q0-6 6-6h72l18 14q8 2 10 8v18z" class="van__body" />
+      <path d="M80 126l13 11H80z" class="van__glass" />
+      <rect x="0" y="146" width="106" height="6" class="van__stripe" />
+      <text x="14" y="141">B&amp;B ROOFING</text>
+      <g class="van__wheel"><circle cx="22" cy="162" r="9.5" /><path d="M22 154v16M14 162h16" /></g>
+      <g class="van__wheel"><circle cx="86" cy="162" r="9.5" /><path d="M86 154v16M78 162h16" /></g>
+    </g>
+  </g>
+  <rect x="0" y={G} width="1440" height="8" class="street__ground" />
+</svg>
+
+<style>
+  .street { display: block; width: 100%; height: clamp(120px, 14vw, 190px); }
+  .street__far { fill: #c9def0; }
+  .street__trees { fill: #a8cdb3; }
+  .street__trees rect { fill: #8aa69a; }
+  .street__near { fill: #9dbfdb; }
+  .street__ground { fill: var(--paper); }
+  .job__chimney { fill: #7d8a99; }
+  .job__wall { fill: #fff; stroke: #9dbfdb; stroke-width: 2; }
+  .job__win { fill: #bfe0f6; stroke: var(--asphalt); stroke-width: 2; }
+  .job__door { fill: var(--orange); }
+  .job__old { fill: #a39a91; }
+  .job__row { fill: #2b3d52; transform-box: fill-box; transform-origin: left center; }
+  .job__line { stroke: #43597a; stroke-width: 1.5; }
+  .job__edge { fill: none; stroke: var(--orange); stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .job__ladder { stroke: #8a6f4d; stroke-width: 3; stroke-linecap: round; }
+  .sign__post { fill: #7b8691; }
+  .sign__board { fill: #fff; stroke: var(--asphalt); stroke-width: 2.5; }
+  .sign__top { fill: var(--orange); }
+  .sign text { font: 700 11px var(--font-display); fill: var(--asphalt); }
+  .sign { transform-box: fill-box; transform-origin: 50% 100%; }
+  .van__rack { fill: #8d9aa7; }
+  .van__body { fill: #fff; stroke: var(--asphalt); stroke-width: 2.5; stroke-linejoin: round; }
+  .van__glass { fill: #9cc6e6; }
+  .van__stripe { fill: var(--orange); }
+  .van text { font: 700 10.5px var(--font-display); fill: var(--asphalt); letter-spacing: .5px; }
+  .van__wheel { transform-box: fill-box; transform-origin: center; }
+  .van__wheel circle { fill: var(--asphalt); }
+  .van__wheel path { stroke: #c9d4de; stroke-width: 2; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .van { animation: drive 2.2s cubic-bezier(.15,.75,.25,1) .2s both; }
+    .van__wheel { animation: spin 2.2s cubic-bezier(.15,.75,.25,1) .2s both; }
+    .job__row { animation: lay .5s ease-out both; animation-delay: calc(1.3s + var(--i) * .38s); }
+    .job__edge { animation: draw .7s ease-in-out 3.3s both; }
+    .sign { animation: pop .55s cubic-bezier(.3,1.6,.5,1) 3.9s both; }
+  }
+  @keyframes drive { from { transform: translateX(-560px); } }
+  @keyframes spin { from { rotate: -1080deg; } }
+  @keyframes lay { from { transform: scaleX(0); } }
+  @keyframes draw { from { stroke-dashoffset: 1; } }
+  @keyframes pop { from { transform: scale(0); } }
+</style>

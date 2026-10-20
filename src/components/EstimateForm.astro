@@ -40,14 +40,14 @@ const options = [
 </form>
 
 <style>
-  .eform { background: var(--paper); color: var(--ink); border-radius: 14px; padding: clamp(20px, 3vw, 30px); box-shadow: var(--shadow); display: grid; gap: 14px; position: relative; }
-  .eform::before { content: ''; position: absolute; inset: 0 0 auto; height: 6px; border-radius: 14px 14px 0 0; background: repeating-linear-gradient(90deg, var(--orange) 0 40px, var(--orange-dark) 40px 44px); }
+  .eform { background: var(--paper); color: var(--ink); border-radius: 18px; border: 1px solid var(--line); padding: clamp(20px, 3vw, 30px); box-shadow: var(--shadow); display: grid; gap: 14px; position: relative; }
+  .eform::before { content: ''; position: absolute; inset: 0 0 auto; height: 8px; border-radius: 18px 18px 0 0; background: repeating-linear-gradient(90deg, var(--orange) 0 40px, var(--orange-dark) 40px 44px); }
   .eform__title { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); line-height: 1.1; }
-  .eform__sub { display: flex; align-items: center; gap: 8px; color: var(--green); font-weight: 700; font-size: 0.9375rem; }
-  .eform__sub :global(svg) { width: 18px; height: 18px; }
+  .eform__sub { display: flex; align-items: center; gap: 8px; color: var(--green); font-weight: 700; font-size: 1.0625rem; }
+  .eform__sub :global(svg) { width: 22px; height: 22px; }
   .eform__grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
   .eform__wide { grid-column: 1 / -1; }
   @media (max-width: 520px) { .eform__grid { grid-template-columns: 1fr; } }
-  .eform__submit { width: 100%; font-size: 1.125rem; }
-  .eform__fine { font-size: 0.875rem; color: var(--muted); text-align: center; }
+  .eform__submit { width: 100%; font-size: 1.25rem; min-height: 62px; }
+  .eform__fine { font-size: 1rem; color: var(--muted); text-align: center; }
 </style>
