@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import { business } from '../data/business';
+---
+<Base title="Page not found | B&B Roofing & Gutters" description="This page has moved or no longer exists." noindex>
+  <PageHero title="This page blew off in the wind." eyebrow="404" trust={false}
+    intro="The page you were looking for has moved or doesn't exist. These will get you back on solid ground:">
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/">Home <Icon name="arrow" /></a>
+      <a class="btn btn--ghost" href="/services/">Services</a>
+      <a class="btn btn--ghost" href="/projects/">Projects</a>
+      <a class="btn btn--ghost" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a>
+    </div>
+  </PageHero>
+</Base>

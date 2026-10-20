@@ -1,0 +1,53 @@
+---
+import Icon from './Icon.astro';
+import { business } from '../data/business';
+interface Props { title?: string; full?: boolean; service?: string; dark?: boolean }
+const { title = 'Get your free estimate', full = false, service = '', dark = false } = Astro.props;
+const uid = Math.random().toString(36).slice(2, 7);
+const options = [
+  ['', 'Choose one'],
+  ['roof-replacement', 'Roof replacement'],
+  ['roof-repair', 'Roof repair or leak'],
+  ['flat-roof', 'Flat roof'],
+  ['emergency', 'Emergency: leaking now'],
+  ['gutters', 'Gutters'],
+  ['siding', 'Siding / soffit'],
+  ['skylight', 'Skylight'],
+  ['not-sure', 'Not sure, please inspect'],
+];
+---
+<form class:list={['eform', { 'eform--dark': dark }]} action="/api/estimate" method="post">
+  <p class="eform__title">{title}</p>
+  <p class="eform__sub"><Icon name="clock" /> {business.responsePromise}</p>
+  <div class="eform__grid">
+    <div class="field"><label for={`n-${uid}`}>Your name</label><input id={`n-${uid}`} name="name" autocomplete="name" required /></div>
+    <div class="field"><label for={`p-${uid}`}>Phone</label><input id={`p-${uid}`} name="phone" type="tel" autocomplete="tel" inputmode="tel" required /></div>
+    <div class="field"><label for={`z-${uid}`}>ZIP or neighborhood</label><input id={`z-${uid}`} name="area" autocomplete="postal-code" placeholder="e.g. 10308 or Great Kills" required /></div>
+    <div class="field"><label for={`s-${uid}`}>What do you need?</label>
+      <select id={`s-${uid}`} name="service" required>
+        {options.map(([v, l]) => <option value={v} selected={v === service} disabled={v === ''}>{l}</option>)}
+      </select>
+    </div>
+    {full && <>
+      <div class="field"><label for={`e-${uid}`}>Email <span class="hint">(optional)</span></label><input id={`e-${uid}`} name="email" type="email" autocomplete="email" /></div>
+      <div class="field eform__wide"><label for={`m-${uid}`}>Tell us about the roof <span class="hint">(optional)</span></label><textarea id={`m-${uid}`} name="message" placeholder="Where is it leaking, how old is the roof, anything we should know"></textarea></div>
+    </>}
+  </div>
+  <div class="hp" aria-hidden="true"><label for={`w-${uid}`}>Leave this empty</label><input id={`w-${uid}`} name="website" tabindex="-1" autocomplete="off" /></div>
+  <input type="hidden" name="page" value={Astro.url.pathname} />
+  <button class="btn btn--primary eform__submit" type="submit">Get my free estimate <Icon name="arrow" /></button>
+  <p class="eform__fine">No obligation. Leaking right now? Call <a href={business.phoneHref}>{business.phone}</a>, 24/7.</p>
+</form>
+
+<style>
+  .eform { background: var(--paper); color: var(--ink); border-radius: 14px; padding: clamp(20px, 3vw, 30px); box-shadow: var(--shadow); display: grid; gap: 14px; position: relative; }
+  .eform::before { content: ''; position: absolute; inset: 0 0 auto; height: 6px; border-radius: 14px 14px 0 0; background: repeating-linear-gradient(90deg, var(--orange) 0 40px, var(--orange-dark) 40px 44px); }
+  .eform__title { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); line-height: 1.1; }
+  .eform__sub { display: flex; align-items: center; gap: 8px; color: var(--green); font-weight: 700; font-size: 0.9375rem; }
+  .eform__sub :global(svg) { width: 18px; height: 18px; }
+  .eform__grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+  .eform__wide { grid-column: 1 / -1; }
+  @media (max-width: 520px) { .eform__grid { grid-template-columns: 1fr; } }
+  .eform__submit { width: 100%; font-size: 1.125rem; }
+  .eform__fine { font-size: 0.875rem; color: var(--muted); text-align: center; }
+</style>

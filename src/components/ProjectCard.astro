@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import type { Project } from '../data/projects';
+interface Props { p: Project }
+const { p } = Astro.props;
+---
+<article class="pc" data-region={p.region} data-kind={p.kind}>
+  <a href={p.href} class="pc__link">
+    <div class="pc__media">
+      <Image quality={72} src={p.after} alt={`After: ${p.title}`} widths={[480, 800]} sizes="(max-width: 620px) 100vw, 380px" loading="lazy" class="pc__after" />
+      <Image quality={72} src={p.before} alt="" widths={[480, 800]} sizes="(max-width: 620px) 100vw, 380px" loading="lazy" class="pc__before" />
+      <span class="pc__hint" aria-hidden="true">Hover for before</span>
+    </div>
+    <div class="pc__body">
+      <p class="pc__meta">{p.region} · {p.monthYear}</p>
+      <h3>{p.title}</h3>
+      <span class="pc__more">See before &amp; after →</span>
+    </div>
+  </a>
+</article>
+
+<style>
+  .pc { border-radius: var(--radius); overflow: hidden; background: var(--paper); border: 1px solid var(--line); min-width: 0; }
+  .pc__link { display: grid; color: inherit; text-decoration: none; height: 100%; }
+  .pc__media { position: relative; aspect-ratio: 4 / 3; background: var(--slate); overflow: hidden; }
+  .pc__media :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .pc__media :global(.pc__before) { opacity: 0; transition: opacity .35s; }
+  @media (hover: hover) { .pc__link:hover :global(.pc__before), .pc__link:focus-visible :global(.pc__before) { opacity: 1; } }
+  .pc__hint { position: absolute; left: 10px; bottom: 10px; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: rgba(20,24,28,.75); color: #fff; padding: 3px 8px; border-radius: 999px; }
+  @media (hover: none) { .pc__hint { display: none; } }
+  .pc__body { padding: 16px 18px 18px; display: grid; gap: 6px; }
+  .pc__meta { font-size: .8125rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--orange-dark); }
+  .pc h3 { font-size: 1.375rem; }
+  .pc__more { color: var(--navy); font-weight: 700; }
+</style>

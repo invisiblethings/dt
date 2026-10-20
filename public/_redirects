@@ -1,0 +1,12 @@
+# Old WordPress URLs -> new pages (301). Add more as pages for the remaining services go live.
+/services/roof-replacement/         /roofing/roof-replacement/      301
+/roof-replacement-staten-island/    /roofing/roof-replacement/      301
+/services/flat-roofing/             /roofing/flat-roofing/          301
+/contact-us/                        /free-estimate/                 301
+/contact/                           /free-estimate/                 301
+/about-us/                          /about/                         301
+/our-work/                          /projects/                      301
+/gallery/                           /projects/                      301
+/staten-island/                     /service-areas/staten-island/   301
+/wp-admin/*                         /                               301
+/feed/                              /                               301

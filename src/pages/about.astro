@@ -1,0 +1,123 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Skyline from '../components/Skyline.astro';
+import ReviewSigns from '../components/ReviewSigns.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { business, addressLine } from '../data/business';
+import bill from '../assets/site/owner-bill.jpg';
+import brian from '../assets/site/owner-brian.png';
+import trucks from '../assets/site/trucks-job-site.jpg';
+import van from '../assets/site/colts-neck-nj.jpg';
+import oc from '../assets/brand/owens-corning-preferred.png';
+
+const href = '/about/';
+const crumbs = [{ name: 'About', href }];
+const stats = [
+  [business.stats.projects, 'local projects completed'],
+  [business.stats.satisfaction, 'customer satisfaction'],
+  [`${business.stats.rating}★`, `from ${business.stats.reviews} Google reviews`],
+  ['24/7', 'emergency service'],
+];
+const promises = [
+  ['Owners on your job', 'Bill or Brian is involved in every estimate. You always have a direct line to the people who own the company.'],
+  ['Photos of everything', 'We document every job from start to finish, so you see what was under your shingles, not just the finished roof.'],
+  ['Options in writing', 'Repair, coat or replace, with clear prices. If a repair will do, we tell you.'],
+  ['Clean when we leave', 'Tarps, catch-alls and a magnetic nail sweep. Your yard should look like we were never there, except for the roof.'],
+];
+---
+<Base title="About B&B Roofing & Gutters | Family-Owned Staten Island Roofers" description="B&B Roofing & Gutters is a family-owned Staten Island roofing company run by Bill and Brian from a storefront at 145 Cedar Ave. GAF Master Elite, 2,000+ projects, 5.0★ on Google." crumbs={crumbs}>
+  <PageHero title="Two owners, one crew, and our name on the yard sign" eyebrow="About B&B" crumbs={crumbs}
+    intro="B&B Roofing & Gutters is family-owned and run by Bill and Brian out of a storefront office in Rosebank. We do roofs the way we'd want our own done, and we put our sign on the lawn when it's finished." />
+
+  <section class="section">
+    <div class="wrap owners">
+      <figure><Image src={bill} alt="Bill, co-owner of B&B Roofing & Gutters" widths={[400, 700]} sizes="(max-width: 760px) 100vw, 340px" quality={72} /><figcaption><strong>Bill</strong> Co-owner</figcaption></figure>
+      <figure><Image src={brian} alt="Brian, co-owner of B&B Roofing & Gutters" widths={[400, 700]} sizes="(max-width: 760px) 100vw, 340px" quality={72} /><figcaption><strong>Brian</strong> Co-owner</figcaption></figure>
+      <div class="stack">
+        <p class="eyebrow">The B in B&amp;B, twice</p>
+        <h2>You'll know who you're dealing with</h2>
+        <p class="lead">No call center, no sales team handing you off to subcontractors. Your estimate, your install and your warranty all come back to the same two people.</p>
+        <ul class="nums">{stats.map(([n, l]) => <li><strong>{n}</strong><span>{l}</span></li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">How we work</p><h2>Four things we don't compromise on</h2></div>
+      <ul class="grid grid-2 promises">{promises.map(([t, b], i) => <li class="card card--accent"><span class="num">0{i + 1}</span><h3>{t}</h3><p>{b}</p></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap creds">
+      <div class="stack">
+        <p class="eyebrow">Credentials</p>
+        <h2>Licensed, insured and manufacturer-certified</h2>
+        <ul class="checks">
+          <li><Icon name="check" /> {business.license}</li>
+          {business.certifications.map((c) => <li><Icon name="check" /> {c}</li>)}
+          <li><Icon name="check" /> {business.warranty}</li>
+          <li><Icon name="check" /> Fully insured; permits handled for you</li>
+          <li><Icon name="check" /> {business.financing}</li>
+        </ul>
+        <Image quality={72} src={oc} alt="Owens Corning Preferred Contractor" width={220} class="oc" />
+      </div>
+      <div class="photos">
+        <Image src={trucks} alt="Two B&B Roofing trucks at a job site" widths={[480, 800]} sizes="(max-width: 960px) 100vw, 480px" quality={72} />
+        <Image src={van} alt="B&B Roofing van outside a finished home" widths={[480, 800]} sizes="(max-width: 960px) 100vw, 480px" quality={72} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap visit">
+      <div class="stack">
+        <p class="eyebrow">Come say hi</p>
+        <h2>145 Cedar Ave is a real door you can walk through</h2>
+        <p class="lead">{addressLine}<br />{business.hours} · emergencies 24/7</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${business.name}, ${addressLine}`)}`} rel="noopener">Get directions <Icon name="pin" /></a>
+          <a class="btn btn--ghost" href={business.social.youtube} rel="noopener"><Icon name="youtube" /> YouTube</a>
+          <a class="btn btn--ghost" href={business.social.instagram} rel="noopener"><Icon name="instagram" /> Instagram</a>
+        </div>
+      </div>
+      <ReviewSigns count={2} />
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+<style>
+  .owners { display: grid; grid-template-columns: minmax(0, .6fr) minmax(0, .6fr) minmax(0, 1fr); gap: clamp(16px, 3vw, 40px); align-items: center; }
+  @media (max-width: 960px) { .owners { grid-template-columns: 1fr 1fr; } .owners .stack { grid-column: 1 / -1; } }
+  .owners figure { margin: 0; display: grid; gap: 8px; }
+  .owners figure :global(img) { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); }
+  .owners figure:nth-child(2) { transform: translateY(32px); }
+  @media (max-width: 960px) { .owners figure:nth-child(2) { transform: none; } }
+  .owners figcaption { display: grid; color: var(--muted); }
+  .owners figcaption strong { font-family: var(--font-display); font-size: 1.375rem; color: var(--ink, var(--asphalt)); }
+  .nums { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .nums li { display: grid; border-top: 3px solid var(--orange); padding-top: 8px; }
+  .nums strong { font-family: var(--font-display); font-size: 2.25rem; line-height: 1.05; }
+  .nums span { color: var(--muted); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); list-style: none; }
+  @media (max-width: 760px) { .grid-2 { grid-template-columns: 1fr; } }
+  .promises .num { font-family: var(--font-display); font-weight: 700; color: var(--orange); font-size: 1.5rem; }
+  .creds { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+  @media (max-width: 960px) { .creds { grid-template-columns: 1fr; } }
+  .checks { list-style: none; display: grid; gap: 10px; }
+  .checks li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; }
+  .checks :global(svg) { width: 22px; height: 22px; color: var(--green); flex: none; margin-top: 2px; }
+  .creds :global(.oc) { height: auto; }
+  .photos { display: grid; gap: 12px; }
+  .photos :global(img) { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius); }
+  .visit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+  @media (max-width: 960px) { .visit { grid-template-columns: 1fr; } }
+  .visit .lead { color: #d3dbe2; }
+</style>

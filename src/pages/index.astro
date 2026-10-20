@@ -1,0 +1,254 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Skyline from '../components/Skyline.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import RoofCheck from '../components/RoofCheck.astro';
+import ZipMap from '../components/ZipMap.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ReviewSigns from '../components/ReviewSigns.astro';
+import ProcessRidge from '../components/ProcessRidge.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { business } from '../data/business';
+import { services } from '../data/services';
+import { projects, findProject } from '../data/projects';
+import trucks from '../assets/site/trucks-job-site.jpg';
+import bill from '../assets/site/owner-bill.jpg';
+import brian from '../assets/site/owner-brian.png';
+
+const hero = findProject('great-kills');
+const featured = [findProject('willowbrook'), findProject('bay-ridge'), findProject('tottenville-2022'), findProject('mariners-harbor-2022'), findProject('stapleton'), findProject('kensington')];
+const steps = [
+  { title: 'Call or request', body: `Tell us what's going on. ${business.responsePromise}` },
+  { title: 'Free estimate visit', body: 'We inspect the roof, attic and gutters and show you what we find.' },
+  { title: 'Written options', body: 'Repair, coat or replace: clear prices and warranty terms in writing.' },
+  { title: 'Install day', body: 'Most replacements take 1–2 days. Your property is protected throughout.' },
+  { title: 'Clean-up & warranty', body: 'Full clean-up, final walkthrough and manufacturer warranty registration.' },
+];
+const faqs = [
+  { q: 'How fast can you come out?', a: `${business.responsePromise} For an active leak, call <a href="${business.phoneHref}">${business.phone}</a>: emergency service runs 24/7.` },
+  { q: 'Do you only work on Staten Island?', a: 'Staten Island is home: our office and storefront are at 145 Cedar Ave. We also work across Brooklyn and much of New Jersey.' },
+  { q: 'Are you licensed and insured?', a: `Yes. ${business.legalName} holds ${business.license}, and we are a GAF Master Elite® and Owens Corning Preferred contractor.` },
+  { q: 'What warranty do I get?', a: `${business.warranty} Ask us which warranty fits your roof and budget.` },
+  { q: 'Do you offer financing?', a: 'Yes, flexible financing is available. Ask about payment options when you book your free estimate.' },
+];
+---
+<Base
+  title="Roofing Contractor in Staten Island, NY | B&B Roofing & Gutters"
+  description="Staten Island roofing contractor for roof replacement, repairs, flat roofs & gutters across NYC & NJ. 2,000+ projects, 5.0★ on Google. Free estimates: (718) 981-7663."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div class="hero__copy">
+        <p class="eyebrow">Family-owned · Licensed · GAF Master Elite</p>
+        <h1>Staten Island roofing contractor. <span>We've got you covered.</span></h1>
+        <p class="lead">Roof replacement, repairs, flat roofs and gutters from a local crew run by owners Bill and Brian. Clear options, clean job sites, and warranties that last.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="/free-estimate/">Get my free estimate <Icon name="arrow" /></a>
+          <a class="btn btn--ghost" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a>
+        </div>
+        <ul class="trust">
+          <li><Icon name="star" /> {business.stats.rating} on Google · {business.stats.reviews} reviews</li>
+          <li><Icon name="clock" /> Reply within 24 hours</li>
+          <li><Icon name="dollar" /> Financing available</li>
+        </ul>
+      </div>
+      <div class="hero__proof">
+        <BeforeAfter before={hero.before} after={hero.after} label={hero.title} eager sizes="(max-width: 960px) 100vw, 560px" />
+        <p class="hero__caption"><Icon name="arrow" /> Drag the handle: a real {hero.service.toLowerCase()} in {hero.area.replace(/, Staten Island$/, "")}, photographed from the same spot before and after.</p>
+      </div>
+    </div>
+    <Skyline class="hero__edge" />
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="B&B by the numbers">
+    <ul class="wrap stats__row">
+      <li><strong>{business.stats.projects}</strong><span>projects completed</span></li>
+      <li><strong>{business.stats.satisfaction}</strong><span>customer satisfaction</span></li>
+      <li><strong>{business.stats.rating}★</strong><span>{business.stats.reviews} Google reviews</span></li>
+      <li><strong>50 yr</strong><span>non-prorated GAF coverage*</span></li>
+      <li><strong>24/7</strong><span>emergency leak service</span></li>
+    </ul>
+    <p class="wrap stats__fine">*GAF Golden Pledge® on qualifying roof systems, with up to 30 years of workmanship coverage.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head">
+        <p class="eyebrow">What we do</p>
+        <h2>Every part of the roof, and what keeps water off it</h2>
+      </div>
+      <ul class="svc">
+        {services.map((s) => (
+          <li class:list={['svc__item', { 'svc__item--live': s.built }]}>
+            <a href={s.href ?? '/services/'}>
+              <span class="svc__group">{s.group}</span>
+              <span class="svc__name">{s.name}</span>
+              <span class="svc__short">{s.short}</span>
+              <span class="svc__go" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ROOF CHECK -->
+  <section class="section section--dark has-skyline" id="roof-check">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head">
+        <p class="eyebrow">60-second roof check</p>
+        <h2>What's your roof telling you?</h2>
+        <p class="lead">Three quick questions. We'll tell you honestly whether it sounds like a repair, a replacement, or an emergency.</p>
+      </div>
+      <RoofCheck />
+    </div>
+  </section>
+
+  <!-- ZIP MAP -->
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head">
+        <p class="eyebrow">Your neighbors already know us</p>
+        <h2>Roofs we've done on your side of the island</h2>
+        <p class="lead">Every job we do is photo-documented. Here's where those jobs are, ZIP by ZIP.</p>
+      </div>
+      <ZipMap />
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" flip />
+    <div class="wrap stack-lg">
+      <div class="head">
+        <p class="eyebrow">Before &amp; after</p>
+        <h2>Real roofs, same angle, before and after</h2>
+        <p class="lead">Drone photos from our own job records, taken from the same spot so you can see exactly what changed.</p>
+      </div>
+      <div class="grid-3">{featured.map((p) => <ProjectCard p={p} />)}</div>
+      <p><a class="btn btn--outline" href="/projects/">See all {projects.length} before &amp; afters <Icon name="arrow" /></a></p>
+    </div>
+  </section>
+
+  <!-- OWNERS -->
+  <section class="section">
+    <div class="wrap owners">
+      <div class="owners__photos">
+        <Image quality={72} src={bill} alt="Bill, co-owner of B&B Roofing, in front of a B&B truck" widths={[320, 560]} sizes="(max-width: 760px) 45vw, 260px" class="owners__p owners__p--1" />
+        <Image quality={72} src={brian} alt="Brian, co-owner of B&B Roofing" widths={[320, 560]} sizes="(max-width: 760px) 45vw, 260px" class="owners__p owners__p--2" />
+      </div>
+      <div class="stack">
+        <p class="eyebrow">Who you're hiring</p>
+        <h2>Not a call center. Bill &amp; Brian.</h2>
+        <p class="lead">B&amp;B is family-owned and operated out of a storefront office at 145 Cedar Ave. You deal directly with the owners, and that shows up in our reviews.</p>
+        <ul class="checks">
+          <li><Icon name="check" /> {business.license}</li>
+          <li><Icon name="check" /> GAF Master Elite® and Owens Corning Preferred contractor</li>
+          <li><Icon name="check" /> Up to 50-year manufacturer and up to 30-year workmanship coverage</li>
+          <li><Icon name="check" /> Fully insured, permits handled for you</li>
+        </ul>
+        <p><a href="/about/">More about B&amp;B →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section section--dark has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head center">
+        <p class="eyebrow">How it works</p>
+        <h2>From first call to final walkthrough</h2>
+      </div>
+      <ProcessRidge steps={steps} />
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head center">
+        <p class="eyebrow">You'll see our signs around the island</p>
+        <h2>What homeowners say</h2>
+      </div>
+      <ReviewSigns count={3} />
+    </div>
+  </section>
+
+  <!-- TRUCKS PHOTO + FAQ -->
+  <section class="section">
+    <div class="wrap faqwrap">
+      <div class="stack">
+        <p class="eyebrow">Questions</p>
+        <h2>Straight answers</h2>
+        <Faq items={faqs} />
+      </div>
+      <figure class="trucks">
+        <Image quality={72} src={trucks} alt="Two B&B Roofing trucks parked at a home during a roof replacement" widths={[560, 1000]} sizes="(max-width: 960px) 100vw, 460px" />
+        <figcaption>Our crew on a job. Two trucks, one roof, done in a day or two.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .hero { background: var(--asphalt); color: #fff; position: relative; padding-block: clamp(36px, 5vw, 72px) clamp(90px, 9vw, 130px);
+    background-image: radial-gradient(900px 420px at 92% 0%, rgba(108,180,228,.18), transparent 60%), radial-gradient(700px 360px at 0% 100%, rgba(232,86,42,.14), transparent 60%); }
+  .hero__in { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(28px, 4vw, 56px); align-items: center; }
+  @media (max-width: 960px) { .hero__in { grid-template-columns: 1fr; } }
+  .hero__copy { display: grid; gap: 20px; }
+  .hero h1 { font-size: clamp(2.6rem, 1.6rem + 3.8vw, 4.6rem); }
+  .hero h1 span { display: block; color: var(--orange); }
+  .hero .lead { color: #d3dbe2; }
+  .hero .trust { color: #e8edf1; }
+  .hero__proof { display: grid; gap: 10px; }
+  .hero__caption { display: flex; gap: 8px; align-items: center; font-size: .9375rem; color: #b9c4ce; }
+  .hero__caption :global(svg) { width: 18px; color: var(--orange); flex: none; }
+  .hero :global(.hero__edge) { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 60px; color: var(--paper); }
+
+  .stats { padding-block: 8px 28px; }
+  .stats__row { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 900px) { .stats__row { grid-template-columns: repeat(2, minmax(0, 1fr)); } .stats__row li:last-child { grid-column: 1 / -1; } }
+  .stats__row li { display: grid; gap: 2px; padding: 14px 16px; border-left: 4px solid var(--orange); background: var(--cloud); border-radius: 0 8px 8px 0; }
+  .stats__row strong { font-family: var(--font-display); font-size: var(--step-3); line-height: 1; }
+  .stats__row span { color: var(--muted); font-weight: 600; font-size: .9375rem; }
+  .stats__fine { font-size: .8125rem; color: var(--muted); margin-top: 10px; }
+
+  .svc { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--asphalt); }
+  @media (max-width: 960px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 620px) { .svc { grid-template-columns: 1fr; } }
+  .svc__item a { position: relative; display: grid; gap: 6px; padding: 22px 48px 22px 4px; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; height: 100%; }
+  @media (min-width: 621px) { .svc__item a { padding-left: 18px; border-right: 1px solid var(--line); } }
+  .svc__group { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .svc__name { font-family: var(--font-display); font-weight: 700; font-size: 1.625rem; line-height: 1.1; }
+  .svc__short { color: var(--muted); }
+  .svc__go { position: absolute; right: 14px; top: 22px; font-size: 1.5rem; color: var(--orange); transition: translate .2s; }
+  .svc__item a:hover { background: var(--cloud); }
+  .svc__item a:hover .svc__go { translate: 4px 0; }
+  .svc__item--live .svc__name::after { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); margin-left: 8px; vertical-align: middle; }
+
+  .owners { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+  @media (max-width: 860px) { .owners { grid-template-columns: 1fr; } }
+  .owners__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: end; }
+  .owners__photos :global(.owners__p) { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
+  .owners__photos :global(.owners__p--2) { margin-bottom: 36px; }
+  .checks { list-style: none; display: grid; gap: 10px; }
+  .checks li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; }
+  .checks :global(svg) { width: 22px; height: 22px; color: var(--green); flex: none; margin-top: 2px; }
+
+  .faqwrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+  @media (max-width: 960px) { .faqwrap { grid-template-columns: 1fr; } }
+  .trucks { margin: 0; display: grid; gap: 10px; position: sticky; top: 24px; }
+  .trucks :global(img) { border-radius: var(--radius); width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .trucks figcaption { color: var(--muted); font-size: .9375rem; }
+</style>

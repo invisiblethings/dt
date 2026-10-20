@@ -1,0 +1,70 @@
+---
+import Icon from './Icon.astro';
+import Skyline from './Skyline.astro';
+import { business, addressLine } from '../data/business';
+import { services } from '../data/services';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <Skyline class="footer__skyline" />
+  <div class="wrap footer__grid">
+    <div class="stack">
+      <p class="footer__brand">{business.name}</p>
+      <p>{business.legalName}<br />{business.license}{business.njLicense && <><br />NJ HIC #{business.njLicense}</>}</p>
+      <p class="footer__nap">
+        <span><Icon name="pin" /> <a href="https://maps.app.goo.gl/MbPkZ36Dqn3oQfTb7">{addressLine}</a></span>
+        <span><Icon name="phone" /> <a href={business.phoneHref}>{business.phone}</a></span>
+        <span><Icon name="chat" /> <a href={`mailto:${business.email}`}>{business.email}</a></span>
+        <span><Icon name="clock" /> Office {business.hours} · 24/7 emergencies</span>
+      </p>
+      <p class="footer__social">
+        <a href={business.social.instagram}><Icon name="instagram" label="Instagram" /></a>
+        <a href={business.social.youtube}><Icon name="youtube" label="YouTube" /></a>
+      </p>
+    </div>
+    <nav aria-label="Services">
+      <p class="footer__h">Services</p>
+      <ul>{services.map((s) => <li>{s.href ? <a href={s.href}>{s.name}</a> : <span>{s.name}</span>}</li>)}</ul>
+    </nav>
+    <nav aria-label="Company">
+      <p class="footer__h">Company</p>
+      <ul>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/service-areas/staten-island/">Staten Island</a></li>
+        <li><a href="/about/">About Bill &amp; Brian</a></li>
+        <li><a href="/free-estimate/">Free estimate</a></li>
+      </ul>
+    </nav>
+    <div class="footer__cta">
+      <p class="footer__h">Ready when you are</p>
+      <p>{business.responsePromise} {business.financing}</p>
+      <a class="btn btn--primary" href="/free-estimate/">Get my free estimate</a>
+      <p class="footer__certs">{business.certifications.join(' · ')}</p>
+    </div>
+  </div>
+  <div class="wrap footer__base">
+    <p>© {year} {business.name}. Serving Staten Island, Brooklyn &amp; New Jersey.</p>
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--asphalt); color: #c9d2da; position: relative; margin-top: 60px; padding-bottom: 90px; }
+  .footer :global(.footer__skyline) { position: absolute; left: 0; right: 0; top: -59px; width: 100%; height: 60px; color: var(--asphalt); }
+  .footer a { color: #fff; }
+  .footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 0.8fr 1.1fr; gap: 32px; padding-block: 48px 28px; }
+  @media (max-width: 960px) { .footer__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .footer__grid { grid-template-columns: 1fr; } }
+  .footer__brand { font-family: var(--font-display); font-weight: 700; font-size: 1.75rem; color: #fff; }
+  .footer__h { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #fff; margin-bottom: 10px; }
+  .footer ul { list-style: none; display: grid; gap: 6px; }
+  .footer ul span { opacity: .7; }
+  .footer__nap { display: grid; gap: 8px; }
+  .footer__nap span { display: flex; gap: 10px; align-items: flex-start; }
+  .footer__nap svg { width: 18px; flex: none; color: var(--orange); margin-top: 4px; }
+  .footer__social { display: flex; gap: 12px; }
+  .footer__social svg { width: 28px; height: 28px; }
+  .footer__cta { display: grid; gap: 14px; align-content: start; }
+  .footer__certs { font-size: 0.875rem; opacity: .8; }
+  .footer__base { border-top: 1px solid rgba(255,255,255,.1); padding-top: 18px; font-size: 0.875rem; }
+  @media (min-width: 761px) { .footer { padding-bottom: 24px; } }
+</style>

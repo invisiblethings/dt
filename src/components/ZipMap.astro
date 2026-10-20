@@ -1,0 +1,65 @@
+---
+// Staten Island as a tile map: each ZIP sits roughly where it is on the island (north at top).
+// Colour depth = jobs B&B has documented there. Landmark tiles are decorative.
+import { zipCounts, documentedSince } from '../data/zips';
+const place: Record<string, [number, number, number?]> = {
+  // zip: [row, col, rowSpan]
+  '10303': [1, 1], '10302': [1, 2], '10310': [1, 3], '10301': [1, 4],
+  '10314': [2, 2, 2], '10304': [2, 4],
+  '10306': [3, 3], '10305': [3, 4],
+  '10309': [4, 1], '10312': [4, 2], '10308': [4, 3],
+  '10307': [5, 1],
+};
+const max = Math.max(...zipCounts.map((z) => z.jobs));
+const total = zipCounts.reduce((s, z) => s + z.jobs, 0);
+const regionHref = (r: string) => `/projects/?area=${encodeURIComponent(r)}`;
+---
+<div class="zmap">
+  <ul class="zmap__grid" aria-label={`Jobs documented in each Staten Island ZIP code since ${documentedSince}`}>
+    {zipCounts.map((z) => {
+      const [r, c, span = 1] = place[z.zip];
+      const depth = 0.18 + 0.82 * (z.jobs / max);
+      return (
+        <li class:list={{ deep: depth > 0.75 }} style={`grid-row: ${r} / span ${span}; grid-column: ${c}; --d: ${depth.toFixed(2)}`}>
+          <a class="zmap__tile" href={regionHref(z.region)}>
+            <span class="zmap__jobs">{z.jobs}</span>
+            <span class="zmap__name">{z.name}</span>
+            <span class="zmap__zip">{z.zip}</span>
+            <span class="visually-hidden"> jobs, {z.region}. See projects.</span>
+          </a>
+        </li>
+      );
+    })}
+    <li class="zmap__land" style="grid-row: 2 / span 2; grid-column: 1" aria-hidden="true"><span>Freshkills Park</span></li>
+    <li class="zmap__land zmap__land--green" style="grid-row: 2; grid-column: 3" aria-hidden="true"><span>Greenbelt</span></li>
+    <li class="zmap__land zmap__land--water" style="grid-row: 4 / span 2; grid-column: 4" aria-hidden="true"><span>Lower Bay</span></li>
+  </ul>
+  <div class="zmap__key">
+    <p class="zmap__total"><strong>{total}</strong> Staten Island jobs photo-documented since {documentedSince}</p>
+    <p class="zmap__scale"><span aria-hidden="true"></span> Darker = more roofs we've done there. Tap your area to see projects nearby.</p>
+    <p class="zmap__note">Map is not to scale. Counts come from our job-site photo records, not estimates.</p>
+  </div>
+</div>
+
+<style>
+  .zmap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 28px; align-items: center; }
+  @media (max-width: 900px) { .zmap { grid-template-columns: 1fr; } }
+  .zmap__grid { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(5, minmax(84px, auto)); gap: 8px; }
+  .zmap__tile { height: 100%; display: grid; align-content: space-between; gap: 4px; padding: 10px 12px; border-radius: 10px; text-decoration: none;
+    background: color-mix(in srgb, var(--orange) calc(var(--d) * 100%), #fff4ee); color: var(--ink); border: 1px solid rgba(0,0,0,.06); transition: transform .15s; }
+  .deep .zmap__tile { color: #fff; }
+  .zmap__tile:hover { transform: translateY(-2px); color: inherit; }
+  .zmap__jobs { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem); line-height: 1; }
+  .zmap__name { font-weight: 700; font-size: clamp(0.75rem, 0.6rem + 0.5vw, 0.9375rem); line-height: 1.15; }
+  .zmap__zip { font-size: 0.75rem; opacity: .8; font-variant-numeric: tabular-nums; }
+  .zmap__land { border-radius: 10px; display: grid; place-items: center; text-align: center; padding: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #6b7d68;
+    background: repeating-linear-gradient(135deg, #e9efe6 0 8px, #f2f6ef 8px 16px); }
+  .zmap__land--green { color: #4f7a4a; background: repeating-linear-gradient(135deg, #dcebd6 0 8px, #e9f3e5 8px 16px); }
+  .zmap__land--water { color: #3f6f97; background: repeating-linear-gradient(0deg, #dbeaf6 0 6px, #e8f2fa 6px 12px); }
+  .zmap__key { display: grid; gap: 12px; }
+  .zmap__total { font-size: var(--step-1); }
+  .zmap__total strong { font-family: var(--font-display); font-size: var(--step-4); line-height: 1; display: block; color: var(--orange); }
+  .zmap__scale { display: flex; gap: 10px; align-items: center; color: var(--muted); }
+  .zmap__scale span { width: 90px; height: 12px; border-radius: 6px; flex: none; background: linear-gradient(90deg, #fbd9c9, var(--orange)); }
+  .zmap__note { font-size: .875rem; color: var(--muted); }
+</style>

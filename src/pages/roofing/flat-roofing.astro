@@ -1,0 +1,124 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import Skyline from '../../components/Skyline.astro';
+import ServiceFeature from '../../components/ServiceFeature.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ProcessRidge from '../../components/ProcessRidge.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { business } from '../../data/business';
+import { service } from '../../data/schema';
+import { byKind, findProject } from '../../data/projects';
+
+const href = '/roofing/flat-roofing/';
+const crumbs = [{ name: 'Roofing', href: '/services/' }, { name: 'Flat roofing', href }];
+const desc = 'Flat roof repair, coating and replacement (TPO, EPDM, modified bitumen, PVC) for Staten Island rowhouses, extensions, multifamily and commercial buildings.';
+const featured = findProject('bay-ridge');
+const others = byKind('flat').filter((p) => p.slug !== featured.slug);
+const systems = [
+  ['TPO', 'Heat-welded, bright white membrane that reflects summer heat. A common choice for commercial roofs and homes that want lower cooling costs.'],
+  ['EPDM (rubber)', 'Durable synthetic rubber with a long track record on rowhouses, garages and rear extensions.'],
+  ['Modified bitumen', 'Multi-layer asphalt-based system (APP/SBS) that handles foot traffic well, a good fit around HVAC units and roof access.'],
+  ['PVC', 'Heat-welded membrane that resists grease and chemicals, often used on restaurants and buildings with rooftop equipment.'],
+  ['Coatings & restoration', 'Renews an aging roof that is still sound, adding reflectivity and years of life without a full tear-off.'],
+  ['Tapered insulation', 'Builds slope into a flat roof to stop ponding water and adds insulation to meet energy code.'],
+];
+const options = [
+  ['Targeted repair', 'Isolated leaks, a failed seam or flashing on a membrane that still has life left.'],
+  ['Coat & restore', 'A sound but aging roof: seal it and reflect heat for years more service, no tear-off.'],
+  ['Full replacement', 'Water in the insulation, seams failing everywhere, or a damaged deck.'],
+];
+const steps = [
+  { title: 'Assessment', body: 'Inspection, photos and a condition report with options.' },
+  { title: 'Prep & protect', body: 'Safety setup, staging and temporary dry-in if needed.' },
+  { title: 'Deck & drainage', body: 'Replace damaged deck, add tapered insulation to drain.' },
+  { title: 'Membrane & flashing', body: 'Installed to manufacturer specs, every penetration detailed.' },
+  { title: 'Test & close out', body: 'Water test, cleanup, photo log and warranty registration.' },
+];
+const faqs = [
+  { q: 'What is the best flat roof membrane for my building?', a: 'It depends on how the roof is used, sun exposure, foot traffic, rooftop equipment and budget. We compare TPO, EPDM, modified bitumen and PVC for your building and explain the trade-offs in writing.' },
+  { q: 'Can you fix ponding water?', a: 'Yes. We correct ponding with tapered insulation, added or relocated drains, or re-pitching, so water leaves the roof instead of sitting on it.' },
+  { q: 'How long does a flat roof replacement take?', a: 'Most residential flat roofs take 1–2 days. Larger commercial roofs are staged over several days to keep the building dry and open.' },
+  { q: 'Can you work around tenants or business hours?', a: 'Yes. We plan staging and access around occupants and offer after-hours and weekend scheduling.' },
+  { q: 'Do you handle permits and inspections?', a: 'Yes. We manage municipal permits and manufacturer inspections as part of the job.' },
+  { q: 'Do you offer emergency flat roof repair?', a: `Yes. For active leaks we offer 24/7 emergency service. Call <a href="${business.phoneHref}">${business.phone}</a>.` },
+];
+---
+<Base
+  title="Flat Roof Repair & Replacement in Staten Island | B&B Roofing"
+  description="Flat roof repair, coating and replacement on Staten Island, Brooklyn & NJ: TPO, EPDM, modified bitumen and PVC. Fix ponding and leaks for good. Free estimate: (718) 981-7663."
+  crumbs={crumbs}
+  schema={[service('Flat roofing', href, desc)]}
+>
+  <PageHero title="Flat roof repair & replacement in Staten Island" eyebrow="Flat roofing · NYC & NJ" crumbs={crumbs}
+    intro="Rowhouses, rear extensions, garages, multifamily and commercial roofs. We find out why your flat roof leaks or ponds, and fix the cause, not just the symptom.">
+    <div class="btn-row"><a class="btn btn--ghost" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a></div>
+    <EstimateForm slot="side" title="Get a flat roof estimate" service="flat-roof" />
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">Real result</p><h2>From bare deck to a new membrane</h2></div>
+      <ServiceFeature p={featured} body="This Bay Ridge flat roof was torn down to the deck and replaced. The before photo was taken during tear-off, from the same spot as the after: line up the vent pipes to compare." />
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">Systems we install</p><h2>The right membrane for your building</h2></div>
+      <ul class="grid-3 sys">{systems.map(([t, b]) => <li class="card"><h3>{t}</h3><p>{b}</p></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">Repair, coat or replace?</p><h2>Options, not a sales pitch</h2>
+        <p class="lead">Every estimate comes with a clear condition report. You see what we see, then you choose.</p></div>
+      <ol class="opts">{options.map(([t, b], i) => <li><span class="opts__n">{['A', 'B', 'C'][i]}</span><h3>{t}</h3><p>{b}</p></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section section--dark has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head center"><p class="eyebrow">How it works</p><h2>Our flat roof process</h2></div>
+      <ProcessRidge steps={steps} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">More flat roofs</p><h2>Flat roofs we've finished</h2></div>
+      <div class="grid-3">{others.map((p) => <ProjectCard p={p} />)}</div>
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" flip />
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">FAQ</p><h2>Flat roofing questions</h2></div>
+      <Faq items={faqs} />
+      <p class="muted">Warranties: manufacturer system warranties on flat roofs plus our own B&amp;B workmanship warranty. <a href="/roofing/roof-replacement/">Shingle roof replacement</a> · <a href="/services/">All services</a></p>
+    </div>
+  </section>
+
+  <CtaBand title="Leak, ponding water, or an old flat roof?" />
+</Base>
+
+<style>
+  .sys { list-style: none; }
+  .opts { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 2px solid var(--asphalt); border-radius: var(--radius); overflow: hidden; }
+  @media (max-width: 860px) { .opts { grid-template-columns: 1fr; } }
+  .opts li { padding: 26px; display: grid; gap: 8px; align-content: start; }
+  .opts li + li { border-left: 2px solid var(--asphalt); }
+  @media (max-width: 860px) { .opts li + li { border-left: 0; border-top: 2px solid var(--asphalt); } }
+  .opts li:nth-child(2) { background: var(--cloud); }
+  .opts li:nth-child(3) { background: var(--asphalt); color: #fff; }
+  .opts li:nth-child(3) p { color: #c9d2da; }
+  .opts__n { font-family: var(--font-display); font-weight: 700; font-size: 2.5rem; line-height: 1; color: var(--orange); }
+  .opts p { color: var(--muted); }
+</style>

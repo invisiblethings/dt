@@ -1,0 +1,145 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import Skyline from '../../components/Skyline.astro';
+import ServiceFeature from '../../components/ServiceFeature.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ProcessRidge from '../../components/ProcessRidge.astro';
+import ReviewSigns from '../../components/ReviewSigns.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { business } from '../../data/business';
+import { service } from '../../data/schema';
+import { byKind, findProject } from '../../data/projects';
+
+const href = '/roofing/roof-replacement/';
+const crumbs = [{ name: 'Roofing', href: '/services/' }, { name: 'Roof replacement', href }];
+const desc = 'Full roof replacement on Staten Island, in Brooklyn and New Jersey: tear-off, new GAF or Owens Corning system, cleanup and warranty registration, usually in 1–2 days.';
+const featured = findProject('willowbrook');
+const more = byKind('replacement').filter((p) => p.slug !== featured.slug).slice(0, 6);
+const signs = [
+  ['Over 20 years old', 'Most asphalt shingle roofs on the island were built to last about that long.'],
+  ['Curling, cracked or missing shingles', 'Especially on the south and west slopes that take the most sun and wind.'],
+  ['Granules in the gutters', 'Shingles shed their protective grit as they wear out.'],
+  ['Repeat leaks', 'If you are calling for repairs every season, the roof is telling you something.'],
+  ['Daylight or damp in the attic', 'Light through the boards or wet insulation means water is getting in.'],
+  ['A sagging roof line', 'Usually water-damaged decking underneath. Get it checked soon.'],
+];
+const includes = [
+  'Full tear-off down to the roof deck',
+  'Damaged decking replaced as needed',
+  'Ice & water shield at eaves and valleys',
+  'Synthetic underlayment over the whole roof',
+  'New drip edge, flashing and pipe boots',
+  'Ridge and attic ventilation checked and corrected',
+  'Full cleanup and magnetic nail sweep',
+  'Manufacturer warranty registration',
+];
+const steps = [
+  { title: 'Free estimate', body: 'We inspect the roof and attic and measure everything.' },
+  { title: 'Written options', body: 'Shingle choices, warranty tiers and a clear price.' },
+  { title: 'Permits & materials', body: 'We handle the paperwork and schedule delivery.' },
+  { title: 'Install day', body: 'Tear-off and new roof, typically 1–2 days.' },
+  { title: 'Walkthrough', body: 'Cleanup, final check and warranty registration.' },
+];
+const faqs = [
+  { q: 'How long does a roof replacement take?', a: 'Most Staten Island homes take 1–2 days from tear-off to cleanup. Larger or more complex roofs can take a little longer; we tell you the schedule up front.' },
+  { q: 'How much does a roof replacement cost on Staten Island?', a: 'It depends on roof size, pitch, layers to remove, decking repairs and the shingle line. As a market guide, published estimates for Staten Island put asphalt shingle replacement at roughly $5–$8 per square foot installed (HomeBlue, Sept 2024). These are market estimates, not B&amp;B quotes: your free estimate gives you an exact price in writing.' },
+  { q: 'Which shingles do you install?', a: 'We are a GAF Master Elite® and Owens Corning Preferred contractor, so we install full GAF and Owens Corning roof systems, such as GAF Timberline® shingles. We will walk you through colors and lines at the estimate.' },
+  { q: 'What warranty do I get?', a: `${business.warranty}` },
+  { q: 'Can you put a new roof over the old one?', a: 'We recommend a full tear-off. It lets us find and fix damaged decking, and GAF&rsquo;s top warranty tiers require it.' },
+  { q: 'Do you handle permits?', a: 'Yes. We manage the permits and inspections that apply to your job.' },
+  { q: 'Do you offer financing?', a: 'Yes, flexible financing is available. Ask about payment options at your estimate.' },
+];
+---
+<Base
+  title="Roof Replacement in Staten Island, NY | B&B Roofing & Gutters"
+  description="Roof replacement on Staten Island by a GAF Master Elite contractor. Tear-off, new roof and cleanup in 1–2 days, up to 50-year manufacturer coverage. Free estimate: (718) 981-7663."
+  crumbs={crumbs}
+  schema={[service('Roof replacement', href, desc)]}
+>
+  <PageHero title="Roof replacement in Staten Island" eyebrow="Roof replacement · NYC & NJ" crumbs={crumbs}
+    intro="A new roof, done right the first time: full tear-off, a complete GAF or Owens Corning system, and a clean property when we leave. Most homes are finished in 1–2 days.">
+    <div class="btn-row"><a class="btn btn--ghost" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a></div>
+    <EstimateForm slot="side" title="Price your new roof" service="roof-replacement" />
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">Real result</p><h2>Same house, same angle, new roof</h2></div>
+      <ServiceFeature p={featured} />
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">Is it time?</p><h2>Six signs your roof needs replacing</h2>
+        <p class="lead">One sign can mean a repair. Two or three usually mean replacement is the better value.</p></div>
+      <ul class="grid-3 signs6">
+        {signs.map(([t, b], i) => <li class="card card--accent"><span class="num">{String(i + 1).padStart(2, '0')}</span><h3>{t}</h3><p>{b}</p></li>)}
+      </ul>
+      <p><a href="/#roof-check">Not sure? Take the 60-second roof check →</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow">What's included</p>
+        <h2>A complete roof system, not just shingles</h2>
+        <p class="lead">Manufacturer warranties only cover complete systems installed to spec. That's how we install every roof.</p>
+        <p class="warranty"><Icon name="shield" /> <span>{business.warranty}</span></p>
+      </div>
+      <ul class="incl">{includes.map((i) => <li><Icon name="check" /> {i}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--dark has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head center"><p class="eyebrow">How it works</p><h2>Your roof replacement, step by step</h2></div>
+      <ProcessRidge steps={steps} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">More roofs</p><h2>Recent roof replacements</h2></div>
+      <div class="grid-3">{more.map((p) => <ProjectCard p={p} />)}</div>
+      <p><a class="btn btn--outline" href="/projects/">See all projects <Icon name="arrow" /></a></p>
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" flip />
+    <div class="wrap stack-lg">
+      <div class="head center"><p class="eyebrow">Reviews</p><h2>Homeowners on their new roofs</h2></div>
+      <ReviewSigns count={3} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">FAQ</p><h2>Roof replacement questions</h2></div>
+      <Faq items={faqs} />
+      <p class="muted">Serving every Staten Island neighborhood, plus Brooklyn and New Jersey. <a href="/service-areas/staten-island/">See where we work</a> · <a href="/roofing/flat-roofing/">Flat roofs</a> · <a href="/services/">All services</a></p>
+    </div>
+  </section>
+
+  <CtaBand title="Ready to price your new roof?" />
+</Base>
+
+<style>
+  .signs6 { list-style: none; }
+  .signs6 .num { font-family: var(--font-display); font-weight: 700; color: var(--orange); font-size: 1.5rem; }
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+  .incl { list-style: none; display: grid; gap: 0; border-top: 2px solid var(--asphalt); }
+  .incl li { display: flex; gap: 12px; align-items: center; padding: 14px 4px; border-bottom: 1px solid var(--line); font-weight: 600; font-size: 1.0625rem; }
+  .incl :global(svg) { width: 22px; height: 22px; color: var(--green); flex: none; }
+  .warranty { display: flex; gap: 12px; align-items: flex-start; background: var(--orange-soft); border-radius: var(--radius); padding: 16px 18px; font-weight: 600; }
+  .warranty :global(svg) { width: 26px; height: 26px; color: var(--orange-dark); flex: none; }
+</style>

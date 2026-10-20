@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import Skyline from '../../components/Skyline.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { projects, type Project } from '../../data/projects';
+import { services } from '../../data/services';
+import { orgId } from '../../data/schema';
+
+export function getStaticPaths() {
+  return projects.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+const { p } = Astro.props as { p: Project };
+const crumbs = [{ name: 'Projects', href: '/projects/' }, { name: p.title, href: p.href }];
+const serviceLink = services.find((s) => s.slug === (p.kind === 'flat' ? 'flat-roofing' : 'roof-replacement'))!;
+const related = projects.filter((x) => x.slug !== p.slug && (x.region === p.region || x.kind === p.kind))
+  .sort((a, b) => Number(b.region === p.region) - Number(a.region === p.region)).slice(0, 3);
+const place = p.area.replace(/, (Staten Island|NY)$/, '');
+const story = {
+  replacement: `The old roof on this ${place} home had reached the end of its life. We tore it off down to the deck, replaced damaged boards where needed, and installed a complete new roof system with new underlayment, flashing and ventilation.`,
+  flat: `This ${place} flat roof had stopped doing its job. We opened it up, dealt with what we found underneath, and installed a new membrane with every edge and penetration detailed to keep water out.`,
+  repair: `We tracked down where water was getting in on this ${place} roof and rebuilt the failing section so it drains and seals properly.`,
+}[p.kind as 'replacement' | 'flat' | 'repair'];
+const schema = { '@type': 'CreativeWork', name: p.title, about: p.service, dateCreated: p.date, locationCreated: { '@type': 'Place', name: p.area, address: { '@type': 'PostalAddress', postalCode: p.zip } }, creator: { '@id': orgId } };
+---
+<Base title={`${p.title} (${p.monthYear}) | B&B Roofing Project`} description={`Before and after photos of a ${p.service.toLowerCase()} by B&B Roofing & Gutters in ${p.area}, completed ${p.monthYear}. Same-angle photos from our job records.`} crumbs={crumbs} schema={[schema]} image={p.after.src}>
+  <PageHero title={p.title} eyebrow={`${p.region} · ${p.monthYear}`} crumbs={crumbs} trust={false}>
+    <dl class="facts">
+      <div><dt>Service</dt><dd>{p.service}</dd></div>
+      <div><dt>Location</dt><dd>{p.area} {p.zip}</dd></div>
+      <div><dt>Completed</dt><dd>{p.monthYear}</dd></div>
+      <div><dt>Job photos on file</dt><dd>{p.photos}</dd></div>
+    </dl>
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap pj">
+      <div class="stack-lg">
+        <BeforeAfter before={p.before} after={p.after} label={p.title} eager sizes="(max-width: 960px) 100vw, 760px" />
+        <div class="stack">
+          <h2>About this job</h2>
+          <p class="lead">{story}</p>
+          <p class="muted">Photo angle: {p.view}. Both photos come from B&amp;B's own job records; location data has been removed and the exact address is kept private.</p>
+          <p><a href={serviceLink.href}>More about {serviceLink.name.toLowerCase()} →</a></p>
+        </div>
+      </div>
+      <aside class="pj__side"><EstimateForm title={`Want results like this in ${place}?`} service={p.kind === 'flat' ? 'flat-roof' : 'roof-replacement'} /></aside>
+    </div>
+  </section>
+
+  {related.length > 0 && (
+    <section class="section section--cloud has-skyline">
+      <Skyline class="edge" />
+      <div class="wrap stack-lg">
+        <div class="head"><p class="eyebrow">Nearby & similar</p><h2>More projects like this</h2></div>
+        <div class="grid-3">{related.map((r) => <ProjectCard p={r} />)}</div>
+        <p><a href="/projects/">All projects →</a></p>
+      </div>
+    </section>
+  )}
+
+  <CtaBand />
+</Base>
+<style>
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 0; }
+  .facts div { background: rgba(255,255,255,.08); border-radius: 8px; padding: 10px 14px; }
+  .facts dt { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #b9c4ce; }
+  .facts dd { margin: 0; font-weight: 700; }
+  .pj { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: start; }
+  @media (max-width: 960px) { .pj { grid-template-columns: 1fr; } }
+  .pj__side { position: sticky; top: 96px; }
+  @media (max-width: 960px) { .pj__side { position: static; } }
+</style>

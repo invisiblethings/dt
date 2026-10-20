@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Skyline from '../../components/Skyline.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { business } from '../../data/business';
+import { services } from '../../data/services';
+import gutters from '../../assets/site/gutters.jpg';
+import siding from '../../assets/site/siding-soffits.jpg';
+import repair from '../../assets/site/roof-repair-10312.jpg';
+
+const href = '/services/';
+const crumbs = [{ name: 'Services', href }];
+const groups = ['Roofing', 'Gutters', 'Siding & more'] as const;
+const photo = { Roofing: repair, Gutters: gutters, 'Siding & more': siding };
+const alt = { Roofing: 'B&B crew repairing a shingle roof in Staten Island', Gutters: 'New seamless gutters installed by B&B', 'Siding & more': 'New siding and soffits on a Staten Island home' };
+---
+<Base title="Roofing, Gutter & Siding Services in Staten Island | B&B Roofing" description="Every service B&B Roofing & Gutters offers on Staten Island, in Brooklyn and NJ: roof replacement, repair, flat roofs, emergency leaks, gutters, siding, soffit and fascia." crumbs={crumbs}>
+  <PageHero title="Everything over your head, handled" eyebrow="Services" crumbs={crumbs}
+    intro="Roofs, gutters and the siding, soffit and fascia that keep water out. One local crew, one warranty conversation, one number to call." />
+
+  {groups.map((g, gi) => (
+    <section class:list={['section', { 'section--cloud has-skyline': gi === 1 }]}>
+      {gi === 1 && <Skyline class="edge" />}
+      <div class="wrap svc">
+        <Image src={photo[g]} alt={alt[g]} widths={[480, 800]} sizes="(max-width: 860px) 100vw, 420px" class="svc__img" quality={72} />
+        <div class="stack">
+          <h2>{g}</h2>
+          <ul class="svc__list">
+            {services.filter((s) => s.group === g).map((s) => (
+              <li>
+                {s.built && s.href
+                  ? <a class="svc__row" href={s.href}><span><strong>{s.name}</strong><span>{s.short}</span></span><Icon name="arrow" /></a>
+                  : <a class="svc__row" href="/free-estimate/"><span><strong>{s.name}</strong><span>{s.short}</span></span><span class="chip">Ask for an estimate</span></a>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="section">
+    <div class="wrap emerg">
+      <Icon name="drop" />
+      <div class="stack"><h2>Water coming in right now?</h2><p class="lead">Emergency service runs 24/7. Call and we'll talk you through what to do until the crew arrives.</p></div>
+      <a class="btn btn--primary" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+<style>
+  .svc { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+  @media (max-width: 860px) { .svc { grid-template-columns: 1fr; } }
+  .svc :global(.svc__img) { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+  .svc__list { list-style: none; display: grid; border-top: 2px solid var(--asphalt); }
+  .svc__row { display: flex; gap: 16px; align-items: center; justify-content: space-between; padding: 18px 4px; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; }
+  .svc__row > span:first-child { display: grid; gap: 4px; }
+  .svc__row strong { font-family: var(--font-display); font-size: 1.375rem; }
+  .svc__row span span { color: var(--muted); }
+  .svc__row :global(svg) { width: 22px; height: 22px; color: var(--orange); flex: none; }
+  .svc__row:hover strong { color: var(--orange-dark); }
+  .svc__row .chip { flex: none; }
+  .emerg { display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; background: var(--asphalt); color: #fff; border-radius: var(--radius); padding: clamp(24px, 4vw, 40px); border-left: 8px solid var(--orange); }
+  .emerg > :global(svg) { width: 48px; height: 48px; color: var(--sky); }
+  .emerg .stack { flex: 1 1 320px; }
+  .emerg .lead { color: #d3dbe2; }
+</style>

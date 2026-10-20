@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Icon from '../components/Icon.astro';
+import { business } from '../data/business';
+import { projects } from '../data/projects';
+---
+<Base title="Thanks, we got your request | B&B Roofing & Gutters" description="Your estimate request was received." noindex>
+  <PageHero title="Got it. We'll be in touch." eyebrow="Request received" trust={false}
+    intro={`${business.responsePromise} If water is coming in right now, don't wait for us: call ${business.phone}, any time.`}>
+    <div class="btn-row"><a class="btn btn--primary" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a></div>
+  </PageHero>
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">While you wait</p><h2>See a few of our recent roofs</h2></div>
+      <div class="grid-3">{projects.slice(0, 3).map((p) => <ProjectCard p={p} />)}</div>
+    </div>
+  </section>
+</Base>

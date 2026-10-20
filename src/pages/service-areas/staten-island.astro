@@ -1,0 +1,105 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import ZipMap from '../../components/ZipMap.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ReviewSigns from '../../components/ReviewSigns.astro';
+import Skyline from '../../components/Skyline.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { business, addressLine } from '../../data/business';
+import { projects } from '../../data/projects';
+import { zipCounts, documentedSince } from '../../data/zips';
+
+const href = '/service-areas/staten-island/';
+const crumbs = [{ name: 'Staten Island', href }];
+const regions = [
+  { name: 'North Shore', hoods: ['St. George', 'Tompkinsville', 'Stapleton', 'Clifton', 'West Brighton', 'Port Richmond', 'Mariners Harbor', 'Elm Park', 'Graniteville', 'Livingston', 'Silver Lake'],
+    note: 'Older housing stock: rowhouses, attached homes and flat-roofed extensions next to pitched roofs, plus salt air and wind off the Kill Van Kull and the harbor.' },
+  { name: 'Mid-Island', hoods: ['Willowbrook', 'New Dorp', 'Rosebank', 'South Beach', 'Grant City', 'Midland Beach', 'Dongan Hills', 'Todt Hill', 'Bulls Head', 'New Springville', 'Castleton Corners'],
+    note: 'Our home turf: the office is in Rosebank. Lots of capes, hi-ranches and colonials from the 60s–80s that are now on their second or third roof.' },
+  { name: 'South Shore', hoods: ['Great Kills', 'Eltingville', 'Annadale', 'Huguenot', "Prince's Bay", 'Rossville', 'Charleston', 'Woodrow', 'Tottenville', 'Arden Heights', 'Bay Terrace'],
+    note: 'Newer homes and shore exposure. Wind-driven rain and nor\'easters test shingles, flashing and gutters every winter.' },
+];
+const siProjects = projects.filter((p) => ['North Shore', 'Mid-Island', 'South Shore'].includes(p.region));
+const total = zipCounts.reduce((s, z) => s + z.jobs, 0);
+const faqs = [
+  { q: 'Where is your office?', a: `Our office and storefront is at ${addressLine}. Stop by during working hours (${business.hours}) to talk to us in person or look at shingle samples.` },
+  { q: 'Do you need a permit for a new roof on Staten Island?', a: 'Many roofing jobs in NYC need a Department of Buildings filing, and our team handles the paperwork that applies to your job. We confirm what is needed at your free estimate.' },
+  { q: 'How quickly can you get to my house?', a: `${business.responsePromise} For an active leak anywhere on the island, call <a href="${business.phoneHref}">${business.phone}</a>: emergency service runs 24/7.` },
+  { q: 'Do you work outside Staten Island?', a: 'Yes. We also work across Brooklyn and much of New Jersey.' },
+];
+---
+<Base title="Staten Island Roofing Contractor: Every Neighborhood | B&B Roofing" description={`Roofing on every Staten Island neighborhood from our Rosebank office at 145 Cedar Ave. ${total} jobs documented by ZIP since ${documentedSince}. Free estimates: ${business.phone}.`} crumbs={crumbs}>
+  <PageHero title="Staten Island's neighborhood roofers" eyebrow="Service area · Staten Island" crumbs={crumbs}
+    intro={`We're based on Cedar Ave in Rosebank and we've worked on every side of the island: ${total} photo-documented jobs across ${zipCounts.length} ZIP codes since ${documentedSince}.`}>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/free-estimate/">Free estimate <Icon name="arrow" /></a>
+      <a class="btn btn--ghost" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">Jobs by ZIP code</p><h2>Find your neighborhood</h2>
+        <p class="lead">Darker tiles mean more roofs. Tap a tile to see projects from that part of the island.</p></div>
+      <ZipMap />
+    </div>
+  </section>
+
+  {regions.map((r, i) => {
+    const list = siProjects.filter((p) => p.region === r.name).slice(0, 3);
+    return (
+      <section class:list={['section', { 'section--cloud has-skyline': i % 2 === 0 }]} id={r.name.toLowerCase().replace(/\s+/g, '-')}>
+        {i % 2 === 0 && <Skyline class="edge" flip={i === 2} />}
+        <div class="wrap stack-lg">
+          <div class="region">
+            <div class="stack">
+              <p class="eyebrow">{zipCounts.filter((z) => z.region === r.name).map((z) => z.zip).join(' · ')}</p>
+              <h2>{r.name}</h2>
+              <p class="lead">{r.note}</p>
+            </div>
+            <ul class="hoods">{r.hoods.map((h) => <li>{h}</li>)}</ul>
+          </div>
+          {list.length > 0 && <div class="grid-3">{list.map((p) => <ProjectCard p={p} />)}</div>}
+          <p><a href={`/projects/?area=${encodeURIComponent(r.name)}`}>All {r.name} projects →</a></p>
+        </div>
+      </section>
+    );
+  })}
+
+  <section class="section section--dark has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap visit">
+      <div class="stack">
+        <p class="eyebrow">Visit us</p>
+        <h2>A real storefront, on Cedar Ave</h2>
+        <p class="lead">{addressLine}<br />{business.hours} · emergencies 24/7</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${business.name}, ${addressLine}`)}`} rel="noopener">Get directions <Icon name="pin" /></a>
+          <a class="btn btn--ghost" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a>
+        </div>
+      </div>
+      <div class="stack"><ReviewSigns count={2} /></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head"><p class="eyebrow">FAQ</p><h2>Staten Island roofing questions</h2></div>
+      <Faq items={faqs} />
+    </div>
+  </section>
+
+  <CtaBand title="Live on Staten Island? We're probably already nearby." />
+</Base>
+<style>
+  .region { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 56px); align-items: start; }
+  @media (max-width: 860px) { .region { grid-template-columns: 1fr; } }
+  .hoods { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+  .hoods li { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); font-weight: 600; }
+  .visit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+  @media (max-width: 960px) { .visit { grid-template-columns: 1fr; } }
+  .visit .lead { color: #d3dbe2; }
+</style>

@@ -1,0 +1,25 @@
+---
+// A Staten Island street in silhouette: flat-roof rowhouses, gables, hips, a Cape Cod, a gambrel, chimneys.
+// Used as the edge between sections. Decorative only.
+interface Props { class?: string; flip?: boolean }
+const { class: cls, flip } = Astro.props;
+// [x, y] outline points on a 1440 x 60 canvas, baseline y = 60
+const pts: [number, number][] = [
+  [0, 28], [44, 28], [44, 24], [92, 24], [92, 30], [124, 30], // rowhouses with parapets
+  [124, 34], [184, 6], [244, 34], // gable
+  [244, 32], [286, 12], [366, 12], [408, 32], // hip
+  [408, 36], [482, 8], [482, 4], [494, 4], [494, 12], [560, 36], // Cape Cod with chimney
+  [560, 22], [600, 22], [600, 18], [652, 18], [652, 24], [704, 24], // flat roofs, bulkhead
+  [704, 34], [764, 10], [790, 18], [790, 6], [802, 6], [802 , 22], [824, 34], // gable + chimney
+  [824, 30], [866, 10], [940, 10], [982, 30], // two-storey hip
+  [982, 36], [1002, 16], [1052, 6], [1102, 16], [1122, 36], // gambrel (Dutch colonial)
+  [1122, 26], [1170, 26], [1170, 20], [1216, 20], [1216, 28], [1262, 28], // rowhouses
+  [1262, 34], [1322, 8], [1382, 34], // gable
+  [1382, 30], [1440, 30],
+];
+const d = `M0 60 L${pts.map(([x, y]) => `${x} ${y}`).join(' L')} L1440 60 Z`;
+---
+<svg class={cls} viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true" focusable="false"
+  style={flip ? 'transform: scaleX(-1)' : undefined}>
+  <path d={d} fill="currentColor" />
+</svg>
