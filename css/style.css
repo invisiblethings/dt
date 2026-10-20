@@ -207,12 +207,8 @@ button.btn { cursor: pointer; font: inherit; font-weight: 600; justify-self: sta
 .site-footer ul { list-style: none; margin: 0; padding: 0; }
 .site-footer li { margin-bottom: .35rem; }
 .site-footer .legal { border-top: 1px solid #3a2d26; margin-top: 2rem; padding-top: 1rem; font-size: .85rem; color: #b9a998; }
-.aff { display: block; margin: 2rem 0; }
-.aff img { border-radius: var(--radius); box-shadow: var(--shadow); }
-.aff small { color: var(--muted); }
 
 @media print { .site-header, .site-footer, .keys, .cta, .menu-btn { display: none; } body { background: #fff; color: #000; } }
-.aff img { width: 100%; max-width: 240px; }
 
 /* Utilities (kept as classes so the CSP can forbid inline styles) */
 .pt { padding-top: 2rem; }
