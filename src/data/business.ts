@@ -17,8 +17,8 @@ export const business = {
     country: 'US',
   },
   hours: 'Mon–Sun 7am–9pm',
-  // Building centroid from OpenStreetMap. Check against the Google Business Profile pin before launch.
-  geo: { lat: 40.59632, lng: -74.06752 },
+  // Matches the Google Business Profile pin (owner-confirmed, 21 Oct 2026).
+  geo: { lat: 40.5965, lng: -74.06754 },
   emergency: '24/7 emergency service for active leaks',
   responsePromise: 'We contact you within 24 hours.',
   license: 'NYC DCWP HIC License #2125865-DCWP',
