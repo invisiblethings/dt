@@ -1,6 +1,6 @@
 # bbroofingpros.com: Astro rebuild
 
-Static site for B&B Roofing & Gutters, built with [Astro](https://astro.build) and meant to be hosted on Cloudflare Pages. No database and no client framework: every page is plain HTML and CSS, with a few small scripts (before/after slider, roof check quiz, project filters).
+Static site for B&B Roofing & Gutters, built with [Astro](https://astro.build) and hosted on Netlify. No database and no client framework: every page is plain HTML and CSS, with a few small scripts (before/after slider, roof check quiz, project filters).
 
 ## Commands
 
@@ -22,19 +22,22 @@ npm run preview   # serve dist/
 | `src/data/services.ts` | All services; `built: false` ones link to the estimate form until their pages exist. |
 | `src/data/schema.ts` | JSON-LD (RoofingContractor, WebSite, Service, BreadcrumbList). |
 | `src/components/` | Skyline edges, BeforeAfter slider, RoofCheck quiz, ZipMap, ReviewSigns, ProcessRidge, EstimateForm, … |
-| `functions/api/estimate.js` | Cloudflare Pages Function that emails estimate requests. |
+| `src/components/EstimateForm.astro` | Estimate form, handled by Netlify Forms (`estimate` and `estimate-full`). |
+| `netlify.toml` | Build command, publish folder and Node version. |
 | `public/_redirects` | 301s from old WordPress URLs. Check against the full WP URL list before launch. |
 | `public/_headers` | Security headers and long cache for hashed assets. |
 
-## Cloudflare Pages setup
+## Netlify setup
 
-- Build command `npm run build`, output directory `dist`, Node 20+.
-- Environment variables for the form:
-  - `RESEND_API_KEY`: API key from resend.com (free tier is enough).
-  - `LEAD_TO`: inbox that receives leads, e.g. `info@bbroofingpros.com`.
-  - `LEAD_FROM`: verified sender, e.g. `B&B Website <leads@bbroofingpros.com>`.
-  - `TURNSTILE_SECRET` (optional): enables Cloudflare Turnstile verification. If set, add the Turnstile widget to `EstimateForm.astro`.
-- Without `RESEND_API_KEY` the function logs the lead and still shows the thank-you page (preview mode).
+- Connect the GitHub repo in Netlify. `netlify.toml` already sets the build (`npm run build`, publish `dist`, Node 22).
+- **Forms:** Netlify detects the two forms (`estimate`, `estimate-full`) from the built HTML on each deploy. In **Site configuration → Forms**:
+  - enable form detection if it's off;
+  - add an email notification to the office inbox for both forms.
+  - Spam: the hidden `website` field is a honeypot, and Netlify also filters spam. A reCAPTCHA can be added later with `data-netlify-recaptcha="true"`.
+  - Visitors land on `/thank-you/` after submitting.
+- **Indexing:** pages get `noindex` automatically unless the build is the production deploy on `bbroofingpros.com`. Deploy previews, branch deploys and the `*.netlify.app` address are therefore never indexed. No action is needed at launch beyond adding the custom domain, then triggering a fresh deploy.
+- `public/_redirects` and `public/_headers` use Netlify's file formats.
+- **DNS:** before pointing the domain at Netlify, copy every existing DNS record (especially email MX, SPF and DKIM) so email keeps working.
 
 ## Owner to-dos
 

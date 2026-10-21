@@ -1,0 +1,7 @@
+# Netlify build settings. Forms are detected automatically from the built HTML (see EstimateForm.astro).
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"

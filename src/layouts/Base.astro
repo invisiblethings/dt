@@ -20,6 +20,11 @@ interface Props {
   noindex?: boolean;
 }
 const { title, description, image = '/og.jpg', crumbs = [], schema = [], noindex = false } = Astro.props;
+// On Netlify, only the production deploy on the real domain may be indexed. Deploy previews, branch deploys and the
+// *.netlify.app address before launch all get noindex automatically (Netlify sets CONTEXT and URL at build time).
+const onNetlify = Boolean(process.env.NETLIFY);
+const liveDomain = process.env.CONTEXT === 'production' && (process.env.URL ?? '').includes('bbroofingpros.com');
+const hide = noindex || (onNetlify && !liveDomain);
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(image, Astro.site).href;
 const graph = [
@@ -38,7 +43,7 @@ const graph = [
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex, follow" />}
+    {hide && <meta name="robots" content="noindex, follow" />}
     <meta name="theme-color" content="#10233a" />
     <script is:inline>if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js-reveal');</script>
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />

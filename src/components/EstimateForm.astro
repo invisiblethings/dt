@@ -4,6 +4,8 @@ import { business } from '../data/business';
 interface Props { title?: string; full?: boolean; service?: string; dark?: boolean }
 const { title = 'Get your free estimate', full = false, service = '', dark = false } = Astro.props;
 const uid = Math.random().toString(36).slice(2, 7);
+// Netlify Forms picks these up at deploy. The short and full forms have different fields, so each gets its own name.
+const formName = full ? 'estimate-full' : 'estimate';
 const options = [
   ['', 'Choose one'],
   ['roof-replacement', 'Roof replacement'],
@@ -16,7 +18,8 @@ const options = [
   ['not-sure', 'Not sure, please inspect'],
 ];
 ---
-<form class:list={['eform', { 'eform--dark': dark }]} action="/api/estimate" method="post">
+<form class:list={['eform', { 'eform--dark': dark }]} name={formName} method="post" action="/thank-you/" data-netlify="true" netlify-honeypot="website">
+  <input type="hidden" name="form-name" value={formName} />
   <p class="eform__title">{title}</p>
   <p class="eform__sub"><Icon name="clock" /> {business.responsePromise}</p>
   <div class="eform__grid">
