@@ -9,6 +9,5 @@
 /services/commercial-roofing/        /roofing/commercial-roofing/    301
 /services/gutters/                   /gutters/                       301
 /services/siding/                    /siding/                        301
-/contact/                            /free-estimate/                 301
-/contact-us/                         /free-estimate/                 301
-# /services/, /about/, /free-estimate/ keep the same URL.
+/contact-us/                         /contact/                       301
+# /services/, /about/, /contact/, /free-estimate/ keep the same URL.

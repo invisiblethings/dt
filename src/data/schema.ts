@@ -1,7 +1,15 @@
 import { business } from './business';
 import { zipCounts } from './zips';
+import { services } from './services';
 
 const site = business.url;
+
+// Boroughs and states with identifiers so search engines know exactly which place is meant.
+const places = [
+  { '@type': 'AdministrativeArea', name: 'Staten Island', sameAs: 'https://en.wikipedia.org/wiki/Staten_Island', containedInPlace: { '@type': 'City', name: 'New York' } },
+  { '@type': 'AdministrativeArea', name: 'Brooklyn', sameAs: 'https://en.wikipedia.org/wiki/Brooklyn', containedInPlace: { '@type': 'City', name: 'New York' } },
+  { '@type': 'State', name: 'New Jersey', sameAs: 'https://en.wikipedia.org/wiki/New_Jersey' },
+];
 export const orgId = `${site}/#business`;
 
 // The business entity. Output on every page; other schema references it by @id.
@@ -25,14 +33,28 @@ export const roofingContractor = {
     postalCode: business.address.zip,
     addressCountry: business.address.country,
   },
-  openingHours: business.hoursSchema,
+  geo: { '@type': 'GeoCoordinates', latitude: business.geo.lat, longitude: business.geo.lng },
+  hasMap: business.social.googleReviews,
+  openingHoursSpecification: [{
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '07:00',
+    closes: '21:00',
+  }],
   areaServed: [
-    { '@type': 'City', name: 'Staten Island' },
-    { '@type': 'City', name: 'Brooklyn' },
-    { '@type': 'State', name: 'New Jersey' },
+    ...places,
     ...zipCounts.map((z) => ({ '@type': 'PostalCodeSpecification', postalCode: z.zip, addressCountry: 'US' })),
   ],
-  sameAs: [business.social.instagram, business.social.youtube],
+  sameAs: [business.social.googleReviews, business.social.instagram, business.social.youtube],
+  // Services that have their own page; the list grows as pages ship.
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Roofing, gutter and siding services',
+    itemListElement: services.filter((s) => s.built && s.href).map((s) => ({
+      '@type': 'Offer',
+      itemOffered: { '@id': `${site}${s.href}#service` },
+    })),
+  },
 };
 
 export const website = {
@@ -57,9 +79,5 @@ export const service = (name: string, href: string, description: string) => ({
   description,
   url: `${site}${href}`,
   provider: { '@id': orgId },
-  areaServed: [
-    { '@type': 'City', name: 'Staten Island' },
-    { '@type': 'City', name: 'Brooklyn' },
-    { '@type': 'State', name: 'New Jersey' },
-  ],
+  areaServed: places,
 });
