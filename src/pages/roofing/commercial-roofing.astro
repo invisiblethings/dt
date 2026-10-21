@@ -1,0 +1,204 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import Skyline from '../../components/Skyline.astro';
+import ServiceFeature from '../../components/ServiceFeature.astro';
+import JobPhotos from '../../components/JobPhotos.astro';
+import ProcessRidge from '../../components/ProcessRidge.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { business } from '../../data/business';
+import { service } from '../../data/schema';
+import { findProject } from '../../data/projects';
+import condo from '../../assets/services/commercial-condo-building.jpg';
+import condoAerial from '../../assets/services/commercial-condo-roof-aerial.jpg';
+import condoStreet from '../../assets/services/commercial-condo-roof-street.jpg';
+import condoRidge from '../../assets/services/commercial-condo-ridge.jpg';
+import flatCommercial from '../../assets/site/flat-roof-commercial.jpg';
+import branchburg from '../../assets/site/flat-roof-branchburg-nj.jpg';
+import torch from '../../assets/site/flat-roofing.jpg';
+
+const href = '/roofing/commercial-roofing/';
+const crumbs = [{ name: 'Roofing', href: '/services/' }, { name: 'Commercial roofing', href }];
+const desc = 'Commercial and multifamily roofing on Staten Island, in Brooklyn and New Jersey: TPO, EPDM, PVC, modified bitumen, coatings, repairs and maintenance plans.';
+const featured = findProject('kensington');
+const systems = ['TPO', 'EPDM (rubber)', 'PVC', 'Modified bitumen', 'Built-up roofing', 'Metal roofing', 'Coatings & restoration', 'Shingle roofs for multifamily'];
+const buildings = [
+  ['Multifamily, condos and HOAs', 'Resident notices, clean common areas and a fast punch list.'],
+  ['Retail and storefronts', 'Work around opening hours with protected entrances and safe access.'],
+  ['Offices and mixed-use', 'Quiet work, tenant coordination and a tidy close-out.'],
+  ['Restaurants', 'Grease-resistant membranes and properly flashed hood and vent curbs.'],
+  ['Warehouses and industrial', 'Large flat roofs phased so operations keep running.'],
+  ['Schools and houses of worship', 'Safe sites and phases that fit your calendar.'],
+];
+const reasons = [
+  ['One accountable contractor', 'Installation, repairs and maintenance from the same company and the same owners.'],
+  ['Permits and inspections handled', 'Permits, DOB requirements and manufacturer inspections coordinated for you.'],
+  ['Minimal disruption', 'Staged work, debris control, and after-hours or weekend work when you need it.'],
+  ['Clear proposals', 'Scope, schedule and how changes are priced, in writing before work starts.'],
+];
+const photos = [
+  { src: condoAerial, alt: 'Drone photo of a long multifamily condo building roof with many dormers in Staten Island', caption: 'Multifamily condo complex: a long roof with dozens of dormers, vents and skylights.' },
+  { src: condoRidge, alt: 'Close drone view of shingle roof ridges and parapets on a condo building', caption: 'Close-up of the ridges and parapet walls.' },
+  { src: condoStreet, alt: 'Drone view of a condo roof along a busy street', caption: 'The same complex from the street side.' },
+  { src: flatCommercial, alt: 'Large commercial flat roof with a new white membrane', caption: 'Commercial flat roof with a reflective membrane.' },
+  { src: branchburg, alt: 'Commercial flat roof in Branchburg, New Jersey under a blue sky', caption: 'Commercial flat roof in Branchburg, NJ.' },
+  { src: torch, alt: 'Roofer installing a modified bitumen flat roof with a torch', caption: 'Modified bitumen being installed on a flat roof.' },
+];
+const steps = [
+  { title: 'Roof assessment', body: 'Photos, moisture checks and a condition report you can share.' },
+  { title: 'Options', body: 'Repair, restore or replace, with costs and warranty terms side by side.' },
+  { title: 'Planning', body: 'Safety plan, permits, staging and tenant notices around your calendar.' },
+  { title: 'Installation', body: 'Supervised crews, daily cleanup and progress updates.' },
+  { title: 'Close-out', body: 'Final inspection, photo log, warranty registration.' },
+];
+const faqs = [
+  { q: 'How much will the work disrupt my building?', a: 'We schedule around your busy hours, work the roof in sections, protect entrances and clean up daily. Night and weekend work is available when needed.' },
+  { q: 'Do you have to tear off the old roof?', a: 'Not always. If the deck is sound and code allows, a re-cover or coating restoration can save time and money. Our assessment tells you which options are realistic.' },
+  { q: 'Do you handle permits and inspections?', a: 'Yes. We manage permits, NYC DOB or municipal requirements, and manufacturer inspections.' },
+  { q: 'Can you work with our building engineer, board or general contractor?', a: 'Yes. We coordinate drawings, submittals, inspections and resident or tenant communication.' },
+  { q: 'Do you offer maintenance plans?', a: 'Yes. Annual or twice-a-year visits include a full inspection with photos, debris and drain clearing, small seam and flashing repairs, and documentation to keep your warranty valid.' },
+  { q: 'What warranties are available?', a: 'Manufacturer system warranties depend on the system and its specification, and we register them for you. Our own workmanship warranty covers our installation. Both are spelled out in your proposal.' },
+  { q: 'Do you handle emergency leaks on commercial buildings?', a: `Yes. For active leaks we offer 24/7 emergency response: call <a href="${business.phoneHref}">${business.phone}</a>.` },
+];
+---
+<Base
+  title="Commercial Roofing in Staten Island & Brooklyn | B&B Roofing"
+  description="Commercial and multifamily roofing in Staten Island, Brooklyn and NJ: TPO, EPDM, PVC, mod-bit, coatings, repairs and maintenance plans. (718) 981-7663."
+  crumbs={crumbs}
+  schema={[service('Commercial roofing', href, desc)]}
+  image={condoAerial.src}
+>
+  <PageHero title="Commercial roofing in Staten Island & Brooklyn" eyebrow="Commercial · multifamily · NJ" crumbs={crumbs}
+    intro="When a building's roof fails, tenants and business stop. We install, repair and maintain roofs on condos, apartment buildings, storefronts, offices and warehouses, with as little disruption as possible.">
+    <div class="btn-row"><a class="btn btn--light" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a></div>
+    <EstimateForm slot="side" title="Request a roof assessment" service="not-sure" />
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap split">
+      <figure class="photo" data-reveal>
+        <Image src={condo} alt="Four-story multifamily condo building in Staten Island with balconies" widths={[480, 800, 1100]} sizes="(max-width: 860px) 100vw, 560px" quality={72} />
+        <figcaption>A Staten Island condo complex where we worked on the roof.</figcaption>
+      </figure>
+      <div class="stack" data-reveal>
+        <p class="eyebrow">For owners, boards and managers</p>
+        <h2>One roofer you can hand the whole roof to</h2>
+        <ul class="reasons">{reasons.map(([t, b]) => <li><Icon name="check" /><div><h3>{t}</h3><p>{b}</p></div></li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Real result</p><h2>Multifamily flat roof, before and after</h2></div>
+      <ServiceFeature p={featured} body="A Kensington, Brooklyn apartment building. Drag the handle to compare the same roof before and after our work." />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Our commercial work</p><h2>Condos, apartment buildings and commercial flat roofs</h2></div>
+      <JobPhotos items={photos} />
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" flip />
+    <div class="wrap split split--top">
+      <div class="stack-lg">
+        <div class="head" data-reveal><p class="eyebrow">Systems</p><h2>Roof systems we install and service</h2></div>
+        <ul class="chips" data-reveal>{systems.map((s) => <li>{s}</li>)}</ul>
+        <div class="stack" data-reveal>
+          <h3>Repairs we handle</h3>
+          <ul class="checks">
+            <li><Icon name="check" /> Leak detection and emergency dry-in</li>
+            <li><Icon name="check" /> Blister, split and seam repairs</li>
+            <li><Icon name="check" /> Flashing, curb and penetration rebuilds</li>
+            <li><Icon name="check" /> Skylight and roof hatch replacement</li>
+            <li><Icon name="check" /> Drain, scupper and gutter repairs</li>
+            <li><Icon name="check" /> Storm and wind damage restoration</li>
+          </ul>
+        </div>
+      </div>
+      <div class="stack-lg">
+        <div class="head" data-reveal><p class="eyebrow">Buildings</p><h2>Who we work for</h2></div>
+        <ul class="bldg">{buildings.map(([t, b]) => <li data-reveal><h3>{t}</h3><p>{b}</p></li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap maint" data-reveal>
+      <div class="stack">
+        <p class="eyebrow">Maintenance plans</p>
+        <h2>Most roof failures start small</h2>
+        <p class="lead">Clogged drains, open seams and failed flashing are cheap to fix early and expensive to ignore. An annual or twice-a-year plan catches them.</p>
+      </div>
+      <ul class="checks">
+        <li><Icon name="check" /> Full inspection with photo report</li>
+        <li><Icon name="check" /> Debris removal and drain clearing</li>
+        <li><Icon name="check" /> Small seam and penetration repairs</li>
+        <li><Icon name="check" /> Priority emergency response</li>
+        <li><Icon name="check" /> Records that keep your warranty valid</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--dark has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head center" data-reveal><p class="eyebrow">How it works</p><h2>Built for busy buildings</h2></div>
+      <ProcessRidge steps={steps} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">More flat roofs</p><h2>Flat roof projects</h2></div>
+      <div class="grid-3">{[findProject('bay-ridge'), findProject('flat-roof-restoration-brooklyn'), findProject('rowhouse')].map((p) => <ProjectCard p={p} />)}</div>
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" flip />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">FAQ</p><h2>Questions from owners and managers</h2></div>
+      <Faq items={faqs} />
+      <p class="muted">Related: <a href="/roofing/flat-roofing/">Flat roofing</a> · <a href="/roofing/roof-repair/">Roof repair</a> · <a href="/roofing/emergency-roof-repair/">24/7 emergency repair</a> · <a href="/gutters/">Gutters</a></p>
+    </div>
+  </section>
+
+  <CtaBand title="Need a roof assessment for your building?" text={`We inspect, photograph and give you options in writing. ${business.responsePromise}`} />
+</Base>
+
+<style>
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
+  .split--top { align-items: start; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+  .photo { margin: 0; display: grid; gap: 10px; }
+  .photo :global(img) { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; box-shadow: var(--shadow); }
+  .photo figcaption { color: var(--muted); font-size: 1rem; }
+  .reasons { list-style: none; display: grid; gap: 16px; }
+  .reasons li { display: flex; gap: 12px; align-items: flex-start; }
+  .reasons :global(svg) { width: 26px; height: 26px; color: var(--green); flex: none; margin-top: 2px; }
+  .reasons h3 { font-size: 1.375rem; }
+  .reasons p { color: var(--muted); }
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+  .chips li { padding: 10px 16px; border-radius: 999px; background: #fff; border: 2px solid var(--line); font-weight: 700; }
+  .checks { list-style: none; display: grid; gap: 10px; }
+  .checks li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; }
+  .checks :global(svg) { width: 22px; height: 22px; color: var(--green); flex: none; margin-top: 3px; }
+  .bldg { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px) { .bldg { grid-template-columns: 1fr; } }
+  .bldg li { background: #fff; border-radius: var(--radius); padding: 18px; border-left: 5px solid var(--orange); box-shadow: var(--shadow-sm); }
+  .bldg h3 { font-size: 1.3125rem; }
+  .bldg p { color: var(--muted); font-size: 1.0625rem; }
+  .maint { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(24px, 5vw, 64px); align-items: center; background: var(--sky-50); border-radius: 20px; padding: clamp(24px, 4vw, 48px); }
+  @media (max-width: 860px) { .maint { grid-template-columns: 1fr; } }
+</style>

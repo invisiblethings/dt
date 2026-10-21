@@ -1,0 +1,40 @@
+---
+// Diagram: rain runs off the roof, into the gutter, down the downspout and away from the foundation.
+// The flowing dashes are the only motion; with reduced motion the path is drawn static.
+---
+<figure class="wp">
+  <svg viewBox="0 0 520 340" role="img" aria-labelledby="wp-t">
+    <title id="wp-t">How a gutter system moves rain away from your house: roof, gutter, downspout, then out past the foundation</title>
+    <rect x="0" y="300" width="520" height="40" class="wp__ground" />
+    <path d="M60 300V150h250v150" class="wp__wall" />
+    <path d="M40 160 185 60l145 100" class="wp__roof" />
+    <rect x="200" y="200" width="44" height="60" rx="3" class="wp__win" />
+    <rect x="96" y="220" width="40" height="80" rx="3" class="wp__door" />
+    <path d="M300 155h52v18h-52z" class="wp__gutter" />
+    <path d="M340 173v120q0 10 10 10h80" class="wp__spout" />
+    <path d="M195 70 300 145 344 160 344 300 430 300" class="wp__flow" />
+    <path d="M60 318h250" class="wp__found" />
+    <g class="wp__labels">
+      <text x="214" y="46">1 · Rain off the roof</text>
+      <text x="362" y="150">2 · Gutter</text>
+      <text x="362" y="236">3 · Downspout</text>
+      <text x="236" y="334">4 · Away from the house</text>
+    </g>
+  </svg>
+</figure>
+<style>
+  .wp { margin: 0; background: linear-gradient(180deg, var(--sky-50), #fff); border-radius: var(--radius); padding: 12px; border: 1px solid var(--line); }
+  .wp svg { width: 100%; height: auto; display: block; }
+  .wp__ground { fill: #dfeadb; }
+  .wp__wall { fill: #fff; stroke: var(--asphalt); stroke-width: 4; stroke-linejoin: round; }
+  .wp__roof { fill: none; stroke: var(--asphalt); stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+  .wp__win { fill: #cfe6f8; stroke: var(--asphalt); stroke-width: 3; }
+  .wp__door { fill: var(--orange); }
+  .wp__gutter { fill: var(--orange); }
+  .wp__spout { fill: none; stroke: var(--orange); stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; }
+  .wp__flow { fill: none; stroke: var(--sky); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 10 14; }
+  .wp__found { stroke: #8a97a4; stroke-width: 6; stroke-dasharray: 2 8; }
+  .wp__labels text { font: 700 21px var(--font-body); fill: var(--ink); }
+  @media (prefers-reduced-motion: no-preference) { .wp__flow { animation: flow 1.4s linear infinite; } }
+  @keyframes flow { to { stroke-dashoffset: -48; } }
+</style>

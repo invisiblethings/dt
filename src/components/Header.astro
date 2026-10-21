@@ -1,0 +1,128 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import logo from '../assets/brand/logo-black.png';
+import { business } from '../data/business';
+
+type Link = { href: string; label: string };
+type Item = Link | { label: string; base: string; items: Link[] };
+const nav: Item[] = [
+  { label: 'Roofing', base: '/roofing/', items: [
+    { href: '/roofing/roof-replacement/', label: 'Roof replacement' },
+    { href: '/roofing/roof-repair/', label: 'Roof repair' },
+    { href: '/roofing/emergency-roof-repair/', label: '24/7 emergency repair' },
+    { href: '/roofing/flat-roofing/', label: 'Flat roofs' },
+    { href: '/roofing/commercial-roofing/', label: 'Commercial & multifamily' },
+    { href: '/roofing-guide/roof-replacement-cost-staten-island/', label: 'Roof cost guide' },
+  ] },
+  { href: '/gutters/', label: 'Gutters' },
+  { href: '/siding/', label: 'Siding' },
+  { href: '/projects/', label: 'Projects' },
+  { label: 'Areas', base: '/service-areas/', items: [
+    { href: '/service-areas/staten-island/', label: 'Staten Island' },
+    { href: '/service-areas/brooklyn/', label: 'Brooklyn' },
+  ] },
+  { href: '/about/', label: 'About' },
+];
+const path = Astro.url.pathname;
+---
+<div class="topbar">
+  <div class="wrap topbar__in">
+    <p><Icon name="drop" /> <span><strong>Leaking right now?</strong> <span class="topbar__long">24/7 emergency service:</span> <a href={business.phoneHref}>{business.phone}</a></span></p>
+    <p class="topbar__right"><Icon name="clock" /> {business.responsePromise}</p>
+  </div>
+</div>
+<header class="site-header">
+  <div class="wrap site-header__in">
+    <a class="brand" href="/" aria-label={`${business.name} home`}>
+      <Image quality={72} src={logo} alt="" width={58} height={58} loading="eager" />
+      <span class="brand__text"><span>B&amp;B Roofing</span><small>&amp; Gutters · Staten Island</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        {nav.map((n) => 'items' in n ? (
+          <li class="dd">
+            <details>
+              <summary class:list={{ current: path.startsWith(n.base) || n.items.some((i) => path.startsWith(i.href)) }}>{n.label}<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
+              <ul class="dd__menu">{n.items.map((i) => <li><a href={i.href} aria-current={path === i.href ? 'page' : undefined}>{i.label}</a></li>)}</ul>
+            </details>
+          </li>
+        ) : <li><a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <div class="site-header__cta">
+      <a class="phone" href={business.phoneHref}><span class="phone__ic"><Icon name="phone" /></span><span class="phone__txt"><small>Call 7 days · 7am–9pm</small>{business.phone}</span></a>
+      <a class="btn btn--primary" href="/free-estimate/">Free estimate</a>
+    </div>
+    <details class="mnav">
+      <summary aria-label="Menu"><Icon name="menu" /><span>Menu</span></summary>
+      <div class="mnav__panel">
+        {nav.map((n) => 'items' in n ? (
+          <div class="mnav__group"><p>{n.label}</p><ul>{n.items.map((i) => <li><a href={i.href}>{i.label}</a></li>)}</ul></div>
+        ) : null)}
+        <ul>{nav.filter((n): n is Link => !('items' in n)).map((n) => <li><a href={n.href}>{n.label}</a></li>)}<li><a href="/contact/">Contact</a></li><li><a href="/free-estimate/">Free estimate</a></li></ul>
+        <a class="btn btn--primary" href={business.phoneHref}><Icon name="phone" /> Call {business.phone}</a>
+      </div>
+    </details>
+  </div>
+</header>
+<script>
+  // Desktop dropdowns: only one open at a time; close on outside click or Escape.
+  const dds = [...document.querySelectorAll<HTMLDetailsElement>('.nav .dd details')];
+  dds.forEach((d) => d.addEventListener('toggle', () => { if (d.open) dds.forEach((o) => o !== d && (o.open = false)); }));
+  document.addEventListener('click', (e) => dds.forEach((d) => { if (!d.contains(e.target as Node)) d.open = false; }));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') dds.forEach((d) => { if (d.open) { d.open = false; d.querySelector('summary')?.focus(); } }); });
+</script>
+
+<style>
+  .topbar { background: var(--asphalt); color: #fff; font-size: 1rem; }
+  .topbar svg { color: var(--sky); }
+  .topbar a { color: #ffb08f !important; }
+  .topbar__in { display: flex; justify-content: space-between; gap: 6px 20px; flex-wrap: wrap; padding-block: 7px; }
+  .topbar p { display: flex; align-items: center; gap: 8px; }
+  .topbar a { color: #fff; font-weight: 700; }
+  .topbar svg { width: 18px; height: 18px; }
+  @media (max-width: 720px) { .topbar__right, .topbar__long { display: none !important; } }
+  .topbar a { white-space: nowrap; }
+  .site-header { background: rgba(255,255,255,.97); color: var(--ink); position: sticky; top: 0; z-index: 45; border-bottom: 1px solid var(--line); backdrop-filter: saturate(1.4) blur(8px); }
+  .site-header__in { display: flex; align-items: center; gap: 20px; padding-block: 10px; }
+  .brand { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; flex: none; }
+  .brand__text { display: grid; line-height: 1; font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; }
+  .brand__text small { font-family: var(--font-body); font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+  .nav { margin-left: auto; }
+  .nav > ul { display: flex; align-items: center; gap: 2px; list-style: none; }
+  .nav a { display: inline-block; color: var(--ink); text-decoration: none; font-weight: 600; padding: 10px 11px; border-radius: 8px; font-size: 1.0625rem; white-space: nowrap; }
+  .nav a:hover { background: var(--sky-50); color: var(--navy); }
+  .nav a[aria-current='page'] { color: var(--orange-dark); box-shadow: inset 0 -3px 0 var(--orange); border-radius: 0; }
+  .dd { position: relative; }
+  .dd summary { list-style: none; display: inline-flex; align-items: center; gap: 4px; cursor: pointer; color: var(--ink); font-weight: 600; padding: 10px 11px; border-radius: 8px; font-size: 1.0625rem; white-space: nowrap; }
+  .dd summary::-webkit-details-marker { display: none; }
+  .dd summary:hover, .dd details[open] summary { background: var(--sky-50); color: var(--navy); }
+  .dd summary.current { color: var(--orange-dark); box-shadow: inset 0 -3px 0 var(--orange); border-radius: 0; }
+  .dd details[open] summary svg { rotate: 180deg; }
+  .dd__menu { position: absolute; top: calc(100% + 8px); left: 0; z-index: 60; min-width: 270px; list-style: none; display: grid; gap: 2px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 8px; box-shadow: var(--shadow); }
+  .dd__menu a { display: block; padding: 12px 14px; border-radius: 10px; }
+  .dd__menu a:hover { background: var(--sky-50); }
+  .dd__menu a[aria-current='page'] { box-shadow: none; background: var(--orange-soft); border-radius: 10px; }
+  .mnav__group p { font-size: .875rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 10px 10px 0; }
+  .site-header__cta { display: flex; align-items: center; gap: 16px; white-space: nowrap; }
+  .site-header__cta .btn { min-height: 52px; padding-inline: 22px; }
+  .phone { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 700; text-decoration: none; white-space: nowrap; font-size: 1.25rem; font-family: var(--font-display); }
+  .phone:hover { color: var(--orange-dark); }
+  .phone__txt { display: grid; line-height: 1.05; }
+  .phone__txt small { font-family: var(--font-body); font-size: .8125rem; font-weight: 600; color: var(--muted); }
+  .phone__ic { position: relative; width: 42px; height: 42px; border-radius: 50%; background: var(--orange); color: #fff; display: grid; place-items: center; flex: none; }
+  .phone__ic svg { width: 20px; height: 20px; }
+  .phone__ic::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--orange); animation: ring 2.4s ease-out infinite; }
+  @keyframes ring { from { scale: 1; opacity: .8; } 70%, to { scale: 1.6; opacity: 0; } }
+  .mnav { display: none; margin-left: auto; position: relative; }
+  .mnav summary { list-style: none; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; padding: 10px 14px; border-radius: 10px; border: 2px solid var(--line); font-weight: 700; min-height: 52px; font-size: 1.0625rem; }
+  .mnav summary svg { width: 22px; height: 22px; }
+  .mnav summary::-webkit-details-marker { display: none; }
+  .mnav[open] summary { background: var(--asphalt); color: #fff; border-color: var(--asphalt); }
+  .mnav__panel { max-height: calc(100dvh - 140px); overflow-y: auto; position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(88vw, 360px); background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: var(--shadow); display: grid; gap: 12px; }
+  .mnav__panel ul { list-style: none; display: grid; }
+  .mnav__panel a:not(.btn) { display: block; color: var(--ink); text-decoration: none; font-weight: 600; font-size: 1.1875rem; padding: 14px 10px; border-bottom: 1px solid var(--line); }
+  @media (max-width: 1300px) { .nav { display: none; } .site-header__cta { margin-left: auto; } }
+  @media (max-width: 760px) { .site-header__cta { display: none; } .mnav { display: block; } .brand__text small { display: none; } .brand :global(img) { width: 48px; height: 48px; } }
+</style>

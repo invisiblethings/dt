@@ -1,0 +1,50 @@
+---
+import Icon from './Icon.astro';
+import { business } from '../data/business';
+interface Props { title?: string; text?: string }
+const { title = 'Get a straight answer about your roof', text = `Free estimate, written options, no pressure. ${business.responsePromise} ${business.financing}` } = Astro.props;
+---
+<section class="cta" data-animate>
+  <svg class="cta__shingles" aria-hidden="true" focusable="false"><defs><pattern id="cta-sh" width="64" height="32" patternUnits="userSpaceOnUse"><path d="M0 31.5h64M32 0v16M0 16h64M0 16v16M64 16v16" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="2" /></pattern></defs><rect width="100%" height="100%" fill="url(#cta-sh)" /></svg>
+  <div class="wrap cta__in">
+    <svg class="cta__house" viewBox="0 0 120 110" aria-hidden="true" focusable="false">
+      <path d="M10 52 60 12l50 40" class="cta__roof" />
+      <path d="M22 44v58h76V44" class="cta__wall" />
+      <rect x="50" y="68" width="20" height="34" rx="2" class="cta__door" />
+      <g class="cta__badge"><circle cx="96" cy="26" r="20" /><path d="m87 26 6 6 12-12" /></g>
+    </svg>
+    <div class="cta__copy">
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <div class="btn-row cta__btns">
+      <a class="btn btn--dark" href="/free-estimate/">Get my free estimate <Icon name="arrow" /></a>
+      <a class="btn btn--white" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a>
+    </div>
+  </div>
+</section>
+<style>
+  .cta { position: relative; overflow: hidden; background: linear-gradient(135deg, #ef6a3c, var(--orange) 50%, #d94a1f); color: #fff; padding-block: clamp(52px, 6vw, 80px); }
+  .cta__shingles { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .cta__in { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 24px 40px; align-items: center; }
+  @media (max-width: 960px) { .cta__in { grid-template-columns: auto minmax(0, 1fr); } .cta__btns { grid-column: 1 / -1; } }
+  @media (max-width: 560px) { .cta__in { grid-template-columns: 1fr; } .cta__house { width: 90px; } }
+  .cta__copy { display: grid; gap: 10px; max-width: 640px; }
+  .cta p { font-size: var(--step-1); color: #fff7f3; }
+  .cta__house { width: 120px; height: auto; }
+  .cta__roof { fill: none; stroke: #fff; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+  .cta__wall { fill: rgba(255,255,255,.18); stroke: #fff; stroke-width: 5; stroke-linejoin: round; }
+  .cta__door { fill: #fff; }
+  .cta__badge circle { fill: var(--asphalt); stroke: #fff; stroke-width: 4; }
+  .cta__badge path { fill: none; stroke: #fff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+  .cta__badge { transform-box: fill-box; transform-origin: center; }
+  .btn--dark { background: var(--asphalt); color: #fff; }
+  .btn--dark:hover { background: #0a1828; color: #fff; }
+  .btn--white { background: #fff; color: var(--asphalt); }
+  .btn--white:hover { background: #fff3ee; color: var(--asphalt); }
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.js-reveal) .cta:not(.is-in) .cta__badge { transform: scale(0); }
+    .cta.is-in .cta__badge { animation: badge .6s cubic-bezier(.3,1.7,.5,1) .3s both; }
+  }
+  @keyframes badge { from { transform: scale(0) rotate(-30deg); } }
+</style>

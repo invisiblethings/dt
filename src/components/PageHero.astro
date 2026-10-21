@@ -1,0 +1,49 @@
+---
+// Hero for inner pages: breadcrumbs, H1, intro, trust line, optional side slot (form or photo).
+import Icon from './Icon.astro';
+import Skyline from './Skyline.astro';
+import { business } from '../data/business';
+interface Props { title: string; eyebrow?: string; intro?: string; crumbs?: { name: string; href: string }[]; trust?: boolean }
+const { title, eyebrow, intro, crumbs = [], trust = true } = Astro.props;
+const hasSide = Astro.slots.has('side');
+---
+<section class="ph">
+  <div class:list={['wrap', 'ph__in', { 'ph__in--side': hasSide }]}>
+    <div class="ph__copy">
+      {crumbs.length > 0 && (
+        <nav class="crumbs" aria-label="Breadcrumb"><ol>
+          <li><a href="/">Home</a></li>
+          {crumbs.map((c, i) => <li>{i === crumbs.length - 1 ? <span aria-current="page">{c.name}</span> : <a href={c.href}>{c.name}</a>}</li>)}
+        </ol></nav>
+      )}
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1>{title}</h1>
+      {intro && <p class="lead">{intro}</p>}
+      {trust && (
+        <ul class="trust">
+          <li><Icon name="star" /> {business.stats.rating} on Google ({business.stats.reviews} reviews)</li>
+          <li><Icon name="shield" /> GAF Master Elite</li>
+          <li><Icon name="roof" /> {business.stats.projects} projects</li>
+          <li><Icon name="clock" /> 24/7 emergencies</li>
+        </ul>
+      )}
+      <slot />
+    </div>
+    {hasSide && <div class="ph__side"><slot name="side" /></div>}
+  </div>
+  <Skyline class="ph__edge" />
+</section>
+<style>
+  .ph { position: relative; overflow: hidden; color: var(--ink); padding-block: clamp(36px, 5vw, 64px) clamp(80px, 8vw, 112px);
+    background: linear-gradient(180deg, #cfe6f8 0%, #e6f2fb 55%, #f6fafd 100%); }
+  .ph::before { content: ''; position: absolute; right: -80px; top: -60px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.9), rgba(255,255,255,0) 70%); pointer-events: none; }
+  .ph__in { position: relative; display: grid; gap: 32px; align-items: center; }
+  .ph__in--side { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+  @media (max-width: 960px) { .ph__in--side { grid-template-columns: 1fr; } }
+  .ph__copy { display: grid; gap: 20px; justify-items: start; }
+  .ph h1 { color: var(--asphalt); }
+  .ph .lead { color: #2f3e4d; }
+  .ph .crumbs { color: var(--muted); }
+  .ph .trust { color: var(--ink); }
+  .ph :global(.ph__edge) { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 48px; color: var(--paper); }
+</style>

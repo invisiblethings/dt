@@ -1,0 +1,157 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Skyline from '../../components/Skyline.astro';
+import JobPhotos from '../../components/JobPhotos.astro';
+import ReviewSigns from '../../components/ReviewSigns.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { business } from '../../data/business';
+import { service } from '../../data/schema';
+import rotted from '../../assets/services/emergency-rotted-deck.jpg';
+import sheathing from '../../assets/services/emergency-new-sheathing.jpg';
+import underlayment from '../../assets/services/emergency-underlayment.jpg';
+import finished from '../../assets/services/emergency-finished.jpg';
+
+const href = '/roofing/emergency-roof-repair/';
+const crumbs = [{ name: 'Roofing', href: '/services/' }, { name: 'Emergency roof repair', href }];
+const desc = '24/7 emergency roof repair for active leaks, storm, wind and tree damage on Staten Island, in Brooklyn and New Jersey: tarping, dry-in and permanent repair.';
+const now = [
+  ['Stay safe', 'Keep away from water near lights, outlets and electrical panels. If a ceiling is sagging with water, stay out from under it.'],
+  ['Catch the water', 'Buckets, towels and plastic sheeting under the drip. Move furniture, electronics and valuables out of the way.'],
+  ['Take photos', 'Photograph the ceiling, the water and anything damaged, inside and out from the ground. Your insurer will want them.'],
+  ['Don\'t climb up', 'Stay off a wet or damaged roof, especially in wind or rain. That\'s our job.'],
+  ['Call us', `${business.phone}, any time, day or night. Tell us where the water is coming in and what you can see.`],
+];
+const covers = [
+  ['Active leaks', 'Water coming through a ceiling, skylight or wall.'],
+  ['Wind damage', 'Shingles, flashing or membrane torn off in a storm or nor\'easter.'],
+  ['Tree damage', 'Limbs through the roof or a damaged roof edge after a storm.'],
+  ['Flat roof failures', 'Split seams or ponding that suddenly starts leaking.'],
+  ['Ice dams', 'Meltwater backing up under shingles at the eaves in winter.'],
+  ['Commercial leaks', 'Storefronts, offices and apartment buildings that can\'t wait.'],
+];
+const photos = [
+  { src: rotted, alt: 'Rotted and broken roof decking exposed under an old roof', caption: 'What we found under the old roof: rotted, broken decking letting water through.' },
+  { src: sheathing, alt: 'New plywood sheathing installed across a roof', caption: 'Damaged decking replaced with new plywood sheathing.' },
+  { src: underlayment, alt: 'Roofers installing synthetic underlayment over new roof sheathing', caption: 'Underlayment down, so the roof is weathertight again.' },
+  { src: finished, alt: 'Finished new shingle roof with a ridge vent over a house', caption: 'Finished: new shingles, vents and flashing.' },
+];
+const faqs = [
+  { q: 'Do you really answer at night and on weekends?', a: `Yes. For real emergencies, like water coming in or storm and tree damage, call <a href="${business.phoneHref}">${business.phone}</a> any time. For anything that can wait, our office hours are ${business.hours}.` },
+  { q: 'What happens when you arrive?', a: 'First we stop the water: a tarp, temporary dry-in or a quick patch, depending on the damage and the weather. Then we photograph everything and give you a written price for the permanent repair.' },
+  { q: 'Can you fix the roof while it\'s raining?', a: 'We can usually tarp or dry in a roof to stop the water during bad weather. The permanent repair is done once it\'s dry enough to do properly.' },
+  { q: 'Will my insurance cover emergency roof repair?', a: 'Sudden damage from storms, wind or falling trees is often covered; wear and age usually aren\'t. Every policy is different. We document the damage with photos you can send to your insurer.' },
+  { q: 'Is emergency service more expensive?', a: 'It depends on the time and the work needed. We explain the cost before we start work, so there are no surprises.' },
+  { q: 'Do you handle emergencies outside Staten Island?', a: 'Yes, in Brooklyn and much of New Jersey too. Call and tell us where you are.' },
+];
+---
+<Base
+  title="24/7 Emergency Roof Repair in Staten Island & NYC | B&B Roofing"
+  description="Roof leaking now? 24/7 emergency roof repair in Staten Island, Brooklyn and NJ for leaks, storm and tree damage. Tarping and repair. Call (718) 981-7663."
+  crumbs={crumbs}
+  schema={[service('Emergency roof repair', href, desc)]}
+  image={rotted.src}
+>
+  <PageHero title="24/7 emergency roof repair in Staten Island" eyebrow="Emergency service · day or night" crumbs={crumbs}
+    intro="Water coming in? Storm or tree damage? Call us any time. We stop the water first, then fix the roof properly.">
+    <div slot="side" class="callcard">
+      <p class="callcard__k"><span class="pulse" aria-hidden="true"></span> We answer 24/7</p>
+      <a class="btn btn--primary callcard__btn" href={business.phoneHref}><Icon name="phone" /> Call {business.phone}</a>
+      <p class="callcard__or">Phone not handy? Our number is <strong>{business.phone}</strong>.</p>
+      <ul class="checks">
+        <li><Icon name="check" /> Tarping and temporary dry-in</li>
+        <li><Icon name="check" /> Photos of the damage for your insurer</li>
+        <li><Icon name="check" /> Written price for the permanent repair</li>
+      </ul>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Right now</p><h2>Leaking right now? Do this first</h2>
+        <p class="lead">Five things that limit the damage until our crew gets there.</p></div>
+      <ol class="now">{now.map(([t, b], i) => <li data-reveal style={`--d: ${i * 0.06}s`}><span class="now__n">{i + 1}</span><h3>{t}</h3><p>{b}</p></li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section section--dark has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">What we respond to</p><h2>Roof emergencies we handle</h2></div>
+      <ul class="covers">{covers.map(([t, b]) => <li data-reveal><Icon name="drop" /><div><h3>{t}</h3><p>{b}</p></div></li>)}</ul>
+      <p data-reveal><a class="btn btn--primary" href={business.phoneHref}><Icon name="phone" /> Call {business.phone}</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Stop it, then fix it</p><h2>From damaged roof to dry, finished roof</h2>
+        <p class="lead">Photos from one of our jobs, in order. Once the water is stopped, we fix what's underneath instead of covering it.</p></div>
+      <JobPhotos items={photos} steps cols={4} />
+    </div>
+  </section>
+
+  <section class="section section--cloud">
+    <div class="wrap split">
+      <div class="stack" data-reveal>
+        <p class="eyebrow">Not an emergency?</p>
+        <h2>Book a regular repair visit</h2>
+        <p class="lead">A slow drip, a stain that hasn't grown or a few missing shingles can usually wait for a scheduled visit. {business.responsePromise}</p>
+        <p><a href="/roofing/roof-repair/">Roof repair →</a></p>
+      </div>
+      <EstimateForm title="Request a repair visit" service="roof-repair" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head center" data-reveal><p class="eyebrow">Reviews</p><h2>What our customers say</h2></div>
+      <ReviewSigns count={3} />
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" flip />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">FAQ</p><h2>Emergency roof repair questions</h2></div>
+      <Faq items={faqs} />
+      <p class="muted">Related: <a href="/roofing/roof-repair/">Roof repair</a> · <a href="/roofing/roof-replacement/">Roof replacement</a> · <a href="/roofing/flat-roofing/">Flat roofs</a> · <a href="/roofing/commercial-roofing/">Commercial roofing</a></p>
+    </div>
+  </section>
+
+  <CtaBand title="Water coming in? Don't wait." text={`Call ${business.phone} any time, day or night.`} />
+</Base>
+
+<style>
+  .callcard { background: #fff; border-radius: 18px; padding: clamp(22px, 3vw, 32px); box-shadow: var(--shadow); border: 1px solid var(--line); display: grid; gap: 16px; border-top: 8px solid var(--orange); }
+  .callcard__k { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--green); font-size: 1.125rem; }
+  .pulse { width: 12px; height: 12px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(42,122,75,.6); }
+  @media (prefers-reduced-motion: no-preference) { .pulse { animation: pulse 1.8s infinite; } }
+  @keyframes pulse { to { box-shadow: 0 0 0 12px rgba(42,122,75,0); } }
+  .callcard__btn { font-size: 1.375rem; min-height: 68px; width: 100%; }
+  .callcard__or { color: var(--muted); }
+  .checks { list-style: none; display: grid; gap: 10px; }
+  .checks li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; }
+  .checks :global(svg) { width: 22px; height: 22px; color: var(--green); flex: none; margin-top: 3px; }
+  .now { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+  @media (max-width: 1100px) { .now { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .now { grid-template-columns: 1fr; } }
+  .now li { background: var(--cloud); border-radius: var(--radius); padding: 22px; display: grid; gap: 8px; align-content: start; }
+  .now li:last-child { background: var(--orange); color: #fff; }
+  .now li:last-child p { color: #fff7f3; }
+  .now__n { width: 40px; height: 40px; border-radius: 50%; background: var(--asphalt); color: #fff; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; }
+  .now h3 { font-size: 1.5rem; }
+  .now p { color: var(--muted); }
+  .covers { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 28px; }
+  @media (max-width: 860px) { .covers { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .covers { grid-template-columns: 1fr; } }
+  .covers li { display: flex; gap: 12px; align-items: flex-start; }
+  .covers :global(svg) { width: 30px; height: 30px; color: var(--sky); flex: none; }
+  .covers h3 { font-size: 1.4375rem; color: #fff; }
+  .covers p { color: #d5e0ea; }
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,20 @@
+---
+import Icon from './Icon.astro';
+import { business } from '../data/business';
+---
+<nav class="mbar" aria-label="Quick contact">
+  <a class="mbar__call" href={business.phoneHref}><Icon name="phone" /> Call now</a>
+  <a class="mbar__est" href="/free-estimate/">Free estimate</a>
+</nav>
+<style>
+  .mbar { display: none; }
+  @media (max-width: 760px) {
+    .mbar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; z-index: 40; left: 0; right: 0; bottom: 0;
+      padding: 10px max(12px, env(safe-area-inset-left, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-right, 0px));
+      background: rgba(255,255,255,.97); border-top: 1px solid var(--line); box-shadow: 0 -10px 28px rgba(16,35,58,.18); }
+    .mbar a { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 58px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 1.1875rem; }
+    .mbar svg { width: 22px; height: 22px; }
+    .mbar__call { background: var(--asphalt); color: #fff; }
+    .mbar__est { background: var(--orange); color: #fff; }
+  }
+</style>

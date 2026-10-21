@@ -1,0 +1,153 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Skyline from '../../components/Skyline.astro';
+import CostRange from '../../components/CostRange.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { business } from '../../data/business';
+import { orgId } from '../../data/schema';
+import { findProject } from '../../data/projects';
+import trucks from '../../assets/site/trucks-job-site.jpg';
+
+const href = '/roofing-guide/roof-replacement-cost-staten-island/';
+const crumbs = [{ name: 'Roof replacement', href: '/roofing/roof-replacement/' }, { name: 'Cost guide', href }];
+const published = '2026-10-21';
+const sources = [
+  { name: 'HomeBlue: Roof Replacement Cost in Staten Island, NY', url: 'https://www.homeblue.com/roof-replacement/staten-island-ny-roof-replacement-cost.htm', date: 'September 2024', what: 'Asphalt shingles $5–$8 per sq ft installed; a basic 1,500 sq ft roof about $10,400 on average ($8,100–$12,700).' },
+  { name: 'Fixr: How Much Does It Cost to Replace a Roof in New York?', url: 'https://www.fixr.com/costs/roof-replacement-new-york', date: 'January 2025', what: 'Roof replacement in New York $6,000–$16,000; asphalt shingles $3–$7 per sq ft; most common roof about 1,800 sq ft.' },
+  { name: 'RoofVista: NYC Flat Roof Replacement Guide', url: 'https://roofvista.com/resources/guides/nyc-flat-roof-replacement-guide', date: 'March 2026', what: 'NYC flat roofs: TPO $8–$13, EPDM $6.50–$11, modified bitumen $8–$14 per sq ft; NYC logistics add $1,000–$5,000 versus suburban jobs.' },
+];
+const factors = [
+  ['Roof size and steepness', 'Steeper roofs have more surface and need more safety setup and labor.'],
+  ['Layers to tear off', 'Two or three old layers take longer to remove and cost more to dispose of.'],
+  ['Decking repairs', 'Rotted plywood has to be replaced before the new roof goes on. You only know once the old roof is off.'],
+  ['Shingle line and warranty', 'Architectural and designer shingles, and the higher warranty tiers, cost more up front.'],
+  ['Chimneys, skylights, dormers', 'Every penetration and wall needs flashing, which adds time and material.'],
+  ['Access and logistics', 'Tight lots, attached houses and street permits for dumpsters all add cost in the city.'],
+];
+const faqs = [
+  { q: 'How much does a new roof cost on Staten Island?', a: 'Published market estimates put asphalt shingle replacement on Staten Island at about $5–$8 per square foot installed, or about $8,100–$12,700 for a basic 1,500 sq ft roof (HomeBlue, September 2024). Your price depends on your roof; the free estimate gives you an exact number in writing.' },
+  { q: 'Why do roofing quotes vary so much?', a: 'Quotes differ in what they include: full tear-off or a roof-over, how much decking is allowed for, underlayment and ice and water shield, new flashing, ventilation, and the warranty. Compare line by line, not just the total.' },
+  { q: 'Is it cheaper to put a new roof over the old one?', a: 'It can cost less up front, but it hides the deck, adds weight, and the top manufacturer warranties require a full tear-off. We recommend tear-off on almost every job.' },
+  { q: 'Does B&B offer financing?', a: `Yes. ${business.financing}` },
+  { q: 'How much does a flat roof cost?', a: 'A 2026 NYC guide lists TPO at about $8–$13, EPDM at $6.50–$11 and modified bitumen at $8–$14 per square foot installed (RoofVista, March 2026). See <a href="/roofing/flat-roofing/">flat roofing</a>.' },
+];
+const article = {
+  '@type': 'Article',
+  headline: 'How much does a roof replacement cost on Staten Island?',
+  datePublished: published,
+  dateModified: published,
+  author: { '@id': orgId },
+  publisher: { '@id': orgId },
+  mainEntityOfPage: `${business.url}${href}`,
+  citation: sources.map((s) => s.url),
+};
+---
+<Base
+  title="Roof Replacement Cost on Staten Island (2026) | B&B Roofing"
+  description="What a new roof costs on Staten Island: published market ranges with sources, a simple cost calculator, and what changes the price. Free exact estimate."
+  crumbs={crumbs}
+  schema={[article]}
+  image={trucks.src}
+>
+  <PageHero title="How much does a roof replacement cost on Staten Island?" eyebrow="Roofing guide · cost" crumbs={crumbs} trust={false}
+    intro="Straight numbers from published market data, with the sources, plus what actually moves the price up or down. Updated 21 October 2026." />
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="answer" data-reveal>
+        <p class="answer__k">Short answer</p>
+        <p class="answer__t">About <strong>$5–$8 per square foot</strong> installed for asphalt shingles, or roughly <strong>$8,100–$12,700</strong> for a basic 1,500 sq ft roof.</p>
+        <p class="muted">Source: HomeBlue, Staten Island market estimate, September 2024. Not a B&amp;B quote.</p>
+      </div>
+      <div class="head" data-reveal><p class="eyebrow">Estimate it</p><h2>Rough cost calculator</h2>
+        <p class="lead">Enter your house's footprint and how steep the roof is. You'll get the published market range for a roof that size.</p></div>
+      <CostRange low={5} high={8} source="HomeBlue's Staten Island range (Sept 2024)" />
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">What changes the price</p><h2>Six things that move your number</h2></div>
+      <ul class="factors">{factors.map(([t, b], i) => <li class="card" data-reveal style={`--d: ${(i % 3) * 0.08}s`}><span class="n">{String(i + 1).padStart(2, '0')}</span><h3>{t}</h3><p>{b}</p></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Published cost data</h2>
+      <p>Cost sites use different methods, and some figures are a few years old, so treat them as a guide. We link each one so you can check it.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Source</th><th>Published</th><th>What it says</th></tr></thead>
+        <tbody>{sources.map((s) => <tr><td><a href={s.url} rel="noopener">{s.name}</a></td><td>{s.date}</td><td>{s.what}</td></tr>)}</tbody>
+      </table></div>
+
+      <h2>What a fair roof replacement quote includes</h2>
+      <ul>
+        <li>Full tear-off to the deck, and a stated allowance or price for replacing rotted plywood.</li>
+        <li>Ice and water shield at eaves and valleys, and synthetic underlayment everywhere else.</li>
+        <li>New drip edge, step and chimney flashing, and pipe boots, not reused old metal.</li>
+        <li>Ridge or attic ventilation checked and corrected.</li>
+        <li>The shingle line and color, and which manufacturer warranty it qualifies for.</li>
+        <li>Permits, dumpster, cleanup and a magnetic nail sweep.</li>
+      </ul>
+      <p class="note"><strong>Tip:</strong> when comparing quotes, line them up item by item. A lower total often means something above is missing. See what's included in a <a href="/roofing/roof-replacement/">B&amp;B roof replacement</a>.</p>
+
+      <h2>Repair instead?</h2>
+      <p>If the roof is under about 15 years old and the damage is in one area, a repair may be the better value. See <a href="/roofing/roof-repair/">roof repair</a> or take the <a href="/#roof-check">60-second roof check</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--cloud">
+    <div class="wrap split">
+      <figure class="photo" data-reveal>
+        <Image src={trucks} alt="B&B Roofing trucks at a Staten Island roof replacement" widths={[480, 800, 1100]} sizes="(max-width: 860px) 100vw, 560px" quality={72} />
+      </figure>
+      <div class="stack" data-reveal>
+        <p class="eyebrow">Your exact price</p>
+        <h2>A free written estimate takes one visit</h2>
+        <p class="lead">We measure the roof, check the attic and decking, and give you options in writing, with the shingle line and warranty spelled out. {business.financing}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="/free-estimate/">Get my free estimate <Icon name="arrow" /></a>
+          <a class="btn btn--light" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Recent roofs</p><h2>Roof replacements on Staten Island</h2></div>
+      <div class="grid-3">{[findProject('willowbrook'), findProject('great-kills'), findProject('stapleton')].map((p) => <ProjectCard p={p} />)}</div>
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" flip />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">FAQ</p><h2>Roof cost questions</h2></div>
+      <Faq items={faqs} />
+    </div>
+  </section>
+
+  <CtaBand title="Want your exact number?" />
+</Base>
+
+<style>
+  .answer { background: var(--sky-50); border-left: 8px solid var(--orange); border-radius: 0 18px 18px 0; padding: clamp(20px, 3vw, 32px); display: grid; gap: 8px; max-width: 900px; }
+  .answer__k { font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--orange-dark); font-size: .9375rem; }
+  .answer__t { font-size: clamp(1.375rem, 1.2rem + .6vw, 1.75rem); line-height: 1.35; }
+  .factors { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 960px) { .factors { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .factors { grid-template-columns: 1fr; } }
+  .factors .n { font-family: var(--font-display); font-weight: 700; color: var(--orange); font-size: 1.5rem; }
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+  .photo { margin: 0; }
+  .photo :global(img) { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; box-shadow: var(--shadow); }
+</style>

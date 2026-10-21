@@ -1,0 +1,49 @@
+---
+// Reviews styled as B&B lawn signs on stakes: the same signs neighbors see on finished jobs.
+import Icon from './Icon.astro';
+import { reviews } from '../data/reviews';
+import { business } from '../data/business';
+interface Props { count?: number; prefer?: string } // prefer: show reviews for this job type first, e.g. 'Gutters'
+const { count = 3, prefer } = Astro.props;
+const list = [...reviews].sort((a, b) => Number(b.job === prefer) - Number(a.job === prefer)).slice(0, count);
+---
+<div class="signs" data-animate>
+  <ul class="signs__row">
+    {list.map((r, i) => (
+      <li class="sign" style={`--tilt: ${[-1.6, 1.1, -0.7, 1.4, -1.2, 0.8][i % 6]}deg; --n: ${i}`}>
+        <figure class="sign__board">
+          <p class="sign__stars" role="img" aria-label="5 out of 5 stars">{[0, 1, 2, 3, 4].map(() => <Icon name="star" />)}</p>
+          <blockquote>“{r.text}”</blockquote>
+          <figcaption>{r.name} <span>· Google review · {r.job}</span></figcaption>
+        </figure>
+        <span class="sign__stakes" aria-hidden="true"></span>
+      </li>
+    ))}
+  </ul>
+  <p class="signs__more">
+    <strong>{business.stats.rating} stars from {business.stats.reviews} Google reviews.</strong>
+    <a href={business.social.googleReviews}>Read them all on Google</a>
+  </p>
+</div>
+
+<style>
+  .signs { display: grid; gap: 24px; }
+  .signs__row { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 28px 24px; align-items: end; }
+  .sign { display: grid; justify-items: center; transform: rotate(var(--tilt)); transform-origin: bottom center; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sign { transition: transform .25s; } .sign:hover { transform: rotate(0deg) translateY(-4px); }
+    .signs[data-animate].is-in .sign { animation: plant .7s cubic-bezier(.3,1.5,.5,1) both; animation-delay: calc(var(--n) * .15s); }
+  }
+  :global(.js-reveal) .signs[data-animate]:not(.is-in) .sign { opacity: 0; }
+  @keyframes plant { from { transform: translateY(40px) rotate(calc(var(--tilt) * -3)); opacity: 0; } }
+  .sign__board { margin: 0; width: 100%; background: #fff; color: var(--ink); border-radius: 8px; padding: 22px 22px 18px; display: grid; gap: 10px;
+    border: 4px solid var(--asphalt); box-shadow: 0 10px 0 -4px var(--orange), var(--shadow); position: relative; }
+  .sign__board::before { content: 'B&B ROOFING'; position: absolute; top: -13px; left: 18px; background: var(--orange); color: #fff; font-family: var(--font-display); font-weight: 700; font-size: .9375rem; letter-spacing: .1em; padding: 3px 12px; border-radius: 4px; }
+  .sign__stars { display: flex; gap: 2px; color: var(--gold); }
+  .sign__stars :global(svg) { width: 24px; height: 24px; }
+  .sign blockquote { margin: 0; font-size: 1.1875rem; line-height: 1.55; }
+  .sign figcaption { font-weight: 700; }
+  .sign figcaption span { font-weight: 400; color: var(--muted); }
+  .sign__stakes { width: 60%; height: 38px; background: linear-gradient(90deg, transparent 18%, #7b8691 18% 22%, transparent 22% 78%, #7b8691 78% 82%, transparent 82%); }
+  .signs__more { display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: center; text-align: center; }
+</style>

@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { business, addressLine } from '../data/business';
+const crumbs = [{ name: 'Terms and conditions', href: '/terms-and-conditions/' }];
+---
+<Base title="Terms and Conditions | B&B Roofing & Gutters" description="Terms for estimates, deposits and payments, scheduling, warranties, liability and use of the B&B Roofing & Gutters website, Staten Island, NY." crumbs={crumbs}>
+  <PageHero title="Terms and conditions" crumbs={crumbs} trust={false} intro="Last updated: 21 October 2026" />
+  <section class="section">
+    <div class="wrap prose">
+      <p>Welcome to {business.name}, operated by {business.legalName}. By requesting an estimate, scheduling a service or using our website, you agree to these terms. Please read them carefully. The written contract for your project governs where it differs from these terms.</p>
+
+      <h2>1. Services</h2>
+      <p>We provide roofing, siding, gutter, skylight and related exterior contracting services in New York and New Jersey. Work is performed by licensed and insured professionals ({business.license}). The scope of work is set out in a written estimate or contract before any project begins.</p>
+
+      <h2>2. Estimates and proposals</h2>
+      <ul>
+        <li>Estimates are free and provided in writing.</li>
+        <li>Estimates are valid for 30 days unless otherwise noted.</li>
+        <li>Final pricing may change if additional work, materials or permits are needed because of conditions that could not be seen beforehand, such as hidden structural damage or code requirements. Any change is explained in writing and approved by you before that work continues.</li>
+      </ul>
+
+      <h2>3. Deposits and payments</h2>
+      <ul>
+        <li>A deposit may be required before work begins.</li>
+        <li>The remaining balance is due on substantial completion unless your contract says otherwise.</li>
+        <li>Accepted payment methods and any financing options are listed in your contract.</li>
+        <li>Late payment may result in interest charges and other remedies allowed by law.</li>
+      </ul>
+
+      <h2>4. Scheduling and delays</h2>
+      <p>We make every effort to finish projects on schedule. Weather, supply delays and other factors outside our control can affect timing. We are not liable for delays caused by these circumstances, and we will keep you updated promptly.</p>
+
+      <h2>5. Warranties</h2>
+      <ul>
+        <li><strong>Manufacturer warranties:</strong> materials are covered by the manufacturer's written warranty.</li>
+        <li><strong>Workmanship warranty:</strong> we provide a workmanship warranty on our installation work. Its length and terms are stated in your contract.</li>
+        <li>Warranty claims are valid only once the contract has been paid in full.</li>
+        <li>Normal wear and tear, storm damage and changes made by others are not covered.</li>
+      </ul>
+
+      <h2>6. Liability and insurance</h2>
+      <p>We carry liability insurance and workers' compensation for our employees. We take care to protect your property during the project, but we are not responsible for pre-existing conditions or for damage caused by hidden structural issues, pests or other unforeseen hazards.</p>
+
+      <h2>7. Customer responsibilities</h2>
+      <ul>
+        <li>Provide access to the property and work area.</li>
+        <li>Move or secure pets, vehicles and belongings near the work area.</li>
+        <li>Obtain any HOA, co-op or landlord approvals that are required.</li>
+        <li>Pay balances as agreed.</li>
+      </ul>
+
+      <h2>8. Website use</h2>
+      <p>The content of this website, including text, photos and designs, belongs to {business.name}. Copying or distributing it without permission is not allowed.</p>
+
+      <h2>9. Governing law</h2>
+      <p>These terms are governed by the laws of New York State or New Jersey, depending on where the project is located. Disputes will be resolved in the appropriate jurisdiction.</p>
+
+      <h2>10. Changes to these terms</h2>
+      <p>We may update these terms from time to time. Changes are posted on this page with a new "last updated" date.</p>
+
+      <h2>Contact</h2>
+      <p>{business.name}<br />{addressLine}<br /><a href={business.phoneHref}>{business.phone}</a> · <a href={`mailto:${business.email}`}>{business.email}</a></p>
+    </div>
+  </section>
+</Base>

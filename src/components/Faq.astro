@@ -1,0 +1,27 @@
+---
+// FAQ as native <details>: works without JavaScript, keyboard and screen-reader friendly.
+interface Props { items: { q: string; a: string }[] }
+const { items } = Astro.props;
+---
+<div class="faq">
+  {items.map((it) => (
+    <details>
+      <summary><span>{it.q}</span><span class="faq__icon" aria-hidden="true"></span></summary>
+      <p set:html={it.a} />
+    </details>
+  ))}
+</div>
+<style>
+  .faq { border-top: 1px solid var(--line); max-width: 860px; }
+  details { border-bottom: 1px solid var(--line); }
+  summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 4px; font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; line-height: 1.2; }
+  summary::-webkit-details-marker { display: none; }
+  .faq__icon { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--asphalt); position: relative; flex: none; }
+  .faq__icon::before, .faq__icon::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; background: var(--asphalt); translate: -50% -50%; transition: rotate .2s; }
+  .faq__icon::after { rotate: 90deg; }
+  details[open] .faq__icon::after { rotate: 0deg; }
+  details[open] .faq__icon { background: var(--orange); border-color: var(--orange); }
+  details[open] .faq__icon::before, details[open] .faq__icon::after { background: #fff; }
+  details p { padding: 0 4px 24px; color: #2f3e4d; max-width: 70ch; font-size: 1.1875rem; }
+  summary:hover { color: var(--orange-dark); }
+</style>

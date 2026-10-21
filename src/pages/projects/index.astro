@@ -1,0 +1,81 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { projects, regions } from '../../data/projects';
+
+const href = '/projects/';
+const crumbs = [{ name: 'Projects', href }];
+const kinds = [['replacement', 'Roof replacements'], ['flat', 'Flat roofs']] as const;
+const count = (r: string) => projects.filter((p) => p.region === r).length;
+---
+<Base title="Roofing Projects, Before & After Photos | B&B Roofing" description={`${projects.length} real B&B roofing jobs on Staten Island, in Brooklyn and NJ, each with before and after photos taken from the same spot.`} crumbs={crumbs}>
+  <PageHero title="Before & after, from the same spot" eyebrow="Our projects" crumbs={crumbs} trust={false}
+    intro="Every photo below comes from our own job records. Each before and after was taken from the same viewpoint, so you're comparing the same roof, not a sales brochure." />
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <form class="filters" data-filters aria-label="Filter projects">
+        <fieldset>
+          <legend>Area</legend>
+          <label><input type="radio" name="area" value="" checked /> All <span>{projects.length}</span></label>
+          {regions.filter((r) => count(r) > 0).map((r) => <label><input type="radio" name="area" value={r} /> {r} <span>{count(r)}</span></label>)}
+        </fieldset>
+        <fieldset>
+          <legend>Type</legend>
+          <label><input type="radio" name="kind" value="" checked /> All types</label>
+          {kinds.map(([k, l]) => <label><input type="radio" name="kind" value={k} /> {l}</label>)}
+        </fieldset>
+      </form>
+      <p class="muted" aria-live="polite" data-status>Showing all {projects.length} projects.</p>
+      <div class="grid-3" data-grid>{projects.map((p) => <ProjectCard p={p} />)}</div>
+      <p class="muted" data-empty hidden>No projects match that filter yet. <a href="/free-estimate/">Yours could be next.</a></p>
+    </div>
+  </section>
+
+  <CtaBand title="Want your roof on this page next?" />
+</Base>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-filters]')!;
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-grid] .pc')];
+  const status = document.querySelector<HTMLElement>('[data-status]')!;
+  const empty = document.querySelector<HTMLElement>('[data-empty]')!;
+  const apply = () => {
+    const data = new FormData(form);
+    const area = String(data.get('area') ?? '');
+    const kind = String(data.get('kind') ?? '');
+    let shown = 0;
+    for (const c of cards) {
+      const ok = (!area || c.dataset.region === area) && (!kind || c.dataset.kind === kind);
+      c.hidden = !ok;
+      if (ok) shown++;
+    }
+    status.textContent = `Showing ${shown} of ${cards.length} projects${area ? ` in ${area}` : ''}.`;
+    empty.hidden = shown > 0;
+    const url = new URL(location.href);
+    area ? url.searchParams.set('area', area) : url.searchParams.delete('area');
+    history.replaceState(null, '', url);
+  };
+  const initial = new URLSearchParams(location.search).get('area');
+  if (initial) {
+    const radio = form.querySelector<HTMLInputElement>(`input[name="area"][value="${CSS.escape(initial)}"]`);
+    if (radio) radio.checked = true;
+  }
+  form.addEventListener('change', apply);
+  apply();
+</script>
+
+<style>
+  .filters { display: flex; flex-wrap: wrap; gap: 16px 32px; }
+  .filters fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .filters legend { font-weight: 700; font-size: .9375rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; width: 100%; }
+  .filters label { position: relative; display: inline-flex; gap: 6px; align-items: center; min-height: 50px; padding: 8px 18px; border: 2px solid var(--line); border-radius: 999px; font-weight: 600; font-size: 1.125rem; cursor: pointer; background: #fff; }
+  .filters label span { font-size: .9375rem; color: var(--muted); }
+  .filters input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .filters label:has(input:checked) { background: var(--asphalt); border-color: var(--asphalt); color: #fff; }
+  .filters label:has(input:checked) span { color: #c9d2da; }
+  .filters label:has(input:focus-visible) { outline: 3px solid var(--sky); outline-offset: 2px; }
+  [data-grid] :global(.pc[hidden]) { display: none; }
+</style>

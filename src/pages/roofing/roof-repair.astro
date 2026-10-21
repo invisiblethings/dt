@@ -1,0 +1,211 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import Skyline from '../../components/Skyline.astro';
+import JobPhotos from '../../components/JobPhotos.astro';
+import ProcessRidge from '../../components/ProcessRidge.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ReviewSigns from '../../components/ReviewSigns.astro';
+import StormBand from '../../components/StormBand.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { business } from '../../data/business';
+import { service } from '../../data/schema';
+import { findProject } from '../../data/projects';
+import crew from '../../assets/services/repair-flashing-crew.jpg';
+import flashing from '../../assets/services/repair-new-flashing.jpg';
+import chimney from '../../assets/services/repair-chimney-flashing.jpg';
+import deck from '../../assets/services/repair-deck-patch.jpg';
+import flatDeck from '../../assets/services/repair-flat-deck.jpg';
+
+const href = '/roofing/roof-repair/';
+const crumbs = [{ name: 'Roofing', href: '/services/' }, { name: 'Roof repair', href }];
+const desc = 'Roof leak repair, flashing, shingle, flat roof and storm damage repair on Staten Island, in Brooklyn and New Jersey, with photos of every fix.';
+const fixes = [
+  ['Roof leaks', 'We trace the water back to where it actually gets in, which is often feet away from the stain on your ceiling.'],
+  ['Flashing', 'Chimneys, walls, valleys and dormers. Failed or caulked-over flashing causes more leaks than anything else.'],
+  ['Pipe boots and vents', 'Cracked rubber boots and loose vents let rain run straight down the pipe into the house.'],
+  ['Missing or damaged shingles', 'Blown off in a nor\'easter, cracked by age or lifted by wind. Matched as closely as possible.'],
+  ['Flat roof leaks', 'Split seams, blisters, punctures and ponding on rowhouses, extensions and garages.'],
+  ['Rotted roof decking', 'Soft spots and sagging boards cut out and replaced with new plywood before the roof is closed up.'],
+  ['Skylight leaks', 'Resealed and reflashed, or replaced if the unit itself has failed.'],
+  ['Storm and tree damage', 'Tarped the same day when we can, then repaired properly once it\'s dry.'],
+];
+const photos = [
+  { src: crew, alt: 'B&B roofer removing old shingles and flashing around a vent pipe on a Staten Island roof', caption: 'We open the roof around the leak to find where water is really getting in. Here, around a vent pipe.' },
+  { src: deck, alt: 'New plywood patch installed in the roof deck around a vent pipe', caption: 'Wet, rotted decking is cut out and replaced with new plywood. Covering it up would only hide the problem.' },
+  { src: flashing, alt: 'Roofer installing new underlayment and metal flashing around a vent pipe', caption: 'New underlayment and flashing go in before the shingles, layered so water runs over the joints, not into them.' },
+  { src: chimney, alt: 'New step and counter flashing along a brick chimney on a shingle roof', caption: 'Chimney flashing rebuilt along the brick: one of the most common leak points on Staten Island homes.' },
+  { src: flatDeck, alt: 'Roofer repairing the deck of a flat roof with new plywood before new membrane', caption: 'Flat roof repair: damaged deck replaced before the new membrane goes down.' },
+];
+const steps = [
+  { title: 'Call or request', body: `Tell us what you see. ${business.responsePromise}` },
+  { title: 'Inspection', body: 'We find the cause, on the roof and in the attic, and photograph it.' },
+  { title: 'Written price', body: 'What we found, what it takes to fix, and the price. No surprises.' },
+  { title: 'The repair', body: 'Many leaks are fixed the same day, depending on weather and damage.' },
+  { title: 'Photo proof', body: 'You get photos of the finished work and a clean property.' },
+];
+const projects = [findProject('skylight-st-george'), findProject('flat-roof-restoration-brooklyn'), findProject('porch-roof')];
+const faqs = [
+  { q: 'How fast can you fix a roof leak?', a: `${business.responsePromise} Many leaks are repaired the same day, depending on the weather and how much damage there is. If water is coming in right now, call <a href="${business.phoneHref}">${business.phone}</a>: emergency service runs 24/7.` },
+  { q: 'Should I repair my roof or replace it?', a: 'If the damage is limited to one area and the roof is under about 15 years old, a repair is usually the better value. If the roof is older and leaks keep coming back in different places, replacement often costs less over time. We show you photos and tell you honestly; see our <a href="/roofing/roof-replacement/">roof replacement</a> page for the signs.' },
+  { q: 'Is the estimate free?', a: 'Yes. The inspection and written estimate are free, with no obligation.' },
+  { q: 'Can you match my existing shingles?', a: 'We match color and style as closely as possible. Older shingles fade, so a new patch can look slightly different at first and blends in over time. If a perfect match matters, we\'ll tell you before we start.' },
+  { q: 'Do you repair flat roofs too?', a: 'Yes: seams, blisters, punctures, ponding and flashing on TPO, EPDM, modified bitumen and older built-up roofs. See <a href="/roofing/flat-roofing/">flat roofing</a>.' },
+  { q: 'Do your repairs come with a guarantee?', a: 'Yes. Our repair work comes with a workmanship guarantee, and we use manufacturer-approved materials. We explain exactly what\'s covered in your written estimate.' },
+  { q: 'Will my homeowners insurance pay for the repair?', a: 'It depends on your policy and the cause. Sudden storm or tree damage is often covered; wear and age usually aren\'t. We document the damage with photos you can send to your insurer.' },
+  { q: 'Which areas do you cover?', a: 'Every Staten Island neighborhood from our storefront at 145 Cedar Ave, plus Brooklyn and much of New Jersey. See <a href="/service-areas/staten-island/">where we work on Staten Island</a>.' },
+];
+---
+<Base
+  title="Roof Repair in Staten Island, NY | Leak Repair | B&B Roofing"
+  description="Roof leak repair in Staten Island, NY: flashing, shingles, flat roofs and storm damage. Many leaks fixed same day, with photos of every repair. (718) 981-7663."
+  crumbs={crumbs}
+  schema={[service('Roof repair', href, desc)]}
+  image={crew.src}
+>
+  <PageHero title="Roof repair in Staten Island" eyebrow="Roof & leak repair · NYC & NJ" crumbs={crumbs}
+    intro="Leak, missing shingles or storm damage? We find where the water actually gets in, fix the cause instead of covering it up, and show you photos of the repair.">
+    <div class="btn-row"><a class="btn btn--light" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a></div>
+    <p class="hero-note"><Icon name="drop" /> <span>Leaking right now? See <a href="/roofing/emergency-roof-repair/">24/7 emergency roof repair</a> or call any time.</span></p>
+    <EstimateForm slot="side" title="Get a repair estimate" service="roof-repair" />
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap intro">
+      <figure class="intro__photo" data-reveal>
+        <Image src={crew} alt="B&B roofer repairing a leak around a vent pipe on a Staten Island roof" widths={[480, 800, 1100]} sizes="(max-width: 860px) 100vw, 520px" quality={72} />
+        <figcaption>One of our crew opening up a leak around a vent pipe.</figcaption>
+      </figure>
+      <div class="stack" data-reveal>
+        <p class="eyebrow">Why leaks come back</p>
+        <h2>We fix the cause, not just the stain</h2>
+        <p class="lead">Most repeat leaks happen because someone smeared roofing cement over the spot that was wet. Water usually gets in somewhere else: a cracked pipe boot, failed chimney flashing, a lifted shingle up the slope.</p>
+        <p>We check the roof and the attic, photograph what we find, and repair it with proper materials: new flashing, new decking where it's rotted, and shingles or membrane that tie in with what's already there.</p>
+        <ul class="checks">
+          <li><Icon name="check" /> Licensed and insured: {business.license}</li>
+          <li><Icon name="check" /> GAF Master Elite® and Owens Corning Preferred materials</li>
+          <li><Icon name="check" /> Workmanship guarantee on repair work</li>
+          <li><Icon name="check" /> Honest advice: we only recommend replacement when it's the better value</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">What we repair</p><h2>Common roof repairs on Staten Island homes</h2></div>
+      <ul class="fixes">{fixes.map(([t, b], i) => <li class="card" data-reveal style={`--d: ${(i % 4) * 0.06}s`}><h3>{t}</h3><p>{b}</p></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal>
+        <p class="eyebrow">Real repairs, real photos</p>
+        <h2>What a proper roof repair looks like</h2>
+        <p class="lead">These photos come from our own jobs. Every repair gets documented like this, and you get the photos.</p>
+      </div>
+      <JobPhotos items={photos.slice(0, 3)} steps />
+      <JobPhotos items={photos.slice(3)} cols={2} />
+    </div>
+  </section>
+
+  <section class="section section--dark has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head center" data-reveal><p class="eyebrow">How it works</p><h2>From your call to a dry house</h2></div>
+      <ProcessRidge steps={steps} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="stack" data-reveal>
+        <p class="eyebrow">Repair or replace?</p>
+        <h2>We'll tell you honestly</h2>
+        <p class="lead">A repair is usually the right call when the damage is in one area and the roof still has years left.</p>
+        <p>When a roof is past about 20 years, shedding granules and leaking in more than one place, patching it becomes money you won't get back. In that case we'll show you why and give you both prices.</p>
+        <div class="btn-row">
+          <a class="btn btn--outline" href="/#roof-check">Take the 60-second roof check</a>
+          <a class="btn btn--light" href="/roofing/roof-replacement/">Signs you need a new roof <Icon name="arrow" /></a>
+        </div>
+      </div>
+      <div class="vs" data-reveal>
+        <div class="vs__col"><h3>Usually a repair</h3><ul>
+          <li><Icon name="check" /> One leak or one damaged area</li>
+          <li><Icon name="check" /> Roof under about 15 years old</li>
+          <li><Icon name="check" /> Flashing or pipe boot failure</li>
+          <li><Icon name="check" /> A few shingles blown off</li>
+        </ul></div>
+        <div class="vs__col vs__col--alt"><h3>Time to consider replacing</h3><ul>
+          <li><Icon name="roof" /> Roof over about 20 years old</li>
+          <li><Icon name="roof" /> Leaks in several places, or coming back</li>
+          <li><Icon name="roof" /> Curling, cracked shingles everywhere</li>
+          <li><Icon name="roof" /> Soft or sagging deck in many spots</li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <StormBand />
+
+  <section class="section section--cloud">
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Recent work</p><h2>Repairs and restorations we've finished</h2></div>
+      <div class="grid-3">{projects.map((p) => <ProjectCard p={p} />)}</div>
+      <p><a class="btn btn--outline" href="/projects/">See all projects <Icon name="arrow" /></a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head center" data-reveal><p class="eyebrow">Reviews</p><h2>What our customers say</h2></div>
+      <ReviewSigns count={3} />
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" flip />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">FAQ</p><h2>Roof repair questions</h2></div>
+      <Faq items={faqs} />
+      <p class="muted">Related: <a href="/roofing/emergency-roof-repair/">24/7 emergency roof repair</a> · <a href="/roofing/roof-replacement/">Roof replacement</a> · <a href="/roofing/flat-roofing/">Flat roofs</a> · <a href="/gutters/">Gutters</a> · <a href="/service-areas/staten-island/">Staten Island neighborhoods</a></p>
+    </div>
+  </section>
+
+  <CtaBand title="Get that leak fixed for good" />
+</Base>
+
+<style>
+  .hero-note { display: flex; gap: 8px; align-items: center; font-weight: 600; }
+  .hero-note :global(svg) { width: 22px; height: 22px; color: var(--navy); flex: none; }
+  .intro { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
+  @media (max-width: 860px) { .intro { grid-template-columns: 1fr; } }
+  .intro__photo { margin: 0; display: grid; gap: 10px; }
+  .intro__photo :global(img) { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; box-shadow: var(--shadow); }
+  .intro__photo figcaption { color: var(--muted); font-size: 1rem; }
+  .checks { list-style: none; display: grid; gap: 10px; }
+  .checks li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; }
+  .checks :global(svg) { width: 22px; height: 22px; color: var(--green); flex: none; margin-top: 3px; }
+  .fixes { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 1100px) { .fixes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .fixes { grid-template-columns: 1fr; } }
+  .fixes .card { border-top: 5px solid var(--orange); }
+  .fixes h3 { font-size: 1.4375rem; }
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+  .vs { display: grid; grid-template-columns: 1fr 1fr; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  @media (max-width: 560px) { .vs { grid-template-columns: 1fr; } }
+  .vs__col { padding: 24px; background: #fff; display: grid; gap: 12px; align-content: start; border: 1px solid var(--line); }
+  .vs__col--alt { background: var(--asphalt); color: #fff; border-color: var(--asphalt); }
+  .vs h3 { font-size: 1.5rem; }
+  .vs ul { list-style: none; display: grid; gap: 10px; }
+  .vs li { display: flex; gap: 10px; align-items: flex-start; }
+  .vs :global(svg) { width: 22px; height: 22px; flex: none; margin-top: 2px; color: var(--green); }
+  .vs__col--alt :global(svg) { color: #ff9a70; }
+</style>

@@ -1,0 +1,11 @@
+# Old WordPress URLs -> new pages (301). Source list: Search Console pages report, Oct 2025 – Oct 2026.
+/services/roof-replacement/          /roofing/roof-replacement/      301
+/roof-replacement-staten-island/     /roofing/roof-replacement/      301
+/services/residential-roofing/       /roofing/roof-replacement/      301
+/services/flat-roofing/              /roofing/flat-roofing/          301
+/services/roof-repair/               /roofing/roof-repair/           301
+/services/commercial-roofing/        /roofing/commercial-roofing/    301
+/services/gutters/                   /gutters/                       301
+/services/siding/                    /siding/                        301
+/contact-us/                         /contact/                       301
+# /services/, /about/, /contact/, /free-estimate/, /privacy-policy/ and /terms-and-conditions/ keep the same URL.

@@ -1,0 +1,31 @@
+---
+// Big featured before/after with a short story beside it. Used on service and area pages.
+import BeforeAfter from './BeforeAfter.astro';
+import type { Project } from '../data/projects';
+interface Props { p: Project; eyebrow?: string; body?: string }
+const { p, eyebrow = 'Featured project', body } = Astro.props;
+---
+<div class="sf">
+  <BeforeAfter before={p.before} after={p.after} label={p.title} sizes="(max-width: 960px) 100vw, 640px" />
+  <div class="stack">
+    <p class="eyebrow">{eyebrow}</p>
+    <h3>{p.title}</h3>
+    <p class="muted">{body ?? `Both photos were taken from the same spot: before the job and after it. Drag the handle to compare.`}</p>
+    <dl class="sf__facts">
+      <div><dt>Area</dt><dd>{p.area}</dd></div>
+      <div><dt>Service</dt><dd>{p.service}</dd></div>
+      <div><dt>Job photos on file</dt><dd>{p.photos}</dd></div>
+    </dl>
+    <p><a href={p.href}>Open the project →</a></p>
+  </div>
+</div>
+<style>
+  .sf { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: clamp(24px, 4vw, 48px); align-items: center; }
+  @media (max-width: 960px) { .sf { grid-template-columns: 1fr; } }
+  .sf h3 { font-size: var(--step-2); }
+  .sf__facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; }
+  .sf__facts div { background: var(--cloud); border-radius: 8px; padding: 10px 12px; }
+  .sf__facts dt { font-size: .875rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .sf__facts dd { margin: 0; font-weight: 700; }
+  .section--cloud .sf__facts div { background: #fff; }
+</style>
