@@ -48,6 +48,12 @@ npm run preview   # serve dist/
 - Exact financing partner wording → `business.financing`
 - Same-spot before/after photos for gutters, siding and skylights (none exist yet)
 
+## Pages
+
+Home, roof replacement, roof repair, 24/7 emergency repair, flat roofing, commercial roofing, gutters, siding (with soffit & fascia), services, projects (+ 19 project pages), Staten Island, Brooklyn, roof cost guide, about, contact, free estimate, thank-you, privacy, terms, 404.
+
+Service photos live in `src/assets/services/` (real CompanyCam job photos, max 1600px; original metadata in `exif/`). The old WordPress "Roof Replacement Guide" PDF is kept at its original URL under `public/wp-content/`.
+
 ## Next phase
 
-Pages for roof repair, emergency repair, commercial roofing, skylights, gutters, siding, soffit & fascia, plus individual neighborhood pages. Flip `built: true` and add `href` in `services.ts` when each goes live.
+Skylights page, roofing hub, warranties, financing (needs lender wording), reviews page, New Jersey (needs NJ HIC number), and monthly guides and project pages. Flip `built: true` and add `href` in `services.ts` when a service page goes live.

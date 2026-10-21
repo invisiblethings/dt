@@ -1,0 +1,118 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import Skyline from '../../components/Skyline.astro';
+import ServiceFeature from '../../components/ServiceFeature.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ReviewSigns from '../../components/ReviewSigns.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { business } from '../../data/business';
+import { service } from '../../data/schema';
+import { projects, findProject } from '../../data/projects';
+
+const href = '/service-areas/brooklyn/';
+const crumbs = [{ name: 'Brooklyn', href }];
+const brooklyn = projects.filter((p) => p.region === 'Brooklyn');
+const featured = findProject('bay-ridge');
+const others = brooklyn.filter((p) => p.slug !== featured.slug);
+const hoods = ['Bay Ridge', 'Sheepshead Bay', 'Bath Beach & Bensonhurst', 'Kensington', 'Flatbush & Midwood', 'Sunset Park', 'Carroll Gardens & Red Hook', 'Brownsville', 'Brighton Beach'];
+const roofs = [
+  ['Flat roofs on rowhouses and brownstones', 'Most Brooklyn roofs are flat or low-slope. We repair and replace them with TPO, EPDM or modified bitumen, and fix ponding with tapered insulation.', '/roofing/flat-roofing/'],
+  ['Shared roofs on attached houses', 'Where your roof meets your neighbor\'s, the seam and parapet need careful detailing so a new roof doesn\'t leak at the property line.', '/roofing/flat-roofing/'],
+  ['Parapets, coping and bulkheads', 'Cracked coping, failed parapet flashing and leaking roof-access bulkheads are common leak points on older buildings.', '/roofing/roof-repair/'],
+  ['Skylights', 'Old skylights on flat roofs leak at the curb. We reflash them or replace the unit.', '/roofing/roof-repair/'],
+  ['Multifamily and mixed-use', 'Apartment buildings and storefronts with tenants who need the work done cleanly and on schedule.', '/roofing/commercial-roofing/'],
+  ['Porch and extension roofs', 'Small roofs over porches and rear extensions that tie into the main house.', '/roofing/roof-replacement/'],
+];
+const faqs = [
+  { q: 'Do you really work in Brooklyn, coming from Staten Island?', a: 'Yes. Brooklyn is a short trip over the Verrazzano from our Cedar Ave storefront, and we have roofs on this page from Bay Ridge, Kensington and other Brooklyn neighborhoods.' },
+  { q: 'Is the estimate free in Brooklyn too?', a: `Yes. The inspection and written estimate are free, with no obligation. ${business.responsePromise}` },
+  { q: 'Do you handle NYC permits for Brooklyn jobs?', a: 'Yes. We take care of the permits and inspections that apply to your job, including sidewalk and dumpster logistics on busy streets.' },
+  { q: 'Can you fix a leak where my roof meets my neighbor\'s?', a: 'Yes. Leaks at the shared seam or parapet are common on attached houses. We find which side the water comes from and seal the joint properly.' },
+  { q: 'Do you offer emergency service in Brooklyn?', a: `Yes, 24/7 for active leaks and storm damage: call <a href="${business.phoneHref}">${business.phone}</a>.` },
+];
+---
+<Base
+  title="Brooklyn Roofing Contractor: Flat Roofs & Repairs | B&B Roofing"
+  description="Flat roof repair and replacement, leak repair and multifamily roofing in Brooklyn: Bay Ridge, Kensington, Sheepshead Bay and more. Call (718) 981-7663."
+  crumbs={crumbs}
+  schema={[{ ...service('Roofing in Brooklyn', href, 'Flat roof repair and replacement, leak repair and multifamily roofing in Brooklyn, NY.'), areaServed: { '@type': 'AdministrativeArea', name: 'Brooklyn', sameAs: 'https://en.wikipedia.org/wiki/Brooklyn' } }]}
+  image={featured.after.src}
+>
+  <PageHero title="Brooklyn roofing: flat roofs, repairs & replacements" eyebrow="Service area · Brooklyn" crumbs={crumbs}
+    intro="Rowhouses, brownstones, attached homes and apartment buildings: Brooklyn roofs are mostly flat, often shared, and full of parapets and skylights. That's the work we do every week, just over the bridge from our Staten Island storefront.">
+    <div class="btn-row"><a class="btn btn--light" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a></div>
+    <EstimateForm slot="side" title="Free Brooklyn roof estimate" service="flat-roof" />
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Real Brooklyn job</p><h2>Bay Ridge flat roof, before and after</h2></div>
+      <ServiceFeature p={featured} body="Torn down to the deck and replaced with a new membrane. The before photo was taken during tear-off from the same spot as the after: line up the vent pipes to compare." />
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Brooklyn roofs</p><h2>What Brooklyn roofs need</h2></div>
+      <ul class="roofs">{roofs.map(([t, b, l], i) => <li class="card" data-reveal style={`--d: ${(i % 3) * 0.08}s`}><h3>{t}</h3><p>{b}</p><a href={l}>Learn more →</a></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Projects</p><h2>More roofs we've done in Brooklyn</h2></div>
+      <div class="grid-3">{others.map((p) => <ProjectCard p={p} />)}</div>
+      <p><a class="btn btn--outline" href="/projects/?area=Brooklyn">All Brooklyn projects <Icon name="arrow" /></a></p>
+    </div>
+  </section>
+
+  <section class="section section--dark has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap hoods">
+      <div class="stack" data-reveal>
+        <p class="eyebrow">Where we've worked</p>
+        <h2>Brooklyn neighborhoods</h2>
+        <p class="lead">Our CompanyCam records show B&amp;B jobs in these Brooklyn neighborhoods. Don't see yours? Call; we likely cover it.</p>
+      </div>
+      <ul class="hoods__list" data-reveal>{hoods.map((h) => <li><Icon name="pin" /> {h}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head center" data-reveal><p class="eyebrow">Reviews</p><h2>What our customers say</h2></div>
+      <ReviewSigns count={3} />
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" flip />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">FAQ</p><h2>Brooklyn roofing questions</h2></div>
+      <Faq items={faqs} />
+      <p class="muted">Also see: <a href="/service-areas/staten-island/">Staten Island</a> · <a href="/roofing/flat-roofing/">Flat roofing</a> · <a href="/roofing/commercial-roofing/">Commercial &amp; multifamily</a> · <a href="/roofing/emergency-roof-repair/">24/7 emergency repair</a></p>
+    </div>
+  </section>
+
+  <CtaBand title="Brooklyn roof leaking or wearing out?" />
+</Base>
+
+<style>
+  .roofs { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 960px) { .roofs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .roofs { grid-template-columns: 1fr; } }
+  .roofs .card { border-top: 5px solid var(--orange); }
+  .roofs a { font-weight: 700; margin-top: auto; }
+  .hoods { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
+  @media (max-width: 860px) { .hoods { grid-template-columns: 1fr; } }
+  .hoods .lead { color: #d5e0ea; }
+  .hoods__list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; }
+  @media (max-width: 480px) { .hoods__list { grid-template-columns: 1fr; } }
+  .hoods__list li { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.1875rem; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.14); }
+  .hoods__list :global(svg) { width: 22px; height: 22px; color: var(--orange); flex: none; }
+</style>

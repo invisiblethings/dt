@@ -1,11 +1,11 @@
-// After `astro build`, put each project photo's original camera metadata (EXIF, including GPS where the
+// After `astro build`, put each project and service photo's original camera metadata (EXIF, including GPS where the
 // original had it) back into every WebP size Astro generated. Astro's image pipeline strips metadata on
 // re-encode; the owner wants the originals' metadata kept. Sources: src/assets/projects/exif/<photo>.exif,
 // raw EXIF copied from the matching CompanyCam original. No pixels are re-encoded.
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const exifDir = 'src/assets/projects/exif';
+const exifDirs = ['src/assets/projects/exif', 'src/assets/services/exif'];
 const outDir = 'dist/_astro';
 
 const chunk = (fourcc, data) => {
@@ -58,7 +58,7 @@ export const withExif = (webp, tiff) => {
 
 const built = readdirSync(outDir).filter((f) => f.endsWith('.webp'));
 let count = 0;
-for (const file of readdirSync(exifDir).filter((f) => f.endsWith('.exif'))) {
+for (const [exifDir, file] of exifDirs.flatMap((d) => readdirSync(d).filter((f) => f.endsWith('.exif')).map((f) => [d, f]))) {
   const name = file.replace(/\.exif$/, '');
   let tiff = readFileSync(join(exifDir, file));
   if (tiff.toString('ascii', 0, 6) === 'Exif\0\0') tiff = tiff.subarray(6); // WebP stores the TIFF block without the JPEG prefix
@@ -68,4 +68,4 @@ for (const file of readdirSync(exifDir).filter((f) => f.endsWith('.exif'))) {
     count++;
   }
 }
-console.log(`restore-exif: original metadata written to ${count} project images`);
+console.log(`restore-exif: original metadata written to ${count} images`);

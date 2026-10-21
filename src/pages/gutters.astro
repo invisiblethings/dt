@@ -1,0 +1,202 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import EstimateForm from '../components/EstimateForm.astro';
+import Skyline from '../components/Skyline.astro';
+import JobPhotos from '../components/JobPhotos.astro';
+import WaterPath from '../components/WaterPath.astro';
+import ProcessRidge from '../components/ProcessRidge.astro';
+import ReviewSigns from '../components/ReviewSigns.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { business } from '../data/business';
+import { service } from '../data/schema';
+import downspout from '../assets/services/gutter-downspout.jpg';
+import newGutter from '../assets/services/gutter-new-fascia.jpg';
+import crew from '../assets/services/gutter-crew.jpg';
+import guard from '../assets/services/gutter-guard.jpg';
+import rotted from '../assets/services/fascia-rotted-gutter.jpg';
+import seamless from '../assets/site/gutters.jpg';
+
+const href = '/gutters/';
+const crumbs = [{ name: 'Gutters', href }];
+const desc = 'Seamless gutter installation, gutter repair and replacement, downspouts, gutter guards and cleaning on Staten Island, in Brooklyn and New Jersey.';
+const services = [
+  ['Seamless gutter installation', 'Formed on site from one continuous piece per run, so there are no seams along the length to leak. 5" or 6", sized to your roof.'],
+  ['Gutter repair', 'Leaking corners and end caps resealed, sagging runs re-pitched, loose hangers replaced.'],
+  ['Gutter replacement', 'Old sectional or rusted gutters removed and replaced with seamless aluminum, copper or steel.'],
+  ['Downspouts and re-routing', '2×3" standard or 3×4" high-capacity downspouts, with extensions that carry water away from the foundation.'],
+  ['Gutter guards', 'Micro-mesh, perforated covers or reverse curve, matched to the trees around your house and your roof pitch.'],
+  ['Gutter cleaning and flush', 'Debris cleared, downspouts flushed, and the whole system checked while we\'re up there.'],
+];
+const signs = [
+  ['Overflowing in normal rain', 'Water spilling over the front edge means clogs, too little pitch, or gutters too small for the roof.'],
+  ['Water at the foundation', 'Puddles by the house or a damp basement after rain often trace back to gutters and downspouts.'],
+  ['Sagging or pulling away', 'Loose spikes and hangers let runs sag, so water collects instead of draining.'],
+  ['Leaking seams and corners', 'Sectional gutters leak where pieces join. Seamless runs remove most of those joints.'],
+  ['Rotting fascia', 'Soft, peeling or dark fascia boards behind the gutter mean water has been getting behind it.'],
+  ['Stripes on the siding', 'Dark streaks below the gutter line show where water runs down the house instead of the downspout.'],
+];
+const photos = [
+  { src: downspout, alt: 'New white seamless gutter and downspout outlet on a Staten Island roof edge', caption: 'New seamless gutter with a properly sized downspout outlet.' },
+  { src: newGutter, alt: 'New brown seamless gutter installed along the fascia of a house', caption: 'Seamless gutter in a color matched to the trim.' },
+  { src: crew, alt: 'B&B crew member working on a gutter along a shingle roof', caption: 'Our crew cleaning and checking a full run before repairs.' },
+];
+const steps = [
+  { title: 'Assess and measure', body: 'We check slope, fascia and drainage, and measure every run.' },
+  { title: 'Options and quote', body: '5" or 6", colors, guards and downspouts, in writing.' },
+  { title: 'Formed on site', body: 'Seamless runs made to length at your house.' },
+  { title: 'Installed to pitch', body: 'Hidden hangers, sealed corners, aligned with the drip edge.' },
+  { title: 'Water test', body: 'Hose test, cleanup and a walkthrough with you.' },
+];
+const faqs = [
+  { q: 'Do I need 5" or 6" gutters?', a: '6" gutters carry noticeably more water and suit large or steep roofs and long runs. Many Staten Island homes do fine with 5". We size them for your roof area and pitch, and explain why.' },
+  { q: 'What does gutter installation cost?', a: 'It depends on linear footage, the number of stories, corners and downspouts, the material and whether you add guards. As a market guide, seamless aluminum gutters in New York are estimated at about $8.90–$22 per linear foot installed (HomeGnome, 2026). That\'s a market estimate, not a B&amp;B quote: your free estimate gives you an exact price.' },
+  { q: 'Are seamless gutters better?', a: 'For most homes, yes. They\'re made from one continuous piece per run, so the only joints are at corners and downspouts. Fewer joints means fewer leaks.' },
+  { q: 'Are gutter guards worth it?', a: 'On tree-lined streets they usually are. Micro-mesh blocks even pine needles, perforated covers are a good balance, and reverse-curve guards only work with the right pitch. We\'ll recommend one based on your trees and roof.' },
+  { q: 'How often should gutters be cleaned?', a: 'At least twice a year, in spring and fall, and more often under heavy trees. Guards cut that down a lot.' },
+  { q: 'Will new gutters fix my wet basement?', a: 'Often they help a lot, especially with downspouts that carry water well away from the house. Grading and drainage can also play a part, and we\'ll tell you if we see that.' },
+  { q: 'Can you match my trim color?', a: 'Yes. Aluminum comes in dozens of baked-on colors, and copper and steel are available too.' },
+  { q: 'Do you fix rotted fascia behind the gutters?', a: 'Yes. We replace rotted wood and wrap it in aluminum before the new gutters go up. See <a href="/siding/#soffit-fascia">soffit and fascia</a>.' },
+];
+---
+<Base
+  title="Gutter Installation & Repair in Staten Island, NY | B&B Roofing"
+  description="Seamless gutter installation, repair and replacement, downspouts, guards and cleaning in Staten Island, NY. Formed on site, color-matched. (718) 981-7663."
+  crumbs={crumbs}
+  schema={[service('Gutter installation and repair', href, desc)]}
+  image={downspout.src}
+>
+  <PageHero title="Seamless gutters in Staten Island" eyebrow="Gutter installation & repair" crumbs={crumbs}
+    intro="Your roof keeps water out; your gutters keep it away from the house. We install, repair and clean seamless gutters, downspouts and guards across Staten Island, Brooklyn and New Jersey.">
+    <div class="btn-row"><a class="btn btn--light" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a></div>
+    <EstimateForm slot="side" title="Get a gutter estimate" service="gutters" />
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="stack" data-reveal>
+        <p class="eyebrow">Why gutters matter</p>
+        <h2>Water that misses the gutter ends up in the basement</h2>
+        <p class="lead">Clogged, undersized or sagging gutters dump water right next to the house. Over time that means rotted fascia, stained siding, washed-out landscaping and wet basements.</p>
+        <p>A gutter system that works carries every drop from the roof to a downspout and out past the foundation. Because we're roofers too, we get the parts that meet the roof right: the drip edge, the pitch and the flashing.</p>
+      </div>
+      <div data-reveal><WaterPath /></div>
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Gutter services</p><h2>Everything for your gutters, from one local crew</h2></div>
+      <ul class="cards3">{services.map(([t, b], i) => <li class="card" data-reveal style={`--d: ${(i % 3) * 0.08}s`}><h3>{t}</h3><p>{b}</p></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Our work</p><h2>Seamless gutters we've installed</h2>
+        <p class="lead">Photos from B&amp;B gutter jobs.</p></div>
+      <JobPhotos items={photos} />
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" flip />
+    <div class="wrap split split--top">
+      <div class="stack-lg">
+        <div class="head" data-reveal><p class="eyebrow">Repair or replace?</p><h2>Signs your gutters need attention</h2></div>
+        <ul class="signs">{signs.map(([t, b]) => <li data-reveal><Icon name="drop" /><div><h3>{t}</h3><p>{b}</p></div></li>)}</ul>
+      </div>
+      <figure class="photo" data-reveal>
+        <Image src={rotted} alt="Rotted fascia board and roof edge behind an old gutter" widths={[480, 800, 1100]} sizes="(max-width: 860px) 100vw, 520px" quality={72} />
+        <figcaption>What years of overflow does: rotted fascia and roof edge behind an old gutter. We replace the wood before new gutters go up.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Materials and guards</p><h2>The right gutter for your house</h2></div>
+      <div class="mats">
+        <div class="mats__list" data-reveal>
+          <dl>
+            <div><dt>Seamless aluminum</dt><dd>The most popular choice: affordable, rust-free, and painted to match your trim.</dd></div>
+            <div><dt>Copper</dt><dd>Premium and long-lasting, with soldered joints and a patina that suits older homes.</dd></div>
+            <div><dt>Steel</dt><dd>Strong where gutters take impacts, and common on commercial buildings.</dd></div>
+            <div><dt>K-style or half-round</dt><dd>K-style suits most houses; half-round matches traditional architecture.</dd></div>
+          </dl>
+        </div>
+        <div class="mats__guard" data-reveal>
+          <Image src={guard} alt="Mesh gutter guard on a gutter along a shingle roof" widths={[400, 700]} sizes="(max-width: 860px) 100vw, 360px" quality={72} />
+          <div class="stack">
+            <h3>Gutter guards</h3>
+            <p><strong>Micro-mesh</strong> blocks even pine needles. <strong>Perforated covers</strong> are a balanced, easy-care option. <strong>Reverse curve</strong> works only with the right pitch.</p>
+            <p class="muted">We match the guard to your trees, roof pitch and how much upkeep you want.</p>
+          </div>
+        </div>
+      </div>
+      <figure class="wide" data-reveal>
+        <Image src={seamless} alt="New seamless gutter on a house roof edge against a stormy sky" widths={[600, 1000, 1400]} sizes="(max-width: 1200px) 100vw, 1160px" quality={72} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--dark has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head center" data-reveal><p class="eyebrow">How it works</p><h2>Your new gutters, step by step</h2></div>
+      <ProcessRidge steps={steps} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head center" data-reveal><p class="eyebrow">Reviews</p><h2>What homeowners say</h2></div>
+      <ReviewSigns count={3} prefer="Gutters" />
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" flip />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">FAQ</p><h2>Gutter questions</h2></div>
+      <Faq items={faqs} />
+      <p class="muted">Related: <a href="/siding/">Siding, soffit &amp; fascia</a> · <a href="/roofing/roof-repair/">Roof repair</a> · <a href="/roofing/roof-replacement/">Roof replacement</a> · <a href="/service-areas/staten-island/">Staten Island neighborhoods</a></p>
+    </div>
+  </section>
+
+  <CtaBand title="Ready for gutters that actually work?" />
+</Base>
+
+<style>
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
+  .split--top { align-items: start; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+  .cards3 { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 960px) { .cards3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .cards3 { grid-template-columns: 1fr; } }
+  .cards3 .card { border-top: 5px solid var(--orange); }
+  .signs { list-style: none; display: grid; gap: 18px; }
+  .signs li { display: flex; gap: 14px; align-items: flex-start; }
+  .signs :global(svg) { width: 30px; height: 30px; color: var(--sky); flex: none; margin-top: 2px; }
+  .signs h3 { font-size: 1.375rem; }
+  .signs p { color: var(--muted); }
+  .photo { margin: 0; display: grid; gap: 10px; }
+  .photo :global(img) { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; box-shadow: var(--shadow); }
+  .photo figcaption, .wide figcaption { color: var(--muted); font-size: 1rem; }
+  .mats { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 48px); align-items: start; }
+  @media (max-width: 860px) { .mats { grid-template-columns: 1fr; } }
+  .mats dl { margin: 0; display: grid; border-top: 2px solid var(--asphalt); }
+  .mats dl div { padding: 16px 4px; border-bottom: 1px solid var(--line); display: grid; gap: 4px; }
+  .mats dt { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; }
+  .mats dd { margin: 0; color: var(--muted); }
+  .mats__guard { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 18px; background: var(--cloud); border-radius: var(--radius); padding: 18px; align-items: start; }
+  @media (max-width: 480px) { .mats__guard { grid-template-columns: 1fr; } }
+  .mats__guard :global(img) { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; }
+  .mats__guard h3 { font-size: 1.5rem; }
+  .wide { margin: 0; }
+  .wide :global(img) { width: 100%; height: auto; aspect-ratio: 21 / 8; object-fit: cover; border-radius: 18px; box-shadow: var(--shadow-sm); }
+</style>

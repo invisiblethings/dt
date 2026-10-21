@@ -3,9 +3,9 @@
 import Icon from './Icon.astro';
 import { reviews } from '../data/reviews';
 import { business } from '../data/business';
-interface Props { count?: number }
-const { count = 3 } = Astro.props;
-const list = reviews.slice(0, count);
+interface Props { count?: number; prefer?: string } // prefer: show reviews for this job type first, e.g. 'Gutters'
+const { count = 3, prefer } = Astro.props;
+const list = [...reviews].sort((a, b) => Number(b.job === prefer) - Number(a.job === prefer)).slice(0, count);
 ---
 <div class="signs" data-animate>
   <ul class="signs__row">

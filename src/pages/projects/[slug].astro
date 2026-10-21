@@ -26,7 +26,7 @@ const story = {
 }[p.kind as 'replacement' | 'flat' | 'repair'];
 const schema = { '@type': 'CreativeWork', name: p.title, about: p.service, dateCreated: p.date, locationCreated: { '@type': 'Place', name: p.area, address: { '@type': 'PostalAddress', postalCode: p.zip } }, creator: { '@id': orgId } };
 ---
-<Base title={`${p.title} (${p.monthYear}) | B&B Roofing Project`} description={`Before and after photos of a ${p.service.toLowerCase()} by B&B Roofing & Gutters in ${p.area}, completed ${p.monthYear}. Same-angle photos from our job records.`} crumbs={crumbs} schema={[schema]} image={p.after.src}>
+<Base title={`${p.title} | B&B Roofing`} description={`Before & after photos of a ${p.service.toLowerCase()} in ${p.area} by B&B Roofing, ${p.monthYear}. Same-angle photos from our own job records.`} crumbs={crumbs} schema={[schema]} image={p.after.src}>
   <PageHero title={p.title} eyebrow={`${p.region} · ${p.monthYear}`} crumbs={crumbs} trust={false}>
     <dl class="facts">
       <div><dt>Service</dt><dd>{p.service}</dd></div>

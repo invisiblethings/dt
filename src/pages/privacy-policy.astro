@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { business, addressLine } from '../data/business';
+const crumbs = [{ name: 'Privacy policy', href: '/privacy-policy/' }];
+---
+<Base title="Privacy Policy | B&B Roofing & Gutters" description="How B&B Roofing & Gutters collects, uses and protects your information when you visit our website, request an estimate or hire us." crumbs={crumbs}>
+  <PageHero title="Privacy policy" crumbs={crumbs} trust={false} intro="Last updated: 21 October 2026" />
+  <section class="section">
+    <div class="wrap prose">
+      <p>{business.legalName}, doing business as {business.name} ("we", "our", "us"), respects your privacy. This policy explains how we collect, use and protect your personal information when you visit our website, request an estimate or use our services.</p>
+
+      <h2>1. Information we collect</h2>
+      <ul>
+        <li><strong>Personal information:</strong> your name, phone number, email address, ZIP code or neighborhood, and property address when you request an estimate or service.</li>
+        <li><strong>Project details:</strong> photos, descriptions and notes about your roofing or exterior project.</li>
+        <li><strong>Website usage data:</strong> IP address, browser type, device information and activity on our website.</li>
+        <li><strong>Cookies:</strong> small files that help the website work and measure visits (for example Google Analytics), and advertising cookies.</li>
+      </ul>
+
+      <h2>2. How we use your information</h2>
+      <ul>
+        <li>To provide estimates, schedule appointments and deliver our services.</li>
+        <li>To contact you about your project, updates and, if you agree, promotions.</li>
+        <li>To improve our website, services and customer experience.</li>
+        <li>To meet legal and regulatory requirements.</li>
+      </ul>
+
+      <h2>3. Project photos</h2>
+      <p>With the customer's agreement, we may publish exterior photos of completed projects on our website and social media. Photo files can include the original camera information, such as the date and the location where the photo was taken. We never publish customers' names or phone numbers with project photos. If you would like photos of your home removed, contact us and we will take them down.</p>
+
+      <h2>4. Sharing of information</h2>
+      <p>We do <strong>not</strong> sell or rent your personal data. We share it only with:</p>
+      <ul>
+        <li><strong>Service providers</strong> that help us run the business, such as our website host and form service (estimate requests are processed by Netlify), email, scheduling and payment providers.</li>
+        <li><strong>Legal or regulatory authorities</strong> when required by law, court order, or for safety and security reasons.</li>
+        <li><strong>Marketing and advertising platforms</strong> (such as Google and Meta) to show relevant ads.</li>
+      </ul>
+
+      <h2>5. Data security</h2>
+      <p>We use reasonable security measures to protect your information. No method of transmission over the internet is 100% secure.</p>
+
+      <h2>6. Your privacy rights</h2>
+      <p>You may ask us to:</p>
+      <ul>
+        <li>give you a copy of your personal data;</li>
+        <li>update or correct your information;</li>
+        <li>stop sending you marketing emails (or use the "unsubscribe" link);</li>
+        <li>delete your data, subject to our legal and business obligations.</li>
+      </ul>
+
+      <h2>7. Third-party links</h2>
+      <p>Our website links to other sites, such as manufacturer partners, Google reviews, Instagram and YouTube. We are not responsible for their privacy practices.</p>
+
+      <h2>8. Children's privacy</h2>
+      <p>Our services are not directed to children under 13, and we do not knowingly collect data from minors.</p>
+
+      <h2>9. Changes to this policy</h2>
+      <p>We may update this policy from time to time. Changes are posted on this page with a new "last updated" date.</p>
+
+      <h2>10. Contact us</h2>
+      <p>{business.name}<br />{addressLine}<br /><a href={business.phoneHref}>{business.phone}</a> · <a href={`mailto:${business.email}`}>{business.email}</a></p>
+    </div>
+  </section>
+</Base>

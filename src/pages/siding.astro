@@ -1,0 +1,211 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import EstimateForm from '../components/EstimateForm.astro';
+import Skyline from '../components/Skyline.astro';
+import ProcessRidge from '../components/ProcessRidge.astro';
+import ReviewSigns from '../components/ReviewSigns.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { business } from '../data/business';
+import { service } from '../data/schema';
+import house from '../assets/services/siding-vinyl-house.jpg';
+import newVinyl from '../assets/services/siding-new-vinyl.jpg';
+import damage from '../assets/services/siding-damage.jpg';
+import soffits from '../assets/site/siding-soffits.jpg';
+import fasciaBefore from '../assets/services/fascia-rotted.jpg';
+import fasciaAfter from '../assets/services/fascia-new-capping.jpg';
+
+const href = '/siding/';
+const crumbs = [{ name: 'Siding', href }];
+const desc = 'Vinyl, fiber cement, engineered wood and metal siding installation and repair, plus soffit and fascia, on Staten Island, in Brooklyn and New Jersey.';
+const materials = [
+  ['Vinyl', 'Affordable and low-maintenance, in a wide range of colors. Insulated vinyl adds efficiency and cuts outside noise.'],
+  ['Fiber cement', 'Plank, panel or shake profiles with a premium painted look, high durability and fire resistance.'],
+  ['Engineered wood', 'Realistic wood grain with built-in moisture protection.'],
+  ['Aluminum and steel', 'Clean, durable profiles for exposed walls and harsh weather.'],
+];
+const signs = [
+  'Warped, cracked, loose or soft panels',
+  'Holes, dents or pieces blown off in a storm',
+  'Peeling paint, bubbling or mold on the walls',
+  'Drafts, damp interior walls or rising heating bills',
+  'Faded, chalky color that won\'t clean up',
+  'Repairs on the same wall again and again',
+];
+const steps = [
+  { title: 'Assess and design', body: 'Measure every wall, find moisture problems, pick profile and color.' },
+  { title: 'Protect and strip', body: 'Cover landscaping, remove failing siding, check the sheathing.' },
+  { title: 'Weather barrier', body: 'House wrap, taped seams, flashing at windows and doors.' },
+  { title: 'Siding and trim', body: 'Panels, corners, J-channel, soffit, fascia and custom metalwork.' },
+  { title: 'Walkthrough', body: 'Final check, cleanup, warranty registration and care tips.' },
+];
+const faqs = [
+  { q: 'How long does a siding replacement take?', a: 'Most single-family homes take 2–5 days, depending on size, repairs underneath and weather.' },
+  { q: 'Can you repair a few damaged panels instead of re-siding?', a: 'Often, yes. We replace the damaged pieces and match color and profile as closely as possible. If your siding is no longer made, we\'ll show you the closest options, or a way to re-side one wall so it all matches.' },
+  { q: 'Do you have to tear off the old siding?', a: 'Not always. If the wall underneath is sound and code allows, an overlay can work. We usually recommend removal so we can check for rot and install a proper weather barrier, and we explain why.' },
+  { q: 'Do you fix rot behind the old siding?', a: 'Yes. We photograph what we find and replace only the wood that needs it.' },
+  { q: 'What affects the cost of new siding?', a: 'Wall area and number of stories, the material, profile and color, the trim package (soffit, fascia, window and door wraps), and any sheathing repair or insulation. You get a written quote with options.' },
+  { q: 'Can you replace soffit and fascia at the same time?', a: 'Yes, and it\'s the best time to do it. See <a href="#soffit-fascia">soffit and fascia</a> below.' },
+  { q: 'What maintenance does siding need?', a: 'Vinyl and metal need an occasional rinse. Fiber cement and engineered wood may need repainting over the years, following the manufacturer\'s guidance.' },
+];
+---
+<Base
+  title="Siding Installation & Repair in Staten Island, NY | B&B Roofing"
+  description="Siding installation and repair in Staten Island, NY: vinyl, fiber cement and engineered wood, plus soffit and fascia. Free estimate: (718) 981-7663."
+  crumbs={crumbs}
+  schema={[service('Siding installation and repair', href, desc), service('Soffit and fascia repair', `${href}#soffit-fascia`, 'Rotted soffit and fascia replaced and wrapped in aluminum on Staten Island homes.')]}
+  image={house.src}
+>
+  <PageHero title="Siding installation & repair in Staten Island" eyebrow="Siding · soffit · fascia" crumbs={crumbs}
+    intro="Damaged or tired siding lets water into the walls. We install and repair vinyl, fiber cement, engineered wood and metal siding, and fix what's rotted underneath before it's covered up.">
+    <div class="btn-row"><a class="btn btn--light" href={business.phoneHref}><Icon name="phone" /> {business.phone}</a></div>
+    <EstimateForm slot="side" title="Get a siding estimate" service="siding" />
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap split">
+      <figure class="photo" data-reveal>
+        <Image src={house} alt="Two-story Staten Island home with vinyl siding and scalloped accent siding" widths={[480, 800, 1100]} sizes="(max-width: 860px) 100vw, 560px" quality={72} />
+        <figcaption>Vinyl siding with a scalloped accent band on a two-story home.</figcaption>
+      </figure>
+      <div class="stack" data-reveal>
+        <p class="eyebrow">More than looks</p>
+        <h2>Siding is your home's raincoat</h2>
+        <p class="lead">Cracked or loose siding lets wind-driven rain behind the wall, where it rots sheathing and framing out of sight.</p>
+        <p>Because we're roofers, we handle the places where siding meets the roof, windows and doors: the flashing, the drip edges and the trim. That's where most siding leaks start.</p>
+        <ul class="checks">
+          <li><Icon name="check" /> Full replacement or repair of damaged sections</li>
+          <li><Icon name="check" /> House wrap and flashing done properly underneath</li>
+          <li><Icon name="check" /> Soffit, fascia and trim in the same job</li>
+          <li><Icon name="check" /> Manufacturer materials plus our workmanship guarantee</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">Materials</p><h2>Siding options for Staten Island weather</h2>
+        <p class="lead">Profiles include clapboard, Dutch lap, board-and-batten, cedar shake and scallop accents, with matching corners, window and door trim.</p></div>
+      <ul class="mats">{materials.map(([t, b], i) => <li class="card" data-reveal style={`--d: ${i * 0.07}s`}><h3>{t}</h3><p>{b}</p></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="stack" data-reveal>
+        <p class="eyebrow">Siding repair</p>
+        <h2>Signs your siding needs work</h2>
+        <ul class="signs">{signs.map((s) => <li><Icon name="check" /> {s}</li>)}</ul>
+        <p>One damaged area is usually a repair. Problems on several walls, or repairs that keep coming back, usually mean it's time to re-side.</p>
+      </div>
+      <div class="pair" data-reveal>
+        <figure><Image src={damage} alt="Vinyl siding with holes punched through two panels" widths={[360, 600]} sizes="(max-width: 860px) 50vw, 270px" quality={72} /><figcaption>Holes in vinyl panels let rain behind the wall.</figcaption></figure>
+        <figure><Image src={newVinyl} alt="New light gray vinyl siding next to a window" widths={[360, 600]} sizes="(max-width: 860px) 50vw, 270px" quality={72} /><figcaption>New vinyl siding, tight around the window trim.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cloud has-skyline" id="soffit-fascia">
+    <Skyline class="edge" flip />
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal>
+        <p class="eyebrow">Soffit & fascia</p>
+        <h2>Soffit and fascia repair</h2>
+        <p class="lead">The fascia board holds your gutters, and the soffit lets your attic breathe. When they rot, gutters pull away, water gets into the roof edge and animals get into the attic.</p>
+      </div>
+      <div class="fascia" data-reveal>
+        <figure><span class="tag">Before</span><Image src={fasciaBefore} alt="Rotted wood fascia and soffit at the corner of a brick house" widths={[400, 700]} sizes="(max-width: 760px) 100vw, 380px" quality={72} /><figcaption>Rotted fascia and soffit at the corner of a brick house.</figcaption></figure>
+        <figure><span class="tag tag--after">After</span><Image src={fasciaAfter} alt="New fascia wrapped in white aluminum with new drip edge at the same house" widths={[400, 700]} sizes="(max-width: 760px) 100vw, 380px" quality={72} /><figcaption>Same job: new wood wrapped in white aluminum, with new drip edge.</figcaption></figure>
+        <div class="stack fascia__copy">
+          <h3>What we do</h3>
+          <ul class="checks">
+            <li><Icon name="check" /> Replace rotted fascia boards and soffit framing</li>
+            <li><Icon name="check" /> Wrap fascia in color-matched aluminum so it never needs paint</li>
+            <li><Icon name="check" /> Vented soffit panels to improve attic airflow and roof life</li>
+            <li><Icon name="check" /> Rehang or replace gutters on the new fascia</li>
+          </ul>
+          <p><a href="/gutters/">Gutters and downspouts →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark has-skyline">
+    <Skyline class="edge" />
+    <div class="wrap stack-lg">
+      <div class="head center" data-reveal><p class="eyebrow">How it works</p><h2>Your siding project, step by step</h2></div>
+      <ProcessRidge steps={steps} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="stack" data-reveal>
+        <p class="eyebrow">Worth adding</p>
+        <h2>Do it once, do it together</h2>
+        <ul class="checks">
+          <li><Icon name="check" /> <span><strong>Insulated siding or underlayment</strong> for lower heating bills and a quieter house.</span></li>
+          <li><Icon name="check" /> <span><strong>New gutters</strong> so overflow doesn't stain or rot the new siding.</span></li>
+          <li><Icon name="check" /> <span><strong>Soffit ventilation</strong> to help the attic and the roof last longer.</span></li>
+          <li><Icon name="check" /> <span><strong>Accent walls</strong> in shake or board-and-batten for curb appeal.</span></li>
+        </ul>
+      </div>
+      <figure class="photo" data-reveal>
+        <Image src={soffits} alt="New siding and white soffit under a roof overhang against a blue sky" widths={[480, 800, 1100]} sizes="(max-width: 860px) 100vw, 560px" quality={72} />
+        <figcaption>New siding and vented soffit installed together.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--cloud">
+    <div class="wrap stack-lg">
+      <div class="head center" data-reveal><p class="eyebrow">Reviews</p><h2>What homeowners say</h2></div>
+      <ReviewSigns count={3} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap stack-lg">
+      <div class="head" data-reveal><p class="eyebrow">FAQ</p><h2>Siding questions</h2></div>
+      <Faq items={faqs} />
+      <p class="muted">Related: <a href="/gutters/">Gutters</a> · <a href="/roofing/roof-replacement/">Roof replacement</a> · <a href="/roofing/roof-repair/">Roof repair</a> · <a href="/service-areas/staten-island/">Staten Island neighborhoods</a></p>
+    </div>
+  </section>
+
+  <CtaBand title="Ready to protect and refresh your home?" />
+</Base>
+
+<style>
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+  .photo { margin: 0; display: grid; gap: 10px; }
+  .photo :global(img) { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; box-shadow: var(--shadow); }
+  figcaption { color: var(--muted); font-size: 1rem; }
+  .checks { list-style: none; display: grid; gap: 10px; }
+  .checks li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; }
+  .checks li strong { font-weight: 700; }
+  .checks li span { font-weight: 400; }
+  .checks :global(svg) { width: 22px; height: 22px; color: var(--green); flex: none; margin-top: 3px; }
+  .mats { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 960px) { .mats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .mats { grid-template-columns: 1fr; } }
+  .mats .card { border-top: 5px solid var(--orange); }
+  .signs { list-style: none; display: grid; gap: 10px; font-weight: 600; }
+  .signs li { display: flex; gap: 10px; align-items: flex-start; }
+  .signs :global(svg) { width: 22px; height: 22px; color: var(--orange); flex: none; margin-top: 3px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .pair figure, .fascia figure { margin: 0; display: grid; gap: 8px; position: relative; }
+  .pair :global(img) { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 14px; box-shadow: var(--shadow-sm); }
+  .fascia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.1fr); gap: 18px; align-items: start; }
+  @media (max-width: 960px) { .fascia { grid-template-columns: 1fr 1fr; } .fascia__copy { grid-column: 1 / -1; } }
+  @media (max-width: 560px) { .fascia { grid-template-columns: 1fr; } }
+  .fascia :global(img) { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 14px; box-shadow: var(--shadow-sm); }
+  .fascia h3 { font-size: 1.625rem; }
+  .tag { position: absolute; z-index: 1; left: 10px; top: 10px; padding: 5px 12px; border-radius: 999px; font-weight: 700; font-size: .9375rem; letter-spacing: .06em; text-transform: uppercase; background: rgba(16,35,58,.85); color: #fff; }
+  .tag--after { background: var(--orange); }
+</style>
