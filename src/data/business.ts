@@ -18,7 +18,7 @@ export const business = {
   },
   hours: 'Mon–Sun 7am–9pm',
   // Matches the Google Business Profile pin (owner-confirmed, 21 Oct 2026).
-  geo: { lat: 40.5965, lng: -74.06754 },
+  geo: { lat: 40.59633, lng: -74.06752 },
   emergency: '24/7 emergency service for active leaks',
   responsePromise: 'We contact you within 24 hours.',
   license: 'NYC DCWP HIC License #2125865-DCWP',
