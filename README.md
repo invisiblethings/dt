@@ -16,7 +16,8 @@ npm run preview   # serve dist/
 | Path | What |
 | --- | --- |
 | `src/data/business.ts` | Name, address, phone, hours, license, stats, warranty. **Single source of truth for NAP**: edit here, not in pages. |
-| `src/data/projects.json` + `src/assets/projects/` | 19 before/after pairs from CompanyCam. Each pair was checked to be the same viewpoint; EXIF/GPS stripped. |
+| `src/data/projects.json` + `src/assets/projects/` | 19 before/after pairs from CompanyCam. Each pair was checked to be the same viewpoint. |
+| `src/assets/projects/exif/` + `scripts/restore-exif.mjs` | Each photo's original CompanyCam metadata (date, camera, GPS where the original had it), written back into every generated WebP after the build. Kept at the owner's request; customers have agreed. |
 | `src/data/zips.ts` | Job counts per Staten Island ZIP (counts only, no addresses). |
 | `src/data/reviews.ts` | Verbatim Google review excerpts. |
 | `src/data/services.ts` | All services; `built: false` ones link to the estimate form until their pages exist. |
