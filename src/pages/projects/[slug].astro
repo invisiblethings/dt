@@ -24,14 +24,13 @@ const story = {
   flat: `This ${place} flat roof had stopped doing its job. We opened it up, dealt with what we found underneath, and installed a new membrane with every edge and penetration detailed to keep water out.`,
   repair: `We tracked down where water was getting in on this ${place} roof and rebuilt the failing section so it drains and seals properly.`,
 }[p.kind as 'replacement' | 'flat' | 'repair'];
-const schema = { '@type': 'CreativeWork', name: p.title, about: p.service, dateCreated: p.date, locationCreated: { '@type': 'Place', name: p.area, address: { '@type': 'PostalAddress', postalCode: p.zip } }, creator: { '@id': orgId } };
+const schema = { '@type': 'CreativeWork', name: p.title, about: p.service, locationCreated: { '@type': 'Place', name: p.area, address: { '@type': 'PostalAddress', postalCode: p.zip } }, creator: { '@id': orgId } };
 ---
-<Base title={`${p.title} | B&B Roofing`} description={`Before & after photos of a ${p.service.toLowerCase()} in ${p.area} by B&B Roofing, ${p.monthYear}. Same-angle photos from our own job records.`} crumbs={crumbs} schema={[schema]} image={p.after.src}>
-  <PageHero title={p.title} eyebrow={`${p.region} · ${p.monthYear}`} crumbs={crumbs} trust={false}>
+<Base title={`${p.title} | B&B Roofing`} description={`Before & after photos of a ${p.service.toLowerCase()} in ${p.area} by B&B Roofing & Gutters. Same-angle photos from our own job records.`} crumbs={crumbs} schema={[schema]} image={p.after.src}>
+  <PageHero title={p.title} eyebrow={p.region} crumbs={crumbs} trust={false}>
     <dl class="facts">
       <div><dt>Service</dt><dd>{p.service}</dd></div>
       <div><dt>Location</dt><dd>{p.area} {p.zip}</dd></div>
-      <div><dt>Completed</dt><dd>{p.monthYear}</dd></div>
       <div><dt>Job photos on file</dt><dd>{p.photos}</dd></div>
     </dl>
   </PageHero>

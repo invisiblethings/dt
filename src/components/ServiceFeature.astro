@@ -13,7 +13,7 @@ const { p, eyebrow = 'Featured project', body } = Astro.props;
     <p class="muted">{body ?? `Both photos were taken from the same spot: before the job and after it. Drag the handle to compare.`}</p>
     <dl class="sf__facts">
       <div><dt>Area</dt><dd>{p.area}</dd></div>
-      <div><dt>Completed</dt><dd>{p.monthYear}</dd></div>
+      <div><dt>Service</dt><dd>{p.service}</dd></div>
       <div><dt>Job photos on file</dt><dd>{p.photos}</dd></div>
     </dl>
     <p><a href={p.href}>Open the project →</a></p>

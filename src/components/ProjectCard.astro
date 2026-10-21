@@ -12,7 +12,7 @@ const { p } = Astro.props;
       <figure><Image quality={72} src={p.after} alt={`After: ${p.title}`} widths={[320, 560]} sizes="(max-width: 620px) 50vw, 200px" loading="lazy" /><figcaption class="pc__after">After</figcaption></figure>
     </div>
     <div class="pc__body">
-      <p class="pc__meta">{p.region} · {p.monthYear}</p>
+      <p class="pc__meta">{p.region}</p>
       <h3>{p.title}</h3>
       <span class="pc__more">See this project <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </div>

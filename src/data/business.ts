@@ -27,7 +27,7 @@ export const business = {
   owners: ['Bill', 'Brian'],
   stats: {
     rating: '5.0',
-    reviews: '225+',
+    reviews: '268', // Google Business Profile count, 21 Oct 2026. Update as it grows.
     projects: '2,000+',
     satisfaction: '99%',
   },

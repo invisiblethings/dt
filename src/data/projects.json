@@ -1,6 +1,6 @@
 [
  {
-  "slug": "roof-replacement-st-george-2023",
+  "slug": "roof-replacement-st-george",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "St. George, Staten Island",
@@ -13,7 +13,7 @@
   "after": "cs01-after.webp"
  },
  {
-  "slug": "roof-replacement-west-brighton-2023",
+  "slug": "roof-replacement-west-brighton",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "West Brighton, Staten Island",
@@ -26,7 +26,7 @@
   "after": "cs02-after.webp"
  },
  {
-  "slug": "roof-replacement-stapleton-2026",
+  "slug": "roof-replacement-stapleton",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "Stapleton, Staten Island",
@@ -39,7 +39,7 @@
   "after": "cs03-after.webp"
  },
  {
-  "slug": "roof-replacement-port-richmond-2023",
+  "slug": "roof-replacement-port-richmond",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "Port Richmond, Staten Island",
@@ -52,7 +52,7 @@
   "after": "cs05-after.webp"
  },
  {
-  "slug": "roof-replacement-new-dorp-2023",
+  "slug": "roof-replacement-new-dorp",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "New Dorp, Staten Island",
@@ -65,7 +65,7 @@
   "after": "cs06-after.webp"
  },
  {
-  "slug": "roof-replacement-willowbrook-2024",
+  "slug": "roof-replacement-willowbrook",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "Willowbrook, Staten Island",
@@ -78,7 +78,7 @@
   "after": "cs07-after.webp"
  },
  {
-  "slug": "roof-replacement-eltingville-annadale-2023",
+  "slug": "roof-replacement-eltingville-annadale",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "Eltingville / Annadale, Staten Island",
@@ -91,7 +91,7 @@
   "after": "cs09-after.webp"
  },
  {
-  "slug": "roof-replacement-great-kills-2023",
+  "slug": "roof-replacement-great-kills",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "Great Kills, Staten Island",
@@ -104,7 +104,7 @@
   "after": "cs10-after.webp"
  },
  {
-  "slug": "roof-replacement-tottenville-2024",
+  "slug": "roof-replacement-tottenville-2",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "Tottenville, Staten Island",
@@ -117,7 +117,7 @@
   "after": "cs12-after.webp"
  },
  {
-  "slug": "flat-roof-restoration-brooklyn-2026",
+  "slug": "flat-roof-restoration-brooklyn",
   "service": "Flat roof restoration",
   "kind": "flat",
   "area": "Brooklyn, NY",
@@ -130,7 +130,7 @@
   "after": "cs13-after.webp"
  },
  {
-  "slug": "porch-roof-replacement-brooklyn-2026",
+  "slug": "porch-roof-replacement-brooklyn",
   "service": "Porch roof replacement",
   "kind": "replacement",
   "area": "Brooklyn, NY",
@@ -143,7 +143,7 @@
   "after": "cs14-after.webp"
  },
  {
-  "slug": "roof-replacement-denville-nj-2023",
+  "slug": "roof-replacement-denville-nj",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "Denville, NJ",
@@ -156,7 +156,7 @@
   "after": "cs20-after.webp"
  },
  {
-  "slug": "roof-replacement-mariners-harbor-2022",
+  "slug": "roof-replacement-mariners-harbor",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "Mariners Harbor, Staten Island",
@@ -169,7 +169,7 @@
   "after": "cs-s223-after.webp"
  },
  {
-  "slug": "rowhouse-roof-replacement-mariners-harbor-2023",
+  "slug": "rowhouse-roof-replacement-mariners-harbor",
   "service": "Rowhouse roof replacement",
   "kind": "replacement",
   "area": "Mariners Harbor, Staten Island",
@@ -182,7 +182,7 @@
   "after": "cs-s229-after.webp"
  },
  {
-  "slug": "roof-replacement-tottenville-2022",
+  "slug": "roof-replacement-tottenville",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "Tottenville, Staten Island",
@@ -195,7 +195,7 @@
   "after": "cs-s305-after.webp"
  },
  {
-  "slug": "flat-roof-replacement-bay-ridge-brooklyn-2025",
+  "slug": "flat-roof-replacement-bay-ridge-brooklyn",
   "service": "Flat roof replacement",
   "kind": "flat",
   "area": "Bay Ridge, Brooklyn",
@@ -208,7 +208,7 @@
   "after": "cs-s383-after.webp"
  },
  {
-  "slug": "multifamily-flat-roof-kensington-brooklyn-2026",
+  "slug": "multifamily-flat-roof-kensington-brooklyn",
   "service": "Multifamily flat roof",
   "kind": "flat",
   "area": "Kensington, Brooklyn",
@@ -221,7 +221,7 @@
   "after": "cs-s385-after.webp"
  },
  {
-  "slug": "flat-roof-skylight-st-george-2025",
+  "slug": "flat-roof-skylight-st-george",
   "service": "Flat roof & skylight",
   "kind": "flat",
   "area": "St. George, Staten Island",
@@ -234,7 +234,7 @@
   "after": "cs-s201-after.webp"
  },
  {
-  "slug": "roof-replacement-monroe-township-nj-2026",
+  "slug": "roof-replacement-monroe-township-nj",
   "service": "Roof replacement",
   "kind": "replacement",
   "area": "Monroe Township, NJ",

@@ -34,4 +34,4 @@ export const projects: Project[] = raw
 export const regions = ['North Shore', 'Mid-Island', 'South Shore', 'Brooklyn', 'New Jersey'] as const;
 
 export const byKind = (kind: string) => projects.filter((p) => p.kind === kind);
-export const findProject = (slugPart: string) => projects.find((p) => p.slug.includes(slugPart))!;
+export const findProject = (slugPart: string) => projects.find((p) => p.slug === slugPart) ?? projects.find((p) => p.slug.includes(slugPart))!;
