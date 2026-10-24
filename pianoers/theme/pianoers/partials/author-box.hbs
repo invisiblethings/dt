@@ -1,0 +1,16 @@
+{{#primary_author}}
+    <section class="pz-author" aria-label="About the author">
+        {{#if profile_image}}
+            <img class="pz-author-img" src="{{img_url profile_image size="xs" format="webp"}}" alt="{{name}}" width="72" height="72" loading="lazy" decoding="async">
+        {{/if}}
+        <div class="pz-author-body">
+            <span class="pz-eyebrow">Written by</span>
+            <a class="pz-author-name" href="{{url}}">{{name}}</a>
+            {{#if bio}}<p>{{bio}}</p>{{/if}}
+            <p class="pz-author-links">
+                <a href="{{url}}">More from {{name}}</a>
+                {{#if website}} · <a href="{{website}}" rel="noopener" target="_blank">Website</a>{{/if}}
+            </p>
+        </div>
+    </section>
+{{/primary_author}}
