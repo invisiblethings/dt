@@ -39,7 +39,7 @@ Pushing to `main` redeploys automatically (see `.do/app.yaml`).
    form opens the visitor's email app with the request pre-filled to support@axecontracting.org.
 4. **Photos:** add real project photos to `/projects/` and the service pages (WebP, ≤ 200 KB,
    descriptive file names and alt text).
-5. **DigitalOcean:** create the app from `.do/app.yaml`, add `axecontracting.org` + `www`, update DNS.
+5. **DigitalOcean:** apply `.do/app.yaml` (Settings -> App Spec -> Edit, or `doctl apps update`). It attaches `axecontracting.org` + `www` and 301-redirects www to the bare domain. Then update DNS.
 6. **Google:** verify in Search Console and submit `https://axecontracting.org/sitemap.xml`;
    set the Google Business Profile website to `https://axecontracting.org/`; make the GBP
    services list match the service pages. Do the same in Bing Webmaster Tools.

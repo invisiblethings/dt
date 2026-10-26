@@ -1,20 +1,46 @@
 # DigitalOcean App Platform spec: free static site served from /public.
-# Create the app with: doctl apps create --spec .do/app.yaml
-# (or in the DO dashboard: Create App -> GitHub -> invisiblethings/dt, then
-#  set Source Directory to /public; no build command needed).
+#
+# App Platform does not read this file from the repo automatically. Apply it with
+#   doctl apps update <app-id> --spec .do/app.yaml
+# or paste it into the dashboard: your app -> Settings -> App Spec -> Edit.
+#
+# Note: this branch, not main, holds the AXE site (main currently holds a
+# different project), so the app deploys from this branch.
 name: axe-contracting
 static_sites:
   - name: web
     github:
       repo: invisiblethings/dt
-      branch: main
+      branch: claude/exciting-bardeen-x47had
       deploy_on_push: true
     source_dir: public
     error_document: 404.html
-# After the app is live, add the domain under Settings -> Domains
-# (axecontracting.org + www) and point DNS at DigitalOcean as instructed there.
-# domains:
-#   - domain: axecontracting.org
-#     type: PRIMARY
-#   - domain: www.axecontracting.org
-#     type: ALIAS
+
+# Both hostnames must be attached to the app so it can answer for www.
+# DNS: point axecontracting.org and www.axecontracting.org at DigitalOcean as
+# the dashboard instructs after the domains are added.
+domains:
+  - domain: axecontracting.org
+    type: PRIMARY
+  - domain: www.axecontracting.org
+    type: ALIAS
+
+ingress:
+  rules:
+    # www.axecontracting.org/<path>  ->  301  https://axecontracting.org/<path>
+    - match:
+        authority:
+          exact: www.axecontracting.org
+        path:
+          prefix: /
+      redirect:
+        authority: axecontracting.org
+        scheme: https
+        redirect_code: 301
+    # Everything else is served by the static site. Once ingress rules exist,
+    # this rule is required; without it nothing is routed to the site.
+    - match:
+        path:
+          prefix: /
+      component:
+        name: web
