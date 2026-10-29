@@ -1,3 +1,7 @@
+> **Resolved, 29 Oct 11:27: false alarm.** A manual Google search in a private Chrome window shows **Pianoers as the #1 organic result** for "best digital piano", with sitelinks, directly below the AI Overview. The "not in top 100" readings came from the DataForSEO rank tracker. It returned inconsistent data that day, in line with the tracking-tool problems reported in late October. Nothing was removed, penalised or blocked. The notes below are kept for the record.
+>
+> **The real gap:** the AI Overview sits above the #1 result and doesn't cite Pianoers. It names the Roland FP-30X ($649.99) as "best overall" and lists "Top Digital Pianos by Category". Its side panel links to M. Steinert & Sons and Pianodreamers. See GSC-AUDIT.md for how to win a citation.
+
 # Google visibility drop: checks on 29 Oct 2026
 
 ## What the live Google data shows (DataForSEO, google.com, top 100)

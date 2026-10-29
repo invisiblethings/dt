@@ -10,7 +10,7 @@ Method: SERP overlap. I compared each keyword's Google top 10 with the top 10 fo
 
 | Keyword (28-day impressions) | Shared with "best digital piano" | Pianoers ranks | What Google shows | Verdict |
 |---|---|---|---|---|
-| best digital piano (≈20k across variants) | n/a | **not in the top 10 in this snapshot** (Search Console average: 3.6) | Pianodreamers, Pianist's Compass, Reddit, Merriam, Flykeys, Amazon, Mixbutton; plus an AI Overview and People Also Ask | **Hub.** The main page to improve |
+| best digital piano (≈20k across variants) | n/a | **#1 organic** (manual private-window check, 29 Oct). The rank tracker missed it | Pianodreamers, Pianist's Compass, Reddit, Merriam, Flykeys, Amazon, Mixbutton; plus an AI Overview and People Also Ask | **Hub.** The main page to improve |
 | electric piano (33,156) | 0 URLs, but the **same kind of page** (roundups plus shops) | **#2** | Pianodreamers, Pianoers, MusicRadar, then shops (Schmitt, West, Guitar Center, Yamaha); plus an AI Overview, local pack and product carousel | **Keep in the hub.** Google treats it as shopping, not as a definition |
 | digital piano (6,940) | 0 | – | Amazon, Best Buy and Walmart category pages only; plus product considerations | **Don't target.** Pure shopping results that a blog can't win |
 | best portable digital piano (≈5k) | 0 | **#3 US, #2 UK** | General roundups (Pianodreamers "All Price Points"), Reddit, retailers | **Keep in the hub** and add a portable section. A new page would compete with a position you already hold |

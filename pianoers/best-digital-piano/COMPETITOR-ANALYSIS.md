@@ -13,7 +13,7 @@ Checked 29 Oct 2026. These are the Google US desktop top 5 for "best digital pia
 | Merriam Music tag page | #5 | **61** | 1 | 0 | 0 | – | CollectionPage | – |
 | Pianodreamers: "Best Digital Pianos & Keyboards 2026 (All Price Points)" | #1 electric piano | 11,087 | 108 | **9** | product boxes | **10** | BlogPosting, Person | 2019 → Sep 2026 |
 | MusicRadar: "Best digital pianos 2026" | #4 electric piano | 7,058 | 66 | 0 | **10** | many | Article, **ItemList**, Breadcrumb | 2022 → Jul 2026 |
-| **Pianoers /best-digital-piano/** | #2 electric piano; Search Console average 3.6 for best digital piano | 5,234 | 20 | **0** | **0** | **4** (only 1 is a piano review) | Article, FAQPage | Mar 2026 → Oct 2026 |
+| **Pianoers /best-digital-piano/** | **#1 organic for best digital piano** (manual check, 29 Oct) and #2 for electric piano | 5,234 | 20 | **0** | **0** | **4** (only 1 is a piano review) | Article, FAQPage | Mar 2026 → Oct 2026 |
 
 ## Authority (DataForSEO)
 
