@@ -1,60 +1,58 @@
-# One article or several? Keyword split for /best-digital-piano/
+# One article or several? Keyword split for /best-digital-piano/ (Google data)
 
-Checked 29 Oct 2026. Method: SERP overlap.
+Checked 29 Oct 2026 with **live Google results** from the DataForSEO SERP API: google.com, US and UK, desktop, English, top 10. The raw results are in `google-serps-2026-10-29.json`.
 
-I searched each keyword group and compared the results with those for "best digital piano". If Google ranks the same pages for both, one article should cover both. If Google ranks different, specialised pages, the keyword needs its own article.
+This replaces an earlier version, which used a general web search tool rather than Google. Two conclusions changed: "electric piano" and "best portable digital piano" now stay in the hub.
 
-The search tool returns about 9 results, some of them spam or mirror sites, so treat the overlap counts as a strong signal rather than an exact Google top 10. The impressions come from your Search Console export (last 28 days).
+Method: SERP overlap. I compared each keyword's Google top 10 with the top 10 for "best digital piano". Shared URLs mean one page can serve both. Different pages mean the keyword needs its own article. I also looked at **where Pianoers already ranks**, because a page that already holds a top-3 spot shouldn't be split.
 
-## Results
+## Results (Google US, desktop)
 
-| Keyword group (28-day impressions, our position) | URLs shared with "best digital piano" | What Google ranks | Verdict |
-|---|---|---|---|
-| best digital piano / best digital pianos 2026 (≈20k, 3.6–5.1) | n/a | Big roundups: MusicRadar, Popular Science, Expert Reviews, American Songwriter | **Hub.** Keep and improve |
-| best digital piano for advanced / intermediate players (≈5.3k, 4.8) | 2 of 9 (Produce Like A Pro, American Songwriter) | Mostly dedicated "advanced pianist" pages: Piano Dreamers, findingdulcinea, Guitarfella, cmuse | **New article.** Keep a short section in the hub |
-| best portable digital piano / small apartment / travel (≈5k, 6.4) | 0 | Dedicated portable guides: Gear4music, findingdulcinea, Guitarfella, Pianist's Compass | **New article** |
-| best digital piano under $1,000 (budget tiers, ≈9.9k incl. year queries, 5.7) | 0 | Budget-specific pages: Merriam Music, Andertons, Hoffman Academy | **New article** for under $1,000. "Under $500" belongs to /best-beginner-pianos/ |
-| Yamaha vs Roland (vs Kawai vs Casio) (≈3k, 1–9.5) | 0 | Head-to-head comparisons: Merriam Music, MusicianWave, Medium | **New article.** You're already shown at position 1 with 0 clicks, so a real comparison page can collect them |
-| best stage piano (≈520, 5–8) | 0 | Stage-piano guides: MusicRadar, Andertons, findingdulcinea | **New article** (small but distinct). Low priority |
-| best digital piano with weighted keys (≈10.7k, 8.5) | 0 | "Weighted keys" pages: Simply, Donner, Gear4music, findingdulcinea | **Test in the hub first.** See note 1 |
-| electric piano / digital piano / electronic piano (≈61k, 8.6–11) | 0 | Wikipedia definitions plus shops and deal pages | **Informational explainer article**, plus a short section in the hub. See note 2 |
-| best 88 key keyboard for beginners / beginner queries (≈6.2k, 5.9) | 0 | Beginner-keyboard guides | **Move to /best-beginner-pianos/.** Shrink the beginner part of the hub |
-| best hybrid piano / digital grand / home and console (≈1.7k) | 0 | Retailer category pages, thin results | **Keep as hub sections.** Too small and too retail to win alone |
+| Keyword (28-day impressions) | Shared with "best digital piano" | Pianoers ranks | What Google shows | Verdict |
+|---|---|---|---|---|
+| best digital piano (≈20k across variants) | n/a | **not in the top 10 in this snapshot** (Search Console average: 3.6) | Pianodreamers, Pianist's Compass, Reddit, Merriam, Flykeys, Amazon, Mixbutton; plus an AI Overview and People Also Ask | **Hub.** The main page to improve |
+| electric piano (33,156) | 0 URLs, but the **same kind of page** (roundups plus shops) | **#2** | Pianodreamers, Pianoers, MusicRadar, then shops (Schmitt, West, Guitar Center, Yamaha); plus an AI Overview, local pack and product carousel | **Keep in the hub.** Google treats it as shopping, not as a definition |
+| digital piano (6,940) | 0 | – | Amazon, Best Buy and Walmart category pages only; plus product considerations | **Don't target.** Pure shopping results that a blog can't win |
+| best portable digital piano (≈5k) | 0 | **#3 US, #2 UK** | General roundups (Pianodreamers "All Price Points"), Reddit, retailers | **Keep in the hub** and add a portable section. A new page would compete with a position you already hold |
+| best stage piano (≈520) | 0 | **#4** | Pianodreamers, Reddit, forums, Roland, Bax | **Keep in the hub** as a section |
+| best digital piano with weighted keys (≈10.7k) | 1 | – | Pianodreamers (advanced), Pianist's Compass, Facebook, Reddit, Amazon, Quora, Yamaha shop, Guitar Center | **Test in the hub first** (title and section). Split only if it stays below 7 after 6 to 8 weeks |
+| best digital piano for advanced players (≈5.3k) | 3 | – (Search Console: 4.0) | azpianoreviews, Pianist's Compass, **Quora ×2, Reddit, Piano World forum ×2** | **New article.** Half the results are forum threads, which means there's no strong dedicated guide yet |
+| best digital piano under $1000 | 0 (UK: 2) | – | azpianoreviews, Pianodreamers, **Reddit, Piano World ×2, Quora, talks.pianodreamers**, Adorama | **New article.** Again mostly forums, so a good page can win |
+| Yamaha vs Roland digital piano (≈3k) | 0 | – | **Reddit, Facebook ×2, Piano World, Medium**, 1st-note, Merriam | **New article** (Yamaha vs Roland vs Kawai vs Casio). Forum-heavy results are a gap you can fill |
+| best 88 key keyboard for beginners (≈2k) | 0 | **#2 with /best-beginner-pianos/** | Beginner keyboard guides | **Already solved.** Google picks your beginner page, so keep beginner content there |
+| best hybrid piano | 0 | – | MusicRadar, Reddit, manufacturer and dealer pages (Kawai, Yamaha, PianoBuyer) | **Keep as a hub section.** Dealer-led results |
+| what is the best piano (3,810) | 0 | **#3** | Reddit, MusicRadar, Pianoers, brand lists | **Keep in the hub.** A "best piano brands" article could come later |
 
-**Note 1: weighted keys.** The search results are different, but the products are almost the same: every pick on the hub already has weighted keys. A separate weighted-keys page would compete with the hub for the same models. So first put "Weighted Keys" in the hub's title and add a section explaining the actions. If the hub is still below position 7 for these queries after 6 to 8 weeks, then write the dedicated article.
+UK results agree. "best digital piano" shares 10/10 URLs between the US and UK views. "Best digital piano for advanced players" and "under 1000" also lean on forums and retailers there. Pianoers is #2 in the UK for "best portable digital piano".
 
-**Note 2: "electric piano" and "digital piano".** These are mainly definition searches: Wikipedia ranks first for both, and the rest are shops. A "best of" list can't satisfy that intent, which is why the hub gets 33,000 impressions but almost no clicks. Write an explainer, *"Electric piano vs digital piano vs keyboard: what's the difference?"*, which also belongs in the instrument cluster of your topical map. In the hub, add a 120-word section, and link the hub's first use of the words to the explainer. Don't expect the hub to rank for "digital piano" on its own.
+## Why clicks are low even where you rank well
 
-## Recommended structure
+Almost every one of these results pages shows an **AI Overview**, a **product carousel ("popular products")**, People Also Ask, and often videos and Reddit. "Electric piano" also has a **local pack** of shops. These push the organic results down. That's why you get, for example, 33,000 impressions and 55 clicks at #2 for "electric piano".
 
-```
-/best-digital-piano/  (hub: every level and budget, one table, short sections that link out)
- ├── /best-digital-piano-for-advanced-players/    new, P1
- ├── /best-portable-digital-piano/                new, P1 (small spaces, travel, gigging)
- ├── /best-digital-piano-under-1000/              new, P1
- ├── /yamaha-vs-roland-digital-piano/             new, P2 (adds Kawai and Casio)
- ├── /best-stage-piano/                           new, P3
- ├── /electric-piano-vs-digital-piano/            new explainer, P2 (cluster: the instrument)
- ├── /best-beginner-pianos/                       existing: takes all beginner and "under $500" queries
- └── weighted keys                                hub section now; separate article only if the test fails
-```
+What helps against that:
+- A snippet that promises something the carousel doesn't: tested picks, one comparison table, current prices.
+- Being the page the AI Overview quotes, with clear answer-first sections and a table.
 
-## Rules so the pages help each other
+## Revised plan
 
-1. **One page per main keyword.** Each new article's title, H1 and URL targets its own phrase. The hub doesn't use "for advanced players", "portable" or "under $1,000" in its title.
-2. **The hub keeps short sections with a clear link to each spoke.** For example, a 3-row summary under "Best for advanced players", then "See all 7 in my best digital pianos for advanced players guide". Don't copy full reviews between pages.
-3. **Each spoke links back to the hub** ("all budgets and levels") and to its neighbours.
-4. **Different picks or a different angle per page.** Advanced leads with the FP-90X, P-525, ES920 and CA-series. Portable leads with the PX-S1100/S3100, FP-10, P-225 and Korg Liano. Under $1,000 is ranked by value per dollar.
-5. **Check for cannibalization monthly.** In Search Console, filter each target query and look at the Pages tab. If two of your URLs keep swapping for one query, merge them or sharpen the difference.
+**Hub (/best-digital-piano/): put these in now**
+- Everything in GSC-AUDIT.md: the new title and meta, the comparison table, verdict cards, and current prices.
+- The words "electric piano" and "weighted keys" in the title, intro and one section.
+- New short sections: **portable and small spaces**, **stage pianos**, **weighted-key actions explained**, **hybrid and digital grand**, and a summary of **advanced picks** linking to the new article.
+- Shrink the beginner section and point it to /best-beginner-pianos/, which Google already prefers.
 
-## Order of work
+**New articles, in this order**
+1. `/best-digital-piano-for-advanced-players/`: forum-heavy results, and Search Console already shows 5.3k impressions.
+2. `/best-digital-piano-under-1000/`: forum-heavy results with a clear budget intent.
+3. `/yamaha-vs-roland-digital-piano/` (adding Kawai and Casio): forum-heavy results, and you're already shown for it.
 
-1. **Update the hub now:** the quick wins from GSC-AUDIT.md, the comparison table, verdict cards, short sections for the new topics, and the shrunk beginner section.
-2. **Weeks 2–6:**
-   - best digital piano for advanced players, which has the strongest data (already position 4 with no section)
-   - best portable digital piano
-   - best digital piano under $1,000
-3. **Weeks 6–10:**
-   - Yamaha vs Roland (vs Kawai vs Casio)
-   - electric piano vs digital piano explainer
-4. **Later:** best stage piano. Write the weighted-keys article only if the hub test fails.
+**Not worth a separate article now:** "digital piano" (shops only), stage, portable, hybrid and electric piano (the hub already ranks for these). The same goes for weighted keys, unless the hub test fails.
+
+## Rules so the pages don't compete
+1. Each new article targets its own phrase in the title, H1 and URL. The hub's title doesn't use those phrases.
+2. The hub keeps a short summary of each topic (3 picks) with a clear link: "See all 7 in my best digital pianos for advanced players guide". No duplicated full reviews.
+3. The new articles link back to the hub and to each other, and lead with different picks.
+4. Once a month in Search Console, check each target query on the Pages tab. If two of your URLs alternate for one query, merge them or make them more different.
+
+## Snapshot caveat
+This is one desktop snapshot from one location per country. Mobile results and personalised results differ, and rankings move daily. That's why Search Console averages Pianoers at 3.6 for "best digital piano" while this snapshot didn't show it in the top 10. Re-check the key terms in a month.
