@@ -52,3 +52,30 @@ Search Console daily data to 27 Oct showed no drop yet (75–100 clicks a day). 
 
 - The spam links are nofollow (the bhs-links-*.xyz network). Google says it ignores such links. A disavow file is optional and low priority. Do it only once the main cause is found.
 - The content gaps in GSC-AUDIT.md and COMPETITOR-ANALYSIS.md are real. But content quality doesn't make a site vanish for its own domain name overnight.
+
+## Update, later on 29 Oct: Search Console is clean, so the cause is most likely an unconfirmed Google update
+
+- The owner checked Removals, Manual actions, Security issues, Crawl stats, Cloudflare and URL Inspection. **All of them were clean.** So the site isn't removed, penalised or blocked.
+- Repeating the same DataForSEO queries gave **inconsistent results**:
+  - "pianoers.com" ranked #1 in one of four runs and was missing in the other three.
+  - The control domain, pianodreamers.com, ranked the same in every run.
+
+  The "site gone" reading from that tool was overstated.
+- Search Engine Roundtable reported an **unconfirmed Google ranking update starting about 26–27 Oct 2026**. That followed earlier volatility on 16, 20–21 and 24 Oct, and it noted that rank-tracking tools have been unreliable in the same period. That timing matches the drop for "best digital piano".
+- **Working conclusion:** an algorithmic re-ranking, not a technical or manual problem. It hits "best digital piano" hardest. The results page now favours forums (Reddit, Piano World) and sites with a full review behind each pick (Pianodreamers, Pianist's Compass). See COMPETITOR-ANALYSIS.md.
+
+### What to do
+1. **No drastic changes for 7–10 days.** Don't change URLs, don't delete content, don't disavow. Updates often swing back partly while they roll out.
+2. Watch **Search Console → Performance**, by day (the data lags 2–3 days):
+   - the query "best digital piano"
+   - the whole site
+   - the Pages tab, in case another of your URLs starts ranking
+3. Spot-check by hand: search Google in a private window, with no rank-tracker spending.
+4. Then make the improvements that match what's winning now:
+   - a trust and testing box at the top, with consistent author details
+   - your own photos of the pianos
+   - a full review behind each main pick
+   - a comparison table and verdict cards
+   - search-matching headings
+
+   These are in GSC-AUDIT.md and COMPETITOR-ANALYSIS.md.
