@@ -42,3 +42,19 @@
 | `20-minute-piano-practice-plan.webp` | A 20-minute daily piano practice plan: 3 minutes warm-up, 5 minutes reading, 7 minutes on your piece, 3 minutes chords and fun, 2 minutes review |
 | `first-easy-piano-songs-note-names.webp` | Note names for three easy piano songs in C position: Ode to Joy E E F G G F E D C C D E E D D, Twinkle Twinkle Little Star C C G G A A G F F E E D D C, and Mary Had a Little Lamb E D C D E E E D D D E G G |
 | `learning-piano-timeline-roadmap.webp` | A first-year piano learning roadmap: week 1 key names and C position, month 1 reading in C position and C F G chords, month 3 hands together and first scales, month 6 easy classics and dotted rhythms, year 1 early-intermediate pieces and sight-reading |
+## Printable PDF guide
+File: `piano-basics-beginners-guide.pdf` (31 US Letter pages, about 2 MB). It has a cover, a contents page with clickable page numbers, the full guide with all 12 diagrams, a note-naming worksheet, a practice log, and a "Keep learning" page linking to your top guides.
+
+**What's built in for search:**
+- **PDF title** (what Google shows as the result title): Piano Basics for Beginners: The Complete Guide (2026). The PDF is also set so viewers display this title instead of the file name.
+- **Author, subject and keywords**, plus the language (en-US).
+- **Bookmarks** for every chapter, and accessibility tags, so the text is easy for search engines and screen readers to read.
+- **20 links back to pianoers.com.** Google follows links in PDFs.
+- A **descriptive file name**. Keep it when you upload: Ghost uses the file name in the URL.
+
+**How to add it:**
+1. In the post editor, add a **File card** and upload `piano-basics-beginners-guide.pdf` **in October 2026**. Ghost stores it at `/content/files/2026/10/piano-basics-beginners-guide.pdf`, which is the address the download box in `article.html` uses. Then delete the File card: the upload stays, and the article's own box does the job. You can also keep the card if you prefer Ghost's built-in download style.
+2. If you upload in November, or Ghost adds a number to the name (for example `-1.pdf`), copy the real address from the File card and paste it into both download links in `article.html`. They're in the box under the quick answer and in "Your next steps".
+3. Test: click **Download the free PDF** on the live post.
+
+**Note:** Google can index the PDF on its own. It rarely outranks the HTML page, and every PDF result sends readers back to the article through its links. If you ever see the PDF ranking in place of the article in Search Console, tell me and we'll stop it being indexed.
