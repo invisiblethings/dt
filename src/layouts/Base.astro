@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { SITE_URL, BRAND, ADS, PRODUCTS } from '../data/site';
-const adsConfig = ADS.googleAdsId ? { id: ADS.googleAdsId, label: ADS.checkoutConversionLabel, prices: Object.fromEntries(Object.values(PRODUCTS).map((p) => [p.id, p.price])) } : null;
+const adsConfig = ADS.googleAdsId ? { id: ADS.googleAdsId, label: ADS.checkoutConversionLabel, prices: Object.fromEntries(Object.values(PRODUCTS).map((p) => [p.id, p.price || PRODUCTS.pianoforall.price])) } : null;
 import { organization, website, person, breadcrumbs as crumbSchema, abs } from '../lib/schema';
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
   noindex?: boolean;
   crumbs?: { name: string; href: string }[];
   schema?: Record<string, unknown>[];
-  stickyCta?: false | { label: string; href: string; note?: string; event?: string };
+  stickyCta?: false | { label: string; href: string; note?: string; event?: string; product?: string };
   article?: { published: string; modified?: string };
 }
 
@@ -120,7 +120,7 @@ const graph = {
     {stickyCta && (
       <div class="sticky-cta" data-sticky-cta aria-hidden="true">
         {stickyCta.note && <div class="sticky-price" set:html={stickyCta.note} />}
-        <a class="btn" href={stickyCta.href} data-track={stickyCta.event ?? 'cta_click'} data-track-location="sticky_mobile" tabindex="-1">{stickyCta.label}</a>
+        <a class="btn" href={stickyCta.href} data-track={stickyCta.event ?? 'cta_click'} data-product={stickyCta.product} data-track-location="sticky_mobile" tabindex="-1">{stickyCta.label}</a>
       </div>
     )}
     <script src="../scripts/site.ts"></script>

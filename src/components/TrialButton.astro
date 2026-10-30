@@ -1,0 +1,6 @@
+---
+import { PRODUCTS, TRIAL_DAYS } from '../data/site';
+interface Props { label?: string; location: string; variant?: 'btn' | 'btn btn-dark' | 'btn btn-ghost'; size?: '' | 'btn-lg'; arrow?: boolean }
+const { label = `Start your ${TRIAL_DAYS}-day free trial`, location, variant = 'btn', size = 'btn-lg', arrow = false } = Astro.props;
+---
+<a class:list={[variant, size]} href={PRODUCTS.trial.checkout} rel="nofollow" data-track="begin_checkout" data-product="trial" data-track-location={location}>{label}{arrow && <> <span class="arrow" aria-hidden="true">→</span></>}</a>

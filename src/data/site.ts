@@ -132,6 +132,17 @@ export const PRODUCTS: Record<string, Product> = {
     orderUrl: `${CB}/?cbitems=67&template=BUNDLE3`,
     url: '/pricing#bundles',
   },
+  // 7-day free trial of the full course: $0 today, then one $49 payment
+  // when the trial ends (checked on the ClickBank order form, October 2026).
+  trial: {
+    id: 'trial',
+    name: 'Pianoforall 7-day free trial',
+    short: 'The complete course free for 7 days, then $49 once',
+    price: 0,
+    checkout: '/go/free-trial',
+    orderUrl: `${CB}/?cbitems=80`,
+    url: '/pricing',
+  },
   completeBundle: {
     id: 'completeBundle',
     name: 'Complete Bundle',
@@ -144,6 +155,7 @@ export const PRODUCTS: Record<string, Product> = {
 };
 
 export const GUARANTEE_DAYS = 60;
+export const TRIAL_DAYS = 7;
 
 // Google Ads conversion tracking. Paste your IDs from Google Ads
 // (Goals > Conversions > your 'Checkout click' action > Tag setup > Install
@@ -155,8 +167,8 @@ export const ADS = {
 
 // Main call to action used in the header, sticky bars and final sections.
 export const PRIMARY_CTA = FEATURES.freeLessons
-  ? { label: 'Try it free', href: '/free-lessons', note: '<b>Free lessons</b>No card needed', event: 'cta_click' }
-  : { label: 'Get the course', href: '/pricing', note: '<b>$49 once</b>60-day refund', event: 'cta_click' };
+  ? { label: 'Try it free', href: '/free-lessons', note: '<b>Free lessons</b>No card needed', event: 'cta_click', product: undefined }
+  : { label: 'Start free trial', href: '/go/free-trial', note: '<b>7 days free</b>Then $49 once', event: 'begin_checkout', product: 'trial' };
 
 export const NAV = [
   { href: '/course', label: 'The course' },

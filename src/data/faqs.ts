@@ -1,4 +1,4 @@
-import { PRODUCTS, GUARANTEE_DAYS, LINKS, BRAND, FEATURES } from './site';
+import { PRODUCTS, GUARANTEE_DAYS, LINKS, BRAND, FEATURES, TRIAL_DAYS } from './site';
 
 const pfa = PRODUCTS.pianoforall;
 
@@ -136,7 +136,7 @@ const ALL_FAQS: Faq[] = [
     id: 'free-trial',
     group: 'Price, payment and refunds',
     q: 'Can I try it before I buy?',
-    a: `Yes. The free Test Drive includes real Pianoforall lessons (you learn a broken-chord ballad), the Mindful Notes ebook and access to The Piano Lounge community. You don’t need a card.`,
+    a: `Yes. Start a ${TRIAL_DAYS}-day free trial and you get the complete course on Pianoforall Academy straight away. You pay $0 today and enter your card at checkout. If you keep the course, ClickBank takes one payment of $${pfa.price} when the trial ends. That’s the only charge. Cancel before the trial ends and you pay nothing.`,
   },
   {
     id: 'bundles',
@@ -173,7 +173,7 @@ const ALL_FAQS: Faq[] = [
 ];
 
 // Hidden features drop their questions everywhere (pages and FAQ schema).
-export const FAQS = ALL_FAQS.filter((f) => FEATURES.freeLessons || f.id !== 'free-trial');
+export const FAQS = ALL_FAQS;
 
 export const faqsById = (...ids: string[]) => ids.map((id) => FAQS.find((f) => f.id === id)!).filter(Boolean);
 export const FAQ_GROUPS = [...new Set(FAQS.map((f) => f.group))];

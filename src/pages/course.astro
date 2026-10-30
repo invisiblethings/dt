@@ -8,6 +8,7 @@ import Guarantee from '../components/Guarantee.astro';
 import FinalCta from '../components/FinalCta.astro';
 import Check from '../components/Check.astro';
 import BuyButton from '../components/BuyButton.astro';
+import TrialButton from '../components/TrialButton.astro';
 import RatingBadge from '../components/RatingBadge.astro';
 import { PRODUCTS, GUARANTEE_DAYS, LINKS, FEATURES } from '../data/site';
 import { BOOKS } from '../data/books';
@@ -41,7 +42,7 @@ const schema = [
   ogImage="/og/course.jpg"
   crumbs={[{ name: 'The course', href: '/course' }]}
   schema={schema}
-  stickyCta={{ label: `Get it · $${pfa.price}`, href: pfa.checkout, note: `<b>$${pfa.price} once</b>${GUARANTEE_DAYS}-day refund`, event: 'begin_checkout' }}
+  stickyCta={{ label: 'Start free trial', href: PRODUCTS.trial.checkout, note: `<b>7 days free</b>Then $${pfa.price} once`, event: 'begin_checkout', product: 'trial' }}
 >
   <section class="page-hero">
     <div class="wrap split">
@@ -50,7 +51,7 @@ const schema = [
         <h1>Everything you need to go from first chord to playing by ear</h1>
         <p class="lede">Nine books of short video lessons, taught by Robin Hall. You start with chords and rhythm, then move through blues, ballads, jazz and improvisation, and finish reading music and playing classical pieces.</p>
         <div class="cta-row">
-          <BuyButton product="pianoforall" location="course_hero" size="btn-lg" variant="btn" label={`Get Pianoforall · $${pfa.price}`} />
+          <TrialButton location="course_hero" />
           {FEATURES.freeLessons
             ? <a class="btn btn-lg btn-ghost" href="/free-lessons" data-track="cta_click" data-track-location="course_hero_secondary">Try free lessons first</a>
             : <a class="btn btn-lg btn-ghost" href="#curriculum" data-track="cta_click" data-track-location="course_hero_secondary">See the nine books</a>}
@@ -202,9 +203,10 @@ const schema = [
           <li>Free updates for life. No subscription.</li>
         </ul>
         <div class="cta-row">
-          <BuyButton product="pianoforall" location="course_buy" size="btn-lg" variant="btn" label={`Get Pianoforall · $${pfa.price}`} />
+          <TrialButton location="course_buy" />
+          <BuyButton product="pianoforall" location="course_buy" size="btn-lg" variant="btn btn-ghost" label={`Buy now · $${pfa.price}`} />
         </div>
-        <p class="cta-note">You can review your order before paying. Checkout by ClickBank. Want the classical courses too? The <a href="/pricing#bundles">complete bundle</a> is ${PRODUCTS.completeBundle.price}.</p>
+        <p class="cta-note">Free for 7 days, then one payment of ${pfa.price}. Cancel before the trial ends and you pay nothing. Checkout by ClickBank. Want the classical courses too? The <a href="/pricing#bundles">complete bundle</a> is ${PRODUCTS.completeBundle.price}.</p>
       </div>
       <Guarantee />
     </div>

@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import FaqList from '../components/FaqList.astro';
 import Guarantee from '../components/Guarantee.astro';
 import BuyButton from '../components/BuyButton.astro';
+import TrialButton from '../components/TrialButton.astro';
 import { PRODUCTS, GUARANTEE_DAYS, LINKS } from '../data/site';
 import { faqsById } from '../data/faqs';
 import { faqPage } from '../lib/schema';
@@ -13,16 +14,16 @@ const singles = [PRODUCTS.moonlight, PRODUCTS.satie, PRODUCTS.bach];
 ---
 <Base
   title="Pianoforall Price: $49 Once, No Subscription"
-  description={`Pianoforall costs $${pfa.price}, one payment with lifetime access. Classics By Ear courses are $${PRODUCTS.moonlight.price} each, or get all four for $${PRODUCTS.completeBundle.price}. ${GUARANTEE_DAYS}-day refund.`}
+  description={`Try Pianoforall free for 7 days, then pay $${pfa.price} once for lifetime access. Classics By Ear courses are $${PRODUCTS.moonlight.price} each, or get all four for $${PRODUCTS.completeBundle.price}. ${GUARANTEE_DAYS}-day refund.`}
   crumbs={[{ name: 'Pricing', href: '/pricing' }]}
   schema={[faqPage(faqs)]}
-  stickyCta={{ label: `Get Pianoforall · $${pfa.price}`, href: pfa.checkout, note: `<b>$${pfa.price} once</b>${GUARANTEE_DAYS}-day refund`, event: 'begin_checkout' }}
+  stickyCta={{ label: 'Start free trial', href: PRODUCTS.trial.checkout, note: `<b>7 days free</b>Then $${pfa.price} once`, event: 'begin_checkout', product: 'trial' }}
 >
   <section class="page-hero">
     <div class="wrap center">
       <p class="eyebrow">Pricing</p>
       <h1 style="margin-inline:auto">Pay once. Keep it for life.</h1>
-      <p class="lede">No subscriptions, no upgrades, no renewal emails. Every course comes with a {GUARANTEE_DAYS}-day money-back guarantee.</p>
+      <p class="lede">Start Pianoforall with a 7-day free trial. No subscriptions, no upgrades, no renewal emails. Every course comes with a {GUARANTEE_DAYS}-day money-back guarantee.</p>
     </div>
   </section>
 
@@ -34,6 +35,7 @@ const singles = [PRODUCTS.moonlight, PRODUCTS.satie, PRODUCTS.bach];
           <h2 style="font-size:var(--step-2)">Pianoforall</h2>
           <p class="muted">The complete course, beginner up</p>
           <p class="price">${pfa.price}<small>once</small></p>
+          <p class="muted small" style="margin-top:-.5rem">First 7 days free</p>
           <ul class="check-list">
             <li>9 books, {pfa.lessons} lessons</li>
             <li>{pfa.videoHours} hours of video, plus audio</li>
@@ -42,8 +44,9 @@ const singles = [PRODUCTS.moonlight, PRODUCTS.satie, PRODUCTS.bach];
             <li>The Piano Lounge and email support</li>
             <li>Free lifetime updates</li>
           </ul>
-          <BuyButton product="pianoforall" location="pricing_main" variant="btn" size="btn-lg" label={`Get Pianoforall · $${pfa.price}`} />
-          <p class="fine"><a href="/course">What’s in the course</a></p>
+          <TrialButton location="pricing_main" label="Start 7-day free trial" />
+          <p class="fine">$0 today, then ${pfa.price} once. Cancel before day 7 and pay nothing.</p>
+          <p class="fine"><a href={pfa.checkout} rel="nofollow" data-track="begin_checkout" data-product="pianoforall" data-track-location="pricing_main_buy">Or buy now for ${pfa.price}</a> · <a href="/course">What’s in the course</a></p>
         </div>
 
         <div class="price-card" id="bundles">
