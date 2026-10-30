@@ -6,7 +6,7 @@
 |---|---|
 | Post title (H1) | How to Play Piano: Teach Yourself Step by Step (Beginner's Guide 2026) |
 | Meta title (59 chars) | How to Play Piano: Teach Yourself Piano Step by Step (2026) |
-| Meta description (150 chars) | Learn piano by yourself with a 10-step plan, a 30-day challenge and free tools: play your first song in your browser and track your progress. |
+| Meta description (141 chars) | Learn piano by yourself with a 10-step plan, a 30-day challenge and free tools: play your first song in your browser and track your progress. |
 | Excerpt | A 10-step plan to teach yourself piano, with a 30-day challenge, a free metronome and a first-song keyboard you can play right on the page. |
 | Tags | Lessons (primary), Courses, Pianos |
 | Feature image | `teach-yourself-piano-featured.webp`. Alt: How to play piano, teach yourself step by step, with a piano keyboard |
