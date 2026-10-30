@@ -1,7 +1,7 @@
 {
     "name": "pianoers",
     "description": "Custom Ghost theme for Pianoers.com: playable piano, ear trainer, piano finder, course quiz, verdict cards, reading progress and affiliate-safe buy buttons.",
-    "version": "1.3.2",
+    "version": "1.4.0",
     "license": "MIT",
     "author": {
         "name": "Pianoers.com",
@@ -71,12 +71,7 @@
             },
             "homepage_heading": {
                 "type": "text",
-                "default": "Honest piano advice from a real teacher",
-                "group": "homepage"
-            },
-            "homepage_sections": {
-                "type": "text",
-                "default": "pianos, courses, care",
+                "default": "Learn piano and choose the right instrument, with honest advice from a real teacher",
                 "group": "homepage"
             },
             "affiliate_disclosure": {

@@ -77,8 +77,7 @@ In **Settings → Design & branding → Customize**, the **Site-wide**, **Homepa
 | Header button text / URL | Find your piano → `/best-beginner-pianos/#finder` | Clear the text to hide the button |
 | Email signup title / text | Get beginner piano tips by email… | Shown in the footer and under posts, to non-members only |
 | Footer text | — | Replaces "Pianoers.com © 2026" |
-| Homepage heading | Honest piano advice from a real teacher | |
-| Homepage sections | `pianos, courses, care` | Tag slugs, comma-separated, in order |
+| Homepage heading | Learn piano and choose the right instrument, with honest advice from a real teacher | Ghost keeps the value you saved before, so change it here if you want the new wording |
 | Affiliate disclosure | Some links on this page are affiliate links… | Shown under the title of posts tagged `#affiliate` |
 | Affiliate domains | `amzn.to, amazon.com` | Add other stores you earn from, e.g. `sweetwater.com` |
 | Table of contents / Sticky buy bar / Author box / Related posts | On | |
@@ -86,6 +85,16 @@ In **Settings → Design & branding → Customize**, the **Site-wide**, **Homepa
 **Internal tags** (type them in a post's Tags field, including the `#`):
 - `#affiliate` shows the disclosure line under the title. If you use it, delete any disclosure paragraph inside the post, so it isn't there twice.
 - `#verified` adds a "Specs checked with manufacturers" chip to the trust strip.
+
+## Homepage sections
+
+Since 1.4.0 the homepage no longer groups posts by tag (every post carries the Lessons, Pianos and Courses tags, which made the same posts repeat). Each post is placed in exactly one spot:
+
+- **Where are you on your piano journey?** Four tabs, three guides each: beginner, buying a piano, choosing lessons, owning a piano.
+- **Topic sections:** course and app reviews, practice and methods, pianos and how they work, care, and famous pianists.
+- **New on Pianoers** shows up to three posts that aren't in any list yet. A post you publish appears there automatically, and the section hides itself when it's empty.
+
+To move a post or add a new one to a section, edit the lists at the top of `tools/build_home.py`, then run `python3 tools/build_home.py` and `sh build.sh`. The script stops with an error if the same slug is in two lists. Don't edit `home.hbs` by hand, because the script overwrites it.
 
 ## Five-minute check after activating
 
@@ -169,6 +178,16 @@ Real-visitor numbers (Core Web Vitals) appear in Search Console about four weeks
 
 ## Changelog
 
+- **1.4.0** (30 Oct 2026). Homepage rebuild. Each of the 39 posts now appears exactly once (the old homepage showed 18 cards but only 11 different posts; Best Digital Piano and Best Beginner Pianos appeared three times each). New sections:
+  - **Hero:** a site search bar, a "Start learning free" button and three trust points next to the playable piano.
+  - **Journey tabs:** four tabs, which work by keyboard and screen reader.
+  - **New on Pianoers:** fills itself with new posts.
+  - **Free piano tools:** links to the finder, course quiz, first-song keyboard, metronome, learning-time calculator and chord tool.
+  - **Ear trainer and 30-day challenge:** the ear trainer now sits next to a 30-day challenge card.
+  - **Five topic sections:** compact cards showing the update date and reading time.
+  - **Meet your teacher:** a block for the site's main author.
+
+  The "Homepage sections" setting is gone, because sections are now set in `tools/build_home.py` (see "Homepage sections"). Checked on a local copy of the site: 39 cards, 39 unique, no console errors, no sideways scrolling on phones, light and dark mode.
 - **1.3.2** (19 Oct 2026). Fix: wide and full-width images (Ghost's "wide" and "full" image sizes) were pushed half off the screen on phones and tablets once their scroll-in animation ran. They're now centred with `translate`, which the animation doesn't touch. Nothing else changed.
 - **1.3.1** (19 Oct 2026). Verdict cards accept two optional attributes: `data-bar-label` sets the sticky bar's button text (for example `data-bar-label="Try for free"`; the default is still "Check price"), and `data-name` sets a short product name for the bar and the sidebar pick when the card heading is long. Nothing else changed.
 - **1.3.0** (12 Oct 2026). Speed release. Measured with local Lighthouse (mobile, Ghost's own third-party scripts allowed): home page score 56 to 90, LCP 10.0 s to 1.8 s, first-load weight 1628 KB to 797 KB, requests 47 to 26. What changed: (1) **Portal loads when needed.** Ghost's sign-in/sign-up script (about 2.5 MB raw) now loads on the first scroll, tap or key press, or at once for `#/portal` links and `?action=` links. A sign-up form submitted before it is ready is held and sent when it is. New setting **Load Portal when needed** (on by default; turn it off if you ever see sign-up misbehave). It replaces the **ear game link** setting, which is now fixed to /best-piano-lessons-online/ (Ghost allows 20 settings). If Ghost changes its Portal version a lot, update `PORTAL_SRC` in `src/main.js`, run `sh build.sh`. (2) Lighter logo (small WebP), one font preload instead of two, no blurred backdrop images behind card thumbnails. (3) Off-screen sections skip rendering until near the screen (`content-visibility`). (4) Pages you are likely to open next are prefetched on hover or tap, and page changes cross-fade in browsers that support it (off when the visitor prefers reduced motion). (5) Readable sources are now in `src/`, and `build.sh` minifies them into `assets/` and rebuilds the zip. 20 pages were compared before and after on desktop and phone: same content, no console errors, no layout shift, no overflow. The remaining slow part is Google Tag Manager; see `snippets/delay-gtm.html`.
