@@ -20,7 +20,7 @@ faq=html.split('id="faq"')[1]
 qs=re.findall(r'<h3>(.*?)</h3>\s*<p>(.*?)</p>',faq,flags=re.S)
 st=lambda t:H.unescape(re.sub(r'<[^>]+>','',t)).strip()
 prod={"@context":"https://schema.org","@type":"Product","name":"Roland FP-10","brand":{"@type":"Brand","name":"Roland"},
- "image":f"{B}/{Y}/roland-fp-10-review-featured.webp","description":"88-key digital piano with Roland's PHA-4 Standard action, SuperNATURAL Piano sound and Bluetooth MIDI.",
+ "image":[f"{B}/{Y}/roland-fp-10-digital-piano.webp",f"{B}/{Y}/roland-fp-10-being-played.webp",f"{B}/{Y}/roland-fp-10-review-featured.webp"],"description":"88-key digital piano with Roland's PHA-4 Standard action, SuperNATURAL Piano sound and Bluetooth MIDI.",
  "review":{"@type":"Review","name":"Roland FP-10 review","reviewRating":{"@type":"Rating","ratingValue":"4.3","bestRating":"5","worstRating":"1"},
   "author":{"@type":"Organization","name":"Pianoers.com","url":"https://pianoers.com/"},
   "positiveNotes":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n} for i,n in enumerate(["PHA-4 Standard keys with escapement and ivory feel","Expressive SuperNATURAL Piano sound","Bluetooth MIDI for learning apps","Twin Piano mode for lessons"])]},

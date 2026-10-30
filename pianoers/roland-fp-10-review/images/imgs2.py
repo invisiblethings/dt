@@ -31,12 +31,12 @@ imgs['roland-fp-10-accessories']=(600,page(600,'Complete the setup','What to buy
 def hero(h):
     return f'''<!doctype html><html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Lora:wght@500&display=swap" rel="stylesheet">
 <style>*{{box-sizing:border-box;margin:0}}body{{width:1200px;height:{h}px;overflow:hidden;font-family:"Schibsted Grotesk",Arial,sans-serif;background:#15191c;color:#fff;position:relative}}
-.ph{{position:absolute;right:-70px;top:50%;transform:translateY(-50%);width:620px;border-radius:24px;overflow:hidden;box-shadow:0 30px 60px rgb(0 0 0/45%)}}.ph img{{width:100%;display:block}}
+.ph{{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:640px;border-radius:24px;overflow:hidden;box-shadow:0 30px 60px rgb(0 0 0/45%)}}.ph img{{width:100%;display:block}}
 .t{{position:absolute;left:64px;top:50%;transform:translateY(-50%);width:530px}}.e{{font-size:20px;letter-spacing:.16em;color:{A};font-weight:700}}
 h1{{font-size:74px;line-height:1;white-space:nowrap;font-weight:800;letter-spacing:-.02em;margin:14px 0 18px}}p{{font-family:Lora,serif;font-size:26px;color:#c9d4d8;line-height:1.35}}
 .badge{{display:inline-flex;align-items:center;gap:14px;margin-top:26px;background:#fff;color:#15191c;border-radius:16px;padding:12px 18px}}.badge b{{font-size:40px}}.badge span{{font-size:17px;font-weight:700;line-height:1.2}}.st{{color:{A};font-size:22px;letter-spacing:2px}}
 .b{{position:absolute;left:64px;bottom:30px;font-size:17px;letter-spacing:.14em;font-weight:700;color:#7fa9b6}}</style></head><body>
-<div class="ph"><img src="file:///home/user/dt/pianoers/roland-fp-10-review/images/fp10-crop.png"></div>
+<div class="ph"><img src="file:///home/user/dt/pianoers/roland-fp-10-review/images/roland-fp-10-being-played.webp"></div>
 <div class="t"><div class="e">HANDS-ON REVIEW · 2026</div><h1>Roland FP-10<br>Review</h1><p>Real piano keys for about $500. Who it's for, and who should skip it.</p>
 <div class="badge"><b>4.3</b><span><span class="st">★★★★</span><br>Best key feel under $500</span></div></div><div class="b">PIANOERS.COM</div></body></html>'''
 imgs['roland-fp-10-review-featured']=(675,hero(675))
