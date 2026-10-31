@@ -29,7 +29,7 @@ CELL={'pianoforall':['One-time: $49'],'simply-piano':['Monthly: $17.90','Yearly:
 PLATE={'pianoforall':'One-time $49','simply-piano':'Monthly $17.90 · Yearly $169.90','piano-marvel':'Free plan · Monthly $17.99 · Yearly $129.99','playground-sessions':'Monthly $19.99 · Yearly $149.99','skoove':'Monthly $29.99 · Yearly $149.99','pianote':'Monthly $30 · Yearly $279','flowkey':'Monthly $24.99 · Yearly $149.99','piano-by-pictures':'Monthly $49 after the free month'}
 def prices(pid):
     li=''.join(f'<li><strong>{a}:</strong> {b}</li>' for a,b in PR[pid])
-    return f'<p><strong>{NAME[pid]} prices</strong> (US, checked October 31, 2026):</p><ul class="pz-prices">{li}</ul>'
+    return f'<p><strong>{NAME[pid]} prices</strong> (US):</p><ul class="pz-prices">{li}</ul>'
 def cell(pid):
     return ''.join(f'<span style="display:block">{x}</span>'+('<span class="pz-visually-hidden">; </span>' if i<len(CELL[pid])-1 else '') for i,x in enumerate(CELL[pid]))
 H2={'pianoforall':'Pianoforall: best online piano course for adult beginners','simply-piano':'Simply Piano: best piano app for kids and game-style practice','piano-marvel':'Piano Marvel: best for sight-reading and exam prep','playground-sessions':'Playground Sessions: best guided path of popular songs','skoove':'Skoove: best for instant note feedback on a budget','pianote':'Pianote: best video-lesson library with teacher support','flowkey':'Flowkey: best for learning popular songs on any piano','piano-by-pictures':'Piano by Pictures: best for visual learners'}
@@ -39,12 +39,12 @@ picks={}
 for sec in re.findall(r'<section class="pz-pick".*?</section>',open('live-picks.html').read(),re.S):
     pid=re.search(r'id="([^"]+)"',sec).group(1)
     sec=re.sub(r'<h2>[^<]*</h2>',f'<h2>{H2[pid]}</h2>',sec,1)
-    sec=re.sub(r'([Cc])hecked Oct (?:11|19), 2026',r'\1hecked Oct 31, 2026',sec)
+    sec=re.sub(r'\.?\s*[Cc]hecked Oct (?:11|19), 2026','',sec)
     sec=sec.replace('https://pianoers.com/content/images/','/content/images/')
     sec=sec.replace(f'id="{pid}"',f'id="{pid}" data-name="{NAME[pid]}"',1)
     if pid in PRICE: sec=re.sub(r'data-price="[^"]*"',f'data-price="{PRICE[pid]}"',sec,1)
     sec=re.sub(r'(<dt>Price</dt><dd>)[^<]*(</dd>)',lambda m:m.group(1)+PLATE[pid]+m.group(2),sec)
-    if pid!='pianoforall': sec=re.sub(r'(<span class="pz-price-note">)[^<]*(</span>)',lambda m:m.group(1)+PLATE[pid]+'. Checked Oct 31, 2026'+m.group(2),sec)
+    if pid!='pianoforall': sec=re.sub(r'(<span class="pz-price-note">)[^<]*(</span>)',lambda m:m.group(1)+PLATE[pid]+m.group(2),sec)
     sec=plate_seps(sec)
     if pid=='pianoforall': sec=sec.replace('data-name="Pianoforall"','data-name="Pianoforall" data-bar-label="Try free for 7 days"',1)
     picks[pid]=sec

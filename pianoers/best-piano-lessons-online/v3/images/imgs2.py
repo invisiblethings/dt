@@ -14,13 +14,13 @@ body=f'''<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
 {plan('The hybrid plan','my pick for most adults',[('Pianoforall course','$49 once'),('12 check-ins, 30 min','12 x $20 = $240'),('Daily practice','course plan')],'$289',G,'TEACHER&#39;S PICK')}
 {plan('Hybrid, with an app','if you want note feedback',[('Piano Marvel Premium','$129.99/yr'),('12 check-ins, 30 min','12 x $20 = $240'),('Daily practice','app scores')],'$369.99',BL)}</div>
 <div class="card" style="padding:16px 22px;margin-top:16px;font-size:19px;line-height:1.45"><b>Why it works:</b> the course gives you a plan for every day, and a monthly lesson with a real teacher catches the posture, tension and rhythm problems no course or app can see.</div>
-<div style="margin-top:10px;font-size:16.5px;color:{MU}">Live lesson price: Online Piano Teachers&#39; &#8220;starting from&#8221; rate of $20 for 30 minutes. Course prices checked October 31, 2026.</div>'''
+<div style="margin-top:10px;font-size:16.5px;color:{MU}">Live lesson price: Online Piano Teachers&#39; &#8220;starting from&#8221; rate of $20 for 30 minutes.</div>'''
 imgs['hybrid-online-piano-lessons-plan']=(800,page(800,'Save money','The hybrid plan: a course plus a monthly teacher',body,'Pianoers.com'))
 
 goals=[('Adult beginners','Pianoforall','7 days free, then $49 once',G),('Kids','Simply Piano or Hoffman Academy','game-style app, or free videos',BL),('Reading and exams','Piano Marvel','free plan or $129.99 a year',BL),('Popular songs','Flowkey or Playground Sessions','$149.99 a year each',BL),('A real teacher','Online Piano Teachers','from $20 for 30 minutes',V),('Video library and Q&amp;As','Pianote (Musora)','$279 a year',G),('Advanced and classical','Piano Career Academy','$47 a month or $470 a year',T),('Jazz','Open Studio or Piano With Jonny','see our full reviews',T),('Visual learners','Piano by Pictures','first month free, then $49/mo',G),('Free','Hoffman Academy and YouTube','$0, no feedback',A)]
 gc=''.join(f'<div class="card" style="padding:14px 18px;border-left:8px solid {c}"><div style="font-size:15px;font-weight:800;letter-spacing:.1em;color:{MU};text-transform:uppercase">{a}</div><div style="font-size:22px;font-weight:800;margin:3px 0 2px;line-height:1.15">{b}</div><div style="font-size:16.5px;color:{MU}">{d}</div></div>' for a,b,d,c in goals)
 body=f'<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">{gc}</div>'
-imgs['best-online-piano-lessons-by-goal']=(820,page(820,'Cheat sheet','The best online piano lessons for every goal',body,'Prices: US, checked October 31, 2026'))
+imgs['best-online-piano-lessons-by-goal']=(820,page(820,'Cheat sheet','The best online piano lessons for every goal',body,'Prices in US dollars'))
 
 W=white_seq('C4','B4')
 def chord(notes,lab):
