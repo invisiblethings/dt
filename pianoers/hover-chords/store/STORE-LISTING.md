@@ -5,7 +5,7 @@ The Web Store's search reads three things: the **name**, the **summary** (both c
 ## Name (from the manifest, 45 of 75 characters)
 Hover Chords: Piano Chord Finder & Transposer
 
-## Summary (from the manifest, 117 of 132 characters)
+## Summary (from the manifest, 120 of 132 characters)
 See any chord on a piano keyboard. Hover chord names on chord sheets to view, hear and transpose piano chords instantly.
 
 ## Category
