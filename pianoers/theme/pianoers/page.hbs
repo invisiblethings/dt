@@ -1,0 +1,17 @@
+{{!< default}}
+{{#post}}
+    <article class="pz-article pz-page {{post_class}}">
+        {{#match @page.show_title_and_feature_image}}
+            <header class="pz-wrap pz-narrow pz-hero">
+                <h1 class="pz-title">{{title}}</h1>
+                {{#if custom_excerpt}}<p class="pz-dek">{{custom_excerpt}}</p>{{/if}}
+            </header>
+            <div class="pz-wrap pz-narrow">{{> "feature-image"}}</div>
+        {{/match}}
+        <div class="pz-wrap pz-narrow">
+            <div class="gh-content pz-content">
+                {{content}}
+            </div>
+        </div>
+    </article>
+{{/post}}

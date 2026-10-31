@@ -1,0 +1,32 @@
+<!-- Pianoers snippet: course-finder quiz (theme 1.2.0+). One per post. Paste into an HTML card.
+     The JSON in <script class="pz-quiz-data"> is the whole quiz:
+       favorite + headStart: the course that gets a head start and wins ties (say so in the "How this quiz scores" line!)
+       courses[]: id, name, pick (= the id of its verdict card on the page), best, summary, watch,
+                  cta {href, label, sponsored}, year1 (12-month cost, or null for "check price"), year1Note, review
+       questions[].options[]: value, label, hint, points {courseId: n}, why {courseId: text},
+                  flag {courseId: heads-up text}, requires [courseIds] + requireLabel (a must-have)
+     Check the JSON at jsonlint.com, then run quiz-simulate.py on this card to see who wins how often.
+     Without JavaScript, readers see the link list instead. -->
+<section class="pz-quiz" id="quiz" data-pz-quiz aria-labelledby="quiz-h">
+  <p class="pz-eyebrow">Course finder</p>
+  <h2 id="quiz-h">Which course fits you?</h2>
+  <p class="pz-quiz-intro">A few quick questions. Every answer is a piano key.</p>
+  <p class="pz-quiz-how"><strong>How this quiz scores:</strong> each answer gives points to the courses that fit it, and the most points wins. Course A is our top pick and an affiliate partner, so it starts with 1 point and wins ties. Any course can win, and you'll see every score.</p>
+  <div class="pz-quiz-stage"><ul class="pz-quiz-fallback">
+    <li><a href="#course-a">Best for X: Course A</a></li>
+    <li><a href="#course-b">Best for Y: Course B</a></li>
+  </ul></div>
+  <script type="application/json" class="pz-quiz-data">
+{"id": "my-quiz", "favorite": "course-a", "headStart": 1, "pricesChecked": "Mon D, YYYY",
+ "courses": [
+  {"id": "course-a", "name": "Course A", "pick": "course-a", "best": "Best for X", "summary": "One sentence.", "watch": "One honest caveat.",
+   "cta": {"href": "/go-a", "label": "Get Course A", "sponsored": true}, "year1": 49, "year1Note": "one-time"},
+  {"id": "course-b", "name": "Course B", "pick": "course-b", "best": "Best for Y", "summary": "One sentence.", "watch": "One honest caveat.",
+   "cta": {"href": "https://example.com", "label": "Visit Course B", "sponsored": false}, "year1": null, "year1Note": "check price"}],
+ "questions": [
+  {"id": "q1", "label": "First question?", "options": [
+    {"value": "a", "label": "Answer 1", "hint": "short hint", "points": {"course-a": 2}, "why": {"course-a": "Reason shown if A wins."}},
+    {"value": "b", "label": "Answer 2", "hint": "short hint", "points": {"course-b": 3}, "why": {"course-b": "Reason shown if B wins."},
+     "flag": {"course-a": "Heads-up shown if A still wins."}}]}]}
+  </script>
+</section>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<title>Hover Chords</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+<img src="icons/icon48.png" width="32" height="32" alt="">
+<div><h1>Hover Chords</h1><p class="sub">Piano chords on any chord sheet</p></div>
+</header>
+<section class="status" id="status">Checking this page…</section>
+<label class="row switch"><span><b>On this site</b><small id="host">this site</small></span><input type="checkbox" id="site" checked><i></i></label>
+<div class="row">
+<span><b>Transpose</b><small>Move every chord up or down</small></span>
+<div class="tp"><button id="down" type="button" aria-label="Transpose down a semitone">&minus;</button><output id="shift">0</output><button id="up" type="button" aria-label="Transpose up a semitone">+</button></div>
+</div>
+<button class="reset" id="reset" type="button" hidden>Reset to the original key</button>
+<label class="row switch"><span><b>Sound</b><small>Play chords when you click them</small></span><input type="checkbox" id="sound" checked><i></i></label>
+<label class="row switch"><span><b>On for all websites</b><small>Switch off to pause it everywhere</small></span><input type="checkbox" id="global" checked><i></i></label>
+<p class="tip"><b>Tip:</b> hover a chord to see it, click to pin it and hear it, then use &lsaquo; &rsaquo; for inversions.</p>
+<footer>Made by <a href="https://pianoers.com/?utm_source=hover-chords&amp;utm_medium=extension-popup" target="_blank" rel="noopener">Pianoers.com</a> &middot; free piano lessons and guides</footer>
+<script src="popup.js"></script>
+</body>
+</html>

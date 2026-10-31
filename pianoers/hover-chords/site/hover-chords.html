@@ -1,0 +1,244 @@
+<style>
+.hcd{position:relative;margin:1.6em 0;border:1px solid var(--line,#d9e2e5);border-radius:16px;background:var(--paper,#fff);box-shadow:0 1px 2px rgb(21 25 28/6%),0 8px 24px rgb(21 25 28/6%);overflow:visible}
+.hcd-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line,#d9e2e5);font-family:var(--f-display,system-ui,sans-serif)}
+.hcd-title{font-weight:800;font-size:1rem}
+.hcd-title small{display:block;font-weight:600;font-size:.82rem;color:var(--muted,#56666e)}
+.hcd-tp{display:flex;align-items:center;gap:6px;font-weight:700;font-size:.9rem}
+.hcd-tp button,.hcd-pop button{appearance:none;border:1px solid var(--line,#d9e2e5);background:var(--surface,#f3f6f7);color:var(--ink,#15191c);border-radius:9px;height:32px;min-width:32px;padding:0 10px;font:700 .9rem var(--f-display,system-ui,sans-serif);cursor:pointer}
+.hcd-tp button:hover,.hcd-pop button:hover{border-color:var(--teal,#2e6475)}
+.hcd-tp output{min-width:2.4em;text-align:center;font-weight:800}
+.hcd-sheet{margin:0;padding:16px 18px;overflow-x:auto;font:15px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink,#15191c);background:transparent;white-space:pre}
+.hcd-c{cursor:pointer;border-radius:3px;font-weight:700;text-decoration:underline dotted;text-decoration-color:#f6b31e;text-decoration-thickness:2px;text-underline-offset:3px}
+.hcd-c:hover,.hcd-c:focus-visible,.hcd-c.is-on{background:rgb(246 179 30/22%);outline:none}
+.hcd-pop{position:absolute;z-index:30;width:max-content;max-width:calc(100% - 16px);padding:12px 14px 10px;border-radius:14px;background:var(--paper,#fff);color:var(--ink,#15191c);border:1px solid var(--line,#d9e2e5);box-shadow:0 10px 30px rgb(21 25 28/18%);font:500 14px/1.35 var(--f-display,system-ui,sans-serif)}
+.hcd-pop[hidden]{display:none}
+.hcd-head{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;padding-right:26px}
+.hcd-name{font-size:22px;font-weight:800}
+.hcd-notes{color:var(--muted,#56666e);font-size:13.5px;font-weight:600}
+.hcd-pop .hcd-x{position:absolute;top:8px;right:8px;width:28px;height:28px;min-width:0;padding:0;border:0;border-radius:50%;background:transparent;font-size:18px}
+.hcd-pop svg{display:block;max-width:100%;height:auto}
+.hcd-row{display:flex;align-items:center;gap:6px;margin-top:9px}
+.hcd-pop .hcd-play{background:#f6b31e;border-color:#f6b31e;color:#1b1400}
+.hcd-inv{flex:1;text-align:center;color:var(--muted,#56666e);font-size:12.5px;font-weight:600;white-space:nowrap}
+.hcd-hint{padding:0 18px 14px;margin:0;color:var(--muted,#56666e);font:600 .85rem var(--f-display,system-ui,sans-serif)}
+.hcd-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:1.4em 0}
+.hcd-cta .hcd-note{font:600 .9rem var(--f-display,system-ui,sans-serif);color:var(--muted,#56666e)}
+.hcd-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:12px;background:#f6b31e;color:#1b1400!important;font:800 1rem var(--f-display,system-ui,sans-serif);text-decoration:none!important;box-shadow:0 3px 0 #c98f0c}
+.hcd-btn:hover{filter:brightness(1.05)}
+.hcd-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:1.2em 0;padding:0;list-style:none;counter-reset:s}
+.hcd-steps li{position:relative;padding:16px 16px 16px 58px;border:1px solid var(--line,#d9e2e5);border-radius:14px;background:var(--surface,#f3f6f7);font-family:var(--f-display,system-ui,sans-serif);font-size:.95rem;line-height:1.4;counter-increment:s;margin:0}
+.hcd-steps li::before{content:counter(s);position:absolute;left:14px;top:14px;width:32px;height:32px;border-radius:50%;background:var(--teal,#2e6475);color:#fff;display:grid;place-items:center;font-weight:800}
+.hcd-steps b{display:block;font-size:1.02rem;margin-bottom:2px}
+@media (max-width:560px){.hcd-sheet{font-size:13px}}
+</style>
+<p><strong>Hover Chords is a free Chrome extension that shows any chord on a piano keyboard.</strong> Hover a chord name on a chord sheet and a piano chord chart appears right where you're reading: the keys to press, the note names, and a button to hear it. It can also transpose every chord on the page in one click.</p>
+<p>Chord sheets are written for guitar players. At the piano, a chord like F#m7b5, Cadd9 or D/F# usually means stopping to look it up. I'm a piano teacher, and that's the moment my students lose the flow of a song. Hover Chords puts the answer under your cursor.</p>
+<div class="hcd-cta"><a class="hcd-btn" href="CHROME_WEB_STORE_URL" target="_blank" rel="noopener">Add to Chrome, it&#39;s free</a><span class="hcd-note">Free · No account · No tracking</span></div>
+<section class="hcd" id="hcd-demo" aria-label="Hover Chords live demo">
+<div class="hcd-top"><div class="hcd-title">Try it right here<small>Hover or tap a chord. Click to hear it.</small></div>
+<div class="hcd-tp"><span>Transpose</span><button class="hcd-down" type="button" aria-label="Transpose down a semitone">&minus;</button><output>0</output><button class="hcd-up" type="button" aria-label="Transpose up a semitone">+</button></div></div>
+<pre class="hcd-sheet">[Verse 1]
+<span class="hcd-c" tabindex="0" role="button" data-c="G">G</span>              <span class="hcd-c" tabindex="0" role="button" data-c="G7">G7</span>        <span class="hcd-c" tabindex="0" role="button" data-c="C">C</span>        <span class="hcd-c" tabindex="0" role="button" data-c="G">G</span>
+Amazing grace, how sweet the sound
+<span class="hcd-c" tabindex="0" role="button" data-c="G">G</span>                        <span class="hcd-c" tabindex="0" role="button" data-c="D">D</span>
+That saved a wretch like me
+<span class="hcd-c" tabindex="0" role="button" data-c="G">G</span>             <span class="hcd-c" tabindex="0" role="button" data-c="G7">G7</span>         <span class="hcd-c" tabindex="0" role="button" data-c="C">C</span>        <span class="hcd-c" tabindex="0" role="button" data-c="G">G</span>
+I once was lost, but now am found
+<span class="hcd-c" tabindex="0" role="button" data-c="Em">Em</span>        <span class="hcd-c" tabindex="0" role="button" data-c="D">D</span>          <span class="hcd-c" tabindex="0" role="button" data-c="G">G</span>
+Was blind, but now I see
+
+[Verse 2]
+<span class="hcd-c" tabindex="0" role="button" data-c="G">G</span>              <span class="hcd-c" tabindex="0" role="button" data-c="G7">G7</span>          <span class="hcd-c" tabindex="0" role="button" data-c="C">C</span>          <span class="hcd-c" tabindex="0" role="button" data-c="G">G</span>
+'Twas grace that taught my heart to fear
+<span class="hcd-c" tabindex="0" role="button" data-c="G">G</span>                     <span class="hcd-c" tabindex="0" role="button" data-c="D7">D7</span>
+And grace my fears relieved
+<span class="hcd-c" tabindex="0" role="button" data-c="G">G</span>             <span class="hcd-c" tabindex="0" role="button" data-c="G/B">G/B</span>        <span class="hcd-c" tabindex="0" role="button" data-c="C">C</span>       <span class="hcd-c" tabindex="0" role="button" data-c="G">G</span>
+How precious did that grace appear
+<span class="hcd-c" tabindex="0" role="button" data-c="Em">Em</span>          <span class="hcd-c" tabindex="0" role="button" data-c="D7">D7</span>       <span class="hcd-c" tabindex="0" role="button" data-c="G">G</span>
+The hour I first believed</pre>
+<p class="hcd-hint">Amazing Grace (traditional, public domain). This demo works just like the extension.</p>
+<div class="hcd-pop" hidden role="dialog" aria-label="Piano chord"><button class="hcd-x" type="button" aria-label="Close">&times;</button><div class="hcd-head"><span class="hcd-name"></span><span class="hcd-notes"></span></div><div class="hcd-kb"></div>
+<div class="hcd-row"><button class="hcd-play" type="button">&#9654; Play</button><button class="hcd-prev" type="button" aria-label="Previous inversion">&lsaquo;</button><span class="hcd-inv"></span><button class="hcd-next" type="button" aria-label="Next inversion">&rsaquo;</button></div></div>
+</section>
+<h2 id="how-it-works">How it works</h2>
+<ol class="hcd-steps"><li><b>Open a chord sheet</b>Any song page with chords: lyrics sites, worship sets, guitar chord sites or your own sheets.</li><li><b>Hover a chord</b>A piano keyboard pops up with the chord's keys lit and every note named.</li><li><b>Click to hear it</b>The chord plays, and the diagram stays pinned while you play along.</li></ol>
+<figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://pianoers.com/content/images/2026/10/hover-chords-piano-chord-finder.png" class="kg-image" alt="Hover Chords Chrome extension showing a G7 piano chord chart over an Amazing Grace chord sheet" loading="lazy" width="1280" height="800" srcset="https://pianoers.com/content/images/size/w600/2026/10/hover-chords-piano-chord-finder.png 600w, https://pianoers.com/content/images/size/w1000/2026/10/hover-chords-piano-chord-finder.png 1000w, https://pianoers.com/content/images/2026/10/hover-chords-piano-chord-finder.png 1280w" sizes="(min-width: 720px) 720px, 100vw"><figcaption><span>Hover a chord on a chord sheet to see it on a piano keyboard.</span></figcaption></figure>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Instant piano chord diagrams:</strong> hover any chord to see the keys and the note names.</li>
+<li><strong>Hear every chord:</strong> click to play it with a piano-like sound made in your browser.</li>
+<li><strong>Chord inversions:</strong> step through root position, 1st, 2nd and 3rd inversions with the arrow buttons or your arrow keys.</li>
+<li><strong>Transpose chords:</strong> move every chord on the page up or down to play the song in any key.</li>
+<li><strong>Slash chords:</strong> the bass note of chords like C/E and G/B is shown in its own colour.</li>
+<li><strong>Correct note names:</strong> notes are spelled for the chord, so C7 shows B&#9837;, not A#.</li>
+<li><strong>Light and dark mode,</strong> and full keyboard support.</li>
+<li><strong>Your control:</strong> turn it off for any website, or everywhere, from the toolbar.</li>
+</ul>
+<figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://pianoers.com/content/images/2026/10/hover-chords-chord-inversions.png" class="kg-image" alt="Hover Chords showing a C major chord in root position, 1st inversion and 2nd inversion on a piano keyboard" loading="lazy" width="1280" height="800" srcset="https://pianoers.com/content/images/size/w600/2026/10/hover-chords-chord-inversions.png 600w, https://pianoers.com/content/images/size/w1000/2026/10/hover-chords-chord-inversions.png 1000w, https://pianoers.com/content/images/2026/10/hover-chords-chord-inversions.png 1280w" sizes="(min-width: 720px) 720px, 100vw"><figcaption><span>Step through every inversion of a chord.</span></figcaption></figure>
+<h2 id="transpose">Transpose a whole song in one click</h2>
+<p>Singing a song that's too high? Playing with a band in a different key? Click the Hover Chords icon in the toolbar and press + or &minus;. Every chord on the page changes key at once, and Hover Chords remembers your choice for that website. Press "Reset to the original key" to go back.</p>
+<figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://pianoers.com/content/images/2026/10/hover-chords-transpose-chords.png" class="kg-image" alt="Hover Chords transposing a chord sheet from the key of G to the key of A, with the toolbar popup showing +2" loading="lazy" width="1280" height="800" srcset="https://pianoers.com/content/images/size/w600/2026/10/hover-chords-transpose-chords.png 600w, https://pianoers.com/content/images/size/w1000/2026/10/hover-chords-transpose-chords.png 1000w, https://pianoers.com/content/images/2026/10/hover-chords-transpose-chords.png 1280w" sizes="(min-width: 720px) 720px, 100vw"><figcaption><span>Transpose every chord on the page from the toolbar.</span></figcaption></figure>
+<h2 id="chords">Chords Hover Chords understands</h2>
+<table><thead><tr><th>Type</th><th>Examples</th></tr></thead><tbody>
+<tr><td>Triads</td><td>C, Am, Bdim, Caug, Gsus2, Dsus4, C5</td></tr>
+<tr><td>Sixth and seventh chords</td><td>C6, Am6, G7, Cmaj7, Dm7, F#m7b5 (B&oslash;), Bdim7, Cm(maj7)</td></tr>
+<tr><td>Extended chords</td><td>C9, Cmaj9, C11, C13, C6/9, Cadd9</td></tr>
+<tr><td>Altered chords</td><td>C7b9, E7#9, G7b5, C7#11, A7b13</td></tr>
+<tr><td>Slash chords</td><td>C/E, G/B, D/F#, Am/C</td></tr>
+<tr><td>Chord sheet formats</td><td>Chords above lyrics, bar lines like | Am7 | Fmaj7 |, ChordPro [C]brackets, repeat marks like x2</td></tr>
+</tbody></table>
+<h2 id="privacy">Private by design</h2>
+<p>Hover Chords collects no data. There's no account, no tracking and no analytics. It reads the page in your browser to find chord names, and nothing ever leaves your computer. It only asks Chrome for two permissions: <strong>storage</strong> (to remember your settings) and <strong>activeTab</strong> (so the toolbar popup knows which website you're on). Read the full <a href="/hover-chords-privacy/">Hover Chords privacy policy</a>.</p>
+<div class="hcd-cta"><a class="hcd-btn" href="CHROME_WEB_STORE_URL" target="_blank" rel="noopener">Add to Chrome, it&#39;s free</a><span class="hcd-note">Works on Chrome, and usually Edge and Brave</span></div>
+<h2 id="learn-chords">Learn the chords, not just the shapes</h2>
+<p>Hover Chords shows you the notes, but understanding why chords work is what makes you fluent. If you're starting out, my <a href="/piano-basics-a-beginners-guide-to-the-keyboard/">piano basics guide</a> explains the keyboard and your first chords, and <a href="/teach-yourself-piano/">how to teach yourself piano</a> has a 30-day plan. To compare courses that teach chords properly, see <a href="/best-piano-lessons-online/">the best online piano lessons</a>.</p>
+<h2 id="faq">Hover Chords FAQ</h2>
+<h3>Is Hover Chords free?</h3><p>Yes. Hover Chords is completely free, with no ads, no account and no paid upgrade.</p><h3>Which websites does it work on?</h3><p>It works on chord sheets on any website: song and lyrics sites with chords, worship and church song sheets, guitar chord and tab sites, and ChordPro text such as [C]Let it [G]be. It leaves pages without chord sheets alone.</p><h3>Can it transpose a song?</h3><p>Yes. Click the Hover Chords icon in the Chrome toolbar and use the + and − buttons. Every chord on the page moves up or down one semitone at a time, and the setting is remembered for that website.</p><h3>Does it work with guitar chord sheets?</h3><p>Yes. Chord names are the same for guitar and piano, so Hover Chords reads any guitar chord sheet and shows each chord as a piano chord.</p><h3>Which chords does it understand?</h3><p>Major and minor chords, 7th chords, maj7, m7, diminished, half-diminished (m7b5), augmented, sus2, sus4, 6, m6, 6/9, 9th, 11th and 13th chords, add9, altered chords such as b9 and #11, power chords and slash chords like C/E.</p><h3>What are chord inversions?</h3><p>An inversion is the same chord with a different note at the bottom. C major in root position is C-E-G; the 1st inversion is E-G-C and the 2nd inversion is G-C-E. Hover Chords lets you step through them so you can pick the shape that moves most smoothly to the next chord.</p><h3>Does Hover Chords collect my data?</h3><p>No. It collects nothing. It reads the page in your browser to find chord names and never sends anything anywhere. Your settings are saved on your own computer.</p><h3>Does it work in Edge, Brave or other browsers?</h3><p>It is built for Google Chrome. Browsers based on Chromium, such as Microsoft Edge and Brave, can usually install Chrome Web Store extensions too.</p>
+<script>(function(){'use strict';var root=document.getElementById('hcd-demo');if(!root||root.dataset.ready)return;root.dataset.ready='1';
+(function (g) {
+    'use strict';
+    var SHARP = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+    var FLAT = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
+    var LETTER = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+    var FULL = /^([A-G])([#b♯♭]?)(.*?)(?:\/([A-G])([#b♯♭]?))?$/;
+
+    function acc(a) { return a === '#' || a === '♯' ? 1 : a === 'b' || a === '♭' ? -1 : 0; }
+    function pc(letter, a) { return (LETTER[letter] + acc(a) + 12) % 12; }
+
+    function parseSuffix(s) {
+        var r = { third: 4, fifth: 7, seventh: null, extra: [], power: false, minor: false };
+        var maj = false, dim = false, m;
+        s = s.replace(/[()]/g, '').replace(/Δ/g, 'maj');
+        if ((m = s.match(/^(maj|Maj|MAJ|ma(?=\d)|M(?!aj))/))) { maj = true; s = s.slice(m[0].length); }
+        else if ((m = s.match(/^(min|mi(?!n)|m|-)/))) {
+            r.third = 3; r.minor = true; s = s.slice(m[0].length);
+            if ((m = s.match(/^(maj|Maj|M)/))) { maj = true; s = s.slice(m[0].length); }
+        }
+        else if ((m = s.match(/^(dim|°)/))) { r.third = 3; r.fifth = 6; dim = true; s = s.slice(m[0].length); }
+        else if ((m = s.match(/^(aug|\+)/))) { r.fifth = 8; s = s.slice(m[0].length); }
+        else if ((m = s.match(/^ø/))) { r.third = 3; r.fifth = 6; r.seventh = 10; s = s.slice(1); if (s.charAt(0) === '7') s = s.slice(1); }
+        function sev() { return dim ? 9 : maj ? 11 : 10; }
+        if ((m = s.match(/^(6\/9|69|13|11|9|7|6|5)/))) {
+            var n = m[1]; s = s.slice(n.length);
+            if (n === '5') { if (r.third !== 4 || maj) return null; r.power = true; }
+            else if (n === '6') r.extra.push(9);
+            else if (n === '69' || n === '6/9') { r.extra.push(9); r.extra.push(14); }
+            else if (n === '7') r.seventh = sev();
+            else if (n === '9') { r.seventh = sev(); r.extra.push(14); }
+            else if (n === '11') { r.seventh = sev(); r.extra.push(14); r.extra.push(17); }
+            else if (n === '13') { r.seventh = sev(); r.extra.push(14); r.extra.push(21); }
+        } else if (maj && s.length && !/^(sus|add)/.test(s)) return null;
+        while (s.length) {
+            if ((m = s.match(/^sus(2|4)?/))) { r.third = m[1] === '2' ? 2 : 5; s = s.slice(m[0].length); continue; }
+            if ((m = s.match(/^add(13|11|9|6|4|2)/))) { r.extra.push({ 13: 21, 11: 17, 9: 14, 6: 9, 4: 5, 2: 2 }[m[1]]); s = s.slice(m[0].length); continue; }
+            if ((m = s.match(/^([b#♭♯+-])(13|11|9|5)/))) {
+                var up = m[1] === '#' || m[1] === '♯' || m[1] === '+';
+                var deg = m[2];
+                if (deg === '5') r.fifth = up ? 8 : 6;
+                else r.extra.push({ 9: 14, 11: 17, 13: 21 }[deg] + (up ? 1 : -1));
+                s = s.slice(m[0].length); continue;
+            }
+            if ((m = s.match(/^(,|\s)/))) { s = s.slice(1); continue; }
+            return null;
+        }
+        return r;
+    }
+
+    function parse(name) {
+        if (!name || name.length > 16) return null;
+        var m = String(name).trim().match(FULL);
+        if (!m) return null;
+        var q = parseSuffix(m[3]);
+        if (!q) return null;
+        var root = pc(m[1], m[2]);
+        var tones = q.power ? [0, 7] : [0, q.third, q.fifth];
+        if (q.seventh !== null) tones.push(q.seventh);
+        q.extra.forEach(function (x) { if (tones.indexOf(x) === -1) tones.push(x); });
+        tones = tones.filter(function (t, i, a) { return a.indexOf(t) === i; }).sort(function (a, b) { return a - b; });
+        var flats = acc(m[2]) < 0 || (!m[2] && m[1] === 'F') || (acc(m[2]) === 0 && q.minor && /[DGC]/.test(m[1]));
+        if (acc(m[2]) > 0) flats = false;
+        return {
+            name: String(name).trim(), root: root, rootName: m[1] + (m[2] || ''), suffix: m[3],
+            bass: m[4] ? pc(m[4], m[5]) : null, bassName: m[4] ? m[4] + (m[5] || '') : null,
+            tones: tones, flats: flats, minor: q.minor
+        };
+    }
+
+    function noteName(p, flats) { return (flats ? FLAT : SHARP)[((p % 12) + 12) % 12]; }
+
+    var LETTERS = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+    function degreeOf(t, ch) {
+        var m = { 0: 1, 1: 9, 2: 2, 3: 3, 4: 3, 5: 4, 7: 5, 10: 7, 11: 7, 13: 9, 14: 9, 15: 9, 17: 11, 18: 11, 20: 13, 21: 13 };
+        if (t === 6) return ch.tones.indexOf(7) === -1 ? 5 : 11;
+        if (t === 8) return ch.tones.indexOf(7) === -1 ? 5 : 13;
+        if (t === 9) return ch.tones.indexOf(10) === -1 && ch.tones.indexOf(11) === -1 && ch.tones.indexOf(6) !== -1 && ch.tones.indexOf(7) === -1 ? 7 : 6;
+        return m[t] || 1;
+    }
+    function spell(ch, t) {
+        var target = (ch.root + t) % 12;
+        var deg = degreeOf(t, ch);
+        var li = (LETTERS.indexOf(ch.rootName.charAt(0)) + deg - 1) % 7;
+        var letter = LETTERS[li];
+        var diff = ((target - LETTER[letter]) % 12 + 18) % 12 - 6;
+        if (diff === 0) return letter;
+        if (diff === 1) return letter + '#';
+        if (diff === -1) return letter + 'b';
+        return noteName(target, ch.flats);
+    }
+    function toneNames(ch) { return ch.tones.map(function (t) { return spell(ch, t); }); }
+
+    function voicing(ch, inversion) {
+        var base = 12 + ch.root;
+        var notes = ch.tones.map(function (t) { return base + t; });
+        var names = {};
+        ch.tones.forEach(function (t) { names[(ch.root + t) % 12] = spell(ch, t); });
+        var inv = ((inversion || 0) % notes.length + notes.length) % notes.length;
+        var close = notes.filter(function (n) { return n - base < 12; });
+        var upper = notes.filter(function (n) { return n - base >= 12; });
+        for (var i = 0; i < inv && i < close.length; i++) close[i] += 12;
+        notes = close.concat(upper).sort(function (a, b) { return a - b; });
+        var bass = null;
+        if (ch.bass !== null) {
+            bass = ch.bass;
+            while (bass >= notes[0]) bass -= 12;
+            while (bass < notes[0] - 12) bass += 12;
+        }
+        return {
+            notes: notes, bass: bass, inversions: Math.min(close.length, 4),
+            label: function (abs) { return abs === bass ? ch.bassName : (names[((abs % 12) + 12) % 12] || noteName(abs, ch.flats)); }
+        };
+    }
+
+    function transposeName(name, steps) {
+        if (!steps) return name;
+        var m = String(name).match(FULL);
+        if (!m) return name;
+        var useFlat = acc(m[2]) < 0 || (!m[2] && m[1] === 'F' && steps < 0);
+        if (acc(m[2]) > 0) useFlat = false;
+        var root = noteName(pc(m[1], m[2]) + steps, useFlat);
+        var bass = m[4] ? '/' + noteName(pc(m[4], m[5]) + steps, useFlat) : '';
+        return root + m[3] + bass;
+    }
+
+    function inversionLabel(i) { return ['Root position', '1st inversion', '2nd inversion', '3rd inversion'][i] || (i + 'th inversion'); }
+
+    g.HoverChords = { toneNames: toneNames, parse: parse, voicing: voicing, noteName: noteName, transposeName: transposeName, inversionLabel: inversionLabel };
+})(typeof window !== 'undefined' ? window : globalThis);
+var H=window.HoverChords,pop=root.querySelector('.hcd-pop'),cur=null,inv=0,shift=0,ac=null;
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function kb(v){var all=v.notes.slice();if(v.bass!==null)all.push(v.bass);var lo=Math.floor(Math.min.apply(null,all)/12)*12,hi=Math.floor(Math.max.apply(null,all)/12)*12+12;if(hi-lo<24)hi=lo+24;var W=[0,2,4,5,7,9,11],ww=22,wh=84,bw=14,bh=52,width=(hi-lo)/12*7*ww,lit={};v.notes.forEach(function(n){lit[n]='c';});if(v.bass!==null)lit[v.bass]='b';var s='<svg viewBox="-1 -1 '+(width+2)+' '+(wh+2)+'" width="'+(width+2)+'" role="img" aria-label="Piano keyboard">',wi=0,b='';for(var n=lo;n<hi;n++){var p=n%12;if(W.indexOf(p)!==-1){var x=wi*ww,f=lit[n]==='c'?'#f6b31e':lit[n]==='b'?'#7fc3d4':'#ffffff';s+='<rect x="'+x+'" y="0" width="'+ww+'" height="'+wh+'" rx="3" fill="'+f+'" stroke="#9aa9ae"/>';if(lit[n])s+='<text x="'+(x+ww/2)+'" y="'+(wh-8)+'" text-anchor="middle" font-size="10" font-weight="800" fill="#15191c" font-family="system-ui,Arial">'+esc(v.label(n))+'</text>';wi++;}else{var bx=wi*ww-bw/2,bf=lit[n]==='c'?'#d18f00':lit[n]==='b'?'#2e8fa8':'#1c2226';b+='<rect x="'+bx+'" y="0" width="'+bw+'" height="'+bh+'" rx="2.5" fill="'+bf+'"/>';if(lit[n])b+='<text x="'+(bx+bw/2)+'" y="'+(bh-6)+'" text-anchor="middle" font-size="7.5" font-weight="800" fill="#fff" font-family="system-ui,Arial">'+esc(v.label(n))+'</text>';}}return s+b+'</svg>';}
+function render(){var ch=H.parse(cur.textContent);if(!ch)return;var v=H.voicing(ch,inv),k=Math.max(1,v.inversions);pop.querySelector('.hcd-name').textContent=ch.name;pop.querySelector('.hcd-notes').textContent=H.toneNames(ch).join(' \u00B7 ')+(ch.bassName?'  (bass '+ch.bassName+')':'');pop.querySelector('.hcd-kb').innerHTML=kb(v);pop.querySelector('.hcd-inv').textContent=H.inversionLabel(((inv%k)+k)%k);}
+function place(){var r=cur.getBoundingClientRect(),R=root.getBoundingClientRect(),w=pop.offsetWidth,left=r.left-R.left+r.width/2-w/2;left=Math.max(8,Math.min(left,root.clientWidth-w-8));pop.style.left=left+'px';pop.style.top=(r.bottom-R.top+8)+'px';}
+function show(s){if(cur)cur.classList.remove('is-on');if(cur!==s)inv=0;cur=s;s.classList.add('is-on');pop.hidden=false;render();place();}
+function play(){if(!cur)return;var ch=H.parse(cur.textContent);if(!ch)return;var v=H.voicing(ch,inv);try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();var notes=(v.bass!==null?[v.bass]:[]).concat(v.notes),m=ac.createGain();m.gain.value=0.32/Math.sqrt(notes.length);m.connect(ac.destination);var t0=ac.currentTime+0.02;notes.forEach(function(n,i){var f=440*Math.pow(2,(48+n-69)/12),t=t0+i*0.028;[[1,1,'triangle'],[2,0.35,'sine'],[3,0.12,'sine']].forEach(function(h){var o=ac.createOscillator(),g=ac.createGain();o.type=h[2];o.frequency.value=f*h[0];g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(h[1],t+0.008);g.gain.exponentialRampToValueAtTime(0.0001,t+2.4/h[0]);o.connect(g);g.connect(m);o.start(t);o.stop(t+2.5);});});}catch(e){}}
+var spans=[].slice.call(root.querySelectorAll('.hcd-c'));
+spans.forEach(function(s){s.addEventListener('mouseenter',function(){show(s);});s.addEventListener('click',function(){show(s);play();});s.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();show(s);play();}});});
+pop.querySelector('.hcd-play').addEventListener('click',play);
+pop.querySelector('.hcd-prev').addEventListener('click',function(){inv--;render();play();});
+pop.querySelector('.hcd-next').addEventListener('click',function(){inv++;render();play();});
+pop.querySelector('.hcd-x').addEventListener('click',function(){pop.hidden=true;if(cur)cur.classList.remove('is-on');});
+function tp(d){shift=((shift+d+18)%12)-6;if(shift===-6)shift=6;root.querySelector('.hcd-tp output').textContent=shift>0?'+'+shift:String(shift);spans.forEach(function(s){s.textContent=H.transposeName(s.getAttribute('data-c'),shift);});if(cur&&!pop.hidden){render();place();}}
+root.querySelector('.hcd-up').addEventListener('click',function(){tp(1);});
+root.querySelector('.hcd-down').addEventListener('click',function(){tp(-1);});
+window.addEventListener('resize',function(){if(cur&&!pop.hidden)place();});
+show(spans[1]);})();</script>
