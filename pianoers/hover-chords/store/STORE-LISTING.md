@@ -89,8 +89,8 @@ Upload the screenshots in the order above: the first one appears as the main ima
 - Uses or transfers data for unrelated purposes: **No**.
 - Uses data for creditworthiness or lending: **No**.
 - Remote code: **No** (all code ships inside the extension).
-- Privacy policy URL: publish `PRIVACY.md` at `https://pianoers.com/hover-chords-privacy/` and paste that link.
+- Privacy policy URL: https://pianoers.com/hover-chords-privacy/
 
 ## Official URL and support
-- **Homepage URL:** https://pianoers.com/ (or a /hover-chords/ landing page once it exists)
+- **Homepage URL:** https://pianoers.com/hover-chords/
 - **Support URL:** https://pianoers.com/contact/

@@ -58,8 +58,12 @@ shots={
 <h1 style="font-size:58px">Piano chords on any chord sheet</h1><p class="sub">Hover to see the keys. Click to hear it. Transpose the whole song in one click.</p></div>
 <img class="pop" src="{SRC}pop-c-inv1.png" style="left:700px;top:40px;width:400px">
 <img class="pop" src="{SRC}pop-g7.png" style="left:980px;top:250px;width:390px">'''),
+'hover-chords-social-1200x630':page(1200,630,f'''<div style="position:absolute;left:64px;top:96px;width:520px"><div style="display:flex;align-items:center;gap:14px;margin-bottom:22px"><img src="{SRC}../../extension/icons/icon128.png" width="56" height="56"><span style="color:#fff;font-weight:800;font-size:30px">Hover Chords</span></div>
+<h1 style="font-size:56px">Free piano chord finder for Chrome</h1><p class="sub">Hover any chord on a chord sheet to see it, hear it and transpose it.</p></div>
+<img class="pop" src="{SRC}pop-c-inv1.png" style="left:600px;top:70px;width:380px">
+<img class="pop" src="{SRC}pop-g7.png" style="left:790px;top:280px;width:380px">'''),
 }
-SIZES={k:((440,280) if k.startswith('small') else (1400,560) if k.startswith('marquee') else (1280,800)) for k in shots}
+SIZES={k:((440,280) if k.startswith('small') else (1400,560) if k.startswith('marquee') else (1200,630) if k.startswith('hover-chords-social') else (1280,800)) for k in shots}
 with sync_playwright() as p:
     b=p.chromium.launch(executable_path="/opt/pw-browsers/chromium-1194/chrome-linux/chrome",args=['--allow-file-access-from-files'],proxy={'server':os.environ['HTTPS_PROXY']} if os.environ.get('HTTPS_PROXY') else None)
     for name,html in shots.items():
