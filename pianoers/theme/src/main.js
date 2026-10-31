@@ -4,7 +4,7 @@
    3. Table scrolling        7. ItemList structured data          11. Reading progress
    4. Affiliate links        8. Sound                             12. Share, course quiz, chord taste
                                                                   13-14. Sortable tables, reveal
-                                                                  15. Image lightbox  */
+                                                                  15. Image lightbox, 16. Readable labels, 17. YouTube  */
 (function () {
     'use strict';
 
@@ -263,7 +263,7 @@
         data.questions.forEach(function (q, qi) {
             var id = 'pz-fq-' + qi + '-' + Math.random().toString(36).slice(2, 6);
             var keys = q.options.map(function (o) {
-                return '<button class="pz-key" type="button" aria-pressed="false" data-v="' + esc(o.value) + '">' + esc(o.label) + (o.hint ? '<small>' + esc(o.hint) + '</small>' : '') + '</button>';
+                return '<button class="pz-key" type="button" aria-pressed="false" data-v="' + esc(o.value) + '">' + esc(o.label) + (o.hint ? '<span class="pz-visually-hidden">: </span><small>' + esc(o.hint) + '</small>' : '') + '<span class="pz-visually-hidden">. </span></button>';
             }).join('');
             var q_el = document.createElement('div');
             q_el.className = 'pz-finder-q';
@@ -701,8 +701,8 @@
         }
         function save() { localSet(KEY, JSON.stringify({ a: encode(answers), t: Date.now() })); }
         function head(n) {
-            return '<div class="pz-quiz-top"><span class="pz-quiz-count">' + n + '</span>' +
-                (cfg.sounds ? '<button class="pz-sound pz-quiz-sound" type="button" aria-pressed="' + soundOn() + '">' + (soundOn() ? 'Sound on' : 'Sound off') + '</button>' : '') + '</div>';
+            return '<div class="pz-quiz-top"><span class="pz-quiz-count">' + n + '<span class="pz-visually-hidden">. </span></span>' +
+                (cfg.sounds ? '<button class="pz-sound pz-quiz-sound" type="button" aria-pressed="' + soundOn() + '">' + (soundOn() ? 'Sound on' : 'Sound off') + '</button><span class="pz-visually-hidden">. </span>' : '') + '</div>';
         }
         function bindSound() {
             var b = stage.querySelector('.pz-quiz-sound');
@@ -714,10 +714,10 @@
             var q = data.questions[i];
             var id = 'pz-qq-' + uid + '-' + i;
             stage.innerHTML = head('Question ' + (i + 1) + ' of ' + data.questions.length) +
-                '<p class="pz-quiz-q" id="' + id + '" tabindex="-1">' + esc(q.label) + '</p>' +
+                '<p class="pz-quiz-q" id="' + id + '" tabindex="-1">' + esc(q.label) + '<span class="pz-visually-hidden"> Choose one: </span></p>' +
                 '<div class="pz-keys pz-quiz-keys" role="group" aria-labelledby="' + id + '" data-n="' + q.options.length + '" style="--n:' + q.options.length + '">' +
                 q.options.map(function (o, j) {
-                    return '<button class="pz-key" type="button" aria-pressed="' + (answers[i] === j) + '" data-i="' + j + '">' + esc(o.label) + (o.hint ? '<small>' + esc(o.hint) + '</small>' : '') + '</button>';
+                    return '<button class="pz-key" type="button" aria-pressed="' + (answers[i] === j) + '" data-i="' + j + '">' + esc(o.label) + (o.hint ? '<span class="pz-visually-hidden">: </span><small>' + esc(o.hint) + '</small>' : '') + '<span class="pz-visually-hidden">. </span></button>';
                 }).join('') + '</div>' +
                 '<div class="pz-quiz-nav">' + (i > 0 ? '<button class="pz-quiz-back" type="button">← Back</button>' : '<span></span>') +
                 '<span class="pz-quiz-dots" aria-hidden="true">' + data.questions.map(function (_, k) { return '<i class="' + (k < i ? 'is-done' : k === i ? 'is-now' : '') + '"></i>'; }).join('') + '</span></div>';
@@ -1173,6 +1173,61 @@
             img.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
             });
+        });
+    })();
+
+    /* 16. Readable labels: label/value pairs keep a separator when the page is read as plain text */
+    document.querySelectorAll('.pz-plate dt, .pz-plate dd').forEach(function (n) {
+        if (n.querySelector('.pz-visually-hidden')) return;
+        var sep = document.createElement('span');
+        sep.className = 'pz-visually-hidden';
+        sep.textContent = n.tagName === 'DT' ? ': ' : '. ';
+        n.appendChild(sep);
+    });
+
+    /* 17. YouTube: a light thumbnail that loads the player only when someone presses play */
+    (function () {
+        function player(id, title) {
+            var f = document.createElement('iframe');
+            f.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+            f.title = title || 'YouTube video';
+            f.width = '560'; f.height = '315';
+            f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+            f.setAttribute('allowfullscreen', '');
+            f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+            f.className = 'pz-yt-frame';
+            return f;
+        }
+        function facade(id, title) {
+            var a = document.createElement('a');
+            a.className = 'pz-yt';
+            a.href = 'https://www.youtube.com/watch?v=' + id;
+            a.setAttribute('data-yt', id);
+            a.target = '_blank'; a.rel = 'noopener';
+            var img = document.createElement('img');
+            img.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
+            img.alt = 'Video: ' + (title || 'YouTube video');
+            img.width = 480; img.height = 360; img.loading = 'lazy'; img.decoding = 'async';
+            var play = document.createElement('span'); play.className = 'pz-yt-play'; play.setAttribute('aria-hidden', 'true');
+            var label = document.createElement('span'); label.className = 'pz-visually-hidden'; label.textContent = 'Play video: ' + (title || 'YouTube video') + ' (YouTube)';
+            a.appendChild(img); a.appendChild(play); a.appendChild(label);
+            return a;
+        }
+        if (content) content.querySelectorAll('iframe[src*="youtube.com/embed/"], iframe[src*="youtube-nocookie.com/embed/"]').forEach(function (f) {
+            var m = f.src.match(/embed\/([\w-]{11})/);
+            if (!m) return;
+            var a = facade(m[1], f.getAttribute('title'));
+            f.parentNode.replaceChild(a, f);
+            if (a.parentNode.classList) a.parentNode.classList.add('pz-yt-card');
+        });
+        document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a.pz-yt[data-yt]');
+            if (!a || e.ctrlKey || e.metaKey || e.shiftKey) return;
+            e.preventDefault();
+            var img = a.querySelector('img');
+            var f = player(a.getAttribute('data-yt'), img ? img.alt.replace(/^Video: /, '') : '');
+            a.parentNode.replaceChild(f, a);
+            f.focus();
         });
     })();
 

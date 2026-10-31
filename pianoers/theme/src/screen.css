@@ -739,3 +739,12 @@ html.pz-lb-open, html.pz-lb-open body { overflow: hidden; }
 .pz-lb-cap[hidden] { display: none; }
 @media (max-width: 640px) { .pz-lb-nav { display: none; } .pz-lb-stage { padding: 0 4px; } }
 @media (prefers-reduced-motion: reduce) { .pz-lb, .pz-lb-img { transition: none !important; } }
+
+.pz-yt-card .pz-yt, .pz-yt-card .pz-yt-frame { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: #000; }
+.pz-yt-card .pz-yt-frame { height: auto; border: 0; }
+.pz-yt img { width: 100%; height: 100%; object-fit: cover; margin: 0; transition: opacity .2s ease; }
+.pz-yt:hover img, .pz-yt:focus-visible img { opacity: .85; }
+.pz-yt:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+.pz-yt-play { position: absolute; left: 50%; top: 50%; width: 72px; height: 50px; transform: translate(-50%, -50%); border-radius: 14px; background: #e62117; box-shadow: 0 4px 16px rgb(0 0 0 / 35%); }
+.pz-yt-play::after { content: ""; position: absolute; left: 29px; top: 15px; border-style: solid; border-width: 10px 0 10px 18px; border-color: transparent transparent transparent #fff; }
+.pz-prices { margin-top: 0; }
