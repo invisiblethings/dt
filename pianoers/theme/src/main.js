@@ -3,7 +3,8 @@
    2. Image framing          6. Picks, finder, rail pick, buy bar 10. Ear trainer
    3. Table scrolling        7. ItemList structured data          11. Reading progress
    4. Affiliate links        8. Sound                             12. Share, course quiz, chord taste
-                                                                  13-14. Sortable tables, reveal  */
+                                                                  13-14. Sortable tables, reveal
+                                                                  15. Image lightbox  */
 (function () {
     'use strict';
 
@@ -964,5 +965,215 @@
                 revealIO.observe(el);
             });
     }
+
+    /* 15. Image lightbox: tap any article image to open it full size, then zoom, pan and browse */
+    (function () {
+        if (!content) return;
+        var skip = '.pz-author, .pz-author-box, .pz-card, .pz-related, .pz-quiz, .pz-taste, .pz-piano, .pz-game, .pz-finder, .pz-home-section, .kg-bookmark-card, .kg-product-card, .kg-header-card, .kg-signup-card';
+        function eligible(img) {
+            if (img.closest('a') || img.closest(skip)) return false;
+            var w = parseInt(img.getAttribute('width'), 10) || img.naturalWidth || 0;
+            return !w || w >= 320;
+        }
+        function bigSrc(img) {
+            var best = '', bw = 0;
+            (img.getAttribute('srcset') || '').split(',').forEach(function (part) {
+                var bits = part.trim().split(/\s+/);
+                var w = parseInt(bits[1], 10) || 0;
+                if (bits[0] && w >= bw) { best = bits[0]; bw = w; }
+            });
+            var src = best || img.currentSrc || img.src;
+            return src.replace(/\/size\/w\d+(?:h\d+)?\//, '/').replace(/\/content\/images\/format\/[a-z]+\//, '/content/images/');
+        }
+        function caption(img) {
+            var fig = img.closest('figure');
+            var cap = fig && fig.querySelector('figcaption');
+            return cap ? text(cap) : (img.getAttribute('alt') || '');
+        }
+        var imgs = Array.prototype.filter.call(content.querySelectorAll('img'), eligible);
+        if (!imgs.length) return;
+
+        var box, stage, pic, capEl, countEl, prevBtn, nextBtn, zoomBtn, lastFocus, index = 0;
+        var scale = 1, tx = 0, ty = 0, pointers = {}, startDist = 0, startScale = 1, drag = null, swipe = null, lastTap = 0, downAt = null, moved = false, ptype = '';
+        var MAX = 4;
+
+        function el(tag, cls, attrs) {
+            var e = document.createElement(tag);
+            if (cls) e.className = cls;
+            Object.keys(attrs || {}).forEach(function (k) { e.setAttribute(k, attrs[k]); });
+            return e;
+        }
+        function icon(path) { return '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="' + path + '" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; }
+        function build() {
+            box = el('div', 'pz-lb', { role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Image viewer', hidden: '' });
+            var bar = el('div', 'pz-lb-bar');
+            countEl = el('span', 'pz-lb-count', { 'aria-live': 'polite' });
+            zoomBtn = el('button', 'pz-lb-btn', { type: 'button', 'aria-label': 'Zoom in' });
+            zoomBtn.innerHTML = icon('M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-4.6-4.6M11 8v6M8 11h6');
+            var close = el('button', 'pz-lb-btn', { type: 'button', 'aria-label': 'Close' });
+            close.innerHTML = icon('M6 6l12 12M18 6L6 18');
+            bar.appendChild(countEl); bar.appendChild(zoomBtn); bar.appendChild(close);
+            stage = el('div', 'pz-lb-stage');
+            pic = el('img', 'pz-lb-img', { alt: '', draggable: 'false' });
+            stage.appendChild(pic);
+            prevBtn = el('button', 'pz-lb-btn pz-lb-nav pz-lb-prev', { type: 'button', 'aria-label': 'Previous image' });
+            prevBtn.innerHTML = icon('M15 5l-7 7 7 7');
+            nextBtn = el('button', 'pz-lb-btn pz-lb-nav pz-lb-next', { type: 'button', 'aria-label': 'Next image' });
+            nextBtn.innerHTML = icon('M9 5l7 7-7 7');
+            capEl = el('p', 'pz-lb-cap');
+            box.appendChild(bar); box.appendChild(stage); box.appendChild(prevBtn); box.appendChild(nextBtn); box.appendChild(capEl);
+            document.body.appendChild(box);
+
+            close.addEventListener('click', hide);
+            zoomBtn.addEventListener('click', function () { zoomTo(scale > 1 ? 1 : 2.5); });
+            prevBtn.addEventListener('click', function () { go(-1); });
+            nextBtn.addEventListener('click', function () { go(1); });
+            stage.addEventListener('click', function (e) { if (e.target === stage && scale === 1) hide(); });
+            box.addEventListener('keydown', onKey);
+            stage.addEventListener('wheel', onWheel, { passive: false });
+            pic.addEventListener('pointerdown', onDown);
+            stage.addEventListener('pointermove', onMove);
+            stage.addEventListener('pointerup', onUp);
+            stage.addEventListener('pointercancel', onUp);
+        }
+        function apply(animate) {
+            pic.style.transition = animate ? 'transform .2s ease' : 'none';
+            pic.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
+            box.classList.toggle('is-zoomed', scale > 1);
+            zoomBtn.setAttribute('aria-label', scale > 1 ? 'Zoom out' : 'Zoom in');
+            zoomBtn.innerHTML = icon(scale > 1 ? 'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-4.6-4.6M8 11h6' : 'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-4.6-4.6M11 8v6M8 11h6');
+        }
+        function clamp() {
+            var r = stage.getBoundingClientRect();
+            var w = pic.offsetWidth * scale, h = pic.offsetHeight * scale;
+            var mx = Math.max(0, (w - r.width) / 2), my = Math.max(0, (h - r.height) / 2);
+            tx = Math.min(mx, Math.max(-mx, tx)); ty = Math.min(my, Math.max(-my, ty));
+        }
+        function zoomTo(s, cx, cy) {
+            var r = stage.getBoundingClientRect();
+            var ox = (cx === undefined ? r.left + r.width / 2 : cx) - (r.left + r.width / 2);
+            var oy = (cy === undefined ? r.top + r.height / 2 : cy) - (r.top + r.height / 2);
+            s = Math.min(MAX, Math.max(1, s));
+            tx = ox - (ox - tx) * (s / scale); ty = oy - (oy - ty) * (s / scale);
+            scale = s;
+            if (scale === 1) { tx = 0; ty = 0; }
+            clamp(); apply(true);
+        }
+        function toggleAt(x, y) { zoomTo(scale > 1 ? 1 : 2.5, x, y); }
+        function onWheel(e) {
+            e.preventDefault();
+            zoomTo(scale * (e.deltaY < 0 ? 1.15 : 1 / 1.15), e.clientX, e.clientY);
+        }
+        function dist() {
+            var p = Object.keys(pointers).map(function (k) { return pointers[k]; });
+            return Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+        }
+        function onDown(e) {
+            pointers[e.pointerId] = { x: e.clientX, y: e.clientY };
+            downAt = { x: e.clientX, y: e.clientY }; moved = false; ptype = e.pointerType;
+            try { stage.setPointerCapture(e.pointerId); } catch (err) { }
+            var n = Object.keys(pointers).length;
+            if (n === 2) { startDist = dist(); startScale = scale; drag = null; swipe = null; return; }
+            if (scale > 1) drag = { x: e.clientX - tx, y: e.clientY - ty };
+            else swipe = { x: e.clientX, y: e.clientY, t: Date.now() };
+            if (e.pointerType !== 'mouse') {
+                var now = Date.now();
+                if (now - lastTap < 300) { toggleAt(e.clientX, e.clientY); lastTap = 0; swipe = null; }
+                else lastTap = now;
+            }
+        }
+        function onMove(e) {
+            if (!pointers[e.pointerId]) return;
+            pointers[e.pointerId] = { x: e.clientX, y: e.clientY };
+            if (downAt && Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y) > 6) moved = true;
+            var n = Object.keys(pointers).length;
+            if (n === 2 && startDist) {
+                var p = Object.keys(pointers).map(function (k) { return pointers[k]; });
+                zoomTo(startScale * dist() / startDist, (p[0].x + p[1].x) / 2, (p[0].y + p[1].y) / 2);
+                pic.style.transition = 'none';
+            } else if (drag) {
+                tx = e.clientX - drag.x; ty = e.clientY - drag.y; clamp(); apply(false);
+            } else if (swipe) {
+                pic.style.transition = 'none';
+                pic.style.transform = 'translate(' + (e.clientX - swipe.x) + 'px,0)';
+            }
+        }
+        function onUp(e) {
+            var wasMouseTap = ptype === 'mouse' && !moved && downAt && Object.keys(pointers).length === 1;
+            delete pointers[e.pointerId];
+            if (wasMouseTap && e.type === 'pointerup') { drag = null; swipe = null; downAt = null; toggleAt(e.clientX, e.clientY); return; }
+            if (Object.keys(pointers).length < 2) startDist = 0;
+            if (swipe && scale === 1) {
+                var dx = e.clientX - swipe.x, dy = e.clientY - swipe.y;
+                swipe = null;
+                if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) && imgs.length > 1) { go(dx < 0 ? 1 : -1); return; }
+                if (dy > 110 && Math.abs(dy) > Math.abs(dx)) { hide(); return; }
+                apply(true);
+            }
+            drag = null;
+        }
+        function onKey(e) {
+            if (e.key === 'Escape') { e.preventDefault(); hide(); }
+            else if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+            else if (e.key === '+' || e.key === '=') zoomTo(scale * 1.4);
+            else if (e.key === '-') zoomTo(scale / 1.4);
+            else if (e.key === 'Tab') {
+                var f = Array.prototype.filter.call(box.querySelectorAll('button'), function (b) { return !b.hidden; });
+                var i = f.indexOf(document.activeElement);
+                if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+                else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+            }
+        }
+        function show(i) {
+            index = (i + imgs.length) % imgs.length;
+            var img = imgs[index];
+            scale = 1; tx = 0; ty = 0;
+            box.classList.add('is-loading');
+            pic.onload = function () { box.classList.remove('is-loading'); };
+            pic.onerror = function () { if (pic.src !== img.currentSrc) pic.src = img.currentSrc || img.src; };
+            pic.src = img.currentSrc || img.src;
+            var full = bigSrc(img);
+            if (full && full !== pic.src) {
+                var pre = new Image();
+                pre.onload = function () { if (imgs[index] === img) pic.src = full; };
+                pre.src = full;
+            }
+            pic.alt = img.getAttribute('alt') || '';
+            var c = caption(img);
+            capEl.textContent = c; capEl.hidden = !c;
+            countEl.textContent = imgs.length > 1 ? (index + 1) + ' / ' + imgs.length + (window.innerWidth <= 640 ? ' · swipe for more' : '') : '';
+            prevBtn.hidden = nextBtn.hidden = imgs.length < 2;
+            apply(false);
+        }
+        function go(d) { show(index + d); }
+        function open(i) {
+            if (!box) build();
+            lastFocus = document.activeElement;
+            box.hidden = false;
+            document.documentElement.classList.add('pz-lb-open');
+            show(i);
+            requestAnimationFrame(function () { box.classList.add('is-open'); });
+            box.querySelector('.pz-lb-bar .pz-lb-btn:last-child').focus();
+        }
+        function hide() {
+            if (!box || box.hidden) return;
+            box.classList.remove('is-open');
+            box.hidden = true;
+            pointers = {}; drag = null; swipe = null;
+            document.documentElement.classList.remove('pz-lb-open');
+            if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+        imgs.forEach(function (img, i) {
+            img.classList.add('pz-zoomable');
+            img.setAttribute('tabindex', '0');
+            img.setAttribute('role', 'button');
+            img.setAttribute('aria-label', 'Open larger image' + (img.alt ? ': ' + img.alt : ''));
+            img.addEventListener('click', function (e) { e.preventDefault(); open(i); });
+            img.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
+            });
+        });
+    })();
 
 })();

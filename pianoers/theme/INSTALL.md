@@ -178,6 +178,7 @@ Real-visitor numbers (Core Web Vitals) appear in Search Console about four weeks
 
 ## Changelog
 
+- **1.5.0** (31 Oct 2026). Image lightbox. Every image in an article can now be clicked or tapped to open full screen at full resolution (the largest size Ghost has). Zoom by clicking the image, using the zoom button, the mouse wheel, + and − keys, pinching or double-tapping, then drag to look around. Arrow keys, the side buttons or a swipe move between the article's images; Esc, the close button, a tap outside the image or a swipe down closes it. Works with the keyboard (Tab, Enter) and screen readers, and needs no change to any post. Linked images, author photos, post cards and the quiz and piano widgets are left alone.
 - **1.4.0** (30 Oct 2026). Homepage rebuild. Each of the 39 posts now appears exactly once (the old homepage showed 18 cards but only 11 different posts; Best Digital Piano and Best Beginner Pianos appeared three times each). New sections:
   - **Hero:** a site search bar, a "Start learning free" button and three trust points next to the playable piano.
   - **Journey tabs:** four tabs, which work by keyboard and screen reader.
