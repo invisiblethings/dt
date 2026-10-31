@@ -34,7 +34,7 @@ Sound is made in the browser with Web Audio (no audio files). Settings are saved
 1. Register a developer account at https://chrome.google.com/webstore/devconsole (one-time $5 fee).
 2. Click **New item** and upload `hover-chords-1.0.0.zip`.
 3. Copy the listing text, permission reasons and privacy answers from `store/STORE-LISTING.md`.
-4. Upload the screenshots from `store/` (1280 × 800) and the 128 px icon.
+4. Upload the graphic assets from `store/assets/` (store icon, 5 screenshots, small and marquee promo tiles). See the table in `store/STORE-LISTING.md`.
 5. Put `https://pianoers.com/` in the **Official URL / Homepage** fields. Publish the privacy policy (`store/PRIVACY.md`) at `https://pianoers.com/hover-chords-privacy/` and paste that URL.
 6. Submit for review. Reviews usually take from a few days to a couple of weeks.
 

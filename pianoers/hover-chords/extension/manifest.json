@@ -1,12 +1,41 @@
 {
   "manifest_version": 3,
-  "name": "Hover Chords: Piano Chord Finder",
+  "name": "Hover Chords: Piano Chord Finder & Transposer",
   "short_name": "Hover Chords",
   "version": "1.0.0",
-  "description": "Hover any chord name on a chord sheet to see it on a piano keyboard, hear it, change inversions and transpose the whole song.",
+  "description": "See any chord on a piano keyboard. Hover chord names on chord sheets to view, hear and transpose piano chords instantly.",
   "homepage_url": "https://pianoers.com/",
-  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
-  "action": { "default_popup": "popup.html", "default_title": "Hover Chords", "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png" } },
-  "permissions": ["storage", "activeTab"],
-  "content_scripts": [{ "matches": ["http://*/*", "https://*/*", "file:///*"], "js": ["chords.js", "content.js"], "run_at": "document_idle", "all_frames": false }]
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Hover Chords",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "file:///*"
+      ],
+      "js": [
+        "chords.js",
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
 }
