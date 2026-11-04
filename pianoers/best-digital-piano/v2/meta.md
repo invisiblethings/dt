@@ -5,8 +5,8 @@
 | Field | Value |
 |---|---|
 | Post title (H1) | Best Digital Pianos 2026: A Piano Teacher's Picks for Every Budget |
-| Meta title (59 chars) | Best Digital Pianos 2026: Weighted-Key Picks for Every Level |
-| Meta description (155 chars) | A piano teacher's 2026 picks, from $500 beginner pianos to home consoles: compare key action, speakers, weight and US prices in one table, with honest cons. |
+| Meta title (60 chars) | Best Digital Pianos 2026: Weighted-Key Picks for Every Level |
+| Meta description (156 chars) | A piano teacher's 2026 picks, from $500 beginner pianos to home consoles: compare key action, speakers, weight and US prices in one table, with honest cons. |
 | Excerpt | The digital pianos I recommend to my students in 2026, by budget: the Roland FP-30X for most people, plus picks under $500, under $1,000, advanced and console. |
 | Tags | Pianos (primary), Buying guides |
 | Author | Katarina |
