@@ -1,0 +1,9 @@
+{{!< default}}
+{{!-- Same as post.hbs, with the featured image spanning the full width of the screen. --}}
+{{#post}}
+    {{> "article" full=true}}
+    {{> "comments"}}
+{{/post}}
+{{#if @custom.show_related_posts}}
+    {{> "related-posts"}}
+{{/if}}

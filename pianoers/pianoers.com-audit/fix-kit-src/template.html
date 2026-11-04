@@ -1,0 +1,371 @@
+<title>Pianoers Fix Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one working column. Sticky progress header (a piano-key strip that fills amber),
+   then three sections: Start here (site-wide), Page by page (accordion), Code snippets. */
+:root {
+  --bg: #f4f7f7; --surface: #ffffff; --ink: #14191b; --muted: #59686d; --line: #d9e2e3;
+  --teal: #1b6a72; --teal-soft: #e3f0f1; --amber: #f2b230; --amber-ink: #2b1f00;
+  --p1: #b4382d; --p1-soft: #fbe8e5; --p2: #9a6a00; --p2-soft: #fbf1d9; --p3: #4f6470; --p3-soft: #e9eef0;
+  --done: #2f7d4f; --key-black: #1d2326; --key-white: #ffffff;
+  --f-ui: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0e1416; --surface: #161f22; --ink: #e6eef0; --muted: #9db0b5; --line: #29363a;
+  --teal: #6cc0c8; --teal-soft: #17343a; --amber: #f2b230; --amber-ink: #2b1f00;
+  --p1: #f08a7f; --p1-soft: #3a1d1a; --p2: #e9c063; --p2-soft: #33290f; --p3: #a9bcc4; --p3-soft: #222d31;
+  --done: #6fcf97; --key-black: #05080a; --key-white: #dfe7e9; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0e1416; --surface: #161f22; --ink: #e6eef0; --muted: #9db0b5; --line: #29363a;
+  --teal: #6cc0c8; --teal-soft: #17343a; --amber: #f2b230; --amber-ink: #2b1f00;
+  --p1: #f08a7f; --p1-soft: #3a1d1a; --p2: #e9c063; --p2-soft: #33290f; --p3: #a9bcc4; --p3-soft: #222d31;
+  --done: #6fcf97; --key-black: #05080a; --key-white: #dfe7e9; color-scheme: dark }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 15px/1.55 var(--f-ui); }
+.wrap { max-width: 920px; margin: 0 auto; padding-inline: 16px; padding-block: 0 64px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+/* Header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { padding-block: 14px 12px; display: grid; gap: 10px; }
+.title-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+.title-row h1 { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.01em; }
+.title-row h1 span { color: var(--teal); }
+.count { font-variant-numeric: tabular-nums; color: var(--muted); font-weight: 500; }
+.count b { color: var(--ink); }
+.keys { display: grid; grid-template-columns: repeat(52, 1fr); height: 26px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; position: relative; background: var(--key-white); }
+.keys i { border-right: 1px solid var(--line); background: var(--key-white); transition: background .25s ease; }
+.keys i.on { background: var(--amber); }
+.keys i:last-child { border-right: 0; }
+.keys b { position: absolute; top: 0; width: 1.2%; height: 58%; background: var(--key-black); border-radius: 0 0 2px 2px; pointer-events: none; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 11px; font-size: .85rem; font-weight: 500; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--teal); border-color: var(--teal); color: var(--surface); }
+.search { flex: 1 1 180px; min-width: 0; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 5px 12px; font-size: .9rem; }
+.save-state { font-size: .78rem; color: var(--muted); }
+
+/* Sections */
+section.block { padding-block: 26px 0; display: grid; gap: 12px; }
+.block > h2 { font-size: 1.1rem; font-weight: 800; display: flex; gap: 10px; align-items: baseline; }
+.block > h2 small { font-weight: 500; color: var(--muted); font-size: .85rem; }
+.lead { color: var(--muted); margin: 0; max-width: 68ch; }
+.intro { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: grid; gap: 8px; }
+.intro ol { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Page accordion */
+.page { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); }
+.page > summary { list-style: none; cursor: pointer; padding: 12px 14px; display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; }
+.page > summary::-webkit-details-marker { display: none; }
+.page > summary .pt { font-weight: 700; min-width: 0; }
+.page > summary .pp { font-family: var(--f-mono); font-size: .78rem; color: var(--muted); min-width: 0; overflow-wrap: anywhere; }
+.page > summary .meter { grid-row: 1 / span 2; grid-column: 2; display: grid; justify-items: end; gap: 4px; }
+.mini { width: 90px; height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.mini span { display: block; height: 100%; background: var(--amber); }
+.page[open] > summary { border-bottom: 1px solid var(--line); }
+.page.complete > summary .pt::after { content: " ✓"; color: var(--done); }
+.page-links { padding: 8px 14px 0; font-size: .85rem; display: flex; gap: 14px; flex-wrap: wrap; }
+.page-links a { color: var(--teal); }
+ul.tasks { list-style: none; margin: 0; padding: 4px 0; }
+
+/* Task */
+.task { display: grid; grid-template-columns: 28px 1fr; gap: 4px 10px; padding: 12px 14px; border-top: 1px solid var(--line); }
+.task:first-child { border-top: 0; }
+.task input[type=checkbox] { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--done); cursor: pointer; }
+.task .body { min-width: 0; display: grid; gap: 6px; }
+.task .tt { font-weight: 700; display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: baseline; }
+.task.is-done .tt label { text-decoration: line-through; text-decoration-color: var(--muted); color: var(--muted); }
+.task.is-done .rest { display: none; }
+.task .where { font-size: .8rem; color: var(--teal); font-weight: 500; }
+.task .note { margin: 0; color: var(--ink); opacity: .86; }
+.tag { font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 1px 7px; border-radius: 999px; white-space: nowrap; }
+.tag.p1 { background: var(--p1-soft); color: var(--p1); }
+.tag.p2 { background: var(--p2-soft); color: var(--p2); }
+.tag.p3 { background: var(--p3-soft); color: var(--p3); }
+.tag.k { background: var(--teal-soft); color: var(--teal); }
+.rest { display: grid; gap: 8px; }
+.val { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; align-items: start; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+.val .lab { grid-column: 1 / -1; font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.val .lab .len { font-weight: 500; letter-spacing: 0; text-transform: none; }
+.val pre { margin: 0; font: 400 .85rem/1.5 var(--f-mono); white-space: pre-wrap; overflow-wrap: anywhere; min-width: 0; }
+.val.find { border-left: 3px solid var(--p1); }
+.val.repl { border-left: 3px solid var(--done); }
+.copy { border: 1px solid var(--teal); background: var(--surface); color: var(--teal); border-radius: 6px; padding: 3px 10px; font-size: .8rem; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.copy.ok { background: var(--teal); color: var(--surface); }
+ol.steps { margin: 0; padding-left: 20px; }
+
+/* Snippets */
+.snip { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: grid; gap: 8px; }
+.snip h3 { font-size: 1rem; }
+.snip pre { max-height: 320px; overflow: auto; }
+.empty { color: var(--muted); padding: 10px 2px; }
+@media (max-width: 520px) { .top { position: static; } .page > summary .meter .mini { width: 60px; } .title-row h1 { font-size: 1.25rem; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="title-row">
+      <h1>Pianoers <span>Fix Kit</span></h1>
+      <div class="count" id="count">…</div>
+    </div>
+    <div class="keys" id="keys" aria-hidden="true"></div>
+    <div class="controls" role="group" aria-label="Filters">
+      <button class="chip" data-pri="0" aria-pressed="true" type="button">All</button>
+      <button class="chip" data-pri="1" aria-pressed="false" type="button">This week</button>
+      <button class="chip" data-pri="2" aria-pressed="false" type="button">Weeks 2–3</button>
+      <button class="chip" data-pri="3" aria-pressed="false" type="button">Month 2</button>
+      <button class="chip" id="hide-done" aria-pressed="false" type="button">Hide done</button>
+      <input class="search" id="q" type="search" placeholder="Search posts or tasks" aria-label="Search posts or tasks">
+    </div>
+    <div class="save-state" id="save-state">Ticks are saved in this browser.</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="block">
+    <div class="intro">
+      <strong>How to use this</strong>
+      <ol>
+        <li>Do <b>Start here</b> first: the theme upload and the one setting take five minutes and fix the affiliate tagging on every page.</li>
+        <li>Then open a post below, open the same post in Ghost Admin in another tab, and work down its list. Every value has a <b>Copy</b> button.</li>
+        <li>For a sentence to correct, use your browser's find (Ctrl/Cmd + F) in the Ghost editor with the red "Find" text, then paste the green text over it.</li>
+        <li>Tick each task when it's done, then click <b>Update</b> in Ghost.</li>
+      </ol>
+      <div class="legend"><span class="tag p1">This week</span><span class="tag p2">Weeks 2–3</span><span class="tag p3">Month 2</span><span class="tag k">Type of task</span></div>
+    </div>
+  </section>
+
+  <section class="block" id="site">
+    <h2>Start here <small>site-wide settings</small></h2>
+    <div class="page" id="site-list"></div>
+  </section>
+
+  <section class="block" id="by-page">
+    <h2>Page by page <small id="page-count"></small></h2>
+    <p class="lead">Ordered by what matters most: pages with "this week" tasks come first. Click a page to open its list.</p>
+    <div id="pages" style="display:grid;gap:10px"></div>
+  </section>
+
+  <section class="block" id="snippets">
+    <h2>Code snippets <small>star ratings and site identity</small></h2>
+    <p class="lead">Paste these into the post's Code injection → Post header. Replace RATING with the score you show on the page first: the rating must also be visible in the article.</p>
+    <div id="snips" style="display:grid;gap:10px"></div>
+  </section>
+</main>
+
+<script id="kit-data" type="application/json">__DATA__</script>
+<script>
+(function () {
+  var DATA = JSON.parse(document.getElementById('kit-data').textContent);
+  var KIND = { setting: 'Setting', text: 'Text fix', heading: 'Headings', link: 'Link', image: 'Image', code: 'Code', page: 'Page' };
+  var PRI = { 1: 'This week', 2: 'Weeks 2–3', 3: 'Month 2' };
+  var done = {};          // task id -> true
+  var db = null, doneCol = null;
+  var filt = { pri: 0, hideDone: false, q: '' };
+  var openPages = new Set();
+  var LS = 'pz-fixkit-done';
+
+  try { done = JSON.parse(localStorage.getItem(LS) || '{}') || {}; } catch (e) { done = {}; }
+  try { JSON.parse(localStorage.getItem('pz-fixkit-open') || '[]').forEach(function (p) { openPages.add(p); }); } catch (e) {}
+
+  var allTasks = DATA.site.slice();
+  DATA.pages.forEach(function (g) { g.tasks.forEach(function (t) { allTasks.push(t); }); });
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  function copyBtn(text) {
+    var b = el('button', 'copy', 'Copy'); b.type = 'button';
+    b.addEventListener('click', function () {
+      function ok() { b.textContent = 'Copied'; b.classList.add('ok'); setTimeout(function () { b.textContent = 'Copy'; b.classList.remove('ok'); }, 1400); }
+      function fallback() {
+        var pre = b.parentNode.querySelector('pre'); if (!pre) return;
+        var r = document.createRange(); r.selectNodeContents(pre); var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+        b.textContent = 'Selected: press Ctrl/Cmd + C';
+      }
+      try { navigator.clipboard.writeText(text).then(ok, fallback); } catch (e) { fallback(); }
+    });
+    return b;
+  }
+
+  function valueBox(label, text, cls, showLen) {
+    var v = el('div', 'val' + (cls ? ' ' + cls : ''));
+    var lab = el('div', 'lab', label);
+    if (showLen) { var n = el('span', 'len', ' · ' + text.length + ' characters'); lab.appendChild(n); }
+    v.appendChild(lab);
+    v.appendChild(el('pre', null, text));
+    v.appendChild(copyBtn(text));
+    return v;
+  }
+
+  function taskEl(t) {
+    var li = el('li', 'task' + (done[t.id] ? ' is-done' : ''));
+    var cb = el('input'); cb.type = 'checkbox'; cb.id = 't-' + t.id; cb.checked = !!done[t.id];
+    cb.addEventListener('change', function () { setDone(t.id, cb.checked); });
+    li.appendChild(cb);
+    var body = el('div', 'body');
+    var tt = el('div', 'tt');
+    var lab = el('label', null, t.title); lab.htmlFor = cb.id; tt.appendChild(lab);
+    tt.appendChild(el('span', 'tag p' + t.pri, PRI[t.pri]));
+    tt.appendChild(el('span', 'tag k', KIND[t.kind] || t.kind));
+    body.appendChild(tt);
+    var rest = el('div', 'rest');
+    if (t.where) rest.appendChild(el('div', 'where', t.where));
+    if (t.note) rest.appendChild(el('p', 'note', t.note));
+    if (t.steps) { var ol = el('ol', 'steps'); t.steps.forEach(function (s) { ol.appendChild(el('li', null, s)); }); rest.appendChild(ol); }
+    if (t.find) {
+      rest.appendChild(valueBox('Find', t.find, 'find'));
+      if (t.replace && t.replace !== '(delete it)') rest.appendChild(valueBox('Replace with', t.replace, 'repl'));
+      else rest.appendChild(el('p', 'note', 'Delete this sentence.'));
+    }
+    (t.copy || []).forEach(function (c) {
+      var isMeta = /meta title|meta description|^title$/i.test(c[0]);
+      rest.appendChild(valueBox(c[0], c[1], null, isMeta));
+    });
+    body.appendChild(rest);
+    li.appendChild(body);
+    return li;
+  }
+
+  function matches(t, g) {
+    if (filt.pri && t.pri !== filt.pri) return false;
+    if (filt.hideDone && done[t.id]) return false;
+    if (filt.q) {
+      var hay = (t.title + ' ' + (t.note || '') + ' ' + (t.find || '') + ' ' + (g ? g.path + ' ' + g.title : '')).toLowerCase();
+      if (hay.indexOf(filt.q) === -1) return false;
+    }
+    return true;
+  }
+
+  function render() {
+    // header progress
+    var n = allTasks.length, d = allTasks.filter(function (t) { return done[t.id]; }).length;
+    var p1 = allTasks.filter(function (t) { return t.pri === 1; }), p1d = p1.filter(function (t) { return done[t.id]; }).length;
+    document.getElementById('count').innerHTML = '<b>' + d + '</b> of ' + n + ' done · this week: <b>' + p1d + '</b>/' + p1.length;
+    var lit = Math.round(52 * d / n);
+    document.querySelectorAll('#keys i').forEach(function (k, i) { k.classList.toggle('on', i < lit); });
+
+    // site-wide
+    var sl = document.getElementById('site-list'); sl.textContent = '';
+    var ul = el('ul', 'tasks');
+    DATA.site.filter(function (t) { return matches(t); }).forEach(function (t) { ul.appendChild(taskEl(t)); });
+    if (!ul.children.length) sl.appendChild(el('div', 'empty', 'Nothing here matches the filters.')); else sl.appendChild(ul);
+
+    // pages
+    var box = document.getElementById('pages'); box.textContent = '';
+    var shown = 0;
+    DATA.pages.forEach(function (g) {
+      var vis = g.tasks.filter(function (t) { return matches(t, g); });
+      if (!vis.length) return;
+      shown++;
+      var gd = g.tasks.filter(function (t) { return done[t.id]; }).length;
+      var det = el('details', 'page' + (gd === g.tasks.length ? ' complete' : ''));
+      det.open = openPages.has(g.path) || !!filt.q;
+      det.addEventListener('toggle', function () {
+        if (det.open) openPages.add(g.path); else openPages.delete(g.path);
+        try { localStorage.setItem('pz-fixkit-open', JSON.stringify(Array.from(openPages))); } catch (e) {}
+      });
+      var sm = el('summary');
+      sm.appendChild(el('div', 'pt', g.title));
+      sm.appendChild(el('div', 'pp', g.path));
+      var meter = el('div', 'meter');
+      var p1n = g.tasks.filter(function (t) { return t.pri === 1 && !done[t.id]; }).length;
+      var c = el('div', 'count', gd + '/' + g.tasks.length); meter.appendChild(c);
+      var mini = el('div', 'mini'); var bar = el('span'); bar.style.width = Math.round(100 * gd / g.tasks.length) + '%'; mini.appendChild(bar); meter.appendChild(mini);
+      if (p1n) meter.appendChild(el('span', 'tag p1', p1n + ' this week'));
+      sm.appendChild(meter);
+      det.appendChild(sm);
+      var links = el('div', 'page-links');
+      var a = el('a', null, 'Open the live page'); a.href = 'https://pianoers.com' + g.path; a.target = '_blank'; a.rel = 'noopener'; links.appendChild(a);
+      var adm = el('a', null, 'Open Ghost Admin'); adm.href = 'https://pianoers.com/ghost/#/' + (g.kind === 'pages' ? 'pages' : g.kind === 'tags' ? 'tags' : 'posts'); adm.target = '_blank'; adm.rel = 'noopener'; links.appendChild(adm);
+      det.appendChild(links);
+      var tl = el('ul', 'tasks');
+      vis.forEach(function (t) { tl.appendChild(taskEl(t)); });
+      det.appendChild(tl);
+      box.appendChild(det);
+    });
+    document.getElementById('page-count').textContent = DATA.pages.length + ' pages';
+    if (!shown) box.appendChild(el('div', 'empty', 'No page tasks match the filters.'));
+  }
+
+  function renderSnippets() {
+    var s = document.getElementById('snips');
+    DATA.snippets.forEach(function (sn) {
+      var d = el('div', 'snip');
+      d.appendChild(el('h3', null, sn.title.replace(/^Template [A-D]:\s*/, '')));
+      d.appendChild(el('p', 'note', sn.intro));
+      d.appendChild(valueBox('Code', sn.code));
+      s.appendChild(d);
+    });
+  }
+
+  function buildKeys() {
+    var k = document.getElementById('keys');
+    for (var i = 0; i < 52; i++) k.appendChild(el('i'));
+    // black keys: pattern of an 88-key piano starting on A (A0 has a black key after it)
+    var pattern = [1, 0, 1, 1, 0, 1, 1]; // after A, B(no), C, D, E(no)... starting at A
+    for (var w = 0; w < 51; w++) {
+      if (pattern[w % 7]) { var b = el('b'); b.style.left = 'calc(' + ((w + 1) / 52 * 100) + '% - 0.6%)'; k.appendChild(b); }
+    }
+  }
+
+  function setDone(id, val) {
+    if (val) done[id] = true; else delete done[id];
+    try { localStorage.setItem(LS, JSON.stringify(done)); } catch (e) {}
+    render();
+    if (doneCol) {
+      var ref = doneCol.doc(id);
+      (val ? ref.set({ done: true, at: Date.now() }) : ref.delete()).catch(function () {
+        document.getElementById('save-state').textContent = 'Couldn’t save that tick online; it’s kept in this browser.';
+      });
+    }
+  }
+
+  // filters
+  document.querySelectorAll('.chip[data-pri]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      filt.pri = +b.dataset.pri;
+      document.querySelectorAll('.chip[data-pri]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      render();
+    });
+  });
+  var hd = document.getElementById('hide-done');
+  hd.addEventListener('click', function () { filt.hideDone = !filt.hideDone; hd.setAttribute('aria-pressed', String(filt.hideDone)); render(); });
+  var qt;
+  document.getElementById('q').addEventListener('input', function (e) {
+    clearTimeout(qt); qt = setTimeout(function () { filt.q = e.target.value.trim().toLowerCase(); render(); }, 150);
+  });
+
+  buildKeys(); renderSnippets(); render();
+
+  // shared progress
+  if (window.claude && window.claude.use) {
+    window.claude.use('db').then(function (d) {
+      if (!d) return;
+      db = d; doneCol = db.collection('done');
+      doneCol.onSnapshot(function (snap) {
+        var next = {};
+        snap.docs.forEach(function (doc) { var v = doc.data(); if (v && v.done) next[doc.id] = true; });
+        // first sync: push ticks made in this browser before the store was reachable
+        if (!setDone.synced) {
+          setDone.synced = true;
+          Object.keys(done).forEach(function (id) { if (!next[id]) { next[id] = true; doneCol.doc(id).set({ done: true, at: Date.now() }).catch(function () {}); } });
+        }
+        done = next;
+        try { localStorage.setItem(LS, JSON.stringify(done)); } catch (e) {}
+        render();
+        document.getElementById('save-state').textContent = 'Ticks are saved online, so they follow you to any device you open this page on.';
+      }, function () {
+        document.getElementById('save-state').textContent = 'Ticks are saved in this browser (online saving isn’t available right now).';
+      });
+    });
+  }
+})();
+</script>

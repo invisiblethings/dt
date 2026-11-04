@@ -1,0 +1,14 @@
+{{!< default}}
+<section class="pz-wrap pz-listing">
+    {{#tag}}
+        <header class="pz-listing-head">
+            <span class="pz-eyebrow">Topic</span>
+            <h1 class="pz-title">{{name}}</h1>
+            {{#if description}}<p class="pz-dek">{{description}}</p>{{/if}}
+        </header>
+    {{/tag}}
+    <div class="pz-grid">
+        {{#foreach posts}}{{> "post-card" eager=@first}}{{/foreach}}
+    </div>
+    {{pagination}}
+</section>
