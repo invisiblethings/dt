@@ -748,3 +748,14 @@ html.pz-lb-open, html.pz-lb-open body { overflow: hidden; }
 .pz-yt-play { position: absolute; left: 50%; top: 50%; width: 72px; height: 50px; transform: translate(-50%, -50%); border-radius: 14px; background: #e62117; box-shadow: 0 4px 16px rgb(0 0 0 / 35%); }
 .pz-yt-play::after { content: ""; position: absolute; left: 29px; top: 15px; border-style: solid; border-width: 10px 0 10px 18px; border-color: transparent transparent transparent #fff; }
 .pz-prices { margin-top: 0; }
+
+.pz-prefsrc { display: flex; align-items: center; gap: 14px; margin: 28px 0 0; padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--ink); text-decoration: none; font-family: var(--f-display); transition: border-color .2s ease, transform .2s ease; }
+.pz-prefsrc:hover { border-color: var(--amber); transform: translateY(-1px); }
+.pz-prefsrc:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+.pz-prefsrc-icon { flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--amber); color: var(--amber-ink); }
+.pz-prefsrc-text { display: grid; gap: 2px; min-width: 0; }
+.pz-prefsrc-title { font-weight: 800; line-height: 1.25; }
+.pz-prefsrc-sub { color: var(--muted); font-size: 0.9rem; line-height: 1.35; }
+.pz-prefsrc-compact { display: inline-flex; margin: 14px 0 0; padding: 8px 14px 8px 8px; gap: 10px; border-radius: 999px; font-size: 0.9rem; }
+.pz-prefsrc-compact .pz-prefsrc-icon { width: 30px; height: 30px; }
+.pz-prefsrc-compact .pz-prefsrc-icon svg { width: 16px; height: 16px; }

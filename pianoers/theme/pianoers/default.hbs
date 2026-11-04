@@ -75,6 +75,7 @@
         <div class="pz-foot-brand">
             <a class="pz-foot-title" href="{{@site.url}}">{{@site.title}}</a>
             {{#if @site.description}}<p>{{@site.description}}</p>{{/if}}
+            {{> "preferred-source" compact=true}}
         </div>
         <nav class="pz-foot-nav" aria-label="Footer">
             {{navigation type="secondary"}}

@@ -113,6 +113,10 @@
         else img.addEventListener('load', function () { frame(img); }, { once: true });
     });
 
+    if (location.hostname) document.querySelectorAll('[data-pz-prefsrc]').forEach(function (a) {
+        a.href = 'https://www.google.com/preferences/source?q=' + encodeURIComponent(location.hostname.replace(/^www\./, ''));
+    });
+
     /* 3. Wide tables scroll sideways inside their own box. */
     if (content) {
         content.querySelectorAll('table').forEach(function (table) {
