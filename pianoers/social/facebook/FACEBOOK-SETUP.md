@@ -49,7 +49,7 @@ Later, once you want sign-ups, change it to **Sign up** → `https://pianoers.co
 
 ## 2. Copy for the profile (paste as is)
 
-**Bio / Intro** (99 characters):
+**Bio / Intro** (100 characters):
 > Honest piano gear reviews, lessons and practice tips from a piano teacher since 2001. 🎹 pianoers.com
 
 **About / Description** (longer field: Page settings → Page setup → Intro or Details):
