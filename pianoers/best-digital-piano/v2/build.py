@@ -25,7 +25,16 @@ def card(i,p):
             f'<div class="pz-buy"><a class="pz-btn pz-btn-buy" href="{href}" rel="{rel}" target="_blank">{label}</a><span class="pz-price-note">{p["price"]} · {note}</span></div></div></div>'
             f'<dl class="pz-plate">{plate}</dl>'
             f'<div class="pz-pc"><div class="pz-pros"><p class="pz-pc-title">What I like</p><ul>{pros}</ul></div><div class="pz-cons"><p class="pz-pc-title">Drawbacks</p><ul>{cons}</ul></div></div></div></section>')
-cards={p['id']:card(i+1,p) for i,p in enumerate(PICKS)}
+IMG={'roland-fp-30x':'Roland-FP-30X-Reviewed.jpg','casio-px-s1100':'Casio-Privia-PX-S1100-Reviewed.jpg','kawai-es920':'Kawai-ES920-Pianoers.jpg','kawai-kdp120':'Kawai-KDP120-Pianoers.jpg','roland-fp-90x':'Roland-FP-90X-Pianoers.jpg','yamaha-clp-835':'Yamaha-CLP-835-Pianoers.jpg','yamaha-clp-885':'Yamaha-CLP-885-Pianoers.jpg'}
+def pimg(pid,name):
+    f=IMG[pid]
+    return (f'<img src="/content/images/size/w600/format/webp/2026/03/{f}" srcset="/content/images/size/w600/format/webp/2026/03/{f} 600w, /content/images/size/w1000/format/webp/2026/03/{f} 1000w" '
+            f'sizes="(min-width: 640px) 220px, calc(100vw - 80px)" alt="{name} digital piano" width="1024" height="1024" loading="lazy" decoding="async">')
+cards={}
+for i,p in enumerate(PICKS):
+    c=card(i+1,p)
+    if p['id'] in IMG: c=c.replace('<div class="pz-pick-top pz-pick-top-solo"><div class="pz-pick-main">','<div class="pz-pick-top">'+pimg(p['id'],p['name'])+'<div class="pz-pick-main">',1)
+    cards[p['id']]=c
 ROWS=[('Yamaha P-145BT','$499.99','GHC','CFIIIS sample','7 W + 7 W','11.1 kg','Beginners','under-500'),
 ('Roland FP-10','$499.99','PHA-4 Standard','SuperNATURAL Piano','6 W + 6 W','12.6 kg','Best feel on a budget','under-500'),
 ('Kawai ES60','$450 to $599','Responsive Hammer Lite','SK-EX sample','10 W + 10 W','11 kg','Best sound on a budget','under-500'),
@@ -44,6 +53,10 @@ tr=''.join(f'<tr><td><a href="#{r[7]}"><strong>{r[0]}</strong></a></td>'+''.join
 table=f'<div class="pz-table-wrap"><table><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table></div><p><small>Prices checked in November 2026. Weights are for the piano alone.</small></p>'
 html=open('article.src.html').read()
 html=html.replace('{{table}}',table)
+def uimg(f,w,h,alt,cap):
+    return (f'<figure class="kg-card kg-image-card kg-card-hascaption"><img src="/content/images/2026/03/{f}" class="kg-image" alt="{alt}" loading="lazy" width="{w}" height="{h}" '
+            f'srcset="/content/images/size/w600/2026/03/{f} 600w, /content/images/size/w1000/2026/03/{f} 1000w, /content/images/2026/03/{f} {w}w" sizes="(min-width: 720px) 720px, 100vw"><figcaption><span>{cap}</span></figcaption></figure>')
+html=re.sub(r'\{\{uimg:([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^}]+)\}\}',lambda m:uimg(m[1],m[2],m[3],m[4],m[5]),html)
 html=re.sub(r'\{\{fig:([^|]+)\|([^|]+)\|([^}]+)\}\}',lambda m:fig(m[1],m[2],m[3]),html)
 html=re.sub(r'\{\{yt:([^|]+)\|([^|]+)\|([^}]+)\}\}',lambda m:yt(m[1],m[2],m[3]),html)
 html=re.sub(r'\{\{pick:([a-z0-9-]+)\}\}',lambda m:cards[m[1]],html)

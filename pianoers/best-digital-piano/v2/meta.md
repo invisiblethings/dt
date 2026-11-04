@@ -15,7 +15,7 @@
 | Code injection → Post header | Paste `code-injection-header.html`: ItemList (10 picks) and FAQPage (10 questions). The old FAQ schema lived inside the old content, so it goes when you replace the content |
 
 ## How to publish
-1. Upload the 8 images from `best-digital-pianos-images.zip`. The HTML expects them at `/content/images/2026/11/`. If Ghost stores them elsewhere, find and replace `2026/11`.
+1. Upload the 8 new images from `best-digital-pianos-images.zip`. The HTML expects them at `/content/images/2026/11/`. If Ghost stores them elsewhere, find and replace `2026/11`.
 2. Delete the old content. Add one HTML card and paste `article.html`.
 3. Change the title, meta title and description, the feature image and the code injection as above. Publish.
 4. In Search Console, open URL Inspection for the page and click **Request indexing**.
@@ -25,7 +25,7 @@ Google's reviews guidance looks for evidence of hands-on use. The new text makes
 
 1. **Your own photos.** One per model you've actually played or own: the keys, the control panel, the piano in your studio. Put each one in its pick card. Name the files descriptively (`roland-fp-30x-keys-katarina-studio.jpg`).
 2. **One or two sentences of real experience per model you've played**, under the verdict. For example: "I've taught on an FP-30X in my studio for two years", or "I played the ES920 and CLP-835 side by side at [shop] in [month]."
-3. **The old framed product images** ("…-Reviewed.jpg") are manufacturer press photos with a Pianoers frame. Don't reuse them. If you use any maker photo, caption it "Image: Roland" (or the right brand).
+3. **Your framed piano images are back in the article**: 7 in the pick cards, the 3 beginner pianos as a gallery, plus the brand and where-to-buy images, all already uploaded under `2026/03`. Their file names say "Reviewed". If you haven't played a model yourself, renaming that file (to e.g. `Roland-FP-30X-Pianoers.jpg`) avoids implying a hands-on review. This is optional.
 4. If you've recorded sound or video, a 30–60 second clip of any pick, embedded from YouTube, puts you ahead of most of the results page.
 
 ## What changed from the old page
