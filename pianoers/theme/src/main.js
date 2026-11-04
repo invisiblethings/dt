@@ -93,10 +93,20 @@
         head.querySelectorAll('.pz-menu a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
     }
 
-    /* 2. Image framing: landscape images fill their 16:9 frame; others sit whole on a blurred backdrop. */
+    /* 2. Image framing: card images fill their 16:9 frame when landscape. Feature images fill only when their shape matches the frame, so nothing is cropped; otherwise they sit whole on a blurred backdrop. */
     function frame(img) {
+        var box = img.parentNode;
         var ratio = img.naturalWidth / img.naturalHeight;
-        if (ratio >= 1.45 && ratio <= 2.1) img.parentNode.classList.add('is-fill');
+        if (box.classList.contains('pz-feature')) {
+            var boxRatio = box.clientWidth / Math.max(1, box.clientHeight);
+            box.classList.toggle('is-fill', Math.abs(ratio / boxRatio - 1) < 0.04);
+            if (!box.pzFrameBound) {
+                box.pzFrameBound = true;
+                window.addEventListener('resize', function () { frame(img); }, { passive: true });
+            }
+            return;
+        }
+        if (ratio >= 1.45 && ratio <= 2.1) box.classList.add('is-fill');
     }
     document.querySelectorAll('.pz-media img').forEach(function (img) {
         if (img.complete && img.naturalWidth) frame(img);
