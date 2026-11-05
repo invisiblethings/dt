@@ -91,3 +91,30 @@ Upload them and add them as normal image cards in Ghost. Use descriptive file na
 | `roland-fp-10-vs-yamaha-p-145-vs-roland-fp-30x.webp` | Comparison of the Roland FP-10, Yamaha P-145 and Roland FP-30X: key action, escapement, polyphony, panel tones, speakers, Bluetooth audio and MIDI, headphone jacks, weight and street price |
 | `roland-fp-10-who-should-buy.webp` | Who should buy the Roland FP-10: buy it if you want the best key feel for about $500, practise with headphones, learn with apps, need something light, or may move to an acoustic later; skip it if you want Bluetooth audio, big speakers, lots of sounds, three pedals, or lighter quieter keys |
 | `roland-fp-10-digital-piano.webp` (verdict card) | Roland FP-10 88-key digital piano in black with the music rest attached, angled product view |
+
+## Update (5 Nov 2026): three hands-on photos added
+
+Files are in `roland-fp-10-hands-on-photos.zip`: WebP, 1600 × 900, 49–93 KB each.
+
+Each file carries truthful XMP metadata:
+- title and description
+- creator "Katarina, Pianoers.com"
+- copyright "© 2026 Pianoers.com"
+- keywords, and Pianoers.com as the credit
+
+No camera details were added. They're screenshots of video, so there's no real camera data to keep, and Ghost removes metadata from the resized copies anyway. The file names, alt text and captions are what count for SEO.
+
+| File | Where it goes | Alt text | Caption |
+|---|---|---|---|
+| `roland-fp-10-on-kscfp10-stand-at-home.webp` | Top of the article. It replaces the Roland lifestyle photo and is also the first image in the Product schema | Roland FP-10 digital piano on its matching black KSCFP10 stand with a piano bench, in a living room | My Roland FP-10 at home, on the matching KSCFP10 stand. Photo: Katarina, Pianoers.com. |
+| `playing-roland-fp-10-pha-4-standard-keys.webp` | "How the FP-10 feels" section, after the keys close-up | Two hands playing the Roland FP-10's weighted PHA-4 Standard keys, close up | Playing the PHA-4 Standard keys. Photo: Katarina, Pianoers.com. |
+| `roland-fp-10-control-panel-close-up.webp` | "Features for learning" section, before the annotated panel image | Close-up of the Roland FP-10 control panel: power button, volume buttons, Piano/Function button and tone names such as E.Piano, Wurly, Clav, Jazz Organ and Strings printed above the keys | The real panel up close: the tone names sit right above the keys you press to choose them. Photo: Katarina, Pianoers.com. |
+
+**Publish, the quick way (edit the live post):**
+1. Upload the three images in Ghost. They'll go under `/content/images/2026/11/`.
+2. Add each one as an image card in the place listed above.
+3. Paste the alt text (image card → alt) and the caption.
+
+**Or paste the rebuilt version:** paste `article.html` and replace the post header code injection with the new `code-injection-header.html`. Its Product schema lists the home photo first.
+
+The watermarked frame (FUORITEMPO logo) isn't used.
