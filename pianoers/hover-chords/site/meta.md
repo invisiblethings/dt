@@ -6,7 +6,7 @@ Create both as **Pages** (Ghost Admin > Pages > New page), not posts, so they st
 1. Publish **/hover-chords-privacy/** first. The Chrome Web Store asks for its address when you submit the extension.
 2. Publish **/hover-chords/**. You can do it before the extension is approved; just leave the install buttons until step 4.
 3. In the Web Store dashboard, use `https://pianoers.com/hover-chords/` as the homepage and `https://pianoers.com/hover-chords-privacy/` as the privacy policy.
-4. When the extension is live, open `hover-chords.html`, find `CHROME_WEB_STORE_URL` (it appears twice) and replace it with your Web Store link (it looks like `https://chromewebstore.google.com/detail/hover-chords/abcdefghijklmnop`). Do the same in `hover-chords-code-injection.html` (once). Then update the page.
+4. Done (7 Nov 2026): both "Add to Chrome" buttons and the schema's `downloadUrl` now point to https://chromewebstore.google.com/detail/hover-chords-piano-chord/hjhfjohbopccleidblppbbbilpcjmpch
 
 ## Page 1: /hover-chords/
 

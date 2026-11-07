@@ -1,7 +1,7 @@
 import re, json, os
 HERE=os.path.dirname(os.path.abspath(__file__))
 LIB=open(os.path.join(HERE,'..','extension','chords.js')).read().strip()
-STORE='CHROME_WEB_STORE_URL'
+STORE='https://chromewebstore.google.com/detail/hover-chords-piano-chord/hjhfjohbopccleidblppbbbilpcjmpch'
 IMG='https://pianoers.com/content/images/2026/10/'
 
 SONG=[('[Verse 1]',None),('G              G7        C        G',True),('Amazing grace, how sweet the sound',None),('G                        D',True),('That saved a wretch like me',None),('G             G7         C        G',True),('I once was lost, but now am found',None),('Em        D          G',True),('Was blind, but now I see',None),('',None),('[Verse 2]',None),('G              G7          C          G',True),("'Twas grace that taught my heart to fear",None),('G                     D7',True),('And grace my fears relieved',None),('G             G/B        C       G',True),('How precious did that grace appear',None),('Em          D7       G',True),('The hour I first believed',None)]
