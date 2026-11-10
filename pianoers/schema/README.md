@@ -29,3 +29,26 @@
 - **New social profiles** (Instagram, Pinterest and so on): add the URL to `sameAs`, nothing else.
 - **No credentials for Katarina** are in the schema yet. Once the About page and her author bio agree (MTNA, Music Teachers National Association), a `memberOf` line can be added.
 - **This is a manual copy.** If you edit the schema later, edit it in Ghost.
+
+## Test results (10 Nov 2026)
+
+**Passed**
+- **On every page tested:** the Organization schema is live on the homepage, About, /best-digital-piano/ and /hover-chords/.
+- **Exact match:** the live copy is identical to this file.
+- **Valid:** every JSON-LD block on those pages parses.
+- **Logo:** loads at the expected URL (200, PNG, 800 × 800).
+- **Links:** the Facebook, YouTube, author, contact and About URLs all resolve.
+- **Hover Chords:** both buttons and the schema now point to the Web Store listing, with no placeholder left.
+
+**Fixed**
+1. **Founder's name.** The sitewide schema said "Richard Abraham"; his author page and the About page schema say "Richard J. Abraham". The schema now uses "Richard J. Abraham".
+   - **Action:** replace the Site header block with the updated `organization-schema.html`.
+2. **Second Organization on the About page.** The About page's own code injection had an AboutPage block with a separate Organization in it:
+   - named "Pianoers", not "Pianoers.com"
+   - no `@id`
+   - different job titles
+
+   Google could read that as a second organization. `about-page-schema.html` replaces it. It points to the sitewide organization (`#organization`) and keeps Katarina's details (University of Missouri, MTNA, her Online Piano Teachers profile) on her `#katarina` entry.
+   - **Action:** About page → Settings → Code injection → Post header. Replace the AboutPage block there with `about-page-schema.html`.
+
+**Still to fix on the About page text:** it says Katarina "has been a member of the National Association of Music Teachers since 1995". Her bio and the schema say MTNA (Music Teachers National Association), and 1995 is before she started teaching in 2001. Change the sentence to match, for example "is a member of the Music Teachers National Association (MTNA)".
