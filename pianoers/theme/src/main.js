@@ -234,7 +234,7 @@
     if (content && (content.querySelector('a[rel~="sponsored"]') || Array.prototype.some.call(content.querySelectorAll('a[href]'), isAffiliate))) {
         document.querySelectorAll('[data-pz-disclose]').forEach(function (p) { p.hidden = false; });
     }
-    function btnLabel(p) { return p.barLabel || (p.buyText && p.buyText.length <= 24 ? p.buyText : shopLabel(p.buyHref)); }
+    function btnLabel(p) { return p.barLabel || (p.buyText && p.buyText.length <= 26 ? p.buyText : shopLabel(p.buyHref)); }
     var buyPicks = picks.filter(function (p) { return p.buyHref; });
     var postBody = content ? content.closest('.pz-body') : null;
     if (postBody && buyPicks.length) {
@@ -255,6 +255,17 @@
             (single ? '<a class="pz-tp-more" href="#' + esc(picks[0].id) + '">Read my full verdict ↓</a>' : (picks.length > shown.length ? '<a class="pz-tp-more" href="#' + esc(picks[0].id) + '">See all ' + picks.length + ' picks ↓</a>' : ''));
         postBody.insertBefore(box, postBody.firstChild);
     }
+    function listBuy(name) {
+        var low = name.toLowerCase();
+        var els = Array.prototype.filter.call(content.querySelectorAll('li, p'), function (el) {
+            return !el.closest('table, .pz-toppicks, .pz-pick') && text(el).toLowerCase().indexOf(low) === 0;
+        });
+        for (var i = 0; i < els.length; i++) {
+            var link = Array.prototype.filter.call(els[i].querySelectorAll('a[href]'), function (x) { return isAffiliate(x) || /\bsponsored\b/.test(x.getAttribute('rel') || ''); })[0];
+            if (link) return { buyHref: link.href, buyRel: link.getAttribute('rel'), buyText: '', barLabel: '' };
+        }
+        return null;
+    }
     if (content && buyPicks.length) {
         content.querySelectorAll('table').forEach(function (table) {
             var head = table.tHead && table.tHead.rows[0];
@@ -263,7 +274,9 @@
             var rowPick = Array.prototype.map.call(tb.rows, function (r) {
                 var a = r.querySelector('a[href^="#"]');
                 var p = a ? byId[decodeURIComponent(a.getAttribute('href').slice(1))] : null;
-                return p && p.buyHref ? p : null;
+                if (p && p.buyHref) return p;
+                var name = text(r.cells[0]);
+                return name.length > 2 ? listBuy(name) : null;
             });
             if (rowPick.filter(Boolean).length < 2) return;
             table.classList.add('pz-table-buy');
