@@ -1,0 +1,20 @@
+<div class="pz-signup">
+    <div class="pz-signup-copy">
+        {{#match heading_level "h3"}}
+            <h3 class="pz-signup-title">{{@custom.email_signup_title}}</h3>
+        {{else}}
+            <h2 class="pz-signup-title">{{@custom.email_signup_title}}</h2>
+        {{/match}}
+        {{#if @custom.email_signup_text}}<p>{{@custom.email_signup_text}}</p>{{/if}}
+    </div>
+    <form class="pz-signup-form" data-members-form="signup">
+        <label class="pz-visually-hidden" for="pz-email-{{heading_level}}">Email address</label>
+        <input id="pz-email-{{heading_level}}" class="pz-input" data-members-email type="email" autocomplete="email" placeholder="you@example.com" required>
+        <button class="pz-btn pz-btn-buy" type="submit">
+            <span class="pz-when-idle">Sign up</span>
+            <span class="pz-when-loading">Sending…</span>
+        </button>
+        <p class="pz-form-success">Almost there. Check your inbox to confirm your email.</p>
+        <p class="pz-form-error" data-members-error></p>
+    </form>
+</div>

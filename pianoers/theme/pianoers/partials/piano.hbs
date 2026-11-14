@@ -1,0 +1,30 @@
+{{!-- Two-octave playable piano (C4 to B5). main.js adds sound, glow and floating notes.
+     Pass octaves=1 to show only the first octave. --}}
+<div class="pz-piano" data-pz-piano data-octaves="{{#if octaves}}{{octaves}}{{else}}2{{/if}}" role="group" aria-label="{{#if label}}{{label}}{{else}}Playable piano keyboard{{/if}}">
+    <div class="pz-piano-keys">
+        <button class="pz-pk pz-pk-w" type="button" data-note="60" data-oct="1" aria-label="C 4"><span class="pz-pk-label">C</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="62" data-oct="1" aria-label="D 4"><span class="pz-pk-label">D</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="64" data-oct="1" aria-label="E 4"><span class="pz-pk-label">E</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="65" data-oct="1" aria-label="F 4"><span class="pz-pk-label">F</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="67" data-oct="1" aria-label="G 4"><span class="pz-pk-label">G</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="69" data-oct="1" aria-label="A 4"><span class="pz-pk-label">A</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="71" data-oct="1" aria-label="B 4"><span class="pz-pk-label">B</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="72" data-oct="2" aria-label="C 5"><span class="pz-pk-label">C</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="74" data-oct="2" aria-label="D 5"><span class="pz-pk-label">D</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="76" data-oct="2" aria-label="E 5"><span class="pz-pk-label">E</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="77" data-oct="2" aria-label="F 5"><span class="pz-pk-label">F</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="79" data-oct="2" aria-label="G 5"><span class="pz-pk-label">G</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="81" data-oct="2" aria-label="A 5"><span class="pz-pk-label">A</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-w" type="button" data-note="83" data-oct="2" aria-label="B 5"><span class="pz-pk-label">B</span><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-b" type="button" data-note="61" data-oct="1" style="--i:1" aria-label="C sharp 4"><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-b" type="button" data-note="63" data-oct="1" style="--i:2" aria-label="D sharp 4"><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-b" type="button" data-note="66" data-oct="1" style="--i:4" aria-label="F sharp 4"><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-b" type="button" data-note="68" data-oct="1" style="--i:5" aria-label="G sharp 4"><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-b" type="button" data-note="70" data-oct="1" style="--i:6" aria-label="A sharp 4"><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-b" type="button" data-note="73" data-oct="2" style="--i:8" aria-label="C sharp 5"><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-b" type="button" data-note="75" data-oct="2" style="--i:9" aria-label="D sharp 5"><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-b" type="button" data-note="78" data-oct="2" style="--i:11" aria-label="F sharp 5"><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-b" type="button" data-note="80" data-oct="2" style="--i:12" aria-label="G sharp 5"><kbd class="pz-pk-kbd"></kbd></button>
+        <button class="pz-pk pz-pk-b" type="button" data-note="82" data-oct="2" style="--i:13" aria-label="A sharp 5"><kbd class="pz-pk-kbd"></kbd></button>
+    </div>
+</div>

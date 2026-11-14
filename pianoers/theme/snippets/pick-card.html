@@ -1,0 +1,39 @@
+<!-- Pianoers snippet: Verdict card. One HTML card per product.
+     - id: a short unique slug; the finder and the "jump to" links use it.
+     - data-rank: the product's position in your ranking (1 = top pick). The top pick drives the buy bar.
+     - Use any image already in your Ghost library: keep its /content/images/... path; the size/w600/format/webp part serves a small WebP automatically.
+     - Affiliate buttons need rel="sponsored nofollow noopener". -->
+<section class="pz-pick" id="product-slug" data-rank="1" data-price="about $000">
+  <div class="pz-pick-head">
+    <span class="pz-rank" aria-hidden="true">1</span>
+    <span class="pz-best">Best all-around</span>
+    <h2>Product name</h2>
+  </div>
+  <div class="pz-pick-body">
+    <div class="pz-pick-top">
+      <img src="/content/images/size/w600/format/webp/2026/01/your-image.jpg" srcset="/content/images/size/w600/format/webp/2026/01/your-image.jpg 600w, /content/images/size/w1000/format/webp/2026/01/your-image.jpg 1000w" sizes="(min-width: 640px) 220px, calc(100vw - 80px)" alt="Describe the product photo" width="600" height="600" loading="lazy" decoding="async">
+      <div class="pz-pick-main">
+        <p class="pz-quote">“A short line in your own voice.”</p>
+        <p class="pz-verdict"><strong>Verdict:</strong> One sentence that answers "should I buy this?" on its own.</p>
+        <!-- Optional: <p class="pz-status">Out of stock at the maker's store</p> -->
+        <div class="pz-buy">
+          <a class="pz-btn pz-btn-buy" href="https://amzn.to/XXXXXXX" rel="sponsored nofollow noopener" target="_blank">Check price on Amazon</a>
+          <!-- Optional: <a class="pz-btn pz-btn-ghost" href="/full-review-url/">Full review</a> -->
+          <span class="pz-price-note">Street price about $000, checked Mon D, YYYY</span>
+        </div>
+      </div>
+    </div>
+    <dl class="pz-plate">
+      <div><dt>Action</dt><dd>…</dd></div>
+      <div><dt>Polyphony</dt><dd>…</dd></div>
+      <div><dt>Bluetooth</dt><dd>…</dd></div>
+      <div><dt>Weight</dt><dd>… lbs</dd></div>
+    </dl>
+    <div class="pz-pc">
+      <div class="pz-pros"><p class="pz-pc-title">Why it's here</p><ul><li>…</li><li>…</li><li>…</li></ul></div>
+      <div class="pz-cons"><p class="pz-pc-title">Watch out for</p><ul><li>…</li><li>…</li></ul></div>
+    </div>
+    <!-- Optional "Hear it": upload an audio file to Ghost and link it here.
+    <div class="pz-hear"><span>Hear it</span><audio controls preload="none" src="/content/media/2026/01/your-recording.mp3"></audio></div> -->
+  </div>
+</section>

@@ -1,0 +1,86 @@
+<div class="pzs" id="pzs-player">
+<style>
+.pzs{--pzs-g:#2f9e5b;--pzs-a:#f6b31e;--pzs-rh:var(--teal,#2e6475);--pzs-lh:#7a4fc2;background:var(--surface,#f3f6f7);border:1px solid var(--line,#d9e2e5);border-radius:var(--radius,14px);padding:18px 18px 14px;margin:1.6em 0;font-family:var(--f-display,"Schibsted Grotesk",Arial,sans-serif);color:var(--ink,#15191c)}
+.pzs *{box-sizing:border-box}
+.pzs-t{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;margin:0 0 12px}
+.pzs-t b{font-size:1.15rem;font-weight:800}
+.pzs-t span{font-size:.85rem;color:var(--muted,#56666e);font-weight:600}
+.pzs-row{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.pzs button{font:inherit;font-size:.88rem;font-weight:700;border:1px solid var(--line,#d9e2e5);background:var(--paper,#fff);color:var(--ink,#15191c);border-radius:999px;padding:6px 12px;cursor:pointer;line-height:1.2}
+.pzs button[aria-pressed=true]{background:var(--pzs-rh);border-color:var(--pzs-rh);color:var(--paper,#fff)}
+.pzs button:focus-visible{outline:3px solid var(--pzs-a);outline-offset:2px}
+.pzs-kb{background:var(--paper,#fff);border:1px solid var(--line,#d9e2e5);border-radius:12px;padding:10px 8px 6px;margin:6px 0 10px}
+.pzs-kb svg{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;touch-action:manipulation}
+.pzs-w{fill:var(--key,#fff);stroke:var(--key-edge,#c9d3d7);stroke-width:1.2;cursor:pointer}
+.pzs-b{fill:var(--ebony,#1c2226);cursor:pointer}
+.pzs-w.pzs-in{fill:var(--pzs-g);stroke:var(--pzs-g)}
+.pzs-b.pzs-in{fill:var(--pzs-a)}
+.pzs-w.pzs-now,.pzs-b.pzs-now{fill:var(--pzs-rh)}
+.pzs-n{font-size:13px;font-weight:800;text-anchor:middle;pointer-events:none;fill:#fff}
+.pzs-n.pzs-nb{fill:#1b1400;font-size:11px}
+.pzs-f circle{transition:transform .12s;transform-box:fill-box;transform-origin:center}
+.pzs-f text{font-size:13px;font-weight:800;text-anchor:middle;fill:#fff;pointer-events:none}
+.pzs-f.pzs-hit circle{transform:scale(1.3)}
+.pzs-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.pzs .pzs-play{background:var(--pzs-a);border-color:var(--pzs-a);color:#1b1400;padding:8px 20px;font-size:1rem}
+.pzs label{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:700;color:var(--muted,#56666e)}
+.pzs input[type=range]{width:140px;accent-color:var(--pzs-rh)}
+.pzs-out{margin:10px 0 0;min-height:1.4em;font-size:.95rem;font-weight:700}
+.pzs-out em{font-style:normal;color:var(--muted,#56666e);font-weight:600}
+.pzs-leg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.8rem;font-weight:700;color:var(--muted,#56666e);margin-top:6px}
+.pzs-leg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:0}
+</style>
+<div class="pzs-t"><b>Try it: the scale player</b><span>Pick a scale, pick a hand, press Play</span></div>
+<div class="pzs-row" role="group" aria-label="Scale" data-pzs="scales"></div>
+<div class="pzs-row" role="group" aria-label="Hand" data-pzs="hands"><button type="button" data-h="rh" aria-pressed="true">Right hand</button><button type="button" data-h="lh" aria-pressed="false">Left hand</button><button type="button" data-h="both" aria-pressed="false">Both</button></div>
+<div class="pzs-kb" data-pzs="kb"><noscript><p style="margin:6px;font-size:.95rem">The scale player needs JavaScript. The charts on this page show the same notes and fingerings.</p></noscript></div>
+<div class="pzs-ctl"><button type="button" class="pzs-play" data-pzs="play">&#9654; Play up and down</button><label>Speed <input type="range" min="40" max="160" step="10" value="72" data-pzs="bpm" aria-label="Speed in beats per minute"><span data-pzs="bpmv">72 bpm</span></label></div>
+<div class="pzs-leg"><span><i style="background:var(--pzs-rh)"></i>Right-hand fingers</span><span><i style="background:var(--pzs-lh)"></i>Left-hand fingers</span><span><i style="background:var(--pzs-a)"></i>Black key in the scale</span></div>
+<p class="pzs-out" aria-live="polite" data-pzs="out"><em>Tip: tap any key to hear it.</em></p>
+<script>
+(function(){
+var root=document.getElementById("pzs-player");if(!root||root.dataset.ready)return;root.dataset.ready='1';
+var S=%DATA%;
+var NS='http://www.w3.org/2000/svg',WH=[0,2,4,5,7,9,11],NM=['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
+var q=function(n){return root.querySelector('[data-pzs="'+n+'"]')};
+var cur=S[0],hand='rh',timer=null,ctx=null,keys={},fing={};
+function isW(m){return WH.indexOf(((m%12)+12)%12)>-1}
+function el(t,a,p){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function span(s){return[s.midi[0],s.midi[7]]}
+function draw(){
+stop();var r=span(cur),lo=r[0],hi=r[1],ww=40,wh=150,bw=24,bh=94,top=hand!=='lh'?62:4,bot=hand!=='rh'?62:4,x=0,pos={};
+var whites=[];for(var m=lo;m<=hi;m++)if(isW(m))whites.push(m);
+var W=whites.length*ww,H=top+wh+bot,box=q('kb');box.innerHTML='';
+var svg=el('svg',{viewBox:'-2 -2 '+(W+4)+' '+(H+4),role:'img','aria-label':cur.name+' scale: '+cur.notes.join(' ')},box);
+keys={};fing={};
+var inS={};cur.midi.forEach(function(m,i){inS[m]=cur.notes[i]});
+whites.forEach(function(m,i){var k=el('rect',{x:i*ww,y:top,width:ww-2,height:wh,rx:5,'class':'pzs-w'+(inS[m]?' pzs-in':'')},svg);keys[m]=k;pos[m]=i*ww+(ww-2)/2;k.addEventListener('pointerdown',function(){tone(m)});
+if(inS[m])el('text',{x:pos[m],y:top+wh-12,'class':'pzs-n'},svg).textContent=inS[m]});
+for(var b=lo;b<=hi;b++){if(isW(b))continue;var i=whites.indexOf(b-1);if(i<0)continue;(function(b,i){var bx=i*ww+ww-bw/2-1;var k=el('rect',{x:bx,y:top,width:bw,height:bh,rx:4,'class':'pzs-b'+(inS[b]?' pzs-in':'')},svg);keys[b]=k;pos[b]=bx+bw/2;k.addEventListener('pointerdown',function(){tone(b)});
+if(inS[b])el('text',{x:pos[b],y:top+bh-10,'class':'pzs-n pzs-nb'},svg).textContent=inS[b]})(b,i)}
+cur.midi.forEach(function(m,i){fing[m]={};
+if(hand!=='lh'){var g=el('g',{'class':'pzs-f'},svg);var cy=isW(m)?top-16:top-44;el('circle',{cx:pos[m],cy:cy,r:13,fill:'var(--pzs-rh)'},g);el('text',{x:pos[m],y:cy+5},g).textContent=cur.rh[i];fing[m].rh=g}
+if(hand!=='rh'){var g2=el('g',{'class':'pzs-f'},svg);var cy2=isW(m)?top+wh+17:top+wh+45;el('circle',{cx:pos[m],cy:cy2,r:13,fill:'var(--pzs-lh)'},g2);el('text',{x:pos[m],y:cy2+5},g2).textContent=cur.lh[i];fing[m].lh=g2}});
+q('out').innerHTML='<b>'+cur.name+'</b>: '+cur.notes.join(' ')+' <em>&#183; '+cur.sig+'</em>';
+}
+function ac(){if(!ctx){var C=window.AudioContext||window.webkitAudioContext;if(!C)return null;ctx=new C()}if(ctx.state==='suspended')ctx.resume();return ctx}
+function tone(m,len){var c=ac();if(!c)return;var t=c.currentTime,f=440*Math.pow(2,(m-69)/12),g=c.createGain(),lp=c.createBiquadFilter();lp.type='lowpass';lp.frequency.value=Math.min(5000,f*8);
+g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.32,t+0.008);g.gain.exponentialRampToValueAtTime(0.0001,t+(len||1.4));
+[[1,'triangle',1],[2,'sine',0.35],[3,'sine',0.12]].forEach(function(p){var o=c.createOscillator(),og=c.createGain();o.type=p[1];o.frequency.value=f*p[0];og.gain.value=p[2];o.connect(og);og.connect(lp);o.start(t);o.stop(t+(len||1.4)+0.05)});
+lp.connect(g);g.connect(c.destination)}
+function clear(){for(var k in keys)keys[k].classList.remove('pzs-now');root.querySelectorAll('.pzs-hit').forEach(function(e){e.classList.remove('pzs-hit')})}
+function stop(){if(timer){clearTimeout(timer);timer=null}clear();var p=q('play');if(p)p.innerHTML='&#9654; Play up and down'}
+function play(){if(timer){stop();return}if(!ac()){q('out').textContent='Sound isn’t available in this browser, but the fingerings above still apply.';return}
+var seq=[0,1,2,3,4,5,6,7,6,5,4,3,2,1,0],n=0;q('play').innerHTML='&#9632; Stop';
+(function step(){clear();if(n>=seq.length){stop();q('out').innerHTML='<b>'+cur.name+'</b>: '+cur.notes.join(' ')+' <em>&#183; nice. Now play along at this speed.</em>';return}
+var i=seq[n],m=cur.midi[i],ms=60000/(+q('bpm').value);tone(m,Math.max(0.5,ms/1000*1.6));keys[m].classList.add('pzs-now');
+var f=fing[m],txt=[];if(f.rh){f.rh.classList.add('pzs-hit');txt.push('right hand finger '+cur.rh[i])}if(f.lh){f.lh.classList.add('pzs-hit');txt.push('left hand finger '+cur.lh[i])}
+q('out').innerHTML='<b>'+cur.notes[i]+'</b> <em>&#183; '+txt.join(', ')+(n<8?' &#183; going up':' &#183; coming down')+'</em>';n++;timer=setTimeout(step,ms)})()}
+var sc=q('scales');S.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.textContent=s.name;b.setAttribute('aria-pressed',i?'false':'true');b.addEventListener('click',function(){cur=s;sc.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});draw()});sc.appendChild(b)});
+q('hands').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){hand=b.dataset.h;q('hands').querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});draw()})});
+q('play').addEventListener('click',play);
+q('bpm').addEventListener('input',function(){q('bpmv').textContent=this.value+' bpm'});
+draw();
+})();
+</script>
+</div>

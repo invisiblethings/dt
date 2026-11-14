@@ -1,0 +1,12 @@
+{{#get "posts" include="tags" filter="tags:[{{post.tags}}]+id:-{{post.id}}" limit="3" as |next|}}
+    {{#if next}}
+        <section class="pz-wrap pz-related" aria-labelledby="pz-related-h">
+            <h2 id="pz-related-h" class="pz-section-title">Read next</h2>
+            <div class="pz-grid">
+                {{#foreach next}}
+                    {{> "post-card"}}
+                {{/foreach}}
+            </div>
+        </section>
+    {{/if}}
+{{/get}}

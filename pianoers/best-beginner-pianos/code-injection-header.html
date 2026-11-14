@@ -1,0 +1,117 @@
+<!-- Ghost: Post settings → Code injection → Post header. Replaces the earlier version of this file.
+     Contains: page CSS, ItemList (the 7 ranked pianos), BreadcrumbList, and Person schema for the author.
+     Only add a memberOf entry to the Person block after confirming the association's exact name and dates. -->
+<style>
+/* Reserve the featured image's space before it loads (stops the 0.27 layout shift) and keep it landscape. */
+.gh-article-image img { width: 100%; height: auto; aspect-ratio: 40 / 21; object-fit: cover; }
+/* Let the comparison table scroll inside its own box on phones. */
+.gh-content table { display: block; max-width: 100%; overflow-x: auto; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Best Beginner Keyboard & Digital Pianos in 2026",
+  "itemListOrder": "https://schema.org/ItemListOrderDescending",
+  "numberOfItems": 7,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Yamaha P-145BT",
+      "url": "https://pianoers.com/best-beginner-pianos/#1-yamaha-p-145bt"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Alesis Recital Pro",
+      "url": "https://pianoers.com/best-beginner-pianos/#2-alesis-recital-pro"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Kawai ES60",
+      "url": "https://pianoers.com/best-beginner-pianos/#3-kawai-es60"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Roland FP-10",
+      "url": "https://pianoers.com/best-beginner-pianos/#4-roland-fp-10"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Korg B2",
+      "url": "https://pianoers.com/best-beginner-pianos/#5-korg-b2"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "Roland FP-30X",
+      "url": "https://pianoers.com/best-beginner-pianos/#6-roland-fp-30x-stretch-pick"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "Casio Privia PX-S1100",
+      "url": "https://pianoers.com/best-beginner-pianos/#7-casio-privia-px-s1100-stretch-pick"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://pianoers.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Pianos",
+      "item": "https://pianoers.com/tag/pianos/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Best Beginner Keyboard & Digital Pianos",
+      "item": "https://pianoers.com/best-beginner-pianos/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://pianoers.com/author/katarina/#person",
+  "name": "Katarina",
+  "url": "https://pianoers.com/author/katarina/",
+  "image": "https://pianoers.com/content/images/size/w1200/2024/02/Katarina.jpg",
+  "jobTitle": "Piano teacher",
+  "description": "Piano teacher since 2001 and lead teacher at Pianoers.com.",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Missouri"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Pianoers.com",
+    "url": "https://pianoers.com/"
+  },
+  "knowsAbout": [
+    "Piano teaching",
+    "Digital pianos",
+    "Beginner piano"
+  ],
+  "sameAs": [
+    "https://onlinepianoteachers.com/teachers/p/katarina"
+  ]
+}
+</script>
