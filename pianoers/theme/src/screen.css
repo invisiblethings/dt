@@ -161,7 +161,7 @@ html[data-color-scheme="dark"] .pz-logo.has-dark-logo .pz-logo-dark { display: b
 .pz-hero > .pz-feature { margin: 0; }
 @media (min-width: 960px) {
     .pz-article:has(.pz-content .pz-pick) .pz-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 440px); align-items: center; gap: 40px; }
-    .pz-article:has(.pz-content .pz-pick) .pz-hero > .pz-feature { max-height: none; }
+    .pz-article:has(.pz-content .pz-pick) .pz-hero > .pz-feature img { max-height: 420px; }
 }
 @media (max-width: 699px) {
     .pz-article:has(.pz-content .pz-pick) .pz-hero > .pz-feature { display: none; }
@@ -190,12 +190,16 @@ html[data-color-scheme="dark"] .pz-logo.has-dark-logo .pz-logo-dark { display: b
 /* Media frame: fixed 16:9 box (no layout shift). Images of any shape sit whole inside it
    on a blurred copy of themselves; JS switches landscape images to fill the frame. */
 .pz-media { position: relative; margin: 0; overflow: hidden; aspect-ratio: 16 / 9; width: 100%; max-width: 100%; background: var(--surface); border-radius: var(--radius); isolation: isolate; }
-.pz-media::before { content: ""; position: absolute; inset: -24px; z-index: -1; background: var(--pz-media-bg, none) center / cover no-repeat; filter: blur(20px) saturate(1.1); opacity: 0.6; }
 .pz-media img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .pz-media.is-fill img { object-fit: cover; }
-.pz-feature { max-height: min(54vh, 560px); }
+.pz-feature { aspect-ratio: auto; background: none; display: flex; justify-content: center; }
+.pz-feature img { width: auto; max-width: 100%; height: auto; max-height: min(60vh, 600px); object-fit: contain; border-radius: var(--radius); }
+.pz-feature.is-fill img { object-fit: contain; }
 .pz-feature figcaption { position: absolute; left: 12px; bottom: 12px; max-width: calc(100% - 24px); padding: 4px 10px; border-radius: 8px; background: rgb(0 0 0 / 60%); color: #fff; font-family: var(--f-display); font-size: 0.8rem; }
-.pz-feature-full { border-radius: 0; max-height: min(70vh, 720px); }
+.pz-feature-full { border-radius: 0; }
+.pz-feature-full img { width: 100%; max-height: min(70vh, 720px); object-fit: cover; border-radius: 0; }
+.pz-feature { flex-direction: column; align-items: center; gap: 8px; overflow: visible; }
+.pz-feature figcaption { position: static; max-width: none; padding: 0; background: none; color: var(--muted); }
 
 /* 6. Layout + contents ------------------------------------------------------ */
 
@@ -214,7 +218,7 @@ html[data-color-scheme="dark"] .pz-logo.has-dark-logo .pz-logo-dark { display: b
 .pz-toc-mobile a { color: var(--ink); text-decoration: none; }
 @media (min-width: 1040px) { .pz-toc-mobile { display: none; } }
 .pz-rail-pick { display: grid; gap: 10px; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); font-family: var(--f-display); }
-.pz-rail-pick img { width: 100%; aspect-ratio: 16 / 10; object-fit: contain; background: var(--surface); border-radius: 10px; }
+.pz-rail-pick img { width: 100%; aspect-ratio: 16 / 10; object-fit: contain; border-radius: 10px; }
 .pz-rail-pick .pz-rail-name { font-weight: 800; font-size: 1.05rem; line-height: 1.2; }
 .pz-rail-pick .pz-rail-note { font-size: 0.82rem; color: var(--muted); }
 .pz-rail-pick .pz-btn { width: 100%; }

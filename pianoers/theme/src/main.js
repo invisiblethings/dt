@@ -187,7 +187,19 @@
     }
 
     /* 6. Picks, finder, rail pick and buy bar ------------------------------ */
+    function shopLabel(href) {
+        var h = '';
+        try { h = new URL(href, location.href).hostname.replace(/^www\./, ''); } catch (e) { h = ''; }
+        var shops = [[/(^|\.)(amzn\.to|link\.amazon|amazon\.[a-z.]+)$/, 'View on Amazon'], [/sweetwater\.com$/, 'View at Sweetwater'], [/guitarcenter\.com$/, 'View at Guitar Center'], [/yamaha\.com$/, 'View at Yamaha'], [/kawai/, 'View at Kawai'], [/roland\.com$/, 'View at Roland'], [/casio/, 'View at Casio']];
+        for (var i = 0; i < shops.length; i++) if (shops[i][0].test(h)) return shops[i][1];
+        return 'See the deal';
+    }
     var pickEls = content ? Array.prototype.slice.call(content.querySelectorAll('.pz-pick')) : [];
+    pickEls.forEach(function (el) {
+        el.querySelectorAll('a.pz-btn-buy').forEach(function (a) {
+            if (/^\s*(check|see)\b.*\b(price|at|on)\b/i.test(a.textContent)) a.textContent = shopLabel(a.href);
+        });
+    });
     var picks = pickEls.map(function (el, i) {
         var buy = el.querySelector('.pz-buy a.pz-btn-buy') || el.querySelector('a.pz-btn-buy');
         var img = el.querySelector('.pz-pick-top img') || el.querySelector('img');
@@ -203,7 +215,7 @@
             buyHref: buy ? buy.href : '',
             buyRel: buy ? buy.getAttribute('rel') : '',
             buyText: buy ? text(buy) : '',
-            /* data-bar-label sets the sticky bar's button text; it defaults to "Check price". */
+            /* data-bar-label sets the sticky bar's button text; it defaults to the store name, e.g. "View on Amazon". */
             barLabel: el.getAttribute('data-bar-label') || '',
             top: parseInt(el.getAttribute('data-top'), 10) || 0
         };
@@ -222,7 +234,7 @@
     if (content && (content.querySelector('a[rel~="sponsored"]') || Array.prototype.some.call(content.querySelectorAll('a[href]'), isAffiliate))) {
         document.querySelectorAll('[data-pz-disclose]').forEach(function (p) { p.hidden = false; });
     }
-    function btnLabel(p) { return p.barLabel || (p.buyText && p.buyText.length <= 24 ? p.buyText : 'Check price'); }
+    function btnLabel(p) { return p.barLabel || (p.buyText && p.buyText.length <= 24 ? p.buyText : shopLabel(p.buyHref)); }
     var buyPicks = picks.filter(function (p) { return p.buyHref; });
     var postBody = content ? content.closest('.pz-body') : null;
     if (postBody && buyPicks.length) {
@@ -262,7 +274,7 @@
             Array.prototype.forEach.call(tb.rows, function (r, i) {
                 var td = document.createElement('td');
                 td.className = 'pz-td-buy';
-                td.innerHTML = rowPick[i] ? buyLink(rowPick[i], rowPick[i].barLabel || 'Check price', 'pz-btn-sm') : '';
+                td.innerHTML = rowPick[i] ? buyLink(rowPick[i], btnLabel(rowPick[i]), 'pz-btn-sm') : '';
                 r.insertBefore(td, r.cells[1] || null);
             });
         });
@@ -294,7 +306,7 @@
             (current.img ? '<img src="' + esc(current.img) + '" alt="" width="248" height="155" loading="lazy" decoding="async">' : '') +
             '<a class="pz-rail-name" href="#' + esc(current.id) + '">' + esc(current.name) + '</a>' +
             (current.price ? '<span class="pz-rail-note">' + esc(current.price) + '</span>' : '') +
-            buyLink(current);
+            buyLink(current, btnLabel(current));
         rail.hidden = false;
     }
     function renderBar() {
@@ -302,7 +314,7 @@
         bar.innerHTML =
             (current.img ? '<img src="' + esc(current.img) + '" alt="" width="44" height="44" loading="lazy" decoding="async">' : '') +
             '<span class="pz-buybar-text"><b>' + esc(current.name) + '</b><span>' + esc(chosen ? 'Your match' : (current.best || 'Top pick')) + (current.price ? ' · ' + esc(current.price) : '') + '</span></span>' +
-            buyLink(current, current.barLabel || 'Check price') +
+            buyLink(current, btnLabel(current)) +
             '<button class="pz-buybar-close" type="button" aria-label="Hide this bar">×</button>';
         bar.querySelector('.pz-buybar-close').addEventListener('click', function () {
             barClosed = true; storageSet('pz-buybar-closed', '1'); updateBar();
