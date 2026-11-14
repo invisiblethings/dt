@@ -17,8 +17,10 @@
         {{#has tag="#verified"}}<span class="pz-chip">Specs checked with manufacturers</span>{{/has}}
     </span>
 </div>
-{{#has tag="#affiliate"}}
-    {{#if @custom.affiliate_disclosure}}
+{{#if @custom.affiliate_disclosure}}
+    {{#has tag="#affiliate"}}
         <p class="pz-disclose">{{@custom.affiliate_disclosure}}</p>
-    {{/if}}
-{{/has}}
+    {{else}}
+        <p class="pz-disclose" data-pz-disclose hidden>{{@custom.affiliate_disclosure}}</p>
+    {{/has}}
+{{/if}}

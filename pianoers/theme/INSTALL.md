@@ -178,6 +178,17 @@ Real-visitor numbers (Core Web Vitals) appear in Search Console about four weeks
 
 ## Changelog
 
+- **1.6.0** (14 Nov 2026). Post structure for buying guides and reviews. Before this, the first buy button on /best-digital-piano/ sat 6.6 phone screens down (9.9 on /best-beginner-pianos/), and on desktop the sidebar's top pick was hidden below a 24-item contents list. Now, on any post with verdict cards (`pz-pick`):
+  - **Top picks box** at the top of the article, built automatically from the verdict cards: rank, photo, "best for", price and a button for the first 3 cards (or a "My verdict" box on a single-product review). Measured: first buy button at 0.8 screens on desktop and about 1 screen on phones. To choose which cards appear, add `data-top="1"`, `data-top="2"`, `data-top="3"` to the cards; otherwise it takes the first three by `data-rank`.
+  - **Compact header**: on desktop the title sits beside a smaller feature image; on phones the feature image is hidden on these posts and the header is tighter, so the picks start sooner.
+  - **Sidebar**: the top-pick card now sits above the contents list and stays in view; the floating buy bar is hidden on desktop because the sidebar already shows the pick. The contents list skips the individual verdict-card headings on posts with 3 or more cards.
+  - **Comparison tables**: rows that link to a verdict card get a "Check price" button right after the model name, and the model column stays put while the table scrolls sideways.
+  - **Product photos** in verdict cards link to the card's buy button.
+  - **Phone buy bar** appears as soon as the top picks box scrolls away.
+  - **Affiliate disclosure** now also shows on posts without the `#affiliate` tag whenever the article contains a sponsored link (/best-digital-piano/ and /best-beginner-pianos/ had lost the tag and showed none).
+  - The default **Affiliate domains** now include `link.amazon` and `sovrn.co`. On an existing install, paste `amzn.to, link.amazon, amazon.com, sovrn.co, sjv.io, clickbank.net, /PFA, /pianoforall, /pbp` into Settings → Design & branding → Customize → Post → Affiliate domains.
+
+  Posts without verdict cards look exactly as before. Checked on copies of 10 live posts on desktop and iPhone: no sideways scrolling, no new console errors, gscan passes.
 - **1.5.4** (4 Nov 2026). A "Follow Pianoers.com on Facebook" link in the footer. It appears automatically once a Facebook page is set in Settings → General → Social accounts, and is hidden until then.
 - **1.5.3** (4 Nov 2026). "Add Pianoers as a preferred source on Google" button at the end of every post and a compact version in the footer. It uses Google's documented link (`google.com/preferences/source?q=pianoers.com`), so no Google script is loaded. Readers who add the site see it more often in Top Stories and can see it marked as preferred in AI Overviews and AI Mode.
 - **1.5.2** (4 Nov 2026). Feature images are no longer cropped. A feature image now fills its frame only when its shape matches; otherwise the whole image shows on the blurred backdrop, for example a 3:2 image in the 16:9 frame. The frame size is unchanged, so there is no layout shift. Post-card images are unchanged.

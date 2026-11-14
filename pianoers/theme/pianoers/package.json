@@ -1,7 +1,7 @@
 {
     "name": "pianoers",
     "description": "Custom Ghost theme for Pianoers.com: playable piano, ear trainer, piano finder, course quiz, verdict cards, reading progress and affiliate-safe buy buttons.",
-    "version": "1.5.4",
+    "version": "1.6.0",
     "license": "MIT",
     "author": {
         "name": "Pianoers.com",
@@ -81,7 +81,7 @@
             },
             "affiliate_domains": {
                 "type": "text",
-                "default": "amzn.to, amazon.com, sjv.io, clickbank.net, /PFA, /pianoforall, /pbp",
+                "default": "amzn.to, link.amazon, amazon.com, sovrn.co, sjv.io, clickbank.net, /PFA, /pianoforall, /pbp",
                 "group": "post"
             },
             "show_table_of_contents": {

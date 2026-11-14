@@ -153,10 +153,12 @@
     /* 5. Contents list: the post's H2 headings, or H2 + H3 when the post has fewer than 3 H2s
        (some posts use H3 for their sections). Shown when there are 3 or more entries. */
     var tocLinks = [];
+    var manyPicks = content ? content.querySelectorAll('.pz-pick').length >= 3 : false;
     if (cfg.toc && content) {
         var tocHeads = function (sel) {
             return Array.prototype.filter.call(content.querySelectorAll(sel), function (h) {
-                return !h.closest('.pz-answer, .pz-finder, .pz-game, .kg-signup-card, .kg-header-card, .kg-toggle-card') && text(h);
+                if (manyPicks && h.closest('.pz-pick')) return false;
+                return !h.closest('.pz-answer, .pz-finder, .pz-game, .kg-signup-card, .kg-header-card, .kg-toggle-card, .pz-toppicks') && text(h);
             });
         };
         var heads = tocHeads('h2');
@@ -202,7 +204,8 @@
             buyRel: buy ? buy.getAttribute('rel') : '',
             buyText: buy ? text(buy) : '',
             /* data-bar-label sets the sticky bar's button text; it defaults to "Check price". */
-            barLabel: el.getAttribute('data-bar-label') || ''
+            barLabel: el.getAttribute('data-bar-label') || '',
+            top: parseInt(el.getAttribute('data-top'), 10) || 0
         };
     }).sort(function (a, b) { return a.rank - b.rank; });
     var byId = {};
@@ -214,6 +217,69 @@
         /* Keep the card button's own rel (vendor links that aren't affiliate links carry no "sponsored"). */
         return '<a class="pz-btn pz-btn-buy ' + (extraClass || '') + '" href="' + esc(p.buyHref) + '" rel="' + esc(p.buyRel || 'sponsored nofollow noopener') + '" target="_blank">' + esc(label || p.buyText || 'Check price') + '</a>';
     }
+
+    /* 6a. Disclosure, top picks box, buy column in comparison tables, clickable product photos */
+    if (content && (content.querySelector('a[rel~="sponsored"]') || Array.prototype.some.call(content.querySelectorAll('a[href]'), isAffiliate))) {
+        document.querySelectorAll('[data-pz-disclose]').forEach(function (p) { p.hidden = false; });
+    }
+    function btnLabel(p) { return p.barLabel || (p.buyText && p.buyText.length <= 24 ? p.buyText : 'Check price'); }
+    var buyPicks = picks.filter(function (p) { return p.buyHref; });
+    var postBody = content ? content.closest('.pz-body') : null;
+    if (postBody && buyPicks.length) {
+        var single = picks.length === 1;
+        var tops = buyPicks.filter(function (p) { return p.top > 0; }).sort(function (a, b) { return a.top - b.top; });
+        var shown = (tops.length ? tops : buyPicks).slice(0, 3);
+        var box = document.createElement('aside');
+        box.className = 'pz-toppicks' + (single ? ' is-single' : '');
+        box.setAttribute('aria-label', single ? 'My verdict' : 'My top picks');
+        box.innerHTML = '<p class="pz-eyebrow">' + (single ? 'My verdict' : 'My top picks') + '</p><ol>' + shown.map(function (p, i) {
+            return '<li>' +
+                (single ? '' : '<span class="pz-tp-rank" aria-hidden="true">' + (i + 1) + '</span>') +
+                (p.img ? '<a class="pz-tp-img" href="#' + esc(p.id) + '" tabindex="-1" aria-hidden="true"><img src="' + esc(p.img) + '" alt="" width="64" height="64" loading="eager" decoding="async"></a>' : '<span class="pz-tp-img" aria-hidden="true"></span>') +
+                '<span class="pz-tp-text"><a class="pz-tp-name" href="#' + esc(p.id) + '">' + esc(p.name) + '</a>' +
+                '<span class="pz-tp-meta">' + esc(p.best || '') + (p.best && p.price ? ' · ' : '') + esc(p.price || '') + '</span></span>' +
+                buyLink(p, btnLabel(p), 'pz-tp-btn') + '</li>';
+        }).join('') + '</ol>' +
+            (single ? '<a class="pz-tp-more" href="#' + esc(picks[0].id) + '">Read my full verdict ↓</a>' : (picks.length > shown.length ? '<a class="pz-tp-more" href="#' + esc(picks[0].id) + '">See all ' + picks.length + ' picks ↓</a>' : ''));
+        postBody.insertBefore(box, postBody.firstChild);
+    }
+    if (content && buyPicks.length) {
+        content.querySelectorAll('table').forEach(function (table) {
+            var head = table.tHead && table.tHead.rows[0];
+            var tb = table.tBodies[0];
+            if (!head || !tb || table.querySelector('[rowspan], [colspan]')) return;
+            var rowPick = Array.prototype.map.call(tb.rows, function (r) {
+                var a = r.querySelector('a[href^="#"]');
+                var p = a ? byId[decodeURIComponent(a.getAttribute('href').slice(1))] : null;
+                return p && p.buyHref ? p : null;
+            });
+            if (rowPick.filter(Boolean).length < 2) return;
+            table.classList.add('pz-table-buy');
+            var th = document.createElement('th');
+            th.className = 'pz-nosort';
+            th.innerHTML = '<span class="pz-visually-hidden">Where to buy</span>';
+            head.insertBefore(th, head.cells[1] || null);
+            Array.prototype.forEach.call(tb.rows, function (r, i) {
+                var td = document.createElement('td');
+                td.className = 'pz-td-buy';
+                td.innerHTML = rowPick[i] ? buyLink(rowPick[i], rowPick[i].barLabel || 'Check price', 'pz-btn-sm') : '';
+                r.insertBefore(td, r.cells[1] || null);
+            });
+        });
+    }
+    picks.forEach(function (p) {
+        if (!p.buyHref) return;
+        var img = p.el.querySelector('.pz-pick-top > img');
+        if (!img || img.closest('a')) return;
+        var a = document.createElement('a');
+        a.className = 'pz-pick-img';
+        a.href = p.buyHref;
+        a.rel = p.buyRel || 'sponsored nofollow noopener';
+        a.target = '_blank';
+        a.setAttribute('aria-label', btnLabel(p) + ': ' + p.name);
+        img.parentNode.insertBefore(a, img);
+        a.appendChild(img);
+    });
 
     var current = picks[0] || null;
     var chosen = false;
@@ -244,7 +310,7 @@
     }
     function updateBar() {
         if (!bar || !current || !current.buyHref || !cfg.stickyBar) return;
-        var firstPick = picks[0] && picks[0].el;
+        var firstPick = document.querySelector('.pz-toppicks') || (picks[0] && picks[0].el);
         var past = firstPick ? firstPick.getBoundingClientRect().bottom < 0 : false;
         var show = !barClosed && (past || chosen);
         bar.hidden = !show && barClosed;
@@ -935,6 +1001,7 @@
             var body = table.tBodies[0];
             if (!head || !body || body.rows.length < 3 || table.querySelector('[rowspan], [colspan]')) return;
             Array.prototype.forEach.call(head.cells, function (th, col) {
+                if (th.classList.contains('pz-nosort')) return;
                 var label = th.textContent;
                 th.innerHTML = '';
                 var btn = document.createElement('button');

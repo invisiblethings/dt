@@ -1,16 +1,17 @@
 <article class="pz-article {{post_class}}" data-minutes="{{reading_time minute="1" minutes="%"}}">
     <header class="pz-wrap pz-hero">
-        {{> "breadcrumbs"}}
-        {{#primary_tag}}<a class="pz-eyebrow pz-hero-tag" href="{{url}}">{{name}}</a>{{/primary_tag}}
-        <h1 class="pz-title">{{title}}</h1>
-        {{#if custom_excerpt}}<p class="pz-dek">{{custom_excerpt}}</p>{{/if}}
-        {{> "trust"}}
+        <div class="pz-hero-copy">
+            {{> "breadcrumbs"}}
+            {{#primary_tag}}<a class="pz-eyebrow pz-hero-tag" href="{{url}}">{{name}}</a>{{/primary_tag}}
+            <h1 class="pz-title">{{title}}</h1>
+            {{#if custom_excerpt}}<p class="pz-dek">{{custom_excerpt}}</p>{{/if}}
+            {{> "trust"}}
+        </div>
+        {{#unless full}}{{> "feature-image"}}{{/unless}}
     </header>
 
     {{#if full}}
         {{> "feature-image" full=true}}
-    {{else}}
-        <div class="pz-wrap">{{> "feature-image"}}</div>
     {{/if}}
 
     <div class="pz-wrap pz-layout">
@@ -42,13 +43,13 @@
         </div>
         <aside class="pz-rail" aria-label="On this page">
             <div class="pz-rail-inner">
+                <div class="pz-rail-pick" hidden></div>
                 {{#if @custom.show_table_of_contents}}
                     <nav class="pz-toc" hidden>
                         <span class="pz-eyebrow">On this page</span>
                         <ol class="pz-toc-list"></ol>
                     </nav>
                 {{/if}}
-                <div class="pz-rail-pick" hidden></div>
             </div>
         </aside>
     </div>
