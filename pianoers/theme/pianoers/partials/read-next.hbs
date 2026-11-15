@@ -1,0 +1,26 @@
+{{#if primary_tag}}
+{{#get "posts" include="tags" filter="primary_tag:{{primary_tag.slug}}+id:-{{id}}" limit="4" order="published_at desc" as |more|}}
+    {{#if more}}
+        <nav class="pz-readnext" aria-labelledby="pz-readnext-h">
+            <p class="pz-eyebrow" id="pz-readnext-h">Keep reading</p>
+            <ol class="pz-readnext-list">
+                {{#foreach more}}
+                    <li class="pz-readnext-item">
+                        <a class="pz-readnext-link" href="{{url}}" data-pz-next>
+                            {{#if feature_image}}
+                                <img src="{{img_url feature_image size="s" format="webp"}}" alt="" width="300" height="169" loading="lazy" decoding="async">
+                            {{else}}
+                                <span class="pz-readnext-noimg" aria-hidden="true"></span>
+                            {{/if}}
+                            <span class="pz-readnext-text">
+                                <span class="pz-readnext-title">{{title}}</span>
+                                <span class="pz-readnext-meta">{{reading_time}}</span>
+                            </span>
+                        </a>
+                    </li>
+                {{/foreach}}
+            </ol>
+        </nav>
+    {{/if}}
+{{/get}}
+{{/if}}

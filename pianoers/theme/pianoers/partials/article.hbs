@@ -25,6 +25,9 @@
             <div class="gh-content pz-content">
                 {{content}}
             </div>
+            {{#if @custom.show_related_posts}}
+                {{> "read-next"}}
+            {{/if}}
             <div class="pz-share-row" hidden>
                 <span>Found this useful?</span>
                 <button class="pz-btn pz-btn-ghost" type="button" data-pz-share>Share this guide</button>

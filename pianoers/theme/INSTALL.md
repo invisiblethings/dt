@@ -178,6 +178,14 @@ Real-visitor numbers (Core Web Vitals) appear in Search Console about four weeks
 
 ## Changelog
 
+- **1.7.0** (15 Nov 2026). Keeping readers on the site. Your GA4 data for 8–14 Nov showed about 1.3 views per visitor on the top posts (most people read one page and left) and 0 key events on every page. This release:
+  - **"Keep reading" right after the article**, before the share row, author box, sign-up and comments: 3 posts from the same main tag, with images. It replaces the old "Read next" section, which sat below the comments (about 44 phone screens down on /best-digital-piano/). It still follows the "Show related posts" setting.
+  - **A "Related guide" card part-way through long posts** (900+ words): one card at a section break about 40% through the text. It picks a related post the article doesn't already link to.
+  - **"On this page" bar on phones and tablets**: once the reader scrolls past the contents box, a slim bar under the header shows the current section. Tap it to jump to any section. Hidden on desktop, where the sidebar already does this.
+  - **Events for Google Tag Manager**: `affiliate_click` (with placement and product), `read_next_click`, `article_read` (75%), alongside the existing quiz events. Import `analytics/gtm-pianoers-events.json` into Tag Manager and follow `analytics/ANALYTICS-SETUP.md`, so GA4 counts affiliate clicks as key events.
+  - The phone buy bar fits long names and the "View on Amazon" button on small phones.
+
+  Checked on copies of 7 live posts on desktop, iPhone 13 and iPhone SE: events fire with the right details, no sideways scrolling, no new console errors, gscan passes.
 - **1.6.0** (14 Nov 2026). Post structure for buying guides and reviews. Before this, the first buy button on /best-digital-piano/ sat 6.6 phone screens down (9.9 on /best-beginner-pianos/), and on desktop the sidebar's top pick was hidden below a 24-item contents list. Now, on any post with verdict cards (`pz-pick`):
   - **Top picks box** at the top of the article, built automatically from the verdict cards: rank, photo, "best for", price and a button for the first 3 cards (or a "My verdict" box on a single-product review). Measured: first buy button at 0.8 screens on desktop and about 1 screen on phones. To choose which cards appear, add `data-top="1"`, `data-top="2"`, `data-top="3"` to the cards; otherwise it takes the first three by `data-rank`.
   - **Compact header**: on desktop the title sits beside a smaller feature image; on phones the feature image is hidden on these posts and the header is tighter, so the picks start sooner.

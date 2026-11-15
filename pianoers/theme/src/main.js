@@ -1337,4 +1337,110 @@
         });
     })();
 
+
+    /* 18. Keep reading: a related guide part-way through long posts, a "Jump to" bar on phones, and events for Google Tag Manager */
+    function pzEvent(name, data) {
+        window.dataLayer = window.dataLayer || [];
+        var ev = { event: name, page_path: location.pathname };
+        for (var k in data) if (Object.prototype.hasOwnProperty.call(data, k)) ev[k] = data[k];
+        try { window.dataLayer.push(ev); } catch (e) { return; }
+    }
+    var readNext = document.querySelector('.pz-readnext');
+    if (content && readNext) {
+        var nextItems = Array.prototype.slice.call(readNext.querySelectorAll('.pz-readnext-item'));
+        var linked = Array.prototype.map.call(content.querySelectorAll('a[href]'), function (a) { return a.href.replace(/[#?].*$/, '').replace(/\/$/, ''); });
+        var fresh = nextItems.filter(function (li) { var a = li.querySelector('a'); return a && linked.indexOf(a.href.replace(/[#?].*$/, '').replace(/\/$/, '')) === -1; });
+        var midItem = fresh.filter(function (li) { return nextItems.indexOf(li) > 2; })[0] || fresh[0] || nextItems[3] || nextItems[0] || null;
+        if (nextItems.length > 3) nextItems[3].classList.add('is-extra');
+        var blocks = Array.prototype.slice.call(content.children);
+        var words = blocks.map(function (el) { return (el.textContent || '').split(/\s+/).filter(Boolean).length; });
+        var total = words.reduce(function (a, b) { return a + b; }, 0);
+        if (midItem && total >= 900) {
+            var run = 0, spot = null, height = content.offsetHeight || 1;
+            for (var bi = 0; bi < blocks.length; bi++) {
+                var depth = (blocks[bi].offsetTop - content.offsetTop) / height;
+                if (run >= total * 0.4 && blocks[bi].tagName === 'H2' && depth >= 0.3 && depth <= 0.75) { spot = blocks[bi]; break; }
+                run += words[bi];
+            }
+            if (spot) {
+                var src = midItem.querySelector('a');
+                var mid = document.createElement('aside');
+                mid.className = 'pz-midnext';
+                mid.setAttribute('aria-label', 'Related guide');
+                mid.innerHTML = '<a class="pz-midnext-link" href="' + esc(src.href) + '" data-pz-next="mid">' +
+                    (src.querySelector('img') ? '<img src="' + esc(src.querySelector('img').getAttribute('src')) + '" alt="" width="300" height="169" loading="lazy" decoding="async">' : '') +
+                    '<span class="pz-midnext-text"><span class="pz-eyebrow">Related guide</span><span class="pz-midnext-title">' + esc(text(src.querySelector('.pz-readnext-title'))) + '</span>' +
+                    '<span class="pz-midnext-meta">' + esc(text(src.querySelector('.pz-readnext-meta'))) + '</span></span></a>';
+                content.insertBefore(mid, spot);
+            }
+        }
+    }
+
+    var tocMobile = document.querySelector('.pz-toc-mobile');
+    if (tocMobile && !tocMobile.hidden && content && window.matchMedia) {
+        var jump = document.createElement('div');
+        jump.className = 'pz-jump';
+        jump.hidden = true;
+        jump.innerHTML = '<button type="button" class="pz-jump-btn" aria-expanded="false"><span class="pz-jump-label">On this page</span><span class="pz-jump-now"></span><span class="pz-jump-icon" aria-hidden="true">&#9662;</span></button>' +
+            '<ol class="pz-jump-list">' + tocMobile.querySelector('.pz-toc-list').innerHTML + '</ol>';
+        document.body.appendChild(jump);
+        var jumpBtn = jump.querySelector('.pz-jump-btn');
+        var jumpNow = jump.querySelector('.pz-jump-now');
+        var jumpHeads = Array.prototype.map.call(jump.querySelectorAll('.pz-jump-list a'), function (a) { return document.getElementById(a.getAttribute('data-id')); }).filter(Boolean);
+        var setJump = function (open) { jump.classList.toggle('is-open', open); jumpBtn.setAttribute('aria-expanded', String(open)); };
+        jumpBtn.addEventListener('click', function () { setJump(!jump.classList.contains('is-open')); });
+        jump.querySelectorAll('.pz-jump-list a').forEach(function (a) { a.addEventListener('click', function () { setJump(false); }); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setJump(false); });
+        var small = window.matchMedia('(max-width: 1039px)');
+        var updateJump = function () {
+            var past = tocMobile.getBoundingClientRect().bottom < 0;
+            var end = content.getBoundingClientRect().bottom < window.innerHeight * 0.4;
+            var show = small.matches && past && !end;
+            jump.hidden = !show;
+            if (!show) { setJump(false); return; }
+            var cur = null;
+            jumpHeads.forEach(function (h) { if (h.getBoundingClientRect().top < window.innerHeight * 0.3) cur = h; });
+            jumpNow.textContent = cur ? text(cur) : '';
+            jump.querySelectorAll('.pz-jump-list a').forEach(function (a) { a.classList.toggle('is-current', !!cur && a.getAttribute('data-id') === cur.id); });
+        };
+        window.addEventListener('scroll', updateJump, { passive: true });
+        window.addEventListener('resize', updateJump, { passive: true });
+        updateJump();
+    }
+
+    document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a) return;
+        if (a.hasAttribute('data-pz-next')) {
+            pzEvent('read_next_click', { placement: a.getAttribute('data-pz-next') === 'mid' ? 'mid_article' : 'after_article', link_url: a.href });
+            return;
+        }
+        if (!(isAffiliate(a) || /\bsponsored\b/.test(a.getAttribute('rel') || ''))) return;
+        var where = a.closest('.pz-toppicks') ? 'top_picks' : a.closest('.pz-td-buy') ? 'table' : a.closest('.pz-rail-pick') ? 'sidebar' : a.closest('.pz-buybar') ? 'sticky_bar' : a.closest('.pz-pick') ? 'pick_card' : 'in_text';
+        var holder = a.closest('.pz-pick, li, tr, .pz-buybar, .pz-rail-pick');
+        var product = '';
+        if (holder) {
+            var nm = holder.querySelector('.pz-tp-name, .pz-buybar-text b, .pz-rail-name, h2, h3, strong, td:first-child');
+            product = holder.getAttribute('data-name') || (nm ? text(nm) : '');
+        }
+        pzEvent('affiliate_click', { placement: where, product: product.slice(0, 80), link_url: a.href, link_text: text(a).slice(0, 80) });
+    }, true);
+
+    if (content && 'IntersectionObserver' in window) {
+        var mark = document.createElement('span');
+        mark.className = 'pz-read-mark';
+        mark.setAttribute('aria-hidden', 'true');
+        var kids = content.children;
+        var at = kids[Math.floor(kids.length * 0.75)];
+        if (at) {
+            content.insertBefore(mark, at);
+            var readIO = new IntersectionObserver(function (en) {
+                if (!en[0].isIntersecting) return;
+                readIO.disconnect();
+                pzEvent('article_read', { percent: 75 });
+            });
+            readIO.observe(mark);
+        }
+    }
+
 })();
