@@ -4,7 +4,7 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
 
 | URL | Title (chars) | Meta description (chars) | Index | Schema |
 |---|---|---|---|---|
-| `/` | Learn Piano Online: Lessons for Adult Beginners | Pianoforall (61) | Pianoforall is a piano course for adults. Start with chords and rhythm, play by ear, and read music as you go. 568 lessons, $49 once, 90-day refund. (148) | index | Organization, PostalAddress, WebSite, Person, WebPage, Course, VideoObject, FAQPage |
+| `/` | Pianoforall Academy | Best Piano Course for Adult Beginners (59) | Pianoforall is a piano course for adults. Start with chords and rhythm, play by ear, and read music as you go. 568 lessons, $49 once, 90-day refund. (148) | index | Organization, PostalAddress, WebSite, Person, WebPage, Course, VideoObject, FAQPage |
 | `/404` | Page not found | Pianoforall (28) | This page has moved or no longer exists. (40) | noindex | Organization, PostalAddress, WebSite, Person, WebPage |
 | `/about` | About Robin Hall, Creator of Pianoforall (40) | Robin Hall grew up in his father’s piano shop, has taught piano for over 30 years and created Pianoforall in 2006. He’s also a cartoonist and therapist. (152) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, AboutPage |
 | `/affiliate-program` | Pianoforall Affiliate Program: 60% Commission via ClickBank (59) | Recommend Pianoforall to your audience and earn 60% commission on every sale through ClickBank, with a 90-day tracking cookie. (126) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList |
