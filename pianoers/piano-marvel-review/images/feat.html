@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+html,body{width:var(--w);height:var(--h)}
+body{--w:1200px;--h:675px;font-family:"Schibsted Grotesk",Arial,sans-serif;background:#13191c;color:#fff;overflow:hidden;position:relative}
+.bg{position:absolute;inset:0;background:radial-gradient(900px 600px at 85% 30%,#2e6475 0%,rgba(46,100,117,0) 60%),linear-gradient(135deg,#161d21 0%,#1c2a30 100%)}
+.staff{position:absolute;left:0;right:0;top:118px;height:120px;opacity:.10}
+.staff i{display:block;height:2px;background:#fff;margin-bottom:22px}
+.text{position:absolute;left:64px;top:0;bottom:70px;width:560px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.eyebrow{font-size:20px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f6b31e}
+h1{font-size:84px;line-height:.98;font-weight:800;letter-spacing:-.02em}
+.sub{font-family:Lora,Georgia,serif;font-style:italic;font-size:32px;line-height:1.25;color:#dfe9ec}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.chip{font-size:19px;font-weight:700;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
+.score{position:absolute;right:70px;top:54px;display:flex;align-items:baseline;gap:8px;background:#f6b31e;color:#1b1400;padding:12px 20px;border-radius:16px;font-weight:800;box-shadow:0 10px 30px rgba(0,0,0,.35);z-index:3}
+.score b{font-size:40px}.score span{font-size:18px;font-weight:700}
+.tab{position:absolute;right:-60px;top:130px;width:640px;border-radius:26px;padding:16px;background:#0b0f11;box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 0 2px #2b3439;transform:perspective(1400px) rotateY(-14deg) rotateZ(-2deg)}
+.tab img{display:block;width:100%;border-radius:12px}
+.keys{position:absolute;left:0;right:0;bottom:0;height:62px;display:grid;grid-template-columns:repeat(36,1fr);gap:3px;padding:0 3px;background:#0b0f11}
+.keys i{background:#f3f6f7;border-radius:0 0 5px 5px;position:relative}
+.keys i.b::after{content:"";position:absolute;right:-9px;top:0;width:15px;height:38px;background:#0b0f11;border-radius:0 0 3px 3px;z-index:2}
+.keys i.lit{background:#f6b31e}
+.brand{position:absolute;left:64px;bottom:84px;font-size:20px;font-weight:700;letter-spacing:.12em;color:#9ab0b6}
+</style></head><body>
+<div class="bg"></div>
+<div class="staff"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="tab"><img src="pm_crop.jpg" alt=""></div>
+<div class="score"><b>4.3</b><span>/ 5 · teacher's verdict</span></div>
+<div class="text">
+ <div class="eyebrow">Review · 2026</div>
+ <h1>Piano Marvel Review</h1>
+ <div class="sub">Can an app teach you to read music?</div>
+ <div class="chips"><span class="chip">Free plan</span><span class="chip">$129.99 / year</span><span class="chip">SASR sight-reading test</span></div>
+</div>
+<div class="brand">PIANOERS.COM</div>
+<div class="keys" id="k"></div>
+<script>
+const k=document.getElementById('k');const pat=[1,1,0,1,1,1,0];
+for(let i=0;i<36;i++){const e=document.createElement('i');if(pat[i%7]&&i<35)e.className='b';if([14,16,18].includes(i))e.className+=' lit';k.appendChild(e)}
+</script></body></html>
