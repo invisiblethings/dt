@@ -47,7 +47,7 @@ Why free-first: the visitor's biggest fear is "I'll fail again". A free lesson t
 | What exactly do I get? | Course stats, nine-book curriculum, "two ways to use it" |
 | Why not YouTube or an app? | FAQ `vs-youtube`, `vs-apps`, `/compare` |
 | Is it for my learning style? | `/start` quiz, course "probably not the best fit" panel |
-| Is it worth $49? | One-time vs subscription framing, Udemy rating, 60-day guarantee next to every buy button |
+| Is it worth $49? | One-time vs subscription framing, Udemy rating, 90-day guarantee next to every buy button |
 | Is the checkout safe? | ClickBank explanation near buy buttons, "review your order before paying", order-support phone number |
 
 ## Deliberately absent

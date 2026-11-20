@@ -82,7 +82,7 @@ Exact and phrase match only. Broad match spends fast without conversion data; tr
 
 ## 6. Ad copy rules (Google policy and honesty)
 
-Every claim in the ads also appears on the landing page: $49 one-time, 60-day refund, 568 lessons, 25 hours, Robin Hall, 53,000+ ratings at 4.7/5. Keep it that way. Don't add:
+Every claim in the ads also appears on the landing page: $49 one-time, 90-day refund, 568 lessons, 25 hours, Robin Hall, 53,000+ ratings at 4.7/5. Keep it that way. Don't add:
 - "Free" or "free lessons": they're switched off on the site.
 - "Best", "#1", "fastest", or "learn piano in X days": these are unverifiable, and Google may limit or disapprove the ads.
 - Fake urgency or sale prices ("was $79", "today only").

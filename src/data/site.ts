@@ -143,7 +143,7 @@ export const PRODUCTS: Record<string, Product> = {
   },
 };
 
-export const GUARANTEE_DAYS = 60;
+export const GUARANTEE_DAYS = 90;
 
 // Google Ads conversion tracking. Paste your IDs from Google Ads
 // (Goals > Conversions > your 'Checkout click' action > Tag setup > Install
@@ -156,7 +156,7 @@ export const ADS = {
 // Main call to action used in the header, sticky bars and final sections.
 export const PRIMARY_CTA = FEATURES.freeLessons
   ? { label: 'Try it free', href: '/free-lessons', note: '<b>Free lessons</b>No card needed', event: 'cta_click' }
-  : { label: 'Get the course', href: '/pricing', note: '<b>$49 once</b>60-day refund', event: 'cta_click' };
+  : { label: 'Get the course', href: '/pricing', note: '<b>$49 once</b>90-day refund', event: 'cta_click' };
 
 export const NAV = [
   { href: '/course', label: 'The course' },

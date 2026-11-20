@@ -5,14 +5,14 @@ import csv, os, sys
 OUT = 'docs/google-ads'
 SITE = 'https://pianoforall.academy'
 
-COMMON = ['$49 Once. No Subscription', '60-Day Money-Back Guarantee', '568 Step-by-Step Lessons',
+COMMON = ['$49 Once. No Subscription', '90-Day Money-Back Guarantee', '568 Step-by-Step Lessons',
           'Created by Robin Hall', 'Lifetime Access, Any Device', '53,000+ Student Ratings',
           'Pop, Blues, Jazz & Classical', 'Chords First, Reading Later', 'Pianoforall Piano Course']
 COMMON_D = ['Start with chords and rhythm, play by ear, then learn to read music as you go.',
             'Nine books, 568 short video lessons and 25 hours of video. Pay once, keep it for life.',
             'Created by piano teacher Robin Hall. 4.7/5 from 53,000+ student ratings.',
-            'Not for you? Ask for a full refund within 60 days. No subscription, ever.']
-CLASSICS_COMMON = ['$49 Once, Lifetime Access', '60-Day Money-Back Guarantee', 'Created by Robin Hall',
+            'Not for you? Ask for a full refund within 90 days. No subscription, ever.']
+CLASSICS_COMMON = ['$49 Once, Lifetime Access', '90-Day Money-Back Guarantee', 'Created by Robin Hall',
                    'Keyboard Diagrams + Score', 'Learn the Patterns First', 'Short Video Lessons',
                    'Online and Offline Access', 'No Subscription', 'Classics By Ear Courses']
 
@@ -35,15 +35,15 @@ GROUPS = [
   ['piano course no subscription', 'piano lessons one time payment', 'piano course lifetime access', 'piano lessons without subscription', 'one time payment piano app']),
  ('Search - Classics By Ear', 'Moonlight Sonata', '/classics-by-ear/moonlight-sonata', 'moonlight', 'sonata',
   ['Learn the Moonlight Sonata', 'Moonlight Sonata, Step by Step', '38 Lessons, 4 Hours of Video', 'No Need to Read Music', 'Beethoven, 1st Movement', 'Learn It Bar by Bar'] ,
-  ['Learn Beethoven’s Moonlight Sonata (1st movement) a few bars at a time, by ear.', 'Video, keyboard diagrams and annotated sheet music. 38 lessons, 4 hours of video.', 'Created by piano teacher Robin Hall. $49 once, lifetime access, no subscription.', 'Not for you? Ask for a full refund within 60 days.'],
+  ['Learn Beethoven’s Moonlight Sonata (1st movement) a few bars at a time, by ear.', 'Video, keyboard diagrams and annotated sheet music. 38 lessons, 4 hours of video.', 'Created by piano teacher Robin Hall. $49 once, lifetime access, no subscription.', 'Not for you? Ask for a full refund within 90 days.'],
   ['learn moonlight sonata', 'moonlight sonata piano lessons', 'how to play moonlight sonata', 'moonlight sonata course', 'learn moonlight sonata 1st movement', 'moonlight sonata for beginners']),
  ('Search - Classics By Ear', 'Satie Gnossiennes', '/classics-by-ear/erik-satie-gnossiennes', 'satie', 'gnossiennes',
   ['Learn Satie’s Gnossiennes', 'Gnossienne No. 1, 2 and 3', '45 Lessons, 4.5 Hours of Video', 'No Need to Read Music', 'A Gentle First Classical Piece', 'Chords First, Then Melody'],
-  ['Learn all three of Erik Satie’s Gnossiennes step by step: chords first, then melody.', 'Video, keyboard diagrams and annotated sheet music. 45 lessons, 4.5 hours of video.', 'Created by piano teacher Robin Hall. $49 once, lifetime access, no subscription.', 'Not for you? Ask for a full refund within 60 days.'],
+  ['Learn all three of Erik Satie’s Gnossiennes step by step: chords first, then melody.', 'Video, keyboard diagrams and annotated sheet music. 45 lessons, 4.5 hours of video.', 'Created by piano teacher Robin Hall. $49 once, lifetime access, no subscription.', 'Not for you? Ask for a full refund within 90 days.'],
   ['learn gnossienne no 1', 'gnossienne piano lessons', 'how to play gnossienne 1', 'satie gnossienne course', 'erik satie piano lessons']),
  ('Search - Classics By Ear', 'Bach Preludes', '/classics-by-ear/bach-preludes', 'bach', 'preludes',
   ['Learn Bach’s Prelude in C', 'Prelude in C Major & C Minor', '48 Lessons, 5 Hours of Video', 'No Need to Read Music', 'A Great First Classical Piece', 'Learn the Chord Shapes First'],
-  ['Learn Bach’s Preludes in C major and C minor by learning the chord shapes first.', 'Video, keyboard diagrams and annotated sheet music. 48 lessons, 5 hours of video.', 'Created by piano teacher Robin Hall. $49 once, lifetime access, no subscription.', 'Not for you? Ask for a full refund within 60 days.'],
+  ['Learn Bach’s Preludes in C major and C minor by learning the chord shapes first.', 'Video, keyboard diagrams and annotated sheet music. 48 lessons, 5 hours of video.', 'Created by piano teacher Robin Hall. $49 once, lifetime access, no subscription.', 'Not for you? Ask for a full refund within 90 days.'],
   ['learn bach prelude in c major', 'bach prelude in c piano lessons', 'how to play bach prelude in c', 'bach prelude c major course', 'bach prelude piano for beginners']),
 ]
 BRAND = ('Search - Brand', 'Pianoforall', '/', 'pianoforall', 'official',
@@ -96,7 +96,7 @@ SITELINKS = [('The Course', 'All 9 books, 568 lessons', 'From first chord to jaz
              ('How It Works', 'Play first, read later', 'Chords and rhythm first', '/how-it-works'),
              ('Classics By Ear', 'Moonlight Sonata, Satie, Bach', 'Learn a piece by ear', '/classics-by-ear'),
              ('Free Backing Tracks', 'Drums and bass to play with', 'Any key, any tempo', '/learn/piano-backing-tracks')]
-CALLOUTS = ['One-Time Payment', 'Lifetime Access', '60-Day Money Back', '568 Video Lessons', 'Since 2006', 'Works Offline', 'No Subscription', 'Any Age, Any Level']
+CALLOUTS = ['One-Time Payment', 'Lifetime Access', '90-Day Money Back', '568 Video Lessons', 'Since 2006', 'Works Offline', 'No Subscription', 'Any Age, Any Level']
 with open(f'{OUT}/assets.csv', 'w', newline='') as f:
     w = csv.writer(f); w.writerow(['Asset type', 'Text', 'Description 1', 'Description 2', 'Final URL'])
     for t, d1, d2, u in SITELINKS: w.writerow(['Sitelink', chk('Sitelink text', t, 25), chk('Sitelink desc', d1, 35), chk('Sitelink desc', d2, 35), SITE + u])

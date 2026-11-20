@@ -32,7 +32,7 @@ You currently run three sites that compete with each other for the same brand.
 - **568 step-by-step lessons**, **25 hours of video** (Thinkific page says "25+"), audio lessons, interactive ebooks and printable PDFs, online course player plus offline ebooks.
 - Nine books: Party Time (Rhythm Style), Blues & Rock 'n' Roll, Chord Magic, Advanced Chords, Ballad Style, Jazz, Advanced Blues, Taming the Classics, Speed Learning.
 - **$49 one-time** (shown against $79). No subscription. Lifetime access and free updates.
-- **60-day money-back guarantee**, handled through **ClickBank** (email Robin or request it directly from ClickBank). ClickBank order support: 1-800-390-6035.
+- **90-day money-back guarantee**, handled through **ClickBank** (email Robin or request it directly from ClickBank). ClickBank order support: 1-800-390-6035.
 - Ebooks open in the Books app on Mac/iOS and the free Kotobee Reader on Windows/Android. Largest book file ~400 MB. Works offline once downloaded. Printable.
 - Practice guidance: 20–30 minutes a day (FAQ); "fifteen or twenty minutes regularly" (adult-learner page).
 - Not designed for pre-teen children unless a parent works through it with them (official FAQ).
@@ -87,7 +87,7 @@ They are 302 redirects generated at build time from `src/data/site.ts` (`checkou
 **Keep**
 - Robin's own voice and teaching philosophy ("Play first, ask questions later"). It is the brand's best differentiator, and the newer pages already sound like a person.
 - The named, located, specific testimonials (Bob Bowen, Ed Hoare, Daniel Ravagli, Derek aged 74…). Detailed stories beat star counts.
-- One-time price, 60-day guarantee, free Test Drive, offline access, The Piano Lounge.
+- One-time price, 90-day guarantee, free Test Drive, offline access, The Piano Lounge.
 - The honest comparison stance ("for a young child, I'd look at Hoffman Academy first"). Few competitors say this, and it earns trust.
 - The ~40 blog post URLs, unchanged.
 
