@@ -46,9 +46,9 @@ export const ROBIN = {
 // Third-party rating that anyone can check. Update from the live Udemy page.
 export const UDEMY = {
   rating: '4.7',
-  ratingCount: '53,000',
+  ratingCount: '53,272',
   students: '421,000',
-  checked: 'October 2026',
+  checked: 'November 2026',
   url: 'https://www.udemy.com/course/pianoforall-incredible-new-way-to-learn-piano-keyboard/',
 };
 

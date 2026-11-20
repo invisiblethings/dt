@@ -7,7 +7,7 @@ import { CLASSICS } from '../data/classics';
 const p = PRODUCTS.pianoforall;
 export const GET: APIRoute = () => new Response(`# Pianoforall
 
-> Pianoforall is an online piano course for adults and teenagers, created by piano teacher Robin Hall in ${BRAND.founded}. Students start with chords and rhythm patterns, learn to play by ear, and learn to read music gradually ("play first, ask questions later"). The main course has ${p.lessons} lessons and ${p.videoHours} hours of video across nine books covering rhythm-style pop, blues and rock 'n' roll, ballads, jazz, improvisation, reading music and classical pieces. It costs $${p.price} once (no subscription) with a ${GUARANTEE_DAYS}-day money-back guarantee. On Udemy it is rated ${UDEMY.rating}/5 from about ${UDEMY.ratingCount} ratings (checked ${UDEMY.checked}).
+> Pianoforall is an online piano course for adults and teenagers, created by piano teacher Robin Hall in ${BRAND.founded}. Students start with chords and rhythm patterns, learn to play by ear, and learn to read music gradually ("play first, ask questions later"). The main course has ${p.lessons} lessons and ${p.videoHours} hours of video across nine books covering rhythm-style pop, blues and rock 'n' roll, ballads, jazz, improvisation, reading music and classical pieces. It costs $${p.price} once (no subscription) with a ${GUARANTEE_DAYS}-day money-back guarantee. On Udemy it is rated ${UDEMY.rating}/5 from ${UDEMY.ratingCount} ratings (checked ${UDEMY.checked}).
 
 Key facts:
 - Creator: Robin Hall, piano teacher for 30+ years, also a cartoonist and therapist
