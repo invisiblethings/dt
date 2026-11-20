@@ -45,7 +45,7 @@ def node(t,s,p,top=False,dark=False):
     bg=INK if dark else '#fff'; c='#fff' if dark else INK; sc='#c9d4d8' if dark else MU
     pp=f'<div style="margin-top:10px;font-size:15px;font-weight:800;color:#2e6475;background:#e2eef1;border-radius:8px;padding:5px 8px;display:inline-block">{p}</div>' if p else ''
     return f'<div class="card" style="padding:16px 16px;background:{bg};color:{c};text-align:center"><div style="font-size:21px;font-weight:800">{t}</div><div style="font-size:16px;color:{sc};margin-top:5px;line-height:1.35">{s}</div>{pp}</div>'
-ans=[('Pop songs and chords','Play along with real songs fast','Pianoforall','$49 once · 7-day trial'),('Classical and reading','Sight-read and level up','Piano Marvel','Free tier · $129.99/yr'),('Songs, with app feedback','The app listens as you play',None,None),('Spend nothing yet','Try before you pay','Free apps + a method book','$0 to start')]
+ans=[('Pop songs and chords','Play along with real songs fast','Pianoforall','$49 once · 90-day refund'),('Classical and reading','Sight-read and level up','Piano Marvel','Free tier · $129.99/yr'),('Songs, with app feedback','The app listens as you play',None,None),('Spend nothing yet','Try before you pay','Free apps + a method book','$0 to start')]
 cols=''
 for i,(a,s,r,p) in enumerate(ans):
     stub='<div style="width:3px;height:26px;background:#9fbcc5;margin:0 auto"></div>'
