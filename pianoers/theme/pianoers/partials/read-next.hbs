@@ -8,7 +8,7 @@
                     <li class="pz-readnext-item">
                         <a class="pz-readnext-link" href="{{url}}" data-pz-next>
                             {{#if feature_image}}
-                                <img src="{{img_url feature_image size="s" format="webp"}}" alt="" width="300" height="169" loading="lazy" decoding="async">
+                                <img src="{{img_url feature_image size="s" format="webp"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" width="300" height="169" loading="lazy" decoding="async">
                             {{else}}
                                 <span class="pz-readnext-noimg" aria-hidden="true"></span>
                             {{/if}}

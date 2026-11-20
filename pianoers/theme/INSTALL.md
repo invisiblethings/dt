@@ -178,6 +178,7 @@ Real-visitor numbers (Core Web Vitals) appear in Search Console about four weeks
 
 ## Changelog
 
+- **1.7.1** (20 Nov 2026). Alt text on every image the theme adds. Bing Webmaster Tools reported "Alt attribute for images is missing" (4 instances on /teach-yourself-piano/): the "Keep reading" thumbnails and the "Related guide" card had an empty `alt`. They now use the post's feature-image alt text, or its title. The top picks box, sidebar pick, buy bar and piano-finder result now use the product name. Nothing else changed.
 - **1.7.0** (15 Nov 2026). Keeping readers on the site. Your GA4 data for 8–14 Nov showed about 1.3 views per visitor on the top posts (most people read one page and left) and 0 key events on every page. This release:
   - **"Keep reading" right after the article**, before the share row, author box, sign-up and comments: 3 posts from the same main tag, with images. It replaces the old "Read next" section, which sat below the comments (about 44 phone screens down on /best-digital-piano/). It still follows the "Show related posts" setting.
   - **A "Related guide" card part-way through long posts** (900+ words): one card at a section break about 40% through the text. It picks a related post the article doesn't already link to.

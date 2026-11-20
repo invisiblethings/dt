@@ -247,7 +247,7 @@
         box.innerHTML = '<p class="pz-eyebrow">' + (single ? 'My verdict' : 'My top picks') + '</p><ol>' + shown.map(function (p, i) {
             return '<li>' +
                 (single ? '' : '<span class="pz-tp-rank" aria-hidden="true">' + (i + 1) + '</span>') +
-                (p.img ? '<a class="pz-tp-img" href="#' + esc(p.id) + '" tabindex="-1" aria-hidden="true"><img src="' + esc(p.img) + '" alt="" width="64" height="64" loading="eager" decoding="async"></a>' : '<span class="pz-tp-img" aria-hidden="true"></span>') +
+                (p.img ? '<a class="pz-tp-img" href="#' + esc(p.id) + '" tabindex="-1" aria-hidden="true"><img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" width="64" height="64" loading="eager" decoding="async"></a>' : '<span class="pz-tp-img" aria-hidden="true"></span>') +
                 '<span class="pz-tp-text"><a class="pz-tp-name" href="#' + esc(p.id) + '">' + esc(p.name) + '</a>' +
                 '<span class="pz-tp-meta">' + esc(p.best || '') + (p.best && p.price ? ' · ' : '') + esc(p.price || '') + '</span></span>' +
                 buyLink(p, btnLabel(p), 'pz-tp-btn') + '</li>';
@@ -316,7 +316,7 @@
         if (!rail || !current) return;
         rail.innerHTML =
             '<span class="pz-eyebrow">' + (chosen ? 'Your match' : 'Top pick') + '</span>' +
-            (current.img ? '<img src="' + esc(current.img) + '" alt="" width="248" height="155" loading="lazy" decoding="async">' : '') +
+            (current.img ? '<img src="' + esc(current.img) + '" alt="' + esc(current.name) + '" width="248" height="155" loading="lazy" decoding="async">' : '') +
             '<a class="pz-rail-name" href="#' + esc(current.id) + '">' + esc(current.name) + '</a>' +
             (current.price ? '<span class="pz-rail-note">' + esc(current.price) + '</span>' : '') +
             buyLink(current, btnLabel(current));
@@ -325,7 +325,7 @@
     function renderBar() {
         if (!bar || !current || !current.buyHref) return;
         bar.innerHTML =
-            (current.img ? '<img src="' + esc(current.img) + '" alt="" width="44" height="44" loading="lazy" decoding="async">' : '') +
+            (current.img ? '<img src="' + esc(current.img) + '" alt="' + esc(current.name) + '" width="44" height="44" loading="lazy" decoding="async">' : '') +
             '<span class="pz-buybar-text"><b>' + esc(current.name) + '</b><span>' + esc(chosen ? 'Your match' : (current.best || 'Top pick')) + (current.price ? ' · ' + esc(current.price) : '') + '</span></span>' +
             buyLink(current, btnLabel(current)) +
             '<button class="pz-buybar-close" type="button" aria-label="Hide this bar">×</button>';
@@ -398,7 +398,7 @@
             if (!p) return;
             result.className = 'pz-finder-result';
             result.innerHTML =
-                (p.img ? '<img src="' + esc(p.img) + '" alt="" width="96" height="96">' : '<span></span>') +
+                (p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" width="96" height="96">' : '<span></span>') +
                 '<div style="display:grid;gap:4px;min-width:0"><span class="pz-eyebrow">Your match</span><span class="pz-result-name">' + esc(p.name) + '</span>' +
                 (m.why ? '<span class="pz-result-why">' + esc(m.why) + '</span>' : '') + '</div>' +
                 '<div class="pz-result-acts">' + buyLink(p) + '<a class="pz-btn pz-btn-ghost" href="#' + esc(p.id) + '">Read the verdict</a></div>';
@@ -1368,7 +1368,7 @@
                 mid.className = 'pz-midnext';
                 mid.setAttribute('aria-label', 'Related guide');
                 mid.innerHTML = '<a class="pz-midnext-link" href="' + esc(src.href) + '" data-pz-next="mid">' +
-                    (src.querySelector('img') ? '<img src="' + esc(src.querySelector('img').getAttribute('src')) + '" alt="" width="300" height="169" loading="lazy" decoding="async">' : '') +
+                    (src.querySelector('img') ? '<img src="' + esc(src.querySelector('img').getAttribute('src')) + '" alt="' + esc(src.querySelector('img').getAttribute('alt') || text(src.querySelector('.pz-readnext-title'))) + '" width="300" height="169" loading="lazy" decoding="async">' : '') +
                     '<span class="pz-midnext-text"><span class="pz-eyebrow">Related guide</span><span class="pz-midnext-title">' + esc(text(src.querySelector('.pz-readnext-title'))) + '</span>' +
                     '<span class="pz-midnext-meta">' + esc(text(src.querySelector('.pz-readnext-meta'))) + '</span></span></a>';
                 content.insertBefore(mid, spot);
