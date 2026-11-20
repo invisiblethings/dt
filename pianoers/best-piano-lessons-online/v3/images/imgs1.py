@@ -33,7 +33,7 @@ tr=''.join(f'<tr style="border-top:1px solid {LINE};{"background:#f6f2ff" if a.s
 body=f'<div class="card" style="padding:8px 18px"><table style="width:100%;border-collapse:collapse"><tr><th></th>{th}</tr>{tr}</table></div><div style="margin-top:12px;font-size:17px;color:{MU}">&#8220;Hears your notes&#8221; means the app detects what you play, through the microphone or a MIDI cable. Based on each company&#39;s own pages.</div>'
 imgs['who-listens-online-piano-lessons-feedback']=(800,page(800,'Feedback','Who actually listens to you play?',body,'Pianoers.com comparison'))
 
-tri=[('Pianoforall','7-day free trial',7,'then $49 once; 60-day money-back guarantee',60,G),('Pianote (Musora)','7-day free trial',7,'90-day money-back guarantee',90,G),('Flowkey','7-day trial on yearly plans',7,'14-day money-back guarantee',14,BL),('Simply Piano','free trial',0,'length shown in the app',0,BL),('Skoove','free Basic lessons, no time limit',90,'plus a Premium free trial',0,BL),('Piano Marvel','free plan, no time limit',90,'150+ songs, 200+ exercises',0,BL),('Piano by Pictures','first month free',30,'then $49 a month',0,G)]
+tri=[('Pianoforall','no free trial',0,'$49 once; 90-day money-back guarantee',90,G),('Pianote (Musora)','7-day free trial',7,'90-day money-back guarantee',90,G),('Flowkey','7-day trial on yearly plans',7,'14-day money-back guarantee',14,BL),('Simply Piano','free trial',0,'length shown in the app',0,BL),('Skoove','free Basic lessons, no time limit',90,'plus a Premium free trial',0,BL),('Piano Marvel','free plan, no time limit',90,'150+ songs, 200+ exercises',0,BL),('Piano by Pictures','first month free',30,'then $49 a month',0,G)]
 rows=''
 for n,a,d,b,g,c in tri:
     tw=d/90*100; gw=g/90*100
@@ -56,7 +56,7 @@ arrow=f'<div style="font-size:15px;font-weight:800;color:{MU};display:flex;align
 rowsF=[('Do you want a real person to watch you play?',box('A live online teacher',V,260,'from about $20 a lesson')),
 ('Is the learner a child under 10?',box('Simply Piano, or free Hoffman Academy',BL,260)),
 ('Is reading sheet music or an exam the goal?',box('Piano Marvel',BL,260,'free plan or $129.99/yr')),
-('Do you want songs fast with chords, and to pay once?',box('Pianoforall',G,260,'7 days free, then $49 once')),
+('Do you want songs fast with chords, and to pay once?',box('Pianoforall',G,260,'$49 once, 90-day guarantee')),
 ('Do you want an app that hears every note?',box('Skoove or Flowkey',BL,260,'$149.99/yr each')),
 ('Do you want a big video library and teacher Q&amp;As?',box('Pianote (Musora)',G,260,'$279/yr'))]
 fl=''
