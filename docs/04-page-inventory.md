@@ -1,6 +1,6 @@
 # Page inventory: titles, descriptions, headings, schema
 
-Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run after content changes.
+Generated from the build by `node scripts/page-inventory.mjs`. 30 pages. Re-run after content changes.
 
 | URL | Title (chars) | Meta description (chars) | Index | Schema |
 |---|---|---|---|---|
@@ -8,7 +8,6 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
 | `/404` | Page not found | Pianoforall (28) | This page has moved or no longer exists. (40) | noindex | Organization, PostalAddress, WebSite, Person, WebPage |
 | `/about` | About Robin Hall, Creator of Pianoforall (40) | Robin Hall grew up in his father’s piano shop, has taught piano for over 30 years and created Pianoforall in 2006. He’s also a cartoonist and therapist. (152) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, AboutPage |
 | `/affiliate-program` | Pianoforall Affiliate Program: 60% Commission via ClickBank (59) | Recommend Pianoforall to your audience and earn 60% commission on every sale through ClickBank, with a 90-day tracking cookie. (126) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList |
-| `/blog` | Piano Blog: Practice Tips, Learning Psychology and Piano Stories (64) | Articles by Robin Hall on learning piano as an adult: practice habits, the psychology of learning, gear, classical pieces and stories from piano history. (153) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Blog |
 | `/contact` | Contact Pianoforall: Course Help and Order Support (50) | Questions about Pianoforall lessons, downloads or which course to choose? Email Robin Hall directly. For orders and refunds, contact ClickBank. (143) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, ContactPage |
 | `/course` | The Pianoforall Course: Online Piano Lessons for Adults (55) | What you get with Pianoforall: 568 lessons, 25 hours of video, nine books from chords to jazz and classical. $49 once, lifetime access, 90-day refund. (150) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Course, VideoObject, FAQPage |
 | `/faq` | Pianoforall FAQ: Beginners, Devices, Price and Refunds (54) | Pianoforall questions answered: complete beginners, reading music, which keyboard to use, devices and offline access, price and the 90-day refund. (146) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, FAQPage |
@@ -25,8 +24,6 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
 | `/classics-by-ear/erik-satie-gnossiennes` | Learn Satie Gnossienne No. 1, 2 and 3 on Piano by Ear (53) | Learn all three of Erik Satie’s Gnossiennes step by step: 45 video lessons, keyboard diagrams and sheet music. Chords and patterns first. $49 once. (147) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Course, MusicComposition, FAQPage |
 | `/classics-by-ear/moonlight-sonata` | Learn Moonlight Sonata on Piano (1st Movement) by Ear (53) | Learn the first movement of Beethoven’s Moonlight Sonata step by step: 38 video lessons, keyboard diagrams and annotated sheet music. No reading needed. $49 once. (162) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Course, MusicComposition, VideoObject, FAQPage |
 | `/learn` | Learn Piano: Free Guides for Adult Beginners | Pianoforall (58) | Free, practical piano guides for adult beginners: learning online, chords, playing by ear, practice routines, choosing a keyboard and how long it takes. (152) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, CollectionPage, Article |
-| `/learn-moonlight-sonata` | Why Beethoven’s Moonlight Sonata Still Moves Us Today (53) | Discover the story behind Beethoven’s Moonlight Sonata—why it was written, what makes it timeless, and how you can learn to play it with confidence. (148) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/learn-summertime-on-piano` | Summertime – The Piano-Friendly Classic Everyone Loves (54) | Discover the enduring magic of Gershwin’s Summertime, and why it’s the perfect piece for beginners to learn to play on piano (124) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
 | `/learn/choosing-a-keyboard` | Best Keyboard or Digital Piano for Beginners: What to Buy (57) | Robin Hall’s advice on choosing a first keyboard or digital piano: touch-sensitive and weighted keys, 61 vs 88 keys, backing rhythms, and models worth comparing. (161) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
 | `/learn/how-long-does-it-take-to-learn-piano` | How Long Does It Take to Learn Piano? (Realistic Adult Timeline) (64) | How long it takes to learn piano as an adult: realistic milestones from first chords to intermediate, what speeds you up, and a practice calculator. (148) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
 | `/learn/learn-piano-online` | How to Learn Piano Online: A Clear Guide for Adult Beginners (60) | How to learn piano online as an adult: what to buy, apps vs video courses vs live teachers, a first-week plan, and checking yourself without a teacher. (151) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
@@ -34,53 +31,9 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
 | `/learn/piano-chords-for-beginners` | Piano Chords for Beginners: Easy Chords to Learn First (with Diagrams) (70) | Learn how piano chords are built, the seven chords in C major, fingering for both hands and your first progressions. Includes an interactive keyboard you can play. (163) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
 | `/learn/piano-practice-routine` | Piano Practice Routine for Beginners: A Simple 20-Minute Plan (61) | A simple 20-minute piano practice routine for busy adults: warm-up, review, one new skill, play for fun. With a free practice timer and tips for getting unstuck. (161) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
 | `/learn/play-piano-by-ear` | How to Play Piano by Ear: A Step-by-Step Guide for Beginners (60) | Learn to play piano by ear: find the key, hear the chords, then add the melody. The chord progressions to learn first, simple ear exercises, and common mistakes. (161) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
-| `/learning-piano-between-practice` | Learning piano also happens between practice sessions (53) | Learn why breaks between piano practice sessions boost learning. Perfect for adult beginners and Pianoforall students. (118) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/a-few-jazz-piano-books-i-recommend` | The Best Jazz Piano Books for Beginners and Intermediate Players (64) | Learn jazz piano? Best jazz piano books for beginners and intermediates, including blues progressions, and cool jazz favorites (126) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/acoustic-piano-vs-digital-keyboard` | Acoustic Piano vs Digital Keyboard – What’s Best for You? (57) | Trying to choose between a digital keyboard and an acoustic piano? Discover the pros, cons, and key buying tips to help you find the perfect instrument for your lifestyle. (171) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
 | `/am-i-too-old-to-learn-piano` | Am I Too Old to Learn Piano? Advice for Adult and Older Beginners (65) | No, you can learn piano at any age. Robin Hall on why adults learn well, how much to practise, stiff hands, and how older beginners learn classical pieces. (155) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
-| `/animals-playing-piano` | When Animals Meet the Piano – True Tales of Musical Creatures (61) | From cats and dogs to elephants and whales, discover the surprising and delightful ways animals have interacted with the piano — both on land and underwater. (157) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/antarctica-piano-story` | The Frozen Piano: A True Story of Music at the Bottom of the World (66) | Discover the true story of a frozen piano left behind in Antarctica by Scott’s expedition. A haunting tale of music, morale, and human spirit in extreme conditions. (164) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/beatles-six-sensational-pianists` | The Beatles’ Six Sensational Pianists: More Than a Guitar Band (62) | Discover six pianists who shaped The Beatles’ sound — from Paul McCartney’s iconic “Let It Be” to hidden gems of George Martin, Billy Preston, and more. (152) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/beginner-keyboard-setup` | Beginner Keyboard Setup: What you need | Pianoforall (52) | Beginner keyboard setup: keys, action, touch sensitivity, stands, stool height, sustain pedals, posture, lighting and more. (123) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/build-a-piano-song-repertoire` | Build a Piano Song Repertoire You Can Play Anywhere | Pianoforall (65) | Build a piano song repertoire you can play anywhere—song sheets, chords, backing rhythms, transposing, refining, and reading the room. (134) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/carole-king-piano-brill-building` | Carole King and the Brill Building: Piano That Shaped Pop (57) | How Carole King and the Brill Building shaped pop history, from Tin Pan Alley to Tapestry, and why its piano legacy still inspires today. (137) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/casablanca-as-time-goes-by-history` | The True Story Behind Casablanca’s As Time Goes By | Pianoforall (64) | Uncover the myths and truths about Casablanca As Time Goes By. Discover the song that nearly vanished from film history. (120) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/category/classical-piano-composers` | Classical Piano: Articles from Pianoforall (42) | Pianoforall articles about classical piano, written by Robin Hall for adult piano learners. (91) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList |
-| `/category/learn-piano` | Learn Piano: Articles from Pianoforall (38) | Pianoforall articles about learn piano, written by Robin Hall for adult piano learners. (87) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList |
-| `/category/piano-curiosities` | Piano Curiosities: Articles from Pianoforall (44) | Pianoforall articles about piano curiosities, written by Robin Hall for adult piano learners. (93) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList |
-| `/category/piano-gear-equipment` | Piano Gear & Equipment: Articles from Pianoforall (49) | Pianoforall articles about piano gear &#38; equipment, written by Robin Hall for adult piano learners. (102) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList |
-| `/category/piano-practice-tips` | Piano Practice Tips: Articles from Pianoforall (46) | Pianoforall articles about piano practice tips, written by Robin Hall for adult piano learners. (95) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList |
-| `/category/psychology-of-learning-piano` | Psychology Of Learning: Articles from Pianoforall (49) | Pianoforall articles about psychology of learning, written by Robin Hall for adult piano learners. (98) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList |
-| `/category/singing-and-piano` | Singing & Piano: Articles from Pianoforall (42) | Pianoforall articles about singing &#38; piano, written by Robin Hall for adult piano learners. (95) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList |
 | `/compare` | Pianoforall vs Piano Apps: Simply Piano, flowkey, Pianote and More (66) | Pianoforall vs Simply Piano, flowkey, Skoove, Yousician, Pianote, Piano Marvel and Hoffman Academy: who each suits, how they teach and how they charge. (151) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
-| `/erik-satie-piano-music` | Erik Satie: The Piano Genius Who Changed Music Forever (54) | Discover Erik Satie, the eccentric genius who reshaped piano music with simplicity and wit. Learn to play with Pianoforall Classics By Ear. (139) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/fabulous-baker-boys-piano` | The Fabulous Baker Boys: Jazz, Siblings, and a Piano (52) | Why the piano is the real star of The Fabulous Baker Boys—real playing, Susie Diamond’s spark, and a late-night jazz mood that still inspires. (142) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/from-excited-to-consistent-mastering-the-habit-of-piano-practice` | From Excited to Consistent - Mastering the Habit of Piano Practice (66) | Build a daily piano practice habit with science-based tips. Perfect for beginners and learners using Pianoforall. (113) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/george-michael-john-lennons-imagine-piano` | George Michael and John Lennon’s Imagine Piano | Pianoforall (60) | How George Michael preserved John Lennon’s Imagine piano as a symbol of peace, taking it on tour and securing its home at Strawberry Field. (139) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
 | `/how-it-works` | How Pianoforall Works: Learn Piano Chords First, Read Later (59) | Pianoforall teaches piano in the order adults learn best: chords and rhythm first, playing by ear, then reading music and theory once the notes mean something. (159) | index | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article, FAQPage |
-| `/how-to-improve-at-piano` | How to Get Better at Piano Fast: The Power of Repetitive Practice (65) | Want to improve at piano fast? Discover how focused repetition and smart practice can help beginners build muscle memory and play with ease. (140) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/if-you-play-guitar-you-can-play-piano` | If You Play Guitar, You Can Play Piano | Pianoforall (52) | If you can strum a guitar, you can play piano. Learn how guitarists can transfer to piano using simple chord “strumming” techniques. (132) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/john-lennon-mr-kite-piano-inspiration` | John Lennon’s Mr Kite: Piano Inspiration from a Circus Poster (61) | Discover how a Victorian circus poster inspired John Lennon’s “Being for the Benefit of Mr Kite” (96) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/joyce-hatto-piano-hoax` | The Great Piano Hoax: Joyce Hatto and the Biggest Fraud in Classical Music (74) | The astonishing story of Joyce Hatto, the pianist at the centre of classical music’s greatest fraud, and how the hoax fooled critics and listeners worldwide. (157) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/marilyn-monroes-white-baby-grand-a-love-story-in-ivory-and-song` | Marilyn Monroe’s White Baby Grand: A Love Story in Ivory (56) | The story of Marilyn Monroe’s cherished white baby grand — from childhood memory to becoming Mariah Carey’s prized keepsake. (124) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/peanuts-piano` | Good Grief & Great Music: Peanuts and the Piano | Pianoforall (61) | How Peanuts made piano feel alive—from Schroeder’s Beethoven focus to Vince Guaraldi’s jazz—and why it still inspires players today. (132) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/piano-in-casablanca-as-time-goes-by` | Piano in Casablanca: The Story Behind “As Time Goes By” (55) | Learn how the piano and As Time Goes By shaped Casablanca's story—and how Pianoforall helps you connect emotion and memory through piano. (137) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/piano-mindset-shift` | Practice changing mindsets when you sit at your piano (53) | Shift from a work mindset to a playful one at the piano and boost joy, creativity, and progress in piano learning. (114) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/piano-practice-can-be-fun-too` | Piano Practice Can Be Fun Too | Pianoforall (43) | Discover how to turn piano practice into something fun—not a chore. Learn strategies to mix challenge and enjoyment for lasting progress. (137) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/pianos-and-pianists-at-the-olympics` | Pianos and Pianists At The Olympics | Pianoforall (49) | Explore the fascinating role of pianists at the Olympics, blending art with athletics in a unique tradition of excellence. (122) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/practice-according-to-your-chronotype-animal` | Practice Piano According to Your Chronotype for Better Focus (60) | Discover how your chronotype—lark, owl, or third bird—can boost your piano learning. Find the best time for focus, energy, and progress. (136) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/psychological-flexibility-piano-learning` | Psychological Flexibility: The Invisible Pedal in Piano Learning (64) | Psychological flexibility in piano learning — practical ideas and exercises inspired by Todd Kashdan to turn discomfort into progress. (134) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/public-pianos-train-stations` | Public Pianos in Train Stations | Pianoforall (45) | How public pianos in train stations are reconnecting people with music and inspiring travellers through spontaneous performances. (129) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/silent-film-pianists-history` | The Lost Art of Silent Film Pianists | Pianoforall (50) | Discover the forgotten role of Silent Film Pianists in early cinema, from packed theatres to the sudden silence brought on by talkies. (134) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/sing-better-at-the-piano` | Find Your True Voice: How to Sing Better at the Piano (53) | Improve your singing at the piano with daily warmups, and practical techniques. Learn to sing in your real voice and make songs truly yours. (140) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/singer-pianists` | Singer-Pianists: How to Sing and Play Piano Like the Greats (59) | Why singer-pianists like Elton John or Nina Simone can captivate a room — and how you can easily learn to accompany yourself on piano. (134) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/super-bowl-piano-history` | How the Piano Found Its Place in Super Bowl History | Pianoforall (65) | From Billy Joel to Jon Batiste, here’s how the piano moved from sidelines to spotlight in Super Bowl anthems and halftime shows (127) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/the-piano-has-been-drinking` | The Piano Has Been Drinking: Composers and Alcohol | Pianoforall (64) | From Tom Waits to Mozart, discover how alcohol shaped the lives of great composers—yet the piano always remained their sober partner. (133) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/who-has-inspired-the-most-songs-the-surprising-answer-at-the-piano` | Who Has Inspired the Most Songs? The Surprising Answer (54) | Explore a world of inspiration for songs that combine piano and vocals, from love ballads to timeless jazz standards. (117) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/why-most-piano-courses-expect-too-much-from-beginners` | Why Most Piano Courses Expect Too Much from Beginners | Pianoforall (67) | Most piano courses overwhelm beginners with complex songs. Pianoforall takes baby steps that sound great — making learning fun and achievable. (142) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/why-your-brain-loves-rewards-and-what-that-means-for-practice-learning-motivation` | The Brain’s Reward System and Better Piano Practice | Pianoforall (65) | Why some people don’t get music chills—and how to use the brain’s reward system so piano practice sticks. (105) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/women-at-the-piano` | Women at the Piano: Talent, Barriers, and Breakthroughs (55) | From Maria Anna Mozart to Clara Schumann, explore how women pianists overcame barriers and left a lasting legacy at the piano. (126) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
-| `/woop-method-for-piano-practice` | WOOP Method for Piano Practice – Stay Motivated | Pianoforall (61) | The WOOP method can transform your piano practice. Break through frustration, stay motivated, and achieve your music goals step-by-step. (136) | noindex | Organization, PostalAddress, WebSite, Person, WebPage, BreadcrumbList, Article |
 
 ## Heading outlines (non-blog pages)
 
@@ -127,13 +80,6 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
   - H2: How to start
   - H2: Help and materials
   - H2: Please keep it honest
-  - H2: Courses
-  - H2: Learn
-  - H2: Pianoforall
-  - H2: Help
-
-### `/blog`
-- **H1:** Notes from the piano stool
   - H2: Courses
   - H2: Learn
   - H2: Pianoforall
@@ -326,37 +272,6 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
   - H2: Practice
   - H2: Gear
   - H2: Play with it
-  - H2: From the blog
-  - H2: Courses
-  - H2: Learn
-  - H2: Pianoforall
-  - H2: Help
-
-### `/learn-moonlight-sonata`
-- **H1:** Moonlight Sonata: Beethoven’s Midnight Masterpiece
-  - H2: A Glimpse into Beethoven’s Life
-  - H2: Did It Come Easily?
-  - H2: A First Performance and First Reactions
-  - H2: Why It Is So Loved
-  - H2: Has It Always Been Popular?
-  - H2: What Is a Sonata?
-  - H2: How Difficult Is It to Play?
-  - H2: Learning Moonlight Sonata Today
-  - H2: Learn a classical piece the same way
-  - H2: Courses
-  - H2: Learn
-  - H2: Pianoforall
-  - H2: Help
-
-### `/learn-summertime-on-piano`
-- **H1:** Summertime: The Song Everyone Loves to Hear
-  - H2: The Birth of a Classic
-  - H2: A Song for Everyone
-  - H2: Into the Great American Songbook
-  - H2: Why Summertime Endures
-  - H2: Everyone Loves to Hear It
-  - H2: A Song for All Seasons
-  - H2: Want a clear path from here?
   - H2: Courses
   - H2: Learn
   - H2: Pianoforall
@@ -464,14 +379,6 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
   - H2: Pianoforall
   - H2: Help
 
-### `/learning-piano-between-practice`
-- **H1:** Learning piano also happens between practice sessions
-  - H2: Want a clear path from here?
-  - H2: Courses
-  - H2: Learn
-  - H2: Pianoforall
-  - H2: Help
-
 ### `/am-i-too-old-to-learn-piano`
 - **H1:** Am I Too Old to Learn Piano?
   - H2: Why adults can learn piano very well
@@ -484,55 +391,6 @@ Generated from the build by `node scripts/page-inventory.mjs`. 77 pages. Re-run 
   - H2: Are there other benefits to learning piano later in life?
   - H2: Common questions
   - H2: Want a clear path from here?
-  - H2: Courses
-  - H2: Learn
-  - H2: Pianoforall
-  - H2: Help
-
-### `/category/classical-piano-composers`
-- **H1:** Classical Piano
-  - H2: Courses
-  - H2: Learn
-  - H2: Pianoforall
-  - H2: Help
-
-### `/category/learn-piano`
-- **H1:** Learn Piano
-  - H2: Courses
-  - H2: Learn
-  - H2: Pianoforall
-  - H2: Help
-
-### `/category/piano-curiosities`
-- **H1:** Piano Curiosities
-  - H2: Courses
-  - H2: Learn
-  - H2: Pianoforall
-  - H2: Help
-
-### `/category/piano-gear-equipment`
-- **H1:** Piano Gear & Equipment
-  - H2: Courses
-  - H2: Learn
-  - H2: Pianoforall
-  - H2: Help
-
-### `/category/piano-practice-tips`
-- **H1:** Piano Practice Tips
-  - H2: Courses
-  - H2: Learn
-  - H2: Pianoforall
-  - H2: Help
-
-### `/category/psychology-of-learning-piano`
-- **H1:** Psychology Of Learning
-  - H2: Courses
-  - H2: Learn
-  - H2: Pianoforall
-  - H2: Help
-
-### `/category/singing-and-piano`
-- **H1:** Singing & Piano
   - H2: Courses
   - H2: Learn
   - H2: Pianoforall

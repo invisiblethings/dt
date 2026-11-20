@@ -7,8 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check:links": "node scripts/check-links.mjs",
-    "import:blog": "node scripts/import-wordpress.mjs && node scripts/fix-blog-images.mjs"
+    "check:links": "node scripts/check-links.mjs"
   },
   "dependencies": {
     "astro": "5.18.2",

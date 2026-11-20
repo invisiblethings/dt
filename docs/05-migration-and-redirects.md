@@ -79,7 +79,9 @@ The old pianoforall.academy single-page site had only `/`, `/terms.html` and `/p
 | `/pianoforall-vs-the-top-10-piano-learning-apps` | `/compare` | 301 | Was noindex draft |
 | `/exclusive-offer-classics-by-ear` | `/classics-by-ear` | **302** | Funnel page. Confirm whether an email sequence or ClickBank upsell still uses it, then make it 301 or rebuild it |
 | `/log-in` | Thinkific sign-in | 301 | |
-| `/tag/*` (12 thin archives) | `/blog` | 301 | Thin duplicate listings |
+| `/tag/*` (12 thin archives) | `/learn` | 301 | Thin duplicate listings |
+| Old blog posts, `/blog`, `/category/*`, feeds | Closest guide, course page or `/learn` | 301 | The blog was removed (November 2026). Full list in `src/data/redirects.ts` |
+| `/wp-content/*` | — | 410 | Old WordPress images, no longer hosted |
 | `/author/*` | `/about` | 301 | |
 | `/feed`, `/comments/feed` | `/feed.xml` | 301 | Keeps RSS subscribers |
 | `/sitemap_index.xml`, `/post-sitemap.xml`, `/page-sitemap.xml`, `/category-sitemap.xml` | `/sitemap.xml` | 301 | |
@@ -92,7 +94,6 @@ The old pianoforall.academy single-page site had only `/`, `/terms.html` and `/p
 **Two weeks before**
 - [ ] Export Search Console data for pianoforall.com (Performance: 16 months of queries and pages; Links; Indexing). Save it. This is the baseline.
 - [ ] Crawl the live WordPress site (Screaming Frog or similar) and save the URL list. Diff it against this build's sitemap plus the redirect table. Any URL that has clicks or links and isn't covered gets a redirect.
-- [ ] Re-run `npm run import:blog` so posts published since this build are included.
 - [ ] Click each `/go/...` link on the deployed preview and confirm the right ClickBank order form and price opens (checked locally on 8 Oct 2026: all six OK).
 - [ ] Confirm the facts flagged in `01-strategy-and-findings.md` §3.
 - [ ] Add analytics (see `06-conversion-and-analytics.md`) and update the privacy policy to name the tool.

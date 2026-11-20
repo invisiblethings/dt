@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import { writeFileSync } from 'node:fs';
 import { SITE_URL, PRODUCTS, FEATURES } from './src/data/site.ts';
 import { PATH_REDIRECTS, OLD_HOSTS, GONE } from './src/data/redirects.ts';
-import rehypeBlogCleanup from './src/lib/rehype-blog-cleanup.mjs';
 
 // Writes dist/_redirects from src/data/site.ts and src/data/redirects.ts:
 // 1. pretty checkout links (/go/...) -> ClickBank, 302 so nobody caches them
@@ -43,5 +42,4 @@ export default defineConfig({
   prefetch: { prefetchAll: false, defaultStrategy: 'hover' },
   image: { responsiveStyles: false },
   integrations: [redirectsFile()],
-  markdown: { rehypePlugins: [[rehypeBlogCleanup, { freeLessons: FEATURES.freeLessons, redirects: PATH_REDIRECTS }]] },
 });
