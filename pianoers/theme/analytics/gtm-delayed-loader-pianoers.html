@@ -1,0 +1,16 @@
+<script>
+(function(w,d,i){
+  var done=0;
+  function go(){
+    if(done)return;done=1;
+    ['pointerdown','touchstart','keydown','scroll','wheel'].forEach(function(e){w.removeEventListener(e,go)});
+    w.dataLayer=w.dataLayer||[];
+    w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var s=d.createElement('script');s.async=true;
+    s.src='https://www.googletagmanager.com/gtm.js?id='+i;
+    d.head.appendChild(s);
+  }
+  ['pointerdown','touchstart','keydown','scroll','wheel'].forEach(function(e){w.addEventListener(e,go,{passive:true,once:true})});
+  setTimeout(go,4000);
+})(window,document,'GTM-52XDQB4S');
+</script>
