@@ -11,6 +11,11 @@ export const SITE_URL = 'https://pianoforall.academy';
 // free-lessons.astro. The temporary /free-lessons redirect turns off by itself.
 export const FEATURES = {
   freeLessons: false,
+  // Star rating markup on the Pianoforall Course, using the Udemy rating below.
+  // Google's review-snippet rules don't allow ratings collected on another
+  // site, so this risks a structured-data manual action. Owner accepted the
+  // risk (November 2026). Set to false to remove it.
+  ratingStars: true,
 };
 
 export const BRAND = {

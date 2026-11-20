@@ -2,7 +2,7 @@
 // visible on the page it appears on. No review stars: Google ignores
 // self-serving review markup for an organisation's own products, and the
 // Udemy rating belongs to Udemy's page, so we show it as linked text only.
-import { SITE_URL, BRAND, ROBIN, PRODUCTS, type Product } from '../data/site';
+import { SITE_URL, BRAND, ROBIN, PRODUCTS, UDEMY, FEATURES, type Product } from '../data/site';
 
 export const abs = (path: string) => new URL(path, SITE_URL).href.replace(/\/$/, '') || SITE_URL;
 
@@ -102,6 +102,13 @@ export function course(p: Product, description: string, extra: Record<string, un
       courseWorkload: p.videoHours ? `PT${Math.round(p.videoHours * 60)}M` : undefined,
       instructor: { '@id': ROBIN_ID },
     },
+    aggregateRating: FEATURES.ratingStars && p.id === 'pianoforall' ? {
+      '@type': 'AggregateRating',
+      ratingValue: UDEMY.rating,
+      ratingCount: UDEMY.ratingCount.replace(/,/g, ''),
+      bestRating: '5',
+      worstRating: '1',
+    } : undefined,
     ...extra,
   };
 }
