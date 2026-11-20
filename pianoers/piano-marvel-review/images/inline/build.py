@@ -73,7 +73,7 @@ li.y::before{content:"✓";color:#1f7a4d}li.n::before{content:"!";color:#b0442d;
 </div>''','Based on Piano Marvel\'s App Store listing, Oct 2026'))
 
 # 4 cost chart
-data=[("Pianoforall",49,"$49 once","after a 7-day free trial"),("Piano Marvel",129.99,"$129.99","free plan available"),("Skoove",149.99,"$149.99",""),("Flowkey Premium",149.99,"$149.99",""),("Playground Sessions",149.99,"$149.99","first year often $99.99"),("Simply Piano",169.90,"$169.90","")]
+data=[("Pianoforall",49,"$49 once","90-day money-back guarantee"),("Piano Marvel",129.99,"$129.99","free plan available"),("Skoove",149.99,"$149.99",""),("Flowkey Premium",149.99,"$149.99",""),("Playground Sessions",149.99,"$149.99","first year often $99.99"),("Simply Piano",169.90,"$169.90","")]
 mx=180
 bars=''.join(f'<div class="nm{" hl" if n=="Piano Marvel" else ""}">{n}{f"<em>{x}</em>" if x else ""}</div><div class="tr"><div class="b{" hl" if n=="Piano Marvel" else ""}{" pf" if n=="Pianoforall" else ""}" style="width:calc((100% - 150px) * {v/mx:.4f})"></div><span class="lb">{l}</span></div>' for n,v,l,x in data)
 imgs['piano-marvel-cost-vs-alternatives']=(800,page(800,f'''<style>
