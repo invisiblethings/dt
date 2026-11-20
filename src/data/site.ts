@@ -33,6 +33,8 @@ export const BRAND = {
   // Add verified profiles (YouTube, Facebook, Udemy instructor page) when confirmed.
   sameAs: [
     'https://academy.pianoforall.com',
+    'https://pianoforall.com/',
+    'https://www.udemy.com/course/pianoforall-incredible-new-way-to-learn-piano-keyboard/',
   ],
 };
 
