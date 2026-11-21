@@ -1,0 +1,11 @@
+---
+import { PROMO, PRODUCTS, promoPrice } from '../data/site';
+const p = PRODUCTS.pianoforall;
+const text = `${PROMO.percent}% off Pianoforall with code`;
+const price = `$${promoPrice(p.price)} instead of $${p.price}.`;
+---
+{PROMO.active && (
+  <div class="promo-bar" data-promo-ends={PROMO.ends} hidden>
+    <p><b>{PROMO.name}:</b>{' '}{text}{' '}<b>{PROMO.code}</b>.{' '}<span class="promo-price">{price}</span>{' '}<a href={p.checkout} rel="nofollow" data-track="begin_checkout" data-product={p.id} data-track-location="promo_bar">Get the deal</a></p>
+  </div>
+)}

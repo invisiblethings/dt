@@ -478,3 +478,10 @@ a:hover { color: var(--ink); }
 .cta-box .btn-ghost:hover { --btn-bg: #fff; color: var(--ink); }
 .header-actions .btn { white-space: nowrap; }
 @media (max-width: 26rem) { .header-actions .btn { padding: 0.5rem 0.8rem; font-size: 0.9rem; } .brand span { font-size: 1.2rem; } }
+
+/* Sale banner and price notes (PROMO in site.ts) */
+.promo-bar { background: var(--ink); color: #fff; text-align: center; font-size: var(--step--1); padding: 0.55rem 1rem; }
+.promo-bar p { margin: 0; }
+.promo-bar b { color: var(--brass-soft); }
+.promo-bar a { color: #fff; font-weight: 600; white-space: nowrap; }
+.promo-note { background: var(--brass-soft); color: var(--brass-ink); border-radius: 0.5rem; padding: 0.5rem 0.75rem; font-size: var(--step--1); margin-top: 0.85rem; }

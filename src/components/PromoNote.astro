@@ -1,0 +1,7 @@
+---
+import { PROMO, PRODUCTS, promoPrice } from '../data/site';
+const p = PRODUCTS.pianoforall;
+---
+{PROMO.active && (
+  <p class="promo-note" data-promo-ends={PROMO.ends} hidden><b>{PROMO.name}:</b> ${promoPrice(p.price)} with code {PROMO.code} ({PROMO.percent}% off). The code is added for you at checkout.</p>
+)}

@@ -8,6 +8,7 @@ import Guarantee from '../components/Guarantee.astro';
 import FinalCta from '../components/FinalCta.astro';
 import Check from '../components/Check.astro';
 import BuyButton from '../components/BuyButton.astro';
+import PromoNote from '../components/PromoNote.astro';
 import RatingBadge from '../components/RatingBadge.astro';
 import { PRODUCTS, GUARANTEE_DAYS, LINKS, FEATURES } from '../data/site';
 import { BOOKS } from '../data/books';
@@ -204,6 +205,7 @@ const schema = [
         <div class="cta-row">
           <BuyButton product="pianoforall" location="course_buy" size="btn-lg" variant="btn" label={`Get Pianoforall · $${pfa.price}`} />
         </div>
+        <PromoNote />
         <p class="cta-note">You can review your order before paying. Checkout by ClickBank. Want the classical courses too? The <a href="/pricing#bundles">complete bundle</a> is ${PRODUCTS.completeBundle.price}.</p>
       </div>
       <Guarantee />

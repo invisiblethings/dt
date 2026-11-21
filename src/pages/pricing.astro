@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import FaqList from '../components/FaqList.astro';
 import Guarantee from '../components/Guarantee.astro';
 import BuyButton from '../components/BuyButton.astro';
+import PromoNote from '../components/PromoNote.astro';
 import { PRODUCTS, GUARANTEE_DAYS, LINKS } from '../data/site';
 import { faqsById } from '../data/faqs';
 import { faqPage } from '../lib/schema';
@@ -43,6 +44,7 @@ const singles = [PRODUCTS.moonlight, PRODUCTS.satie, PRODUCTS.bach];
             <li>Free lifetime updates</li>
           </ul>
           <BuyButton product="pianoforall" location="pricing_main" variant="btn" size="btn-lg" label={`Get Pianoforall · $${pfa.price}`} />
+          <PromoNote />
           <p class="fine"><a href="/course">What’s in the course</a></p>
         </div>
 

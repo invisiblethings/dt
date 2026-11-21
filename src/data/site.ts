@@ -54,6 +54,20 @@ export const UDEMY = {
   url: 'https://www.udemy.com/course/pianoforall-incredible-new-way-to-learn-piano-keyboard/',
 };
 
+// Sale on the main course. The coupon is added to the /go/pianoforall link,
+// so ClickBank applies it without the buyer typing it (checked November
+// 2026: $49 -> $39.20). ClickBank ignores SAVE20 on the other products.
+// The banner hides itself after `ends`; set active: false and redeploy to
+// remove the sale everywhere.
+export const PROMO = {
+  active: true,
+  name: 'Black Friday',
+  code: 'SAVE20',
+  percent: 20,
+  ends: '2026-12-01T08:00:00Z', // end of Cyber Monday, US Pacific time
+};
+export const promoPrice = (price: number) => (price * (1 - PROMO.percent / 100)).toFixed(2);
+
 // ClickBank order forms. Visitors see the short /go/... links on the site;
 // the build writes them as redirects (dist/_redirects) to these URLs.
 const CB = 'https://drilonnn_piano4all.pay.clickbank.net';
@@ -94,7 +108,7 @@ export const PRODUCTS: Record<string, Product> = {
     lessons: 568,
     videoHours: 25,
     checkout: '/go/pianoforall',
-    orderUrl: `${CB}/?cbitems=60&exitoffer=exit3`,
+    orderUrl: `${CB}/?cbitems=60&exitoffer=exit3${PROMO.active ? `&coupon=${PROMO.code}` : ''}`,
     url: '/course',
   },
   moonlight: {

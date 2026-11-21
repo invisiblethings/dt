@@ -9,6 +9,7 @@ import FinalCta from '../components/FinalCta.astro';
 import Check from '../components/Check.astro';
 import ChordExplorer from '../components/ChordExplorer.astro';
 import BuyButton from '../components/BuyButton.astro';
+import PromoNote from '../components/PromoNote.astro';
 import { PRODUCTS, UDEMY, GUARANTEE_DAYS, LINKS, FEATURES, PRIMARY_CTA } from '../data/site';
 import { BOOKS } from '../data/books';
 import { byId } from '../data/testimonials';
@@ -264,6 +265,7 @@ const schema = [
             <BuyButton product="pianoforall" location="home_pricing" size="btn-lg" label={`Get Pianoforall · $${pfa.price}`} />
             <a class="text-link" href="/pricing">All courses and bundles</a>
           </div>
+          <PromoNote />
           <p class="cta-note">You can review your order before paying. Checkout by ClickBank.</p>
         </div>
         <Guarantee />
