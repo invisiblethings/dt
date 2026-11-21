@@ -3,6 +3,7 @@
 import type { APIRoute } from 'astro';
 import { SITE_URL, FEATURES } from '../data/site';
 import { GUIDES } from '../data/guides';
+import { GUIDE_IMAGES } from '../data/guide-images';
 import { CLASSICS } from '../data/classics';
 
 const BUILD = new Date().toISOString().slice(0, 10);
@@ -16,9 +17,9 @@ export const GET: APIRoute = async () => {
   const seen = new Set<string>();
   const body = urls
     .filter((u) => (seen.has(u.loc) ? false : (seen.add(u.loc), true)))
-    .map((u) => `  <url><loc>${u.loc === '/' ? SITE_URL + '/' : SITE_URL + u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ''}</url>`)
+    .map((u) => `  <url><loc>${u.loc === '/' ? SITE_URL + '/' : SITE_URL + u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ''}${GUIDE_IMAGES[u.loc] ? `<image:image><image:loc>${SITE_URL}${GUIDE_IMAGES[u.loc].src}</image:loc></image:image>` : ''}</url>`)
     .join('\n');
-  return new Response(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`, {
+  return new Response(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${body}\n</urlset>\n`, {
     headers: { 'Content-Type': 'application/xml; charset=utf-8' },
   });
 };

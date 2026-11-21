@@ -1,0 +1,13 @@
+// Guide illustrations in public/images/guides, keyed by page path.
+// Made by scripts/design-images (render.mjs, then make-jpgs.py), which also
+// writes their JPG metadata. Article.astro shows them as the hero image and
+// uses them for social previews and Article schema; the sitemap lists them.
+export const GUIDE_IMAGES: Record<string, { src: string; alt: string; title: string }> = {
+  '/learn/piano-chords-for-beginners': { src: '/images/guides/piano-chords-for-beginners-c-f-g-a-minor.jpg', alt: "Keyboard diagrams showing C major (C E G), F major (F A C), G major (G B D) and A minor (A C E) highlighted", title: "Your first four piano chords: C, F, G and A minor" },
+  '/learn/play-piano-by-ear': { src: '/images/guides/how-to-play-piano-by-ear-three-steps.jpg', alt: "Three steps to play piano by ear: find the key, work out the chords, pick out the melody, with the progression C G Am F", title: "How to play a song on piano by ear in three steps" },
+  '/learn/piano-practice-routine': { src: '/images/guides/piano-practice-routine-20-minute-plan.jpg', alt: "Timeline of a 20-minute piano practice session: 2 minutes warm-up, 5 minutes review, 10 minutes one new thing, 3 minutes play for fun", title: "A 20-minute piano practice routine for beginners" },
+  '/learn/how-long-does-it-take-to-learn-piano': { src: '/images/guides/how-long-to-learn-piano-milestones.jpg', alt: "Staircase of piano milestones: first chords in week one, simple accompaniment in weeks to 3 months, solid beginner at 6 to 12 months, early intermediate at 1 to 3 years, advanced after many years", title: "How long does it take to learn piano? Realistic milestones" },
+  '/learn/choosing-a-keyboard': { src: '/images/guides/choosing-a-keyboard-61-76-88-keys.jpg', alt: "Three keyboards compared by size, 88, 76 and 61 keys, next to a checklist: full-size keys, touch-sensitive, sustain pedal socket, weighted keys a bonus", title: "Choosing a keyboard or digital piano: 61, 76 or 88 keys" },
+  '/learn/learn-piano-online': { src: '/images/guides/learn-piano-online-what-you-need.jpg', alt: "Three things you need to learn piano online: a keyboard with 61 or more touch-sensitive keys, a structured course, and 15 to 30 minutes most days", title: "Learn piano online: what you need to start" },
+  '/learn/piano-backing-tracks': { src: '/images/guides/piano-backing-tracks-four-styles.jpg', alt: "Four backing track styles, ballad, pop, slow blues shuffle and rock and roll boogie, each with what to play, under a one-bar count-in", title: "Piano backing tracks in four styles: ballad, pop, blues shuffle and boogie" },
+};

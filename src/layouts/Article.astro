@@ -4,6 +4,7 @@ import { article as articleSchema, faqPage } from '../lib/schema';
 import type { Faq } from '../data/faqs';
 import FaqList from '../components/FaqList.astro';
 import { FEATURES, PRIMARY_CTA, PRODUCTS } from '../data/site';
+import { GUIDE_IMAGES } from '../data/guide-images';
 
 interface Props {
   title: string;
@@ -30,12 +31,16 @@ const {
   title, seoTitle, description, path, published, modified, author = 'Robin Hall', eyebrow,
   crumbs, answer, toc, faqs, heroImage, heroAlt, ogImage, noindex, related = [], cta = 'free', extraSchema = [],
 } = Astro.props;
+// Guides get their illustration automatically unless the page passes one.
+const guideImg = heroImage ? undefined : GUIDE_IMAGES[path];
+const heroSrc = heroImage ?? guideImg?.src;
+const heroText = heroAlt ?? guideImg?.alt ?? '';
 // Without free lessons, the generic 'free' call to action becomes the course one.
 const ctaKind = cta === 'free' && !FEATURES.freeLessons ? 'course' : cta;
 
 const fmt = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const schema = [
-  articleSchema({ title, description, path, datePublished: published, dateModified: modified, image: heroImage ?? ogImage ?? '/og/learn.jpg', author }),
+  articleSchema({ title, description, path, datePublished: published, dateModified: modified, image: heroSrc ?? ogImage ?? '/og/learn.jpg', author }),
   ...(faqs?.length ? [faqPage(faqs)] : []),
   ...extraSchema,
 ];
@@ -45,7 +50,7 @@ const schema = [
   description={description}
   path={path}
   ogType="article"
-  ogImage={ogImage ?? heroImage ?? '/og/learn.jpg'}
+  ogImage={ogImage ?? heroSrc ?? '/og/learn.jpg'}
   crumbs={crumbs}
   schema={schema}
   noindex={noindex}
@@ -70,7 +75,7 @@ const schema = [
         {answer && (
           <div class="answer-box"><span class="label">Quick answer</span><p set:html={answer} /></div>
         )}
-        {heroImage && <img src={heroImage} alt={heroAlt ?? ''} loading="eager" style="width:100%;border-radius:var(--radius)" />}
+        {heroSrc && <img src={heroSrc} alt={heroText} width="1200" height="630" loading="eager" fetchpriority="high" decoding="async" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--line)" />}
         <slot />
         {faqs && faqs.length > 0 && (
           <section aria-labelledby="faq-h">

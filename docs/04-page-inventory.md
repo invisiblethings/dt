@@ -48,7 +48,7 @@ Generated from the build by `node scripts/page-inventory.mjs`. 30 pages. Re-run 
   - H2: Robin Hall
   - H2: Where the course takes you
   - H2: Always wanted to play the Moonlight Sonata?
-  - H2: $49, once. Yours for life.
+  - H2: $49 $39.20, once. Yours for life.
   - H2: Questions people ask before they start
   - H2: Sit down at the piano tonight and play something
   - H2: Courses
@@ -101,7 +101,7 @@ Generated from the build by `node scripts/page-inventory.mjs`. 30 pages. Re-run 
   - H2: Pianoforall suits you if…
   - H2: You already know the chords. Now find them on the keys.
   - H2: What students say about the course itself
-  - H2: $49. Once.
+  - H2: $49 $39.20. Once.
   - H2: Questions about the course
   - H2: Start tonight, risk-free
   - H2: Courses
