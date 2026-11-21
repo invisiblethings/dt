@@ -10,7 +10,8 @@ import Check from '../components/Check.astro';
 import ChordExplorer from '../components/ChordExplorer.astro';
 import BuyButton from '../components/BuyButton.astro';
 import PromoNote from '../components/PromoNote.astro';
-import { PRODUCTS, UDEMY, GUARANTEE_DAYS, LINKS, FEATURES, PRIMARY_CTA } from '../data/site';
+import { PRODUCTS, UDEMY, GUARANTEE_DAYS, LINKS, FEATURES, PRIMARY_CTA, PROMO } from '../data/site';
+import Price from '../components/Price.astro';
 import { BOOKS } from '../data/books';
 import { byId } from '../data/testimonials';
 import { faqsById } from '../data/faqs';
@@ -46,6 +47,7 @@ const schema = [
         <p class="eyebrow">Online piano lessons for adults · since 2006</p>
         <h1>Learn piano by playing piano</h1>
         <p class="lede">Pianoforall starts you on chords and rhythms that sound like real music from the first lesson. You learn to play by ear, then pick up reading as you go. No scales marathon, no children’s songs.</p>
+        {PROMO.active && <p class="promo-hero"><b>{PROMO.name}:</b> {PROMO.percent}% off with code <b>{PROMO.code}</b>, applied for you at checkout</p>}
         <div class="cta-row">
           {FEATURES.freeLessons ? (
             <a class="btn btn-lg" href="/free-lessons" data-track="cta_click" data-track-location="hero">Try the free lessons <span class="arrow" aria-hidden="true">→</span></a>
@@ -56,7 +58,7 @@ const schema = [
         </div>
         <ul class="trust-strip">
           {FEATURES.freeLessons && <li><Check /> No card for the free lessons</li>}
-          <li><Check /> ${pfa.price} once, lifetime access</li>
+          <li><Check /> One payment, lifetime access</li>
           <li><Check /> {GUARANTEE_DAYS}-day refund</li>
         </ul>
       </div>
@@ -73,7 +75,7 @@ const schema = [
         <div class="stat"><b>2006</b><span>Robin Hall created Pianoforall and still answers student emails himself</span></div>
         <div class="stat"><b>{UDEMY.ratingCount}</b><span>student ratings, averaging {UDEMY.rating} out of 5</span></div>
         <div class="stat"><b>{pfa.lessons}</b><span>step-by-step lessons with {pfa.videoHours} hours of video</span></div>
-        <div class="stat"><b>${pfa.price}</b><span>one payment. No subscription, ever.</span></div>
+        <div class="stat"><b><Price /></b><span>{PROMO.active ? `${PROMO.name} price, normally $${pfa.price}. One payment, no subscription.` : 'one payment. No subscription, ever.'}</span></div>
       </div>
     </div>
   </section>
@@ -253,7 +255,7 @@ const schema = [
       <div class="split top">
         <div>
           <p class="eyebrow">Price</p>
-          <h2>${pfa.price}, once. Yours for life.</h2>
+          <h2><Price />, once. Yours for life.</h2>
           <p class="lede">All nine books and every future update for one payment. No monthly fee, and nothing locked behind an upgrade.</p>
           <ul class="check-list">
             <li>{pfa.lessons} lessons and {pfa.videoHours} hours of video</li>

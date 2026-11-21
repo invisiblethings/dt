@@ -1,0 +1,6 @@
+---
+// Main course price: '$49', or '<s>$49</s> $39.20' while PROMO is active.
+import { PROMO, PRODUCTS, promoPrice } from '../data/site';
+const p = PRODUCTS.pianoforall.price;
+---
+{PROMO.active ? <><s class="was">${p}</s> ${promoPrice(p)}</> : <>${p}</>}

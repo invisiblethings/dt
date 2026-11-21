@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { PRODUCTS, LINKS, FEATURES } from '../data/site';
+import { PRODUCTS, LINKS, FEATURES, pfaPriceNow } from '../data/site';
 const free = FEATURES.freeLessons;
 const pfa = PRODUCTS.pianoforall;
 
@@ -11,7 +11,7 @@ const results = [
     id: 'pfa-beginner',
     title: 'Start with Pianoforall, from Book 1',
     body: 'You want to play songs and understand what you’re doing, and you’re starting from scratch or close to it. Pianoforall was built for exactly this. Start at Book 1 and take it one short lesson at a time. If it doesn’t suit you, the 90-day guarantee means you can get your money back.',
-    primary: free ? { label: 'Start the free lessons', href: '/free-lessons' } : { label: `Get Pianoforall · $${PRODUCTS.pianoforall.price}`, href: PRODUCTS.pianoforall.checkout },
+    primary: free ? { label: 'Start the free lessons', href: '/free-lessons' } : { label: `Get Pianoforall · $${pfaPriceNow()}`, href: PRODUCTS.pianoforall.checkout },
     secondary: { label: 'See what’s in the course', href: '/course' },
   },
   {

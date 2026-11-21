@@ -8,9 +8,10 @@ import Guarantee from '../components/Guarantee.astro';
 import FinalCta from '../components/FinalCta.astro';
 import Check from '../components/Check.astro';
 import BuyButton from '../components/BuyButton.astro';
+import Price from '../components/Price.astro';
 import PromoNote from '../components/PromoNote.astro';
 import RatingBadge from '../components/RatingBadge.astro';
-import { PRODUCTS, GUARANTEE_DAYS, LINKS, FEATURES } from '../data/site';
+import { PRODUCTS, GUARANTEE_DAYS, LINKS, FEATURES, pfaPriceNow } from '../data/site';
 import { BOOKS } from '../data/books';
 import { byId } from '../data/testimonials';
 import { faqsById } from '../data/faqs';
@@ -42,7 +43,7 @@ const schema = [
   ogImage="/og/course.jpg"
   crumbs={[{ name: 'The course', href: '/course' }]}
   schema={schema}
-  stickyCta={{ label: `Get it · $${pfa.price}`, href: pfa.checkout, note: `<b>$${pfa.price} once</b>${GUARANTEE_DAYS}-day refund`, event: 'begin_checkout' }}
+  stickyCta={{ label: `Get it · $${pfaPriceNow()}`, href: pfa.checkout, note: `<b>$${pfaPriceNow()} once</b>${GUARANTEE_DAYS}-day refund`, event: 'begin_checkout' }}
 >
   <section class="page-hero">
     <div class="wrap split">
@@ -72,7 +73,7 @@ const schema = [
         <div class="stat"><b>{pfa.lessons}</b><span>short, step-by-step lessons</span></div>
         <div class="stat"><b>{pfa.videoHours} hrs</b><span>of video, plus audio for every exercise</span></div>
         <div class="stat"><b>9</b><span>books, each adding a style and a skill</span></div>
-        <div class="stat"><b>${pfa.price}</b><span>once. Updates included for life.</span></div>
+        <div class="stat"><b><Price /></b><span>once. Updates included for life.</span></div>
       </div>
     </div>
   </section>
@@ -194,7 +195,7 @@ const schema = [
     <div class="wrap split top">
       <div>
         <p class="eyebrow">Price</p>
-        <h2>${pfa.price}. Once.</h2>
+        <h2><Price />. Once.</h2>
         <ul class="check-list">
           <li>All nine books: {pfa.lessons} lessons, {pfa.videoHours} hours of video</li>
           <li>Online course player and offline ebooks</li>

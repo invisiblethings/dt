@@ -3,8 +3,9 @@ import Base from '../layouts/Base.astro';
 import FaqList from '../components/FaqList.astro';
 import Guarantee from '../components/Guarantee.astro';
 import BuyButton from '../components/BuyButton.astro';
+import Price from '../components/Price.astro';
 import PromoNote from '../components/PromoNote.astro';
-import { PRODUCTS, GUARANTEE_DAYS, LINKS } from '../data/site';
+import { PRODUCTS, GUARANTEE_DAYS, LINKS, pfaPriceNow } from '../data/site';
 import { faqsById } from '../data/faqs';
 import { faqPage } from '../lib/schema';
 
@@ -17,7 +18,7 @@ const singles = [PRODUCTS.moonlight, PRODUCTS.satie, PRODUCTS.bach];
   description={`Pianoforall costs $${pfa.price}, one payment with lifetime access. Classics By Ear courses are $${PRODUCTS.moonlight.price} each, or get all four for $${PRODUCTS.completeBundle.price}. ${GUARANTEE_DAYS}-day refund.`}
   crumbs={[{ name: 'Pricing', href: '/pricing' }]}
   schema={[faqPage(faqs)]}
-  stickyCta={{ label: `Get Pianoforall · $${pfa.price}`, href: pfa.checkout, note: `<b>$${pfa.price} once</b>${GUARANTEE_DAYS}-day refund`, event: 'begin_checkout' }}
+  stickyCta={{ label: `Get Pianoforall · $${pfaPriceNow()}`, href: pfa.checkout, note: `<b>$${pfaPriceNow()} once</b>${GUARANTEE_DAYS}-day refund`, event: 'begin_checkout' }}
 >
   <section class="page-hero">
     <div class="wrap center">
@@ -34,7 +35,7 @@ const singles = [PRODUCTS.moonlight, PRODUCTS.satie, PRODUCTS.bach];
           <span class="tag">Start here</span>
           <h2 style="font-size:var(--step-2)">Pianoforall</h2>
           <p class="muted">The complete course, beginner up</p>
-          <p class="price">${pfa.price}<small>once</small></p>
+          <p class="price"><Price /><small>once</small></p>
           <ul class="check-list">
             <li>9 books, {pfa.lessons} lessons</li>
             <li>{pfa.videoHours} hours of video, plus audio</li>

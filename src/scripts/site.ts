@@ -47,11 +47,6 @@ document.addEventListener('click', (e) => {
   });
 });
 
-// Sale banner and notes: shown only until the promo end time.
-document.querySelectorAll<HTMLElement>('[data-promo-ends]').forEach((el) => {
-  el.hidden = Date.now() > Date.parse(el.dataset.promoEnds!);
-});
-
 // Mobile menu
 const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
 const menu = document.getElementById('mobile-menu');
