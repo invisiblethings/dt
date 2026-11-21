@@ -85,7 +85,9 @@ export const PATH_REDIRECTS: [from: string, to: string, status?: number][] = [
 ];
 
 /** Hostnames that should send everything to the primary domain. */
-export const OLD_HOSTS = ['https://pianoforall.com', 'https://www.pianoforall.com', 'https://www.pianoforall.academy'];
+// The Netlify subdomain also redirects, so only pianoforall.academy gets indexed.
+// Deploy previews (deploy-preview-N--pianoforallacad.netlify.app) are other hosts and still work.
+export const OLD_HOSTS = ['https://pianoforall.com', 'https://www.pianoforall.com', 'https://www.pianoforall.academy', 'https://pianoforallacad.netlify.app'];
 
 /** Old WordPress system paths: answered with 410 Gone. */
 export const GONE = ['/wp-admin/*', '/wp-login.php', '/xmlrpc.php', '/wp-content/*'];
