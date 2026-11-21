@@ -57,6 +57,7 @@ export const UDEMY = {
 // Sale on the main course. The coupon is added to the /go/pianoforall link,
 // so ClickBank applies it without the buyer typing it (checked November
 // 2026: $49 -> $39.20). ClickBank ignores SAVE20 on the other products.
+// The code itself is not shown anywhere on the site, only the deal.
 // Set active: false and redeploy when the sale ends: that removes the banner,
 // the sale prices and the coupon on the checkout link.
 export const PROMO = {
