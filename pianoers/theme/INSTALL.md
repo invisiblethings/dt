@@ -178,6 +178,12 @@ Real-visitor numbers (Core Web Vitals) appear in Search Console about four weeks
 
 ## Changelog
 
+- **1.7.2** (24 Nov 2026). In-page links land in the right place. On phones, links such as "the hybrid plan" on /best-piano-lessons-online/ stopped up to about 4,300 px short of their target. Three causes, all fixed:
+  - **Placeholder heights on verdict cards.** `content-visibility: auto` drew off-screen verdict cards as 780 px placeholders, but they're 973–1,467 px tall. The page grew during the scroll and the scroll ended far above the target. The rule is removed from `.pz-pick`; it stays on the homepage sections, comments and footer, which no in-page link scrolls past.
+  - **Header offset applied twice.** `scroll-margin-top` on headings, verdict cards and the quiz was added on top of the page-wide `scroll-padding-top`, so targets stopped about 168 px down instead of 84 px. Only the page-wide padding remains.
+  - **Scroll-in animation.** Elements that are link targets (anything with an `id`, such as verdict cards) now fade in without the 18 px slide. The slide made card links land 18 px too high.
+
+  Checked at 390×844 and on desktop, on /best-piano-lessons-online/ and /best-digital-piano/. These all land 84 px from the top, just under the header, with no jump after the scroll stops: the hybrid plan, best picks by goal, the quiz, quick-answer links, top-picks names, comparison-table links, and the "On this page" menus on phone and desktop.
 - **1.7.1** (20 Nov 2026). Alt text on every image the theme adds. Bing Webmaster Tools reported "Alt attribute for images is missing" (4 instances on /teach-yourself-piano/): the "Keep reading" thumbnails and the "Related guide" card had an empty `alt`. They now use the post's feature-image alt text, or its title. The top picks box, sidebar pick, buy bar and piano-finder result now use the product name. Nothing else changed.
 - **1.7.0** (15 Nov 2026). Keeping readers on the site. Your GA4 data for 8–14 Nov showed about 1.3 views per visitor on the top posts (most people read one page and left) and 0 key events on every page. This release:
   - **"Keep reading" right after the article**, before the share row, author box, sign-up and comments: 3 posts from the same main tag, with images. It replaces the old "Read next" section, which sat below the comments (about 44 phone screens down on /best-digital-piano/). It still follows the "Show related posts" setting.

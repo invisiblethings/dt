@@ -264,7 +264,7 @@ span.pz-tp-img { visibility: hidden; }
 .gh-content { display: flow-root; min-width: 0; font-size: var(--step-0); line-height: 1.75; }
 .gh-content > * { margin-block: 0 1.25em; }
 .gh-content > *:last-child { margin-bottom: 0; }
-.gh-content > :is(h2, h3, h4) { margin-top: 1.9em; margin-bottom: 0.55em; scroll-margin-top: calc(var(--head-h) + 20px); }
+.gh-content > :is(h2, h3, h4) { margin-top: 1.9em; margin-bottom: 0.55em; }
 .gh-content > h2 { font-size: var(--step-2); font-weight: 800; letter-spacing: -0.01em; }
 .gh-content > h3 { font-size: var(--step-1); font-weight: 700; }
 .gh-content > h4 { font-size: 1.08rem; font-weight: 700; }
@@ -358,12 +358,12 @@ span.pz-tp-img { visibility: hidden; }
 .pz-finder.is-ready .pz-finder-fallback { display: none; }
 
 /* Pick card */
-.gh-content .pz-pick { margin-top: 2.4em; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); box-shadow: var(--shadow); scroll-margin-top: calc(var(--head-h) + 20px); }
+.gh-content .pz-pick { margin-top: 2.4em; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); box-shadow: var(--shadow); }
 .gh-content .pz-pick > * { margin: 0; }
 .pz-pick-head { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 4px 14px; padding: 20px 22px 0; }
 .pz-rank { grid-row: span 2; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 12px; background: var(--ebony); color: #fff; font-family: var(--f-display); font-weight: 800; font-size: 1.2rem; }
 .pz-best { justify-self: start; padding: 3px 10px; border-radius: 999px; background: var(--amber-soft); color: var(--ink); font-family: var(--f-display); font-weight: 700; font-size: 0.8rem; }
-.gh-content .pz-pick h2, .gh-content .pz-pick h3 { margin: 0; font-size: 1.5rem; font-weight: 800; scroll-margin-top: calc(var(--head-h) + 20px); }
+.gh-content .pz-pick h2, .gh-content .pz-pick h3 { margin: 0; font-size: 1.5rem; font-weight: 800; }
 .pz-pick-body { display: grid; gap: 18px; padding: 18px 22px 22px; }
 .pz-pick-top { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
 @media (min-width: 640px) { .pz-pick-top { grid-template-columns: 220px minmax(0, 1fr); align-items: start; } .pz-pick-top.pz-pick-top-solo { grid-template-columns: minmax(0, 1fr); } }
@@ -653,6 +653,7 @@ th[aria-sort="descending"] .pz-sort::after { content: "↓"; opacity: 1; color: 
 /* Scroll reveal (added by main.js only to elements below the fold) */
 .pz-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s cubic-bezier(.2, .7, .2, 1); }
 .pz-reveal.is-in { opacity: 1; transform: none; }
+.pz-reveal[id] { transform: none; }
 
 /* Key-press feel on buttons and cards */
 .pz-btn:active { transform: translateY(2px); box-shadow: inset 0 -1px 0 rgb(0 0 0 / 14%); }
@@ -664,7 +665,7 @@ th[aria-sort="descending"] .pz-sort::after { content: "↓"; opacity: 1; color: 
 /* 14. Course quiz and chord taste (1.2.0) ------------------------------------
    The quiz box keeps one fixed-height "stage" (questions, welcome-back and shared views all fit it),
    so nothing below moves when JavaScript replaces the no-JS link list. The result opens only after a tap. */
-.gh-content .pz-quiz { display: grid; gap: 14px; padding: 24px 20px 26px; border-radius: 18px; background: var(--surface); scroll-margin-top: calc(var(--head-h) + 20px); }
+.gh-content .pz-quiz { display: grid; gap: 14px; padding: 24px 20px 26px; border-radius: 18px; background: var(--surface); }
 .gh-content .pz-quiz > * { margin: 0; }
 .gh-content .pz-quiz h2 { font-size: var(--step-2); font-weight: 800; }
 .pz-quiz-intro { font-size: 1rem; line-height: 1.55; }
@@ -766,7 +767,6 @@ th[aria-sort="descending"] .pz-sort::after { content: "↓"; opacity: 1; color: 
    Page-to-page navigation fades instead of flashing (browsers without support ignore it). */
 .pz-card-media::before { display: none; }
 .pz-home-section ~ .pz-home-section, .pz-related, .pz-comments, .pz-foot { content-visibility: auto; contain-intrinsic-size: auto 520px; }
-.gh-content .pz-pick, .gh-content .pz-finder ~ .pz-pick { content-visibility: auto; contain-intrinsic-size: auto 780px; }
 @media (prefers-reduced-motion: no-preference) {
     @view-transition { navigation: auto; }
     ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .16s; }
