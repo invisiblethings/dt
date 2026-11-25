@@ -20,7 +20,7 @@ def song():
 def metro():
     return '''<section class="ty-tool ty-metro" data-ty-metro aria-labelledby="ty-metro-h">
 <p class="pz-eyebrow">Free online metronome</p>
-<p class="ty-title" id="ty-metro-h">Practise with a click</p>
+<p class="ty-title" id="ty-metro-h">Practice with a click</p>
 <p class="ty-sub">Set a speed you can play perfectly, press Start, and count out loud. Use the +4 button to climb the tempo ladder.</p>
 <div class="ty-metro-main"><div><span class="ty-bpm" aria-live="off">80</span> <span class="ty-unit">bpm</span><div class="ty-tname">Andante</div></div><div class="ty-dots" aria-hidden="true"></div></div>
 <label class="ty-lab" for="ty-bpm-range">Tempo</label>
@@ -44,7 +44,7 @@ def challenge():
     return f'''<section class="ty-tool ty-challenge" data-ty-challenge aria-labelledby="ty-ch-h">
 <p class="pz-eyebrow">Track your progress</p>
 <p class="ty-title" id="ty-ch-h">The 30-day teach-yourself piano challenge</p>
-<p class="ty-sub">Tick off each day after you practise. Your progress is saved in this browser, so you can come back tomorrow.</p>
+<p class="ty-sub">Tick off each day after you practice. Your progress is saved in this browser, so you can come back tomorrow.</p>
 <div class="ty-prog" aria-hidden="true"><span></span></div>
 <p class="ty-count" aria-live="polite">0 of 30 days done</p>
 <p class="ty-next"></p>

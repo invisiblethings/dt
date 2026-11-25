@@ -22,7 +22,7 @@ imgs['how-to-learn-piano-by-yourself-10-step-roadmap']=(740,page(740,'Teach your
 
 myths=[("I'm too old to learn piano.","Adults aged 60 to 85 with no musical background took six months of piano lessons and improved on attention and working-memory tests.","Bugos et al., Aging &amp; Mental Health, 2007"),
 ("You need 10,000 hours.","10,000 hours was the average practice of top violin students at an elite music academy by age 20: future soloists, not hobbyists.","Ericsson, Krampe &amp; Tesch-Römer, 1993"),
-("More hours means more progress.","Among 17 advanced pianists, how long they practised didn't predict who played best. How they practised did.","Duke, Simmons &amp; Cash, 2009"),
+("More hours means more progress.","Among 17 advanced pianists, how long they practiced didn't predict who played best. How they practiced did.","Duke, Simmons &amp; Cash, 2009"),
 ("You need an acoustic piano to start.","A digital piano with 88 weighted, touch-sensitive keys is a fine first instrument, and it never needs tuning.","Pianoers buying guides"),
 ("An app can teach you everything.","Apps hear your notes and timing. They can't see your wrists or fingers, so film your hands once a month.","Pianoers teaching advice"),
 ("You must read music before playing songs.","Many players start with chords and play real songs in weeks. Reading opens more music, so add it a few minutes a day.","Pianoers teaching advice")]
@@ -34,11 +34,11 @@ body=f'<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">{cards}<
 imgs['learning-piano-myths-vs-facts']=(910,page(910,'Myths vs facts','Six piano myths that stop beginners',body))
 
 stats=[('85%','of Americans who don’t play an instrument wish they had learned.','Gallup survey for NAMM, 2009',A),
-('~20%','faster on a practised finger sequence after a night’s sleep. Twelve hours awake brought no significant gain.','Walker et al., Neuron, 2002',T),
-('17','advanced pianists were studied: <b>how</b> they practised, not how long, predicted who played best.','Duke, Simmons &amp; Cash, J. of Research in Music Education, 2009',T),
+('~20%','faster on a practiced finger sequence after a night’s sleep. Twelve hours awake brought no significant gain.','Walker et al., Neuron, 2002',T),
+('17','advanced pianists were studied: <b>how</b> they practiced, not how long, predicted who played best.','Duke, Simmons &amp; Cash, J. of Research in Music Education, 2009',T),
 ('6 mo','of piano lessons improved attention and working memory in adults aged 60 to 85.','Bugos et al., Aging &amp; Mental Health, 2007',A)]
 tiles=''.join(f'<div class="card" style="padding:26px 28px"><div style="font-size:84px;line-height:1;font-weight:800;color:{"#b86a0a" if c==A else c};letter-spacing:-.03em">{n}</div><div style="font-size:23px;font-family:Lora,serif;line-height:1.4;margin-top:14px">{t}</div><div style="font-size:15px;color:{MU};margin-top:14px">{s}</div></div>' for n,t,s,c in stats)
-body=f'<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">{tiles}</div><div class="card" style="margin-top:18px;padding:16px 22px;font-size:20px;background:#fff8e6"><b>What it means:</b> practise a little most days, fix mistakes slowly, then sleep on it.</div>'
+body=f'<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">{tiles}</div><div class="card" style="margin-top:18px;padding:16px 22px;font-size:20px;background:#fff8e6"><b>What it means:</b> practice a little most days, fix mistakes slowly, then sleep on it.</div>'
 imgs['science-of-learning-piano-statistics']=(870,page(870,'The research','The science of teaching yourself piano',body))
 
 def node(t,s,p,top=False,dark=False):

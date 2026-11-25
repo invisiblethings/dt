@@ -63,7 +63,7 @@ intro = ('<section class="page" id="how-to-use"><p class="eyebrow">How to use th
  '<h3>Five rules that make it work</h3><ol><li><b>Little and often.</b> Twenty minutes, five or six days a week, beats one long session.</li><li><b>Slow is fast.</b> If you make the same mistake twice, halve the speed.</li><li><b>Count out loud</b> and use a metronome.</li><li><b>Fix the hard bars first</b> instead of always starting from the top.</li><li><b>Missed a day?</b> Just carry on tomorrow. Don\'t try to catch up twice.</li></ol>'
  '<div class="tip"><b>The tools on the website:</b> play your first song on an on-screen keyboard, use the free metronome, work out how long your goals will take, and tick off the challenge online.</div>'
  '<h3>My goal</h3><p class="small">Write one sentence, for example: "In a year I want to play Let It Be and sing along."</p><table class="lines"><tbody><tr><td></td></tr><tr><td></td></tr></tbody></table>'
- '<h3>My practice time</h3><p class="small">When and where will you practise? Link it to something you already do every day.</p><table class="lines"><tbody><tr><td></td></tr></tbody></table></section>')
+ '<h3>My practice time</h3><p class="small">When and where will you practice? Link it to something you already do every day.</p><table class="lines"><tbody><tr><td></td></tr></tbody></table></section>')
 W = white_seq('C4', 'C5')
 kb, kw = keyboard(W, 0, 0, 60, 150, 36, 94, {}, {n: n[0] for n in W}, None, None, 14, 11)
 cheat = ('<section class="page" id="cheat-sheet"><p class="eyebrow">Cheat sheet</p><h2>C position, songs and chords</h2>'
@@ -79,7 +79,7 @@ video = ('<section class="page" id="video-check"><p class="eyebrow">Be your own 
  + ''.join(f'<tr><td>{a}</td><td>{c}</td><td><span class="box"></span></td><td><span class="box"></span></td></tr>' for a, c in [('Side', 'Wrists level, not sagging'), ('Side', 'Fingers curved, knuckles firm'), ('Above', 'Fingers match the numbers'), ('Above', 'The thumb passes under smoothly'), ('Behind', 'Shoulders down and loose'), ('Behind', 'Elbows slightly in front of the body'), ('Listen', 'A steady beat'), ('Listen', 'Even volume'), ('Listen', 'No pauses at the hard bars')])
  + '</tbody></table><h3>What to work on next</h3><table class="lines"><tbody>' + '<tr><td></td></tr>' * 4 + '</tbody></table></section>')
 cert = ('<section class="page" id="certificate"><div class="cert"><p class="eyebrow">Pianoers.com</p><p style="font-family:SG;font-size:13pt;margin:0">Certificate of completion</p><h1>30-Day Piano Challenge</h1><p>This certifies that</p><div class="line"></div>'
- '<p>practised the piano for 30 days and taught themselves to play melodies with both hands, four chords, the C major scale, and simple music from the page.</p><div style="display:flex;gap:.6in;margin-top:18pt"><div><div class="line" style="width:2.2in"></div><p class="small">Date</p></div><div><div class="line" style="width:2.2in"></div><p class="small">First song I performed</p></div></div>'
+ '<p>practiced the piano for 30 days and taught themselves to play melodies with both hands, four chords, the C major scale, and simple music from the page.</p><div style="display:flex;gap:.6in;margin-top:18pt"><div><div class="line" style="width:2.2in"></div><p class="small">Date</p></div><div><div class="line" style="width:2.2in"></div><p class="small">First song I performed</p></div></div>'
  f'<p class="small" style="margin-top:22pt">What next? Choose your course at <a href="https://pianoers.com/best-piano-lessons-online/">pianoers.com/best-piano-lessons-online</a></p></div></section>')
 heads = [('how-to-use', 'How to use this plan'), ('cheat-sheet', 'Cheat sheet'), ('week-1', 'Week 1'), ('week-2', 'Week 2'), ('week-3', 'Week 3'), ('week-4', 'Days 22 to 30'), ('tempo-log', 'Tempo log'), ('video-check', 'Video self-check'), ('certificate', 'Certificate')]
 body = intro + cheat + ''.join(week(i, ph) for i, ph in enumerate(PH)) + tempo + video + cert
@@ -100,7 +100,7 @@ ul{{list-style:none;padding:0;margin:26pt 0 0;display:grid;grid-template-columns
 <ul><li>A task for every day</li><li>Weekly check-ins</li><li>Cheat sheet</li><li>Tempo log</li><li>Video self-check</li><li>Certificate for day 30</li></ul></div>
 <div class="b"><span>PIANOERS.COM</span><span>TEACH YOURSELF PIANO</span></div></body></html>'''
 with sync_playwright() as p:
-    b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium-1194/chrome-linux/chrome'); pg = b.new_page()
+    b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium-1243/chrome-linux64/chrome'); pg = b.new_page()
     def render(html, path, footer=True):
         f = os.path.join(TMP, 'page.html'); open(f, 'w').write(html); pg.goto('file://' + f, wait_until='networkidle'); pg.wait_for_timeout(400)
         kw = dict(path=path, print_background=True, prefer_css_page_size=True, outline=True, tagged=True)

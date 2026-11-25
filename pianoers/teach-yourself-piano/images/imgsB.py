@@ -25,7 +25,7 @@ svg+=f'<text x="{40+6*(sw+14)+sw/2}" y="{380-(70+6*42)-16}" text-anchor="middle"
 rules=[('Start slow','Pick the tempo where you play it perfectly, even if that is 50.'),('3 clean runs','Play the passage three times in a row with no mistakes.'),('Then +4 bpm','Nudge the metronome up one step and repeat.'),('Mistake? Step down','Go back 4 bpm. Tomorrow you will start higher.')]
 rc=''.join(f'<div class="card" style="padding:16px 18px"><div style="font-size:21px;font-weight:800">{a}</div><div style="font-size:17px;font-family:Lora,serif;line-height:1.4;color:#33424a;margin-top:4px">{b}</div></div>' for a,b in rules)
 body=f'<div class="card" style="padding:10px 0 0">{svg}</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px">{rc}</div>'
-imgs['piano-practice-tempo-ladder-metronome']=(810,page(810,'Practise with a metronome','The tempo ladder',body))
+imgs['piano-practice-tempo-ladder-metronome']=(810,page(810,'Practice with a metronome','The tempo ladder',body))
 
 bars=''.join(f'<div style="flex:1;height:86px;border-radius:12px;display:grid;place-items:center;font-size:28px;font-weight:800;background:{"#fbe4dd" if b in (5,6) else "#fff"};border:2px solid {"#b0442d" if b in (5,6) else LINE};color:{"#b0442d" if b in (5,6) else INK}">{b}</div>' for b in range(1,9))
 def bracket(a,b,label,col,top):
@@ -35,7 +35,7 @@ br=bracket(5,6,'① Hard bars first','#b0442d',0)+bracket(4,7,'② Add a bar eac
 st=[('Find the hard bars','Play through once and circle the bars that break.'),('Slow, hands separately','Then hands together, at a tempo you can manage.'),('Grow the chunk','Add a bar on each side so the joins are smooth.'),('Link and overlap','Finish each chunk on the first note of the next.')]
 sc=''.join(f'<div class="card" style="padding:14px 16px"><div style="font-size:15px;font-weight:800;color:{T}">STEP {i+1}</div><div style="font-size:20px;font-weight:800;margin-top:2px">{a}</div><div style="font-size:16.5px;font-family:Lora,serif;line-height:1.4;color:#33424a;margin-top:4px">{b}</div></div>' for i,(a,b) in enumerate(st))
 body=f'<div class="card" style="padding:22px 24px"><div style="font-size:17px;color:{MU};margin-bottom:10px">An 8-bar piece. Bars 5 and 6 keep going wrong.</div><div style="display:flex;gap:8px">{bars}</div><div style="position:relative;height:222px;margin-top:10px">{br}</div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px">{sc}</div>'
-imgs['how-to-practice-piano-chunking-method']=(870,page(870,'Practise smarter','Chunking: fix the hard bars first',body))
+imgs['how-to-practice-piano-chunking-method']=(870,page(870,'Practice smarter','Chunking: fix the hard bars first',body))
 
 COUNT=['1','&amp;','2','&amp;','3','&amp;','4','&amp;']
 def grid(rows,cellw=58):
