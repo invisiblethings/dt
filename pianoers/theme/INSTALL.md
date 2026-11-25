@@ -178,6 +178,9 @@ Real-visitor numbers (Core Web Vitals) appear in Search Console about four weeks
 
 ## Changelog
 
+- **1.7.3** (25 Nov 2026). Updated `llms.txt` and a new `robots.txt`, both served from the theme.
+  - **llms.txt** is rebuilt from the live site. It lists all 37 posts and the site's pages with their current titles and plain one-line descriptions, grouped as: main guides, digital pianos, learning piano, courses and apps, piano care, pianists, free tools, about. The four removed posts are gone: two return 404 (Ahmad Jamal, Cole Lam) and two redirect (How the piano works, Piano SOS). The new posts are added: Piano Scales for Beginners, the Roland FP-10 and Piano Marvel reviews, How we test and Hover Chords. The outdated Stephen Ridley description is replaced.
+  - **robots.txt** keeps Ghost's default rules and also keeps crawlers out of private post previews (`/p/`), unsubscribe links (`/unsubscribe/`) and the affiliate redirect links `/PFA`, `/pianoforall` and `/pbp`. Those rules match the exact paths only, so `/pianoforall-review/` stays crawlable. All AI and search crawlers are still allowed, as before.
 - **1.7.2** (24 Nov 2026). In-page links land in the right place. On phones, links such as "the hybrid plan" on /best-piano-lessons-online/ stopped up to about 4,300 px short of their target. Three causes, all fixed:
   - **Placeholder heights on verdict cards.** `content-visibility: auto` drew off-screen verdict cards as 780 px placeholders, but they're 973–1,467 px tall. The page grew during the scroll and the scroll ended far above the target. The rule is removed from `.pz-pick`; it stays on the homepage sections, comments and footer, which no in-page link scrolls past.
   - **Header offset applied twice.** `scroll-margin-top` on headings, verdict cards and the quiz was added on top of the page-wide `scroll-padding-top`, so targets stopped about 168 px down instead of 84 px. Only the page-wide padding remains.

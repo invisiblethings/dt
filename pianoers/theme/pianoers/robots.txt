@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /ghost/
+Disallow: /email/
+Disallow: /members/api/comments/counts/
+Disallow: /r/
+Disallow: /webmentions/receive/
+Disallow: /.ghost/analytics/api/
+Disallow: /p/
+Disallow: /unsubscribe/
+Disallow: /PFA$
+Disallow: /PFA/$
+Disallow: /pianoforall$
+Disallow: /pianoforall/$
+Disallow: /pbp$
+Disallow: /pbp/$
+
+Sitemap: https://pianoers.com/sitemap.xml
