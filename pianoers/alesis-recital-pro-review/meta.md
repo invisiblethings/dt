@@ -14,28 +14,37 @@
 | Facebook / X image | `alesis-recital-pro-mkii-review-social.webp` |
 | Code injection → Post header | paste `code-injection-header.html`: Product + Review schema (3.4/5, Richard as author) and FAQPage (9 questions, matching the visible FAQ word for word) |
 
-## Before you publish: 2 things only you can do
-1. **Your Amazon link.** Both buttons point to `https://www.amazon.com/dp/B0G2YQP8KL`, the MKII's Amazon page, with **no affiliate tag**. Get your link for the MKII from SiteStripe and replace it in `article.html` (it appears twice). Your current Alesis link (`link.amazon/B01br0vWw`, used in the best-beginner-pianos guide) goes to the original model, not the MKII.
-2. **Check the hands-on lines.** The article is written from your two months with the piano and your verdict: *not that good, but enough for the price for someone who doesn't care about sound and plays rarely*. These sentences describe how it plays. They match what other owners and reviewers report, but please read them and change anything that doesn't match your piano:
-   - Keys: "light and a bit springy", "I struggle to feel much difference from one end to the other" (the grading), soft playing is harder to control.
-   - Sound: German Grand "doesn't change as much" between soft and loud, "a bit flat and electronic" with the pedal down, speakers "a little boxy" when turned up but no distortion, better through headphones.
-   - Pedal: "light, slides across the floor".
-   - Verdict: "Two months in, nothing has broken", "light enough that I move it around the house".
+## Before you publish: check the hands-on lines
+Both Amazon buttons now use your link, `https://link.amazon/B05fyH297`.
+
+The article is written from your two months with the piano and your verdict: *not that good, but enough for the price for someone who doesn't care about sound and plays rarely*. These sentences describe how it plays. They match what other owners and reviewers report, but please read them and change anything that doesn't match your piano:
+- Keys: "light and a bit springy", "I struggle to feel much difference from one end to the other" (the grading), soft playing is harder to control.
+- Sound: German Grand "doesn't change as much" between soft and loud, "a bit flat and electronic" with the pedal down, speakers "a little boxy" when turned up but no distortion, better through headphones.
+- Pedal: "light, slides across the floor".
+- Verdict: "Two months in, nothing has broken", "light enough that I move it around the house".
 
 ## How to publish
-1. **Images:** upload the 7 images from `alesis-recital-pro-review-images.zip` this month, so they live under `/content/images/2026/11/`. Five appear in the article; the featured and social images go in post settings.
+1. **Images:** upload all 12 images from `alesis-recital-pro-review-images.zip` this month, so they live under `/content/images/2026/11/`. Nine appear in the article, one in the verdict card, and the featured and social images go in post settings.
 2. **Article:** paste `article.html` into **one** HTML card. The verdict card turns on the sticky buy bar and the theme's "My verdict" box at the top.
 3. Fill in the post settings above, paste the code injection, and publish.
 4. **Request indexing** in Search Console.
 
-## Strongly recommended: your own photos and a short video
-Right now every image is a graphic. You own the piano, so 3 or 4 phone photos would make this the most convincing Recital Pro MKII review online. Google and AI answers favor visible proof of hands-on testing.
-- The piano in your room, wide shot (also a better featured image).
-- The keys close up, at an angle.
-- The control panel.
-- The included footswitch pedal next to your foot or a ruler.
+## Product photos (the 5 you sent)
+They're captioned "Photo: Alesis", like the Roland photos. Only use them if you have the right to: for example, Alesis or Amazon press images you're allowed to use, or photos you took.
 
-I found **no YouTube video of the MKII**, only of the original Recital Pro, so the article has no video. A 30 to 60 second clip of you playing it would be unique. Upload it to YouTube and embed it after "How it sounds".
+| File | Where it appears |
+|---|---|
+| `alesis-recital-pro-mkii-digital-piano.webp` (angled shot) | verdict card, the top-pick box, and the featured and social images |
+| `alesis-recital-pro-mkii-front-music-rest.webp` | under the intro |
+| `alesis-recital-pro-mkii-speaker-and-keys.webp` | "How it sounds" |
+| `alesis-recital-pro-mkii-sustain-pedal-footswitch.webp` | "The pedal in the box" |
+| `alesis-recital-pro-mkii-rear-panel.webp` (your rear photo, with the 5 connections labeled) | "Features that actually help" |
+
+The photos say "RECITAL PRO" on the panel, and the MKII does too. The rear panel (USB, Sustain, Line Out, Aux In, 12 V) matches the MKII's spec sheet.
+
+## Still worth adding
+- **One or two photos of your own piano** at home: on its stand in your room, or your hands on the keys. Studio photos look professional, but a real one proves the two months.
+- **A short video.** There's no YouTube video of the MKII yet, only of the original. A 30 to 60 second clip of you playing would be unique. Embed it after "How it sounds".
 
 ## Links in (add after publishing)
 - **/best-beginner-pianos/**: the "Best on a budget" pick is the *original* Recital Pro (about $300, 128-note polyphony, its own Amazon link). Two options:

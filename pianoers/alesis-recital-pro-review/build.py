@@ -1,7 +1,7 @@
 import re, json, html as H
 from PIL import Image
 Y='2026/11'; B='https://pianoers.com/content/images'
-AMZ='https://www.amazon.com/dp/B0G2YQP8KL'
+AMZ='https://link.amazon/B05fyH297'
 def fig(name,alt,cap):
     w,h=Image.open(f'images/{name}.webp').size
     return (f'<figure class="kg-card kg-image-card kg-card-hascaption"><img src="{B}/{Y}/{name}.webp" class="kg-image" alt="{alt}" loading="lazy" width="{w}" height="{h}" '
@@ -17,7 +17,7 @@ qs=re.findall(r'<h3>(.*?)</h3>\s*<p>(.*?)</p>',faq,flags=re.S)
 st=lambda t:H.unescape(re.sub(r'<[^>]+>','',t)).strip()
 items=lambda l:{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n} for i,n in enumerate(l)]}
 prod={"@context":"https://schema.org","@type":"Product","name":"Alesis Recital Pro MKII","brand":{"@type":"Brand","name":"Alesis"},"model":"Recital Pro MKII",
- "image":[f"{B}/{Y}/alesis-recital-pro-mkii-review-featured.webp",f"{B}/{Y}/alesis-recital-pro-mkii-specs.webp"],
+ "image":[f"{B}/{Y}/alesis-recital-pro-mkii-digital-piano.webp",f"{B}/{Y}/alesis-recital-pro-mkii-front-music-rest.webp",f"{B}/{Y}/alesis-recital-pro-mkii-review-featured.webp"],
  "description":"88-key digital piano with weighted hammer-action keys, 25 sounds, 64-note polyphony, 2 x 10 W speakers, USB MIDI and audio, an included sustain pedal and optional battery power.",
  "review":{"@type":"Review","name":"Alesis Recital Pro MKII review","reviewRating":{"@type":"Rating","ratingValue":"3.4","bestRating":"5","worstRating":"1"},
   "author":{"@type":"Person","@id":"https://pianoers.com/#richard-abraham","name":"Richard J. Abraham"},

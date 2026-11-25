@@ -55,15 +55,21 @@ piano=f'''<svg viewBox="-24 -64 {kw+48} 160" style="width:100%;display:block">
 <g>{kbsvg}</g><rect x="-24" y="62" width="{kw+48}" height="22" rx="8" fill="#1d2327"/></svg>'''
 def hero(h):
     return f'''<!doctype html><html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Lora:wght@500&display=swap" rel="stylesheet">
-<style>*{{box-sizing:border-box;margin:0}}body{{width:1200px;height:{h}px;overflow:hidden;font-family:"Schibsted Grotesk",Arial,sans-serif;background:radial-gradient(1100px 520px at 80% 115%,#2e6475 0%,#15191c 62%);color:#fff;position:relative}}
-.t{{position:absolute;left:64px;top:56px;width:1072px}}.e{{font-size:20px;letter-spacing:.16em;color:{A};font-weight:700}}
-h1{{font-size:70px;line-height:1.02;font-weight:800;letter-spacing:-.02em;margin:14px 0 14px}}p{{font-family:Lora,serif;font-size:25px;color:#c9d4d8;line-height:1.35;width:1000px}}
-.badge{{position:absolute;right:64px;top:64px;display:flex;align-items:center;gap:14px;background:#fff;color:#15191c;border-radius:16px;padding:12px 18px}}.badge b{{font-size:44px}}.badge span{{font-size:17px;font-weight:700;line-height:1.25}}.st{{color:{A};font-size:22px;letter-spacing:2px}}
-.p{{position:absolute;left:150px;right:150px;bottom:{70 if h>650 else 58}px;filter:drop-shadow(0 26px 40px rgb(0 0 0/55%))}}
-.b{{position:absolute;left:64px;bottom:22px;font-size:17px;letter-spacing:.14em;font-weight:700;color:#7fa9b6}}</style></head><body>
+<style>*{{box-sizing:border-box;margin:0}}body{{width:1200px;height:{h}px;overflow:hidden;font-family:"Schibsted Grotesk",Arial,sans-serif;background:#fff;color:#15191c;position:relative}}
+.band{{position:absolute;left:0;right:0;top:0;height:{h-300}px;background:#15191c}}
+.t{{position:absolute;left:64px;top:46px;width:820px;color:#15191c}}.e{{font-size:19px;letter-spacing:.16em;color:#2e6475;font-weight:700}}
+h1{{font-size:60px;line-height:1.02;font-weight:800;letter-spacing:-.02em;margin:10px 0 10px}}p{{font-family:Lora,serif;font-size:24px;color:#56666e;line-height:1.35}}
+.badge{{position:absolute;right:64px;top:60px;display:flex;align-items:center;gap:14px;background:#15191c;color:#fff;border-radius:16px;padding:12px 18px}}.badge b{{font-size:44px}}.badge span{{font-size:17px;font-weight:700;line-height:1.25}}.st{{color:{A};font-size:22px;letter-spacing:2px}}
+.ph{{position:absolute;left:170px;right:170px;bottom:{40 if h>650 else 30}px}}.ph img{{width:100%;display:block}}
+.b{{position:absolute;right:64px;bottom:16px;font-size:16px;letter-spacing:.14em;font-weight:700;color:#2e6475}}</style></head><body>
 <div class="t"><div class="e">HANDS-ON REVIEW · 2 MONTHS OF USE</div><h1>Alesis Recital Pro MKII<br>Review</h1><p>88 weighted keys for about $350. Who it suits, and who should skip it.</p></div>
 <div class="badge"><b>{OV}</b><span><span class="st">★★★</span><br>Budget pick for<br>occasional players</span></div>
-<div class="p">{piano}</div><div class="b">PIANOERS.COM</div></body></html>'''
+<div class="ph"><img src="file:///home/user/dt/pianoers/alesis-recital-pro-review/images/alesis-recital-pro-mkii-digital-piano.webp"></div><div class="b">PIANOERS.COM</div></body></html>'''
+R='file:///tmp/claude-0/-home-user-dt/264ebcbd-ccda-5595-866c-f65d1d0f3d43/images/39.webp'
+leg=[('USB','USB-B: MIDI and audio to a computer or tablet'),('SUSTAIN','1/4-inch: the included pedal, or any sustain pedal'),('LINE OUT','1/4-inch stereo: amp, PA or powered speakers'),('AUX IN','1/8-inch: play your phone through the speakers'),('12V','Included power adapter; 6 AA batteries also work')]
+cells=''.join(f'<div class="card" style="padding:12px 14px"><div style="font-size:14px;font-weight:800;letter-spacing:.1em;color:{T}">{i+1}. {a}</div><div style="font-size:16px;color:#33424a;margin-top:4px;line-height:1.35">{b}</div></div>' for i,(a,b) in enumerate(leg))
+body=f'<div class="card" style="overflow:hidden;padding:0"><img src="{R}" style="width:100%;display:block"></div><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px">{cells}</div><div style="margin-top:12px;font-size:16px;color:{MU}">The headphone jack (1/8-inch) is on the front panel, not the back. Plugging in headphones mutes the speakers.</div>'
+imgs['alesis-recital-pro-mkii-rear-panel']=(800,page(800,'Back panel','Every connection on the Recital Pro MKII',body,'Photo: Alesis. Labels: Pianoers'))
 imgs['alesis-recital-pro-mkii-review-featured']=(675,hero(675))
 imgs['alesis-recital-pro-mkii-review-social']=(630,hero(630))
 print('overall',tot,OV)
