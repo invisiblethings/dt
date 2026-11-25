@@ -2,7 +2,7 @@ import json
 from page import page
 imgs={}
 T='#2e6475';A='#f6b31e';INK='#15191c';MU='#56666e';LINE='#d9e2e5';G='#1f7a4d'
-rows=[('Sound','Strings and soundboard resonate together','Sampled or modelled sound through speakers','a'),
+rows=[('Sound','Strings and soundboard resonate together','Sampled or modeled sound through speakers','a'),
 ('Touch','Real hammer action, very fine control','Weighted hammer action; good models feel close','a'),
 ('Starting price','Good new upright: about $3,500 to $10,000','Good beginner digital: about $400 to $700','d'),
 ('Upkeep','Tuning about twice a year, steady humidity','Dusting. No tuning, ever','d'),

@@ -1,4 +1,4 @@
-Q=[('When will you usually practise?',[('Daytime, in a house','a1'),('Evenings or at night, or I share walls','d2h1')]),
+Q=[('When will you usually practice?',[('Daytime, in a house','a1'),('Evenings or at night, or I share walls','d2h1')]),
 ('What is your budget?',[('Under $1,000','d3'),('$1,000 to $4,000','d1a1'),('More than $4,000','a2h2')]),
 ('Where will the piano live?',[('A small space, or I may move soon','d2'),('A roomy space with steady humidity','a2h1')]),
 ('What is your main goal?',[('Learning for fun, and playing songs','d1'),('Serious classical study or exams','a2h1'),('Recording, apps and other sounds','d2')]),
@@ -42,7 +42,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-av-quiz]'),functio
 var form=root.querySelector('.av-form'),out=root.querySelector('.av-result'),n=root.querySelectorAll('.av-q').length;
 var R={d:['A digital piano','A weighted 88-key digital piano fits your life best: no tuning, headphones for quiet practice, and a much lower price. For most beginners, about $400 to $700 buys an instrument that lasts for years.',[['/best-beginner-pianos/','See the best beginner digital pianos'],['/best-digital-piano/','Compare digital pianos at every level']]],
 a:['An acoustic piano','You have the space, the budget and the goals that make an acoustic worth it. A good upright will reward you for decades. If you buy used, have a technician inspect it first.',[['#piano-buying-checklist','Use the buying checklist'],['/piano-tuning-when-and-why-its-needed/','Learn what tuning involves']]],
-h:['A hybrid or silent piano','You want real acoustic touch, but need to practise quietly. A hybrid (real action, digital sound) or a silent acoustic (a real piano with a headphone system) gives you both, at a higher price.',[['#hybrid-and-silent-pianos','Read about hybrids and silent pianos'],['/best-digital-piano/','See high-end digital and hybrid options']]]};
+h:['A hybrid or silent piano','You want real acoustic touch, but need to practice quietly. A hybrid (real action, digital sound) or a silent acoustic (a real piano with a headphone system) gives you both, at a higher price.',[['#hybrid-and-silent-pianos','Read about hybrids and silent pianos'],['/best-digital-piano/','See high-end digital and hybrid options']]]};
 form.addEventListener('submit',function(e){e.preventDefault();var s={d:0,a:0,h:0},done=0;
 for(var i=0;i<n;i++){var c=form.querySelector('input[name="av-q'+i+'"]:checked');if(!c)continue;done++;c.value.replace(/([dah])(\d)/g,function(_,k,v){s[k]+=+v;});}
 out.hidden=false;out.textContent='';

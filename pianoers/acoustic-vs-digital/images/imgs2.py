@@ -19,7 +19,7 @@ def q(t): return f'<div class="card" style="padding:14px 18px;background:{INK};c
 def ans(t,s,c): return f'<div class="card" style="padding:12px 16px;border-left:6px solid {c}"><div style="font-size:19px;font-weight:800">{t}</div><div style="font-size:15.5px;color:{MU};margin-top:2px">{s}</div></div>'
 def row(qt,yes,no_next=True):
     return f'<div style="display:grid;grid-template-columns:1fr 60px 1fr;gap:12px;align-items:center">{q(qt)}<div style="text-align:center;font-weight:800;color:#1f7a4d;font-size:17px">YES →</div>{yes}</div>'+(f'<div style="width:140px;text-align:center;font-weight:800;color:#b0442d;font-size:16px;margin:4px 0">↓ NO</div>' if no_next else '')
-body=row('Will you practise while others sleep, or share walls?',ans('Digital piano','Or a silent acoustic, if the budget allows.',T))
+body=row('Will you practice while others sleep, or share walls?',ans('Digital piano','Or a silent acoustic, if the budget allows.',T))
 body+=row('Is your budget under about $3,000?',ans('A good digital piano','It beats a cheap acoustic that needs work.',T))
 body+=row('Short on space, or can’t keep the humidity steady?',ans('Digital or hybrid','Acoustics need steady humidity and room.',T))
 body+=row('Are you serious about classical piano for years?',ans('Acoustic piano','Have a technician inspect any used piano first.','#b86a0a'),False)
