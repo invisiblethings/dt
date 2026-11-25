@@ -59,7 +59,7 @@ heads = re.findall(r'<h2 id="([^"]+)">(.*?)</h2>', body)
 
 def strip(t): return H.unescape(re.sub(r'<[^>]+>', '', t))
 
-practice_log = '<h2 id="practice-log" class="newpage">Practice log</h2><p>Fill in one row each time you practise. Aim for 20 minutes, five or six days a week, and write one small goal for each session.</p><table class="log"><thead><tr><th>Date</th><th>Minutes</th><th>Warm-up / scale</th><th>Piece and bars</th><th>Goal for today</th><th>✓</th></tr></thead><tbody>' + '<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>' * 18 + '</tbody></table>'
+practice_log = '<h2 id="practice-log" class="newpage">Practice log</h2><p>Fill in one row each time you practice. Aim for 20 minutes, five or six days a week, and write one small goal for each session.</p><table class="log"><thead><tr><th>Date</th><th>Minutes</th><th>Warm-up / scale</th><th>Piece and bars</th><th>Goal for today</th><th>✓</th></tr></thead><tbody>' + '<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>' * 18 + '</tbody></table>'
 W = white_seq('C3', 'B4'); kb, kw = keyboard(W, 0, 0, 44, 170, 27, 106, {}, {}, None, None, 14, 11)
 worksheet = (f'<h2 id="note-worksheet" class="newpage">Worksheet: name the keys</h2><p>Write the letter name on each white key. Start by finding every C (just left of the two black keys), then fill in the rest. Answers: the white keys run C D E F G A B, again and again.</p>'
              f'<div class="kbw"><svg viewBox="-2 -2 {kw+4} 174" width="100%">{kb}</svg></div>'
@@ -163,7 +163,7 @@ def heading_pages(pdf_path, offset=0):
     return found, len(r.pages)
 
 with sync_playwright() as p:
-    b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium-1194/chrome-linux/chrome')
+    b = p.chromium.launch(executable_path='/opt/pw-browsers/chromium-1243/chrome-linux64/chrome')
     pg = b.new_page()
     def render(html, path, footer=True):
         f = os.path.join(TMP, 'page.html'); open(f, 'w').write(html)
