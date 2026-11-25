@@ -2,7 +2,7 @@
 
 The units were already American (lb, inches, $), so only the spelling changes. 20 words in the article, including one answer in the quiz:
 
-practise → practice (11), neighbours → neighbors (2), modelled/modelling → modeled/modeling (3), favour → favor, towards → toward, pedalled → pedaled.
+practise/practised/practising → practice/practiced/practicing (12), neighbours → neighbors (2), modelled/modelling → modeled/modeling (3), favour → favor, towards → toward, pedalled → pedaled.
 
 Two images were redrawn because their text changed: the **comparison chart** ("modeled sound") and the **decision flowchart** ("Will you practice while others sleep"). Same names and sizes.
 
