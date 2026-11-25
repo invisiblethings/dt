@@ -190,7 +190,7 @@
     function shopLabel(href) {
         var h = '';
         try { h = new URL(href, location.href).hostname.replace(/^www\./, ''); } catch (e) { h = ''; }
-        var shops = [[/(^|\.)(amzn\.to|link\.amazon|amazon\.[a-z.]+)$/, 'View on Amazon'], [/sweetwater\.com$/, 'View at Sweetwater'], [/guitarcenter\.com$/, 'View at Guitar Center'], [/yamaha\.com$/, 'View at Yamaha'], [/kawai/, 'View at Kawai'], [/roland\.com$/, 'View at Roland'], [/casio/, 'View at Casio']];
+        var shops = [[/(^|\.)(amzn\.to|link\.amazon|amazon\.[a-z.]+)$/, Date.now() < Date.UTC(2026, 11, 1, 8) ? 'Black Friday Deal on Amazon' : 'View on Amazon'], [/sweetwater\.com$/, 'View at Sweetwater'], [/guitarcenter\.com$/, 'View at Guitar Center'], [/yamaha\.com$/, 'View at Yamaha'], [/kawai/, 'View at Kawai'], [/roland\.com$/, 'View at Roland'], [/casio/, 'View at Casio']];
         for (var i = 0; i < shops.length; i++) if (shops[i][0].test(h)) return shops[i][1];
         return 'See the deal';
     }
@@ -199,6 +199,11 @@
         el.querySelectorAll('a.pz-btn-buy').forEach(function (a) {
             if (/^\s*(check|see)\b.*\b(price|at|on)\b/i.test(a.textContent)) a.textContent = shopLabel(a.href);
         });
+    });
+    if (content) content.querySelectorAll('a.pz-btn-buy, a.kg-btn').forEach(function (a) {
+        if (a.closest('.pz-pick')) return;
+        var label = shopLabel(a.href);
+        if (/Amazon/.test(label) && /^\s*(check|see|view)\b.*\b(price|deal|at|on)\b/i.test(a.textContent)) a.textContent = label;
     });
     var picks = pickEls.map(function (el, i) {
         var buy = el.querySelector('.pz-buy a.pz-btn-buy') || el.querySelector('a.pz-btn-buy');
