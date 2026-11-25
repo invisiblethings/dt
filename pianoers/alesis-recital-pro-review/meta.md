@@ -10,8 +10,8 @@
 | Excerpt | 88 weighted keys and a pedal for about $350. My honest Recital Pro MKII review after two months: not a great piano, but fair value for occasional players. |
 | Tags | Pianos (primary), and the internal tag `#affiliate` |
 | Author | Richard J. Abraham |
-| Feature image | `alesis-recital-pro-mkii-review-featured.webp`. Alt: Alesis Recital Pro MKII review, the black 88-key digital piano under a warm spotlight |
-| Facebook / X image | `alesis-recital-pro-mkii-review-social.webp` |
+| Feature image | `alesis-recital-pro-mkii-review-featured.webp` (option A, the stamp design). Alt: Alesis Recital Pro MKII review: not great, good enough for about $350 |
+| Facebook / X image | `alesis-recital-pro-mkii-review-og.webp` (option A at 1200 × 630) |
 | Code injection → Post header | paste `code-injection-header.html`: Product + Review schema (3.4/5, Richard as author) and FAQPage (9 questions, matching the visible FAQ word for word) |
 
 ## Before you publish: check the hands-on lines
