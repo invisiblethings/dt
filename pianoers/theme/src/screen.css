@@ -759,6 +759,27 @@ th[aria-sort="descending"] .pz-sort::after { content: "↓"; opacity: 1; color: 
 @keyframes pz-glow { 50% { box-shadow: 0 0 0 9px rgb(246 179 30 / 10%); } }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+.pz-promo { background: linear-gradient(90deg, #3b1d0b 0%, #6b3210 55%, #8a3f12 100%); color: #fff6e8; font-family: var(--f-display); font-size: 0.95rem; line-height: 1.35; }
+.pz-promo[hidden] { display: none; }
+.pz-promo-inner { display: flex; align-items: center; gap: 12px; min-height: 48px; padding-top: 8px; padding-bottom: 8px; }
+.pz-promo-leaf { flex: none; color: #f6b31e; }
+.pz-promo-copy { margin: 0; flex: 1 1 auto; min-width: 0; }
+.pz-promo-copy strong { font-weight: 800; }
+.pz-promo-copy span { color: #f3dcc0; }
+.pz-promo-cta { flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 999px; background: #f6b31e; color: #1b1400; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.pz-promo-cta::after { content: "→"; }
+.pz-promo-cta:hover { background: #ffc94d; }
+.pz-promo-x { flex: none; display: grid; place-items: center; width: 34px; height: 34px; margin-right: -6px; border: 0; border-radius: 50%; background: transparent; color: #f3dcc0; cursor: pointer; }
+.pz-promo-x:hover { background: rgb(255 255 255 / 12%); color: #fff; }
+@media (max-width: 640px) {
+    .pz-promo-inner { flex-wrap: wrap; gap: 6px 10px; }
+    .pz-promo-copy { flex: 1 1 calc(100% - 80px); font-size: 0.9rem; }
+    .pz-promo-copy span { display: block; }
+    .pz-promo-leaf { align-self: flex-start; margin-top: 2px; }
+    .pz-promo-x { order: 2; align-self: flex-start; margin-top: -4px; }
+    .pz-promo-cta { order: 3; margin-left: 32px; padding: 6px 12px; font-size: 0.88rem; }
+}
+@media print { .pz-promo { display: none !important; } }
 @media print { .pz-head, .pz-foot, .pz-rail, .pz-buybar, .pz-related, .pz-comments, .pz-post-signup, .pz-finder, .pz-quiz, .pz-taste { display: none !important; } body { font-size: 12pt; } }
 
 /* 15. Speed and navigation ---------------------------------------------------
