@@ -38,8 +38,9 @@ for g,gid,lab,title in G:
         rank+=1; secs+=card(p,rank)+'\n'
     ms=sorted([c for c in MINI if c['group']==g],key=lambda x:-x['off'])
     if ms: secs+='<div class="bfp-minis">'+''.join(mini(c) for c in ms)+'</div>\n'
-why={'roland-fp-10':'Best key feel under $500','kawai-es60':'Best piano sound','alesis-recital-pro-mkii':'Cheapest pick, pedal included','casio-privia-px-s1100':'Slimmest, for small spaces'}
-tiles=''.join(f'<div class="bfp-deal"><span class="bfp-off">-{p["off"]}%</span><span class="bfp-img"><img src="{src(p["img"][0])}" alt="{p["img"][1]}" width="600" height="600" loading="eager" decoding="async"></span><div class="bfp-n">{p["name"]}</div><div class="bfp-w">{why[p["id"]]}</div><a class="bfp-go" href="{p["amz"]}" rel="sponsored nofollow noopener" target="_blank">Get the deal</a></div>' for p in sorted(FULL,key=lambda x:-x['off']))
+why={'roland-fp-10':'Best key feel under $500','alesis-recital-pro-mkii':'Cheapest pick, pedal included','casio-privia-px-s1100':'Slimmest, for small spaces'}
+HT=[dict(id=p['id'],name=p['name'],off=p['off'],img=p['img'],amz=p['amz'],why=why[p['id']]) for p in FULL]+([D['hero_extra']] if D.get('hero_extra') else [])
+tiles=''.join(f'<div class="bfp-deal"><span class="bfp-off">-{p["off"]}%</span><span class="bfp-img"><img src="{src(p["img"][0])}" alt="{p["img"][1]}" width="600" height="600" loading="eager" decoding="async"></span><div class="bfp-n">{p["name"]}</div><div class="bfp-w">{p["why"]}</div><a class="bfp-go" href="{p["amz"]}" rel="sponsored nofollow noopener" target="_blank">Get the deal</a></div>' for p in sorted(HT,key=lambda x:-x['off']))
 def fig(name,alt,cap):
     w,h=Image.open(f'images/{name}.webp').size
     return (f'<figure class="kg-card kg-image-card kg-card-hascaption"><img src="{B}/{Y}/{name}.webp" class="kg-image" alt="{alt}" loading="lazy" width="{w}" height="{h}" '

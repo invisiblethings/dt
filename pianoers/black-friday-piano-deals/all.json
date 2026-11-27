@@ -46,51 +46,6 @@
    "group": "u500"
   },
   {
-   "id": "kawai-es60",
-   "rank": 2,
-   "best": "Best sound deal",
-   "name": "Kawai ES60",
-   "price": "about $450\u2013$550",
-   "usual": "list $599",
-   "target": "$470",
-   "img": [
-    "2026/03/Kawai-ES60-Reviewed.jpg",
-    "Kawai ES60 88-key digital piano in black with music rest"
-   ],
-   "amz": "https://amzn.to/4bGtJJC",
-   "rev": null,
-   "verdict": "The best piano sound on this list, from Shigeru Kawai concert grand samples, now 25% off its list price. The biggest discount here.",
-   "plate": [
-    [
-     "Action",
-     "RHL graded"
-    ],
-    [
-     "Polyphony",
-     "192"
-    ],
-    [
-     "Bluetooth",
-     "No"
-    ],
-    [
-     "Weight",
-     "24 lbs"
-    ]
-   ],
-   "pros": [
-    "Shigeru Kawai SK-EX samples",
-    "192-note polyphony",
-    "Stereo line outputs"
-   ],
-   "cons": [
-    "No Bluetooth",
-    "No built-in recorder"
-   ],
-   "off": 25,
-   "group": "u500"
-  },
-  {
    "id": "alesis-recital-pro-mkii",
    "rank": 3,
    "best": "Cheapest deal",
@@ -308,6 +263,30 @@
     "Read more"
    ],
    "verdict": "The sweet spot of the Clavinova range: GrandTouch-S keys and CFX and B\u00f6sendorfer samples. Not discounted this week."
+  },
+  {
+   "id": "kawai-es60",
+   "group": "u500",
+   "name": "Kawai ES60",
+   "off": 0,
+   "best": "Best piano sound under $500",
+   "amz": "https://amzn.to/4bGtJJC",
+   "read": [
+    "https://pianoers.com/best-beginner-pianos/#3-kawai-es60",
+    "Read more"
+   ],
+   "verdict": "The best piano sound under $500, from Shigeru Kawai concert grand samples. At its usual price this week, but still my pick if tone matters most to you."
   }
- ]
+ ],
+ "hero_extra": {
+  "id": "yamaha-p-225",
+  "name": "Yamaha P-225",
+  "off": 16,
+  "img": [
+   "2026/11/Yamaha-P-225.jpg",
+   "Yamaha P-225 88-key digital piano in black"
+  ],
+  "amz": "https://link.amazon/B03U3FoDf",
+  "why": "Best Yamaha under $1,000"
+ }
 }

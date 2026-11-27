@@ -8,7 +8,7 @@ body=f'<div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));ga
 imgs={'black-friday-piano-deal-checklist':(560,page(560,'Before you buy','Is it a real Black Friday deal?',body,'Pianoers.com · Black Friday piano deals 2026'))}
 ws=white_seq('C2','C7'); kbs,kw=keyboard(ws,ww=1200/len(ws),wh=150,fill={'C4':A,'E4':A,'G4':A},stroke='#3a4449',black='#0b0f11')
 def hero(h):
-    tags=[('Kawai ES60','25%'),('Roland FP-10','24%'),('Alesis Recital Pro MKII','19%')]
+    tags=[('Roland FP-10','24%'),('Alesis Recital Pro MKII','19%'),('Casio Privia PX-S1100','18%')]
     tg=''.join(f'<div class="tag" style="transform:rotate({r}deg)"><span class="hole"></span><div><small>{n}</small><b>{p} off</b></div></div>' for (n,p),r in zip(tags,[-4,3,-2]))
     return f'''<!doctype html><html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,800&family=Schibsted+Grotesk:wght@500;700;800&display=swap" rel="stylesheet"><style>
 *{{margin:0;box-sizing:border-box}}body{{width:1200px;height:{h}px;overflow:hidden;position:relative;background:radial-gradient(900px 500px at 85% 20%,#2a3338 0%,#15191c 60%);font-family:"Schibsted Grotesk",sans-serif;color:#fff}}
@@ -19,7 +19,7 @@ p{{font-size:26px;color:#c9d4d8;margin-top:18px;line-height:1.3;width:560px}}
 .tag{{position:relative;display:flex;align-items:center;gap:16px;background:{A};color:#1b1400;border-radius:12px 40px 40px 12px;padding:{16 if h>650 else 12}px 26px 16px 22px;box-shadow:0 18px 30px rgb(0 0 0/.35)}}
 .hole{{width:16px;height:16px;border-radius:50%;background:#15191c;flex:none}}.tag small{{display:block;font-size:17px;font-weight:700}}.tag b{{display:block;font-size:{38 if h>650 else 32}px;font-weight:800;line-height:1}}
 .kb{{position:absolute;left:0;right:0;bottom:0;opacity:.95}}.b{{position:absolute;left:70px;bottom:{176 if h>650 else 168}px;font-weight:800;font-size:16px;letter-spacing:.18em;color:#7fa9b6}}
-</style></head><body><div class="t"><div class="e">LIVE NOW · UP TO 25% OFF</div><h1>Black Friday<br><span>Piano Deals</span></h1><p>Up to 25% off the digital pianos a piano teacher actually recommends.</p></div>
+</style></head><body><div class="t"><div class="e">LIVE NOW · UP TO 24% OFF</div><h1>Black Friday<br><span>Piano Deals</span></h1><p>Up to 24% off the digital pianos a piano teacher actually recommends.</p></div>
 <div class="tags">{tg}</div><div class="b">PIANOERS.COM</div>
 <div class="kb"><svg viewBox="0 0 {kw} 150" style="width:100%;display:block">{kbs}</svg></div></body></html>'''
 imgs['black-friday-piano-deals-featured']=(800,hero(800))

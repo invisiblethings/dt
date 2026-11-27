@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| Page title | Black Friday Piano Deals 2026: Up to 25% Off Roland, Kawai & More |
-| Meta title (54 chars) | Black Friday Piano Deals: Up to 25% Off Roland & Kawai |
-| Meta description (155 chars) | 🔥 Up to 25% off the digital pianos a piano teacher actually recommends: Roland FP-10 24% off, Kawai ES60 25% off. Picked and checked. Ends Cyber Monday. |
-| Excerpt | Up to 25% off the digital pianos a piano teacher recommends: Roland FP-10 24% off, Kawai ES60 25% off, Alesis Recital Pro MKII 19% off. |
+| Page title | Black Friday Piano Deals 2026: Up to 24% Off Roland, Yamaha & More |
+| Meta title (55 chars) | Black Friday Piano Deals: Up to 24% Off Roland & Yamaha |
+| Meta description (154 chars) | 🔥 Up to 24% off the digital pianos a piano teacher actually recommends: Roland FP-10 24% off, Yamaha P-225 16% off and more. Checked. Ends Cyber Monday. |
+| Excerpt | Up to 24% off the digital pianos a piano teacher recommends: Roland FP-10 24% off, Alesis Recital Pro MKII 19% off, Yamaha P-225 16% off. |
 | Author | Katarina |
 | Feature image | `black-friday-piano-deals-featured.webp`. It's used for search and share previews only (see step 3). Alt: Black Friday piano deals 2026 |
 | Facebook / X image | `black-friday-piano-deals-social.webp` |
@@ -33,11 +33,11 @@ The page shows **percentages only, no dollar prices**. It covers all **14 digita
 
 | Budget | On sale | No deal |
 |---|---|---|
-| Under $500 | Kawai ES60 −25%, Roland FP-10 −24%, Donner DEP-20 −22%, Alesis Recital Pro MKII −19%, Yamaha P-45 −11% | Yamaha P-145BT |
+| Under $500 | Roland FP-10 −24%, Donner DEP-20 −22%, Alesis Recital Pro MKII −19%, Yamaha P-45 −11% | Yamaha P-145BT, Kawai ES60 (usual price, $449) |
 | Under $1,000 | Casio PX-S1100 −18%, Yamaha P-225 −16% | Roland FP-30X, Kawai ES120 |
 | $1,000 and up | (none) | Kawai ES920, Roland FP-90X, Kawai KDP120, Yamaha CLP-835 |
 
-- **Full verdict cards:** the 4 teacher picks on sale (FP-10, ES60, Alesis MKII, PX-S1100).
+- **Full verdict cards:** the 3 teacher picks on sale (FP-10, Alesis MKII, PX-S1100). The hero tiles are those 3 plus the Yamaha P-225.
 - **Compact cards:** the other 10. Each has a "Get the deal" button (on sale) or "View on Amazon" (no deal), plus a link to its review or its section in Best Digital Pianos.
 - **Left out:** Kawai CN301 and Yamaha CLP-885 (no Amazon link yet), the Korg B2 (sold out) and the Loog (kids).
 
