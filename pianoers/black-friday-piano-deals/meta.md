@@ -4,10 +4,10 @@
 
 | Field | Value |
 |---|---|
-| Page title | Black Friday Piano Deals 2026: 6 Digital Pianos Worth Buying |
-| Meta title (55 chars) | Black Friday Piano Deals 2026: 6 Pianos Worth Buying |
-| Meta description (152 chars) | The 6 digital pianos a piano teacher recommends this Black Friday, the price that makes each a real deal, and a quick checker for today's price. |
-| Excerpt | Six tested digital pianos, the price that makes each one a real deal, and a deal checker that tells you if today's price is worth it. |
+| Page title | Black Friday Piano Deals 2026: Up to 25% Off Roland, Kawai & More |
+| Meta title (54 chars) | Black Friday Piano Deals: Up to 25% Off Roland & Kawai |
+| Meta description (155 chars) | 🔥 Up to 25% off the digital pianos a piano teacher actually recommends: Roland FP-10 24% off, Kawai ES60 25% off. Picked and checked. Ends Cyber Monday. |
+| Excerpt | Up to 25% off the digital pianos a piano teacher recommends: Roland FP-10 24% off, Kawai ES60 25% off, Alesis Recital Pro MKII 19% off. |
 | Author | Katarina |
 | Feature image | `black-friday-piano-deals-featured.webp`. It's used for search and share previews only (see step 3). Alt: Black Friday piano deals 2026 |
 | Facebook / X image | `black-friday-piano-deals-social.webp` |
@@ -28,17 +28,17 @@
 5. Install theme **1.7.6**, so the site banner links here until Cyber Monday ends.
 6. Request indexing in Search Console straight away.
 
-## Amazon prices
-As I understand Amazon's Associates Program Policies, you can't type Amazon prices or discounts ("‑24%", "$419.99") into your site by hand. Prices may only appear if they come from Amazon's Product Advertising API, refreshed at least every 24 hours, with a timestamp and Amazon's price disclaimer. Check the current wording in Associates Central under **Program Policies** and **Operating Agreement** before you add any.
+## Discounts
+The page shows **percentages only, no dollar prices**, based on your checks on November 27:
+- Kawai ES60: **25% off** its $599 list price
+- Roland FP-10: **24% off** its list price (Amazon's own figure)
+- Alesis Recital Pro MKII: **19% off** its usual ~$350
+- Casio PX-S1100: **18% off** its usual ~$730
+- Yamaha P-145BT and Roland FP-30X: **not on sale**, shown in a separate "Not on sale this week" section
 
-So this page shows no Amazon prices. Instead:
-- **"Deal if under":** your own target price for each piano, which is editorial advice, not an Amazon price.
-- **The deal checker:** readers type in the price they see on Amazon and get a verdict.
-- **Buttons:** every card's button opens the live Amazon price.
+The disclosure under the hero says the discounts were checked on November 27 and that Amazon prices change often.
 
-Your checks today: FP-10 $419, Kawai ES60 $449, Alesis MKII $285 and Casio PX-S1100 $599 are all under target, so they're real deals. Yamaha P-145BT $499 and Roland FP-30X $799 are over target. I raised the FP-30X target from $620 to $700 to match today's market.
-
-**Your other guides:** cards like "Street price about $500, checked Oct 6" on /best-beginner-pianos/ are a grey area under the same rule. The safest wording is the maker's list price (e.g. "List price $499.99") or no price at all.
+**Keep it accurate:** Amazon deals can end overnight. Check each one daily until Cyber Monday. If a discount changes, tell me the new prices and I'll update the percentages, or edit the numbers in `picks.json` and run `build_page.py`. Amazon's rules on price and discount claims expect them to be current, so a stale "24% off" is the biggest risk here.
 
 ## Links in
 - **Homepage:** a card or link near the top until Cyber Monday.
