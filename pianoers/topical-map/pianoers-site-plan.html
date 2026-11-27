@@ -1,0 +1,500 @@
+<title>Pianoers Site Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Schibsted+Grotesk:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: one reading column; a two-band "how the site works" diagram, then a phased checklist, then a cluster explorer. Brand teal = supporting pages, amber = money pages. */
+:root{
+  --bg:#f6f8f8; --surface:#ffffff; --ink:#15262a; --muted:#566a6f; --line:#d7e1e3;
+  --teal:#0f6e74; --teal-soft:#e2f1f1; --amber:#b86a0a; --amber-soft:#fbefdc;
+  --good:#2f7d46; --good-soft:#e3f3e7; --warn:#a15c00; --bad:#b3372f; --bad-soft:#f9e3e1; --info-soft:#e8eef7; --info:#35558a;
+  --display:"Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body:"Lora", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1719; --surface:#162226; --ink:#e4eef0; --muted:#9db1b5; --line:#2a3a3f;
+  --teal:#5cc3c8; --teal-soft:#16343a; --amber:#f0a94a; --amber-soft:#3a2a12;
+  --good:#6cc487; --good-soft:#163222; --warn:#f0a94a; --bad:#f08a80; --bad-soft:#3a1b18; --info-soft:#1b2740; --info:#9db8e8; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1719; --surface:#162226; --ink:#e4eef0; --muted:#9db1b5; --line:#2a3a3f;
+  --teal:#5cc3c8; --teal-soft:#16343a; --amber:#f0a94a; --amber-soft:#3a2a12;
+  --good:#6cc487; --good-soft:#163222; --warn:#f0a94a; --bad:#f08a80; --bad-soft:#3a1b18; --info-soft:#1b2740; --info:#9db8e8; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3,.ui{font-family:var(--display)}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.1;margin:0;font-weight:800;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:26px;line-height:1.2;margin:0 0 6px;font-weight:800;text-wrap:balance}
+h3{font-size:18px;margin:0;font-weight:700}
+p{margin:0}
+.lede{font-size:19px;color:var(--muted);max-width:62ch}
+.eyebrow{font-family:var(--display);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700}
+.sec-head{display:flex;flex-direction:column;gap:6px;margin-bottom:20px;max-width:65ch}
+.sec-head p{color:var(--muted)}
+header.top{padding-top:40px;display:flex;flex-direction:column;gap:16px}
+
+/* key strip */
+.keys{height:14px;display:grid;grid-template-columns:repeat(14,1fr);gap:2px;max-width:280px}
+.keys i{background:var(--surface);border:1px solid var(--line);border-radius:0 0 3px 3px;position:relative}
+.keys i.b{background:var(--ink);border-color:var(--ink)}
+
+/* big three ideas */
+.ideas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.idea{display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:3px solid var(--teal)}
+.idea:nth-child(2){border-color:var(--amber)}
+.idea h3{font-size:17px}
+.idea p{color:var(--muted);font-size:16px}
+
+/* diagram */
+.diagram{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.band-label{font-family:var(--display);font-size:13px;font-weight:700;color:var(--muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.band{display:grid;gap:10px}
+.band.outer{grid-template-columns:repeat(4,1fr)}
+.band.core{grid-template-columns:repeat(2,1fr)}
+.cl{font-family:var(--display);text-align:left;border-radius:10px;padding:12px 14px;border:1.5px solid transparent;cursor:pointer;display:flex;flex-direction:column;gap:2px;min-width:0;color:var(--ink);font-size:15px}
+.cl b{font-weight:700;font-size:16px}
+.cl span{font-size:13px;color:var(--muted)}
+.cl.o{background:var(--teal-soft)} .cl.c{background:var(--amber-soft)}
+.cl:hover,.cl:focus-visible{border-color:currentColor;outline:none}
+.cl.o:hover,.cl.o:focus-visible{border-color:var(--teal)} .cl.c:hover,.cl.c:focus-visible{border-color:var(--amber)}
+.arrow{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:13px;color:var(--muted)}
+.arrow::before,.arrow::after{content:"";flex:1;height:1px;background:var(--line)}
+.arrow em{font-style:normal;white-space:nowrap}
+.pianists{font-family:var(--display);font-size:13px;color:var(--muted)}
+.pianists button{all:unset;cursor:pointer;color:var(--teal);text-decoration:underline;text-underline-offset:2px}
+.pianists button:focus-visible{outline:2px solid var(--teal)}
+@media (max-width:720px){.band.outer{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:420px){.band.core{grid-template-columns:1fr}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.stat .n{font-family:var(--display);font-size:28px;font-weight:800;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:8px}
+.stat .n small{font-size:15px;color:var(--muted);font-weight:500}
+.stat p{font-size:15px;color:var(--muted)}
+
+/* progress + phases */
+.progress{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:12px 0;display:flex;align-items:center;gap:14px;font-family:var(--display);font-size:14px;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.bar{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--good);width:0;transition:width .3s}
+.progress b{font-variant-numeric:tabular-nums}
+.save{font-size:12px;color:var(--muted);white-space:nowrap}
+.phases{display:flex;flex-direction:column;gap:14px;margin-top:16px}
+details.phase{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+details.phase>summary{list-style:none;cursor:pointer;padding:16px 18px;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}
+details.phase>summary::-webkit-details-marker{display:none}
+details.phase>summary:focus-visible{outline:2px solid var(--teal);border-radius:12px}
+.step{font-family:var(--display);font-weight:800;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--teal-soft);color:var(--teal);font-size:15px}
+.phase.done .step{background:var(--good);color:var(--surface)}
+.ph-t{display:flex;flex-direction:column;min-width:0}
+.ph-t h3{font-size:17px}
+.ph-t span{font-family:var(--display);font-size:13px;color:var(--muted)}
+.ph-c{font-family:var(--display);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ph-body{padding:0 18px 18px;display:flex;flex-direction:column;gap:6px}
+.ph-why{font-size:15px;color:var(--muted);margin-bottom:6px;max-width:65ch}
+.task{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;padding:8px 0;border-top:1px solid var(--line)}
+.task input{width:18px;height:18px;margin:3px 0 0;accent-color:var(--good);cursor:pointer}
+.task label{cursor:pointer;display:flex;flex-direction:column;gap:2px;min-width:0}
+.task .t{font-family:var(--display);font-size:15px;font-weight:500}
+.task .d{font-size:14.5px;color:var(--muted)}
+.task.is-done .t{text-decoration:line-through;color:var(--muted)}
+
+/* chips */
+.chip{display:inline-block;font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:5px;vertical-align:1px;margin-right:6px}
+.c-keep{background:var(--good-soft);color:var(--good)}
+.c-expand{background:var(--info-soft);color:var(--info)}
+.c-rewrite{background:var(--amber-soft);color:var(--amber)}
+.c-remove{background:var(--bad-soft);color:var(--bad)}
+.c-new{background:var(--teal-soft);color:var(--teal)}
+.c-p1{background:var(--ink);color:var(--surface)}
+.c-p2{background:var(--line);color:var(--ink)}
+.c-p3{background:transparent;color:var(--muted);border:1px solid var(--line)}
+
+/* explorer */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tab{font-family:var(--display);font-size:14px;font-weight:500;padding:7px 12px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tab:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:18px}
+.panel-top{display:flex;flex-direction:column;gap:6px}
+.panel-top .hub{font-family:var(--display);font-size:14px;color:var(--muted)}
+.panel-top .hub code{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--ink)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+.col{min-width:0;display:flex;flex-direction:column}
+.col h4{font-family:var(--display);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-family:var(--display);font-size:13px;color:var(--muted);margin-top:12px}
+
+/* tags */
+.tagflow{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.tagbox{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.tagbox h3{font-size:16px}
+.tagrow{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:baseline;font-size:15px}
+.tagrow code{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;white-space:nowrap}
+.tagrow span{color:var(--muted)}
+.del code{text-decoration:line-through;color:var(--bad)}
+.rule-note{font-family:var(--display);font-size:14px;color:var(--muted);margin-top:4px}
+
+/* rules */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.rule{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.rule h3{font-size:16px}
+.rule p{font-size:15px;color:var(--muted)}
+.chain{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:16px;font-family:var(--display);font-size:13.5px}
+.chain span{background:var(--amber-soft);color:var(--ink);padding:5px 10px;border-radius:6px}
+.chain i{font-style:normal;color:var(--muted)}
+.note{font-size:15px;color:var(--muted);border-left:3px solid var(--line);padding-left:14px;max-width:70ch}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+
+<div class="wrap">
+
+<header class="top">
+  <div class="keys" aria-hidden="true"><i></i><i class="b"></i><i></i><i class="b"></i><i></i><i></i><i class="b"></i><i></i><i class="b"></i><i></i><i class="b"></i><i></i><i></i><i class="b"></i></div>
+  <span class="eyebrow">Pianoers.com · Topical map · Oct 2026</span>
+  <h1>How Pianoers should be built, and what to do next</h1>
+  <p class="lede">Google trusts a site that covers its whole subject and connects it well. Your subject is "starting piano": what to buy and how to learn. This page shows the plan in five steps. Tick tasks as you finish them, and your progress is saved.</p>
+</header>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">The idea in 30 seconds</span><h2>Three things to remember</h2></div>
+  <div class="ideas">
+    <div class="idea"><h3>1. One subject, covered fully</h3><p>Every post should help someone start playing piano. Posts that don't, like a viral-kid profile, weaken the site's focus.</p></div>
+    <div class="idea"><h3>2. Money pages and supporting pages</h3><p>Two groups earn money: digital pianos and online courses. Four groups exist to build trust: learning, care, the instrument, and pianists.</p></div>
+    <div class="idea"><h3>3. Supporting pages link to money pages</h3><p>Each supporting post sends readers on to a money page with a natural sentence and link. That passes trust where it pays.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">The structure</span><h2>Your site in one picture</h2><p>Click a group to see every post in it, what to do with it, and what to write next.</p></div>
+  <div class="diagram">
+    <div class="band-label"><span>Supporting pages: build trust</span><span>teal</span></div>
+    <div class="band outer" id="band-outer"></div>
+    <div class="arrow"><em>link to, with a natural sentence</em></div>
+    <div class="band-label"><span>Money pages: earn from Amazon and course affiliates</span><span>amber</span></div>
+    <div class="band core" id="band-core"></div>
+    <p class="pianists">Plus a small sixth group, <button type="button" data-goto="pianists">Pianists</button>. Keep it only where a biography leads to lessons or jazz courses.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Where you are</span><h2>Today and after the plan</h2></div>
+  <div class="stats">
+    <div class="stat"><div class="n">38 <small>→ about 84 posts</small></div><p>46 new posts fill the gaps. Only 1 post may be removed.</p></div>
+    <div class="stat"><div class="n">16 <small>→ 0 orphan posts</small></div><p>Posts no other article links to. Fixed in step 1.</p></div>
+    <div class="stat"><div class="n">10 <small>→ 9 tags</small></div><p>3 deleted, 1 added, every tag with 3 or more posts.</p></div>
+    <div class="stat"><div class="n">3 <small>missing reviews</small></div><p>Courses your lessons page ranks but never reviews.</p></div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="sec-head"><span class="eyebrow">The plan</span><h2>Five steps, in order</h2><p>Finish one step before starting the next. 2 to 3 posts a week, kept up, works better than a burst and then silence.</p></div>
+  <div class="progress" role="status"><b id="pct">0%</b><div class="bar"><i id="barfill"></i></div><span id="count">0 of 0 done</span><span class="save" id="save">Loading…</span></div>
+  <div class="phases" id="phases"></div>
+</section>
+
+<section id="explore">
+  <div class="sec-head"><span class="eyebrow">Group by group</span><h2>Every post, and what to do with it</h2><p>Left: your existing posts. Right: posts to write. Ticks here are the same as in the plan.</p></div>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="panel" id="panel" role="tabpanel"></div>
+  <div class="legend">
+    <span><span class="chip c-keep">Keep</span>small fixes only</span>
+    <span><span class="chip c-expand">Expand</span>add missing sections</span>
+    <span><span class="chip c-rewrite">Rewrite</span>same URL, new angle</span>
+    <span><span class="chip c-remove">Remove</span>301 redirect, check Search Console first</span>
+    <span><span class="chip c-p1">P1</span><span class="chip c-p2">P2</span><span class="chip c-p3">P3</span>write first, next, later</span>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Tags</span><h2>Tags: before and after</h2><p>Each tag is one group from the picture above. In Ghost the first tag on a post sets its breadcrumb and related posts, so put the group tag first.</p></div>
+  <div class="tagflow">
+    <div class="tagbox"><h3>Keep and tidy</h3>
+      <div class="tagrow"><code>pianos</code><span>Digital Pianos &amp; Keyboards. Add acoustic-vs-digital.</span>
+      <code>courses</code><span>Piano Course Reviews. Add Pianote.</span>
+      <code>apps</code><span>Piano Learning Apps. Add Flowkey, Simply Piano, Skoove, Pianote as a second tag.</span>
+      <code>jazz-piano</code><span>Add Open Studio and Piano With Jonny.</span>
+      <code>lessons</code><span>Rename to "Learn Piano". Guides only, remove it from reviews.</span>
+      <code>books</code><span>Add Bastien and the methods post.</span>
+      <code>care</code><span>Remove "2025" from the description.</span>
+      <code>pianists</code><span>No change.</span></div>
+    </div>
+    <div class="tagbox"><h3>Add</h3>
+      <div class="tagrow"><code>the-piano</code><span>"The Piano: How It Works". Move the how-the-piano-works and ivory posts here.</span></div>
+      <h3 style="margin-top:8px">Delete</h3>
+      <div class="tagrow del"><code>buying-guides</code><span>Duplicate of pianos. Redirect /tag/buying-guides/ to /tag/pianos/.</span>
+      <code>practice</code><span>One post. Move it to lessons, redirect to /tag/lessons/.</span>
+      <code>#hash-import…</code><span>Leftover from an import.</span></div>
+      <p class="rule-note">Every tag gets a 1 to 2 sentence description that links its main post.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="eyebrow">Writing</span><h2>Rules for every post</h2></div>
+  <div class="rules">
+    <div class="rule"><h3>One topic per page</h3><p>The URL, title, H1 and first sentence all name the same thing.</p></div>
+    <div class="rule"><h3>Answer first</h3><p>The first sentence under each heading gives the answer. Explain after.</p></div>
+    <div class="rule"><h3>Headings in the reader's order</h3><p>What it is, who it's for, how it works, price, pros and cons, alternatives, verdict.</p></div>
+    <div class="rule"><h3>Something only you have</h3><p>Your test notes, photos, a recording or a real student timeline. This is what beats big sites.</p></div>
+    <div class="rule"><h3>Links inside the text</h3><p>3 to 8 per post, with descriptive words ("our Roland FP-10 review", never "here"). Link to the group's main post and 1 or 2 neighbours.</p></div>
+    <div class="rule"><h3>Same words everywhere</h3><p>"Digital piano" means 88 weighted keys, "keyboard" means the rest. Always recommend 88 weighted keys.</p></div>
+    <div class="rule"><h3>Real updates only</h3><p>Change the "Updated" date only when prices or facts change.</p></div>
+    <div class="rule"><h3>Check before deleting</h3><p>Any post with clicks in Search Console over the last 12 months gets rewritten, not removed.</p></div>
+  </div>
+  <div class="chain" aria-label="Order of sections in every course review">
+    <span>What it is</span><i>→</i><span>Who it's for</span><i>→</i><span>How lessons work</span><i>→</i><span>Levels</span><i>→</i><span>Songs and genres</span><i>→</i><span>Devices</span><i>→</i><span>Price</span><i>→</i><span>Trial and refund</span><i>→</i><span>Liked</span><i>→</i><span>Missing</span><i>→</i><span>vs alternatives</span><i>→</i><span>Verdict</span>
+  </div>
+  <p class="note" style="margin-top:12px">Every course review uses the sections above, in this order. Readers can compare, and Google learns the pattern.</p>
+</section>
+
+<p class="note">Built from a crawl of all 38 posts and the October 2026 audit, following Koray Tuğberk GÜBÜR's Semantic SEO approach. No search-volume data was available, so the priorities come from what earns money and from gaps your own pages already point to. No plan can guarantee rankings. Expect results over months. The full written version is <code>pianoers/topical-map/TOPICAL-MAP.md</code> in your repo.</p>
+
+</div>
+
+<script>
+const CLUSTERS = [
+  {id:"pianos", kind:"c", name:"Digital pianos", sub:"Amazon money", hub:"/best-digital-piano/", tag:"pianos",
+   about:"Which piano or keyboard to buy. The main post covers every budget. The beginner list owns every \"beginner\" search."},
+  {id:"courses", kind:"c", name:"Courses & apps", sub:"Course affiliate money", hub:"/best-piano-lessons-online/", tag:"courses, apps, jazz-piano",
+   about:"Which course or app to learn with. One review per product, all with the same sections, plus comparisons and alternatives."},
+  {id:"learn", kind:"o", name:"Learn to play", sub:"Skills & practice", hub:"/teach-yourself-piano/", tag:"lessons (Learn Piano), books",
+   about:"The skills between the first lesson and playing songs. Each post links on to the courses page or the beginner pianos page."},
+  {id:"care", kind:"o", name:"Piano care", sub:"Tuning, humidity, repair", hub:"/how-to-clean-and-maintain-your-piano/ (expand into the hub)", tag:"care",
+   about:"Looking after a piano. A natural bridge: \"a digital piano avoids all of this\" links to the pianos group."},
+  {id:"instrument", kind:"o", name:"The instrument", sub:"Types, parts, keys", hub:"New post: Types of pianos", tag:"the-piano (new)",
+   about:"The piano itself, which is the root of the whole subject. Almost missing today. Every big competitor covers it."},
+  {id:"pianists", kind:"o", name:"Pianists", sub:"Bridges only", hub:"/tag/pianists/ (tag page)", tag:"pianists",
+   about:"Biographies only where they lead somewhere: jazz pianists to jazz courses, late starters to adult lessons."},
+];
+
+// Existing posts. a = action, ph = phase number when there is work to do.
+const EXISTING = [
+  ["pianos","/best-digital-piano/","keep","Main post. Cut its beginner section to a short summary linking the beginner list.",4],
+  ["pianos","/best-beginner-pianos/","keep","Owns every \"beginner\" search."],
+  ["pianos","/yamaha-p-145-review/","keep",""],
+  ["pianos","/loog-piano/","keep","Will link to the new kids keyboard list."],
+  ["pianos","/acoustic-vs-digital-piano/","expand","681 words. Grow it to about 1,800: sound, touch, 10-year cost, upkeep, space, resale.",4],
+  ["courses","/best-piano-lessons-online/","keep","Main post. Link to every review."],
+  ["courses","/best-free-piano-learning-apps/","rewrite","Make it only about free options. Drop \"& Paid\" from the title.",4],
+  ["courses","/pianoforall-review/","keep","Use the standard review sections."],
+  ["courses","/simply-piano-review…/","keep","Use the standard review sections."],
+  ["courses","/flowkey-review/","keep","Use the standard review sections."],
+  ["courses","/skoove-review/","keep","Use the standard review sections."],
+  ["courses","/pianote-review/","keep","Use the standard review sections."],
+  ["courses","/synthesia-piano-review/","expand","886 words. Use the full review sections.",4],
+  ["courses","/pianovision-review/","expand","Use the full review sections.",4],
+  ["courses","/hdpiano-review/","expand","997 words. Also fix \"Assesment\" in the title.",4],
+  ["courses","/piano-with-jonny-review/","expand","729 words. Joins the jazz group.",4],
+  ["courses","/open-studio-jazz-review/","expand","868 words. Joins the jazz group.",4],
+  ["courses","/piano-career-academy-review/","keep","Change \"(2025)\" in the title."],
+  ["courses","/worship-music-academy-review/","expand","731 words. Lower priority (church pianists).",5],
+  ["courses","/stephen-ridley/","rewrite","Make it a neutral, evidence-based review. The audit flagged a defamation risk.",1],
+  ["learn","/teach-yourself-piano/","keep","Main post. Link each new skill post from here."],
+  ["learn","/piano-basics-a-beginners-guide-to-the-keyboard/","keep",""],
+  ["learn","/piano-practice-4-tips-to-successful-sessions/","keep","Retitle: \"How to practice piano…\". Move to the lessons tag."],
+  ["learn","/best-piano-books-for-adult-beginners/","keep","Amazon money page inside this group."],
+  ["learn","/5-best-piano-methods-to-learn-quickly/","rewrite","Make it \"Piano teaching methods compared: Faber, Alfred, Bastien, Suzuki\".",4],
+  ["learn","/bastien-piano-method…/","keep","Move to the books tag."],
+  ["care","/how-to-clean-and-maintain-your-piano/","expand","Becomes the care hub, with one section and a link for each care post.",3],
+  ["care","/climate-control-and-your-piano/","keep","Humidity sub-hub."],
+  ["care","/piano-humidifier/","rewrite","Make it the dry-room product guide (Dampp-Chaser vs room humidifiers).",4],
+  ["care","/piano-dehumidifier-101…/","keep","Damp-room product guide."],
+  ["care","/piano-tuning-when-and-why-its-needed/","keep","Link to the new tuning cost post."],
+  ["care","/how-to-tune-a-piano-a-simple-guide/","keep","After the safety fixes from the audit."],
+  ["care","/piano-diy-repair-guide/","rewrite","New title: \"Piano DIY repair: sticky keys, squeaky pedals, buzzing strings\".",4],
+  ["instrument","/how-the-piano-works/","expand","Move from care to the new tag. Add a diagram.",4],
+  ["instrument","/are-piano-keys-still-made-of-ivory/","keep","Move to the new tag. Fix the history errors from the audit."],
+  ["pianists","/lang-lang-the-biography/","keep","Add how he practised, with a link to the practice guide."],
+  ["pianists","/ahmad-jamal-biography/","keep","Link to the jazz courses."],
+  ["pianists","/cole-lam-the-piano-prodigy/","remove","Redirect to /tag/pianists/, unless Search Console shows real clicks.",1],
+];
+
+// New posts: cluster, title, priority, note
+const NEW = [
+  ["pianos","Roland FP-10 review",1,""],
+  ["pianos","Yamaha P-145 vs Roland FP-10",1,""],
+  ["pianos","Best keyboard for kids (by age)",1,"Links to the Loog review."],
+  ["pianos","Do you need 88 keys? Weighted vs unweighted keys",1,"The answer: 88 weighted."],
+  ["pianos","Best digital piano under $1,000",2,""],
+  ["pianos","Casio PX-S1100 review",2,""],
+  ["pianos","Kawai ES120 review",2,""],
+  ["pianos","Yamaha vs Roland vs Kawai vs Casio: which brand?",2,""],
+  ["pianos","Best piano bench, best sustain pedal, best headphones (3 posts)",2,"Amazon accessories."],
+  ["pianos","Best digital piano for small spaces",3,""],
+  ["pianos","Digital piano specs explained (polyphony, action, MIDI)",3,""],
+  ["courses","Playground Sessions review",1,"Already ranked on the lessons page. Prices are gathered."],
+  ["courses","Piano Marvel review",1,"Already ranked on the lessons page."],
+  ["courses","Piano by Pictures review",1,"Uses your /pbp affiliate link."],
+  ["courses","Simply Piano vs Flowkey",1,""],
+  ["courses","Pianoforall vs Simply Piano",1,"Matches the quiz on the lessons page."],
+  ["courses","Simply Piano alternatives",2,""],
+  ["courses","Skoove vs Simply Piano",2,""],
+  ["courses","Pianote vs Playground Sessions",2,""],
+  ["courses","Best online piano lessons for adults",2,""],
+  ["courses","Best online piano lessons for kids",2,""],
+  ["courses","Best jazz piano courses online",2,"Main post of the jazz group."],
+  ["courses","Best piano apps for iPad",3,""],
+  ["courses","Are online piano lessons worth it?",3,"Compared with a private teacher, with costs."],
+  ["learn","How long does it take to learn piano?",1,"The biggest missing question."],
+  ["learn","How to read sheet music for piano",1,""],
+  ["learn","Piano chords for beginners",1,"Use the theme's play-a-chord box."],
+  ["learn","Learning piano as an adult",1,""],
+  ["learn","Piano scales for beginners",2,""],
+  ["learn","How to play piano with both hands",2,""],
+  ["learn","Easy piano songs for beginners",2,""],
+  ["learn","Piano finger numbers and hand position",3,""],
+  ["learn","How much should you practice each day?",3,""],
+  ["learn","Best piano books for kids",3,""],
+  ["care","How much does piano tuning cost?",1,"Results are full of weak pages, so it's a good chance."],
+  ["care","How to move a piano",2,""],
+  ["care","How to clean a digital piano",2,"Leads into the pianos group."],
+  ["care","Buying a used piano: inspection checklist",2,""],
+  ["instrument","Types of pianos: grand, upright, digital, hybrid",1,"Main post of this group."],
+  ["instrument","Parts of a piano (labelled diagram)",2,""],
+  ["instrument","Piano pedals explained",2,""],
+  ["instrument","How many keys does a piano have?",2,"Links to the 88-keys post."],
+  ["instrument","Upright vs grand piano",3,""],
+  ["instrument","History of the piano",3,"Short, accurate, with sources."],
+  ["pianists","Famous jazz pianists and what to learn from each",3,"Leads to the jazz courses."],
+  ["pianists","Famous pianists who started late",3,"Leads to adult lessons."],
+];
+
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const items = {}; // id -> {title, desc, chips, phase}
+EXISTING.forEach(([c,url,a,note,ph])=>{ const id="e"+slug(url); items[id]={id,cluster:c,title:url,desc:note,kind:"existing",action:a,phase:ph||0}; });
+NEW.forEach(([c,t,p,note])=>{
+  const id="n"+slug(t);
+  const core = c==="pianos"||c==="courses";
+  const phase = p===1 ? (core?2:3) : p===2 ? 4 : 5;
+  items[id]={id,cluster:c,title:t,desc:note,kind:"new",prio:p,phase};
+});
+const BASE = [
+  ["t-tags","Clean up tags","Delete buying-guides, practice and the import tag. Create the-piano. Rename lessons to \"Learn Piano\". Add the redirects."],
+  ["t-tagfill","Fill and order tags","Every tag gets 3+ posts and a description. The group tag goes first on every post."],
+  ["t-author","Make the author consistent","One real bio and credentials on the author page, the posts and the About page."],
+  ["t-links","Add the internal links","Use the link list from the audit (clusters-internal-links.md, section 3). Fixes the 16 orphan posts."],
+  ["t-howtest","Publish a \"How we test\" page","How you test pianos and courses, for how long, and that nobody pays for a ranking."],
+  ["t-disclosure","Publish an affiliate disclosure page","Link it from the footer and the affiliate notice."],
+  ["t-menu","Menu by group, plus a \"Start here\" page","Menu: Digital Pianos · Lessons & Apps · Learn Piano · Piano Care · Start here."],
+];
+BASE.forEach(([id,t,d])=>{ items[id]={id,title:t,desc:d,kind:"base",phase:1}; });
+
+const PHASES = [
+  {n:1,title:"Fix the base",when:"Weeks 1–2",why:"No new posts yet. These changes make every later post count more."},
+  {n:2,title:"Fill the money gaps",when:"Weeks 3–8",why:"Reviews and comparisons your money pages already point to. These earn first."},
+  {n:3,title:"Fill the biggest supporting gaps",when:"Weeks 9–12",why:"The most-asked learning questions, tuning cost, and the instrument group."},
+  {n:4,title:"Second wave and improvements",when:"Months 4–6",why:"P2 posts, and the rewrites and expansions of existing posts. Finish one group before the next."},
+  {n:5,title:"Depth",when:"Month 6 onward",why:"P3 posts. Refresh reviews whenever a price or app changes."},
+];
+
+let done = {};
+let store = null, docRef = null, writing = false, pending = false;
+const LS = "pz-siteplan-done";
+try { done = JSON.parse(localStorage.getItem(LS)||"{}")||{}; } catch(e) {}
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const CNAME = Object.fromEntries(CLUSTERS.map(c=>[c.id,c.name]));
+
+function chipsFor(it){
+  if(it.kind==="new") return `<span class="chip c-new">New</span><span class="chip c-p${it.prio}">P${it.prio}</span>`;
+  if(it.kind==="existing") return `<span class="chip c-${it.action}">${it.action[0].toUpperCase()+it.action.slice(1)}</span>`;
+  return "";
+}
+function taskHTML(it, showCluster){
+  const extra = showCluster && it.cluster ? `${CNAME[it.cluster]}${it.desc?" · ":""}` : "";
+  const d = extra + (it.desc||"");
+  return `<div class="task${done[it.id]?" is-done":""}" data-id="${it.id}">
+    <input type="checkbox" id="cb-${it.id}-${showCluster?"p":"x"}" ${done[it.id]?"checked":""}>
+    <label for="cb-${it.id}-${showCluster?"p":"x"}"><span class="t">${chipsFor(it)}${esc(it.title)}</span>${d?`<span class="d">${esc(d)}</span>`:""}</label></div>`;
+}
+const workItems = () => Object.values(items).filter(it=>it.phase>0);
+
+function renderDiagram(){
+  const btn = c => `<button type="button" class="cl ${c.kind}" data-goto="${c.id}"><b>${c.name}</b><span>${c.sub}</span></button>`;
+  $("#band-outer").innerHTML = CLUSTERS.filter(c=>c.kind==="o"&&c.id!=="pianists").map(btn).join("");
+  $("#band-core").innerHTML = CLUSTERS.filter(c=>c.kind==="c").map(btn).join("");
+}
+function renderPhases(){
+  const openNow = [...document.querySelectorAll("details.phase[open]")].map(d=>d.dataset.n);
+  const firstOpen = PHASES.find(p=>workItems().filter(i=>i.phase===p.n).some(i=>!done[i.id]));
+  $("#phases").innerHTML = PHASES.map(p=>{
+    const list = workItems().filter(i=>i.phase===p.n).sort((a,b)=>(a.kind==="base"?0:1)-(b.kind==="base"?0:1));
+    const d = list.filter(i=>done[i.id]).length;
+    const isOpen = openNow.length ? openNow.includes(String(p.n)) : (firstOpen && firstOpen.n===p.n);
+    return `<details class="phase${d===list.length?" done":""}" data-n="${p.n}" ${isOpen?"open":""}>
+      <summary><span class="step">${d===list.length?"✓":p.n}</span><span class="ph-t"><h3>${p.title}</h3><span>${p.when}</span></span><span class="ph-c">${d} / ${list.length}</span></summary>
+      <div class="ph-body"><p class="ph-why">${p.why}</p>${list.map(i=>taskHTML(i,true)).join("")}</div></details>`;
+  }).join("");
+  const all = workItems(); const n = all.filter(i=>done[i.id]).length;
+  const pct = Math.round(n/all.length*100);
+  $("#pct").textContent = pct+"%"; $("#barfill").style.width = pct+"%"; $("#count").textContent = `${n} of ${all.length} done`;
+}
+let current = "pianos";
+function renderTabs(){
+  $("#tabs").innerHTML = CLUSTERS.map(c=>`<button class="tab" role="tab" id="tab-${c.id}" aria-selected="${c.id===current}" data-tab="${c.id}">${c.name}</button>`).join("");
+}
+function renderPanel(){
+  const c = CLUSTERS.find(x=>x.id===current);
+  const ex = Object.values(items).filter(i=>i.kind==="existing"&&i.cluster===c.id);
+  const nw = Object.values(items).filter(i=>i.kind==="new"&&i.cluster===c.id).sort((a,b)=>a.prio-b.prio);
+  $("#panel").setAttribute("aria-labelledby","tab-"+c.id);
+  $("#panel").innerHTML = `<div class="panel-top"><h3>${c.name} <span class="chip ${c.kind==="c"?"c-rewrite":"c-new"}" style="margin-left:6px">${c.kind==="c"?"Money":"Supporting"}</span></h3>
+    <p>${c.about}</p><p class="hub">Main post: <code>${esc(c.hub)}</code> · Tag: <code>${esc(c.tag)}</code></p></div>
+    <div class="cols"><div class="col"><h4>Existing posts (${ex.length})</h4>${ex.map(i=>i.phase?taskHTML(i,false):`<div class="task"><span></span><label><span class="t">${chipsFor(i)}${esc(i.title)}</span>${i.desc?`<span class="d">${esc(i.desc)}</span>`:""}</label></div>`).join("")}</div>
+    <div class="col"><h4>Posts to write (${nw.length})</h4>${nw.map(i=>taskHTML(i,false)).join("")}</div></div>`;
+}
+function renderAll(){ renderPhases(); renderPanel(); }
+
+async function persist(){
+  try { localStorage.setItem(LS, JSON.stringify(done)); } catch(e) {}
+  if(!docRef){ $("#save").textContent = "Saved in this browser"; return; }
+  if(writing){ pending = true; return; }
+  writing = true; $("#save").textContent = "Saving…";
+  try { await docRef.set({done}); $("#save").textContent = "Saved"; }
+  catch(e){ $("#save").textContent = "Couldn't save online, kept in this browser"; }
+  writing = false;
+  if(pending){ pending = false; persist(); }
+}
+let saveTimer;
+document.addEventListener("change", e=>{
+  const t = e.target.closest(".task"); if(!t||e.target.type!=="checkbox") return;
+  const id = t.dataset.id;
+  if(e.target.checked) done[id] = true; else delete done[id];
+  renderAll();
+  clearTimeout(saveTimer); saveTimer = setTimeout(persist, 600);
+});
+document.addEventListener("click", e=>{
+  const g = e.target.closest("[data-goto]");
+  if(g){ current = g.dataset.goto; renderTabs(); renderPanel(); $("#explore").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}); return; }
+  const tb = e.target.closest("[data-tab]");
+  if(tb){ current = tb.dataset.tab; renderTabs(); renderPanel(); }
+});
+document.addEventListener("keydown", e=>{
+  const tb = e.target.closest && e.target.closest("[data-tab]"); if(!tb) return;
+  if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft") return;
+  const i = CLUSTERS.findIndex(c=>c.id===current);
+  current = CLUSTERS[(i+(e.key==="ArrowRight"?1:CLUSTERS.length-1))%CLUSTERS.length].id;
+  renderTabs(); renderPanel(); document.getElementById("tab-"+current).focus();
+});
+
+renderDiagram(); renderTabs(); renderAll();
+$("#save").textContent = "Saved in this browser";
+
+(async()=>{
+  try{
+    store = window.claude && await window.claude.use("db");
+    if(!store) return;
+    docRef = store.doc("progress/main");
+    docRef.onSnapshot(snap=>{
+      if(snap.exists){
+        const d = (snap.data()||{}).done;
+        if(d && typeof d==="object"){ done = {...d}; try{localStorage.setItem(LS,JSON.stringify(done));}catch(e){} renderAll(); }
+      }
+      if(!writing) $("#save").textContent = "Saved";
+    }, ()=>{ docRef = null; $("#save").textContent = "Saved in this browser"; });
+  }catch(e){ docRef = null; }
+})();
+</script>

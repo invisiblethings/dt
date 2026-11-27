@@ -1,0 +1,24 @@
+<!--
+  Optional: paste in Settings > Code injection > Site header, REPLACING your
+  existing Google Tag Manager snippet (the one that starts "(function(w,d,s,l,i)").
+  It loads GTM on the first scroll, tap or key press (or after 4 seconds),
+  instead of during page load. Analytics still count the visit; only the
+  loading moves later. This cuts about 300 ms of blocking time on phones.
+  Replace GTM-XXXXXXX with your container ID.
+-->
+<script>
+(function(w,d,i){
+  var done=0;
+  function go(){
+    if(done)return;done=1;
+    ['pointerdown','touchstart','keydown','scroll','wheel'].forEach(function(e){w.removeEventListener(e,go)});
+    w.dataLayer=w.dataLayer||[];
+    w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var s=d.createElement('script');s.async=true;
+    s.src='https://www.googletagmanager.com/gtm.js?id='+i;
+    d.head.appendChild(s);
+  }
+  ['pointerdown','touchstart','keydown','scroll','wheel'].forEach(function(e){w.addEventListener(e,go,{passive:true,once:true})});
+  setTimeout(go,4000);
+})(window,document,'GTM-XXXXXXX');
+</script>

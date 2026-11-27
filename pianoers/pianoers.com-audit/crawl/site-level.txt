@@ -1,0 +1,64 @@
+## robots.txt
+User-agent: *
+Sitemap: https://pianoers.com/sitemap.xml
+Disallow: /ghost/
+Disallow: /email/
+Disallow: /members/api/comments/counts/
+Disallow: /r/
+Disallow: /webmentions/receive/
+Disallow: /.ghost/analytics/api/
+
+## llms.txt (head)
+# LLMs.txt for Pianoers.com
+
+This file provides information about Pianoers.com, a website dedicated to helping people learn piano smarter. We offer reviews, guides, and advice related to pianos, keyboards, online lessons, and piano learning resources. Our goal is to provide honest and helpful information for piano learners of all levels.
+
+## Website Structure:
+
+### 1. Homepage
+*   [Pianoers.com: Learn Piano Smarter with Reviews & Guides](https://pianoers.com/) - The main landing page of the website.
+
+### 2. About
+*   [About Pianoers – Honest Piano Reviews & Real Advice](https://pianoers.com/about/) - Information about the website and its authors.
+
+### 3. Reviews
+    *   **Online Piano Lessons & Apps:**
+        *   [8 Best Online Piano Lessons🎹 for 2026 (Ranked & Reviewed by a Real Pianist)](https://pianoers.com/best-piano-lessons-online/) - Reviews and rankings of online piano lessons.
+curl: (23) Failure writing output to destination
+## headers /
+HTTP/1.1 200 Connection Established
+
+HTTP/2 200 
+alt-svc: h3=":443"; ma=2592000
+cache-control: public, max-age=0
+content-type: text/html; charset=utf-8
+date: Wed, 07 Oct 2026 09:33:47 GMT
+etag: W/"c848-binTEZFlq5/RZX4lFOw/pNo20KA"
+strict-transport-security: max-age=31536000
+vary: Accept-Encoding
+via: 1.1 Caddy
+x-ghost-analytics: true
+x-powered-by: Express
+content-length: 51272
+
+## http->https
+HTTP/1.1 308 Permanent Redirect
+location: https://pianoers.com/
+server: Caddy
+## www
+curl: (56) CONNECT tunnel failed, response 502
+HTTP/1.1 502 Bad Gateway
+Content-Type: text/plain; charset=utf-8
+100::           www.pianoers.com
+## 404
+404
+## trailing slash
+301 https://pianoers.com/yamaha-p-145-review/
+## rss
+200
+## well-known
+.well-known/security.txt 404
+ai.txt 404
+.well-known/ai-catalog.json 301
+## amp
+301

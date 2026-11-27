@@ -1,0 +1,8 @@
+{{#if comments}}
+    <section class="pz-wrap pz-narrow pz-comments" aria-labelledby="pz-comments-h">
+        <h2 id="pz-comments-h" class="pz-section-title">Comments ({{comment_count empty="0" singular="" plural=""}})</h2>
+        {{!-- Ghost's comments app is large, so main.js loads it only when the reader gets near this section. --}}
+        <template class="pz-comments-tpl">{{comments title="" count=false}}</template>
+        <noscript>Comments need JavaScript.</noscript>
+    </section>
+{{/if}}

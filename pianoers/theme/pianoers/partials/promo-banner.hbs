@@ -1,0 +1,34 @@
+{{#if @custom.show_seasonal_banner}}
+<div class="pz-promo" id="pz-promo" hidden data-schedule='[{"id":"thanksgiving-2026","from":"2026-11-26","to":"2026-11-27","title":"Happy Thanksgiving from Pianoers!","text":"Thank you for practicing with us this year.","cta":"Black Friday piano picks","url":"/best-beginner-pianos/"},{"id":"black-friday-2026","from":"2026-11-27","to":"2026-11-30","title":"Black Friday piano deals","text":"Check this week’s prices on the pianos we tested.","cta":"See the deals","url":"/black-friday-piano-deals/"},{"id":"cyber-monday-2026","from":"2026-11-30","to":"2026-12-01","title":"Cyber Monday: last day for deals","text":"Check today’s prices on the pianos we tested.","cta":"See the deals","url":"/black-friday-piano-deals/"}]'>
+    <div class="pz-wrap pz-promo-inner">
+        <svg class="pz-promo-leaf" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2l1.6 3.9 2.6-1.3-.4 3.4 3.7-.9-1.6 3.1 3.1 1.3-3.3 1.6 1.1 2.4-3.6-.4.4 3.4-3.1-1.9L12 20l-.5-3.4-3.1 1.9.4-3.4-3.6.4 1.1-2.4L3 11.5l3.1-1.3-1.6-3.1 3.7.9-.4-3.4 2.6 1.3z"/><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" d="M12 13v9"/></svg>
+        <p class="pz-promo-copy"><strong data-promo-title></strong> <span data-promo-text></span></p>
+        <a class="pz-promo-cta" data-promo-cta href="/best-beginner-pianos/"></a>
+        <button class="pz-promo-x" type="button" aria-label="Close banner"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+</div>
+<script>
+(function () {
+    var b = document.getElementById('pz-promo');
+    if (!b) return;
+    var list, now = new Date(), pick = null;
+    try { list = JSON.parse(b.getAttribute('data-schedule')); } catch (e) { return; }
+    var day = function (s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); };
+    for (var i = 0; i < list.length; i++) { if (now >= day(list[i].from) && now < day(list[i].to)) { pick = list[i]; break; } }
+    if (!pick) return;
+    var key = 'pz-promo-closed-' + pick.id;
+    try { if (localStorage.getItem(key)) return; } catch (e) {}
+    b.querySelector('[data-promo-title]').textContent = pick.title;
+    b.querySelector('[data-promo-text]').textContent = pick.text;
+    var a = b.querySelector('[data-promo-cta]');
+    a.textContent = pick.cta;
+    a.href = pick.url;
+    b.hidden = false;
+    a.addEventListener('click', function () { (window.dataLayer = window.dataLayer || []).push({ event: 'promo_click', promo_id: pick.id, link_url: a.href }); });
+    b.querySelector('.pz-promo-x').addEventListener('click', function () {
+        b.hidden = true;
+        try { localStorage.setItem(key, '1'); } catch (e) {}
+    });
+})();
+</script>
+{{/if}}

@@ -1,0 +1,121 @@
+<style>
+.bfp-hero{position:relative;overflow:hidden;margin:0 0 1.2rem;padding:clamp(26px,5vw,48px) clamp(18px,4.5vw,44px) clamp(28px,5vw,40px);border-radius:24px;background:radial-gradient(700px 380px at 95% -10%,#4a2a10 0%,#1d1611 45%,#121416 100%);color:#fff}
+.bfp-flag{display:inline-flex;align-items:center;gap:8px;margin:0;padding:6px 12px;border-radius:999px;background:#d4583b;color:#fff;font-family:var(--f-display);font-weight:800;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+.bfp-flag i{width:8px;height:8px;border-radius:50%;background:#fff;animation:bfp-p 1.4s infinite}
+@keyframes bfp-p{50%{opacity:.25}}
+.bfp-hero h1{margin:.7rem 0 .5rem;font-family:var(--f-display);font-weight:800;font-size:clamp(2.2rem,6.6vw,3.9rem);line-height:.98;letter-spacing:-.02em;color:#fff}
+.bfp-hero h1 span{color:#f6b31e}
+.bfp-dek{margin:0;max-width:36em;color:#d8cfc4;font-size:1.05rem}
+.bfp-count{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:1.2rem 0 0}
+.bfp-count b{font-family:var(--f-display);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#b9a99a;margin-right:4px}
+.bfp-count span{display:grid;place-items:center;min-width:60px;padding:7px 10px;border-radius:12px;background:rgb(255 255 255/8%);border:1px solid rgb(255 255 255/14%);font-family:var(--f-display);font-weight:800;font-size:1.4rem;line-height:1}
+.bfp-count span small{display:block;margin-top:4px;font-size:.6rem;font-weight:700;letter-spacing:.12em;color:#b9a99a}
+.bfp-deals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:1.5rem}
+.bfp-deal{position:relative;display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:18px;background:#fff;color:#15191c;box-shadow:0 14px 30px rgb(0 0 0/.35)}
+.bfp-img{display:block;overflow:hidden;aspect-ratio:4/3;border-radius:12px;background:#fffbf2}.bfp-deal .bfp-img img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.2);border-radius:0}
+.bfp-off{position:absolute;z-index:2;top:10px;left:10px;padding:5px 10px;border-radius:10px;background:#d4583b;color:#fff;font-family:var(--f-display);font-weight:800;font-size:1.15rem;line-height:1;box-shadow:0 4px 12px rgb(212 88 59/.4)}
+.bfp-deal .bfp-n{font-family:var(--f-display);font-weight:800;font-size:1.05rem;line-height:1.2}
+.bfp-deal .bfp-w{margin-top:-6px;font-size:.88rem;color:#56666e;line-height:1.35}
+.bfp-deal a.bfp-go{margin-top:auto;display:block;padding:11px 12px;border-radius:12px;text-align:center;background:#f6b31e!important;background-image:none!important;color:#1b1400!important;font-family:var(--f-display);font-weight:800;font-size:.95rem;text-decoration:none}
+.bfp-deal a.bfp-go:hover{background:#ffc94d!important}
+.bfp-trust{display:flex;flex-wrap:wrap;gap:6px 18px;margin:1.3rem 0 0;padding:0;list-style:none;color:#d8cfc4;font-family:var(--f-display);font-weight:700;font-size:.88rem}
+.bfp-trust li{margin:0;padding:0}.bfp-trust li:before{content:"✓ ";color:#5cc28e}
+.bfp-disc{margin:0 0 1.8rem;font-size:.82rem;font-style:italic;color:var(--muted)}
+.bfp-tbl table{min-width:0}.bfp-tbl td:nth-child(2),.bfp-tbl th:nth-child(2){text-align:center}
+.bfp-pill{display:inline-block;padding:3px 9px;border-radius:999px;font-family:var(--f-display);font-weight:800;font-size:.85rem;white-space:nowrap}
+.bfp-pill.on{background:#d4583b;color:#fff}.bfp-pill.off{background:var(--line);color:var(--muted)}
+.bfp-sec{display:flex;align-items:center;gap:10px}
+.bfp-sec .bfp-pill{font-size:.75rem}
+.bfp-jump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 1.2rem}
+.bfp-jump a{flex:1 1 0;min-width:150px;display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink)!important;text-decoration:none!important;background-image:none!important;font-family:var(--f-display)}
+.bfp-jump a b{font-size:1rem;font-weight:800}.bfp-jump a span{font-size:.82rem;font-weight:700;color:#d4583b}.bfp-jump a span.n{color:var(--muted)}
+.bfp-jump a:hover{border-color:var(--ink)}
+.bfp-tbl tr.bfp-grp th{padding-top:14px;background:var(--surface,#f6f8f9);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-align:left!important}
+.bfp-minis{display:grid;gap:12px;margin:1.2rem 0 2rem}
+.bfp-mini{display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:center;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:var(--paper)}
+.bfp-mini.is-on{border-color:#e7b8ab;box-shadow:0 0 0 3px rgb(212 88 59/.08)}
+.bfp-mini h3{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:1.1rem}
+.bfp-mini .bfp-best{margin:2px 0 6px;font-family:var(--f-display);font-weight:700;font-size:.85rem;color:var(--teal,#2e6475)}
+.bfp-mini p.v{margin:0;font-size:.95rem;line-height:1.5;color:var(--ink)}
+.bfp-mini .bfp-act{display:flex;flex-direction:column;gap:6px;align-items:stretch;min-width:150px}
+.bfp-mini a.bfp-btn{display:block;padding:10px 14px;border-radius:12px;text-align:center;font-family:var(--f-display);font-weight:800;font-size:.92rem;text-decoration:none!important;background-image:none!important}
+.bfp-mini a.bfp-btn.on{background:#f6b31e!important;color:#1b1400!important}
+.bfp-mini a.bfp-btn.off{background:transparent!important;color:var(--ink)!important;border:1.5px solid var(--line)}
+.bfp-mini a.bfp-more{font-size:.85rem;text-align:center}
+@media (max-width:560px){.bfp-mini{grid-template-columns:1fr}.bfp-mini .bfp-act{flex-direction:row}.bfp-mini .bfp-act>*{flex:1}.bfp-mini a.bfp-more{align-self:center}}
+@media (min-width:700px){.pz-buybar .pz-buybar-text{min-width:220px}}
+@media (max-width:560px){.bfp-count b{flex-basis:100%;margin:0}.bfp-count span{min-width:0;flex:1}.bfp-deals{gap:10px}.bfp-deal{padding:10px;border-radius:14px}.bfp-off{font-size:1rem;top:7px;left:7px}.bfp-deal .bfp-n{font-size:.95rem}.bfp-deal .bfp-w{display:none}.bfp-deal a.bfp-go{font-size:.85rem;padding:10px 6px}}
+</style>
+<section class="bfp-hero" aria-labelledby="bfp-title">
+<p class="bfp-flag"><i></i>Live: Black Friday deals</p>
+<h1 id="bfp-title">Black Friday Piano Deals: <span>Up to 24% Off</span></h1>
+<p class="bfp-dek">I checked every piano I recommend to my students. Six are on sale right now, up to 24% off, from beginner pianos to the Yamaha P-225.</p>
+<div class="bfp-count" data-bfp-end="2026-12-01T08:00:00Z" aria-live="polite"><b>Deals end in</b><span data-u="d">0<small>DAYS</small></span><span data-u="h">0<small>HRS</small></span><span data-u="m">0<small>MIN</small></span></div>
+<div class="bfp-deals">{{TILES}}</div>
+<ul class="bfp-trust"><li>Picked by a piano teacher</li><li>88 weighted keys only</li><li>Checked November 27</li></ul>
+</section>
+<nav class="bfp-jump" aria-label="Jump to your budget">{{JUMP}}</nav>
+<p class="bfp-disc">By Katarina, piano teacher since 2001. Discounts are against each piano's list or usual price, checked November 27, 2026; Amazon prices change often. Some links are Amazon affiliate links: if you buy through one, we may earn a small commission at no extra cost to you.</p>
+
+<div class="pz-answer" id="quick-answer"><p class="pz-eyebrow">Quick answer</p><h2>What's the best Black Friday piano deal this year?</h2><p>The <a href="#roland-fp-10">Roland FP-10 at 24% off</a>. It has the best-feeling keys under $500. On a tight budget, the <a href="#alesis-recital-pro-mkii">Alesis Recital Pro MKII is 19% off</a>. Spending more? The <a href="#yamaha-p-225">Yamaha P-225 is 16% off</a>. The Yamaha P-145BT isn't discounted this week.</p></div>
+
+<h2 id="deals">Every Black Friday piano deal at a glance</h2>
+<div class="kg-card kg-table-card bfp-tbl"><table>
+<caption>Discounts checked November 27, 2026, against list or usual price.</caption>
+<thead><tr><th>Piano</th><th>Deal</th><th>Best for</th></tr></thead>
+<tbody>{{ROWS}}</tbody>
+</table></div>
+
+{{SECTIONS}}
+<h2 id="real-deal">5 checks before you click "buy"</h2>
+{{fig:black-friday-piano-deal-checklist|Black Friday piano deal checklist: check the price history, check the exact model, check who sells it, check what's in the bundle, and check the return window|Two minutes that save you from a fake deal.}}
+<ol>
+<li><strong>Exact model.</strong> The Yamaha P-145 and P-145BT look identical; only the BT has Bluetooth. The original Alesis Recital Pro and the MKII share photos; only the MKII has a pedal in the box.</li>
+<li><strong>Who sells it.</strong> Look for "Ships from and sold by Amazon" or the brand's store.</li>
+<li><strong>Price history.</strong> A tracker like camelcamelcamel or Keepa shows whether the "deal" is really lower than usual.</li>
+<li><strong>Bundles.</strong> A good piano-style pedal and sturdy stand are worth it. Toy footswitches and earbuds aren't.</li>
+<li><strong>Returns.</strong> Amazon usually extends holiday returns into January. Keep the box until you're sure.</li>
+</ol>
+
+<h2 id="skip">Black Friday "deals" to skip</h2>
+<ul>
+<li><strong>No-name "88-key weighted" pianos under $250.</strong> Springy keys and a thin sound. You'll want to replace it within months.</li>
+<li><strong>61-key keyboards sold as "pianos".</strong> Fine for a curious child, not for learning piano properly. My <a href="https://pianoers.com/piano-basics-a-beginners-guide-to-the-keyboard/">piano basics guide</a> explains why.</li>
+<li><strong>"Lessons included" bundles.</strong> Usually a short trial of an app you could get free anyway.</li>
+</ul>
+
+<h2 id="lessons">Got the piano? Pick your lessons</h2>
+<p>Learning apps often discount their yearly plans this week, so check their own sites. My honest take on each: <a href="https://pianoers.com/pianoforall-review/">Pianoforall</a> ($49 once, 90-day refund), <a href="https://pianoers.com/piano-marvel-review/">Piano Marvel</a> (best for reading music) and <a href="https://pianoers.com/skoove-review/">Skoove</a> (3 months free with the Alesis MKII). Or compare them all in the <a href="https://pianoers.com/best-piano-lessons-online/">best online piano lessons</a>.</p>
+<p>Still deciding which piano suits you? My <a href="https://pianoers.com/best-beginner-pianos/">best beginner pianos</a> guide goes deeper on every pick.</p>
+
+<h2 id="faq">Black Friday piano deals FAQ</h2>
+<h3>What is the best Black Friday piano deal in 2026?</h3>
+<p>The Roland FP-10 at 24% off. It has the best key feel under $500. The Donner DEP-20 is 22% off, and the Alesis Recital Pro MKII is the cheapest deal at 19% off.</p>
+<h3>Is the Yamaha P-145BT on sale for Black Friday?</h3>
+<p>Not this week. When we checked on November 27, the P-145BT was at its normal price. It's still my top all-around beginner piano if you want it now.</p>
+<h3>Are there Black Friday deals on Yamaha digital pianos?</h3>
+<p>Yes. The Yamaha P-225 is 16% off and the older Yamaha P-45 is 11% off. The P-145BT and the Clavinova CLP-835 aren't discounted this week.</p>
+<h3>Is the Roland FP-10 on sale for Black Friday?</h3>
+<p>Yes. It was 24% off its list price when we checked on November 27, 2026.</p>
+<h3>When do Black Friday piano deals end?</h3>
+<p>Most run through Cyber Monday, November 30, 2026. Some stores keep prices low into early December, but stock and the best prices usually go first.</p>
+<h3>Is Black Friday a good time to buy a digital piano?</h3>
+<p>Yes. It's one of the few times a year when popular beginner pianos drop well below their list price. Check that the listing is the exact model and is sold by Amazon or the brand.</p>
+<h3>Can I return a digital piano bought on Black Friday?</h3>
+<p>Usually, yes. Amazon normally extends its return window for holiday purchases into January. Keep the box until you've played the piano for a few weeks.</p>
+
+<script>
+(function () {
+    var c = document.querySelector('[data-bfp-end]');
+    if (!c) return;
+    var end = new Date(c.getAttribute('data-bfp-end')).getTime();
+    var set = function (u, v) { var el = c.querySelector('[data-u="' + u + '"]'); if (el) el.firstChild.nodeValue = v; };
+    var tick = function () {
+        var s = Math.max(0, Math.floor((end - Date.now()) / 1000));
+        if (!s) { c.querySelector('b').textContent = 'These deals have ended'; c.querySelectorAll('span').forEach(function (x) { x.remove(); }); return; }
+        set('d', Math.floor(s / 86400)); set('h', Math.floor(s % 86400 / 3600)); set('m', Math.floor(s % 3600 / 60));
+        setTimeout(tick, 30000);
+    };
+    tick();
+})();
+</script>
