@@ -160,17 +160,17 @@ html[data-color-scheme="dark"] .pz-logo.has-dark-logo .pz-logo-dark { display: b
 .pz-hero-copy { display: grid; gap: 14px; min-width: 0; align-content: start; }
 .pz-hero > .pz-feature { margin: 0; }
 @media (min-width: 960px) {
-    .pz-article:has(.pz-content .pz-pick) .pz-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 440px); align-items: center; gap: 40px; }
-    .pz-article:has(.pz-content .pz-pick) .pz-hero > .pz-feature img { max-height: 420px; }
+    .pz-article:not(.pz-page):has(.pz-content .pz-pick) .pz-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 440px); align-items: center; gap: 40px; }
+    .pz-article:not(.pz-page):has(.pz-content .pz-pick) .pz-hero > .pz-feature img { max-height: 420px; }
 }
 @media (max-width: 699px) {
-    .pz-article:has(.pz-content .pz-pick) .pz-hero > .pz-feature { display: none; }
-    .pz-article:has(.pz-content .pz-pick) .pz-hero { padding-block: 14px 4px; }
-    .pz-article:has(.pz-content .pz-pick) .pz-hero-copy { gap: 10px; }
-    .pz-article:has(.pz-content .pz-pick) .pz-crumbs [aria-current] { display: none; }
-    .pz-article:has(.pz-content .pz-pick) .pz-dek { font-size: 1rem; line-height: 1.5; }
-    .pz-article:has(.pz-content .pz-pick) .pz-disclose { font-size: 0.78rem; line-height: 1.45; }
-    .pz-article:has(.pz-content .pz-pick) .pz-layout { padding-top: 16px; }
+    .pz-article:not(.pz-page):has(.pz-content .pz-pick) .pz-hero > .pz-feature { display: none; }
+    .pz-article:not(.pz-page):has(.pz-content .pz-pick) .pz-hero { padding-block: 14px 4px; }
+    .pz-article:not(.pz-page):has(.pz-content .pz-pick) .pz-hero-copy { gap: 10px; }
+    .pz-article:not(.pz-page):has(.pz-content .pz-pick) .pz-crumbs [aria-current] { display: none; }
+    .pz-article:not(.pz-page):has(.pz-content .pz-pick) .pz-dek { font-size: 1rem; line-height: 1.5; }
+    .pz-article:not(.pz-page):has(.pz-content .pz-pick) .pz-disclose { font-size: 0.78rem; line-height: 1.45; }
+    .pz-article:not(.pz-page):has(.pz-content .pz-pick) .pz-layout { padding-top: 16px; }
 }
 .pz-crumbs ol { display: flex; flex-wrap: wrap; gap: 4px 8px; margin: 0; padding: 0; list-style: none; font-family: var(--f-display); font-size: var(--step--1); color: var(--muted); }
 .pz-crumbs li + li::before { content: "/"; margin-right: 8px; color: var(--line); }
