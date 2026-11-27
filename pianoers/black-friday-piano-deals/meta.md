@@ -1,30 +1,44 @@
 # Black Friday piano deals: publishing notes
 
-**New post** (a post, not a page, so it shows in "Keep reading" and in your Pianos tag). URL slug: `black-friday-piano-deals`. The slug has no year, so you can update the same page next November and keep its rankings.
+**New page** (Pages → New page). URL slug: `black-friday-piano-deals`. The slug has no year, so you can update the same page next November and keep its rankings.
 
 | Field | Value |
 |---|---|
-| Post title (H1) | Black Friday Piano Deals 2026: 6 Digital Pianos Worth Buying |
+| Page title | Black Friday Piano Deals 2026: 6 Digital Pianos Worth Buying |
 | Meta title (55 chars) | Black Friday Piano Deals 2026: 6 Pianos Worth Buying |
-| Meta description (152 chars) | The 6 digital pianos a piano teacher recommends this Black Friday, the usual price of each, and the price to buy at. Plus how to spot a fake deal. |
-| Excerpt | Six tested digital pianos, the usual price of each and the price I'd buy at, plus five checks to tell a real Black Friday deal from a fake one. |
-| Tags | Pianos (primary), `#affiliate` |
+| Meta description (152 chars) | The 6 digital pianos a piano teacher recommends this Black Friday, the price that makes each a real deal, and a quick checker for today's price. |
+| Excerpt | Six tested digital pianos, the price that makes each one a real deal, and a deal checker that tells you if today's price is worth it. |
 | Author | Katarina |
-| Feature image | `black-friday-piano-deals-featured.webp`. Alt: Black Friday piano deals 2026: Yamaha P-145BT under $450, Roland FP-10 under $450, Alesis Recital Pro MKII under $320 |
+| Feature image | `black-friday-piano-deals-featured.webp`. It's used for search and share previews only (see step 3). Alt: Black Friday piano deals 2026 |
 | Facebook / X image | `black-friday-piano-deals-social.webp` |
-| Code injection → Post header | `code-injection-header.html` (ItemList of the 6 pianos + FAQPage with 7 questions, matching the visible FAQ word for word) |
+| Code injection → Page header | `code-injection-header.html` (ItemList of the 6 pianos + FAQPage, 7 questions, matching the visible FAQ word for word) |
 
 ## How to publish
-1. Upload the 3 images this month, so they land in `/content/images/2026/11/`.
-2. Paste `article.html` into **one** HTML card.
-3. Fill in the settings above, paste the code injection, and publish.
-4. Install theme **1.7.6** so the site banner links here from Friday to Cyber Monday.
-5. Request indexing in Search Console straight away: Black Friday traffic peaks over the weekend.
+1. **Images:** upload the 3 images from `black-friday-piano-deals-images.zip` this month.
+2. **Content:** paste `article.html` into **one** HTML card. It contains:
+   - the dark hero, with the page's H1, a live countdown to the end of Cyber Monday and two buttons
+   - the affiliate disclosure (pages don't show the theme's automatic one)
+   - the deal checker
+   - the piano finder
+   - the target price table
+   - the 6 verdict cards
+   - the checklist, the FAQ and the small scripts that run the countdown and checker
+3. **Page settings → turn OFF "Show title and feature image".** The hero already has the title. Leaving it on shows the title twice.
+4. Fill in the meta and social fields, paste the code injection and publish.
+5. Install theme **1.7.6**, so the site banner links here until Cyber Monday ends.
+6. Request indexing in Search Console straight away.
 
-## About the prices
-- **"Usually":** the US street prices from your best-beginner-pianos guide and the reviews (Yamaha P-145BT and Roland FP-10 list at $499.99; Alesis MKII about $350).
-- **"Deal if under":** my recommended buy-at price, the point where the deal clearly beats the usual price. The page says plainly that it isn't a promise the price will drop that low.
-- **No discount claims:** I couldn't check live Amazon prices from here, so the page doesn't name specific discounts. The buttons show today's price.
+## Amazon prices
+As I understand Amazon's Associates Program Policies, you can't type Amazon prices or discounts ("‑24%", "$419.99") into your site by hand. Prices may only appear if they come from Amazon's Product Advertising API, refreshed at least every 24 hours, with a timestamp and Amazon's price disclaimer. Check the current wording in Associates Central under **Program Policies** and **Operating Agreement** before you add any.
+
+So this page shows no Amazon prices. Instead:
+- **"Deal if under":** your own target price for each piano, which is editorial advice, not an Amazon price.
+- **The deal checker:** readers type in the price they see on Amazon and get a verdict.
+- **Buttons:** every card's button opens the live Amazon price.
+
+Your checks today: FP-10 $419, Kawai ES60 $449, Alesis MKII $285 and Casio PX-S1100 $599 are all under target, so they're real deals. Yamaha P-145BT $499 and Roland FP-30X $799 are over target. I raised the FP-30X target from $620 to $700 to match today's market.
+
+**Your other guides:** cards like "Street price about $500, checked Oct 6" on /best-beginner-pianos/ are a grey area under the same rule. The safest wording is the maker's list price (e.g. "List price $499.99") or no price at all.
 
 ## Links in
 - **Homepage:** a card or link near the top until Cyber Monday.
@@ -32,4 +46,4 @@
 - **/yamaha-p-145-review/, /roland-fp-10-review/, /alesis-recital-pro-review/:** "Black Friday price check: see what counts as a good deal."
 
 ## After Cyber Monday
-Change the title to "Best Time to Buy a Digital Piano (and What's a Good Price)" and keep the table and the checklist. That turns the page into a year-round article, and you can switch the title back next November.
+The countdown switches to "Deals have ended" on its own. Change the title to "Best Time to Buy a Digital Piano (and What's a Good Price)" and the hero line to match. The deal checker and target prices stay useful all year, and you can switch the title back next November.
