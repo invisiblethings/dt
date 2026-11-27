@@ -1,0 +1,313 @@
+{
+ "full": [
+  {
+   "id": "roland-fp-10",
+   "rank": 1,
+   "best": "Best Black Friday deal",
+   "name": "Roland FP-10",
+   "price": "about $500",
+   "usual": "$549.99 list",
+   "target": "$450",
+   "img": [
+    "2026/03/Roland-FP10-Reviewed.jpg",
+    "Roland FP-10 88-key digital piano in black with small music rest"
+   ],
+   "amz": "https://amzn.to/3NSYD8n",
+   "rev": "/roland-fp-10-review/",
+   "verdict": "The best-feeling keys under $500, now 24% off: Roland's PHA-4 action, the same keys as the pricier FP-30X. This is the deal I'd grab for a serious beginner.",
+   "plate": [
+    [
+     "Action",
+     "PHA-4 Standard"
+    ],
+    [
+     "Polyphony",
+     "96"
+    ],
+    [
+     "Bluetooth",
+     "MIDI"
+    ],
+    [
+     "Weight",
+     "28 lbs"
+    ]
+   ],
+   "pros": [
+    "PHA-4 keys with escapement",
+    "Bluetooth MIDI for learning apps",
+    "Expressive SuperNATURAL piano sound"
+   ],
+   "cons": [
+    "Small 6 W speakers",
+    "No Bluetooth audio"
+   ],
+   "off": 24,
+   "group": "u500"
+  },
+  {
+   "id": "kawai-es60",
+   "rank": 2,
+   "best": "Best sound deal",
+   "name": "Kawai ES60",
+   "price": "about $450\u2013$550",
+   "usual": "list $599",
+   "target": "$470",
+   "img": [
+    "2026/03/Kawai-ES60-Reviewed.jpg",
+    "Kawai ES60 88-key digital piano in black with music rest"
+   ],
+   "amz": "https://amzn.to/4bGtJJC",
+   "rev": null,
+   "verdict": "The best piano sound on this list, from Shigeru Kawai concert grand samples, now 25% off its list price. The biggest discount here.",
+   "plate": [
+    [
+     "Action",
+     "RHL graded"
+    ],
+    [
+     "Polyphony",
+     "192"
+    ],
+    [
+     "Bluetooth",
+     "No"
+    ],
+    [
+     "Weight",
+     "24 lbs"
+    ]
+   ],
+   "pros": [
+    "Shigeru Kawai SK-EX samples",
+    "192-note polyphony",
+    "Stereo line outputs"
+   ],
+   "cons": [
+    "No Bluetooth",
+    "No built-in recorder"
+   ],
+   "off": 25,
+   "group": "u500"
+  },
+  {
+   "id": "alesis-recital-pro-mkii",
+   "rank": 3,
+   "best": "Cheapest deal",
+   "name": "Alesis Recital Pro MKII",
+   "price": "about $350",
+   "usual": "about $350",
+   "target": "$320",
+   "img": [
+    "2026/11/Alesis-Recital-Pro-MKII-Reviewed.jpg",
+    "Alesis Recital Pro MKII 88-key digital piano in black"
+   ],
+   "amz": "https://link.amazon/B05fyH297",
+   "rev": "/alesis-recital-pro-review/",
+   "verdict": "The cheapest 88 weighted keys I'd still recommend, now 19% off, with a sustain pedal in the box. Great value for occasional players.",
+   "plate": [
+    [
+     "Action",
+     "Hammer action"
+    ],
+    [
+     "Polyphony",
+     "64"
+    ],
+    [
+     "Bluetooth",
+     "No"
+    ],
+    [
+     "Weight",
+     "23 lbs"
+    ]
+   ],
+   "pros": [
+    "Sustain pedal included",
+    "USB audio and MIDI",
+    "Runs on 6 AA batteries"
+   ],
+   "cons": [
+    "Light, springy keys",
+    "Flat piano sound"
+   ],
+   "off": 19,
+   "group": "u500"
+  },
+  {
+   "id": "casio-privia-px-s1100",
+   "rank": 4,
+   "best": "Best for small spaces",
+   "name": "Casio Privia PX-S1100",
+   "price": "about $730",
+   "usual": "about $730",
+   "target": "$650",
+   "img": [
+    "2025/05/Casio-Privia-PX-S1100-Reviewed.jpg",
+    "Casio Privia PX-S1100 slim 88-key digital piano in red"
+   ],
+   "amz": "https://amzn.to/4fE3MKP",
+   "rev": null,
+   "verdict": "One of the slimmest 88-key weighted pianos you can buy, about 9 inches deep, now 18% off. Bluetooth via the included adapter.",
+   "plate": [
+    [
+     "Action",
+     "Smart Scaled Hammer"
+    ],
+    [
+     "Polyphony",
+     "192"
+    ],
+    [
+     "Bluetooth",
+     "Audio + MIDI"
+    ],
+    [
+     "Depth",
+     "9.1 in"
+    ]
+   ],
+   "pros": [
+    "About 9 inches deep",
+    "Black, white or red",
+    "Runs on batteries"
+   ],
+   "cons": [
+    "Priced near the FP-30X",
+    "Touch controls take getting used to"
+   ],
+   "off": 18,
+   "group": "u1000"
+  }
+ ],
+ "compact": [
+  {
+   "id": "donner-dep-20",
+   "group": "u500",
+   "name": "Donner DEP-20",
+   "off": 22,
+   "best": "Complete setup in one box",
+   "amz": "https://link.amazon/B0c6elDA9",
+   "read": null,
+   "verdict": "A budget brand, but a generous bundle: 88 weighted keys, a furniture-style stand and three pedals in the box. Key feel and sound are a step below the Roland, Kawai and Yamaha here; buy it for the complete setup."
+  },
+  {
+   "id": "yamaha-p-45",
+   "group": "u500",
+   "name": "Yamaha P-45",
+   "off": 11,
+   "best": "Classic Yamaha, older model",
+   "amz": "https://link.amazon/B0fnYYCIq",
+   "read": [
+    "https://pianoers.com/yamaha-p-145-review/",
+    "P-145 vs P-45"
+   ],
+   "verdict": "Yamaha's previous beginner piano, replaced by the P-145 in 2023: GHS weighted keys and a simple, reliable design. A fair price at 11% off, but the P-145BT has quieter keys and Bluetooth."
+  },
+  {
+   "id": "yamaha-p-145bt",
+   "group": "u500",
+   "name": "Yamaha P-145BT",
+   "off": 0,
+   "best": "Best all-around",
+   "amz": "https://amzn.to/4oClMcI",
+   "read": [
+    "https://pianoers.com/yamaha-p-145-review/",
+    "Full review"
+   ],
+   "verdict": "My #1 beginner piano, at its normal price this week. Still the safest pick if you want it today; otherwise the Roland FP-10 deal is the better buy."
+  },
+  {
+   "id": "yamaha-p-225",
+   "group": "u1000",
+   "name": "Yamaha P-225",
+   "off": 16,
+   "best": "Best Yamaha under $1,000",
+   "amz": "https://link.amazon/B03U3FoDf",
+   "read": [
+    "https://pianoers.com/best-digital-piano/#yamaha-p-225",
+    "Read more"
+   ],
+   "verdict": "The step up from the P-145BT: Yamaha's CFX concert grand sample, 24 voices and 192-note polyphony, now 16% off. Pick it over the FP-30X if you prefer the Yamaha sound."
+  },
+  {
+   "id": "roland-fp-30x",
+   "group": "u1000",
+   "name": "Roland FP-30X",
+   "off": 0,
+   "best": "Best for growth",
+   "amz": "https://amzn.to/49rJq4G",
+   "read": [
+    "https://pianoers.com/best-digital-piano/#roland-fp-30x",
+    "Read more"
+   ],
+   "verdict": "The FP-10's PHA-4 keys plus Bluetooth audio, 256-note polyphony and bigger speakers. Not on sale this week, so the FP-10 at 24% off is the smarter buy for most people."
+  },
+  {
+   "id": "kawai-es120",
+   "group": "u1000",
+   "name": "Kawai ES120",
+   "off": 0,
+   "best": "Best Kawai under $1,000",
+   "amz": "https://link.amazon/B0g4dm8UB",
+   "read": [
+    "https://pianoers.com/best-digital-piano/#kawai-es120",
+    "Read more"
+   ],
+   "verdict": "Kawai's answer to the FP-30X and P-225, with Bluetooth MIDI and audio and Kawai's warmer piano tone. Not discounted this week."
+  },
+  {
+   "id": "kawai-es920",
+   "group": "u2000",
+   "name": "Kawai ES920",
+   "off": 0,
+   "best": "Best portable for advanced players",
+   "amz": "https://link.amazon/B0436FaVn",
+   "read": [
+    "https://pianoers.com/best-digital-piano/#kawai-es920",
+    "Read more"
+   ],
+   "verdict": "Responsive Hammer III keys with let-off and strong 20 W + 20 W speakers. Not discounted this week."
+  },
+  {
+   "id": "roland-fp-90x",
+   "group": "u2000",
+   "name": "Roland FP-90X",
+   "off": 0,
+   "best": "Best high-end portable",
+   "amz": "https://link.amazon/B0ejSfSoG",
+   "read": [
+    "https://pianoers.com/best-digital-piano/#roland-fp-90x",
+    "Read more"
+   ],
+   "verdict": "Roland's flagship portable: PHA-50 wood-hybrid keys and a 60 W four-speaker system. Not discounted this week."
+  },
+  {
+   "id": "kawai-kdp120",
+   "group": "u2000",
+   "name": "Kawai KDP120",
+   "off": 0,
+   "best": "Best console under $2,000",
+   "amz": "https://link.amazon/B0aYl5pz5",
+   "read": [
+    "https://pianoers.com/best-digital-piano/#kawai-kdp120",
+    "Read more"
+   ],
+   "verdict": "A real home piano with a furniture cabinet, three pedals and Bluetooth MIDI. Not discounted this week."
+  },
+  {
+   "id": "yamaha-clp-835",
+   "group": "u2000",
+   "name": "Yamaha CLP-835",
+   "off": 0,
+   "best": "Best home console",
+   "amz": "https://link.amazon/B04kjXtEg",
+   "read": [
+    "https://pianoers.com/best-digital-piano/#yamaha-clp-835",
+    "Read more"
+   ],
+   "verdict": "The sweet spot of the Clavinova range: GrandTouch-S keys and CFX and B\u00f6sendorfer samples. Not discounted this week."
+  }
+ ]
+}

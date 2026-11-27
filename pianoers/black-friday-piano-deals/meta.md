@@ -28,17 +28,20 @@
 5. Install theme **1.7.6**, so the site banner links here until Cyber Monday ends.
 6. Request indexing in Search Console straight away.
 
-## Discounts
-The page shows **percentages only, no dollar prices**, based on your checks on November 27:
-- Kawai ES60: **25% off** its $599 list price
-- Roland FP-10: **24% off** its list price (Amazon's own figure)
-- Alesis Recital Pro MKII: **19% off** its usual ~$350
-- Casio PX-S1100: **18% off** its usual ~$730
-- Yamaha P-145BT and Roland FP-30X: **not on sale**, shown in a separate "Not on sale this week" section
+## Discounts (checked November 27)
+The page shows **percentages only, no dollar prices**. It covers all **14 digital pianos** your site recommends, grouped by budget, with a switcher under the hero.
 
-The disclosure under the hero says the discounts were checked on November 27 and that Amazon prices change often.
+| Budget | On sale | No deal |
+|---|---|---|
+| Under $500 | Kawai ES60 −25%, Roland FP-10 −24%, Donner DEP-20 −22%, Alesis Recital Pro MKII −19%, Yamaha P-45 −11% | Yamaha P-145BT |
+| Under $1,000 | Casio PX-S1100 −18%, Yamaha P-225 −16% | Roland FP-30X, Kawai ES120 |
+| $1,000 and up | (none) | Kawai ES920, Roland FP-90X, Kawai KDP120, Yamaha CLP-835 |
 
-**Keep it accurate:** Amazon deals can end overnight. Check each one daily until Cyber Monday. If a discount changes, tell me the new prices and I'll update the percentages, or edit the numbers in `picks.json` and run `build_page.py`. Amazon's rules on price and discount claims expect them to be current, so a stale "24% off" is the biggest risk here.
+- **Full verdict cards:** the 4 teacher picks on sale (FP-10, ES60, Alesis MKII, PX-S1100).
+- **Compact cards:** the other 10. Each has a "Get the deal" button (on sale) or "View on Amazon" (no deal), plus a link to its review or its section in Best Digital Pianos.
+- **Left out:** Kawai CN301 and Yamaha CLP-885 (no Amazon link yet), the Korg B2 (sold out) and the Loog (kids).
+
+**Keep it accurate:** check the discounts daily until Cyber Monday, and send me changes; the percentages live in `all.json`. Amazon expects price and discount claims to be current.
 
 ## Links in
 - **Homepage:** a card or link near the top until Cyber Monday.
